@@ -1,6 +1,7 @@
 algo-tmp
 dist/
 dist.zip
+backup/
 embeddings.npz
 env/
 env3.10/

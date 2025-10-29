@@ -130,8 +130,6 @@ def organize_hierarchy(hierarchy):
 
     return menu
 
-hierarchy = load_hierarchy()
-menu_data = organize_hierarchy(hierarchy)
 
 
 @bp.route('/')
@@ -698,6 +696,11 @@ def get_related_para(book_id, para_id):
 
 app.register_blueprint(bp)
 
+hierarchy = None
+menu_data = None
+
 if __name__ == '__main__':
+    hierarchy = load_hierarchy()
+    menu_data = organize_hierarchy(hierarchy)
     print('app is running at http://0.0.0.0:8080/tpk')
     app.run(host='0.0.0.0', port='8080', debug=True)

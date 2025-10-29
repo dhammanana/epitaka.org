@@ -3,10 +3,53 @@ import os
 import re
 from jinja2 import Environment, FileSystemLoader
 from app import is_numbered, markdown_to_html
+import requests
+import tarfile
+import tempfile
 
 DB_PATH = 'translations.db'
 OUTPUT_DIR = 'dist'
 TEMPLATE_DIR = 'templates'
+
+def setup_database():
+    # if os.path.exists(DB_PATH):
+    #     return
+    print("Database not found. Downloading and setting up...")
+    file_id = '1bn5K0mjzD5eJ_jlBAVPzx_gZtllcvCLi'
+    url = f'https://drive.google.com/uc?export=download&id={file_id}'
+    session = requests.Session()
+    response = session.get(url)
+    response.raise_for_status()
+    
+    # Check if small file (direct download)
+    if 'content-disposition' in response.headers:
+        with open('temp.tar.gz', 'wb') as f:
+            f.write(response.content)
+        tar_path = 'temp.tar.gz'
+    else:
+        # Large file: parse confirm token
+        import re
+        confirm_token = re.search(r'confirm=([0-9A-Za-z_]+)', response.text).group(1)
+        params = {'id': file_id, 'confirm': confirm_token, 'uuid': ''}
+        response = session.get(url, params=params)
+        response.raise_for_status()
+        with open('temp.tar.gz', 'wb') as f:
+            f.write(response.content)
+        tar_path = 'temp.tar.gz'
+    
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        with tarfile.open(tar_path, 'r:gz') as tar:
+            tar.extractall(tmp_dir)
+        sql_path = os.path.join(tmp_dir, 'backup_tables.sql')
+        if not os.path.exists(sql_path):
+            raise FileNotFoundError("backup_tables.sql not found in archive")
+        conn = sqlite3.connect(DB_PATH)
+        with open(sql_path, 'r', encoding='utf-8') as f:
+            conn.executescript(f.read())
+        conn.commit()
+        conn.close()
+    os.unlink(tar_path)
+    print("Database setup complete.")
 
 def url_for(endpoint, **values):
     if endpoint == 'static':
@@ -63,11 +106,13 @@ def replace_book(content):
     return content.replace('a href=""', 'a href="/"')
 
 def main():
+    setup_database()
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
     else:
         for f in os.listdir(OUTPUT_DIR):
-            os.remove(f"dist/{f}")
+            if f.endswith('.html'):
+                os.remove(f"dist/{f}")
 
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
     env.globals['url_for'] = url_for
