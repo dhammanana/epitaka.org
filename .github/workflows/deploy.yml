@@ -1,13 +1,13 @@
-name: Deploy to Cloudflare Pages
+name: Build and Push to cf-pages Branch
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    name: Deploy
+    name: Build and Deploy
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -15,7 +15,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'  # Adjust version as needed
+          python-version: '3.11'  # Adjust as needed
 
       - name: Install dependencies
         run: |
@@ -25,10 +25,11 @@ jobs:
       - name: Run build
         run: python build.py
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Push dist to cf-pages branch
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
         with:
-          apiToken: pJoKh-TkbHq_WZBn43VNwWltnhZFxzM7i8gXaxdZ
-          accountId: eba9a62c03543b8933c979254b9942c2
-          projectName: cf-pages
-          directory: dist
+          source-directory: 'dist'
+          destination: github://user/repo-name?ref=cf-pages  # Replace 'user/repo-name' with your GitHub username and repo name
+          target-branch: cf-pages
