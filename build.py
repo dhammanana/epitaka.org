@@ -19,7 +19,7 @@ def setup_database():
     file_id = '11lE7w1kuOD989q_Rxt7TpNhx9RP_VUBV'
     url = f'https://drive.google.com/uc?export=download&id={file_id}'
     tar_path = 'translations.tar.gz'
-    # gdown.download(url, output=tar_path, quiet=False)
+    gdown.download(url, output=tar_path, quiet=False)
        
    
     with tarfile.open(tar_path, 'r:gz') as tar:
