@@ -17,7 +17,8 @@ def setup_database():
     # if os.path.exists(DB_PATH):
     #     return
     print("Database not found. Downloading and setting up...")
-    file_id = '1bn5K0mjzD5eJ_jlBAVPzx_gZtllcvCLi'
+    # https://drive.google.com/file/d/1ONcvOYTM_ct25z9iYaSwu_-ccl8wiqzh/view?usp=drive_link
+    file_id = '1ONcvOYTM_ct25z9iYaSwu_-ccl8wiqzh'
     url = f'https://drive.google.com/uc?export=download&id={file_id}'
     tar_path = 'temp.tar.gz'
     gdown.download(url, output=tar_path, quiet=False)
