@@ -8,33 +8,28 @@ import tarfile
 import shutil
 import tempfile
 import gdown
-DB_PATH = 'translations.db'
+DB_PATH = 'temp_minimal.db'
 OUTPUT_DIR = 'dist'
 TEMPLATE_DIR = 'templates'
 def setup_database():
     if os.path.exists(DB_PATH):
         return
     print("Database not found. Downloading and setting up...")
-    # https://drive.google.com/file/d/1ONcvOYTM_ct25z9iYaSwu_-ccl8wiqzh/view?usp=drive_link
-    file_id = '1ONcvOYTM_ct25z9iYaSwu_-ccl8wiqzh'
+    # https://drive.google.com/file/d/11lE7w1kuOD989q_Rxt7TpNhx9RP_VUBV/view?usp=drive_link
+    file_id = '11lE7w1kuOD989q_Rxt7TpNhx9RP_VUBV'
     url = f'https://drive.google.com/uc?export=download&id={file_id}'
-    tar_path = 'backup_20251029_131418.tar.gz'
-    gdown.download(url, output=tar_path, quiet=False)
+    tar_path = 'translations.tar.gz'
+    # gdown.download(url, output=tar_path, quiet=False)
        
    
-    with tempfile.TemporaryDirectory() as tmp_dir:
-        with tarfile.open(tar_path, 'r:gz') as tar:
-            tar.extractall(tmp_dir)
-        sql_path = os.path.join(tmp_dir, 'backup_tables.sql')
-        if not os.path.exists(sql_path):
-            raise FileNotFoundError("backup_tables.sql not found in archive")
-        conn = sqlite3.connect(DB_PATH)
-        with open(sql_path, 'r', encoding='utf-8') as f:
-            conn.executescript(f.read())
-        conn.commit()
-        conn.close()
+    with tarfile.open(tar_path, 'r:gz') as tar:
+        tar.extractall('.')
+    if not os.path.exists(DB_PATH):
+        raise FileNotFoundError("temp_minimal.db not found in archive")
+        
     os.unlink(tar_path)
     print("Database setup complete.")
+
 def url_for(endpoint, **values):
     if endpoint == 'static':
         filename = values.get('filename', '')

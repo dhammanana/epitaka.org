@@ -134,6 +134,8 @@ def organize_hierarchy(hierarchy):
 
 @bp.route('/')
 def index():
+    hierarchy = load_hierarchy()
+    menu_data = organize_hierarchy(hierarchy)
     return render_template('index.html', menu=menu_data, base_url=bp.url_prefix)
 
 @bp.route('/book_ref/<book_id>')
@@ -179,6 +181,8 @@ def book_ref(book_id):
 
 @bp.route('/book/<book_id>')
 def book(book_id):
+
+    hierarchy = load_hierarchy()
     book_id = book_id.replace('_chunks', '')
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -363,6 +367,7 @@ def suggest_word():
 
 @bp.route('/search_headings_suggest')
 def search_headings_suggest():
+    hierarchy = load_hierarchy()
     query = request.args.get('q', '').strip()
     if not query:
         return jsonify([])
@@ -393,6 +398,7 @@ def search_headings_suggest():
 
 @bp.route('/search_headings')
 def search_headings():
+    hierarchy = load_hierarchy()
     query = request.args.get('q', '').strip()
     if not query:
         return render_template('search.html', results=[], base_url=bp.url_prefix)
@@ -517,6 +523,7 @@ def search_old():
 
 @bp.route('/search')
 def search():
+    hierarchy = load_hierarchy()
     query = request.args.get('q', '').strip()
     mode = request.args.get('mode', 'fts')  # 'fts' or 'ai'
     query = re.sub(r'[^\w\s]', ' ', query, flags=re.UNICODE)
@@ -696,11 +703,7 @@ def get_related_para(book_id, para_id):
 
 app.register_blueprint(bp)
 
-hierarchy = None
-menu_data = None
-
 if __name__ == '__main__':
-    hierarchy = load_hierarchy()
-    menu_data = organize_hierarchy(hierarchy)
+
     print('app is running at http://0.0.0.0:8080/tpk')
     app.run(host='0.0.0.0', port='8080', debug=True)
