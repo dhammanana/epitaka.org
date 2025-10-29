@@ -18,8 +18,8 @@ def setup_database():
     # https://drive.google.com/file/d/1ONcvOYTM_ct25z9iYaSwu_-ccl8wiqzh/view?usp=drive_link
     file_id = '1ONcvOYTM_ct25z9iYaSwu_-ccl8wiqzh'
     url = f'https://drive.google.com/uc?export=download&id={file_id}'
-    tar_path = 'backup/backup_20251029_131418.tar.gz'
-    # gdown.download(url, output=tar_path, quiet=False)
+    tar_path = 'backup_20251029_131418.tar.gz'
+    gdown.download(url, output=tar_path, quiet=False)
        
    
     with tempfile.TemporaryDirectory() as tmp_dir:
