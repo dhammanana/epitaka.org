@@ -12,6 +12,7 @@ DB_PATH = 'translations.db'
 OUTPUT_DIR = 'dist'
 TEMPLATE_DIR = 'templates'
 
+
 def setup_database():
     # if os.path.exists(DB_PATH):
     #     return
