@@ -2,11 +2,13 @@ name: Build and Push to cf-pages Branch
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]  # Changed to 'master' per your setup
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allows push to repo
     name: Build and Deploy
     steps:
       - name: Checkout
@@ -31,5 +33,10 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
         with:
           source-directory: 'dist'
-          destination: github://user/repo-name?ref=cf-pages  # Replace 'user/repo-name' with your GitHub username and repo name
+          destination-github-username: ${{ github.repository_owner }}
+          destination-repository-name: ${{ github.event.repository.name }}
+          user-name: ${{ github.actor }}
+          user-email: ${{ github.actor }}@users.noreply.github.com
           target-branch: cf-pages
+          commit-message: 'Update cf-pages from build'
+          create-target-branch-if-needed: true
