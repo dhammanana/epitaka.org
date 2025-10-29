@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Chaṭṭha Saṅgāyana Tipiṭaka</title>
+
+    <script src="{{ url_for('static', filename='js/tailwind-3.4.17.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/autocomplete-theme-classic.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <style>
+        .pali-text {
+            color: maroon;
+        }
+
+        .trans-text {
+            color: darkblue;
+        }
+
+        #autocomplete-heading {
+            width: 100%;
+            max-width: 28rem;
+            margin: 0 auto;
+        }
+    </style>
+
+    <style>
+        .accordion { cursor: pointer; padding: 10px; background: #f0f0f0; margin-bottom: 5px; }
+        .accordion-content { display: none; padding: 10px; }
+        .facet { margin-bottom: 20px; }
+        .facet label { display: block; }
+        mark { background: yellow; }
+    </style>
+    <script>
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+
+<body class="bg-amber-50 text-gray-800 font-sans">
+    <div class="container mx-auto p-4">
+        <a href="{{ base_url }}" class="text-blue-600 hover:underline mb-4 inline-block">← Back to Home</a>
+
+
+
+        <!-- Search Bar -->
+        <div class="mb-4">
+            <form action="{{ base_url }}/search" method="get" class="w-full max-w-md mx-auto">
+                <div id="autocomplete-heading" tabindex="0"></div>
+        </div>
+
+    <form id="search-form" action="{{ base_url }}/search" method="get">
+
+    <div class="facet">
+        <h3>Filter by Category</h3>
+        {% for category, count in facets.categories.items() %}
+            <label><input type="radio" name="category" value="{{ category }}" onchange="updateFilters()"> {{ category }} ({{ count }})</label>
+        {% endfor %}
+    </div>
+    <div class="facet">
+        <h3>Filter by Pitaka</h3>
+        {% for pitaka, count in facets.pitakas.items() %}
+            <label><input type="radio" name="pitaka" value="{{ pitaka }}" onchange="updateFilters()"> {{ pitaka }} ({{ count }})</label>
+        {% endfor %}
+    </div>
+    <div class="facet">
+        <h3>Filter by Nikaya</h3>
+        {% for nikaya, count in facets.nikayas.items() %}
+            <label><input type="radio" name="nikaya" value="{{ nikaya }}" onchange="updateFilters()"> {{ nikaya }} ({{ count }})</label>
+        {% endfor %}
+    </div>
+
+        <input type="text" name="q" value="{{ query }}" placeholder="Search Tipitaka...">
+        <button type="submit">Search</button>
+    </form>
+
+    <script>
+        function updateFilters() {
+            document.getElementById('category').value = document.querySelector('input[name="category"]:checked')?.value || '';
+            document.getElementById('pitaka').value = document.querySelector('input[name="pitaka"]:checked')?.value || '';
+            document.getElementById('nikaya').value = document.querySelector('input[name="nikaya"]:checked')?.value || '';
+            document.getElementById('search-form').submit();
+        }
+    </script>
+
+        {% if grouped_results %}
+        <h1 class="text-2xl font-bold mb-4">Found {{ total_results }} results for query "{{ query }}".</h1>
+        {% else %}
+        <h1 class="text-2xl font-bold mb-4">No Results Found for query "{{ query }}"</h1>
+        {% endif %}
+
+        <!-- Search Results -->
+        {% if grouped_results %}
+        <ul class="space-y-4">
+            {% for group_key, group in grouped_results.items() %}
+                <h3>{{ group_key }}</h3>
+                {% for result in group.results %}
+                    <li class="border-b border-gray-300 pb-2">
+                        <a href="{{ base_url }}/book/{{ result.book_id }}#para-{{ result.para_id }}"
+                            class="text-blue-600 hover:underline">{{ result.book_title }}</a>
+                        |
+                        <strong>Paragraph:</strong> {{ result.para_id }}
+
+                        <p class="pali-text">{{ result.pali | safe }}</p>
+                        <p class="trans-text">{{ result.vietnamese | safe}}</p>
+                    </li>
+                {% endfor %}
+                {% if group.count > group.results|length %}
+                    <p>... and {{ group.count - (group.results|length) }} more results in this group.</p>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No results found for "{{ query }}".</p>
+        {% endif %}
+    </div>
+</body>
+
+
+</html>

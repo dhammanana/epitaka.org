@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit {{ book_title }}</title>
+    <script src="{{ url_for('static', filename='js/tailwind-3.4.17.js') }}"></script>
+    <style>
+        .sentence-pair {
+            transition: background-color 0.3s;
+        }
+
+        .sentence-pair.selected {
+            background-color: #e5e7eb;
+        }
+
+        .edit-button {
+            transition: opacity 0.2s;
+        }
+
+        .sentence-pair:not(.selected) .edit-button {
+            opacity: 0;
+        }
+
+        .accordion-toggle::before {
+            content: '☰';
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .accordion-open::before {
+            transform: rotate(90deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.2s ease;
+            opacity: 0;
+        }
+        .accordion-content.open {
+            opacity: 1;
+        }
+
+        .pali-text {
+            color: maroon;
+        }
+
+        .trans-text {
+            color: darkblue;
+        }
+    </style>
+</head>
+
+<body class="bg-amber-100 font-sans">
+    <div class="container mx-auto p-4 max-w-7xl">
+        <header class="flex items-center justify-between mb-6">
+            <a href="{{ base_url }}" class="text-blue-600 hover:underline">← Back to Home</a>
+            <h1 class="text-2xl font-bold text-gray-800">{{ book_title }}</h1>
+            <div class="flex items-center space-x-4">
+                <button id="settings-button" class="text-gray-600 hover:text-gray-800" title="Settings">⚙️</button>
+                <span class="text-gray-600">☰</span>
+            </div>
+        </header>
+
+        <div class="mb-6">
+            <h2 class="text-lg font-semibold text-gray-800 mb-3">📖 Table of Contents</h2>
+            <div id="toc" class="space-y-3">
+                {% for heading in toc %}
+                <div class="accordion-item bg-yellow-100 border border-yellow-300 rounded-xl shadow-sm hover:shadow-md transition">
+                    <button class="accordion-toggle w-full flex items-center justify-between p-3 rounded-xl text-gray-800 font-medium hover:bg-yellow-200 transition" data-para-id="{{ heading.para_id }}" style="padding-left: {{ heading.level * 16 }}px;">
+                        <span>{{ heading.title }}
+                            <span class="text-sm text-gray-600">({{ heading.para_count }} paragraphs)</span>
+                        </span>
+                        <svg class="w-5 h-5 text-yellow-600 transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="accordion-content px-4 pb-4" data-para-id="{{ heading.para_id }}">
+                        <!-- dynamically loaded content -->
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Settings Dialog -->
+    <div id="settings-dialog" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            <h3 class="text-lg font-semibold mb-4">Settings</h3>
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2">View Mode</label>
+                <div class="flex space-x-4">
+                    <label><input type="radio" name="view-mode" value="horizontal" class="mr-2" checked>
+                        Horizontal</label>
+                    <label><input type="radio" name="view-mode" value="vertical" class="mr-2"> Vertical</label>
+                </div>
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button id="settings-close" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const tocItems = document.querySelectorAll('.accordion-item');
+    let selectedIndex = -1;
+    let currentPairs = [];
+    let currentAccordion = null;
+
+    // Load view mode from localStorage
+    const viewMode = localStorage.getItem('viewMode') || 'horizontal';
+
+    function applyViewMode(mode) {
+        const pairs = document.querySelectorAll('.sentence-pair');
+        pairs.forEach(pair => {
+            pair.classList.remove('flex-col', 'md:flex-row');
+            pair.classList.add(mode === 'horizontal' ? 'md:flex-row' : 'flex-col');
+        });
+        localStorage.setItem('viewMode', mode);
+        document.querySelector(`input[value="${mode}"]`).checked = true;
+    }
+    applyViewMode(viewMode);
+
+    function selectPair(index) {
+        if (selectedIndex >= 0 && currentPairs[selectedIndex]) {
+            currentPairs[selectedIndex].classList.remove('selected');
+            const translationDiv = currentPairs[selectedIndex].querySelector('.trans-text');
+            const textarea = translationDiv.querySelector('textarea');
+            if (textarea) {
+                translationDiv.innerHTML = translationDiv.dataset.vietnamese;
+            }
+        }
+        selectedIndex = Math.max(0, Math.min(index, currentPairs.length - 1));
+        currentPairs[selectedIndex].classList.add('selected');
+        currentPairs[selectedIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function enterEditMode(pair) {
+        const translationDiv = pair.querySelector('.trans-text');
+        const text = translationDiv.dataset.vietnamese.replace(/<[^>]+>/g, '');
+        translationDiv.innerHTML = `
+                <textarea class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">${text}</textarea>
+                <button class="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 save-button">Save</button>
+                <i style="font-size:0.6rem">You can use j/k to navigate up/down, Ctrl+G to edit, Ctrl+⤶ to save</i>
+            `;
+        const textarea = translationDiv.querySelector('textarea');
+        textarea.focus();
+        textarea.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                translationDiv.innerHTML = translationDiv.dataset.vietnamese;
+                e.preventDefault();
+            }
+        });
+    }
+
+    async function saveTranslation(pair) {
+        const translationDiv = pair.querySelector('.trans-text');
+        const textarea = translationDiv.querySelector('textarea');
+        if (!textarea) return;
+
+        const paraId = pair.dataset.paraId;
+        const lineId = pair.dataset.lineId;
+        const newVietnameseTranslation = textarea.value;
+
+        try {
+            const response = await fetch('{{ base_url }}/save_translation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    book_id: '{{ book_id }}',
+                    para_id: paraId,
+                    line_id: lineId,
+                    vietnamese_translation: newVietnameseTranslation,
+                    // english_translation: newEnglishTranslation,
+
+                })
+            });
+            if (response.ok) {
+                translationDiv.dataset.vietnamese = newVietnameseTranslation;
+                translationDiv.innerHTML = newVietnameseTranslation;
+            } else {
+                alert('Failed to save translation');
+            }
+        } catch (error) {
+            alert('Error saving translation');
+        }
+    }
+
+    async function loadContent(paraId, accordionContent, toggle) {
+        // collapse if already open
+        if (currentAccordion === toggle && accordionContent.classList.contains('open')) {
+            accordionContent.classList.remove('open');
+            accordionContent.style.maxHeight = null;
+            toggle.querySelector('svg')?.classList.remove('rotate-180');
+            currentAccordion = null;
+            currentPairs = [];
+            selectedIndex = -1;
+            return;
+        }
+
+        // close other accordions
+        if (currentAccordion && currentAccordion !== toggle) {
+            const prevContent = currentAccordion.parentElement.querySelector('.accordion-content');
+            prevContent.classList.remove('open');
+            prevContent.style.maxHeight = null;
+            currentAccordion.querySelector('svg')?.classList.remove('rotate-180');
+        }
+
+        currentAccordion = toggle;
+        accordionContent.classList.add('open');
+        accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+        toggle.querySelector('svg')?.classList.add('rotate-180');
+
+        accordionContent.innerHTML = '<div class="text-center text-gray-600">Loading...</div>';
+
+        try {
+            const response = await fetch(`{{ base_url }}/book_edit/{{ book_id }}/${paraId}`);
+            const data = await response.json();
+            accordionContent.innerHTML = '';
+            let currentPara = null;
+
+            data.forEach(sentence => {
+                if (sentence.para_id !== currentPara) {
+                    currentPara = sentence.para_id;
+                    const paraHeader = document.createElement('div');
+                    paraHeader.className = 'para-header text-lg font-semibold text-gray-700 mt-3';
+                    paraHeader.id = `para-${currentPara}`;
+                    paraHeader.textContent = `Paragraph ${currentPara}`;
+                    accordionContent.appendChild(paraHeader);
+                }
+
+                const pairDiv = document.createElement('div');
+                pairDiv.className = `sentence-pair flex ${viewMode === 'horizontal' ? 'md:flex-row' : 'flex-col'} gap-2 p-3 bg-amber-100 rounded-lg shadow-sm hover:shadow-md transition`;
+                pairDiv.dataset.paraId = sentence.para_id;
+                pairDiv.dataset.lineId = sentence.line_id;
+                pairDiv.innerHTML = `
+                <div class="pali-text flex-1">${sentence.pali}</div>
+                <div class="trans-text flex-1" data-vietnamese="${sentence.vietnamese}">${sentence.vietnamese}</div>
+                <div class="flex items-center justify-end gap-3">
+                    <button class="edit-button px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Edit</button>
+                </div>
+            `;
+                accordionContent.appendChild(pairDiv);
+            });
+
+            currentPairs = accordionContent.querySelectorAll('.sentence-pair');
+            currentPairs.forEach((pair, index) => {
+                pair.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('edit-button') || e.target.classList.contains('save-button')) return;
+                    if (selectedIndex === index) {
+                        pair.classList.remove('selected');
+                        selectedIndex = -1;
+                        return;
+                    }
+                    selectPair(index);
+                });
+
+                const editButton = pair.querySelector('.edit-button');
+                editButton.addEventListener('click', () => enterEditMode(pair));
+                pair.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('save-button')) {
+                        saveTranslation(pair);
+                    }
+                });
+            });
+
+            if (currentPairs.length > 0) {
+                selectPair(0);
+            }
+
+            // scroll to target paragraph if specified
+            const targetPara = window.location.hash.replace('#para-', '');
+            if (targetPara && currentPara >= parseInt(targetPara)) {
+                const paraElement = document.getElementById(`para-${targetPara}`);
+                if (paraElement) {
+                    paraElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
+            // adjust height after content is added
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+        } catch (error) {
+            accordionContent.innerHTML = '<div class="text-center text-red-600">Error loading content</div>';
+        }
+    }
+
+    // bind events
+    tocItems.forEach(item => {
+        const toggle = item.querySelector('.accordion-toggle');
+        const content = item.querySelector('.accordion-content');
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const paraId = toggle.dataset.paraId;
+            loadContent(paraId, content, toggle).then(()=> {
+                setTimeout(() => {
+                    item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 500);
+            });
+        });
+    });
+
+
+    // Settings Dialog
+    const settingsButton = document.getElementById('settings-button');
+    const settingsDialog = document.getElementById('settings-dialog');
+    const settingsClose = document.getElementById('settings-close');
+    const viewModeInputs = document.querySelectorAll('input[name="view-mode"]');
+
+    settingsButton.addEventListener('click', () => {
+        settingsDialog.classList.remove('hidden');
+    });
+
+    settingsClose.addEventListener('click', () => {
+        settingsDialog.classList.add('hidden');
+    });
+
+    settingsDialog.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            settingsDialog.classList.add('hidden');
+            e.preventDefault();
+        }
+    });
+
+    viewModeInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            applyViewMode(input.value);
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        const target = e.target;
+        
+        if (e.ctrlKey || e.altKey) {
+            if ((e.ctrlKey || e.altKey) && e.key === 'Enter') {
+                if (selectedIndex >= 0 && currentPairs[selectedIndex]) {
+                    saveTranslation(currentPairs[selectedIndex]);
+                }
+                e.preventDefault();
+            } else if (e.altKey && e.key === 'g') {
+                if (selectedIndex >= 0 && currentPairs[selectedIndex]) {
+                    enterEditMode(currentPairs[selectedIndex]);
+                }
+                e.preventDefault();
+            }
+            return;
+        }
+
+        // Ignore when typing in input, textarea, or contenteditable
+        if (
+            target.tagName === 'INPUT' ||
+            target.tagName === 'TEXTAREA' ||
+            target.isContentEditable
+        ) {
+            return;
+        }
+
+        if (e.key === 'j') {
+            selectPair(selectedIndex + 1);
+            e.preventDefault();
+        } else if (e.key === 'k') {
+            selectPair(selectedIndex - 1);
+            e.preventDefault();
+        }
+    });
+
+    // Handle URL hash for jumping to paragraph
+    function jumpToParagraphFromHash() {
+        const hash = window.location.hash;
+        if (hash && hash.startsWith('#para-')) {
+            const targetPara = parseInt(hash.replace('#para-', ''));
+            let targetToggle = null;
+            let targetContent = null;
+            for (let i = 0; i < tocItems.length; i++) {
+                const paraId = parseInt(tocItems[i].querySelector('.accordion-toggle').dataset.paraId);
+                const nextParaId = i < tocItems.length - 1 ? parseInt(tocItems[i + 1].querySelector('.accordion-toggle').dataset.paraId) : Infinity;
+                if (targetPara >= paraId && targetPara < nextParaId) {
+                    targetToggle = tocItems[i].querySelector('.accordion-toggle');
+                    targetContent = tocItems[i].querySelector('.accordion-content');
+                    break;
+                }
+            }
+            if (targetToggle && targetContent) {
+                loadContent(targetToggle.dataset.paraId, targetContent, targetToggle);
+            }
+        } else if (tocItems.length > 0) {
+            const firstToggle = tocItems[0].querySelector('.accordion-toggle');
+            firstToggle.click();
+        }
+    }
+
+    window.addEventListener('load', jumpToParagraphFromHash);
+    </script>
+</body>
+
+</html>
