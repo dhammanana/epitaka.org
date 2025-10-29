@@ -6,6 +6,7 @@ from app import is_numbered, markdown_to_html
 import requests
 import tarfile
 import tempfile
+import gdown
 
 DB_PATH = 'translations.db'
 OUTPUT_DIR = 'dist'
@@ -17,25 +18,27 @@ def setup_database():
     print("Database not found. Downloading and setting up...")
     file_id = '1bn5K0mjzD5eJ_jlBAVPzx_gZtllcvCLi'
     url = f'https://drive.google.com/uc?export=download&id={file_id}'
-    session = requests.Session()
-    response = session.get(url)
-    response.raise_for_status()
+    gdown.download(url, output='temp.tar.gz', quiet=False)
+    # session = requests.Session()
+    # response = session.get(url)
+    # response.raise_for_status()
     
-    # Check if small file (direct download)
-    if 'content-disposition' in response.headers:
-        with open('temp.tar.gz', 'wb') as f:
-            f.write(response.content)
-        tar_path = 'temp.tar.gz'
-    else:
-        # Large file: parse confirm token
-        import re
-        confirm_token = re.search(r'confirm=([0-9A-Za-z_]+)', response.text).group(1)
-        params = {'id': file_id, 'confirm': confirm_token, 'uuid': ''}
-        response = session.get(url, params=params)
-        response.raise_for_status()
-        with open('temp.tar.gz', 'wb') as f:
-            f.write(response.content)
-        tar_path = 'temp.tar.gz'
+    # # Check if small file (direct download)
+    # if 'content-disposition' in response.headers:
+    #     with open('temp.tar.gz', 'wb') as f:
+    #         f.write(response.content)
+    #     tar_path = 'temp.tar.gz'
+    # else:
+    #     # Large file: parse confirm token
+    #     import re
+    #     print (response, response.text, response.headers)
+    #     # confirm_token = re.search(r'confirm=([0-9A-Za-z_]+)', response.text).group(1)
+    #     params = {'id': file_id, 'confirm': 't', 'uuid': ''}
+    #     response = session.get(url, params=params)
+    #     response.raise_for_status()
+    #     with open('temp.tar.gz', 'wb') as f:
+    #         f.write(response.content)
+    #     tar_path = 'temp.tar.gz'
     
     with tempfile.TemporaryDirectory() as tmp_dir:
         with tarfile.open(tar_path, 'r:gz') as tar:
