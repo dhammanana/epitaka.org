@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaṭṭha Saṅgāyana Tipiṭaka</title>
+
+    <script src="{{ url_for('static', filename='js/tailwind-3.4.17.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/autocomplete-theme-classic.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+    @font-face {
+      font-family: 'Segoe UI';
+      src: local('Inter'), local('Arial'), sans-serif;
+      font-weight: 400;
+    }
+    </style>
+    <style>
+        .toggle-section {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .toggle-section:hover {
+            color: #b45309;
+            transform: translateX(5px);
+        }
+        .hidden {
+            display: none;
+        }
+        .book-link {
+            transition: color 0.3s ease;
+        }
+        .book-link:hover {
+            color: #b45309;
+        }
+        #autocomplete-heading {
+            width: 100%;
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+        .search-icon {
+            position: absolute;
+            right: 0.75rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7NQWX1DCC2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7NQWX1DCC2');
+</script>
+
+<body class="bg-gradient-to-b from-amber-100 to-amber-50 text-gray-800 font-sans min-h-screen">
+    <div class="container mx-auto p-6 max-w-7xl">
+        <header class="text-center mb-8">
+            <h1 class="font-bold text-4xl text-amber-900 tracking-tight">Chaṭṭha Saṅgāyana Tipiṭaka</h1>
+            <p class="mt-2 text-gray-600">Explore the Pali Canon with ease and clarity</p>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="mb-8">
+            <form action="/search_headings" method="get" class="search-container">
+                <div id="autocomplete-heading" tabindex="0" class="w-full"></div>
+            </form>
+        </div>
+
+        <!-- Menu -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {% for category, pitakas in menu.items() %}
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <h2 class="font-bold text-xl text-amber-900 mb-4">{{ category }}</h2>
+                {% for pitaka, books in pitakas.items() %}
+                <div class="mb-4">
+                    <div class="toggle-section font-semibold text-amber-800 text-lg flex justify-between items-center" 
+                         onclick="toggleSection('{{ category }}-{{ pitaka }}')">
+                        {{ pitaka }}
+                        <span style="font-family: 'Noto Sans Symbols2', 'Segoe UI Symbol', sans-serif;">⮷</span>
+                    </div>
+                    <div class="hidden ml-4 text-gray-700 mt-2" id="{{ category }}-{{ pitaka }}">
+                        {% if pitaka == 'Sutta Piṭaka' %}
+                        {% for nikaya, nikaya_books in books.items() %}
+                        <div class="mb-2">
+                            <div class="toggle-section font-medium text-amber-700 text-base flex justify-between items-center"
+                                 onclick="toggleSection('{{ category }}-{{ pitaka }}-{{ nikaya }}')">
+                                {{ nikaya }}
+                                <span style="font-family: 'Noto Sans Symbols2', 'Segoe UI Symbol', sans-serif;">⮷</span>
+                            </div>
+                            <ol class="hidden ml-4 list-decimal text-gray-700 mt-2" id="{{ category }}-{{ pitaka }}-{{ nikaya }}">
+                                {% for book_id, title in nikaya_books %}
+                                <li class="my-1">
+                                    <a href="{{ base_url }}/book/{{ book_id }}" class="book-link text-blue-600 hover:underline">{{ title }}</a>
+                                </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <ol class="list-decimal">
+                            {% for book_id, title in books %}
+                            <li class="my-1">
+                                <a href="{{ base_url }}/book/{{ book_id }}" class="book-link text-blue-600 hover:underline">{{ title }}</a>
+                            </li>
+                            {% endfor %}
+                        </ol>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
