@@ -10,7 +10,7 @@ import shutil
 import tempfile
 import gdown
 
-DB_PATH = 'translations.db'
+DB_PATH = 'temp_minimal.db'
 OUTPUT_DIR = 'dist'
 TEMPLATE_DIR = 'templates'
 
