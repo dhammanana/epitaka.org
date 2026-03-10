@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ book_title }} — E-Piṭaka</title>
+  <meta name="description" content="{{ meta_description }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:title"       content="{{ book_title }} — E-Piṭaka">
+  <meta property="og:description" content="{{ meta_description }}">
+  <meta property="og:type"        content="article">
+  <meta property="og:url"         content="{{ canonical_url }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}">
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/autocomplete-theme-classic.css') }}"> -->
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dictionary.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/comments.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/extras.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog-fts.css') }}">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NQWX1DCC2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7NQWX1DCC2');
+  </script>
+
+  <!--
+    Server-side data injected for JS.
+    FIREBASE_CONFIG is passed from Flask render_template as firebase_config=FIREBASE_CONFIG.
+    BOOK_CONFIG is unchanged from the original template.
+  -->
+  <script>
+    window.FIREBASE_CONFIG = {{ firebase_config | tojson }};
+    window.BOOK_CONFIG = {
+      bookId:  {{ book_id | tojson }},
+      baseUrl: {{ base_url | tojson }},
+      bookref: {
+        mula:  {{ bookref.mula_ref  | tojson }},
+        attha: {{ bookref.attha_ref | tojson }},
+        tika:  {{ bookref.tika_ref  | tojson }},
+      }
+    };
+    window.HOME_MENU = {{ menu | tojson }};
+
+  </script>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<header id="topbar" role="banner">
+  <button id="toc-toggle-btn" class="topbar-btn icon-btn" aria-label="Toggle Table of Contents">☰</button>
+  <button id="home-dialog-trigger" class="topbar-btn icon-btn" aria-label="Home">⌂</button>
+  <span class="book-title pali-text" title="{{ book_title }}">{{ book_title }}</span>
+  <div class="topbar-right">
+    {% if bookref.mula_ref %}
+    <a id="ref-mula"  href="{{ base_url }}/book_ref/{{ bookref.mula_ref  }}?ref={{ book_id }}" class="topbar-btn ref-btn">Mūla</a>
+    {% endif %}
+    {% if bookref.attha_ref %}
+    <a id="ref-attha" href="{{ base_url }}/book_ref/{{ bookref.attha_ref }}?ref={{ book_id }}" class="topbar-btn ref-btn">Attha</a>
+    {% endif %}
+    {% if bookref.tika_ref %}
+    <a id="ref-tika"  href="{{ base_url }}/book_ref/{{ bookref.tika_ref  }}?ref={{ book_id }}" class="topbar-btn ref-btn">Ṭīkā</a>
+    {% endif %}
+    <button id="settings-btn" class="topbar-btn icon-btn" title="Settings">⚙</button>
+    <!-- auth-avatar-btn injected here by auth-ui.js -->
+  </div>
+</header>
+
+<!-- TOC OVERLAY (mobile) -->
+<div id="toc-overlay" role="presentation"></div>
+
+<!-- TOC SIDEBAR -->
+<nav id="toc-sidebar" aria-label="Table of Contents">
+  <div id="toc-header">
+    <h2>Table of Contents</h2>
+    <input id="toc-search" type="search" placeholder="Filter…" autocomplete="off">
+  </div>
+  <ul id="toc-list" role="list">
+    {% for item in toc %}
+    <li>
+      <div class="toc-item" role="button" tabindex="0"
+           data-para-id="{{ item.para_id }}" data-level="{{ item.level }}">
+        <span class="toc-item-text pali-text">{{ item.title }}</span>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main id="main-content" role="main">
+  <article itemscope itemtype="https://schema.org/Book">
+    <meta itemprop="name" content="{{ book_title }}">
+    <meta itemprop="inLanguage" content="pi">
+    {% for item in toc %}
+    <section class="section-block" id="para-{{ item.para_id }}"
+             data-para-id="{{ item.para_id }}" data-book-id="{{ book_id }}"
+             aria-label="{{ item.title }}">
+      <div class="section-heading" data-level="{{ item.level }}"
+           role="button" tabindex="0" aria-expanded="false">
+        <span class="section-heading-text pali-text">{{ item.title }}</span>
+        <span class="chevron" aria-hidden="true">▶</span>
+      </div>
+      <div class="section-content" aria-hidden="true"></div>
+    </section>
+    {% endfor %}
+  </article>
+</main>
+
+<!-- DICTIONARY PANEL -->
+<aside id="dict-panel" aria-label="Dictionary" role="complementary">
+  <div id="dict-panel-header">
+    <div id="dict-word-wrapper">
+      <input id="dict-word-input" class="pali-text"
+             type="text" autocomplete="off"
+             aria-label="Dictionary search word"
+             placeholder="Search word…">
+      <ul id="dict-suggestions" role="listbox" aria-label="Suggestions"></ul>
+    </div>
+    <button id="dict-close" aria-label="Close">✕</button>
+  </div>
+  <div id="dict-results"></div>
+</aside>
+
+<!-- SETTINGS MODAL -->
+<div id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+  <div class="modal-box">
+    <h2 id="settings-title">Settings</h2>
+    <form id="settings-form" novalidate>
+      <div class="modal-field">
+        <label class="field-label">Display Languages</label>
+        <label class="check-label"><input type="checkbox" id="cb-pali"       name="pali">       Pāli</label>
+        <label class="check-label"><input type="checkbox" id="cb-english"    name="english">    English</label>
+        <label class="check-label"><input type="checkbox" id="cb-vietnamese" name="vietnamese"> Vietnamese</label>
+      </div>
+      <div class="modal-field">
+        <label class="field-label">Layout <small>(when Pāli + 1 translation)</small></label>
+        <div class="radio-group">
+          <label class="radio-label"><input type="radio" name="layout" value="stacked">    Stacked</label>
+          <label class="radio-label"><input type="radio" name="layout" value="sidebyside"> Side by side</label>
+        </div>
+      </div>
+      <div class="modal-field">
+        <label class="field-label">Action Buttons <small>(💬 🔖 📝 🔗)</small></label>
+        <div class="radio-group">
+          <label class="radio-label"><input type="radio" name="action-mode" value="line"> Every Line</label>
+          <label class="radio-label"><input type="radio" name="action-mode" value="para"> Every Paragraph</label>
+          <label class="radio-label"><input type="radio" name="action-mode" value="none"> Disabled</label>
+        </div>
+      </div>
+      <div class="modal-field">
+        <label class="field-label" for="pali-script-select">Pāli Script</label>
+        <select id="pali-script-select" class="script-select"></select>
+      </div>
+      <div class="modal-field">
+        <label class="field-label">Text Colors</label>
+        <div class="color-row"><span>Pāli</span>       <input type="color" id="color-pali" value="#7c2d12"></div>
+        <div class="color-row"><span>English</span>    <input type="color" id="color-eng"  value="#1e3a5f"></div>
+        <div class="color-row"><span>Vietnamese</span> <input type="color" id="color-viet" value="#4a1d6b"></div>
+        <div class="color-row"><span>Background</span> <input type="color" id="color-bg"   value="#faf7f2"></div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn" id="settings-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Login dialog, profile dialog, user menu all injected by auth-ui.js -->
+
+<!-- <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}" defer></script> -->
+<script type="module" src="{{ url_for('static', filename='js/book.bundle.js') }}"></script>
+
+</body>
+</html>

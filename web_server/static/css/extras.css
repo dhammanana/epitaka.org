@@ -1,0 +1,297 @@
+/* ══════════════════════════════════════════════════════════
+   row-actions.css  ·  Bookmark / Note / Share buttons
+   library.css      ·  My Library dialog
+   ══════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────
+   ROW ACTION BUTTONS
+   ───────────────────────────────────────────────────────── */
+
+.row-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Container sits right after .cmt-wrap inside .sentence-row */
+.ra-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+  margin-left: 0.15rem;
+  vertical-align: middle;
+}
+
+.ra-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1.5px solid transparent;
+  border-radius: 7px;
+  width: 26px; height: 26px;
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #b8c0cc;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  padding: 0;
+  flex-shrink: 0;
+}
+.ra-btn:hover {
+  border-color: #e9c97e;
+  background: #fef9f0;
+  color: #b45309;
+}
+
+/* Bookmark active state */
+.ra-bookmark-btn.is-active {
+  color: #b45309;
+  border-color: #e9c97e;
+  background: #fef9f0;
+}
+
+/* Note has-note indicator */
+.ra-note-btn.has-note {
+  color: #0369a1;
+  border-color: #bae6fd;
+  background: #f0f9ff;
+}
+.ra-note-btn.is-open {
+  color: #0369a1;
+  border-color: #bae6fd;
+  background: #e0f2fe;
+}
+
+/* ── Personal note panel ─────────────────────────────────── */
+.ra-note-panel {
+  width: 100%;
+  max-width: 560px;
+  margin-top: 0.35rem;
+  background: #f0f9ff;
+  border: 1.5px solid #bae6fd;
+  border-radius: 12px;
+  padding: 0.7rem 0.8rem 0.6rem;
+  animation: cmt-slide-in 0.15s ease;
+}
+
+.ra-note-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.4rem 0.6rem;
+  border: 1.5px solid #bae6fd;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  color: #0c4a6e;
+  background: #fff;
+  resize: vertical;
+  min-height: 60px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.ra-note-input:focus {
+  border-color: #0369a1;
+  box-shadow: 0 0 0 2px rgba(3,105,161,0.10);
+}
+
+.ra-note-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  justify-content: flex-end;
+}
+.ra-note-char {
+  font-size: 0.7rem;
+  color: #7ea3ba;
+  margin-right: auto;
+}
+
+/* ─────────────────────────────────────────────────────────
+   LIBRARY DIALOG
+   ───────────────────────────────────────────────────────── */
+
+.lib-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9100;
+  background: rgba(10, 5, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  overflow-y: auto;
+}
+.lib-backdrop.is-visible { pointer-events: auto; }
+.lib-backdrop.open       { opacity: 1; }
+
+.lib-box {
+  background: #fffdf8;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 680px;
+  min-height: 500px;
+  max-height: calc(100vh - 3rem);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+  transform: translateY(18px) scale(0.97);
+  transition: transform 0.22s cubic-bezier(.4,0,.2,1);
+  overflow: hidden;
+}
+.lib-backdrop.open .lib-box {
+  transform: translateY(0) scale(1);
+}
+
+/* ── Header ── */
+.lib-header {
+  display: flex;
+  align-items: center;
+  padding: 1.3rem 1.5rem 0.8rem;
+  border-bottom: 1px solid #f3ead8;
+  flex-shrink: 0;
+}
+.lib-title {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #3d1c02;
+  margin: 0;
+  flex: 1;
+}
+.lib-close {
+  background: none; border: none;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  font-size: 1rem; color: #9ca3af;
+  cursor: pointer; display: flex;
+  align-items: center; justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+.lib-close:hover { background: #f3f4f6; color: #374151; }
+
+/* ── Tabs ── */
+.lib-tabs {
+  display: flex;
+  gap: 0.15rem;
+  padding: 0.6rem 1.2rem 0;
+  flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.lib-tabs::-webkit-scrollbar { display: none; }
+
+.lib-tab {
+  background: none;
+  border: none;
+  border-bottom: 2.5px solid transparent;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+  border-radius: 6px 6px 0 0;
+}
+.lib-tab:hover { color: #b45309; }
+.lib-tab.is-active {
+  color: #b45309;
+  border-bottom-color: #b45309;
+  background: rgba(180,83,9,0.05);
+}
+
+/* ── Body / panes ── */
+.lib-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.2rem 1.5rem;
+}
+.lib-loading {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.88rem;
+  padding: 2rem 0;
+}
+.lib-empty {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.88rem;
+  padding: 2.5rem 0;
+  margin: 0;
+}
+
+/* ── Cards ── */
+.lib-card {
+  display: block;
+  background: #fff;
+  border: 1.5px solid #f0e8d8;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.55rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.lib-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+.lib-card-link:hover {
+  border-color: #e9c97e;
+  box-shadow: 0 3px 10px rgba(180,83,9,0.08);
+}
+
+.lib-card-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #3d1c02;
+  margin-bottom: 0.2rem;
+}
+.lib-section {
+  font-weight: 400;
+  color: #6b7280;
+}
+.lib-para {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 400;
+}
+.lib-card-sub {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-bottom: 0.15rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.lib-card-note {
+  font-size: 0.82rem;
+  color: #374151;
+  line-height: 1.5;
+  margin: 0.25rem 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  /* clamp long notes */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.lib-card-date {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  margin-top: 0.3rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .lib-backdrop { padding: 1rem 0.5rem 0.5rem; }
+  .lib-box      { border-radius: 16px; }
+  .lib-header   { padding: 1rem 1rem 0.6rem; }
+  .lib-body     { padding: 0.75rem; }
+}

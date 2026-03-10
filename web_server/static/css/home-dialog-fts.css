@@ -1,0 +1,279 @@
+/* ═══════════════════════════════════════════════════════════════
+   home-dialog-search-additions.css
+   Add these rules to your existing dialog stylesheet.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Filter container ──────────────────────────────────────── */
+#home-filter-wrap {
+  /* Place this element in your dialog HTML just below the search bar row */
+}
+
+.book-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 6px 0 4px;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  margin-bottom: 6px;
+  font-size: 0.78rem;
+}
+
+.bf-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.bf-label {
+  color: var(--text-muted, #6b7280);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  min-width: 52px;
+}
+
+.bf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.bf-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 99px;
+  border: 1px solid var(--border, #d1d5db);
+  background: transparent;
+  color: var(--text, #374151);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+.bf-chip:hover {
+  background: var(--chip-hover, #f3f4f6);
+  border-color: var(--border-strong, #9ca3af);
+}
+
+.bf-chip.active {
+  background: var(--accent, #4f46e5);
+  border-color: var(--accent, #4f46e5);
+  color: #fff;
+}
+
+.bf-clear {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  border: none;
+  background: none;
+  color: var(--text-muted, #6b7280);
+  font-size: 0.72rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color 0.1s, background 0.1s;
+}
+
+.bf-clear:hover {
+  color: var(--danger, #ef4444);
+  background: var(--danger-bg, #fef2f2);
+}
+
+/* ── Dict results summary ──────────────────────────────────── */
+.dict-results-summary {
+  font-size: 0.75rem;
+  color: var(--text-muted, #6b7280);
+  padding: 4px 0 8px;
+}
+
+/* ── Book group container ──────────────────────────────────── */
+.dict-book-group {
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+/* ── Group header (toggle button) ─────────────────────────── */
+.dict-book-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--group-bg, #f9fafb);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--text, #111827);
+  transition: background 0.1s;
+  user-select: none;
+}
+
+.dict-book-header:hover {
+  background: var(--group-bg-hover, #f3f4f6);
+}
+
+.dict-book-caret {
+  font-size: 0.6rem;
+  color: var(--text-muted, #9ca3af);
+  transition: transform 0.18s ease;
+  flex-shrink: 0;
+}
+
+.dict-book-group.expanded .dict-book-caret {
+  transform: rotate(90deg);
+}
+
+.dict-book-name {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dict-book-count {
+  flex-shrink: 0;
+  background: var(--accent-light, #e0e7ff);
+  color: var(--accent, #4f46e5);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 99px;
+  min-width: 22px;
+  text-align: center;
+}
+
+/* ── Group body (collapsible) ──────────────────────────────── */
+.dict-book-body {
+  display: none;
+  border-top: 1px solid var(--border, #e5e7eb);
+}
+
+.dict-book-group.expanded .dict-book-body {
+  display: block;
+}
+
+/* ── Individual dict entry ─────────────────────────────────── */
+.dict-entry {
+  display: block;
+  padding: 8px 12px 8px 20px;
+  border-bottom: 1px solid var(--border-light, #f3f4f6);
+  text-decoration: none;
+  transition: background 0.1s;
+}
+
+.dict-entry:last-child {
+  border-bottom: none;
+}
+
+.dict-entry:hover {
+  background: var(--hover-bg, #f0f4ff);
+}
+
+.dict-entry .search-result-heading {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text, #111827);
+  margin-bottom: 2px;
+}
+
+.dict-entry .search-result-meta.pali {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #374151);
+  font-style: italic;
+  margin-bottom: 2px;
+}
+
+.dict-entry .search-result-meta.translation {
+  font-size: 0.78rem;
+  color: var(--text-muted, #6b7280);
+}
+
+/* ── Highlight marks ───────────────────────────────────────── */
+.dict-entry mark,
+.search-result-heading mark {
+  background: var(--mark-bg, #fef08a);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* ── FTS result entries ────────────────────────────────────── */
+.fts-entry {
+  padding: 10px 12px 10px 20px;
+}
+
+.fts-pali {
+  font-size: 0.82rem;
+  color: #374151;
+  font-style: italic;
+  margin-bottom: 3px;
+  line-height: 1.5;
+  /* truncate very long paragraphs */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fts-english {
+  font-size: 0.82rem;
+  color: #111827;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fts-meta {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+/* ── Pagination ────────────────────────────────────────────── */
+.fts-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 0 4px;
+}
+
+.fts-page-btn {
+  padding: 4px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #374151;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+.fts-page-btn:hover:not(:disabled) {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.fts-page-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.fts-page-info {
+  font-size: 0.78rem;
+  color: #6b7280;
+}

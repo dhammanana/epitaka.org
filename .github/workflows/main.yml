@@ -1,0 +1,42 @@
+name: Build and Push to cf-pages Branch
+
+on:
+  push:
+    branches: [ master ]  # Changed to 'master' per your setup
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allows push to repo
+    name: Build and Deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'  # Adjust as needed
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run build
+        run: python build.py
+
+      - name: Push dist to cf-pages branch
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          source-directory: 'dist'
+          destination-github-username: ${{ github.repository_owner }}
+          destination-repository-name: ${{ github.event.repository.name }}
+          user-name: ${{ github.actor }}
+          user-email: ${{ github.actor }}@users.noreply.github.com
+          target-branch: cf-pages
+          commit-message: 'Update cf-pages from build'
+          create-target-branch-if-needed: true

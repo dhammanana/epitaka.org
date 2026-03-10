@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Chaṭṭha Saṅgāyana Tipiṭaka</title>
+
+    <script src="{{ url_for('static', filename='js/tailwind-3.4.17.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/autocomplete-theme-classic.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <style>
+        .pali-text {
+            color: maroon;
+        }
+
+        .trans-english {
+            color: darkblue;
+        }
+        .trans-viet {
+            color: darkviolet;
+        }
+
+        #autocomplete-heading {
+            width: 100%;
+            max-width: 28rem;
+            margin: 0 auto;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .pagination a, .pagination span {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            color: #2563eb;
+        }
+
+        .pagination a:hover {
+            background-color: #f3f4f6;
+        }
+
+        .pagination .current {
+            background-color: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        .pagination .disabled {
+            color: #9ca3af;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="bg-amber-50 text-gray-800 font-sans">
+    <div class="container mx-auto p-4">
+        <a href="{{ base_url }}" class="text-blue-600 hover:underline mb-4 inline-block">← Back to Home</a>
+
+        <!-- Search Bar -->
+        <div class="mb-4">
+            <form action="{{ base_url }}/search_headings" method="get" class="w-full max-w-md mx-auto">
+                <div id="autocomplete-heading" tabindex="0"></div>
+            </form>
+        </div>
+
+        {% if results %}
+        <h1 class="text-2xl font-bold mb-4">Found {{ total_results }} results for query "{{ query }}".</h1>
+        {% else %}
+        <h1 class="text-2xl font-bold mb-4">No Results Found for query "{{ query }}"</h1>
+        {% endif %}
+
+        <!-- Search Results -->
+        {% if results %}
+        <ul class="space-y-6">
+            {% for group in results %}
+            <li class="border-b border-gray-300 pb-4">
+                <!-- First Result -->
+                <a href="{{ base_url }}/book/{{ group.book_id }}#para-{{ group.first.para_id }}"
+                    class="text-blue-600 hover:underline text-lg font-semibold">
+                    {{ group.book_title }}
+                </a>
+                |
+                <strong>Paragraph:</strong> {{ group.first.para_id }}
+
+                <p class="pali-text">{{ group.first.pali | safe }}</p>
+                <p class="trans-english">{{ group.first.english | safe }}</p>
+                <p class="trans-viet">{{ group.first.vietnamese | safe }}</p>
+
+                {% if group.more %}
+                <!-- Show More Toggle -->
+                <button id="showmore-{{ group.book_id }}" class="text-sm text-blue-600 hover:underline mt-2" onclick="toggleMore('{{ group.book_id }}')">
+                    Show more
+                </button>
+
+                <!-- Hidden More Results -->
+                <div id="more-{{ group.book_id }}" class="hidden mt-2 space-y-4">
+                    {% for item in group.more %}
+                    <div class="border-t pt-2">
+                        <a href="{{ base_url }}/book/{{ item.book_id }}#para-{{ item.para_id }}"
+                            class="text-blue-600 hover:underline">
+                            Paragraph: {{ item.para_id }}
+                        </a>
+                        <p class="pali-text">{{ item.pali | safe }}</p>
+                        <p class="trans-text">{{ item.vietnamese | safe }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+
+        <script>
+            function toggleMore(bookId) {
+                const moreSection = document.getElementById('more-' + bookId);
+                const showmore = document.getElementById('showmore-' + bookId);
+                if (moreSection.classList.contains('hidden')) {
+                    moreSection.classList.remove('hidden');
+                    showmore.textContent = 'show less';
+                } else {
+                    moreSection.classList.add('hidden');
+                    showmore.textContent = 'show more';;
+
+                }
+            }
+        </script>
+
+        <!-- Pagination -->
+        {% if total_pages > 1 %}
+        <div class="pagination">
+            {% if page > 1 %}
+            <a href="{{ base_url }}/search?q={{ query | urlencode }}&page={{ page - 1 }}">Previous</a>
+            {% else %}
+            <span class="disabled">Previous</span>
+            {% endif %}
+
+            {% for p in range(1, total_pages + 1) %}
+            {% if p == page %}
+            <span class="current">{{ p }}</span>
+            {% else %}
+            <a href="{{ base_url }}/search?q={{ query | urlencode }}&page={{ p }}">{{ p }}</a>
+            {% endif %}
+            {% endfor %}
+
+            {% if page < total_pages %}
+            <a href="{{ base_url }}/search?q={{ query | urlencode }}&page={{ page + 1 }}">Next</a>
+            {% else %}
+            <span class="disabled">Next</span>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% else %}
+        <p>No results found for "{{ query }}".</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
