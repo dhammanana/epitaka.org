@@ -7,23 +7,23 @@ services:
       dockerfile: Dockerfile
     container_name: epitaka-web
     ports:
-      - "8080:8080"
+      - "8080:8080"           # Access at http://localhost:8080/  (root path)
     environment:
       - FLASK_ENV=production
-      # Add BASE_URL=/tpk  only if your app still expects URLs to be under /tpk
+      # Remove or keep commented: no evidence your current code needs BASE_URL=/tpk
       # - BASE_URL=/tpk
+    # You can keep this volume if you want to easily replace/swap the db later
+    # without rebuilding the image every time the database changes
     volumes:
-      # Optional: let you replace db from host without rebuilding
-      - ./web_server/translations.db:/app/translations.db:ro
+      - ./translations.db:/app/translations.db:ro
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/"]   # change path if needed
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]   # ← root path (most likely correct now)
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 15s
+      start_period: 20s       # Give Gunicorn + app a bit more time to start
 
-  # Optional dev variant (with hot-reload)
   web-dev:
     build:
       context: .
@@ -33,8 +33,8 @@ services:
       - "8081:8080"
     environment:
       - FLASK_ENV=development
-      - FLASK_DEBUG=1
+      # - FLASK_DEBUG=1       # optional – your run.py already has debug=True
     volumes:
-      - ./web_server:/app
+      - ./web_server:/app     # full source code mount for live editing
     command: ["python", "run.py"]
     profiles: ["dev"]
