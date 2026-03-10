@@ -1,0 +1,48 @@
+# Stage 1: Builder
+FROM python:3.11-slim AS builder
+
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends \
+      git \
+      curl \
+      ca-certificates \
+      unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
+
+RUN git clone https://github.com/dhammanana/epitaka.org.git repo
+
+WORKDIR /build/repo/web_server
+
+RUN pip install --no-cache-dir gdown \
+    && gdown 1AV29Ut1_xXQDE2LBxVYKBufhs47SDC72 -O translations.db.zip \
+    && unzip translations.db.zip \
+    && rm -f translations.db.zip \
+    && ls -lh translations.db
+
+# Stage 2: Runtime
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
+
+WORKDIR /app
+
+COPY --from=builder /build/repo/web_server /app
+
+RUN pip install --no-cache-dir --upgrade pip && \
+    if [ -f requirements.txt ]; then pip install -r requirements.txt; fi && \
+    pip install --no-cache-dir gunicorn
+
+EXPOSE 8080
+
+# Gunicorn – production ready
+CMD ["gunicorn", \
+     "--bind", "0.0.0.0:8080", \
+     "--workers", "3", \
+     "--threads", "2", \
+     "--timeout", "120", \
+     "--access-logfile", "-", \
+     "--error-logfile", "-", \
+     "run:app"]

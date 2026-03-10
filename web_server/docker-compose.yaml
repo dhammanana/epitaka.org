@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: epitaka-web
+    ports:
+      - "8080:8080"
+    environment:
+      - FLASK_ENV=production
+      # Add BASE_URL=/tpk  only if your app still expects URLs to be under /tpk
+      # - BASE_URL=/tpk
+    volumes:
+      # Optional: let you replace db from host without rebuilding
+      - ./web_server/translations.db:/app/translations.db:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]   # change path if needed
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # Optional dev variant (with hot-reload)
+  web-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: epitaka-dev
+    ports:
+      - "8081:8080"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    volumes:
+      - ./web_server:/app
+    command: ["python", "run.py"]
+    profiles: ["dev"]
