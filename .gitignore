@@ -22,3 +22,4 @@ serviceAccountKey.json
 .env
 *.csv
 web_server/progress/
+chroma_pali_db
