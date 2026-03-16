@@ -1,7 +1,8 @@
 # app/__init__.py
 
-from flask import Flask, g
+from flask import Flask, g, redirect
 from .config import config_by_name
+from .config import Config
 from .routes.main import bp as main_bp
 from .routes.api import bp as api_bp
 from .routes.edit import bp as edit_bp
@@ -43,6 +44,10 @@ def create_app(config_name='default'):
         import re
         return bool(re.match(r'^<code>\d+</code>\.$', str(text)))
 
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return redirect(Config.BASE_URL + '/')
+        
     # CORRECT teardown handler
     @app.teardown_appcontext
     def teardown_db(exception=None):
