@@ -9,6 +9,7 @@ from .routes.dictionary import bp as dict_bp
 from .routes.auth   import bp as auth_bp,   init_auth_db
 from .routes.readers import bp as reader_bp, init_reader_db
 from .services.initialize_db import init_all_search_tables
+from .utils.index_builder import register_cli
 
 INIT = False
 
@@ -32,6 +33,9 @@ def create_app(config_name='default'):
     app.register_blueprint(dict_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(reader_bp)
+
+    register_cli(app)
+
 
     # Template filter — this belongs here or in a separate filters module
     @app.template_filter('is_numbered')

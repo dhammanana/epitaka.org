@@ -7,35 +7,92 @@ from ..utils.db import get_db
 # Database Helpers
 # ─────────────────────────────────────────────
 
-def load_hierarchy():
-    """Load all book metadata from the books table."""
+def _parse_id_list(value):
+    """
+    Parse a stored ref field into a list of integer ids.
 
+    The field may be:
+      - NULL / empty  → []
+      - a single int  → [int]
+      - a comma-separated string of ints  → [int, ...]
+    """
+    if value is None:
+        return []
+    parts = [p.strip() for p in str(value).split(',') if p.strip()]
+    result = []
+    for p in parts:
+        try:
+            result.append(int(p))
+        except ValueError:
+            pass
+    return result
+
+
+def load_hierarchy():
+    """
+    Load all book metadata from the books table.
+
+    The returned dict is keyed by book_id.  The ref fields
+    (mula_ref, attha_ref, tika_ref) are now stored as comma-separated
+    lists of integer `id` values that point to other rows in the same
+    table.  This function resolves those ids to book_id strings so the
+    rest of the application can keep working without changes.
+
+    Each entry also exposes the raw id lists as
+    mula_ref_ids / attha_ref_ids / tika_ref_ids in case callers need
+    them, plus the new para_id and chapter_len fields introduced when
+    large books were split.
+    """
     with get_db() as conn:
-      cursor = conn.cursor()
-      cursor.execute('''
-          SELECT book_id, category, nikaya, sub_nikaya, book_name, mula_ref, attha_ref, tika_ref
-          FROM books
-      ''')
-      rows = cursor.fetchall()
-      return {row['book_id']: {
-          'category': row['category'],
-          'nikaya': row['nikaya'],
-          'sub_nikaya': row['sub_nikaya'],
-          'book_name': row['book_name'],
-          'mula_ref': row['mula_ref'],
-          'attha_ref': row['attha_ref'],
-          'tika_ref': row['tika_ref'],
-      } for row in rows}
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT id, book_id, category, nikaya, sub_nikaya, book_name,
+                   mula_ref, attha_ref, tika_ref,
+                   para_id, chapter_len
+            FROM books
+            ORDER BY id
+        ''')
+        rows = cursor.fetchall()
+
+    # Build a quick id → book_id lookup so we can resolve the ref lists.
+    id_to_book_id = {row['id']: row['book_id'] for row in rows}
+
+    hierarchy = {}
+    for row in rows:
+        mula_ids  = _parse_id_list(row['mula_ref'])
+        attha_ids = _parse_id_list(row['attha_ref'])
+        tika_ids  = _parse_id_list(row['tika_ref'])
+
+        hierarchy[row['book_id']] = {
+            'id':          row['id'],
+            'category':    row['category'],
+            'nikaya':      row['nikaya'],
+            'sub_nikaya':  row['sub_nikaya'],
+            'book_name':   row['book_name'],
+            # Resolved book_id lists (primary interface for the rest of the app)
+            'mula_ref':    [id_to_book_id[i] for i in mula_ids  if i in id_to_book_id],
+            'attha_ref':   [id_to_book_id[i] for i in attha_ids if i in id_to_book_id],
+            'tika_ref':    [id_to_book_id[i] for i in tika_ids  if i in id_to_book_id],
+            # Raw id lists, kept for callers that need them
+            'mula_ref_ids':  mula_ids,
+            'attha_ref_ids': attha_ids,
+            'tika_ref_ids':  tika_ids,
+            # New split-book fields
+            'para_id':     row['para_id'],
+            'chapter_len': row['chapter_len'],
+        }
+
+    return hierarchy
 
 
 def organize_hierarchy(hierarchy):
     """Organize books into a nested menu structure."""
     menu = {}
     for book_id, book_data in hierarchy.items():
-        category = book_data['category']
-        nikaya = book_data['nikaya']
+        category  = book_data['category']
+        nikaya    = book_data['nikaya']
         sub_nikaya = book_data['sub_nikaya']
-        book_name = book_data['book_name']
+        book_name  = book_data['book_name']
 
         if category not in menu:
             menu[category] = {}
@@ -71,7 +128,7 @@ def get_section_sentences(book_id, para_id, conn):
     """
     Fetch sentences for a TOC section: from para_id up to (but not including)
     the next heading's para_id.
-    
+
     The sentences table schema:
         book_id, para_id, line_id, vripara, thaipage, vripage, ptspage, mypage,
         pali_sentence, english_translation, vietnamese_translation
@@ -93,7 +150,7 @@ def get_section_sentences(book_id, para_id, conn):
         {
             'para_id': r['para_id'],
             'line_id': r['line_id'],
-            'pali': markdown_to_html(r['pali_sentence']),
+            'pali':    markdown_to_html(r['pali_sentence']),
             'english': markdown_to_html(r['english_translation']),
             'vietnamese': markdown_to_html(r['vietnamese_translation']),
         }
@@ -112,5 +169,3 @@ def normalize_query(query):
         else:
             variants.append(f"{word}*")
     return ' OR '.join(variants)
-
-

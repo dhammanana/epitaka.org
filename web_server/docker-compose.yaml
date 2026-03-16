@@ -14,8 +14,8 @@ services:
       # - BASE_URL=/tpk
     # You can keep this volume if you want to easily replace/swap the db later
     # without rebuilding the image every time the database changes
-    volumes:
-      - ./translations.db:/app/translations.db:ro
+    # volumes:
+      # - ./translations.db:/app/translations.db:ro
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/"]   # ← root path (most likely correct now)

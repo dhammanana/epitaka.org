@@ -4,20 +4,20 @@ import { resolve }      from 'path'
 export default defineConfig({
   root: resolve(__dirname, 'src'),
   build: {
-    outDir:    resolve(__dirname, '../static/js'),
+    outDir:      resolve(__dirname, '../static'),
     emptyOutDir: false,
     rollupOptions: {
       input: {
-        book: resolve(__dirname, 'src/book.js'),
+        book:  resolve(__dirname, 'src/book.js'),
+        index: resolve(__dirname, 'src/index.js'),
       },
       output: {
-        entryFileNames: '[name].bundle.js',
-        chunkFileNames: '[name].chunk.js',
-        // CSS extracted alongside the JS bundle
+        entryFileNames: 'js/[name].bundle.js',
+        chunkFileNames: 'js/[name].chunk.js',
         assetFileNames: assetInfo =>
           assetInfo.name?.endsWith('.css')
-            ? '../css/[name][extname]'   // → static/css/book.css (or book.bundle.css)
-            : '[name][extname]',
+            ? 'css/[name][extname]'
+            : 'js/assets/[name][extname]',
       },
     },
   },

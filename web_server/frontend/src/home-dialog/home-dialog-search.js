@@ -1,16 +1,11 @@
 /**
  * home-dialog-search.js
- * Handles all search functionality for the Home Dialog:
- *   - Search type selection (headings / fulltext / pali-def / ai)
- *   - Full-text sub-options (exact, distance, paragraph)
- *   - Autocomplete suggestions (headings API)
- *   - Search execution → renders results into results panel
- *   - BookFilter integration for all search types
+ * Handles all search functionality for the Home Dialog.
  */
 
 import { BookFilter } from './home-dialog-search-filter.js';
 import { installPaliInput } from '../libs/pali_typing.js';
-
+import '../css/home-dialog-fts.css';
 /* ─────────────────────────────────────────────────────────────
    Search type configuration
 ───────────────────────────────────────────────────────────── */
@@ -30,9 +25,9 @@ export const SEARCH_TYPES = [
     label: 'Full Text',
     desc:  'Search Pāli & translations',
     placeholder: 'Type words to search…',
-    hasAutocomplete: true,   // word-by-word suggest
+    hasAutocomplete: true,
     hasFtsOptions:   true,
-    autocompleteMode: 'word', // append word + space on select
+    autocompleteMode: 'word',
   },
   {
     id:    'pali-def',
@@ -67,32 +62,42 @@ export class HomeDialogSearch {
   /**
    * @param {object} opts
    * @param {string}   opts.baseUrl
-   * @param {object}   opts.hierarchy        The full hierarchy dict (book_id → metadata)
-   * @param {Function} opts.onResultSelect   Called with the URL when user picks a result
-   * @param {Function} opts.onShowResults    Called to switch results panel visible
-   * @param {Function} opts.onShowBooks      Called to switch back to book-list tabs
+   * @param {object}   [opts.initialState]          Persisted state from localStorage
+   * @param {string}   [opts.initialState.searchTypeId]
+   * @param {string}   [opts.initialState.ftsModeId]
+   * @param {number}   [opts.initialState.ftsDistance]
+   * @param {object}   opts.hierarchy
+   * @param {Function} opts.onResultSelect
+   * @param {Function} opts.onShowResults
+   * @param {Function} opts.onShowBooks
    */
-  constructor({ baseUrl, hierarchy = {}, onResultSelect, onShowResults, onShowBooks }) {
+  constructor({ baseUrl, initialState = {}, hierarchy = {}, onResultSelect, onShowResults, onShowBooks }) {
     this.baseUrl        = baseUrl;
     this.hierarchy      = hierarchy;
     this.onResultSelect = onResultSelect;
     this.onShowResults  = onShowResults;
     this.onShowBooks    = onShowBooks;
 
-    this.currentType    = SEARCH_TYPES[0];
-    this.ftsModeId      = 'exact';
-    this.ftsDistance    = 2;
+    // ── Initialise internal state from persisted values (with fallbacks) ──
+    const savedType = SEARCH_TYPES.find(t => t.id === initialState.searchTypeId);
+    this.currentType = savedType ?? SEARCH_TYPES[0];
+
+    const savedMode = FTS_MODES.find(m => m.id === initialState.ftsModeId);
+    this.ftsModeId  = savedMode ? savedMode.id : 'exact';
+
+    const savedDist = Number(initialState.ftsDistance);
+    this.ftsDistance = Number.isFinite(savedDist) && savedDist >= 1 ? savedDist : 2;
+
     this._acDebounce    = null;
     this._acController  = null;
     this._focusedIdx    = -1;
     this._suggestions   = [];
 
-    // BookFilter (shared across search types)
-    this.bookFilter     = new BookFilter(hierarchy, {
+    this.bookFilter = new BookFilter(hierarchy, {
       onChange: () => this._onFilterChange(),
     });
 
-    // DOM refs (set after dialog HTML is rendered)
+    // DOM refs — set in bind()
     this.typeBtn        = null;
     this.typeMenu       = null;
     this.searchInput    = null;
@@ -104,19 +109,20 @@ export class HomeDialogSearch {
     this.resultsPanel   = null;
     this.filterWrap     = null;
 
-    // Cache last search results for live re-filtering
     this._lastResults   = null;
     this._lastQuery     = '';
     this._lastType      = null;
 
-    // FTS pagination state
     this._ftsPage       = 1;
     this._ftsTotalPages = 1;
     this._ftsWords      = [];
     this._ftsLoading    = false;
   }
 
-  /** Bind all DOM elements after dialog is inserted into the page. */
+  /**
+   * Bind all DOM elements and apply the initial (possibly restored) state.
+   * Must be called after the dialog HTML has been inserted into the page.
+   */
   bind() {
     this.typeBtn       = document.getElementById('search-type-btn');
     this.typeMenu      = document.getElementById('search-type-menu');
@@ -134,13 +140,15 @@ export class HomeDialogSearch {
     this._bindInput();
     this._bindGoButton();
 
-    // Mount the shared filter into its container
     if (this.filterWrap) {
       this.bookFilter.mount(this.filterWrap);
     }
 
-    // Initial state
+    // Apply the (possibly restored) state to the DOM.
+    // This must come AFTER _bindFtsOptions() so distanceWrap visibility works.
     this._applyTypeUI(this.currentType);
+    this._applyFtsModeUI(this.ftsModeId);
+    this._applyFtsDistanceUI(this.ftsDistance);
   }
 
   /* ── Type dropdown ───────────────────────────────────────── */
@@ -153,8 +161,7 @@ export class HomeDialogSearch {
 
     this.typeMenu.querySelectorAll('.search-type-option').forEach(opt => {
       opt.addEventListener('click', () => {
-        const id   = opt.dataset.type;
-        const type = SEARCH_TYPES.find(t => t.id === id);
+        const type = SEARCH_TYPES.find(t => t.id === opt.dataset.type);
         if (type) this._selectType(type);
       });
     });
@@ -163,8 +170,7 @@ export class HomeDialogSearch {
   }
 
   _toggleTypeMenu() {
-    const open = this.typeMenu.classList.contains('show');
-    open ? this._closeTypeMenu() : this._openTypeMenu();
+    this.typeMenu.classList.contains('show') ? this._closeTypeMenu() : this._openTypeMenu();
   }
   _openTypeMenu() {
     this._positionBelow(this.typeBtn, this.typeMenu);
@@ -176,10 +182,6 @@ export class HomeDialogSearch {
     this.typeBtn.classList.remove('open');
   }
 
-  /**
-   * Position a fixed dropdown directly below an anchor element using
-   * getBoundingClientRect — escapes any overflow/transform stacking context.
-   */
   _positionBelow(anchor, dropdown) {
     const r = anchor.getBoundingClientRect();
     dropdown.style.top      = `${r.bottom + 4}px`;
@@ -195,7 +197,6 @@ export class HomeDialogSearch {
     this._closeSuggestions();
     this.searchInput.value = '';
     this.searchInput.focus();
-    // clear results
     if (this.resultsPanel) {
       this.resultsPanel.innerHTML = '';
       this.resultsPanel.classList.remove('active');
@@ -208,7 +209,7 @@ export class HomeDialogSearch {
     this.typeBtn.innerHTML =
       `<span>${type.icon} ${type.label}</span><span class="arrow">▾</span>`;
 
-    // Update input placeholder
+    // Update placeholder
     this.searchInput.placeholder = type.placeholder;
 
     // Highlight selected option in menu
@@ -216,23 +217,29 @@ export class HomeDialogSearch {
       opt.classList.toggle('selected', opt.dataset.type === type.id);
     });
 
-    // FTS sub-options
-    if (type.hasFtsOptions) {
-      this.ftsBar.classList.add('show');
-    } else {
-      this.ftsBar.classList.remove('show');
-    }
+    // Show / hide FTS sub-options bar
+    this.ftsBar.classList.toggle('show', type.hasFtsOptions);
+  }
+
+  /* ── FTS mode helpers ────────────────────────────────────── */
+
+  /** Set the active chip class and show/hide distance input — no event needed. */
+  _applyFtsModeUI(modeId) {
+    this.ftsModeId = modeId;
+    this.ftsBar.querySelectorAll('.fts-chip').forEach(c => {
+      c.classList.toggle('active', c.dataset.mode === modeId);
+    });
+    this.distanceWrap.classList.toggle('show', modeId === 'distance');
+  }
+
+  /** Sync the distance number input to the internal value. */
+  _applyFtsDistanceUI(distance) {
+    this.ftsDistance       = distance;
+    this.distanceNum.value = distance;
   }
 
   /* ── Filter change handler ───────────────────────────────── */
 
-  /**
-   * Called whenever the BookFilter changes.
-   * Re-renders cached results immediately (no new network request needed
-   * for client-side search types like headings & pali-def).
-   * For fulltext/ai the filter params are baked into the redirect URL,
-   * so we just need to keep them in sync.
-   */
   _onFilterChange() {
     if (!this._lastResults || !this._lastQuery) return;
 
@@ -250,50 +257,30 @@ export class HomeDialogSearch {
   _bindFtsOptions() {
     this.ftsBar.querySelectorAll('.fts-chip').forEach(chip => {
       chip.addEventListener('click', () => {
-        this.ftsModeId = chip.dataset.mode;
-        this.ftsBar.querySelectorAll('.fts-chip').forEach(c =>
-          c.classList.toggle('active', c.dataset.mode === this.ftsModeId)
-        );
-        // Show / hide distance number input
-        if (this.ftsModeId === 'distance') {
-          this.distanceWrap.classList.add('show');
-        } else {
-          this.distanceWrap.classList.remove('show');
-        }
+        this._applyFtsModeUI(chip.dataset.mode);
       });
     });
 
     this.distanceNum.addEventListener('change', () => {
-      this.ftsDistance = Math.max(1, parseInt(this.distanceNum.value) || 2);
-      this.distanceNum.value = this.ftsDistance;
+      const val = Math.max(1, parseInt(this.distanceNum.value) || 2);
+      this._applyFtsDistanceUI(val);
     });
   }
 
   /* ── Input & autocomplete ────────────────────────────────── */
 
   _bindInput() {
-    this.searchInput.addEventListener('input', () => {
-      this._onInput();
-    });
-
-    this.searchInput.addEventListener('keydown', e => {
-      this._onKeydown(e);
-    });
-
+    this.searchInput.addEventListener('input', () => this._onInput());
+    this.searchInput.addEventListener('keydown', e => this._onKeydown(e));
     this.searchInput.addEventListener('blur', () => {
-      // Delay so click on suggestion fires first
       setTimeout(() => this._closeSuggestions(), 160);
     });
 
     this.removePaliHandler = installPaliInput(this.searchInput, {
-      mode: 'both',   // or 'velthuis' or 'deadkey'
+      mode: 'both',
       onConvert: (normalized) => {
-        // instead of duplicating logic, just trigger the same flow
         const q = normalized.trim();
-        if (!q) {
-          this._closeSuggestions();
-          return;
-        }
+        if (!q) { this._closeSuggestions(); return; }
         if (this.currentType.hasAutocomplete) {
           clearTimeout(this._acDebounce);
           this._acDebounce = setTimeout(() => this._fetchSuggestions(q), 220);
@@ -304,10 +291,7 @@ export class HomeDialogSearch {
 
   _onInput() {
     const q = this.searchInput.value.trim();
-    if (!q) {
-      this._closeSuggestions();
-      return;
-    }
+    if (!q) { this._closeSuggestions(); return; }
     if (this.currentType.hasAutocomplete) {
       clearTimeout(this._acDebounce);
       this._acDebounce = setTimeout(() => this._fetchSuggestions(q), 220);
@@ -327,7 +311,6 @@ export class HomeDialogSearch {
       } else if (this.currentType.id === 'pali-def') {
         url = `${this.baseUrl}/api/bold_suggest?q=${encodeURIComponent(q)}&limit=12`;
       } else if (this.currentType.autocompleteMode === 'word') {
-        // For fulltext: only suggest based on the last word being typed
         const lastWord = q.split(/\s+/).pop();
         if (!lastWord) { this._closeSuggestions(); return; }
         url = `${this.baseUrl}/api/suggest_word?q=${encodeURIComponent(lastWord)}&limit=10`;
@@ -339,7 +322,6 @@ export class HomeDialogSearch {
       const data = await res.json();
 
       if (this.currentType.autocompleteMode === 'word') {
-        // data is a plain array of word strings
         this._renderWordSuggestions(data, q);
       } else {
         const filtered = this.bookFilter.filterResults(data);
@@ -350,10 +332,6 @@ export class HomeDialogSearch {
     }
   }
 
-  /**
-   * Render word-append suggestions for fulltext mode.
-   * Selecting a suggestion appends the word to the input and keeps focus.
-   */
   _renderWordSuggestions(words, currentInput) {
     this._positionBelow(this.searchInput, this.suggestionsEl);
     this.suggestionsEl.style.width = `${this.searchInput.getBoundingClientRect().width}px`;
@@ -365,13 +343,11 @@ export class HomeDialogSearch {
       return;
     }
 
-    // Store as objects so keyboard nav works uniformly
     this._suggestions = words.map(w => ({ _word: w }));
     this._focusedIdx  = -1;
 
     const lastWord = currentInput.split(/\s+/).pop();
     const prefix   = currentInput.slice(0, currentInput.length - lastWord.length);
-
     const hl = str => str.replace(
       new RegExp(`^(${escapeRegex(lastWord)})`, 'i'),
       '<mark>$1</mark>'
@@ -390,7 +366,6 @@ export class HomeDialogSearch {
         e.preventDefault();
         const word = this._suggestions[parseInt(el.dataset.idx)]?._word;
         if (word) {
-          // Replace last partial word with the selected full word + space
           this.searchInput.value = prefix + word + ' ';
           this._closeSuggestions();
           this.searchInput.focus();
@@ -408,11 +383,6 @@ export class HomeDialogSearch {
     this._suggestions = [];
   }
 
-  /**
-   * Render suggestions. Expected API shapes:
-   *   headings: [{ title, book_id, book_name, para_id }, ...]
-   *   pali-def: [{ word, definition_short }, ...]
-   */
   _renderSuggestions(data, query) {
     this._positionBelow(this.searchInput, this.suggestionsEl);
     this.suggestionsEl.style.width = `${this.searchInput.getBoundingClientRect().width}px`;
@@ -461,7 +431,6 @@ export class HomeDialogSearch {
     const item = this._suggestions[idx];
     if (!item) return;
 
-    // Word-append mode (fulltext)
     if (item._word !== undefined) {
       const cur      = this.searchInput.value;
       const lastWord = cur.split(/\s+/).pop();
@@ -475,11 +444,9 @@ export class HomeDialogSearch {
     this._closeSuggestions();
 
     if (this.currentType.id === 'headings') {
-      const url = `${this.baseUrl}/book/${item.book_id}?para=${item.para_id}`;
-      this.onResultSelect(url);
+      this.onResultSelect(`${this.baseUrl}/book/${item.book_id}?para=${item.para_id}`);
     } else if (this.currentType.id === 'pali-def') {
-      const url = `${this.baseUrl}/book/${item.book_id}?para=${item.para_id}&line=${item.line_id}`;
-      this.onResultSelect(url);
+      this.onResultSelect(`${this.baseUrl}/book/${item.book_id}?para=${item.para_id}&line=${item.line_id}`);
     }
   }
 
@@ -547,8 +514,7 @@ export class HomeDialogSearch {
       this._lastResults = data || [];
       this._lastQuery   = q;
       this._lastType    = 'headings';
-      const filtered = this.bookFilter.filterResults(this._lastResults);
-      this._renderHeadingResults(filtered, q);
+      this._renderHeadingResults(this.bookFilter.filterResults(this._lastResults), q);
 
     } else if (type.id === 'fulltext') {
       this._ftsPage = 1;
@@ -562,8 +528,7 @@ export class HomeDialogSearch {
       this._lastResults = data || [];
       this._lastQuery   = q;
       this._lastType    = 'pali-def';
-      const filtered = this.bookFilter.filterResults(this._lastResults);
-      this._renderDictResults(filtered, q);
+      this._renderDictResults(this.bookFilter.filterResults(this._lastResults), q);
 
     } else if (type.id === 'ai') {
       const params = new URLSearchParams({ q, mode: 'ai' });
@@ -572,10 +537,6 @@ export class HomeDialogSearch {
     }
   }
 
-  /**
-   * Append the current filter state as URL params.
-   * The server can read `pitakas` and `layers` query params to pre-filter.
-   */
   _appendFilterParams(params) {
     const { pitakas, layers } = this.bookFilter.getFilterParams();
     if (pitakas.length) params.set('pitakas', pitakas.join(','));
@@ -617,58 +578,39 @@ export class HomeDialogSearch {
     });
   }
 
-  /**
-   * Render Pāli dictionary results grouped by book.
-   * Each book group is collapsible; collapsed by default.
-   *
-   * @param {Array}  data   Already-filtered array of result objects
-   * @param {string} query  Original search query (for highlighting)
-   */
   _renderDictResults(data, query) {
     this.onShowResults();
-
     if (!data.length) {
       this.resultsPanel.innerHTML = '<div class="hd-empty">No definitions found.</div>';
       return;
     }
-
     const hl = str => str.replace(
       new RegExp(`(${escapeRegex(query)})`, 'gi'),
       '<mark>$1</mark>'
     );
 
-    // ── Group results by book_id ────────────────────────────
-    const groups = new Map(); // book_id → { book_name, items[] }
+    const groups = new Map();
     for (const item of data) {
       if (!groups.has(item.book_id)) {
-        groups.set(item.book_id, {
-          book_id:   item.book_id,
-          book_name: item.book_name || item.book_id,
-          items:     [],
-        });
+        groups.set(item.book_id, { book_id: item.book_id, book_name: item.book_name || item.book_id, items: [] });
       }
       groups.get(item.book_id).items.push(item);
     }
 
     const totalBooks   = groups.size;
     const totalResults = data.length;
-
-    // ── Build HTML ──────────────────────────────────────────
     let html = `<div class="dict-results-summary">${totalResults} result${totalResults !== 1 ? 's' : ''} in ${totalBooks} book${totalBooks !== 1 ? 's' : ''}</div>`;
 
     let groupIndex = 0;
-    for (const [book_id, group] of groups) {
+    for (const [, group] of groups) {
       const groupId  = `dict-group-${groupIndex++}`;
-      const count    = group.items.length;
-      // Expand the first group automatically, collapse the rest
       const expanded = groupIndex === 1;
-
       html += `
         <div class="dict-book-group ${expanded ? 'expanded' : ''}" id="${groupId}">
           <button class="dict-book-header" data-group="${groupId}" aria-expanded="${expanded}">
             <span class="dict-book-caret">▶</span>
             <span class="dict-book-name">${group.book_name}</span>
-            <span class="dict-book-count">${count}</span>
+            <span class="dict-book-count">${group.items.length}</span>
           </button>
           <div class="dict-book-body">
             ${group.items.map(item => `
@@ -681,13 +623,11 @@ export class HomeDialogSearch {
               </a>
             `).join('')}
           </div>
-        </div>
-      `;
+        </div>`;
     }
 
     this.resultsPanel.innerHTML = html;
 
-    // ── Collapse/expand interaction ─────────────────────────
     this.resultsPanel.querySelectorAll('.dict-book-header').forEach(btn => {
       btn.addEventListener('click', () => {
         const groupEl = document.getElementById(btn.dataset.group);
@@ -698,7 +638,6 @@ export class HomeDialogSearch {
       });
     });
 
-    // ── Navigation ─────────────────────────────────────────
     this.resultsPanel.querySelectorAll('.search-result-item').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
@@ -760,10 +699,8 @@ export class HomeDialogSearch {
       return;
     }
 
-    // Highlight all searched words
     const hlPattern = new RegExp(
-      `(${words.map(w => escapeRegex(w)).join('|')})`,
-      'gi'
+      `(${words.map(w => escapeRegex(w)).join('|')})`, 'gi'
     );
     const hl = str => (str || '').replace(hlPattern, '<mark>$1</mark>');
 
@@ -776,47 +713,39 @@ export class HomeDialogSearch {
     let groupIndex = 0;
     for (const group of results) {
       const groupId  = `fts-group-${groupIndex++}`;
-      const count    = group.items.length;
       const expanded = groupIndex === 1;
-
       html += `
         <div class="dict-book-group ${expanded ? 'expanded' : ''}" id="${groupId}">
           <button class="dict-book-header" data-group="${groupId}" aria-expanded="${expanded}">
             <span class="dict-book-caret">▶</span>
             <span class="dict-book-name">${group.book_name}</span>
-            <span class="dict-book-count">${count}</span>
+            <span class="dict-book-count">${group.items.length}</span>
           </button>
           <div class="dict-book-body">
             ${group.items.map(item => {
               const url = `${this.baseUrl}/book/${item.book_id}?para=${item.para_id}`;
               return `
                 <a href="${url}" class="search-result-item dict-entry fts-entry" data-url="${url}">
-                  ${item.pali    ? `<div class="fts-pali">${hl(item.pali)}</div>`    : ''}
+                  ${item.pali    ? `<div class="fts-pali">${hl(item.pali)}</div>`       : ''}
                   ${item.english ? `<div class="fts-english">${hl(item.english)}</div>` : ''}
                   <div class="fts-meta">para ${item.para_id}</div>
                 </a>`;
             }).join('')}
           </div>
-        </div>
-      `;
+        </div>`;
     }
 
-    // Pagination controls
     if (totalPages > 1) {
-      const prevDisabled = page <= 1 ? 'disabled' : '';
-      const nextDisabled = page >= totalPages ? 'disabled' : '';
       html += `
         <div class="fts-pagination">
-          <button class="fts-page-btn" id="fts-prev" ${prevDisabled}>← Prev</button>
+          <button class="fts-page-btn" id="fts-prev" ${page <= 1 ? 'disabled' : ''}>← Prev</button>
           <span class="fts-page-info">Page ${page} / ${totalPages}</span>
-          <button class="fts-page-btn" id="fts-next" ${nextDisabled}>Next →</button>
-        </div>
-      `;
+          <button class="fts-page-btn" id="fts-next" ${page >= totalPages ? 'disabled' : ''}>Next →</button>
+        </div>`;
     }
 
     this.resultsPanel.innerHTML = html;
 
-    // Collapse/expand
     this.resultsPanel.querySelectorAll('.dict-book-header').forEach(btn => {
       btn.addEventListener('click', () => {
         const groupEl = document.getElementById(btn.dataset.group);
@@ -827,7 +756,6 @@ export class HomeDialogSearch {
       });
     });
 
-    // Navigation
     this.resultsPanel.querySelectorAll('.fts-entry').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
@@ -835,13 +763,10 @@ export class HomeDialogSearch {
       });
     });
 
-    // Pagination buttons
-    const prevBtn = this.resultsPanel.querySelector('#fts-prev');
-    const nextBtn = this.resultsPanel.querySelector('#fts-next');
-    if (prevBtn) prevBtn.addEventListener('click', () => {
+    this.resultsPanel.querySelector('#fts-prev')?.addEventListener('click', () => {
       this._executeFtsSearch(this._lastQuery, this._ftsPage - 1);
     });
-    if (nextBtn) nextBtn.addEventListener('click', () => {
+    this.resultsPanel.querySelector('#fts-next')?.addEventListener('click', () => {
       this._executeFtsSearch(this._lastQuery, this._ftsPage + 1);
     });
   }

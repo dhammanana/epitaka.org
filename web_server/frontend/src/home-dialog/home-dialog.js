@@ -1,40 +1,18 @@
 /**
  * home-dialog.js
  * Entry point for the Home / Book-Chooser Dialog.
- *
- * Usage (in book.js or wherever you mount the topbar):
- *
- *   import { initHomeDialog } from './home-dialog.js';
- *
- *   // Call once after DOM ready, passing the server-side menu data:
- *   initHomeDialog({
- *     triggerSelector: '#home-dialog-trigger',   // the ⌂ button
- *     baseUrl: window.BOOK_CONFIG.baseUrl,
- *     menu: window.HOME_MENU,   // injected from Flask: window.HOME_MENU = {{ menu | tojson }}
- *   });
- *
- * The trigger button in book.html should be changed to:
- *   <button id="home-dialog-trigger" class="topbar-btn icon-btn" aria-label="Home">⌂</button>
- *
- * And add to the <script> block in book.html:
- *   window.HOME_MENU = {{ menu | tojson }};
  */
 
 import { HomeDialogSearch, SEARCH_TYPES, FTS_MODES } from './home-dialog-search.js';
 import { HomeDialogBookList }                         from './home-dialog-booklist.js';
+import { LocalState }                                 from '../libs/local-state.js';
+import '../css/home-dialog.css';
 
 /* ─────────────────────────────────────────────────────────────
    Public init function
 ───────────────────────────────────────────────────────────── */
 
-/**
- * @param {object} opts
- * @param {string}  opts.triggerSelector  CSS selector for the ⌂ button
- * @param {string}  opts.baseUrl
- * @param {object}  opts.menu             Full menu object from Flask
- */
 export function initHomeDialog({ triggerSelector, baseUrl, menu }) {
-  // Guard: only init once
   if (document.getElementById('home-dialog-overlay')) return;
 
   const trigger = document.querySelector(triggerSelector);
@@ -43,7 +21,15 @@ export function initHomeDialog({ triggerSelector, baseUrl, menu }) {
     return;
   }
 
-  /* ── Build sub-modules ──────────────────────────────────── */
+  const state = new LocalState('homeDialog_state', {
+    searchQuery:  '',
+    searchTypeId: SEARCH_TYPES[0]?.id ?? '',
+    ftsModeId:    FTS_MODES[0]?.id ?? '',
+    ftsDistance:  2,
+    activeTabId:  null,
+  });
+
+  /* ── Sub-modules ────────────────────────────────────────── */
 
   const bookList = new HomeDialogBookList({
     baseUrl,
@@ -53,40 +39,42 @@ export function initHomeDialog({ triggerSelector, baseUrl, menu }) {
 
   const search = new HomeDialogSearch({
     baseUrl,
+    initialState: {
+      searchTypeId: state.get('searchTypeId'),
+      ftsModeId:    state.get('ftsModeId'),
+      ftsDistance:  state.get('ftsDistance'),
+    },
     onResultSelect: url => { _close(); window.location.href = url; },
     onShowResults:  ()  => _showResultsPanel(),
     onShowBooks:    ()  => _showBookPanels(),
   });
 
   /* ── Inject HTML ─────────────────────────────────────────── */
+
   const overlay = document.createElement('div');
   overlay.id = 'home-dialog-overlay';
-  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('role',       'dialog');
   overlay.setAttribute('aria-modal', 'true');
   overlay.setAttribute('aria-label', 'Browse books');
 
   overlay.innerHTML = `
     <div id="home-dialog" role="document">
 
-      <!-- Header: title + close -->
       <div id="home-dialog-header">
         <div id="home-dialog-title">
           <span>E-Piṭaka</span>
           <button id="home-dialog-close" aria-label="Close">✕</button>
         </div>
 
-        <!-- Search row -->
         <div id="home-search-row">
           <div style="position:relative">
             <button id="search-type-btn" type="button" aria-haspopup="true">
-              <span>☰ Search Headings</span>
+              <span>${_labelForTypeId(state.get('searchTypeId'))}</span>
               <span class="arrow">▾</span>
             </button>
-
-            <!-- Type dropdown menu -->
             <div id="search-type-menu" role="listbox">
               ${SEARCH_TYPES.map(t => `
-                <div class="search-type-option${t === SEARCH_TYPES[0] ? ' selected' : ''}"
+                <div class="search-type-option${t.id === state.get('searchTypeId') ? ' selected' : ''}"
                      data-type="${t.id}" role="option" tabindex="0">
                   <span class="opt-icon">${t.icon}</span>
                   <div>
@@ -106,29 +94,29 @@ export function initHomeDialog({ triggerSelector, baseUrl, menu }) {
                    placeholder="Search section headings…"
                    aria-label="Search"
                    aria-autocomplete="list"
-                   aria-controls="home-suggestions">
+                   aria-controls="home-suggestions"
+                   value="${_escapeAttr(state.get('searchQuery'))}">
             <div id="home-suggestions" role="listbox" aria-label="Suggestions"></div>
           </div>
 
           <button id="home-search-go" type="button">Go</button>
         </div>
 
-        <!-- Full-text sub-options (hidden unless fulltext mode) -->
         <div id="fts-options-bar">
           <span class="fts-label">Match:</span>
-          ${FTS_MODES.map((m, i) => `
-            <button class="fts-chip${i === 0 ? ' active' : ''}"
+          ${FTS_MODES.map(m => `
+            <button class="fts-chip${m.id === state.get('ftsModeId') ? ' active' : ''}"
                     data-mode="${m.id}" type="button">${m.label}</button>
           `).join('')}
           <div id="fts-distance-wrap">
             <label for="fts-distance-num">words apart:</label>
-            <input id="fts-distance-num" type="number" min="1" max="50" value="2">
+            <input id="fts-distance-num" type="number" min="1" max="50"
+                   value="${Number.isFinite(state.get('ftsDistance')) ? state.get('ftsDistance') : 2}">
           </div>
         </div>
-          <div id="home-filter-wrap"></div>
+        <div id="home-filter-wrap"></div>
       </div>
 
-      <!-- Body: tab bar + panels (built by bookList) -->
       <div id="home-dialog-body">
         ${bookList.buildHTML()}
       </div>
@@ -138,46 +126,68 @@ export function initHomeDialog({ triggerSelector, baseUrl, menu }) {
 
   document.body.appendChild(overlay);
 
+  /* ── Restore active tab ──────────────────────────────────── */
+
+  const savedTabId = state.get('activeTabId');
+  if (savedTabId) {
+    const savedTab   = document.querySelector(`.home-tab[data-tab="${savedTabId}"]`);
+    const savedPanel = document.querySelector(`.home-tab-panel[data-panel="${savedTabId}"]`);
+    if (savedTab && savedPanel) {
+      document.querySelectorAll('.home-tab, .home-tab-panel').forEach(el => el.classList.remove('active'));
+      savedTab.classList.add('active');
+      savedPanel.classList.add('active');
+    }
+  }
+
   /* ── Bind events ─────────────────────────────────────────── */
 
-  // Trigger button
   trigger.addEventListener('click', e => { e.preventDefault(); _open(); });
-
-  // Close button & overlay click
   document.getElementById('home-dialog-close').addEventListener('click', _close);
   overlay.addEventListener('click', e => { if (e.target === overlay) _close(); });
-
-  // Keyboard: Escape
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && overlay.classList.contains('show')) _close();
   });
 
-  // Book list tabs & links
   bookList.bindTabs();
 
-  // Search module
+  overlay.addEventListener('click', e => {
+    const tab = e.target.closest('.home-tab');
+    if (tab?.dataset.tab) state.set('activeTabId', tab.dataset.tab);
+  });
+
   search.bind();
 
-  // When typing in the search input, also filter the book list
+  document.getElementById('search-type-menu').addEventListener('click', e => {
+    const opt = e.target.closest('.search-type-option');
+    if (opt) state.set('searchTypeId', opt.dataset.type);
+  });
+
+  document.getElementById('fts-options-bar').addEventListener('click', e => {
+    const chip = e.target.closest('.fts-chip');
+    if (chip) state.set('ftsModeId', chip.dataset.mode);
+  });
+
+  document.getElementById('fts-distance-num').addEventListener('change', e => {
+    const val = parseInt(e.target.value, 10);
+    if (Number.isFinite(val)) state.set('ftsDistance', val);
+  });
+
   document.getElementById('home-search-input').addEventListener('input', e => {
+    state.set('searchQuery', e.target.value);
     const q = e.target.value.trim();
     if (!q) {
       bookList.clearFilter();
     } else if (search.currentType.id === 'headings') {
-      // live filter while waiting for API
       bookList.filter(q);
     }
   });
 
-  /* ── Open / close helpers ────────────────────────────────── */
+  /* ── Open / close ────────────────────────────────────────── */
 
   function _open() {
     overlay.classList.add('show');
     document.body.style.overflow = 'hidden';
-    // Focus search input
-    setTimeout(() => {
-      document.getElementById('home-search-input')?.focus();
-    }, 60);
+    setTimeout(() => document.getElementById('home-search-input')?.focus(), 60);
   }
 
   function _close() {
@@ -186,22 +196,40 @@ export function initHomeDialog({ triggerSelector, baseUrl, menu }) {
   }
 
   function _showResultsPanel() {
-    // Hide all tab panels, show results panel
     document.querySelectorAll('.home-tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.home-tab').forEach(t => t.classList.remove('active'));
-    const rp = document.getElementById('home-results-panel');
-    if (rp) rp.classList.add('active');
+    document.getElementById('home-results-panel')?.classList.add('active');
   }
 
   function _showBookPanels() {
-    const rp = document.getElementById('home-results-panel');
-    if (rp) rp.classList.remove('active');
-    // Re-activate first tab
-    const firstPanel = document.querySelector('.home-tab-panel');
-    const firstTab   = document.querySelector('.home-tab');
-    if (firstPanel) firstPanel.classList.add('active');
-    if (firstTab)   firstTab.classList.add('active');
+    document.getElementById('home-results-panel')?.classList.remove('active');
+    const tabId = state.get('activeTabId');
+    const tab   = tabId && document.querySelector(`.home-tab[data-tab="${tabId}"]`);
+    const panel = tabId && document.querySelector(`.home-tab-panel[data-panel="${tabId}"]`);
+    if (tab && panel) {
+      tab.classList.add('active');
+      panel.classList.add('active');
+    } else {
+      document.querySelector('.home-tab-panel')?.classList.add('active');
+      document.querySelector('.home-tab')?.classList.add('active');
+    }
   }
 
   return { open: _open, close: _close };
+}
+
+/* ── Private utilities ────────────────────────────────────── */
+
+function _labelForTypeId(id) {
+  const found = SEARCH_TYPES.find(t => t.id === id);
+  return found ? `${found.icon} ${found.label}` : '☰ Search Headings';
+}
+
+function _escapeAttr(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }

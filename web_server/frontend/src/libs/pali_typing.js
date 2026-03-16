@@ -144,55 +144,94 @@ export function installPaliInput(elm, options = {}) {
     cursorRestoreDelta = 0,   // can be tweaked if cursor jumps annoy user
   } = options;
 
-  let composing = false;
+  // Track whether the IME is actively composing a character/word.
+  // On Android soft keyboards every word is a composition session, so we
+  // cannot simply skip the handler while composing – instead we convert
+  // only the committed portion (before the cursor) and leave the live
+  // composition segment untouched.
+  let isComposing = false;
+  let inHandler   = false;   // re-entrancy guard (replaces the old composing flag dual-use)
 
   const handler = () => {
-    if (composing) return;
+    if (inHandler) return;
 
-    const start = elm.selectionStart;
-    const end   = elm.selectionEnd;
+    const start = elm.selectionStart ?? elm.value.length;
+    const end   = elm.selectionEnd   ?? start;
     const raw   = elm.value;
 
-    const normalized = normalizePaliInput(raw, mode);
+    // ── Android / IME path ───────────────────────────────────────────────
+    // While composing, the browser inserts a live "composition string" that
+    // extends from the cursor back to the start of the current word.
+    // We must NOT touch that live segment or the IME gets confused.
+    // Strategy: convert only the text BEFORE the composition start (= `start`
+    // because on Android the cursor sits at the end of the composed segment
+    // and selectionStart reflects the insertion point before it).
+    //
+    // We keep the suffix (from `start` onward) completely intact.
+    if (isComposing) {
+      const committed = raw.slice(0, start);
+      const live      = raw.slice(start);          // in-flight composition — don't touch
 
+      const convertedCommitted = normalizePaliInput(committed, mode);
+      if (convertedCommitted === committed) return; // nothing changed
+
+      inHandler = true;
+      const oldCommittedLen = committed.length;
+      const newCommittedLen = convertedCommitted.length;
+
+      elm.value = convertedCommitted + live;
+
+      // Keep cursor at the same logical position within the committed text
+      const delta  = newCommittedLen - oldCommittedLen;
+      const newPos = Math.min(Math.max(0, start + delta + cursorRestoreDelta), newCommittedLen);
+      elm.setSelectionRange(newPos, newPos);
+
+      inHandler = false;
+      if (onConvert) onConvert(elm.value);
+      return;
+    }
+
+    // ── Normal (non-composing) path ─────────────────────────────────────
+    const normalized = normalizePaliInput(raw, mode);
     if (normalized === raw) return;
 
-    composing = true;  // prevent recursion
+    inHandler = true;
 
     const oldLen = raw.length;
     const newLen = normalized.length;
 
     elm.value = normalized;
 
-    // Try to keep cursor roughly in place
     let newPos = start;
     if (start === end && start === oldLen) {
-      // was at end → stay at end
       newPos = newLen;
     } else {
-      // heuristic – adjust roughly by length difference
       const delta = newLen - oldLen;
       newPos = Math.min(Math.max(0, start + delta + cursorRestoreDelta), newLen);
     }
 
     elm.setSelectionRange(newPos, newPos);
 
-    composing = false;
-
+    inHandler = false;
     if (onConvert) onConvert(normalized);
   };
 
-  elm.addEventListener('input', handler);
+  const onCompositionStart = () => { isComposing = true; };
+  const onCompositionEnd   = () => {
+    isComposing = false;
+    // Run a full conversion now that the word is committed
+    handler();
+  };
 
-  // Optional: also handle composition events (better IME support)
-  elm.addEventListener('compositionstart', () => { composing = true; });
-  elm.addEventListener('compositionend',   () => { composing = false; handler(); });
+  elm.addEventListener('input',            handler);
+  elm.addEventListener('compositionstart', onCompositionStart);
+  elm.addEventListener('compositionend',   onCompositionEnd);
 
   // Return remover if needed
   return () => {
-    elm.removeEventListener('input', handler);
-    elm.removeEventListener('compositionstart', () => {});
-    elm.removeEventListener('compositionend',   () => {});
+    elm.removeEventListener('input',            handler);
+    elm.removeEventListener('compositionstart', onCompositionStart);
+    elm.removeEventListener('compositionend',   onCompositionEnd);
   };
 }
 

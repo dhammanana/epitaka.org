@@ -1,4 +1,6 @@
+# ────────────────────────────────────────────────────────────────
 # Stage 1: Builder
+# ────────────────────────────────────────────────────────────────
 FROM python:3.11-slim AS builder
 
 RUN apt-get update -qq && \
@@ -19,7 +21,9 @@ RUN pip install --no-cache-dir gdown \
     && gdown 1AV29Ut1_xXQDE2LBxVYKBufhs47SDC72 -O translations.db.zip \
     && unzip translations.db.zip \
     && rm -f translations.db.zip \
-    && ls -lh translations.db
+    && rm -rf __MACOSX   # remove macOS junk folder \
+    && ls -lh translations.db   # should show ~1.8–1.9 GB file \
+    && test -s translations.db || (echo "Database is empty!" && exit 1)
 
 # Stage 2: Runtime
 FROM python:3.11-slim

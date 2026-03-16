@@ -6,6 +6,6 @@ app = create_app('development')  # or 'production'
 
 
 if __name__ == '__main__':
-    print('Running at http://localhost:8080/tpk')
+    print('Running at http://localhost:8080/')
     init_auth_db()
     app.run(host='0.0.0.0', port=8080, debug=True)

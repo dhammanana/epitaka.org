@@ -3,9 +3,12 @@
  * Main reader logic for E-Piṭaka book page.
  * Handles: TOC sidebar, lazy section loading, deep-link,
  *          Pali script conversion, dictionary word lookup,
- *          Firebase auth UI, inline comments (SQLite backend).
+ *          Firebase auth UI, inline comments (SQLite backend),
+ *          book_links (cross-book linked lines with popup + dialog).
  */
-
+import './css/book.css';
+import './css/book-links.css'
+import './css/common.css'
 import { TextProcessor, Script } from './pali-script.js';
 import {
   loadSettings, saveSettings, applySettings,
@@ -28,6 +31,10 @@ const { bookId, baseUrl, bookref } = window.BOOK_CONFIG;
 const loadedSections   = new Set();
 const loadingPromises  = {};
 const originalPaliText = new WeakMap();
+
+// book_links: Map<"para-line", Array<linkObj>>
+// Populated once after DOMContentLoaded when load_attha setting is true.
+let bookLinksMap = new Map();
 
 // ── DOM refs ──────────────────────────────────────────────────
 const tocSidebar     = document.getElementById('toc-sidebar');
@@ -112,10 +119,32 @@ const tocObserver = new IntersectionObserver(entries => {
     const paraId = parseInt(entry.target.dataset.paraId);
     highlightTocItem(paraId);
     updateCrossRefLinks(paraId);
+    // Keep URL in sync as the user scrolls between sections
+    updateUrl(paraId);
   }
 }, { rootMargin: '-52px 0px -60% 0px' });
 
 document.querySelectorAll('.section-block').forEach(el => tocObserver.observe(el));
+
+// ── Para-level scroll observer ────────────────────────────
+// Watches .para-group elements (injected dynamically per section).
+// Fires updateUrl() and updateCrossRefLinks() as each paragraph
+// scrolls into the top 30% of the viewport.
+const paraObserver = new IntersectionObserver(entries => {
+  for (const entry of entries) {
+    if (!entry.isIntersecting) continue;
+    // para-group id is "p-{paraId}-l-0"
+    const m = entry.target.id.match(/^p-(\d+)-l-0$/);
+    if (!m) continue;
+    const paraId = parseInt(m[1]);
+    updateUrl(paraId);
+    updateCrossRefLinks(paraId);
+  }
+}, {
+  // Trigger when the top edge of the paragraph crosses 20% from the top
+  rootMargin: '-52px 0px -75% 0px',
+  threshold: 0,
+});
 
 function highlightTocItem(paraId) {
   document.querySelectorAll('#toc-list .toc-item').forEach(item => {
@@ -156,6 +185,9 @@ async function loadSection(paraId) {
       // ── Load comments, notes, bookmarks, share buttons ──
       await attachCommentIcons(contentEl, paraId);
       await attachRowActions(contentEl, paraId);
+      // ── Fetch & overlay book-link badges for this section ──
+      await loadBookLinksForSection(paraId);
+      applyBookLinksToContent(contentEl);
     })
     .catch(() => {
       contentEl.innerHTML =
@@ -197,6 +229,9 @@ function renderSection(contentEl, sentences) {
 
   contentEl.innerHTML = html;
   attachPaliClickListeners(contentEl);
+
+  // Register every newly rendered paragraph with the scroll observer
+  contentEl.querySelectorAll('.para-group[id^="p-"]').forEach(el => paraObserver.observe(el));
 }
 
 async function openSection(paraId) {
@@ -233,12 +268,16 @@ document.querySelectorAll('.section-heading').forEach(heading => {
 // URL & cross-ref links
 // ════════════════════════════════════════════
 
-function updateUrl() {
-  const openIds = [...document.querySelectorAll('.section-content.open')]
-    .map(el => parseInt(el.closest('.section-block').dataset.paraId))
-    .sort((a, b) => a - b);
-
-  const paraId = openIds[0];
+function updateUrl(scrollParaId) {
+  // When called from the scroll observer, use the visible paraId directly.
+  // When called from openSection() (no argument), derive from open sections.
+  let paraId = scrollParaId;
+  if (!paraId) {
+    const openIds = [...document.querySelectorAll('.section-content.open')]
+      .map(el => parseInt(el.closest('.section-block').dataset.paraId))
+      .sort((a, b) => a - b);
+    paraId = openIds[0];
+  }
   if (!paraId) { history.replaceState(null, '', window.location.pathname); return; }
   history.replaceState(null, '', `${window.location.pathname}?para=${paraId}`);
   updateCrossRefLinks(paraId);
@@ -330,6 +369,289 @@ settingsForm.addEventListener('submit', e => {
 });
 
 // ════════════════════════════════════════════
+// Book-links (cross-book annotations)
+// ════════════════════════════════════════════
+
+/**
+ * Fetch book_links for a single section (identified by its para_id).
+ * Results are merged into bookLinksMap so previously loaded sections stay cached.
+ * Called once per section expand, just before applyBookLinksToContent().
+ * Only runs when the load_attha setting is truthy.
+ */
+async function loadBookLinksForSection(paraId) {
+  const settings = loadSettings();
+  if (!settings.load_attha) return;
+
+  try {
+    const res = await fetch(`${baseUrl}/api/book/${bookId}/links?para_id=${paraId}`);
+    if (!res.ok) return;
+    const data = (await res.json()).reverse();
+    for (const link of data) {
+      const key = `${link.src_para}-${link.src_line}`;
+      if (!bookLinksMap.has(key)) bookLinksMap.set(key, []);
+      bookLinksMap.get(key).push(link);
+    }
+  } catch (err) {
+    console.warn('book_links: failed to load section', paraId, err);
+  }
+}
+
+/**
+ * After a section's sentences are rendered into contentEl,
+ * scan every .sentence-row and inject .book-link-badge elements
+ * for rows that have entries in bookLinksMap.
+ */
+function applyBookLinksToContent(contentEl) {
+  const settings = loadSettings();
+  if (!settings.load_attha) return;
+
+  contentEl.querySelectorAll('.sentence-row[id]').forEach(row => {
+    const m = row.id.match(/^p-(\d+)-l-(\d+)$/);
+    if (!m) return;
+    const paraId = parseInt(m[1]);
+    const lineId = parseInt(m[2]);
+    if (lineId === 0) return; // skip the anchor-only para-group row
+
+    const key   = `${paraId}-${lineId}`;
+    const links = bookLinksMap.get(key);
+    if (!links?.length) return;
+
+    // Inject one badge per link, right after the pali-text div (if present)
+    // or appended to the row.
+    for (const link of links) {
+      const badge = document.createElement('span');
+      badge.className   = 'book-link-badge pali-text';
+      badge.textContent = link.word;
+      badge.title       = `${link.dst_book_name}`;
+      badge.dataset.link = JSON.stringify(link);
+      badge.setAttribute('role', 'button');
+      badge.setAttribute('tabindex', '0');
+
+      badge.addEventListener('click', e => {
+        e.stopPropagation();
+        showBookLinkPopup(badge, link);
+      });
+      badge.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          showBookLinkPopup(badge, link);
+        }
+      });
+
+      // Insert after the first .pali-text child, or append
+      const paliDiv = row.querySelector('.pali-text');
+      if (paliDiv) paliDiv.after(badge);
+      else row.appendChild(badge);
+    }
+  });
+}
+
+// ── Popup (3-line preview) ──────────────────────────────────────────────────
+
+let _activePopup = null;
+
+function showBookLinkPopup(anchorEl, link) {
+  closeBookLinkPopup();
+
+  const popup = document.createElement('div');
+  popup.className = 'book-link-popup';
+  popup.setAttribute('role', 'tooltip');
+
+  // Header: book name
+  const header = document.createElement('div');
+  header.className = 'blp-header';
+  header.textContent = link.dst_book_name;
+  popup.appendChild(header);
+
+  // 3-line preview
+  const preview = document.createElement('div');
+  preview.className = 'blp-preview';
+
+  for (const row of link.preview) {
+    const rowEl = document.createElement('div');
+    rowEl.className = 'blp-row' + (row.is_target ? ' blp-target' : '');
+    if (row.pali)    rowEl.innerHTML += `<span class="pali-text blp-pali">${row.pali}</span>`;
+    if (row.english) rowEl.innerHTML += `<span class="blp-eng">${row.english}</span>`;
+    preview.appendChild(rowEl);
+  }
+  popup.appendChild(preview);
+
+  // "Show more" button → opens the full-heading dialog
+  const moreBtn = document.createElement('button');
+  moreBtn.className   = 'blp-more-btn';
+  moreBtn.textContent = 'Show full section ›';
+  moreBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    closeBookLinkPopup();
+    showBookLinkDialog(link);
+  });
+  popup.appendChild(moreBtn);
+
+  // Position near the badge
+  document.body.appendChild(popup);
+  positionPopup(popup, anchorEl);
+
+  _activePopup = popup;
+
+  // Close on outside click / Escape
+  const onOutside = e => {
+    if (!popup.contains(e.target) && e.target !== anchorEl) closeBookLinkPopup();
+  };
+  const onEsc = e => { if (e.key === 'Escape') closeBookLinkPopup(); };
+  setTimeout(() => {
+    document.addEventListener('click', onOutside, { once: true });
+    document.addEventListener('keydown', onEsc, { once: true });
+  }, 0);
+}
+
+function positionPopup(popup, anchor) {
+  const rect   = anchor.getBoundingClientRect();
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+  const scrollX = window.scrollX || document.documentElement.scrollLeft;
+
+  let top  = rect.bottom + scrollY + 6;
+  let left = rect.left   + scrollX;
+
+  // Clamp to viewport width
+  const popW = 320; // matches CSS min-width
+  if (left + popW > window.innerWidth + scrollX - 8) {
+    left = window.innerWidth + scrollX - popW - 8;
+  }
+  if (left < 8) left = 8;
+
+  popup.style.top  = `${top}px`;
+  popup.style.left = `${left}px`;
+}
+
+function closeBookLinkPopup() {
+  if (_activePopup) {
+    _activePopup.remove();
+    _activePopup = null;
+  }
+}
+
+// ── Full-section dialog ────────────────────────────────────────────────────
+
+let _activeDialog = null;
+
+async function showBookLinkDialog(link) {
+  closeBookLinkDialog();
+
+  // Overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'book-link-dialog-overlay';
+  overlay.setAttribute('role', 'presentation');
+
+  // Dialog box
+  const dialog = document.createElement('div');
+  dialog.className = 'book-link-dialog';
+  dialog.setAttribute('role', 'dialog');
+  dialog.setAttribute('aria-modal', 'true');
+
+  // Header
+  const header = document.createElement('div');
+  header.className = 'bld-header';
+
+  const title = document.createElement('span');
+  title.className   = 'bld-title pali-text';
+  title.textContent = link.dst_book_name;
+  header.appendChild(title);
+
+  const closeBtn = document.createElement('button');
+  closeBtn.className   = 'bld-close';
+  closeBtn.textContent = '✕';
+  closeBtn.setAttribute('aria-label', 'Close');
+  closeBtn.addEventListener('click', closeBookLinkDialog);
+  header.appendChild(closeBtn);
+
+  dialog.appendChild(header);
+
+  // Loading state
+  const body = document.createElement('div');
+  body.className = 'bld-body';
+  body.innerHTML = '<div class="section-loading">Loading…</div>';
+  dialog.appendChild(body);
+
+  overlay.appendChild(dialog);
+  document.body.appendChild(overlay);
+  _activeDialog = overlay;
+
+  // Close on overlay click or Escape
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeBookLinkDialog();
+  });
+  document.addEventListener('keydown', function onEsc(e) {
+    if (e.key === 'Escape') { closeBookLinkDialog(); document.removeEventListener('keydown', onEsc); }
+  });
+
+  // Fetch the full section
+  try {
+    const url = `${baseUrl}/api/book_link_section?dst_book=${encodeURIComponent(link.dst_book)}`
+              + `&dst_para=${link.dst_para}&dst_line=${link.dst_line}`;
+    const res  = await fetch(url);
+    if (!res.ok) throw new Error('Not found');
+    const data = await res.json();
+
+    // Section title subtitle
+    const subtitle = document.createElement('div');
+    subtitle.className   = 'bld-subtitle pali-text';
+    subtitle.textContent = data.section_title || '';
+    body.innerHTML = '';
+    body.appendChild(subtitle);
+
+    // Render all sentences, highlighting the target
+    const groups = {};
+    for (const s of data.sentences) {
+      (groups[s.para_id] = groups[s.para_id] || []).push(s);
+    }
+
+    for (const paraId of Object.keys(groups).sort((a, b) => a - b)) {
+      const paraEl = document.createElement('div');
+      paraEl.className = 'bld-para';
+
+      for (const s of groups[paraId]) {
+        const rowEl = document.createElement('div');
+        const isTarget = s.para_id === link.dst_para && s.line_id === link.dst_line;
+        rowEl.className = 'bld-sentence' + (isTarget ? ' bld-target' : '');
+        rowEl.id        = `bld-p${s.para_id}-l${s.line_id}`;
+        if (s.pali)    rowEl.innerHTML += `<div class="pali-text bld-pali">${s.pali}</div>`;
+        if (s.english) rowEl.innerHTML += `<div class="bld-eng">${s.english}</div>`;
+        paraEl.appendChild(rowEl);
+      }
+      body.appendChild(paraEl);
+    }
+
+    // Scroll the target sentence into view
+    setTimeout(() => {
+      const targetRow = body.querySelector('.bld-target');
+      if (targetRow) targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 120);
+
+    // "Open in new tab" footer link
+    const footer = document.createElement('div');
+    footer.className = 'bld-footer';
+    const openLink = document.createElement('a');
+    openLink.className  = 'bld-open-link';
+    openLink.href       = `${baseUrl}/book/${link.dst_book}?para=${link.dst_para}&line=${link.dst_line}`;
+    openLink.target     = '_blank';
+    openLink.rel        = 'noopener noreferrer';
+    openLink.textContent = `Open in ${data.section_title || link.dst_book_name} ↗`;
+    footer.appendChild(openLink);
+    body.appendChild(footer);
+
+  } catch (err) {
+    body.innerHTML = `<div class="section-loading error">Could not load section.</div>`;
+  }
+}
+
+function closeBookLinkDialog() {
+  if (_activeDialog) {
+    _activeDialog.remove();
+    _activeDialog = null;
+  }
+}
+
+// ════════════════════════════════════════════
 // Init
 // ════════════════════════════════════════════
 
@@ -392,17 +714,17 @@ function _initHistoryTracking() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const s = loadSettings();
   applySettings(s);
   buildScriptOptions(document.getElementById('pali-script-select'), s.paliScript);
 
   initAuthUI();
   initLibraryUI();
+
   handleDeepLink();
   _initHistoryTracking();
 
-  // ADD THIS ↓
   if (window.HOME_MENU) {
     initHomeDialog({
       triggerSelector: '#home-dialog-trigger',
@@ -410,4 +732,4 @@ document.addEventListener('DOMContentLoaded', () => {
       menu: window.HOME_MENU,
     });
   }
-});;
+});

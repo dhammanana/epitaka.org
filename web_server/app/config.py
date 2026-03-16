@@ -2,12 +2,14 @@ import os, json
 
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'your-secret-key-change-me'
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret-key'
     DATABASE = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'translations.db')
     BASE_URL = os.environ.get('BASE_URL', '')
     MAX_SUGGESTIONS = 20
     MAX_SEARCH_RESULTS = 50
     FIREBASE_SERVICE_ACCOUNT_JSON = os.environ.get('FIREBASE_SERVICE_ACCOUNT_JSON', 'serviceAccountKey.json')
+    DPD_GRAMMAR = False
+    DPD_IPA = False
 
     FIREBASE_CONFIG = {
       "apiKey":            "AIzaSyBzh0o8SV-6I5meJkWgH_3ic-f8vpSMzyQ",

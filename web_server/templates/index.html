@@ -1,140 +1,132 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chaṭṭha Saṅgāyana Tipiṭaka</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Piṭaka — Chaṭṭha Saṅgāyana Tipiṭaka</title>
+  <meta name="description" content="Read and research the Pāli Tipiṭaka with AI-assisted translation. Chaṭṭha Saṅgāyana edition.">
 
-    <script src="{{ url_for('static', filename='js/tailwind-3.4.17.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/autocomplete-theme-classic.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+Symbols+2&display=swap" rel="stylesheet">
-    <style>
-    @font-face {
-      font-family: 'Segoe UI';
-      src: local('Inter'), local('Arial'), sans-serif;
-      font-weight: 400;
-    }
-    </style>
-    <style>
-        .toggle-section {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .toggle-section:hover {
-            color: #b45309;
-            transform: translateX(5px);
-        }
-        .hidden {
-            display: none;
-        }
-        .book-link {
-            transition: color 0.3s ease;
-        }
-        .book-link:hover {
-            color: #b45309;
-        }
-        #autocomplete-heading {
-            width: 100%;
-            max-width: 32rem;
-            margin: 0 auto;
-        }
-        .search-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            max-width: 32rem;
-            margin: 0 auto;
-        }
-        .search-icon {
-            position: absolute;
-            right: 0.75rem;
-            color: #6b7280;
-        }
-    </style>
+  <!-- Design-token base (shared with book page) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+
+  <!-- Index-page-specific styles (extracted by Vite from src/index.css) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+  <!-- Flask → JS config bridge -->
+  <script>
+    window.INDEX_CONFIG = {
+      baseUrl: {{ base_url | tojson }},
+      menu:    {{ menu | tojson }},
+    };
+  </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7NQWX1DCC2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-7NQWX1DCC2');
-</script>
+<body>
 
-<body class="bg-gradient-to-b from-amber-100 to-amber-50 text-gray-800 font-sans min-h-screen">
-    <div class="container mx-auto p-6 max-w-7xl">
-        <header class="text-center mb-8">
-            <h1 class="font-bold text-4xl text-amber-900 tracking-tight">E-Piṭaka</h1>
-            <p class="mt-2 text-gray-600">Epitaka.org offers an AI-translated Tipitaka</p>
-            <p class="mt 4 text-gray-400 text-sm">powered by Gemini API and Myanmar Nissaya, to help explore Buddha's Theravāda teachings in depth. With most Aṭṭhakathā and Ṭīkā untranslated, this resource aids deeper study—read with caution for accuracy.</p>
-        </header>
+  <!-- Decorative dharma wheel (purely visual) -->
+  <svg class="bg-wheel" viewBox="0 0 200 200" fill="none"
+       xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="100" cy="100" r="94" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="11" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="58" stroke="currentColor" stroke-width="1"
+            stroke-dasharray="3 2.5"/>
+    <g stroke="currentColor" stroke-width="1.2">
+      <line x1="100" y1="13"  x2="100" y2="89"/>
+      <line x1="100" y1="111" x2="100" y2="187"/>
+      <line x1="13"  y1="100" x2="89"  y2="100"/>
+      <line x1="111" y1="100" x2="187" y2="100"/>
+      <line x1="47"  y1="47"  x2="92"  y2="92"/>
+      <line x1="108" y1="108" x2="153" y2="153"/>
+      <line x1="153" y1="47"  x2="108" y2="92"/>
+      <line x1="92"  y1="108" x2="47"  y2="153"/>
+    </g>
+    <circle cx="100" cy="100" r="5" fill="currentColor"/>
+  </svg>
 
-        <!-- Search Bar -->
-        <div class="mb-8">
-            <form action="/search_headings" method="get" class="search-container">
-                <div id="autocomplete-heading" tabindex="0" class="w-full"></div>
-            </form>
+  <!-- Landing screen (behind the disclaimer overlay) -->
+  <div id="home-landing">
+    <div class="landing-wordmark">E-<span>Piṭaka</span></div>
+    <div class="landing-tagline">Chaṭṭha Saṅgāyana Tipiṭaka</div>
+    <button id="open-books-btn" type="button">☸ Browse the Canon</button>
+  </div>
+
+  <!-- ── Disclaimer overlay ──────────────────────────────── -->
+  <div id="disclaimer-overlay" role="dialog" aria-modal="true"
+       aria-labelledby="disclaimer-heading">
+
+    <div id="disclaimer-card">
+      <div class="disclaimer-top-bar"></div>
+
+      <div class="disclaimer-body">
+
+        <!-- Header -->
+        <div class="disclaimer-header">
+          <svg class="disclaimer-emblem" viewBox="0 0 36 36" fill="none"
+               xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="18" cy="18" r="16.5" stroke="currentColor" stroke-width="1.3"/>
+            <circle cx="18" cy="18" r="2.8"  fill="currentColor"/>
+            <circle cx="18" cy="18" r="9"    stroke="currentColor" stroke-width="1"
+                    stroke-dasharray="2 1.8"/>
+            <g stroke="currentColor" stroke-width="1.1">
+              <line x1="18"  y1="2.5"  x2="18"  y2="15.2"/>
+              <line x1="18"  y1="20.8" x2="18"  y2="33.5"/>
+              <line x1="2.5" y1="18"   x2="15.2" y2="18"/>
+              <line x1="20.8" y1="18"  x2="33.5" y2="18"/>
+              <line x1="6.5"  y1="6.5"  x2="14.9" y2="14.9"/>
+              <line x1="21.1" y1="21.1" x2="29.5" y2="29.5"/>
+              <line x1="29.5" y1="6.5"  x2="21.1" y2="14.9"/>
+              <line x1="14.9" y1="21.1" x2="6.5"  y2="29.5"/>
+            </g>
+          </svg>
+          <div>
+            <div class="disclaimer-title" id="disclaimer-heading">E-Piṭaka</div>
+            <div class="disclaimer-subtitle">Research Translation</div>
+          </div>
         </div>
 
-        <!-- Menu -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            {% for category, pitakas in menu.items() %}
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                <h2 class="font-bold text-xl text-amber-900 mb-4">{{ category }}</h2>
-                {% for pitaka, books in pitakas.items() %}
-                <div class="mb-4">
-                    <div class="toggle-section font-semibold text-amber-800 text-lg flex justify-between items-center" 
-                         onclick="toggleSection('{{ category }}-{{ pitaka }}')">
-                        {{ pitaka }}
-                        <span style="font-family: 'Noto Sans Symbols 2', sans-serif;">⮷</span>
-                    </div>
-                    <div class="hidden ml-4 text-gray-700 mt-2" id="{{ category }}-{{ pitaka }}">
-                        {% if pitaka == 'Sutta Piṭaka' %}
-                        {% for nikaya, nikaya_books in books.items() %}
-                        <div class="mb-2">
-                            <div class="toggle-section font-medium text-amber-700 text-base flex justify-between items-center"
-                                 onclick="toggleSection('{{ category }}-{{ pitaka }}-{{ nikaya }}')">
-                                {{ nikaya }}
-                                <span style="font-family: 'Noto Sans Symbols2', sans-serif;">⮷</span>
-                            </div>
-                            <ol class="hidden ml-4 list-decimal text-gray-700 mt-2" id="{{ category }}-{{ pitaka }}-{{ nikaya }}">
-                                {% for book_id, title in nikaya_books %}
-                                <li class="my-1">
-                                    <a href="{{ base_url }}/book/{{ book_id }}" class="book-link text-blue-600 hover:underline">{{ title }}</a>
-                                </li>
-                                {% endfor %}
-                            </ol>
-                        </div>
-                        {% endfor %}
-                        {% else %}
-                        <ol class="list-decimal">
-                            {% for book_id, title in books %}
-                            <li class="my-1">
-                                <a href="{{ base_url }}/book/{{ book_id }}" class="book-link text-blue-600 hover:underline">{{ title }}</a>
-                            </li>
-                            {% endfor %}
-                        </ol>
-                        {% endif %}
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            
-            {% endfor %}
+        <!-- Notice text -->
+        <div class="disclaimer-notice">
+          <div class="notice-label">Translation Notice</div>
+          <p>
+            The translations on this platform were produced with the assistance of
+            artificial intelligence, drawing on the Myanmar Nissaya tradition and other
+            reference materials. They are offered as a research and study aid — to help
+            readers engage more directly with the original Pāli texts, not to replace them.
+          </p>
+          <p>
+            Please do not treat any rendering here as authoritative or final.
+            Precise meaning is best established through careful study of the original
+            language; these translations are a support for that inquiry.
+          </p>
+          <p>
+            If you quote or share a passage from this site, kindly make clear that it is
+            an AI-assisted translation so others may weigh it accordingly.
+          </p>
         </div>
-    </div>
 
-    <script>
-        function toggleSection(id) {
-            const element = document.getElementById(id);
-            element.classList.toggle('hidden');
-        }
-    </script>
+        <!-- Footer: checkbox + button -->
+        <div class="disclaimer-footer">
+          <label class="check-label" for="disclaimer-no-show">
+            <input type="checkbox" id="disclaimer-no-show">
+            Don't show this again
+          </label>
+          <button id="disclaimer-ok" type="button" class="btn btn-primary">
+            I understand — continue
+          </button>
+        </div>
+
+      </div><!-- /.disclaimer-body -->
+    </div><!-- /#disclaimer-card -->
+
+  </div><!-- /#disclaimer-overlay -->
+
+  <!-- Vite bundle (extracted by Vite from src/index.js) -->
+  <script type="module" src="{{ url_for('static', filename='js/index.bundle.js') }}"></script>
+
 </body>
 </html>

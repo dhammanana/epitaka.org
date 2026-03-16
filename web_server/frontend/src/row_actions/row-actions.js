@@ -15,8 +15,10 @@
 import { auth }            from '../auth/auth.js';
 import { showLoginDialog } from '../auth/auth-ui.js';
 import { authFetch }       from '../auth/auth.js';
-import { loadSettings } from '../settings.js';
+import { loadSettings }    from '../settings.js';
+import { copyToClipboard }   from '../libs/clipboard.js';
 import { installPaliInput } from '../libs/pali_typing.js';
+import '../css/extras.css';
 
 const { baseUrl, bookId } = window.BOOK_CONFIG;
 
@@ -201,8 +203,45 @@ function _injectActions(row, paraId, lineId, bookmarkSet, noteMap) {
     });
   }); 
 
+  // ── Collapse toggle ⋯ ──────────────────────────────────────────────
+  // ── Collapse toggle ⋯ ──────────────────────────────────────────
+  // Note: NOT given ra-btn class — it must stay visible when collapsed.
+  const collapseToggle = _el('button', 'ra-collapse-toggle');
+  collapseToggle.innerHTML = '⋯';
+  collapseToggle.title = 'Actions';
+  collapseToggle.setAttribute('aria-label', 'Expand actions');
+  collapseToggle.setAttribute('aria-expanded', 'false');
+  collapseToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isExpanded = wrap.classList.toggle('ra-expanded');
+    collapseToggle.setAttribute('aria-expanded', String(isExpanded));
+    if (isExpanded) {
+      const closeOnOutside = (ev) => {
+        if (!wrap.contains(ev.target)) {
+          wrap.classList.remove('ra-expanded');
+          collapseToggle.setAttribute('aria-expanded', 'false');
+          document.removeEventListener('click', closeOnOutside);
+        }
+      };
+      setTimeout(() => document.addEventListener('click', closeOnOutside), 0);
+    }
+  });
+
+  // Pull the comment button that comments-ui already created into this wrap,
+  // so ALL buttons live in one container — collapse then works with simple CSS.
+  const cmtWrap = actionsBar.querySelector('.cmt-wrap');
+  const cmtBtn  = cmtWrap?.querySelector('.cmt-icon-btn');
+  if (cmtBtn) {
+    cmtBtn.classList.add('ra-btn');   // ensure it participates in collapse
+    cmtWrap.remove();                 // remove the now-redundant wrapper
+  }
+
+  // Order: ⋯ toggle | 💬 comment | 🔖 bookmark | 📝 note | 🔗 share
+  wrap.append(collapseToggle);
+  if (cmtBtn) wrap.append(cmtBtn);
   wrap.append(bmBtn, noteBtn, shareBtn);
-  actionsBar.append(wrap);
+
+  actionsBar.appendChild(wrap);
   row.append(notePanel);
 };
 

@@ -11,6 +11,7 @@
  */
 
 import { showLibraryDialog } from '../row_actions/library-ui.js';
+import '../css/auth.css';
 import {
   auth,
   signInWithGoogle,

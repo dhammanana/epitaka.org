@@ -16,7 +16,7 @@
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}">
   <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/autocomplete-theme-classic.css') }}"> -->
-  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/book-links.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/dictionary.css') }}">
@@ -32,24 +32,18 @@
     gtag('config', 'G-7NQWX1DCC2');
   </script>
 
-  <!--
-    Server-side data injected for JS.
-    FIREBASE_CONFIG is passed from Flask render_template as firebase_config=FIREBASE_CONFIG.
-    BOOK_CONFIG is unchanged from the original template.
-  -->
   <script>
     window.FIREBASE_CONFIG = {{ firebase_config | tojson }};
     window.BOOK_CONFIG = {
       bookId:  {{ book_id | tojson }},
       baseUrl: {{ base_url | tojson }},
       bookref: {
-        mula:  {{ bookref.mula_ref  | tojson }},
-        attha: {{ bookref.attha_ref | tojson }},
-        tika:  {{ bookref.tika_ref  | tojson }},
+        mula:  {{ bookref.mula_ref  | tojson }},   {# list of book_id strings #}
+        attha: {{ bookref.attha_ref | tojson }},   {# list of book_id strings #}
+        tika:  {{ bookref.tika_ref  | tojson }},   {# list of book_id strings #}
       }
     };
     window.HOME_MENU = {{ menu | tojson }};
-
   </script>
 </head>
 
@@ -61,15 +55,21 @@
   <button id="home-dialog-trigger" class="topbar-btn icon-btn" aria-label="Home">⌂</button>
   <span class="book-title pali-text" title="{{ book_title }}">{{ book_title }}</span>
   <div class="topbar-right">
-    {% if bookref.mula_ref %}
-    <a id="ref-mula"  href="{{ base_url }}/book_ref/{{ bookref.mula_ref  }}?ref={{ book_id }}" class="topbar-btn ref-btn">Mūla</a>
-    {% endif %}
-    {% if bookref.attha_ref %}
-    <a id="ref-attha" href="{{ base_url }}/book_ref/{{ bookref.attha_ref }}?ref={{ book_id }}" class="topbar-btn ref-btn">Attha</a>
-    {% endif %}
-    {% if bookref.tika_ref %}
-    <a id="ref-tika"  href="{{ base_url }}/book_ref/{{ bookref.tika_ref  }}?ref={{ book_id }}" class="topbar-btn ref-btn">Ṭīkā</a>
-    {% endif %}
+    {% for ref_id in bookref.mula_ref %}
+    <a id="ref-mula-{{ loop.index }}"
+       href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
+       class="topbar-btn ref-btn">Mūla{% if bookref.mula_ref | length > 1 %} {{ loop.index }}{% endif %}</a>
+    {% endfor %}
+    {% for ref_id in bookref.attha_ref %}
+    <a id="ref-attha-{{ loop.index }}"
+       href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
+       class="topbar-btn ref-btn">Attha{% if bookref.attha_ref | length > 1 %} {{ loop.index }}{% endif %}</a>
+    {% endfor %}
+    {% for ref_id in bookref.tika_ref %}
+    <a id="ref-tika-{{ loop.index }}"
+       href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
+       class="topbar-btn ref-btn">Ṭīkā{% if bookref.tika_ref | length > 1 %} {{ loop.index }}{% endif %}</a>
+    {% endfor %}
     <button id="settings-btn" class="topbar-btn icon-btn" title="Settings">⚙</button>
     <!-- auth-avatar-btn injected here by auth-ui.js -->
   </div>
@@ -134,45 +134,142 @@
 <!-- SETTINGS MODAL -->
 <div id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
   <div class="modal-box">
-    <h2 id="settings-title">Settings</h2>
+
+    <!-- Header -->
+    <div class="modal-header">
+      <h2 id="settings-title">⚙️ Settings</h2>
+      <button type="button" class="modal-close-x" id="settings-cancel" aria-label="Close">✕</button>
+    </div>
+
     <form id="settings-form" novalidate>
-      <div class="modal-field">
-        <label class="field-label">Display Languages</label>
-        <label class="check-label"><input type="checkbox" id="cb-pali"       name="pali">       Pāli</label>
-        <label class="check-label"><input type="checkbox" id="cb-english"    name="english">    English</label>
-        <label class="check-label"><input type="checkbox" id="cb-vietnamese" name="vietnamese"> Vietnamese</label>
-      </div>
-      <div class="modal-field">
-        <label class="field-label">Layout <small>(when Pāli + 1 translation)</small></label>
-        <div class="radio-group">
-          <label class="radio-label"><input type="radio" name="layout" value="stacked">    Stacked</label>
-          <label class="radio-label"><input type="radio" name="layout" value="sidebyside"> Side by side</label>
+      <div class="modal-scroll">
+
+        <!-- ── DISPLAY ── -->
+        <div class="modal-section">
+          <div class="modal-section-title">Display</div>
+
+          <div class="modal-field">
+            <label class="field-label">Languages</label>
+            <label class="check-label"><input type="checkbox" id="cb-pali"       name="pali">       Pāli</label>
+            <label class="check-label"><input type="checkbox" id="cb-english"    name="english">    English</label>
+            <label class="check-label"><input type="checkbox" id="cb-vietnamese" name="vietnamese"> Vietnamese</label>
+          </div>
+
+          <div class="modal-field">
+            <label class="field-label">Layout <small>(Pāli + 1 translation)</small></label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="layout" value="stacked">    Stacked</label>
+              <label class="radio-label"><input type="radio" name="layout" value="sidebyside"> Side by side</label>
+            </div>
+          </div>
+
+          <div class="modal-field">
+            <label class="check-label">
+              <input type="checkbox" id="cb-load-attha" name="load_attha">
+              Show cross-book links (Attha / Ṭīkā annotations)
+            </label>
+          </div>
+
+          <div class="modal-field">
+            <label class="field-label">
+              Font size &nbsp;<span id="font-size-label" style="color:var(--accent);font-weight:600;">16px</span>
+            </label>
+            <div class="font-size-row">
+              <span style="font-size:0.78rem;color:var(--muted);">A</span>
+              <input type="range" id="range-font-size" min="10" max="32" step="1" value="16"
+                     oninput="document.getElementById('font-size-label').textContent = this.value + 'px'">
+              <span style="font-size:1.18rem;color:var(--muted);">A</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PĀLI SCRIPT ── -->
+        <div class="modal-section">
+          <div class="modal-section-title">Pāli Script</div>
+          <div class="modal-field">
+            <select id="pali-script-select" class="script-select"></select>
+          </div>
+        </div>
+
+        <!-- ── ACTION BUTTONS ── -->
+        <div class="modal-section">
+          <div class="modal-section-title">Action Buttons</div>
+
+          <div class="modal-field">
+            <label class="field-label">Show buttons per</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="action-mode" value="line"> Every line</label>
+              <label class="radio-label"><input type="radio" name="action-mode" value="para"> Paragraph end</label>
+              <label class="radio-label"><input type="radio" name="action-mode" value="none"> Hidden</label>
+            </div>
+          </div>
+
+          <div class="modal-field">
+            <label class="check-label">
+              <input type="checkbox" id="cb-action-collapse">
+              Collapse into ⋯ menu (tap to expand)
+            </label>
+          </div>
+        </div>
+
+        <!-- ── COLORS ── -->
+        <div class="modal-section">
+          <div class="modal-section-title">Colors</div>
+          <div class="color-row"><span>Pāli text</span>    <input type="color" id="color-pali" value="#7c2d12"></div>
+          <div class="color-row"><span>English text</span> <input type="color" id="color-eng"  value="#1e3a5f"></div>
+          <div class="color-row"><span>Vietnamese</span>   <input type="color" id="color-viet" value="#4a1d6b"></div>
+          <div class="color-row"><span>Background</span>   <input type="color" id="color-bg"   value="#faf7f2"></div>
+        </div>
+
+      </div><!-- /.modal-scroll -->
+
+      <!-- Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn-credits" id="open-credits-btn">ℹ️ Credits</button>
+        <div class="modal-actions">
+          <button type="button" class="btn" id="settings-cancel-2">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
         </div>
       </div>
-      <div class="modal-field">
-        <label class="field-label">Action Buttons <small>(💬 🔖 📝 🔗)</small></label>
-        <div class="radio-group">
-          <label class="radio-label"><input type="radio" name="action-mode" value="line"> Every Line</label>
-          <label class="radio-label"><input type="radio" name="action-mode" value="para"> Every Paragraph</label>
-          <label class="radio-label"><input type="radio" name="action-mode" value="none"> Disabled</label>
-        </div>
-      </div>
-      <div class="modal-field">
-        <label class="field-label" for="pali-script-select">Pāli Script</label>
-        <select id="pali-script-select" class="script-select"></select>
-      </div>
-      <div class="modal-field">
-        <label class="field-label">Text Colors</label>
-        <div class="color-row"><span>Pāli</span>       <input type="color" id="color-pali" value="#7c2d12"></div>
-        <div class="color-row"><span>English</span>    <input type="color" id="color-eng"  value="#1e3a5f"></div>
-        <div class="color-row"><span>Vietnamese</span> <input type="color" id="color-viet" value="#4a1d6b"></div>
-        <div class="color-row"><span>Background</span> <input type="color" id="color-bg"   value="#faf7f2"></div>
-      </div>
-      <div class="modal-actions">
-        <button type="button" class="btn" id="settings-cancel">Cancel</button>
-        <button type="submit" class="btn btn-primary">Save</button>
-      </div>
+
     </form>
+  </div>
+</div>
+
+<!-- CREDITS MODAL -->
+<div id="credits-modal" role="dialog" aria-modal="true" aria-label="Credits">
+  <div class="credits-box">
+    <h3>📖 Credits &amp; Acknowledgements</h3>
+
+    <div class="credit-item">
+      <span class="ci-icon">📜</span>
+      <span>Translation supported by Myanmar Nissaya texts, digitalized by
+        <a href="https://wikipali.org" target="_blank" rel="noopener">wikipali.org</a>
+      </span>
+    </div>
+
+    <div class="credit-item">
+      <span class="ci-icon">🔤</span>
+      <span>Font &amp; Pāli converter script from
+        <a href="https://github.com/pathnirvana/" target="_blank" rel="noopener">github.com/pathnirvana</a>
+      </span>
+    </div>
+
+    <div class="credit-item">
+      <span class="ci-icon">📚</span>
+      <span>Digital Pāli Dictionary —
+        <a href="https://github.com/digitalpalidictionary/dpd-db" target="_blank" rel="noopener">github.com/digitalpalidictionary/dpd-db</a>
+      </span>
+    </div>
+
+    <div class="credit-item">
+      <span class="ci-icon">📋</span>
+      <span>Dictionary tables from TPR —
+        <a href="https://github.com/bksubhuti/tipitaka-pali-reader" target="_blank" rel="noopener">github.com/bksubhuti/tipitaka-pali-reader</a>
+      </span>
+    </div>
+
+    <button type="button" class="credits-close" id="close-credits-btn">Close</button>
   </div>
 </div>
 
@@ -181,6 +278,26 @@
 <!-- <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}" defer></script> -->
 <script type="module" src="{{ url_for('static', filename='js/book.bundle.js') }}"></script>
+
+<!-- Credits modal wiring (plain JS, no module needed) -->
+<script>
+  (function () {
+    const creditsModal  = document.getElementById('credits-modal');
+    const openCredits   = document.getElementById('open-credits-btn');
+    const closeCredits  = document.getElementById('close-credits-btn');
+    const cancelBtn2    = document.getElementById('settings-cancel-2');
+    const settingsModal = document.getElementById('settings-modal');
+
+    openCredits.addEventListener('click', () => creditsModal.classList.add('show'));
+    closeCredits.addEventListener('click', () => creditsModal.classList.remove('show'));
+    creditsModal.addEventListener('click', e => {
+      if (e.target === creditsModal) creditsModal.classList.remove('show');
+    });
+
+    // Second cancel button in the footer (mirrors #settings-cancel handled by book.js)
+    cancelBtn2.addEventListener('click', () => settingsModal.classList.remove('show'));
+  })();
+</script>
 
 </body>
 </html>

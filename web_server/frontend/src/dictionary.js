@@ -1,6 +1,7 @@
 import { TextProcessor, Script } from './pali-script.js';
 import { loadSettings } from './settings.js';
 import { installPaliInput } from './libs/pali_typing.js';
+import './css/dictionary.css';
 
 const { bookId, baseUrl, bookref } = window.BOOK_CONFIG;
 console.log(window.BOOK_CONFIG)
@@ -170,20 +171,71 @@ function renderDictResults(data) {
 
   let html = '';
   let lastBook = null;
+
   for (const entry of data) {
     if (entry.book_name !== lastBook) {
-      if (lastBook) html += '</div>';
+      if (lastBook) html += '</div>'; // close prev dict-book-group
       html += `<div class="dict-book-group">
         <div class="dict-book-name">${entry.book_name}</div>`;
       lastBook = entry.book_name;
     }
+
     html += `<div class="dict-entry">
       <div class="dict-entry-word">${entry.word}</div>
       <div class="dict-entry-def">${entry.definition}</div>
+      ${buildUsagesHtml(entry.usages || [])}
     </div>`;
   }
+
   if (lastBook) html += '</div>';
   dictResults.innerHTML = html;
+}
+
+
+// ── Usage cards ───────────────────────────────────────────────────────────────
+
+function buildUsagesHtml(usages) {
+  if (!usages.length) return '';
+
+  const cards = usages.map(u => {
+    const surface  = u.word + (u.ending || '');
+    const paliHtml = highlightInflected(u.pali || '', surface);
+    const trans    = u.english || u.vietnamese || '';
+
+    return `<div class="dict-usage">
+      <div class="dict-usage-pali">${paliHtml}</div>
+      ${trans ? `<div class="dict-usage-trans">${escHtml(trans)}</div>` : ''}
+      <div class="dict-usage-footer">
+        <span class="dict-usage-book">${escHtml(u.book_name)}</span>
+        <a class="dict-usage-open" href="${escHtml(u.reader_url)}" target="_blank" rel="noopener">
+          ↗
+        </a>
+      </div>
+    </div>`;
+  }).join('');
+
+  return `<div class="dict-usages">
+    <div class="dict-usages-label">In the texts</div>
+    ${cards}
+  </div>`;
+}
+
+function highlightInflected(sentence, surface) {
+  if (!surface || !sentence) return escHtml(sentence);
+  const idx = sentence.toLowerCase().indexOf(surface.toLowerCase());
+  if (idx === -1) return escHtml(sentence);
+  return escHtml(sentence.slice(0, idx))
+    + `<mark>${escHtml(sentence.slice(idx, idx + surface.length))}</mark>`
+    + escHtml(sentence.slice(idx + surface.length));
+}
+
+function escHtml(str) {
+  return String(str ?? '')
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 dictClose?.addEventListener('click', () => dictPanel.classList.remove('open'));

@@ -18,6 +18,7 @@ import {
   deleteComment,
 } from './comments.js';
 import { installPaliInput } from '../libs/pali_typing.js';
+import '../css/comments.css';
 
 // ── Public ────────────────────────────────────────────────────
 export async function attachCommentIcons(contentEl, sectionParaId) {
@@ -61,17 +62,22 @@ function _injectRow(row, paraId, lineId, commentMap) {
   const key      = `${paraId}-${lineId}`;
   const comments = commentMap.get(key) || [];
 
-  // Shared action bar — row-actions.js will also append into this element
+  // Shared action bar — row-actions.js will also append into this element.
+  // comments-ui runs FIRST (called before attachRowActions in book.js), so
+  // we create the bar here. row-actions will prepend the ⋯ toggle via
+  // actionsBar.insertBefore so it always sits at position 0.
   let actionsBar = row.querySelector('.row-actions-bar');
   if (!actionsBar) {
     actionsBar = _el('div', 'row-actions-bar');
     row.appendChild(actionsBar);
   }
 
+  // FIX: give wrap + button the ra-btn class family so the collapse CSS
+  // applies uniformly to all action items regardless of which module made them.
   const wrap   = _el('div', 'cmt-wrap');
   const btn    = _buildIconBtn(comments.length);
   const thread = _el('div', 'cmt-thread');
-  thread.style.display = 'none'; // use style, not attribute, for reliable toggle
+  thread.style.display = 'none';
 
   _renderThread(thread, comments, paraId, lineId);
 
@@ -80,7 +86,6 @@ function _injectRow(row, paraId, lineId, commentMap) {
     thread.style.display = isOpen ? 'none' : 'block';
     btn.classList.toggle('is-open', !isOpen);
     if (!isOpen) {
-      // focus the textarea when opening
       setTimeout(() => thread.querySelector('.cmt-new-input')?.focus(), 50);
     }
   });
@@ -93,6 +98,7 @@ function _injectRow(row, paraId, lineId, commentMap) {
 
 // ── Icon button ───────────────────────────────────────────────
 function _buildIconBtn(count) {
+  // ra-btn: participates in the collapse system (hidden when collapsed, shown when expanded)
   const btn = _el('button', 'cmt-icon-btn');
   btn.setAttribute('title', 'Comments');
   btn.setAttribute('aria-label', 'Toggle comments');
@@ -201,7 +207,6 @@ function _buildCompose(paraId, lineId, listEl) {
     wrap.innerHTML = '';
 
     if (!profile) {
-      // Not logged in — show sign-in prompt
       const cta = _el('button', 'cmt-login-cta');
       cta.textContent = 'Sign in to add a note';
       cta.addEventListener('click', showLoginDialog);
@@ -209,7 +214,6 @@ function _buildCompose(paraId, lineId, listEl) {
       return;
     }
 
-    // Logged in — show compose box
     wrap.innerHTML = `
       <div class="cmt-compose-row">
         <span class="cmt-avatar">${_avatarHtml(profile.photo_url, profile.display_name)}</span>
@@ -220,8 +224,8 @@ function _buildCompose(paraId, lineId, listEl) {
         <button class="cmt-btn-primary cmt-post-btn">Post</button>
       </div>`;
 
-    const ta     = wrap.querySelector('.cmt-new-input');
-    const charEl = wrap.querySelector('.cmt-char');
+    const ta      = wrap.querySelector('.cmt-new-input');
+    const charEl  = wrap.querySelector('.cmt-char');
     const postBtn = wrap.querySelector('.cmt-post-btn');
 
     installPaliInput(ta, {mode: 'both'});
@@ -238,7 +242,7 @@ function _buildCompose(paraId, lineId, listEl) {
         const newC = await addComment({ paraId, lineId, text });
         ta.value = '';
         charEl.textContent = '0 / 2000';
-        _refreshEmpty(listEl, true); // remove "no notes" placeholder
+        _refreshEmpty(listEl, true);
         listEl.appendChild(_buildItem(newC, listEl, paraId, lineId));
         _updateBadge(paraId, lineId, listEl.querySelectorAll('.cmt-item').length);
       } catch (e) {
@@ -251,7 +255,6 @@ function _buildCompose(paraId, lineId, listEl) {
   }
 
   render();
-  // Re-render compose area whenever auth state changes (login / logout)
   auth.onChange(render);
   return wrap;
 }

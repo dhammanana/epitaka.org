@@ -1,0 +1,262 @@
+/* ═══════════════════════════════════════════════════════════
+   book-links.css
+   Styles for cross-book link badges, preview popup, and
+   full-section dialog introduced by the book_links feature.
+   Append this file (or merge it into book.css).
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Inline word badge ──────────────────────────────────────
+   Rendered inside .sentence-row right after .pali-text when
+   the row has a book_links entry.
+   ─────────────────────────────────────────────────────────── */
+.book-link-badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.05rem 0.45rem;
+  font-size: 0.78em;
+  font-family: var(--font-serif);
+  color: var(--accent);
+  background: var(--accent-light);
+  border: 1px solid #d4a97a;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  transition: background 0.12s, color 0.12s;
+  position: relative;
+}
+.book-link-badge::before {
+  content: '↗';
+  font-size: 0.72em;
+  margin-right: 0.2rem;
+  opacity: 0.65;
+}
+.book-link-badge:hover,
+.book-link-badge:focus-visible {
+  background: #eedcc8;
+  color: #5a2d00;
+  outline: none;
+}
+
+/* ── Preview popup (3-line tooltip) ────────────────────────
+   Absolutely positioned relative to document via JS.
+   ─────────────────────────────────────────────────────────── */
+.book-link-popup {
+  position: absolute;
+  z-index: 600;
+  min-width: 320px;
+  max-width: 420px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+  overflow: hidden;
+  animation: blp-in 0.13s ease-out;
+}
+@keyframes blp-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.blp-header {
+  padding: 0.45rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.blp-preview {
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.blp-row {
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+/* The actual target line */
+.blp-row.blp-target {
+  background: #fef3c7;
+  border-left: 3px solid #f59e0b;
+  padding-left: 0.6rem;
+}
+.blp-pali {
+  display: block;
+  color: var(--pali-color);
+  font-family: var(--font-serif);
+}
+.blp-eng {
+  display: block;
+  color: var(--eng-color);
+  font-size: 0.82em;
+  margin-top: 0.1rem;
+}
+
+.blp-more-btn {
+  display: block;
+  width: 100%;
+  padding: 0.45rem 0.75rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  border: none;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: right;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.blp-more-btn:hover { background: #eedcc8; }
+
+/* ── Full-section dialog ────────────────────────────────────
+   Modal overlay + scrollable content pane.
+   ─────────────────────────────────────────────────────────── */
+.book-link-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 700;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+}
+@media (min-width: 600px) {
+  .book-link-dialog-overlay { align-items: center; padding: 1rem; }
+}
+
+.book-link-dialog {
+  background: var(--surface);
+  border-radius: 18px 18px 0 0;
+  width: 100%;
+  max-width: 620px;
+  height: 88vh;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -4px 40px rgba(0,0,0,0.2);
+  overflow: hidden;
+  animation: bld-in 0.18s ease-out;
+}
+@media (min-width: 600px) {
+  .book-link-dialog {
+    border-radius: 14px;
+    height: auto;
+    max-height: 82vh;
+  }
+}
+@keyframes bld-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bld-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.1rem 0.65rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.bld-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.bld-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--muted);
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  line-height: 1;
+}
+.bld-close:hover { background: var(--accent-light); color: var(--accent); }
+
+.bld-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem 1.1rem 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+.bld-body::-webkit-scrollbar { width: 4px; }
+.bld-body::-webkit-scrollbar-thumb { background: #d5c9bd; border-radius: 2px; }
+
+.bld-subtitle {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.bld-para {
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #f0ebe4;
+}
+.bld-para:last-child { border-bottom: none; }
+
+.bld-sentence {
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  margin-bottom: 0.25rem;
+  line-height: 1.55;
+  font-size: 0.9rem;
+}
+/* Highlighted target sentence */
+.bld-sentence.bld-target {
+  background: #fef3c7;
+  border-left: 3px solid #f59e0b;
+  padding-left: 0.65rem;
+}
+.bld-pali {
+  display: block;
+  color: var(--pali-color);
+  font-family: var(--font-serif);
+  font-size: 1em;
+}
+.bld-eng {
+  display: block;
+  color: var(--eng-color);
+  font-size: 0.85em;
+  margin-top: 0.12rem;
+}
+
+/* ── Dialog footer: "Open in new tab" link ──────────────── */
+.bld-footer {
+  margin-top: 1.2rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  text-align: right;
+}
+.bld-open-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.38rem 0.85rem;
+  border: 1px solid #d4a97a;
+  border-radius: 8px;
+  background: var(--accent-light);
+  transition: background 0.12s;
+}
+.bld-open-link:hover { background: #eedcc8; }

@@ -1,8 +1,45 @@
 # app/services/dictionary.py
 from ..utils.db import get_db
-from ..utils.text import normalize_pali  # assume you move text utils there
+from ..services.loadtocs import load_hierarchy
+from ..utils.text import normalize_pali, markdown_to_html 
+from ..config import Config
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Public API
+# ─────────────────────────────────────────────────────────────────────────────
+def load_books():
+    return load_hierarchy()
+
+def get_book_name(book_id: str) -> str:
+    """Get book name from book_id."""
+    return load_books().get(book_id, {}).get("book_name", "")
 
 def search_auto(word: str) -> list:
+    """
+    Full dictionary lookup pipeline.
+
+    Returns a list of definition dicts, each shaped like:
+    {
+        "word":        str,            # headword / stem
+        "definition":  str,            # HTML definition body
+        "book_name":   str,            # dictionary source name
+        "usages":      [               # sentence usages from pali_definition
+            {
+                "book_id":       str,
+                "para_id":       int,
+                "line_id":       int,
+                "word":          str,  # inflected bold form in the sentence
+                "ending":        str | None,
+                "pali":          str,  # full Pali sentence
+                "english":       str | None,
+                "vietnamese":    str | None,
+                "reader_url":    str,  # link to open in reader
+            },
+            ...
+        ]
+    }
+    """
     word = word.strip().lower()
     word = "".join(c for c in word if c.isalnum())
     if not word:
@@ -12,10 +49,73 @@ def search_auto(word: str) -> list:
         results = _search_with_tpr(conn, word)
         if not results:
             results = _search_with_dpd_split(conn, word)
+
+        # Attach sentence usages to each result based on stem
+        stems_seen = set()
+        for entry in results:
+            stem = entry.get("stem") or entry.get("word")
+            if stem and stem not in stems_seen:
+                stems_seen.add(stem)
+                entry["usages"] = _get_usages_for_stem(conn, stem)
+            else:
+                entry["usages"] = []
+
         return results
 
 
-# ── All your private helper functions ────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Sentence usage lookup
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _get_usages_for_stem(conn, stem: str, limit: int = 5) -> list:
+    """
+    Find sentences in pali_definition where the resolved stem matches,
+    then join with sentences table to get the full Pali + translations.
+
+    Returns up to `limit` usage dicts.
+    """
+    rows = conn.execute("""
+        SELECT
+            pd.book_id,
+            pd.para_id,
+            pd.line_id,
+            pd.word,
+            pd.ending,
+            s.pali_sentence,
+            s.english_translation,
+            s.vietnamese_translation
+        FROM pali_definition pd
+        JOIN sentences s
+          ON  s.book_id = pd.book_id
+          AND s.para_id = pd.para_id
+          AND s.line_id = pd.line_id
+        WHERE pd.stem = ?
+        ORDER BY pd.book_id, pd.para_id, pd.line_id
+        LIMIT ?
+    """, (stem, limit)).fetchall()
+
+    usages = []
+    for row in rows:
+        book_id, para_id, line_id, word, ending, pali, english, vietnamese = row
+        usages.append({
+            "book_name":    get_book_name(book_id),
+            "para_id":    para_id,
+            "line_id":    line_id,
+            "word":       word,
+            "ending":     ending,
+            "pali":       markdown_to_html(pali) or "",
+            "english":    markdown_to_html(english) or "",
+            "vietnamese": markdown_to_html(vietnamese) or "",
+            "reader_url": f"/book/{book_id}?para={para_id}",
+        })
+
+    return usages
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TPR pipeline helpers
+# ─────────────────────────────────────────────────────────────────────────────
+
 def _get_dpd_headwords(conn, word: str) -> str:
     row = conn.execute(
         'SELECT headwords FROM dpd_inflections_to_headwords WHERE inflection = ?',
@@ -111,15 +211,29 @@ def _search_with_tpr(conn, original_word: str) -> list:
     if dpd_headwords:
         dpd_def = _get_dpd_definition(conn, dpd_headwords)
         if dpd_def:
-            grammar_def = _get_dpd_grammar_definition(conn, original_word)
-            if grammar_def:
-                dpd_def['definition'] += grammar_def['definition']
+            if Config.DPD_GRAMMAR:
+                grammar_def = _get_dpd_grammar_definition(conn, original_word)
+                if grammar_def:
+                    dpd_def['definition'] += grammar_def['definition']
             definitions.insert(0, dpd_def)
             definitions.sort(key=lambda d: d.get('user_order', 0))
 
-    return [{'word': d['word'], 'definition': d['definition'],
-             'book_name': d['book_name']} for d in definitions]
+    # Attach the resolved stem so search_auto can look up usages
+    stem = resolved_word
+    return [
+        {
+            'word':      d['word'],
+            'definition': d['definition'],
+            'book_name': d['book_name'],
+            'stem':      stem,
+        }
+        for d in definitions
+    ]
 
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DPD-split fallback pipeline
+# ─────────────────────────────────────────────────────────────────────────────
 
 def _get_dpr_stem(conn, word: str) -> str:
     """Mirrors getDprStem()."""
@@ -144,18 +258,29 @@ def _search_with_dpd_split(conn, word: str) -> list:
     dpr_stem = _get_dpr_stem(conn, word)
     if dpr_stem:
         definitions = _get_dictionary_definitions(conn, dpr_stem, is_already_stem=True)
+        # Tag each entry with its stem for usage lookup
+        for d in definitions:
+            d['stem'] = dpr_stem
 
     # DPD table lookup
     dpd_headwords = _get_dpd_headwords(conn, word)
     if dpd_headwords:
         dpd_def = _get_dpd_definition(conn, dpd_headwords)
         if dpd_def:
+            dpd_def['stem'] = dpr_stem or word
             definitions.insert(0, dpd_def)
 
     if definitions:
         definitions.sort(key=lambda d: d.get('user_order', 0))
-        return [{'word': d['word'], 'definition': d['definition'],
-                 'book_name': d['book_name']} for d in definitions]
+        return [
+            {
+                'word':       d['word'],
+                'definition': d['definition'],
+                'book_name':  d['book_name'],
+                'stem':       d.get('stem', word),
+            }
+            for d in definitions
+        ]
 
     # Final fallback — word split table
     breakup = _get_dpd_word_split(conn, word)
@@ -166,7 +291,16 @@ def _search_with_dpd_split(conn, word: str) -> list:
     split_results = []
     for sw in split_words:
         rows = _get_dictionary_definitions(conn, sw, is_already_stem=True)
+        for d in rows:
+            d['stem'] = sw
         split_results.extend(rows)
 
-    return [{'word': d['word'], 'definition': d['definition'],
-             'book_name': d['book_name']} for d in split_results]
+    return [
+        {
+            'word':       d['word'],
+            'definition': d['definition'],
+            'book_name':  d['book_name'],
+            'stem':       d.get('stem', word),
+        }
+        for d in split_results
+    ]
