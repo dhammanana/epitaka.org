@@ -14,6 +14,7 @@
 
 import { auth }      from '../auth/auth.js';
 import { authFetch } from '../auth/auth.js';
+import '../css/extras.css'
 
 const { baseUrl } = window.BOOK_CONFIG;
 

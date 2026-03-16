@@ -13,6 +13,8 @@ Flask CLI usage (register once in create_app):
     flask rebuild booklink     # drop + recreate + populate book_links
     flask rebuild all          # run all four in sequence
 
+    flask cleanup              # drop all four tables and VACUUM the database
+
 Or call each function directly from Python.
 """
 
@@ -549,7 +551,8 @@ def _process_book_pair(
     src_id: str,
     tgt_id: str,
     buffer: list,
-    total_links_ref: list,   # single-element list used as a mutable int ref
+    total_links_ref: list,    # single-element list used as a mutable int ref
+    total_unmatched_ref: list,  # single-element list: total unmatched word count
     batch_size: int,
 ) -> None:
     """
@@ -561,8 +564,8 @@ def _process_book_pair(
     - For each bold word from the source section, normalise_for_search()
       returns one or more search candidates; a link is created for every
       target sentence where at least one candidate appears.
-    - Bold words that match nothing in any target sentence are printed
-      with a debug URL so they can be inspected in the browser.
+    - Bold words that match nothing in any target sentence are counted and
+      printed with a debug URL so they can be inspected in the browser.
     """
     print(f"      src={src_id}  →  tgt={tgt_id}")
 
@@ -580,6 +583,10 @@ def _process_book_pair(
     """, (tgt_id,)).fetchall()
 
     tgt_map = {h['title']: h['para_id'] for h in tgt_headings}
+
+    pair_links     = 0
+    pair_unmatched = 0
+    unmatched_words: List[str] = []   # collect for summary print
 
     for i, s_h in enumerate(src_headings):
         title = s_h['title']
@@ -634,6 +641,7 @@ def _process_book_pair(
                         s_word,
                     ))
                     total_links_ref[0] += 1
+                    pair_links += 1
                     matched = True
 
                     if len(buffer) >= batch_size:
@@ -647,35 +655,35 @@ def _process_book_pair(
                         buffer.clear()
 
             if not matched:
+                pair_unmatched += 1
+                total_unmatched_ref[0] += 1
                 url = (
                     f"{BOOKLINK_DEBUG_BASE_URL}/{src_id}"
                     f"?para={sbw['para_id']}&line_id={sbw['line_id']}"
                 )
-                # print(f"        [unmatched] '{s_word}'  {url}")
+                unmatched_words.append(f"'{s_word}'  {url}")
 
+    # ── Per-pair summary ──────────────────────────────────────────────────────
+    total_words = pair_links + pair_unmatched
+    match_pct   = (pair_links / total_words * 100) if total_words else 0.0
+    print(
+        f"        links={pair_links:,}  "
+        f"unmatched={pair_unmatched:,}  "
+        f"total_bold={total_words:,}  "
+        f"match_rate={match_pct:.1f}%"
+    )
+    if unmatched_words:
+        # Print up to 20 examples to keep the log readable; show a truncation
+        # notice if there are more.
+        MAX_SHOW = 20
+        for entry in unmatched_words[:MAX_SHOW]:
+            print(f"        [unmatched] {entry}")
+        if len(unmatched_words) > MAX_SHOW:
+            print(f"        … and {len(unmatched_words) - MAX_SHOW:,} more unmatched words (not shown)")
 
 def rebuild_booklink(batch_size: int = 1000) -> None:
     """
     Drop, recreate, and populate book_links.
-
-    Two passes are run:
-
-    Pass 1 – Mūla books  (book_id LIKE '%m.mul')
-        • Both attha_ref and tika_ref are searched.
-        • Bold words come from the commentary; matches are found in mūla.
-
-    Pass 2 – Aṭṭhakathā books  (book_id LIKE '%m.att')
-        • Only tika_ref is searched.
-        • Bold words come from the tīkā; matches are found in aṭṭhakathā.
-
-    In both passes the table stores rows as:
-        (src_book, src_para, src_line,  ← the *target* (text being commented on)
-         dst_book, dst_para, dst_line,  ← the *source* (the commentary)
-         word)
-
-    Words in the source that cannot be found in any target sentence are
-    printed together with a browser-friendly debug URL:
-        {BOOKLINK_DEBUG_BASE_URL}/<book_id>?para=<para_id>&line_id=<line_id>
     """
     print("=== Rebuilding: book_links ===")
     print(f"    Normalisation mode: {BOOKLINK_NORM_MODE}")
@@ -714,32 +722,19 @@ def rebuild_booklink(batch_size: int = 1000) -> None:
     # ── Populate ──────────────────────────────────────────────────────────────
     import sqlite3 as _sqlite3
 
-    def _parse_ref_ids(value) -> list:
-        """Parse a comma-separated string of integer ids into a list of ints."""
+    def _parse_refs(value) -> list:
+        """Parse a space-separated string of book_ids into a list of strings."""
         if not value:
             return []
-        result = []
-        for part in str(value).split(','):
-            part = part.strip()
-            if part:
-                try:
-                    result.append(int(part))
-                except ValueError:
-                    pass
-        return result
+        return [part.strip() for part in str(value).split(' ') if part.strip()]
 
     with get_db() as conn:
         conn.row_factory = _sqlite3.Row
         cursor = conn.cursor()
 
-        # Build id → book_id lookup so ref id lists can be resolved
-        id_to_book_id = {
-            row['id']: row['book_id']
-            for row in cursor.execute("SELECT id, book_id FROM books").fetchall()
-        }
-
         buffer: list = []
-        total_links  = [0]   # mutable ref passed into helper
+        total_links     = [0]
+        total_unmatched = [0]
 
         # ── Pass 1: Mūla → attha + tika ──────────────────────────────────────
         print("\n  ── Pass 1: Mūla books (attha_ref + tika_ref) ──")
@@ -750,32 +745,47 @@ def rebuild_booklink(batch_size: int = 1000) -> None:
         """).fetchall()
 
         for mula in src_books:
-            src_id    = mula['book_id']
-            attha_ids = [id_to_book_id[i] for i in _parse_ref_ids(mula['attha_ref']) if i in id_to_book_id]
-            tika_ids  = [id_to_book_id[i] for i in _parse_ref_ids(mula['tika_ref'])  if i in id_to_book_id]
-            targets   = attha_ids + tika_ids
+            src_id  = mula['book_id']
+            targets = _parse_refs(mula['attha_ref']) + _parse_refs(mula['tika_ref'])
             if not targets:
                 continue
             print(f"    Mūla: {src_id}")
             for tgt_id in targets:
-                _process_book_pair(cursor, tgt_id, src_id, buffer, total_links, batch_size)
+                _process_book_pair(cursor, tgt_id, src_id, buffer, total_links, total_unmatched, batch_size)
 
         # ── Pass 2: Aṭṭhakathā → tika only ──────────────────────────────────
         print("\n  ── Pass 2: Aṭṭhakathā books (tika_ref only) ──")
         attha_books = cursor.execute("""
-            SELECT book_id, tika_ref
+            SELECT book_id, attha_ref, tika_ref
             FROM books
             WHERE category = 'Aṭṭhakathā'
         """).fetchall()
 
         for attha in attha_books:
             attha_id = attha['book_id']
-            tika_ids = [id_to_book_id[i] for i in _parse_ref_ids(attha['tika_ref']) if i in id_to_book_id]
-            if not tika_ids:
+            targets  = _parse_refs(attha['attha_ref']) + _parse_refs(attha['tika_ref'])
+            if not targets:
                 continue
             print(f"    Aṭṭha: {attha_id}")
-            for tika_id in tika_ids:
-                _process_book_pair(cursor, tika_id, attha_id, buffer, total_links, batch_size)
+            for tgt_id in targets:
+                _process_book_pair(cursor, tgt_id, attha_id, buffer, total_links, total_unmatched, batch_size)
+
+        # ── Pass 3: Ṭīkā → Ṭīkā only ─────────────────────────────────────────
+        print("\n  ── Pass 3: Ṭīkā books (tika_ref only) ──")
+        tika_books = cursor.execute("""
+            SELECT book_id, tika_ref
+            FROM books
+            WHERE category = 'Ṭīkā'
+        """).fetchall()
+
+        for tika in tika_books:
+            tika_id = tika['book_id']
+            targets = _parse_refs(tika['tika_ref'])
+            if not targets:
+                continue
+            print(f"    Tīkā: {tika_id}")
+            for tgt_id in targets:
+                _process_book_pair(cursor, tgt_id, tika_id, buffer, total_links, total_unmatched, batch_size)
 
         # ── Final flush ───────────────────────────────────────────────────────
         if buffer:
@@ -787,8 +797,53 @@ def rebuild_booklink(batch_size: int = 1000) -> None:
             """, buffer)
             conn.commit()
 
-    print(f"\n  → Done. Generated {total_links[0]:,} links total.")
+    grand_total = total_links[0] + total_unmatched[0]
+    overall_pct = (total_links[0] / grand_total * 100) if grand_total else 0.0
+    print(f"\n  ┌─ Grand total ─────────────────────────────────────")
+    print(f"  │  Links generated  : {total_links[0]:,}")
+    print(f"  │  Unmatched words  : {total_unmatched[0]:,}")
+    print(f"  │  Total bold words : {grand_total:,}")
+    print(f"  │  Overall match    : {overall_pct:.1f}%")
+    print(f"  └───────────────────────────────────────────────────")
     print("=== Done: book_links ===")
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Cleanup: drop all four tables + VACUUM
+# ─────────────────────────────────────────────────────────────────────────────
+
+def cleanup_tables() -> None:
+    """
+    Drop all four search/index tables and VACUUM the database to reclaim space.
+
+    Tables dropped (in dependency order):
+        book_links
+        pali_definition
+        sentences_fts
+        words
+    """
+    print("=== Cleanup: dropping index tables ===")
+
+    tables = [
+        "book_links",
+        "pali_definition",
+        "sentences_fts",
+        "words",
+    ]
+
+    with get_db() as conn:
+        for table in tables:
+            print(f"  → Dropping {table}...")
+            conn.execute(f"DROP TABLE IF EXISTS {table}")
+        conn.commit()
+        print("  → All tables dropped.")
+
+    # VACUUM must run outside any transaction; get_db() context manager
+    # should close the previous connection, so we open a fresh one here.
+    print("  → Running VACUUM (this may take a moment)...")
+    with get_db() as conn:
+        conn.execute("VACUUM")
+    print("  → VACUUM complete.")
+    print("=== Done: cleanup ===")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -797,7 +852,8 @@ def rebuild_booklink(batch_size: int = 1000) -> None:
 
 def register_cli(app: Flask) -> None:
     """
-    Call this once inside create_app() to add the `rebuild` command group.
+    Call this once inside create_app() to add the `rebuild` and `cleanup`
+    command groups.
 
     Usage:
         flask rebuild fts        # sentences_fts + words
@@ -805,6 +861,8 @@ def register_cli(app: Flask) -> None:
         flask rebuild palidef    # pali_definition
         flask rebuild booklink   # book_links
         flask rebuild all        # all four in sequence
+
+        flask cleanup            # drop all four tables + VACUUM
     """
 
     @app.cli.group("rebuild")
@@ -838,3 +896,8 @@ def register_cli(app: Flask) -> None:
         rebuild_words()
         rebuild_palidef()
         rebuild_booklink()
+
+    @app.cli.command("cleanup")
+    def cleanup_cmd():
+        """Drop all search/index tables (book_links, pali_definition, sentences_fts, words) and VACUUM."""
+        cleanup_tables()

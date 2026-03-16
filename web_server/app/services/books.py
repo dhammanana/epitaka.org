@@ -1,37 +1,36 @@
-# app/services/books.py
-"""
-Book hierarchy: load from DB and organise into the menu tree.
-"""
-
+import sqlite3
+import os
+from ..utils.text import markdown_to_html, trim_text
 from ..utils.db import get_db
 
+# ─────────────────────────────────────────────
+# Database Helpers
+# ─────────────────────────────────────────────
 
-def _parse_id_list(value):
+def _parse_ref_list(value):
     """
-    Parse a stored ref field into a list of integer ids.
-    The field may be NULL/empty → [], a single int, or a
-    space-separated (legacy) or comma-separated string of ints.
+    Parse a stored ref field into a list of book_id strings.
+
+    The field may be:
+      - NULL / empty             → []
+      - a single book_id         → [book_id]
+      - a space-separated string → [book_id, ...]
     """
     if value is None:
         return []
-    parts = [p.strip() for p in str(value).replace(',', ' ').split() if p.strip()]
-    result = []
-    for p in parts:
-        try:
-            result.append(int(p))
-        except ValueError:
-            pass
-    return result
+    return [p.strip() for p in str(value).split(' ') if p.strip()]
 
 
 def load_hierarchy():
     """
     Load all book metadata from the books table.
 
-    Returns a dict keyed by book_id.  The ref fields
-    (mula_ref, attha_ref, tika_ref) are resolved from integer id lists
-    to book_id strings.  Raw id lists are kept as *_ref_ids for callers
-    that need them.
+    The returned dict is keyed by book_id.  The ref fields
+    (mula_ref, attha_ref, tika_ref) are stored directly as
+    space-separated book_id strings, so no id resolution is needed.
+
+    Each entry also exposes the new para_id and chapter_len fields
+    introduced when large books were split.
     """
     with get_db() as conn:
         cursor = conn.cursor()
@@ -44,26 +43,18 @@ def load_hierarchy():
         ''')
         rows = cursor.fetchall()
 
-    id_to_book_id = {row['id']: row['book_id'] for row in rows}
-
     hierarchy = {}
     for row in rows:
-        mula_ids  = _parse_id_list(row['mula_ref'])
-        attha_ids = _parse_id_list(row['attha_ref'])
-        tika_ids  = _parse_id_list(row['tika_ref'])
-
         hierarchy[row['book_id']] = {
             'id':          row['id'],
             'category':    row['category'],
             'nikaya':      row['nikaya'],
             'sub_nikaya':  row['sub_nikaya'],
             'book_name':   row['book_name'],
-            'mula_ref':    [id_to_book_id[i] for i in mula_ids  if i in id_to_book_id],
-            'attha_ref':   [id_to_book_id[i] for i in attha_ids if i in id_to_book_id],
-            'tika_ref':    [id_to_book_id[i] for i in tika_ids  if i in id_to_book_id],
-            'mula_ref_ids':  mula_ids,
-            'attha_ref_ids': attha_ids,
-            'tika_ref_ids':  tika_ids,
+            'mula_ref':    _parse_ref_list(row['mula_ref']),
+            'attha_ref':   _parse_ref_list(row['attha_ref']),
+            'tika_ref':    _parse_ref_list(row['tika_ref']),
+            # New split-book fields
             'para_id':     row['para_id'],
             'chapter_len': row['chapter_len'],
         }
@@ -71,34 +62,24 @@ def load_hierarchy():
     return hierarchy
 
 
-# TAB_ORDER used by the front-end; kept here so Python and JS stay in sync.
-_CATEGORY_ORDER = ['Mūla', 'Aṭṭhakathā', 'Ṭīkā']
-
-
 def organize_hierarchy(hierarchy):
-    """
-    Organise books into the nested menu structure expected by the templates.
-
-    Structure:
-        { category: { nikaya: [ (book_id, book_name), … ] } }          ← no sub_nikaya
-        { category: { nikaya: { sub_nikaya: [ (book_id, book_name) ] } } } ← with sub_nikaya
-
-    BUG FIX: the previous implementation would reset an already-populated
-    nikaya dict to an empty list the moment it encountered a book with no
-    sub_nikaya in the same nikaya, wiping all previously added entries.
-    Now books with no sub_nikaya are placed under a sentinel key '' so the
-    nikaya value remains a consistent dict and nothing is lost.
-    """
+    """Organize books into a nested menu structure."""
     menu = {}
     for book_id, book_data in hierarchy.items():
         category   = book_data['category']
         nikaya     = book_data['nikaya']
-        sub_nikaya = book_data['sub_nikaya'] or ''   # normalise None → ''
+        sub_nikaya = book_data['sub_nikaya']
         book_name  = book_data['book_name']
 
-        menu.setdefault(category, {})
-        menu[category].setdefault(nikaya, {})
-        menu[category][nikaya].setdefault(sub_nikaya, [])
-        menu[category][nikaya][sub_nikaya].append((book_id, book_name))
+        if category not in menu:
+            menu[category] = {}
+        if nikaya not in menu[category]:
+            menu[category][nikaya] = {}
+
+        # Use empty string as the key for books with no sub_nikaya
+        key = sub_nikaya if sub_nikaya else ""
+        if key not in menu[category][nikaya]:
+            menu[category][nikaya][key] = []
+        menu[category][nikaya][key].append((book_id, book_name))
 
     return menu

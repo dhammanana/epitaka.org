@@ -7,25 +7,18 @@ from ..utils.db import get_db
 # Database Helpers
 # ─────────────────────────────────────────────
 
-def _parse_id_list(value):
+def _parse_ref_list(value):
     """
-    Parse a stored ref field into a list of integer ids.
+    Parse a stored ref field into a list of book_id strings.
 
     The field may be:
-      - NULL / empty  → []
-      - a single int  → [int]
-      - a comma-separated string of ints  → [int, ...]
+      - NULL / empty             → []
+      - a single book_id         → [book_id]
+      - a space-separated string → [book_id, ...]
     """
     if value is None:
         return []
-    parts = [p.strip() for p in str(value).split(',') if p.strip()]
-    result = []
-    for p in parts:
-        try:
-            result.append(int(p))
-        except ValueError:
-            pass
-    return result
+    return [p.strip() for p in str(value).split(' ') if p.strip()]
 
 
 def load_hierarchy():
@@ -33,15 +26,11 @@ def load_hierarchy():
     Load all book metadata from the books table.
 
     The returned dict is keyed by book_id.  The ref fields
-    (mula_ref, attha_ref, tika_ref) are now stored as comma-separated
-    lists of integer `id` values that point to other rows in the same
-    table.  This function resolves those ids to book_id strings so the
-    rest of the application can keep working without changes.
+    (mula_ref, attha_ref, tika_ref) are stored directly as
+    space-separated book_id strings, so no id resolution is needed.
 
-    Each entry also exposes the raw id lists as
-    mula_ref_ids / attha_ref_ids / tika_ref_ids in case callers need
-    them, plus the new para_id and chapter_len fields introduced when
-    large books were split.
+    Each entry also exposes the new para_id and chapter_len fields
+    introduced when large books were split.
     """
     with get_db() as conn:
         cursor = conn.cursor()
@@ -54,29 +43,17 @@ def load_hierarchy():
         ''')
         rows = cursor.fetchall()
 
-    # Build a quick id → book_id lookup so we can resolve the ref lists.
-    id_to_book_id = {row['id']: row['book_id'] for row in rows}
-
     hierarchy = {}
     for row in rows:
-        mula_ids  = _parse_id_list(row['mula_ref'])
-        attha_ids = _parse_id_list(row['attha_ref'])
-        tika_ids  = _parse_id_list(row['tika_ref'])
-
         hierarchy[row['book_id']] = {
             'id':          row['id'],
             'category':    row['category'],
             'nikaya':      row['nikaya'],
             'sub_nikaya':  row['sub_nikaya'],
             'book_name':   row['book_name'],
-            # Resolved book_id lists (primary interface for the rest of the app)
-            'mula_ref':    [id_to_book_id[i] for i in mula_ids  if i in id_to_book_id],
-            'attha_ref':   [id_to_book_id[i] for i in attha_ids if i in id_to_book_id],
-            'tika_ref':    [id_to_book_id[i] for i in tika_ids  if i in id_to_book_id],
-            # Raw id lists, kept for callers that need them
-            'mula_ref_ids':  mula_ids,
-            'attha_ref_ids': attha_ids,
-            'tika_ref_ids':  tika_ids,
+            'mula_ref':    _parse_ref_list(row['mula_ref']),
+            'attha_ref':   _parse_ref_list(row['attha_ref']),
+            'tika_ref':    _parse_ref_list(row['tika_ref']),
             # New split-book fields
             'para_id':     row['para_id'],
             'chapter_len': row['chapter_len'],
@@ -89,8 +66,8 @@ def organize_hierarchy(hierarchy):
     """Organize books into a nested menu structure."""
     menu = {}
     for book_id, book_data in hierarchy.items():
-        category  = book_data['category']
-        nikaya    = book_data['nikaya']
+        category   = book_data['category']
+        nikaya     = book_data['nikaya']
         sub_nikaya = book_data['sub_nikaya']
         book_name  = book_data['book_name']
 

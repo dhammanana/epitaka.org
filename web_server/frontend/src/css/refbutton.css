@@ -1,0 +1,93 @@
+/* ═══════════════════════════════════════════════════════════
+   ref-dropdown  —  collapsible multi-ref button in the topbar
+   Add these rules to book.css (or a shared topbar partial).
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Wrapper ─────────────────────────────────────────────── */
+.ref-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+/* ── Toggle button — reuses .topbar-btn .ref-btn styles ──── */
+/* Show a tiny chevron so users know it's expandable */
+.ref-dropdown__toggle::after {
+  content: '▾';
+  font-size: 0.6em;
+  margin-left: 0.18em;
+  opacity: 0.7;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Active / open state */
+.ref-dropdown__toggle[aria-expanded="true"] {
+  background: var(--accent-light, #f5e9dc);
+  color: var(--accent, #8b5c2a);
+}
+.ref-dropdown__toggle[aria-expanded="true"]::after {
+  content: '▴';
+}
+
+/* ── Drop-down menu ──────────────────────────────────────── */
+.ref-dropdown__menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;                       /* align to the right edge of the button */
+  min-width: 130px;
+  margin: 0;
+  padding: 0.3rem 0;
+  list-style: none;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, #e5ddd6);
+  border-radius: 9px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.14);
+  z-index: 500;
+  animation: ref-dd-in 0.13s ease-out both;
+  white-space: nowrap;
+}
+
+@keyframes ref-dd-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Open state (toggled via JS) */
+.ref-dropdown__menu.open {
+  display: block;
+}
+
+/* ── Menu items ──────────────────────────────────────────── */
+.ref-dropdown__item {
+  display: block;
+  padding: 0.42rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text, #2d1a0e);
+  text-decoration: none;
+  transition: background 0.1s;
+  border-radius: 0;
+}
+.ref-dropdown__item:hover,
+.ref-dropdown__item:focus-visible {
+  background: var(--accent-light, #f5e9dc);
+  color: var(--accent, #8b5c2a);
+  outline: none;
+}
+
+/* Round first / last items to match container radius */
+.ref-dropdown__menu li:first-child .ref-dropdown__item { border-radius: 8px 8px 0 0; }
+.ref-dropdown__menu li:last-child  .ref-dropdown__item { border-radius: 0 0 8px 8px; }
+.ref-dropdown__menu li:only-child  .ref-dropdown__item { border-radius: 8px; }
+
+/* ── Color variants (optional accent per type) ───────────── */
+/* Uncomment / tweak if you want M / A / Ṭ buttons tinted differently */
+/*
+.ref-btn--mula  { --ref-accent: #2d6a4f; }
+.ref-btn--attha { --ref-accent: #8b5c2a; }
+.ref-btn--tika  { --ref-accent: #1d4e89; }
+.ref-btn--mula,
+.ref-btn--attha,
+.ref-btn--tika  { color: var(--ref-accent); border-color: var(--ref-accent); }
+*/

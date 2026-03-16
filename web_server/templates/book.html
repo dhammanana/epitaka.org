@@ -15,15 +15,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}">
-  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/autocomplete-theme-classic.css') }}"> -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/book-links.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog.css') }}">
+  <!--
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/book-links.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/dictionary.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/comments.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/extras.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog-fts.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog-fts.css') }}"> -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NQWX1DCC2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -55,25 +55,79 @@
   <button id="home-dialog-trigger" class="topbar-btn icon-btn" aria-label="Home">⌂</button>
   <span class="book-title pali-text" title="{{ book_title }}">{{ book_title }}</span>
   <div class="topbar-right">
-    {% for ref_id in bookref.mula_ref %}
-    <a id="ref-mula-{{ loop.index }}"
-       href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
-       class="topbar-btn ref-btn">Mūla{% if bookref.mula_ref | length > 1 %} {{ loop.index }}{% endif %}</a>
-    {% endfor %}
-    {% for ref_id in bookref.attha_ref %}
-    <a id="ref-attha-{{ loop.index }}"
-       href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
-       class="topbar-btn ref-btn">Attha{% if bookref.attha_ref | length > 1 %} {{ loop.index }}{% endif %}</a>
-    {% endfor %}
-    {% for ref_id in bookref.tika_ref %}
-    <a id="ref-tika-{{ loop.index }}"
-       href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
-       class="topbar-btn ref-btn">Ṭīkā{% if bookref.tika_ref | length > 1 %} {{ loop.index }}{% endif %}</a>
-    {% endfor %}
+
+    {# ── Mūla refs ── #}
+    {% if bookref.mula_ref | length == 1 %}
+      <a id="ref-mula-1"
+         href="{{ base_url }}/book_ref/{{ bookref.mula_ref[0] }}?ref={{ book_id }}"
+         class="topbar-btn ref-btn ref-btn--mula">M</a>
+    {% elif bookref.mula_ref | length > 1 %}
+      <div class="ref-dropdown" id="ref-dropdown-mula">
+        <button class="topbar-btn ref-btn ref-btn--mula ref-dropdown__toggle"
+                aria-haspopup="true" aria-expanded="false"
+                aria-label="Mūla references">M</button>
+        <ul class="ref-dropdown__menu" role="menu">
+          {% for ref_id in bookref.mula_ref %}
+          <li role="none">
+            <a id="ref-mula-{{ loop.index }}"
+               href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
+               class="ref-dropdown__item" role="menuitem">Mūla {{ loop.index }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {# ── Attha refs ── #}
+    {% if bookref.attha_ref | length == 1 %}
+      <a id="ref-attha-1"
+         href="{{ base_url }}/book_ref/{{ bookref.attha_ref[0] }}?ref={{ book_id }}"
+         class="topbar-btn ref-btn ref-btn--attha">A</a>
+    {% elif bookref.attha_ref | length > 1 %}
+      <div class="ref-dropdown" id="ref-dropdown-attha">
+        <button class="topbar-btn ref-btn ref-btn--attha ref-dropdown__toggle"
+                aria-haspopup="true" aria-expanded="false"
+                aria-label="Attha references">A</button>
+        <ul class="ref-dropdown__menu" role="menu">
+          {% for ref_id in bookref.attha_ref %}
+          <li role="none">
+            <a id="ref-attha-{{ loop.index }}"
+               href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
+               class="ref-dropdown__item" role="menuitem">Attha {{ loop.index }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {# ── Ṭīkā refs ── #}
+    {% if bookref.tika_ref | length == 1 %}
+      <a id="ref-tika-1"
+         href="{{ base_url }}/book_ref/{{ bookref.tika_ref[0] }}?ref={{ book_id }}"
+         class="topbar-btn ref-btn ref-btn--tika">Ṭ</a>
+    {% elif bookref.tika_ref | length > 1 %}
+      <div class="ref-dropdown" id="ref-dropdown-tika">
+        <button class="topbar-btn ref-btn ref-btn--tika ref-dropdown__toggle"
+                aria-haspopup="true" aria-expanded="false"
+                aria-label="Ṭīkā references">Ṭ</button>
+        <ul class="ref-dropdown__menu" role="menu">
+          {% for ref_id in bookref.tika_ref %}
+          <li role="none">
+            <a id="ref-tika-{{ loop.index }}"
+               href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
+               class="ref-dropdown__item" role="menuitem">Ṭīkā {{ loop.index }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
     <button id="settings-btn" class="topbar-btn icon-btn" title="Settings">⚙</button>
     <!-- auth-avatar-btn injected here by auth-ui.js -->
   </div>
 </header>
+
+
 
 <!-- TOC OVERLAY (mobile) -->
 <div id="toc-overlay" role="presentation"></div>
@@ -267,6 +321,18 @@
       <span>Dictionary tables from TPR —
         <a href="https://github.com/bksubhuti/tipitaka-pali-reader" target="_blank" rel="noopener">github.com/bksubhuti/tipitaka-pali-reader</a>
       </span>
+    </div>
+    <div class="credit-item">
+      <span class="ci-icon"></span>
+      <span>Teachers and fellow monks at IIT  —
+        <a href="https://theravado.com" target="_blank" rel="noopener">theravado.com</a>
+      </span>
+    </div>
+    <div class="credit-item">
+      <span class="ci-icon">📋</span>
+      <span>Quảng An for his server donation and management</span>
+      <span>Various friends for their support and encouragement</span>
+      <span></span>
     </div>
 
     <button type="button" class="credits-close" id="close-credits-btn">Close</button>
