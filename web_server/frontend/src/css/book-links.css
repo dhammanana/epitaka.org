@@ -102,6 +102,12 @@
   font-size: 0.82em;
   margin-top: 0.1rem;
 }
+.blp-viet {
+  display: block;
+  color: var(--viet-color);
+  font-size: 0.82em;
+  margin-top: 0.1rem;
+}
 
 .blp-more-btn {
   display: block;

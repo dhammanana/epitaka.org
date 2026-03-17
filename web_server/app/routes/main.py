@@ -36,10 +36,21 @@ def book(book_id):
         toc = get_book_toc(book_id, conn)
 
     bookinfo = hierarchy.get(book_id, {})
-    bookref  = {
-        'mula_ref':  bookinfo.get('mula_ref',  []),
-        'attha_ref': bookinfo.get('attha_ref', []),
-        'tika_ref':  bookinfo.get('tika_ref',  []),
+
+    def enrich_refs(ref_ids):
+        result = []
+        for rid in (ref_ids or []):
+            info = hierarchy.get(rid, {})
+            result.append({
+                'book_id':   rid,
+                'book_name': info.get('book_name', rid),
+            })
+        return result
+
+    bookref = {
+        'mula_ref':  enrich_refs(bookinfo.get('mula_ref',  [])),
+        'attha_ref': enrich_refs(bookinfo.get('attha_ref', [])),
+        'tika_ref':  enrich_refs(bookinfo.get('tika_ref',  [])),
     }
 
     return render_template(

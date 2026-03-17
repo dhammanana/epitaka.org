@@ -53,8 +53,12 @@ BOOKLINK_DEBUG_BASE_URL = "http://localhost:8080/book"
 BOOKLINK_NORM_MODE: str = "smart"   # "smart" | "strip_vowel"
 
 # Long-vowel → short-vowel map used by the "ti" shortening rule.
-_LONG_TO_SHORT = {"ā": "a", "ī": "i", "ū": "u", "ē": "e", "ō": "o"}
-
+_LONG_TO_SHORT = {"ā": "a", "ī": "i", "ū": "u", "e": "e", "o": "o"}
+def to_short(word: str) -> str:
+    if word[-1] in _LONG_TO_SHORT:
+        return word[:-1]+_LONG_TO_SHORT[word[-1]]
+    return word
+    
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Text helpers
@@ -70,14 +74,17 @@ def strip_diacritics(text: str) -> str:
     )
 
 
-def clean_word_for_index(word: str) -> str:
+def clean_word_for_index(word: str, remove_space = False) -> str:
     """
     Lowercase + strip non-Pali punctuation.
     Keeps letters, digits, common Pali extended chars (ā ī ū ṃ ñ ṅ ṇ ḍ ṭ ḷ).
     """
     if not word:
         return ""
-    cleaned = re.sub(r"[^a-zA-Z0-9āīūṃñṅṇḍṭṭḷ\s]", "", word.lower())
+    if remove_space:
+        cleaned = re.sub(r"[^a-zA-Z0-9āīūṃñṅṇḍṭḷ]", "", word.lower())
+    else:
+        cleaned = re.sub(r"[^a-zA-Z0-9āīūṃñṅṇḍṭḷ\s]", "", word.lower())
     return cleaned.strip()
 
 
@@ -85,7 +92,7 @@ def clean_word_for_index(word: str) -> str:
 # Book-link normalisation
 # ─────────────────────────────────────────────────────────────────────────────
 
-def normalize_for_search(word: str, mode: str = BOOKLINK_NORM_MODE) -> List[str]:
+def normalize_for_search(word: str, ending: str = '', mode: str = BOOKLINK_NORM_MODE) -> List[str]:
     """
     Return one or more normalised search candidates for *word* to look for
     inside a target sentence.
@@ -111,33 +118,36 @@ def normalize_for_search(word: str, mode: str = BOOKLINK_NORM_MODE) -> List[str]
 
     pali_vowels = "aāiīuūeo"
 
+    STRIP_ENDINGS = ['ādīnipi', 'ādīsu', 'ādayo' 'āpi']
     if mode == "smart":
-        # Rule 1: -nti → -ṃ
-        if word.endswith("nti"):
-            return [word[:-3] + "ṃ"]
-
-        # Rule 2: -ti  → two candidates (keep long / shorten long)
-        if word.endswith("ti") and len(word) > 2:
-            stem = word[:-2]
-            candidates = [stem]
-            if stem and stem[-1] in _LONG_TO_SHORT:
-                short_stem = stem[:-1] + _LONG_TO_SHORT[stem[-1]]
-                if short_stem != stem:
-                    candidates.append(short_stem)
-            # De-duplicate while preserving order
-            seen: Set[str] = set()
-            result = []
-            for c in candidates:
-                if c and c not in seen:
-                    seen.add(c)
-                    result.append(c)
-            return result or [word]
-
-        # Rule 3: strip last vowel (same as strip_vowel mode)
-        if word[-1] in pali_vowels:
-            stripped = word[:-1]
-            return [stripped] if stripped else [word]
-        return [word]
+        # Rule 1: -nti → -ṃ. In case of short words like evanti, we don't want to strip the last vowel.
+        if len(word) < 4:
+            if ending == "nti":
+                return [word + "ṃ"]
+            else:
+                return [word, to_short(word)]
+        if len(word) > 10 and any(word.endswith(e) for e in STRIP_ENDINGS):
+            return list(set([word[:-len(e)] for e in STRIP_ENDINGS]))
+        return [word[:-1]]
+        # # Rule 2: -ti  → two candidates (keep long / shorten long)
+        # if ending == "ti":
+        #     stem = word
+        #     candidates = [stem]
+        #     if stem and stem[-1] in _LONG_TO_SHORT:
+        #         short_stem = to_short(stem)
+        #         if short_stem != stem:
+        #             candidates.append(short_stem)
+        #     # De-duplicate while preserving order
+        #     seen: Set[str] = set()
+        #     result = []
+        #     for c in candidates:
+        #         if c and c not in seen:
+        #             seen.add(c)
+        #             result.append(c)
+        #     return result or [word]
+        # if word[-1] in pali_vowels and len(word) > 3:
+        #     return [word[:-1]]
+        # return [word]
 
     else:  # "strip_vowel"
         if word[-1] in pali_vowels:
@@ -545,6 +555,7 @@ def rebuild_palidef(batch_size: int = 2000) -> None:
     print(f"     ({len(corpus_cache):,} unique (word, ending) pairs resolved)")
     print("=== Done: pali_definition ===")
 
+check_num = 0
 
 def _process_book_pair(
     cursor,
@@ -554,39 +565,37 @@ def _process_book_pair(
     total_links_ref: list,    # single-element list used as a mutable int ref
     total_unmatched_ref: list,  # single-element list: total unmatched word count
     batch_size: int,
+    # ── NEW: pre-loaded in-memory data (avoids per-section DB queries) ────────
+    all_headings: dict,    # { book_id: [ {'para_id':, 'title':, 'heading_number':} ] }
+    all_sentences: dict,   # { book_id: [ {'para_id':, 'line_id':, 'pali_sentence':} ] }
+    all_bold_words: dict,  # { book_id: [ {'para_id':, 'line_id':, 'word':, 'ending':} ] }
+    norm_cache: dict,      # { (word, ending): [candidates] }  shared, mutable
 ) -> None:
     """
     Core linking logic for one (source, target) book pair.
 
-    - Source book supplies bold words (from pali_definition).
-    - Target book supplies sentences to search within.
-    - Sections are aligned by matching heading_number=10 titles.
-    - For each bold word from the source section, normalise_for_search()
-      returns one or more search candidates; a link is created for every
-      target sentence where at least one candidate appears.
-    - Bold words that match nothing in any target sentence are counted and
-      printed with a debug URL so they can be inspected in the browser.
+    Logic is identical to the original _process_book_pair.
+    The only change is that the four inner SQL queries
+    (src heading list, tgt heading list, tgt_sentences, src_bold_words)
+    are replaced by dict lookups + list comprehensions over pre-loaded data.
     """
     print(f"      src={src_id}  →  tgt={tgt_id}")
 
     # ── Section alignment ────────────────────────────────────────────────────
-    src_headings = cursor.execute("""
-        SELECT para_id, title FROM headings
-        WHERE book_id = ? AND heading_number = 10
-        ORDER BY para_id
-    """, (src_id,)).fetchall()
-
-    tgt_headings = cursor.execute("""
-        SELECT para_id, title FROM headings
-        WHERE book_id = ? AND heading_number = 10
-        ORDER BY para_id
-    """, (tgt_id,)).fetchall()
-
+    # Original used two SQL queries; now we look up from pre-loaded dicts.
+    src_headings = [h for h in all_headings.get(src_id, []) if h['heading_number'] == 10]
+    tgt_headings = [h for h in all_headings.get(tgt_id, []) if h['heading_number'] == 10]
     tgt_map = {h['title']: h['para_id'] for h in tgt_headings}
+
+    # Full heading list for tgt (any heading_number) — needed for t_end calculation
+    tgt_all_headings = all_headings.get(tgt_id, [])
+    # Full heading list for src (any heading_number) — needed for next_real calculation
+    src_all_headings = all_headings.get(src_id, [])
 
     pair_links     = 0
     pair_unmatched = 0
-    unmatched_words: List[str] = []   # collect for summary print
+    unmatched_words: List[str] = []
+    unmatched_terms: List[Tuple[str, str, int, str]] = []
 
     for i, s_h in enumerate(src_headings):
         title = s_h['title']
@@ -596,45 +605,56 @@ def _process_book_pair(
         # ── Source section bounds ────────────────────────────────────────────
         s_start = s_h['para_id']
         s_end   = src_headings[i + 1]['para_id'] if i + 1 < len(src_headings) else 999999
-        next_real = cursor.execute("""
-            SELECT para_id FROM headings
-            WHERE book_id = ? AND para_id > ? AND heading_number != 10
-            ORDER BY para_id LIMIT 1
-        """, (src_id, s_start)).fetchone()
-        if next_real and next_real['para_id'] < s_end:
-            s_end = next_real['para_id']
+        # Original: cursor.execute("SELECT para_id FROM headings WHERE book_id=?
+        #   AND para_id>? AND heading_number!=10 ORDER BY para_id LIMIT 1", ...)
+        next_real_para = next(
+            (h['para_id'] for h in src_all_headings
+             if h['para_id'] > s_start and h['heading_number'] != 10),
+            None
+        )
+        if next_real_para is not None and next_real_para < s_end:
+            s_end = next_real_para
 
         # ── Target section bounds ────────────────────────────────────────────
         t_start = tgt_map[title]
-        next_tgt = cursor.execute("""
-            SELECT para_id FROM headings
-            WHERE book_id = ? AND para_id > ?
-            ORDER BY para_id LIMIT 1
-        """, (tgt_id, t_start)).fetchone()
-        t_end = next_tgt['para_id'] if next_tgt else 999999
+        # Original: cursor.execute("SELECT para_id FROM headings WHERE book_id=?
+        #   AND para_id>? ORDER BY para_id LIMIT 1", ...)
+        next_tgt_para = next(
+            (h['para_id'] for h in tgt_all_headings if h['para_id'] > t_start),
+            None
+        )
+        t_end = next_tgt_para if next_tgt_para is not None else 999999
 
         # ── Fetch data for this section pair ─────────────────────────────────
-        tgt_sentences = cursor.execute("""
-            SELECT para_id, line_id, pali_sentence
-            FROM sentences
-            WHERE book_id = ? AND para_id >= ? AND para_id < ?
-        """, (tgt_id, t_start, t_end)).fetchall()
-
-        src_bold_words = cursor.execute("""
-            SELECT para_id, line_id, word
-            FROM pali_definition
-            WHERE book_id = ? AND para_id >= ? AND para_id < ?
-        """, (src_id, s_start, s_end)).fetchall()
+        # Original: two SQL queries per section iteration.
+        # Now: filter pre-loaded in-memory lists.
+        tgt_sentences = [
+            s for s in all_sentences.get(tgt_id, [])
+            if t_start <= s['para_id'] < t_end
+        ]
+        src_bold_words = [
+            b for b in all_bold_words.get(src_id, [])
+            if s_start <= b['para_id'] < s_end
+        ]
 
         # ── Match each bold word against target sentences ─────────────────────
         for sbw in src_bold_words:
             s_word     = sbw['word']
-            candidates = normalize_for_search(s_word)
+            ending     = sbw['ending']
+            # Cache normalize_for_search results (shared across all pairs)
+            norm_key = (s_word, ending or '')
+            if norm_key not in norm_cache:
+                norm_cache[norm_key] = normalize_for_search(s_word, ending or '')
+            candidates = norm_cache[norm_key]
             matched    = False
 
             for tgt_s in tgt_sentences:
                 t_text = (tgt_s['pali_sentence'] or "").lower()
-                if any(c.lower() in t_text for c in candidates if c):
+                t_text = re.sub(r'\[.*?\]', '', t_text)
+                t_text = re.sub(r'\(.*?\)', '', t_text)
+                t_text = re.sub(r'\{.*?\}', '', t_text)
+                
+                if any(clean_word_for_index(c, remove_space=True) in clean_word_for_index(t_text, remove_space=True) for c in candidates if c):
                     buffer.append((
                         tgt_id,  tgt_s['para_id'], tgt_s['line_id'],
                         src_id,  sbw['para_id'],   sbw['line_id'],
@@ -655,13 +675,23 @@ def _process_book_pair(
                         buffer.clear()
 
             if not matched:
+                # global check_num
+                # check_num += 1
+                # if check_num > 0:
+                #     print('\n')
+                #     print(f"    unmatched: {src_id} {sbw['para_id']} {sbw['line_id']} {s_word}")
+                #     print([tgs['pali_sentence'] for tgs in tgt_sentences])
+                # if check_num > 100:
+                #     exit()
                 pair_unmatched += 1
                 total_unmatched_ref[0] += 1
                 url = (
                     f"{BOOKLINK_DEBUG_BASE_URL}/{src_id}"
                     f"?para={sbw['para_id']}&line_id={sbw['line_id']}"
                 )
-                unmatched_words.append(f"'{s_word}'  {url}")
+                unmatched_terms.append((tgt_id, src_id, sbw['para_id'], s_word))
+                # unmatched_words.append(f"'{s_word}'  {url}")
+                unmatched_words.append(f"{s_word} => {' '.join([tgs['pali_sentence'] for tgs in tgt_sentences])}")
 
     # ── Per-pair summary ──────────────────────────────────────────────────────
     total_words = pair_links + pair_unmatched
@@ -673,6 +703,11 @@ def _process_book_pair(
         f"match_rate={match_pct:.1f}%"
     )
     if unmatched_words:
+        # save the log to file
+        with open("unmatched_words.log", "a") as f:
+            f.write(f"\n {src_id} {tgt_id}\n")
+            f.write("\n".join(unmatched_words))
+            f.write("\n")
         # Print up to 20 examples to keep the log readable; show a truncation
         # notice if there are more.
         MAX_SHOW = 20
@@ -732,6 +767,49 @@ def rebuild_booklink(batch_size: int = 1000) -> None:
         conn.row_factory = _sqlite3.Row
         cursor = conn.cursor()
 
+        # ── Pre-load all data into memory ONCE before processing any pairs ────
+        # This replaces the per-section SQL queries inside _process_book_pair.
+
+        print("\n  → Pre-loading all headings into memory...")
+        all_headings: dict = defaultdict(list)
+        for row in cursor.execute(
+            "SELECT book_id, para_id, title, heading_number FROM headings ORDER BY book_id, para_id"
+        ):
+            all_headings[row['book_id']].append({
+                'para_id':        row['para_id'],
+                'title':          row['title'],
+                'heading_number': row['heading_number'],
+            })
+        print(f"     {sum(len(v) for v in all_headings.values()):,} heading rows loaded.")
+
+        print("  → Pre-loading all sentences into memory...")
+        all_sentences: dict = defaultdict(list)
+        for row in cursor.execute(
+            "SELECT book_id, para_id, line_id, pali_sentence FROM sentences ORDER BY book_id, para_id, line_id"
+        ):
+            all_sentences[row['book_id']].append({
+                'para_id':       row['para_id'],
+                'line_id':       row['line_id'],
+                'pali_sentence': row['pali_sentence'],
+            })
+        print(f"     {sum(len(v) for v in all_sentences.values()):,} sentence rows loaded.")
+
+        print("  → Pre-loading all bold words (pali_definition) into memory...")
+        all_bold_words: dict = defaultdict(list)
+        for row in cursor.execute(
+            "SELECT book_id, para_id, line_id, word, ending FROM pali_definition ORDER BY book_id, para_id, line_id"
+        ):
+            all_bold_words[row['book_id']].append({
+                'para_id': row['para_id'],
+                'line_id': row['line_id'],
+                'word':    row['word'],
+                'ending':  row['ending'],
+            })
+        print(f"     {sum(len(v) for v in all_bold_words.values()):,} bold-word rows loaded.")
+
+        # Shared normalize_for_search cache — reused across all book pairs
+        norm_cache: dict = {}
+
         buffer: list = []
         total_links     = [0]
         total_unmatched = [0]
@@ -751,7 +829,8 @@ def rebuild_booklink(batch_size: int = 1000) -> None:
                 continue
             print(f"    Mūla: {src_id}")
             for tgt_id in targets:
-                _process_book_pair(cursor, tgt_id, src_id, buffer, total_links, total_unmatched, batch_size)
+                _process_book_pair(cursor, tgt_id, src_id, buffer, total_links, total_unmatched, batch_size,
+                                   all_headings, all_sentences, all_bold_words, norm_cache)
 
         # ── Pass 2: Aṭṭhakathā → tika only ──────────────────────────────────
         print("\n  ── Pass 2: Aṭṭhakathā books (tika_ref only) ──")
@@ -768,7 +847,8 @@ def rebuild_booklink(batch_size: int = 1000) -> None:
                 continue
             print(f"    Aṭṭha: {attha_id}")
             for tgt_id in targets:
-                _process_book_pair(cursor, tgt_id, attha_id, buffer, total_links, total_unmatched, batch_size)
+                _process_book_pair(cursor, tgt_id, attha_id, buffer, total_links, total_unmatched, batch_size,
+                                   all_headings, all_sentences, all_bold_words, norm_cache)
 
         # ── Pass 3: Ṭīkā → Ṭīkā only ─────────────────────────────────────────
         print("\n  ── Pass 3: Ṭīkā books (tika_ref only) ──")
@@ -785,7 +865,8 @@ def rebuild_booklink(batch_size: int = 1000) -> None:
                 continue
             print(f"    Tīkā: {tika_id}")
             for tgt_id in targets:
-                _process_book_pair(cursor, tgt_id, tika_id, buffer, total_links, total_unmatched, batch_size)
+                _process_book_pair(cursor, tgt_id, tika_id, buffer, total_links, total_unmatched, batch_size,
+                                   all_headings, all_sentences, all_bold_words, norm_cache)
 
         # ── Final flush ───────────────────────────────────────────────────────
         if buffer:

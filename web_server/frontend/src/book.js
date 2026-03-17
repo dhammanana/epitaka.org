@@ -447,9 +447,11 @@ function showBookLinkPopup(anchorEl, link) {
   preview.className = 'blp-preview';
   for (const row of link.preview) {
     const rowEl = document.createElement('div');
+    const setting = loadSettings();
     rowEl.className = 'blp-row' + (row.is_target ? ' blp-target' : '');
-    if (row.pali)    rowEl.innerHTML += `<span class="pali-text blp-pali">${row.pali}</span>`;
-    if (row.english) rowEl.innerHTML += `<span class="blp-eng">${row.english}</span>`;
+    if (row.pali && setting.pali)    rowEl.innerHTML += `<span class="pali-text blp-pali">${row.pali}</span>`;
+    if (row.english && setting.english) rowEl.innerHTML += `<span class="blp-eng">${row.english}</span>`;
+    if (row.vietnamese && setting.vietnamese) rowEl.innerHTML += `<span class="blp-viet">${row.vietnamese}</span>`;
     preview.appendChild(rowEl);
   }
   popup.appendChild(preview);
@@ -568,8 +570,11 @@ async function showBookLinkDialog(link) {
         const isTarget = s.para_id === link.dst_para && s.line_id === link.dst_line;
         rowEl.className = 'bld-sentence' + (isTarget ? ' bld-target' : '');
         rowEl.id        = `bld-p${s.para_id}-l${s.line_id}`;
-        if (s.pali)    rowEl.innerHTML += `<div class="pali-text bld-pali">${s.pali}</div>`;
-        if (s.english) rowEl.innerHTML += `<div class="bld-eng">${s.english}</div>`;
+        let setting = loadSettings()
+
+        if (s.pali && setting.pali)    rowEl.innerHTML += `<div class="pali-text bld-pali">${s.pali}</div>`;
+        if (s.english && setting.english) rowEl.innerHTML += `<div class="blp-eng">${s.english}</div>`;
+        if (s.vietnamese && setting.vietnamese) rowEl.innerHTML += `<div class="blp-viet">${s.vietnamese}</div>`;
         paraEl.appendChild(rowEl);
       }
       bodyContent.appendChild(paraEl);

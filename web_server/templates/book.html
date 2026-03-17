@@ -38,9 +38,9 @@
       bookId:  {{ book_id | tojson }},
       baseUrl: {{ base_url | tojson }},
       bookref: {
-        mula:  {{ bookref.mula_ref  | tojson }},   {# list of book_id strings #}
-        attha: {{ bookref.attha_ref | tojson }},   {# list of book_id strings #}
-        tika:  {{ bookref.tika_ref  | tojson }},   {# list of book_id strings #}
+        mula_ref:  {{ bookref.mula_ref  | tojson }},   {# list of {book_id, book_name} #}
+        attha_ref: {{ bookref.attha_ref | tojson }},   {# list of {book_id, book_name} #}
+        tika_ref:  {{ bookref.tika_ref  | tojson }},   {# list of {book_id, book_name} #}
       }
     };
     window.HOME_MENU = {{ menu | tojson }};
@@ -59,7 +59,7 @@
     {# ── Mūla refs ── #}
     {% if bookref.mula_ref | length == 1 %}
       <a id="ref-mula-1"
-         href="{{ base_url }}/book_ref/{{ bookref.mula_ref[0] }}?ref={{ book_id }}"
+         href="{{ base_url }}/book_ref/{{ bookref.mula_ref[0].book_id }}?ref={{ book_id }}"
          class="topbar-btn ref-btn ref-btn--mula">M</a>
     {% elif bookref.mula_ref | length > 1 %}
       <div class="ref-dropdown" id="ref-dropdown-mula">
@@ -67,11 +67,11 @@
                 aria-haspopup="true" aria-expanded="false"
                 aria-label="Mūla references">M</button>
         <ul class="ref-dropdown__menu" role="menu">
-          {% for ref_id in bookref.mula_ref %}
+          {% for ref in bookref.mula_ref %}
           <li role="none">
             <a id="ref-mula-{{ loop.index }}"
-               href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
-               class="ref-dropdown__item" role="menuitem">Mūla {{ loop.index }}</a>
+               href="{{ base_url }}/book_ref/{{ ref.book_id }}?ref={{ book_id }}"
+               class="ref-dropdown__item" role="menuitem">{{ ref.book_name }}</a>
           </li>
           {% endfor %}
         </ul>
@@ -81,7 +81,7 @@
     {# ── Attha refs ── #}
     {% if bookref.attha_ref | length == 1 %}
       <a id="ref-attha-1"
-         href="{{ base_url }}/book_ref/{{ bookref.attha_ref[0] }}?ref={{ book_id }}"
+         href="{{ base_url }}/book_ref/{{ bookref.attha_ref[0].book_id }}?ref={{ book_id }}"
          class="topbar-btn ref-btn ref-btn--attha">A</a>
     {% elif bookref.attha_ref | length > 1 %}
       <div class="ref-dropdown" id="ref-dropdown-attha">
@@ -89,11 +89,11 @@
                 aria-haspopup="true" aria-expanded="false"
                 aria-label="Attha references">A</button>
         <ul class="ref-dropdown__menu" role="menu">
-          {% for ref_id in bookref.attha_ref %}
+          {% for ref in bookref.attha_ref %}
           <li role="none">
             <a id="ref-attha-{{ loop.index }}"
-               href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
-               class="ref-dropdown__item" role="menuitem">Attha {{ loop.index }}</a>
+               href="{{ base_url }}/book_ref/{{ ref.book_id }}?ref={{ book_id }}"
+               class="ref-dropdown__item" role="menuitem">{{ ref.book_name }}</a>
           </li>
           {% endfor %}
         </ul>
@@ -103,7 +103,7 @@
     {# ── Ṭīkā refs ── #}
     {% if bookref.tika_ref | length == 1 %}
       <a id="ref-tika-1"
-         href="{{ base_url }}/book_ref/{{ bookref.tika_ref[0] }}?ref={{ book_id }}"
+         href="{{ base_url }}/book_ref/{{ bookref.tika_ref[0].book_id }}?ref={{ book_id }}"
          class="topbar-btn ref-btn ref-btn--tika">Ṭ</a>
     {% elif bookref.tika_ref | length > 1 %}
       <div class="ref-dropdown" id="ref-dropdown-tika">
@@ -111,11 +111,11 @@
                 aria-haspopup="true" aria-expanded="false"
                 aria-label="Ṭīkā references">Ṭ</button>
         <ul class="ref-dropdown__menu" role="menu">
-          {% for ref_id in bookref.tika_ref %}
+          {% for ref in bookref.tika_ref %}
           <li role="none">
             <a id="ref-tika-{{ loop.index }}"
-               href="{{ base_url }}/book_ref/{{ ref_id }}?ref={{ book_id }}"
-               class="ref-dropdown__item" role="menuitem">Ṭīkā {{ loop.index }}</a>
+               href="{{ base_url }}/book_ref/{{ ref.book_id }}?ref={{ book_id }}"
+               class="ref-dropdown__item" role="menuitem">{{ ref.book_name }}</a>
           </li>
           {% endfor %}
         </ul>

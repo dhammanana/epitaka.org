@@ -123,7 +123,7 @@ def book_links(book_id):
             dst_line = lnk['dst_line']
 
             cursor.execute('''
-                SELECT para_id, line_id, pali_sentence, english_translation
+                SELECT para_id, line_id, pali_sentence, english_translation, vietnamese_translation
                 FROM sentences
                 WHERE book_id = ? AND para_id = ?
                   AND line_id BETWEEN ? AND ?
@@ -135,6 +135,7 @@ def book_links(book_id):
                 'line_id':   r['line_id'],
                 'pali':      markdown_to_html(r['pali_sentence'])       if r['pali_sentence']       else '',
                 'english':   markdown_to_html(r['english_translation']) if r['english_translation'] else '',
+                'vietnamese':   markdown_to_html(r['vietnamese_translation']) if r['vietnamese_translation'] else '',
                 'is_target': r['line_id'] == dst_line,
             } for r in cursor.fetchall()]
 
@@ -187,7 +188,7 @@ def book_link_section():
         end_para = next_section['para_id'] if next_section else 999999999
 
         cursor.execute('''
-            SELECT para_id, line_id, pali_sentence, english_translation
+            SELECT para_id, line_id, pali_sentence, english_translation, vietnamese_translation
             FROM sentences
             WHERE book_id = ? AND para_id >= ? AND para_id < ?
             ORDER BY para_id, line_id
@@ -199,6 +200,7 @@ def book_link_section():
         'line_id': r['line_id'],
         'pali':    markdown_to_html(r['pali_sentence'])       if r['pali_sentence']       else '',
         'english': markdown_to_html(r['english_translation']) if r['english_translation'] else '',
+        'vietnamese': markdown_to_html(r['vietnamese_translation']) if r['vietnamese_translation'] else '',
     } for r in rows]
 
     return jsonify({
