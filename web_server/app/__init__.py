@@ -63,9 +63,9 @@ def create_app(config_name='default'):
         db = g.pop('db', None)
         if db is not None:
             db.close()
-    return app
 
     @app.context_processor
     def inject_version():
         return dict(v=APP_VERSION)
     
+    return app
