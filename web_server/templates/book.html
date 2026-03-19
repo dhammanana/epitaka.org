@@ -14,8 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}?v={{ v }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog.css') }}?v={{ v }}">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NQWX1DCC2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -335,7 +335,7 @@
 
 <!-- <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}" defer></script> -->
-<script type="module" src="{{ url_for('static', filename='js/book.bundle.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/book.bundle.js') }}?v={{ v }}"></script>
 
 <!-- Credits modal wiring (plain JS, no module needed) -->
 <script>

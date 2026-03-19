@@ -11,8 +11,17 @@ from .routes.auth   import bp as auth_bp,   init_auth_db
 from .routes.readers import bp as reader_bp, init_reader_db
 from .services.initialize_db import init_all_search_tables
 from .utils.index_builder import register_cli
+import subprocess, os
 
 INIT = False
+
+def get_git_hash():
+    try:
+        return subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD']).decode().strip()
+    except:
+        return os.environ.get('APP_VERSION', 'dev')
+
+APP_VERSION = get_git_hash()
 
 def create_app(config_name='default'):
     app = Flask(__name__,
@@ -56,4 +65,7 @@ def create_app(config_name='default'):
             db.close()
     return app
 
+    @app.context_processor
+    def inject_version():
+        return dict(v=APP_VERSION)
     

@@ -200,7 +200,8 @@ function buildUsagesHtml(usages) {
   const cards = usages.map(u => {
     const surface  = u.word + (u.ending || '');
     const paliHtml = highlightInflected(u.pali || '', surface);
-    const trans    = u.english || u.vietnamese || '';
+    const settings = loadSettings();
+    const trans    = settings.vietnamese ? u.vietnamese : u.english;
 
     return `<div class="dict-usage">
       <div class="dict-usage-pali">${paliHtml}</div>

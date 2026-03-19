@@ -10,12 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Design-token base (shared with book page) -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}?v={{ v }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog.css') }}?v={{ v }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}?v={{ v }}">
 
   <!-- Index-page-specific styles (extracted by Vite from src/index.css) -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}?v={{ v }}">
 
   <!-- Flask → JS config bridge -->
   <script>
