@@ -122,7 +122,7 @@ function injectStyles() {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.2rem 0.9rem 0.25rem;
+  padding: 0.4rem 0.9rem 0.4rem;
   background: var(--surface, #fff);
   border-bottom: 1px solid var(--border, #e5ddd6);
   flex-shrink: 0;

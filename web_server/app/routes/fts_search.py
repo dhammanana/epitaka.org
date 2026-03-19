@@ -61,6 +61,44 @@ def _book_filter_clause(allowed_books, alias='f'):
     return f' AND {alias}.book_id IN ({placeholders})', list(allowed_books)
 
 
+# ── Helper: highlight search words in HTML text ───────────────────────────
+def _highlight_words(html_text: str, words: list) -> str:
+    """
+    Wrap each search word (prefix match) in <mark> tags inside already-rendered
+    HTML.  Works on the rendered HTML string so markdown_to_html() runs first.
+
+    We match whole-word prefixes only (\\b prefix) so that 'dukkh' matches
+    'dukkha' but not 'adukkha'.  The match is case-insensitive and
+    diacritic-sensitive (FTS already handles diacritic folding; here we mirror
+    what was actually stored).
+
+    HTML tags are skipped — the regex only touches text nodes between tags.
+    """
+    if not html_text or not words:
+        return html_text
+
+    # Build one pattern that matches any word prefix not inside an HTML tag.
+    # We process the string by splitting on tags and only replacing in text nodes.
+    parts = re.split(r'(<[^>]+>)', html_text)
+    result = []
+    for part in parts:
+        if part.startswith('<'):
+            # HTML tag — pass through unchanged
+            result.append(part)
+        else:
+            # Text node — apply highlights
+            for w in words:
+                # Escape the word for regex, then match as a prefix
+                escaped = re.escape(w)
+                part = re.sub(
+                    r'(?i)\b(' + escaped + r'\w*)',
+                    r'<mark>\1</mark>',
+                    part
+                )
+            result.append(part)
+    return ''.join(result)
+
+
 def register_search_route(bp):
     # ── /api/fts_search ────────────────────────────────────────────────────────
     @bp.route('/fts_search')
@@ -68,47 +106,48 @@ def register_search_route(bp):
         """
         Full-text search endpoint.
 
-        mode=exact (default)
-            All words must appear in the SAME SENTENCE within a paragraph.
-            A sentence is defined as text between sentence-ending punctuation
-            (. ; ! ? and Pāli daṇḍa │).
-            Steps:
-            1. FTS5 AND query finds candidate paragraphs containing all words.
-            2. Python splits each paragraph into sentences and verifies
-                all words co-occur in at least one sentence.
-            Fast for the FTS step; sentence-check only runs on actual matches.
+        mode=sentence (was: exact)
+            All words must appear in the SAME SENTENCE.
+            Uses sentences_fts_v2 (one FTS row per sentence) — the FTS engine
+            itself enforces co-occurrence within a row, so no Python sentence-
+            splitting is needed.  Very fast even at 1.2 M rows.
 
         mode=para
-            All words in the same paragraph (FTS row). No sentence restriction.
+            All words in the same paragraph (unchanged behaviour).
+            Uses sentences_fts (one FTS row per paragraph).
             Sorted by canonical books.id order then para_id.
 
         mode=distance
-            Words may be in different paragraphs of the same book, but the
-            line_id distance between them must be ≤ `distance`.
-            Uses the sentences table (one row per line/sentence) so that
-            cross-paragraph proximity works correctly.
-            Algorithm:
-            1. For each word, find all (book_id, para_id, line_id) rows in
-                sentences table that contain it (LIKE prefix match).
-            2. Intersect by book_id to find books that have all words.
-            3. For each such book, find the minimum line_id span across all
-                words; if span ≤ distance, record the anchor para_id.
-            4. Paginate results and fetch paragraph text.
+            Words may be in different sentences but must appear within
+            `distance` tokens of each other inside a passage window.
+            Uses passages_fts (sliding windows of PASSAGE_WINDOW sentences)
+            with FTS5 NEAR() operator.  Pure index scan — no Python loop over
+            1.2 M rows.  The `distance` parameter maps directly to the NEAR
+            token distance.
 
         Query params:
         q          Search string
-        mode       exact | para | distance   (default: exact)
-        distance   Line distance for distance mode  (default: 5)
-        page       1-based page number       (default: 1)
-        limit      Results per page          (default: Config.MAX_SEARCH_RESULTS or 20)
+        mode       sentence | para | distance   (default: sentence)
+        distance   NEAR token distance          (default: 15)
+        page       1-based page number          (default: 1)
+        limit      Results per page             (default: Config.MAX_SEARCH_RESULTS or 20)
         pitakas    Comma-separated: suttanta,vinaya,abhidhamma,anna
         layers     Comma-separated: mula,attha,tika
+
+        Response shape (unchanged from original):
+        {
+          results: [
+            { book_id, book_name,
+              items: [{ book_id, para_id, pali, english }] }
+          ],
+          total, page, pages, words
+        }
         """
         hierarchy = load_hierarchy()
         query     = request.args.get('q', '').strip()
-        mode      = request.args.get('mode', 'exact')
+        mode      = request.args.get('mode', 'sentence')
         page      = max(1, int(request.args.get('page',     '1') or '1'))
-        distance  = max(1, int(request.args.get('distance', '5') or '5'))
+        distance  = max(1, int(request.args.get('distance', '15') or '15'))
         limit     = max(1, int(request.args.get('limit',
                         str(getattr(Config, 'MAX_SEARCH_RESULTS', 20))) or '20'))
         pitakas   = request.args.get('pitakas', '').strip()
@@ -131,10 +170,10 @@ def register_search_route(bp):
             elif mode == 'para':
                 rows, total = _search_para(cursor, words, allowed_books, page, limit)
             else:
-                # exact: same sentence
-                rows, total = _search_exact_sentence(cursor, words, allowed_books, page, limit)
+                # 'sentence' mode (also accepts legacy 'exact' value)
+                rows, total = _search_sentence(cursor, words, allowed_books, page, limit)
 
-        # ── Group by book, ordered by books.id ────────────────────
+        # ── Group by book, ordered by books.id ────────────────────────────────
         grouped = {}
         for row in rows:
             bid = row['book_id']
@@ -144,11 +183,19 @@ def register_search_route(bp):
                     'book_name': hierarchy.get(bid, {}).get('book_name', bid),
                     'items':     [],
                 }
+
+            pali_html    = markdown_to_html(row.get('pali_paragraph')    or '')
+            english_html = markdown_to_html(row.get('english_paragraph') or '')
+
+            # Apply <mark> highlights to both rendered HTML strings
+            pali_html    = _highlight_words(pali_html,    words)
+            english_html = _highlight_words(english_html, words)
+
             grouped[bid]['items'].append({
                 'book_id': bid,
                 'para_id': row['para_id'],
-                'pali':    markdown_to_html(row.get('pali_paragraph')    or ''),
-                'english': markdown_to_html(row.get('english_paragraph') or ''),
+                'pali':    pali_html,
+                'english': english_html,
             })
 
         pages = (total + limit - 1) // limit if total else 0
@@ -162,67 +209,68 @@ def register_search_route(bp):
         })
 
 
-# ── _search_exact_sentence ────────────────────────────────────────────────
-# Sentence boundary pattern: split on . ; ! ? and Pāli daṇḍa (│ or ।)
-_SENTENCE_SPLIT = re.compile(r'[.;!?।|]+')
+# ─────────────────────────────────────────────────────────────────────────────
+# mode=sentence  — uses sentences_fts_v2
+# ─────────────────────────────────────────────────────────────────────────────
 
-def _words_in_same_sentence(text, words):
+def _search_sentence(cursor, words, allowed_books, page, limit):
     """
-    Return True if all words (prefix-matched) appear in at least one
-    sentence of `text`. Sentences are delimited by . ; ! ? │ ।
-    """
-    if not text:
-        return False
-    sentences = _SENTENCE_SPLIT.split(text.lower())
-    wl = [w.lower() for w in words]
-    for sent in sentences:
-        tokens = re.findall(r'\w+', sent)
-        if all(any(tok.startswith(w) for tok in tokens) for w in wl):
-            return True
-    return False
+    All words must co-occur within a single sentence row.
 
+    sentences_fts_v2 has one row per sentence, so an FTS AND query is
+    sufficient — no Python sentence-splitting needed.
 
-def _search_exact_sentence(cursor, words, allowed_books, page, limit):
-    """
-    Two-phase:
-      Phase 1 — FTS AND query: fast index scan for paragraphs containing
-                all words anywhere (may span sentence boundaries).
-      Phase 2 — Python sentence filter: keep only paragraphs where all
-                words co-occur within a single sentence.
-    Pagination is applied AFTER the sentence filter.
-    To avoid fetching the entire corpus, we fetch in batches from FTS
-    and stop once we have enough verified results.
+    After finding matching sentence rows we resolve each back to its
+    paragraph (book_id + para_id) so the caller can return full paragraph
+    text in the standard output format.  Deduplication of paragraphs is
+    applied: if two sentences in the same paragraph both match, the paragraph
+    appears only once (at its first matching sentence's position).
+
+    Sorted by books.id canonical order then para_id.
     """
     fts_query         = ' AND '.join(f'"{w}"*' for w in words)
-    bf_sql, bf_params = _book_filter_clause(allowed_books)
+    bf_sql, bf_params = _book_filter_clause(allowed_books, alias='v')
 
-    # Fetch candidate rows from FTS ordered by books.id, para_id.
-    # We fetch all candidates to get an accurate total count.
-    # This is efficient because FTS already narrowed the set significantly.
-    data_sql = f'''
-        SELECT f.book_id, f.para_id, f.pali_paragraph, f.english_paragraph,
-               COALESCE(b.id, 9999) AS book_order
-        FROM sentences_fts f
-        LEFT JOIN books b ON f.book_id = b.book_id
-        WHERE f.sentences_fts MATCH ?{bf_sql}
-        ORDER BY book_order, f.para_id
+    # Count distinct paragraphs (for pagination total)
+    count_sql = f'''
+        SELECT COUNT(DISTINCT v.book_id || '|' || v.para_id)
+        FROM sentences_fts_v2 v
+        WHERE v.sentences_fts_v2 MATCH ?{bf_sql}
     '''
-    candidates = cursor.execute(data_sql, [fts_query] + bf_params).fetchall()
+    total = cursor.execute(count_sql, [fts_query] + bf_params).fetchone()[0]
 
-    # Filter to those where all words appear in the same sentence
-    verified = []
-    for row in candidates:
-        pali_ok = _words_in_same_sentence(row['pali_paragraph'], words)
-        eng_ok  = _words_in_same_sentence(row['english_paragraph'], words)
-        if pali_ok or eng_ok:
-            verified.append(dict(row))
+    if total == 0:
+        return [], 0
 
-    total  = len(verified)
     offset = (page - 1) * limit
-    return verified[offset: offset + limit], total
+
+    # Fetch the first matching sentence per paragraph, in canonical order.
+    # COALESCE(b.id, 9999) puts books not in the books table at the end.
+    data_sql = f'''
+        SELECT v.book_id, v.para_id,
+               MIN(COALESCE(b.id, 9999)) AS book_order,
+               MIN(v.para_id)            AS first_para
+        FROM sentences_fts_v2 v
+        LEFT JOIN books b ON v.book_id = b.book_id
+        WHERE v.sentences_fts_v2 MATCH ?{bf_sql}
+        GROUP BY v.book_id, v.para_id
+        ORDER BY book_order, v.para_id
+        LIMIT ? OFFSET ?
+    '''
+    para_hits = cursor.execute(data_sql, [fts_query] + bf_params + [limit, offset]).fetchall()
+
+    if not para_hits:
+        return [], total
+
+    # Fetch full paragraph text for this page's results in one batched query
+    rows = _fetch_paragraphs(cursor, [(r['book_id'], r['para_id']) for r in para_hits])
+    return rows, total
 
 
-# ── _search_para ──────────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# mode=para  — uses sentences_fts (paragraph level, unchanged logic)
+# ─────────────────────────────────────────────────────────────────────────────
+
 def _search_para(cursor, words, allowed_books, page, limit):
     """
     All words in same paragraph via FTS5 AND prefix query.
@@ -239,6 +287,9 @@ def _search_para(cursor, words, allowed_books, page, limit):
     '''
     total = cursor.execute(count_sql, [fts_query] + bf_params).fetchone()[0]
 
+    if total == 0:
+        return [], 0
+
     data_sql = f'''
         SELECT f.book_id, f.para_id, f.pali_paragraph, f.english_paragraph,
                COALESCE(b.id, 9999) AS book_order
@@ -252,170 +303,122 @@ def _search_para(cursor, words, allowed_books, page, limit):
     return [dict(r) for r in rows], total
 
 
-# ── _search_distance ──────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# mode=distance  — uses passages_fts with FTS5 NEAR()
+# ─────────────────────────────────────────────────────────────────────────────
+
 def _search_distance(cursor, words, max_distance, allowed_books, page, limit):
     """
-    Cross-paragraph distance search using the sentences table.
+    Words must appear within `max_distance` tokens of each other, but they
+    can span sentence boundaries — they just need to fall within the same
+    passage window (built from PASSAGE_WINDOW consecutive sentences).
 
-    The sentences table has one row per sentence/line with columns:
-      book_id, para_id, line_id, pali_sentence, english_translation
+    Uses passages_fts with the FTS5 NEAR() operator:
+        NEAR(word1 word2 word3, max_distance)
 
-    line_id is a sequential integer within a book. Two words are "within
-    distance D" if |line_id_A - line_id_B| <= D, regardless of paragraph.
+    This is a pure index scan — no Python sliding window over 1.2 M rows.
 
-    Algorithm:
-      1. For each word, query sentences table for all (book_id, line_id)
-         pairs where pali_sentence or english_translation contains the
-         word (LIKE prefix). Keep only books present for ALL words.
-      2. For each qualifying book, compute the minimum line_id span
-         across all words using a sweep:
-         - Sort all per-word line_id lists.
-         - Use a sliding window (one pointer per word) to find the
-           tightest window containing one match per word.
-      3. Record the para_id of the anchor sentence (lowest line_id in
-         the best window) as the result paragraph.
-      4. Deduplicate by (book_id, para_id), paginate, fetch paragraph text.
+    After finding matching passage rows we resolve back to paragraphs
+    (using anchor_para_id stored in each passage row), deduplicate, and
+    fetch the full paragraph text for display.
+
+    The `distance` parameter from the API maps 1:1 to the NEAR token count.
+    Reasonable defaults:
+        distance=10   → words within ~1 sentence of each other
+        distance=20   → words within ~2-3 sentences
+        distance=50   → anywhere in the passage window
     """
-    bf_sql_s, bf_params_s = _book_filter_clause(allowed_books, alias='s')
+    if len(words) == 1:
+        # Single word — NEAR is meaningless; fall back to paragraph search
+        return _search_para(cursor, words, allowed_books, page, limit)
 
-    # ── Step 1: gather (book_id, line_id) hits per word ──────
-    word_hits = []   # list of dicts: {book_id → sorted list of line_ids}
-    for word in words:
-        like_pat = word.lower() + '%'
-        rows = cursor.execute(f'''
-            SELECT s.book_id, s.line_id
-            FROM sentences s
-            WHERE (LOWER(s.pali_sentence) LIKE ? OR LOWER(s.english_translation) LIKE ?)
-            {bf_sql_s}
-            ORDER BY s.book_id, s.line_id
-        ''', [like_pat, like_pat] + bf_params_s).fetchall()
+    # Build NEAR query: NEAR(word1 word2 …, distance)
+    # Each term gets a prefix wildcard so 'dukkh' matches 'dukkha' etc.
+    near_terms  = ' '.join(f'"{w}"*' for w in words)
+    fts_query   = f'NEAR({near_terms}, {max_distance})'
+    bf_sql, bf_params = _book_filter_clause(allowed_books, alias='p')
 
-        hits = {}  # book_id → [line_id, ...]
-        for r in rows:
-            hits.setdefault(r['book_id'], []).append(r['line_id'])
-        word_hits.append(hits)
+    # Count distinct paragraphs for pagination
+    count_sql = f'''
+        SELECT COUNT(DISTINCT p.book_id || '|' || p.anchor_para_id)
+        FROM passages_fts p
+        WHERE p.passages_fts MATCH ?{bf_sql}
+    '''
+    total = cursor.execute(count_sql, [fts_query] + bf_params).fetchone()[0]
 
-    if not word_hits:
+    if total == 0:
         return [], 0
 
-    # Books that have hits for ALL words
-    common_books = set(word_hits[0].keys())
-    for wh in word_hits[1:]:
-        common_books &= set(wh.keys())
-
-    if not common_books:
-        return [], 0
-
-    # ── Step 2 & 3: find minimum-span windows per book ────────
-    # For each book, use a sliding window over sorted per-word line_id lists
-    # to find the smallest span that contains one match from each word.
-    all_matches = []  # list of {book_id, anchor_line_id, span}
-
-    for book_id in sorted(common_books):
-        lists = [sorted(word_hits[w][book_id]) for w in range(len(words))]
-        n     = len(lists)
-
-        # Pointers into each word's list
-        ptrs  = [0] * n
-
-        while all(ptrs[i] < len(lists[i]) for i in range(n)):
-            vals = [lists[i][ptrs[i]] for i in range(n)]
-            lo, hi = min(vals), max(vals)
-            span   = hi - lo
-
-            if span <= max_distance:
-                # Record anchor = para_id of the sentence at lo line_id
-                anchor_line = lo
-                all_matches.append({
-                    'book_id':     book_id,
-                    'anchor_line': anchor_line,
-                    'span':        span,
-                })
-                # Advance all pointers past current window
-                for i in range(n):
-                    ptrs[i] += 1
-            else:
-                # Advance the pointer with the smallest value to try to close gap
-                min_idx = vals.index(lo)
-                ptrs[min_idx] += 1
-
-    if not all_matches:
-        return [], 0
-
-    # ── Step 4: resolve anchor_line → para_id, deduplicate ────
-    # Collect all anchor line_ids grouped by book to batch-query para_ids
-    book_lines = {}  # book_id → set of line_ids
-    for m in all_matches:
-        book_lines.setdefault(m['book_id'], set()).add(m['anchor_line'])
-
-    # Fetch para_id for each anchor line_id
-    line_to_para = {}  # (book_id, line_id) → para_id
-    for book_id, line_ids in book_lines.items():
-        placeholders = ','.join('?' * len(line_ids))
-        rows = cursor.execute(f'''
-            SELECT line_id, para_id FROM sentences
-            WHERE book_id = ? AND line_id IN ({placeholders})
-        ''', [book_id] + list(line_ids)).fetchall()
-        for r in rows:
-            line_to_para[(book_id, r['line_id'])] = r['para_id']
-
-    # Build deduplicated result list ordered by (books.id, para_id)
-    # Fetch book order
-    book_order_rows = cursor.execute(
-        'SELECT book_id, id FROM books WHERE book_id IN ({})'.format(
-            ','.join('?' * len(common_books))
-        ), list(common_books)
-    ).fetchall()
-    book_order = {r['book_id']: r['id'] for r in book_order_rows}
-
-    seen     = set()
-    results_raw = []
-    for m in all_matches:
-        bid      = m['book_id']
-        para_id  = line_to_para.get((bid, m['anchor_line']))
-        if para_id is None:
-            continue
-        key = (bid, para_id)
-        if key not in seen:
-            seen.add(key)
-            results_raw.append({
-                'book_id': bid,
-                'para_id': para_id,
-                'order':   book_order.get(bid, 9999),
-            })
-
-    # Sort by canonical book order then para_id
-    results_raw.sort(key=lambda r: (r['order'], r['para_id']))
-
-    total  = len(results_raw)
     offset = (page - 1) * limit
-    page_results = results_raw[offset: offset + limit]
 
-    if not page_results:
+    # One passage row per distinct paragraph, in canonical order.
+    # MIN(p.seq_start) picks the earliest window when multiple passage windows
+    # from the same paragraph match.
+    data_sql = f'''
+        SELECT p.book_id,
+               p.anchor_para_id                AS para_id,
+               MIN(COALESCE(b.id, 9999))        AS book_order,
+               MIN(p.seq_start)                AS first_seq
+        FROM passages_fts p
+        LEFT JOIN books b ON p.book_id = b.book_id
+        WHERE p.passages_fts MATCH ?{bf_sql}
+        GROUP BY p.book_id, p.anchor_para_id
+        ORDER BY book_order, p.anchor_para_id
+        LIMIT ? OFFSET ?
+    '''
+    para_hits = cursor.execute(data_sql, [fts_query] + bf_params + [limit, offset]).fetchall()
+
+    if not para_hits:
         return [], total
 
-    # ── Step 5: fetch paragraph text for result set ────────────
-    # Batch fetch from sentences_fts (one row per para_id)
+    rows = _fetch_paragraphs(cursor, [(r['book_id'], r['para_id']) for r in para_hits])
+    return rows, total
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Shared helper: fetch full paragraph text for a list of (book_id, para_id)
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _fetch_paragraphs(cursor, pairs: list) -> list:
+    """
+    Fetch pali_paragraph + english_paragraph for a page of (book_id, para_id)
+    pairs from sentences_fts in one batched OR query.
+
+    Falls back to a GROUP_CONCAT on sentences for any pair not found in
+    sentences_fts (should be rare — only if index is stale).
+
+    Returns rows in the same order as `pairs`.
+    """
+    if not pairs:
+        return []
+
+    placeholders = ' OR '.join('(book_id = ? AND para_id = ?)' for _ in pairs)
+    params       = [val for pair in pairs for val in pair]
+
+    rows = cursor.execute(f'''
+        SELECT book_id, para_id, pali_paragraph, english_paragraph
+        FROM sentences_fts
+        WHERE {placeholders}
+    ''', params).fetchall()
+
+    row_map = {(r['book_id'], r['para_id']): dict(r) for r in rows}
+
     final = []
-    for item in page_results:
-        row = cursor.execute('''
-            SELECT book_id, para_id, pali_paragraph, english_paragraph
-            FROM sentences_fts
-            WHERE book_id = ? AND para_id = ?
-        ''', (item['book_id'], item['para_id'])).fetchone()
-        if row:
-            final.append(dict(row))
+    for book_id, para_id in pairs:
+        key = (book_id, para_id)
+        if key in row_map:
+            final.append(row_map[key])
         else:
-            # Fallback: para might not be in FTS, use sentences table
-            srows = cursor.execute('''
+            # Fallback: reconstruct from raw sentences table
+            srow = cursor.execute('''
                 SELECT book_id, para_id,
-                       GROUP_CONCAT(pali_sentence, ' ') AS pali_paragraph,
+                       GROUP_CONCAT(pali_sentence,       ' ') AS pali_paragraph,
                        GROUP_CONCAT(english_translation, ' ') AS english_paragraph
                 FROM sentences
                 WHERE book_id = ? AND para_id = ?
                 GROUP BY book_id, para_id
-            ''', (item['book_id'], item['para_id'])).fetchone()
-            if srows:
-                final.append(dict(srows))
+            ''', (book_id, para_id)).fetchone()
+            if srow:
+                final.append(dict(srow))
 
-    return final, total
+    return final

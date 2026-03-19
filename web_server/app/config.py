@@ -24,12 +24,15 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    PORT  = 8083
+    HOST  = '0.0.0.0'                      # very common in dev (accessible from network/phone)
 
 
 
 class ProductionConfig(Config):
     DEBUG = False
-
+    PORT = 8080
+    HOST  = '0.0.0.0' 
 
 config_by_name = {
     'development': DevelopmentConfig,

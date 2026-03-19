@@ -114,7 +114,7 @@ export function initHomeDialog({ triggerSelector, baseUrl, menu }) {
                    value="${Number.isFinite(state.get('ftsDistance')) ? state.get('ftsDistance') : 2}">
           </div>
         </div>
-        <div id="home-filter-wrap"></div>
+        
       </div>
 
       <div id="home-dialog-body">

@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "E-Piṭaka",
+    "slug": "epitaka",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#faf7f2"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.epitaka.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#faf7f2"
+      },
+      "package": "com.epitaka.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font",
+      "expo-splash-screen"
+    ]
+  }
+}

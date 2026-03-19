@@ -53,6 +53,7 @@
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.18);
   overflow: hidden;
   animation: blp-in 0.13s ease-out;
+  font-size: var(--reader-font-size);
 }
 @keyframes blp-in {
   from { opacity: 0; transform: translateY(-4px); }
@@ -99,13 +100,13 @@
 .blp-eng {
   display: block;
   color: var(--eng-color);
-  font-size: 0.82em;
+  font-size: 0.90em;
   margin-top: 0.1rem;
 }
 .blp-viet {
   display: block;
   color: var(--viet-color);
-  font-size: 0.82em;
+  font-size: 0.90em;
   margin-top: 0.1rem;
 }
 

@@ -147,7 +147,7 @@ def book_links(book_id):
                 'dst_book_name': hierarchy.get(dst_book, {}).get('book_name', dst_book),
                 'dst_para':      dst_para,
                 'dst_line':      dst_line,
-                'preview':       preview[::-1],
+                'preview':       preview,
             })
 
     return jsonify(result)

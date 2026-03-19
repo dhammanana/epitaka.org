@@ -708,7 +708,7 @@ export class HomeDialogSearch {
     const page         = data.page   || 1;
     const totalPages   = data.pages  || 1;
 
-    let html = `<div class="dict-results-summary">${totalResults.toLocaleString()} result${totalResults !== 1 ? 's' : ''} &mdash; page ${page} of ${totalPages}</div>`;
+    let html = `<div id="home-filter-wrap"></div><div class="dict-results-summary1">${totalResults.toLocaleString()} result${totalResults !== 1 ? 's' : ''} &mdash; page ${page} of ${totalPages}</div>`;
 
     let groupIndex = 0;
     for (const group of results) {

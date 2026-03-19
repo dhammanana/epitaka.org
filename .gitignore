@@ -23,3 +23,4 @@ serviceAccountKey.json
 *.csv
 web_server/progress/
 chroma_pali_db
+*.ipynb

@@ -8,5 +8,5 @@ npm run dev &
 cd ..
 
 echo "🚀 Starting Flask..."
-python app.py
+python run.py
 cd ..

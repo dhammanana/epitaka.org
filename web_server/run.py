@@ -1,7 +1,13 @@
 from app import create_app
-# app = create_app("production")
+import os
+from app.config import Config
 
-app = create_app('development')   # or read from ENV
+if os.environ.get('ENV') == 'production':
+    app = create_app('production')
+else:
+    app = create_app('development')   # or read from ENV
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    port = int(os.environ.get('PORT', app.config.get('PORT', 8080)))
+    host = os.environ.get('HOST', app.config.get('HOST', '0.0.0.0'))
+    app.run(host=host, port=port, debug=app.config['DEBUG'])
