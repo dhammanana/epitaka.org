@@ -56,6 +56,7 @@ export function applySettings(s) {
   // Font size – clamp to sensible range
   const fs = Math.min(Math.max(parseInt(s.fontSize) || 16, 10), 32);
   root.style.setProperty('--reader-font-size', `${fs}px`);
+  root.style.setProperty('font-size', `${fs}px`);
 
   document.querySelector('body').setAttribute('script', s.paliScript);
   document.body.setAttribute('data-ra-mode',     s.actionButtons  || 'line');
