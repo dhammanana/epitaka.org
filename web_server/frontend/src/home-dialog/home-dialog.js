@@ -12,7 +12,7 @@ import '../css/home-dialog.css';
    Public init function
 ───────────────────────────────────────────────────────────── */
 
-export function initHomeDialog({ triggerSelector, baseUrl, menu }) {
+export function initHomeDialog({ triggerSelector, baseUrl, lang, menu }) {
   if (document.getElementById('home-dialog-overlay')) return;
 
   const trigger = document.querySelector(triggerSelector);
@@ -33,12 +33,14 @@ export function initHomeDialog({ triggerSelector, baseUrl, menu }) {
 
   const bookList = new HomeDialogBookList({
     baseUrl,
+    lang,
     menu,
     onNavigate: url => { _close(); window.location.href = url; },
   });
 
   const search = new HomeDialogSearch({
     baseUrl,
+    lang,
     initialState: {
       searchTypeId: state.get('searchTypeId'),
       ftsModeId:    state.get('ftsModeId'),

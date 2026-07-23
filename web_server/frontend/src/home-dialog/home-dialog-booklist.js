@@ -18,8 +18,9 @@ const TAB_ORDER    = ['Mūla', 'Aṭṭhakathā', 'Ṭīkā'];
 const PITAKA_ORDER = ['Vinaya', 'Suttanta', 'Sutta', 'Abhidhamma'];
 
 export class HomeDialogBookList {
-  constructor({ baseUrl, menu, onNavigate }) {
+  constructor({ baseUrl, lang, menu, onNavigate }) {
     this.baseUrl    = baseUrl;
+    this.lang       = lang;
     this.menu       = menu;
     this.onNavigate = onNavigate;
     this._filterText = '';
@@ -198,7 +199,7 @@ export class HomeDialogBookList {
     if (!Array.isArray(books)) return '';
     return books.map(([bookId, title], i) => `
       <li>
-        <a href="${this.baseUrl}/book/${bookId}"
+        <a href="${this.baseUrl}/${this.lang}/book/${bookId}"
            class="book-entry"
            data-book-id="${bookId}">
           <span class="book-num">${i + 1}.</span>

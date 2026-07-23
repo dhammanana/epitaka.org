@@ -71,8 +71,9 @@ export class HomeDialogSearch {
    * @param {Function} opts.onShowResults
    * @param {Function} opts.onShowBooks
    */
-  constructor({ baseUrl, initialState = {}, hierarchy = {}, onResultSelect, onShowResults, onShowBooks }) {
+  constructor({ baseUrl, lang, initialState = {}, hierarchy = {}, onResultSelect, onShowResults, onShowBooks }) {
     this.baseUrl        = baseUrl;
+    this.lang           = lang;
     this.hierarchy      = hierarchy;
     this.onResultSelect = onResultSelect;
     this.onShowResults  = onShowResults;
@@ -444,9 +445,9 @@ export class HomeDialogSearch {
     this._closeSuggestions();
 
     if (this.currentType.id === 'headings') {
-      this.onResultSelect(`${this.baseUrl}/book/${item.book_id}?para=${item.para_id}`);
+      this.onResultSelect(`${this.baseUrl}/${this.lang}/book/${item.book_id}#${item.para_id}`);
     } else if (this.currentType.id === 'pali-def') {
-      this.onResultSelect(`${this.baseUrl}/book/${item.book_id}?para=${item.para_id}&line=${item.line_id}`);
+      this.onResultSelect(`${this.baseUrl}/${this.lang}/book/${item.book_id}#${item.para_id}-${item.line_id}`);
     }
   }
 
@@ -523,7 +524,7 @@ export class HomeDialogSearch {
     } else if (type.id === 'pali-def') {
       this._showResultsLoading();
       const data = await this._apiFetch(
-        `${this.baseUrl}/api/bold_definition?q=${encodeURIComponent(q)}&limit=80`
+        `${this.baseUrl}/api/bold_definition?q=${encodeURIComponent(q)}&lang=${this.lang}&limit=80`
       );
       this._lastResults = data || [];
       this._lastQuery   = q;
@@ -533,7 +534,7 @@ export class HomeDialogSearch {
     } else if (type.id === 'ai') {
       const params = new URLSearchParams({ q, mode: 'ai' });
       this._appendFilterParams(params);
-      window.location.href = `${this.baseUrl}/search?${params}`;
+      window.location.href = `${this.baseUrl}/${this.lang}/search?${params}`;
     }
   }
 
@@ -560,15 +561,17 @@ export class HomeDialogSearch {
       new RegExp(`(${escapeRegex(query)})`, 'gi'),
       '<mark>$1</mark>'
     );
-    this.resultsPanel.innerHTML = data.map(item => `
-      <a href="${this.baseUrl}/book/${item.book_id}?para=${item.para_id}"
+    this.resultsPanel.innerHTML = data.map(item => {
+      const url = `${this.baseUrl}/${this.lang}/book/${item.book_id}#${item.para_id}`;
+      return `
+      <a href="${url}"
          class="search-result-item"
-         data-url="${this.baseUrl}/book/${item.book_id}?para=${item.para_id}">
+         data-url="${url}">
         <div class="search-result-book">${item.book_name || item.book_id}</div>
         <div class="search-result-heading">${hl(item.title || '')}</div>
         <div class="search-result-meta">Paragraph ${item.para_id}</div>
       </a>
-    `).join('');
+    `}).join('');
 
     this.resultsPanel.querySelectorAll('.search-result-item').forEach(el => {
       el.addEventListener('click', e => {
@@ -613,15 +616,17 @@ export class HomeDialogSearch {
             <span class="dict-book-count">${group.items.length}</span>
           </button>
           <div class="dict-book-body">
-            ${group.items.map(item => `
-              <a href="${this.baseUrl}/book/${item.book_id}?para=${item.para_id}&line=${item.line_id}"
+            ${group.items.map(item => {
+              const url = `${this.baseUrl}/${this.lang}/book/${item.book_id}#${item.para_id}-${item.line_id}`;
+              return `
+              <a href="${url}"
                  class="search-result-item dict-entry"
-                 data-url="${this.baseUrl}/book/${item.book_id}?para=${item.para_id}&line=${item.line_id}">
+                 data-url="${url}">
                 <div class="search-result-heading">${hl(item.title || '')}</div>
                 ${item.definition_pali ? `<div class="search-result-meta pali">${item.definition_pali}</div>` : ''}
                 ${item.definition_en   ? `<div class="search-result-meta translation">${item.definition_en}</div>` : ''}
               </a>
-            `).join('')}
+            `}).join('')}
           </div>
         </div>`;
     }
@@ -723,7 +728,7 @@ export class HomeDialogSearch {
           </button>
           <div class="dict-book-body">
             ${group.items.map(item => {
-              const url = `${this.baseUrl}/book/${item.book_id}?para=${item.para_id}`;
+              const url = `${this.baseUrl}/${this.lang}/book/${item.book_id}#${item.para_id}`;
               return `
                 <a href="${url}" class="search-result-item dict-entry fts-entry" data-url="${url}">
                   ${item.pali    ? `<div class="fts-pali">${hl(item.pali)}</div>`       : ''}

@@ -14,7 +14,7 @@ import './css/common.css';
 import { initHomeDialog } from './home-dialog/home-dialog.js';
 
 // ── Config injected from index.html via Flask ──────────────────
-const { baseUrl, menu } = window.INDEX_CONFIG;
+const { baseUrl, lang, menu } = window.INDEX_CONFIG;
 
 const SKIP_KEY = 'epika_disclaimer_skip';
 
@@ -29,6 +29,7 @@ const checkbox = document.getElementById('disclaimer-no-show');
 const homeDialog = initHomeDialog({
   triggerSelector: '#open-books-btn',
   baseUrl,
+  lang,
   menu,
 });
 

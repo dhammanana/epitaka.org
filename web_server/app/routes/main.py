@@ -528,8 +528,20 @@ def bold_suggest():
 def bold_definition():
     hierarchy = load_hierarchy()
     query = request.args.get('q', '').strip()
+    lang_code = request.args.get('lang', '').strip() or None
     if not query:
         return jsonify([])
+
+    # ── Translation DB (if requested) ──
+    trans_cursor = None
+    if lang_code:
+        try:
+            trans_db = get_translation_db(lang_code)
+            if trans_db:
+                trans_cursor = trans_db.cursor()
+        except Exception:
+            pass
+
     with get_db() as conn:
         cursor = conn.cursor()
         cursor.execute('''
@@ -544,11 +556,29 @@ def bold_definition():
             ORDER BY b.id, d.para_id
         ''', (normalize_pali(query),))
         results = cursor.fetchall()
-    return jsonify([{
-        'book_id':         r['book_id'],
-        'book_name':       hierarchy.get(r['book_id'], {}).get('book_name', 'Unknown'),
-        'para_id':         r['para_id'],
-        'line_id':         r['line_id'],
-        'title':           r['word'],
-        'definition_pali': markdown_to_html(r['pali']),
-    } for r in results])
+
+    output = []
+    for r in results:
+        entry = {
+            'book_id':         r['book_id'],
+            'book_name':       hierarchy.get(r['book_id'], {}).get('book_name', 'Unknown'),
+            'para_id':         r['para_id'],
+            'line_id':         r['line_id'],
+            'title':           r['word'],
+            'definition_pali': markdown_to_html(r['pali']),
+        }
+        # Look up translation for this sentence
+        if trans_cursor:
+            try:
+                trans_cursor.execute('''
+                    SELECT translation FROM sentences
+                    WHERE book_id = ? AND para_id = ? AND line_id = ?
+                ''', (r['book_id'], r['para_id'], r['line_id']))
+                trans_row = trans_cursor.fetchone()
+                if trans_row and trans_row['translation']:
+                    entry['definition_en'] = markdown_to_html(trans_row['translation'])
+            except Exception:
+                pass
+        output.append(entry)
+
+    return jsonify(output)
