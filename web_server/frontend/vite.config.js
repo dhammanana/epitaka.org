@@ -3,9 +3,12 @@ import { resolve }      from 'path'
 
 export default defineConfig({
   root: resolve(__dirname, 'src'),
+
   build: {
-    outDir:      resolve(__dirname, '../static'),
-    emptyOutDir: false,
+    // Output to frontend/dist/ — clean separation from Flask's static folder.
+    // Flask serves this via static_folder in app/__init__.py.
+    outDir:      resolve(__dirname, 'dist'),
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         book:  resolve(__dirname, 'src/book.js'),

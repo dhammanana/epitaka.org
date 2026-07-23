@@ -97,15 +97,9 @@
   color: var(--pali-color);
   font-family: var(--font-serif);
 }
-.blp-eng {
+.blp-trans {
   display: block;
-  color: var(--eng-color);
-  font-size: 0.90em;
-  margin-top: 0.1rem;
-}
-.blp-viet {
-  display: block;
-  color: var(--viet-color);
+  color: var(--trans-color);
   font-size: 0.90em;
   margin-top: 0.1rem;
 }
@@ -179,9 +173,9 @@
   font-family: var(--font-serif);
   font-size: 1em;
 }
-.bld-eng {
+.bld-trans {
   display: block;
-  color: var(--eng-color);
+  color: var(--trans-color);
   font-size: 0.85em;
   margin-top: 0.12rem;
 }

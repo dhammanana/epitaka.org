@@ -290,9 +290,9 @@ def _emit_passage(buffer: list, book_id: str, window: list) -> None:
     en_parts   = []
     vi_parts   = []
     for s in window:
-        pali_parts.append((s['pali_sentence']         or '').replace('*', ''))
-        en_parts.append(  (s['english_translation']   or ''))
-        vi_parts.append(  (s['vietnamese_translation'] or ''))
+        pali_parts.append((s['pali'] or '').replace('*', ''))
+        en_parts.append('')
+        vi_parts.append('')
 
     buffer.append((
         book_id,
@@ -392,9 +392,9 @@ def rebuild_fts(batch_size: int = 5000) -> None:
     with get_db() as conn:
         para_rows = conn.execute("""
             SELECT book_id, para_id,
-                   GROUP_CONCAT(pali_sentence,         ' ') AS pali_paragraph,
-                   GROUP_CONCAT(english_translation,   ' ') AS english_paragraph,
-                   GROUP_CONCAT(vietnamese_translation, ' ') AS vietnamese_paragraph
+                   GROUP_CONCAT(pali, ' ') AS pali_paragraph,
+                   '' AS english_paragraph,
+                   '' AS vietnamese_paragraph
             FROM sentences
             GROUP BY book_id, para_id
         """).fetchall()
@@ -404,7 +404,7 @@ def rebuild_fts(batch_size: int = 5000) -> None:
     with get_db() as conn:
         sent_rows = conn.execute("""
             SELECT book_id, para_id, line_id,
-                   pali_sentence, english_translation, vietnamese_translation
+                   pali, '' AS english_translation, '' AS vietnamese_translation
             FROM sentences
             ORDER BY book_id, para_id, line_id
         """).fetchall()
@@ -457,7 +457,7 @@ def rebuild_fts(batch_size: int = 5000) -> None:
                 VALUES (?, ?, ?, ?, ?, ?)
             """, (
                 book_id, para_id, line_id,
-                (pali_s or "").replace("*", ""), en_s, vi_s,
+                (pali_s or "").replace("*", ""), en_s or '', vi_s or '',
             ))
             inserted += 1
             if inserted % batch_size == 0:
@@ -608,9 +608,9 @@ def rebuild_words(batch_size: int = 5000) -> None:
     with get_db() as conn:
         rows = conn.execute("""
             SELECT book_id, para_id,
-                   GROUP_CONCAT(pali_sentence,       ' ') AS pali_paragraph,
-                   GROUP_CONCAT(english_translation,    ' ') AS english_paragraph,
-                   GROUP_CONCAT(vietnamese_translation, ' ') AS vietnamese_paragraph
+                   GROUP_CONCAT(pali, ' ') AS pali_paragraph,
+                   '' AS english_paragraph,
+                   '' AS vietnamese_paragraph
             FROM sentences
             GROUP BY book_id, para_id
         """).fetchall()

@@ -10,6 +10,7 @@
  */
 
 import './css/index.css';
+import './css/common.css';
 import { initHomeDialog } from './home-dialog/home-dialog.js';
 
 // ── Config injected from index.html via Flask ──────────────────

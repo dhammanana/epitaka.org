@@ -1,14 +1,15 @@
 # app/routes/edit.py
 from flask import Blueprint, render_template, jsonify, request
-from ..utils.db import get_db
-from ..services.loadtocs import load_hierarchy, get_book_toc, get_section_sentences
+from ..utils.db import get_db, get_translation_db
+from ..services.books import load_hierarchy
+from ..services.toc import get_book_toc, get_section_sentences
 from ..config import Config
 
 bp = Blueprint('edit', __name__)
 
 
-@bp.route('/book_edit/<book_id>')
-def book_edit(book_id):
+@bp.route('/<lang>/book_edit/<book_id>')
+def book_edit(lang, book_id):
     book_id_clean = book_id.replace('_chunks', '')
     hierarchy = load_hierarchy()
 
@@ -26,7 +27,7 @@ def book_edit(book_id):
                 SELECT COUNT(DISTINCT para_id) FROM sentences
                 WHERE book_id = ? AND para_id >= ? AND para_id < (
                     SELECT COALESCE(
-                        (SELECT MIN(para_id) FROM headings WHERE book_id = ? AND para_id > ? AND heading_number <= 6),
+                        (SELECT MIN(para_id) FROM headings WHERE book_id = ? AND para_id > ? AND level <= 6),
                         999999
                     )
                 )
@@ -39,15 +40,16 @@ def book_edit(book_id):
         book_id=book_id_clean,
         book_title=book_title,
         toc=toc,
-        base_url=Config.BASE_URL
+        base_url=Config.BASE_URL,
+        lang=lang,
     )
 
 
-@bp.route('/book_edit/<book_id>/<int:para_id>')
-def get_edit_content(book_id, para_id):
+@bp.route('/<lang>/book_edit/<book_id>/<int:para_id>')
+def get_edit_content(lang, book_id, para_id):
     book_id_clean = book_id.replace('_chunks', '')
     with get_db() as conn:
-        sentences = get_section_sentences(book_id_clean, para_id, conn)
+        sentences = get_section_sentences(book_id_clean, para_id, conn, lang_code=lang)
     return jsonify(sentences)
 
 
@@ -57,16 +59,22 @@ def save_translation():
     book_id = data['book_id']
     para_id = data['para_id']
     line_id = data['line_id']
-    vietnamese_translation = data.get('vietnamese_translation')
-    english_translation = data.get('english_translation')
+    translation = data.get('translation', '')
+    lang = data.get('lang', '')
 
-    with get_db() as conn:
-        cursor = conn.cursor()
-        cursor.execute('''
-            UPDATE sentences
-            SET vietnamese_translation = ?, english_translation = ?
-            WHERE book_id = ? AND para_id = ? AND line_id = ?
-        ''', (vietnamese_translation, english_translation, book_id, para_id, line_id))
-        conn.commit()
+    if not lang:
+        return jsonify({'status': 'error', 'message': 'Language required'}), 400
+
+    trans_db = get_translation_db(lang)
+    if not trans_db:
+        return jsonify({'status': 'error', 'message': f'Translation DB for {lang} not found'}), 404
+
+    cursor = trans_db.cursor()
+    cursor.execute('''
+        UPDATE sentences
+        SET translation = ?
+        WHERE book_id = ? AND para_id = ? AND line_id = ?
+    ''', (translation, book_id, para_id, line_id))
+    trans_db.commit()
 
     return jsonify({'status': 'success'})

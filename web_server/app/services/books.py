@@ -23,7 +23,7 @@ def _parse_ref_list(value):
 
 def load_hierarchy():
     """
-    Load all book metadata from the books table.
+    Load all book metadata from the books table in epitaka.db.
 
     The returned dict is keyed by book_id.  The ref fields
     (mula_ref, attha_ref, tika_ref) are stored directly as
@@ -83,3 +83,10 @@ def organize_hierarchy(hierarchy):
         menu[category][nikaya][key].append((book_id, book_name))
 
     return menu
+
+
+def get_book_name(book_id):
+    """Get book name for a given book_id."""
+    hierarchy = load_hierarchy()
+    info = hierarchy.get(book_id, {})
+    return info.get('book_name', book_id)

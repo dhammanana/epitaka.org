@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Piṭaka — Chaṭṭha Saṅgāyana Tipiṭaka</title>
+  <title>E-Piṭaka — Chaṭṭha Saṅgāyana Tipiṭaka ({{ lang_info.english_name }})</title>
   <meta name="description" content="Read and research the Pāli Tipiṭaka with AI-assisted translation. Chaṭṭha Saṅgāyana edition.">
+
+  {# ── Alternate language links for SEO ── #}
+  {% for alt_lang in available_langs %}
+  <link rel="alternate" hreflang="{{ alt_lang.code }}" href="{{ base_url }}/{{ alt_lang.code }}/">
+  {% endfor %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Design-token base (shared with book page) -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}?v={{ v }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog.css') }}?v={{ v }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}?v={{ v }}">
-
-  <!-- Index-page-specific styles (extracted by Vite from src/index.css) -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}?v={{ v }}">
 
-  <!-- Flask → JS config bridge -->
   <script>
     window.INDEX_CONFIG = {
       baseUrl: {{ base_url | tojson }},
       menu:    {{ menu | tojson }},
+      lang:    {{ lang | tojson }},
+      availableLangs: {{ available_langs | tojson }},
     };
   </script>
 </head>
 
 <body>
 
-  <!-- Decorative dharma wheel (purely visual) -->
   <svg class="bg-wheel" viewBox="0 0 200 200" fill="none"
        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="100" cy="100" r="94" stroke="currentColor" stroke-width="1.5"/>
@@ -48,14 +49,24 @@
     <circle cx="100" cy="100" r="5" fill="currentColor"/>
   </svg>
 
-  <!-- Landing screen (behind the disclaimer overlay) -->
   <div id="home-landing">
     <div class="landing-wordmark">E-<span>Piṭaka</span></div>
     <div class="landing-tagline">Chaṭṭha Saṅgāyana Tipiṭaka</div>
+
+    {# ── Language selector ── #}
+    <div class="landing-languages">
+      {% for alt_lang in available_langs %}
+      <a href="{{ base_url }}/{{ alt_lang.code }}/"
+         class="lang-chip {% if alt_lang.code == lang %}active{% endif %}">
+        <span class="lang-native">{{ alt_lang.native_name }}</span>
+        <span class="lang-english">{{ alt_lang.english_name }}</span>
+      </a>
+      {% endfor %}
+    </div>
+
     <button id="open-books-btn" type="button">☸ Browse the Canon</button>
   </div>
 
-  <!-- ── Disclaimer overlay ──────────────────────────────── -->
   <div id="disclaimer-overlay" role="dialog" aria-modal="true"
        aria-labelledby="disclaimer-heading">
 
@@ -64,7 +75,6 @@
 
       <div class="disclaimer-body">
 
-        <!-- Header -->
         <div class="disclaimer-header">
           <svg class="disclaimer-emblem" viewBox="0 0 36 36" fill="none"
                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -89,7 +99,6 @@
           </div>
         </div>
 
-        <!-- Notice text -->
         <div class="disclaimer-notice">
           <div class="notice-label">Translation Notice</div>
           <p>
@@ -109,7 +118,6 @@
           </p>
         </div>
 
-        <!-- Footer: checkbox + button -->
         <div class="disclaimer-footer">
           <label class="check-label" for="disclaimer-no-show">
             <input type="checkbox" id="disclaimer-no-show">
@@ -120,12 +128,11 @@
           </button>
         </div>
 
-      </div><!-- /.disclaimer-body -->
-    </div><!-- /#disclaimer-card -->
+      </div>
+    </div>
 
-  </div><!-- /#disclaimer-overlay -->
+  </div>
 
-  <!-- Vite bundle (extracted by Vite from src/index.js) -->
   <script type="module" src="{{ url_for('static', filename='js/index.bundle.js') }}"></script>
 
 </body>

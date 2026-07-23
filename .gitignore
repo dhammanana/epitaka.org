@@ -12,6 +12,7 @@ __pycache__/
 *.log
 tipitaka_en/
 tipitaka_vn/
+web_server/data/
 translations.*
 *.db
 *.zip

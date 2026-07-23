@@ -3,15 +3,16 @@ import time
 
 from flask import Blueprint, jsonify, request, g
 
-from ..utils.db import get_db
+from ..utils.db import get_db, get_webdata_db
 from .auth import require_auth
 
 bp = Blueprint('reader', __name__)
 
+
 # ── Schema migration (call at app startup) ────────────────────
 
 def init_reader_db():
-    with get_db() as conn:
+    with get_webdata_db() as conn:
         conn.executescript('''
             CREATE TABLE IF NOT EXISTS notes (
                 id         INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -54,20 +55,22 @@ def init_reader_db():
         ''')
 
 
-# ── Shared SQL fragment: section para_id range ───────────────
-# Mirrors the boundary logic used in get_section_sentences().
-# Parameters: (section_para_id, book_id, section_para_id)
+# ── Helper: compute section para_id range from epitaka.db ────────────────
 
-_SECTION_RANGE = '''
-    AND para_id >= ?
-    AND para_id < (
-        SELECT COALESCE(
-            (SELECT MIN(para_id) FROM headings
-             WHERE book_id = ? AND para_id > ? AND heading_number <= 6),
-            999999
-        )
-    )
-'''
+def _get_section_para_range(book_id, para_id):
+    """
+    Given a heading para_id, return the (start_para, end_para) range for that
+    TOC section by reading the headings table from epitaka.db.
+    This avoids querying epitaka tables from webdata.db connections.
+    """
+    with get_db() as conn:
+        row = conn.execute(
+            'SELECT COALESCE(MIN(para_id), 999999) FROM headings '
+            'WHERE book_id = ? AND para_id > ? AND level <= 6',
+            (book_id, para_id)
+        ).fetchone()
+        end_para = row[0] if row and row[0] else 999999
+    return para_id, end_para
 
 
 # ═══════════════════════════════════════════════════════════
@@ -76,28 +79,25 @@ _SECTION_RANGE = '''
 
 @bp.route('/api/book/<book_id>/comments')
 def api_get_comments(book_id):
-    """
-    Public. Returns all comments for a TOC section.
-    ?section_para_id=<int>  (legacy alias: ?para_id=)
-    """
+    """Public. Returns all comments for a TOC section."""
     book_id = book_id.replace('_chunks', '')
     spid    = (request.args.get('section_para_id', type=int)
                or request.args.get('para_id', type=int))
     if spid is None:
         return jsonify({'error': 'section_para_id required'}), 400
 
-    with get_db() as conn:
+    start_para, end_para = _get_section_para_range(book_id, spid)
+    with get_webdata_db() as conn:
         cursor = conn.cursor()
-        cursor.execute(f'''
+        cursor.execute('''
             SELECT c.id, c.para_id, c.line_id, c.uid,
                    u.display_name, u.photo_url,
                    c.text, c.created_at, c.updated_at
             FROM   comments c
             JOIN   users    u ON c.uid = u.uid
-            WHERE  c.book_id = ?
-            {_SECTION_RANGE}
+            WHERE  c.book_id = ? AND c.para_id >= ? AND c.para_id < ?
             ORDER  BY c.para_id, c.line_id, c.created_at ASC
-        ''', (book_id, spid, book_id, spid))
+        ''', (book_id, start_para, end_para))
         rows = cursor.fetchall()
     return jsonify({'comments': [dict(r) for r in rows]})
 
@@ -118,7 +118,7 @@ def api_add_comment(book_id):
         return jsonify({'error': 'Comment too long (max 2000 chars)'}), 400
 
     now = int(time.time())
-    with get_db() as conn:
+    with get_webdata_db() as conn:
         cursor = conn.cursor()
         cursor.execute('''
             INSERT INTO comments (book_id, para_id, line_id, uid, text, created_at, updated_at)
@@ -147,7 +147,7 @@ def api_edit_comment(comment_id):
     if len(text) > 2000:
         return jsonify({'error': 'Comment too long (max 2000 chars)'}), 400
 
-    with get_db() as conn:
+    with get_webdata_db() as conn:
         cursor = conn.cursor()
         cursor.execute('SELECT uid FROM comments WHERE id = ?', (comment_id,))
         row = cursor.fetchone()
@@ -176,7 +176,7 @@ def api_edit_comment(comment_id):
 @require_auth
 def api_delete_comment(comment_id):
     """Delete your own comment."""
-    with get_db() as conn:
+    with get_webdata_db() as conn:
         cursor = conn.cursor()
         cursor.execute('SELECT uid FROM comments WHERE id = ?', (comment_id,))
         row = cursor.fetchone()
@@ -191,7 +191,7 @@ def api_delete_comment(comment_id):
 
 
 # ═══════════════════════════════════════════════════════════
-# NOTES  (private, per user per sentence)
+# NOTES
 # ═══════════════════════════════════════════════════════════
 
 @bp.route('/api/book/<book_id>/notes')
@@ -203,15 +203,16 @@ def api_get_notes(book_id):
     if spid is None:
         return jsonify({'error': 'section_para_id required'}), 400
 
-    with get_db() as conn:
+    start_para, end_para = _get_section_para_range(book_id, spid)
+    with get_webdata_db() as conn:
         cursor = conn.cursor()
-        cursor.execute(f'''
+        cursor.execute('''
             SELECT id, para_id, line_id, text, created_at, updated_at
             FROM   notes
             WHERE  uid = ? AND book_id = ?
-            {_SECTION_RANGE}
+              AND para_id >= ? AND para_id < ?
             ORDER  BY para_id, line_id
-        ''', (g.uid, book_id, spid, book_id, spid))
+        ''', (g.uid, book_id, start_para, end_para))
         rows = cursor.fetchall()
     return jsonify({'notes': [dict(r) for r in rows]})
 
@@ -231,7 +232,7 @@ def api_upsert_note(book_id):
     if len(text) > 5000:
         return jsonify({'error': 'Note too long (max 5000 chars)'}), 400
 
-    with get_db() as conn:
+    with get_webdata_db() as conn:
         cursor = conn.cursor()
         if not text:
             cursor.execute(
@@ -272,15 +273,16 @@ def api_get_bookmarks(book_id):
     if spid is None:
         return jsonify({'error': 'section_para_id required'}), 400
 
-    with get_db() as conn:
+    start_para, end_para = _get_section_para_range(book_id, spid)
+    with get_webdata_db() as conn:
         cursor = conn.cursor()
-        cursor.execute(f'''
+        cursor.execute('''
             SELECT id, para_id, line_id, created_at
             FROM   bookmarks
             WHERE  uid = ? AND book_id = ?
-            {_SECTION_RANGE}
+              AND para_id >= ? AND para_id < ?
             ORDER  BY para_id, line_id
-        ''', (g.uid, book_id, spid, book_id, spid))
+        ''', (g.uid, book_id, start_para, end_para))
         rows = cursor.fetchall()
     return jsonify({'bookmarks': [dict(r) for r in rows]})
 
@@ -297,7 +299,7 @@ def api_toggle_bookmark(book_id):
     if not isinstance(para_id, int):
         return jsonify({'error': 'para_id required'}), 400
 
-    with get_db() as conn:
+    with get_webdata_db() as conn:
         cursor = conn.cursor()
         cursor.execute(
             'SELECT id FROM bookmarks WHERE uid=? AND book_id=? AND para_id=? AND line_id=?',
@@ -337,13 +339,16 @@ def api_update_history(book_id):
     book_title    = (data.get('book_title')    or '').strip()[:300]
     now           = int(time.time())
 
-    with get_db() as conn:
-        cursor = conn.cursor()
-        if not book_title:
-            cursor.execute('SELECT book_name FROM books WHERE book_id=?', (book_id,))
-            row = cursor.fetchone()
+    # Look up book name from epitaka.db (books table is not in webdata.db)
+    if not book_title:
+        with get_db() as epi_conn:
+            row = epi_conn.execute(
+                'SELECT book_name FROM books WHERE book_id=?', (book_id,)
+            ).fetchone()
             book_title = row['book_name'] if row else book_id
 
+    with get_webdata_db() as conn:
+        cursor = conn.cursor()
         cursor.execute('''
             INSERT INTO reading_history
                 (uid, book_id, book_title, section_title, para_id, updated_at)
@@ -359,43 +364,52 @@ def api_update_history(book_id):
 
 
 # ═══════════════════════════════════════════════════════════
-# USER LIBRARY  (aggregate view for the profile/library dialog)
+# USER LIBRARY
 # ═══════════════════════════════════════════════════════════
+
+def _get_book_name(book_id):
+    """Look up a book's display name from epitaka.db."""
+    try:
+        with get_db() as conn:
+            row = conn.execute(
+                'SELECT book_name FROM books WHERE book_id=?', (book_id,)
+            ).fetchone()
+            return row['book_name'] if row else book_id
+    except Exception:
+        return book_id
+
 
 @bp.route('/api/user/library')
 @require_auth
 def api_user_library():
     """Return all comments, notes, bookmarks, and history for the logged-in user."""
-    with get_db() as conn:
+    with get_webdata_db() as conn:
         cursor = conn.cursor()
 
         cursor.execute('''
-            SELECT c.id, c.book_id, c.para_id, c.line_id, c.text, c.created_at,
-                   COALESCE(b.book_name, c.book_id) AS book_title
-            FROM   comments c LEFT JOIN books b ON c.book_id = b.book_id
+            SELECT c.id, c.book_id, c.para_id, c.line_id, c.text, c.created_at
+            FROM   comments c
             WHERE  c.uid = ?
             ORDER  BY c.created_at DESC LIMIT 200
         ''', (g.uid,))
-        comments = cursor.fetchall()
+        comments = [dict(r) for r in cursor.fetchall()]
 
         cursor.execute('''
             SELECT n.id, n.book_id, n.para_id, n.line_id, n.text,
-                   n.created_at, n.updated_at,
-                   COALESCE(b.book_name, n.book_id) AS book_title
-            FROM   notes n LEFT JOIN books b ON n.book_id = b.book_id
+                   n.created_at, n.updated_at
+            FROM   notes n
             WHERE  n.uid = ?
             ORDER  BY n.updated_at DESC LIMIT 200
         ''', (g.uid,))
-        notes = cursor.fetchall()
+        notes = [dict(r) for r in cursor.fetchall()]
 
         cursor.execute('''
-            SELECT bm.id, bm.book_id, bm.para_id, bm.line_id, bm.created_at,
-                   COALESCE(b.book_name, bm.book_id) AS book_title
-            FROM   bookmarks bm LEFT JOIN books b ON bm.book_id = b.book_id
+            SELECT bm.id, bm.book_id, bm.para_id, bm.line_id, bm.created_at
+            FROM   bookmarks bm
             WHERE  bm.uid = ?
             ORDER  BY bm.created_at DESC LIMIT 200
         ''', (g.uid,))
-        bookmarks = cursor.fetchall()
+        bookmarks = [dict(r) for r in cursor.fetchall()]
 
         cursor.execute('''
             SELECT book_id, book_title, section_title, para_id, updated_at
@@ -403,11 +417,19 @@ def api_user_library():
             WHERE  uid = ?
             ORDER  BY updated_at DESC LIMIT 100
         ''', (g.uid,))
-        history = cursor.fetchall()
+        history = [dict(r) for r in cursor.fetchall()]
+
+    # Enrich with book names from epitaka.db
+    for item in comments:
+        if 'book_title' not in item or not item.get('book_title'):
+            item['book_title'] = _get_book_name(item.get('book_id', ''))
+    for item in history:
+        if not item.get('book_title'):
+            item['book_title'] = _get_book_name(item.get('book_id', ''))
 
     return jsonify({
-        'comments':  [dict(r) for r in comments],
-        'notes':     [dict(r) for r in notes],
-        'bookmarks': [dict(r) for r in bookmarks],
-        'history':   [dict(r) for r in history],
+        'comments':  comments,
+        'notes':     notes,
+        'bookmarks': bookmarks,
+        'history':   history,
     })

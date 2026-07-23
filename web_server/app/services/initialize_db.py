@@ -124,10 +124,10 @@ def populate_pali_definition(batch_size: int = 2000) -> None:
         cursor = conn.cursor()
 
         cursor.execute("""
-            SELECT book_id, para_id, line_id, pali_sentence
+            SELECT book_id, para_id, line_id, pali
             FROM sentences
-            WHERE pali_sentence IS NOT NULL
-              AND pali_sentence LIKE '%**%**%'
+            WHERE pali IS NOT NULL
+              AND pali LIKE '%**%**%'
             ORDER BY book_id, para_id, line_id
         """)
 

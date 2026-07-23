@@ -201,7 +201,7 @@ function buildUsagesHtml(usages) {
     const surface  = u.word + (u.ending || '');
     const paliHtml = highlightInflected(u.pali || '', surface);
     const settings = loadSettings();
-    const trans    = settings.vietnamese ? u.vietnamese : u.english;
+    const trans    = u.translation;
 
     return `<div class="dict-usage">
       <div class="dict-usage-pali">${paliHtml}</div>

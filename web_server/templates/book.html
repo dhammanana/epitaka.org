@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ book_title }} — E-Piṭaka</title>
+  <title>{{ book_title }} — E-Piṭaka ({{ lang_info.english_name }})</title>
   <meta name="description" content="{{ meta_description }}">
   <link rel="canonical" href="{{ canonical_url }}">
   <meta property="og:title"       content="{{ book_title }} — E-Piṭaka">
   <meta property="og:description" content="{{ meta_description }}">
   <meta property="og:type"        content="article">
   <meta property="og:url"         content="{{ canonical_url }}">
+
+  {# ── Alternate language links for SEO ── #}
+  {% for alt_lang in available_langs %}
+  <link rel="alternate" hreflang="{{ alt_lang.code }}" href="{{ base_url }}/{{ alt_lang.code }}/book/{{ book_id }}">
+  {% endfor %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -29,13 +34,18 @@
     window.BOOK_CONFIG = {
       bookId:  {{ book_id | tojson }},
       baseUrl: {{ base_url | tojson }},
+      lang:    {{ lang | tojson }},
+      paraId:  {{ active_para_id | tojson }},
+      lineId:  {{ active_line_id | tojson }},
       bookref: {
-        mula_ref:  {{ bookref.mula_ref  | tojson }},   {# list of {book_id, book_name} #}
-        attha_ref: {{ bookref.attha_ref | tojson }},   {# list of {book_id, book_name} #}
-        tika_ref:  {{ bookref.tika_ref  | tojson }},   {# list of {book_id, book_name} #}
+        mula_ref:  {{ bookref.mula_ref  | tojson }},
+        attha_ref: {{ bookref.attha_ref | tojson }},
+        tika_ref:  {{ bookref.tika_ref  | tojson }},
       }
     };
-    window.HOME_MENU = {{ menu | tojson }};
+    // Pre-computed ref links: {source_para_id: {ref_type: [{book_id, para_id, slug}, ...]}}
+    // Built server-side for direct navigation (no API calls).
+    window.REF_LINKS = {{ ref_links | tojson }};
   </script>
 </head>
 
@@ -44,14 +54,33 @@
 <!-- TOP BAR -->
 <header id="topbar" role="banner">
   <button id="toc-toggle-btn" class="topbar-btn icon-btn" aria-label="Toggle Table of Contents">☰</button>
-  <button id="home-dialog-trigger" class="topbar-btn icon-btn" aria-label="Home">⌂</button>
+  <a href="{{ base_url }}/{{ lang }}/" class="topbar-btn icon-btn" aria-label="Home" title="Home page">⌂</a>
   <span class="book-title pali-text" title="{{ book_title }}">{{ book_title }}</span>
   <div class="topbar-right">
+
+    {# ── Language selector ── #}
+    <div class="lang-dropdown" id="lang-dropdown">
+      <button class="topbar-btn lang-btn lang-dropdown__toggle"
+              aria-haspopup="true" aria-expanded="false"
+              aria-label="Language">{{ lang_info.code | upper }}</button>
+      <ul class="lang-dropdown__menu" role="menu">
+        {% for alt_lang in available_langs %}
+        <li role="none">
+          <a href="{{ base_url }}/{{ alt_lang.code }}/book/{{ book_id }}"
+             class="lang-dropdown__item {% if alt_lang.code == lang %}selected{% endif %}"
+             role="menuitem">
+            {{ alt_lang.native_name }}
+            <small>{{ alt_lang.english_name }}</small>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
 
     {# ── Mūla refs ── #}
     {% if bookref.mula_ref | length == 1 %}
       <a id="ref-mula-1"
-         href="{{ base_url }}/book_ref/{{ bookref.mula_ref[0].book_id }}?ref={{ book_id }}"
+         href="{{ base_url }}/{{ lang }}/book_ref/{{ bookref.mula_ref[0].book_id }}?ref={{ book_id }}"
          class="topbar-btn ref-btn ref-btn--mula">M</a>
     {% elif bookref.mula_ref | length > 1 %}
       <div class="ref-dropdown" id="ref-dropdown-mula">
@@ -62,7 +91,7 @@
           {% for ref in bookref.mula_ref %}
           <li role="none">
             <a id="ref-mula-{{ loop.index }}"
-               href="{{ base_url }}/book_ref/{{ ref.book_id }}?ref={{ book_id }}"
+               href="{{ base_url }}/{{ lang }}/book_ref/{{ ref.book_id }}?ref={{ book_id }}"
                class="ref-dropdown__item" role="menuitem">{{ ref.book_name }}</a>
           </li>
           {% endfor %}
@@ -73,7 +102,7 @@
     {# ── Attha refs ── #}
     {% if bookref.attha_ref | length == 1 %}
       <a id="ref-attha-1"
-         href="{{ base_url }}/book_ref/{{ bookref.attha_ref[0].book_id }}?ref={{ book_id }}"
+         href="{{ base_url }}/{{ lang }}/book_ref/{{ bookref.attha_ref[0].book_id }}?ref={{ book_id }}"
          class="topbar-btn ref-btn ref-btn--attha">A</a>
     {% elif bookref.attha_ref | length > 1 %}
       <div class="ref-dropdown" id="ref-dropdown-attha">
@@ -84,7 +113,7 @@
           {% for ref in bookref.attha_ref %}
           <li role="none">
             <a id="ref-attha-{{ loop.index }}"
-               href="{{ base_url }}/book_ref/{{ ref.book_id }}?ref={{ book_id }}"
+               href="{{ base_url }}/{{ lang }}/book_ref/{{ ref.book_id }}?ref={{ book_id }}"
                class="ref-dropdown__item" role="menuitem">{{ ref.book_name }}</a>
           </li>
           {% endfor %}
@@ -95,7 +124,7 @@
     {# ── Ṭīkā refs ── #}
     {% if bookref.tika_ref | length == 1 %}
       <a id="ref-tika-1"
-         href="{{ base_url }}/book_ref/{{ bookref.tika_ref[0].book_id }}?ref={{ book_id }}"
+         href="{{ base_url }}/{{ lang }}/book_ref/{{ bookref.tika_ref[0].book_id }}?ref={{ book_id }}"
          class="topbar-btn ref-btn ref-btn--tika">Ṭ</a>
     {% elif bookref.tika_ref | length > 1 %}
       <div class="ref-dropdown" id="ref-dropdown-tika">
@@ -106,7 +135,7 @@
           {% for ref in bookref.tika_ref %}
           <li role="none">
             <a id="ref-tika-{{ loop.index }}"
-               href="{{ base_url }}/book_ref/{{ ref.book_id }}?ref={{ book_id }}"
+               href="{{ base_url }}/{{ lang }}/book_ref/{{ ref.book_id }}?ref={{ book_id }}"
                class="ref-dropdown__item" role="menuitem">{{ ref.book_name }}</a>
           </li>
           {% endfor %}
@@ -118,8 +147,6 @@
     <!-- auth-avatar-btn injected here by auth-ui.js -->
   </div>
 </header>
-
-
 
 <!-- TOC OVERLAY (mobile) -->
 <div id="toc-overlay" role="presentation"></div>
@@ -151,12 +178,44 @@
     <section class="section-block" id="para-{{ item.para_id }}"
              data-para-id="{{ item.para_id }}" data-book-id="{{ book_id }}"
              aria-label="{{ item.title }}">
-      <div class="section-heading" data-level="{{ item.level }}"
-           role="button" tabindex="0" aria-expanded="false">
+
+      {# ── Section heading ── #}
+      {% set slug = item.title.lower().replace(' ', '-') if item.title else '' %}
+      {% set section_url = base_url + '/' + lang + '/book/' + book_id + '/' + slug %}
+
+      <a href="{{ section_url }}" class="section-heading-link" data-level="{{ item.level }}">
         <span class="section-heading-text pali-text">{{ item.title }}</span>
         <span class="chevron" aria-hidden="true">▶</span>
+      </a>
+
+      {# ── Section content: pre-rendered for SEO if this is the active section ── #}
+      <div class="section-content {% if active_para_id == item.para_id %}open{% endif %}"
+           {% if active_para_id == item.para_id %}aria-hidden="false"{% else %}aria-hidden="true"{% endif %}>
+
+        {% if active_para_id == item.para_id and section_content %}
+          {% for sentence in section_content %}
+          <div class="sentence-row" id="p-{{ sentence.para_id }}-l-{{ sentence.line_id }}">
+            <div class="pali-text">{{ sentence.pali | safe }}</div>
+            {% if sentence.translation %}
+            <div class="translation-text">{{ sentence.translation | safe }}</div>
+            {% endif %}
+            {# ── Book-link badges inline with the source sentence ── #}
+            {% set para_links = book_links_by_line.get(sentence.para_id, {}) %}
+            {% set line_links = para_links.get(sentence.line_id, []) %}
+            {% for link in line_links %}
+            <span class="book-link-badge" tabindex="0" role="button"
+                  data-link='{{ link | tojson }}'
+                  title="{{ link.dst_book_name }}">
+              {{ link.word }}
+            </span>
+            {% endfor %}
+          </div>
+          {% endfor %}
+
+        {% else %}
+          {# ── Empty placeholder — JS will load on demand ── #}
+        {% endif %}
       </div>
-      <div class="section-content" aria-hidden="true"></div>
     </section>
     {% endfor %}
   </article>
@@ -180,8 +239,6 @@
 <!-- SETTINGS MODAL -->
 <div id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
   <div class="modal-box">
-
-    <!-- Header -->
     <div class="modal-header">
       <h2 id="settings-title">⚙️ Settings</h2>
       <button type="button" class="modal-close-x" id="settings-cancel" aria-label="Close">✕</button>
@@ -196,13 +253,14 @@
 
           <div class="modal-field">
             <label class="field-label">Languages</label>
-            <label class="check-label"><input type="checkbox" id="cb-pali"       name="pali">       Pāli</label>
-            <label class="check-label"><input type="checkbox" id="cb-english"    name="english">    English</label>
-            <label class="check-label"><input type="checkbox" id="cb-vietnamese" name="vietnamese"> Vietnamese</label>
+            <div class="lang-check-group">
+              <label class="lang-chip-toggle"><input type="checkbox" id="cb-pali"        name="pali">        Pāli</label>
+              <label class="lang-chip-toggle"><input type="checkbox" id="cb-translation" name="translation"> Translation</label>
+            </div>
           </div>
 
           <div class="modal-field">
-            <label class="field-label">Layout <small>(Pāli + 1 translation)</small></label>
+            <label class="field-label">Layout</label>
             <div class="radio-group">
               <label class="radio-label"><input type="radio" name="layout" value="stacked">    Stacked</label>
               <label class="radio-label"><input type="radio" name="layout" value="sidebyside"> Side by side</label>
@@ -212,7 +270,7 @@
           <div class="modal-field">
             <label class="check-label">
               <input type="checkbox" id="cb-load-attha" name="load_attha">
-              Show cross-book links (Attha / Ṭīkā annotations)
+              Show cross-book links
             </label>
           </div>
 
@@ -237,39 +295,16 @@
           </div>
         </div>
 
-        <!-- ── ACTION BUTTONS ── -->
-        <div class="modal-section">
-          <div class="modal-section-title">Action Buttons</div>
-
-          <div class="modal-field">
-            <label class="field-label">Show buttons per</label>
-            <div class="radio-group">
-              <label class="radio-label"><input type="radio" name="action-mode" value="line"> Every line</label>
-              <label class="radio-label"><input type="radio" name="action-mode" value="para"> Paragraph end</label>
-              <label class="radio-label"><input type="radio" name="action-mode" value="none"> Hidden</label>
-            </div>
-          </div>
-
-          <div class="modal-field">
-            <label class="check-label">
-              <input type="checkbox" id="cb-action-collapse">
-              Collapse into ⋯ menu (tap to expand)
-            </label>
-          </div>
-        </div>
-
         <!-- ── COLORS ── -->
         <div class="modal-section">
           <div class="modal-section-title">Colors</div>
           <div class="color-row"><span>Pāli text</span>    <input type="color" id="color-pali" value="#7c2d12"></div>
-          <div class="color-row"><span>English text</span> <input type="color" id="color-eng"  value="#1e3a5f"></div>
-          <div class="color-row"><span>Vietnamese</span>   <input type="color" id="color-viet" value="#4a1d6b"></div>
+          <div class="color-row"><span>Translation</span>  <input type="color" id="color-trans"  value="#1e3a5f"></div>
           <div class="color-row"><span>Background</span>   <input type="color" id="color-bg"   value="#faf7f2"></div>
         </div>
 
-      </div><!-- /.modal-scroll -->
+      </div>
 
-      <!-- Footer -->
       <div class="modal-footer">
         <button type="button" class="btn-credits" id="open-credits-btn">ℹ️ Credits</button>
         <div class="modal-actions">
@@ -277,7 +312,6 @@
           <button type="submit" class="btn btn-primary">Save</button>
         </div>
       </div>
-
     </form>
   </div>
 </div>
@@ -314,6 +348,7 @@
         <a href="https://github.com/bksubhuti/tipitaka-pali-reader" target="_blank" rel="noopener">github.com/bksubhuti/tipitaka-pali-reader</a>
       </span>
     </div>
+
     <div class="credit-item">
       <span class="ci-icon"></span>
       <span>Teachers and fellow monks at IIT  —
@@ -324,20 +359,14 @@
       <span class="ci-icon">📋</span>
       <span>Quảng An for his server donation and management</span>
       <span>Various friends for their support and encouragement</span>
-      <span></span>
     </div>
 
     <button type="button" class="credits-close" id="close-credits-btn">Close</button>
   </div>
 </div>
 
-<!-- Login dialog, profile dialog, user menu all injected by auth-ui.js -->
-
-<!-- <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
-<script src="{{ url_for('static', filename='js/main.js') }}" defer></script> -->
 <script type="module" src="{{ url_for('static', filename='js/book.bundle.js') }}?v={{ v }}"></script>
 
-<!-- Credits modal wiring (plain JS, no module needed) -->
 <script>
   (function () {
     const creditsModal  = document.getElementById('credits-modal');
@@ -351,9 +380,148 @@
     creditsModal.addEventListener('click', e => {
       if (e.target === creditsModal) creditsModal.classList.remove('show');
     });
-
-    // Second cancel button in the footer (mirrors #settings-cancel handled by book.js)
     cancelBtn2.addEventListener('click', () => settingsModal.classList.remove('show'));
+
+    // Language dropdown toggle
+    const langToggle = document.querySelector('.lang-dropdown__toggle');
+    const langMenu   = document.querySelector('.lang-dropdown__menu');
+    if (langToggle && langMenu) {
+      langToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const expanded = langToggle.getAttribute('aria-expanded') === 'true';
+        langToggle.setAttribute('aria-expanded', !expanded);
+        langMenu.classList.toggle('open');
+      });
+      document.addEventListener('click', () => {
+        langToggle.setAttribute('aria-expanded', 'false');
+        langMenu.classList.remove('open');
+      });
+    }
+
+    // ── Ref dropdown toggles (M / A / Ṭ) ────────────────
+    document.querySelectorAll('.ref-dropdown__toggle').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const menu = this.nextElementSibling;
+        if (!menu) return;
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !expanded);
+        menu.classList.toggle('open');
+      });
+    });
+    // Close all ref dropdowns when clicking outside
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.ref-dropdown__toggle').forEach(btn => {
+        btn.setAttribute('aria-expanded', 'false');
+        const menu = btn.closest('.ref-dropdown')?.querySelector('.ref-dropdown__menu');
+        if (menu) menu.classList.remove('open');
+      });
+    });
+
+    // ── Book-link popup ──────────────────────────────────
+    let _activeBlPopup = null;
+
+    document.querySelectorAll('.book-link-badge').forEach(badge => {
+      badge.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeBlPopup();
+
+        let link;
+        try { link = JSON.parse(this.dataset.link); } catch { return; }
+        if (!link) return;
+
+        const popup = document.createElement('div');
+        popup.className = 'book-link-popup';
+
+        // Header
+        const header = document.createElement('div');
+        header.className = 'blp-header';
+        header.textContent = link.dst_book_name;
+        popup.appendChild(header);
+
+        // Preview rows (pali + translation)
+        const preview = document.createElement('div');
+        preview.className = 'blp-preview';
+        if (link.preview) {
+          for (const row of link.preview) {
+            const rowEl = document.createElement('div');
+            rowEl.className = 'blp-row' + (row.is_target ? ' blp-target' : '');
+            if (row.pali) {
+              const paliEl = document.createElement('span');
+              paliEl.className = 'pali-text blp-pali';
+              paliEl.innerHTML = row.pali;
+              rowEl.appendChild(paliEl);
+            }
+            if (row.translation) {
+              const transEl = document.createElement('span');
+              transEl.className = 'translation-text blp-trans';
+              transEl.innerHTML = row.translation;
+              rowEl.appendChild(transEl);
+            }
+            preview.appendChild(rowEl);
+          }
+        }
+        popup.appendChild(preview);
+
+        // "Open book" button — hash-based deep-link (#para_id-line_id)
+        const baseUrl = window.BOOK_CONFIG?.baseUrl || '';
+        const lang    = window.BOOK_CONFIG?.lang    || 'en';
+        const slug    = link.dst_slug || '';
+        const dstPath = [lang, 'book', link.dst_book, slug].filter(Boolean).join('/');
+        const hash    = '#' + link.dst_para + '-' + link.dst_line;
+        const openBtn = document.createElement('a');
+        openBtn.className = 'blp-more-btn';
+        openBtn.href      = baseUrl + '/' + dstPath + hash;
+        openBtn.target    = '_blank';
+        openBtn.rel       = 'noopener noreferrer';
+        openBtn.textContent = 'Open ' + (link.dst_book_name || link.dst_book) + ' ↗';
+        popup.appendChild(openBtn);
+
+        document.body.appendChild(popup);
+        _activeBlPopup = popup;
+
+        // Position near the badge
+        const rect = this.getBoundingClientRect();
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
+        const scrollX = window.scrollX || document.documentElement.scrollLeft;
+        let top  = rect.bottom + scrollY + 6;
+        let left = rect.left + scrollX;
+        const popW = 320;
+        if (left + popW > window.innerWidth + scrollX - 8) {
+          left = window.innerWidth + scrollX - popW - 8;
+        }
+        if (left < 8) left = 8;
+        popup.style.top  = top + 'px';
+        popup.style.left = left + 'px';
+
+        // Close on outside click or Escape
+        const closeHandler = function (ev) {
+          if (ev.type === 'keydown' && ev.key !== 'Escape') return;
+          if (ev.type === 'click' && (popup.contains(ev.target) || ev.target === badge)) return;
+          closeBlPopup();
+          document.removeEventListener('click', closeHandler);
+          document.removeEventListener('keydown', closeHandler);
+        };
+        setTimeout(() => {
+          document.addEventListener('click', closeHandler);
+          document.addEventListener('keydown', closeHandler);
+        }, 0);
+      });
+
+      badge.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+
+    function closeBlPopup() {
+      if (_activeBlPopup) {
+        _activeBlPopup.remove();
+        _activeBlPopup = null;
+      }
+    }
   })();
 </script>
 

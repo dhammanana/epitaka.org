@@ -3,6 +3,12 @@
    All styles for the book reader page.
    ═══════════════════════════════════════════ */
 
+/* Import shared text styles, font-faces, and script fonts.
+   Using @import instead of JS import avoids Vite CSS code-splitting
+   (common.css is imported by index.js too, which would cause Vite to
+   extract it into a separate chunk that book.html never loads). */
+@import url('./common.css');
+
 /* ── Design tokens ─────────────────────────── */
 :root {
   --bg:           #faf7f2;
@@ -11,8 +17,7 @@
   --accent:       #8b5e3c;
   --accent-light: #f5ede4;
   --pali-color:   #7c2d12;
-  --eng-color:    #1e3a5f;
-  --viet-color:   #4a1d6b;
+  --trans-color:  #1e3a5f;
   --text:         #2d2420;
   --muted:        #8a7a6e;
   --muted2:        #4e69aa;
@@ -59,7 +64,54 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 }
 .topbar-btn:hover { background: var(--accent-light); }
 .icon-btn { font-size: 1rem; padding: 0.28rem 0.5rem; }
-.ref-btn  { background: var(--accent-light); border-color: #d4a97a; }
+.ref-btn    { background: var(--accent-light); border-color: #d4a97a; }
+.ref-btn--mula  { color: #6b4c1d; }
+.ref-btn--attha { color: #2d5a3d; }
+.ref-btn--tika  { color: #4a3f6b; }
+
+/* ── Language dropdown ─────────────────── */
+.lang-dropdown { position: relative; }
+.lang-btn {
+  min-width: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.lang-dropdown__menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 130px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  list-style: none;
+  padding: 0.3rem 0;
+  z-index: 300;
+}
+.lang-dropdown__menu.open { display: block; }
+.lang-dropdown__item {
+  display: block;
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.1s;
+  white-space: nowrap;
+}
+.lang-dropdown__item:hover { background: var(--accent-light); }
+.lang-dropdown__item small {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 0.05rem;
+}
+.lang-dropdown__item.selected {
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-light);
+}
 
 /* ── TOC sidebar ───────────────────────────── */
 #toc-sidebar {
@@ -142,34 +194,76 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 
 /* ── Section blocks ────────────────────────── */
 .section-block {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
   overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s;
+}
+.section-block:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
-.section-heading {
+/* ── Section heading (SEO-friendly <a> link) ── */
+.section-heading-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
   padding: 0.65rem 1rem;
   cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
   user-select: none;
-  transition: background 0.12s;
+  text-decoration: none;           /* remove default link underline */
+  color: inherit;                   /* inherit text color, not link blue */
+  transition: background 0.15s, border-color 0.15s;
   border-bottom: 1px solid transparent;
+  -webkit-tap-highlight-color: transparent;
 }
-.section-heading:hover { background: var(--accent-light); }
-.section-heading.expanded { border-bottom-color: var(--border); }
-.section-heading:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.section-heading-link:hover {
+  background: var(--accent-light);
+}
+.section-heading-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-radius: var(--radius);
+}
+.section-heading-link.expanded {
+  border-bottom-color: var(--border);
+}
 
 .section-heading-text {
-  font-family: var(--font-serif); flex: 1; line-height: 1.35;
+  font-family: var(--font-serif);
+  flex: 1;
+  line-height: 1.4;
 }
-.section-heading[data-level="1"] .section-heading-text { font-size: 1.22em; font-weight: 600; color: var(--accent); }
-.section-heading[data-level="2"] .section-heading-text { font-size: 1.1em;  font-weight: 600; }
-.section-heading[data-level="3"] .section-heading-text { font-size: 1em;    font-weight: 600; }
-.section-heading[data-level="4"] .section-heading-text { font-size: 0.94em; }
-.section-heading[data-level="5"] .section-heading-text { font-size: 0.87em; color: var(--muted); }
-.section-heading[data-level="6"] .section-heading-text { font-size: 0.82em; color: var(--muted); }
+
+/* Level-based heading sizing */
+.section-heading-link[data-level="1"] .section-heading-text {
+  font-size: 1.18em;
+  font-weight: 650;
+  color: var(--accent);
+}
+.section-heading-link[data-level="2"] .section-heading-text {
+  font-size: 1.08em;
+  font-weight: 600;
+}
+.section-heading-link[data-level="3"] .section-heading-text {
+  font-size: 1em;
+  font-weight: 600;
+}
+.section-heading-link[data-level="4"] .section-heading-text {
+  font-size: 0.93em;
+}
+.section-heading-link[data-level="5"] .section-heading-text {
+  font-size: 0.86em;
+  color: var(--muted);
+}
+.section-heading-link[data-level="6"] .section-heading-text {
+  font-size: 0.82em;
+  color: var(--muted);
+}
 
 .para-badge {
   font-size: 0.67em; color: var(--muted);
@@ -177,13 +271,24 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   border-radius: 4px; padding: 0.1rem 0.35rem; flex-shrink: 0;
 }
 .chevron {
-  font-size: 0.65em; color: var(--muted);
-  transition: transform 0.18s; flex-shrink: 0;
+  font-size: 0.6em;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  opacity: 0.7;
 }
-.section-heading.expanded .chevron { transform: rotate(90deg); }
+.section-heading-link.expanded .chevron {
+  transform: rotate(90deg);
+  opacity: 1;
+}
 
-.section-content { display: none; padding: 0.25rem 0; }
-.section-content.open { display: block; }
+.section-content {
+  display: none;
+  padding: 0.5rem 0.1rem 0.3rem;
+}
+.section-content.open {
+  display: block;
+}
 
 /* Loading states */
 .section-loading {
@@ -219,8 +324,18 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 }
 
 /* ── Sentence rows ─────────────────────────── */
-.sentence-row { margin-bottom: 0.45rem; }
-.sentence-row:last-child { margin-bottom: 0; }
+.sentence-row {
+  margin-bottom: 0.2rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 4px;
+  transition: background 0.12s;
+}
+.sentence-row:hover {
+  background: rgba(0,0,0,0.015);
+}
+.sentence-row:last-child {
+  margin-bottom: 0;
+}
 
 /* Side-by-side layout: pali left, translation right, same row */
 .sentence-row.side-by-side {
@@ -249,8 +364,7 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   margin: 0;
 }
 [data-flow="true"] .pali-text,
-[data-flow="true"] .eng-text,
-[data-flow="true"] .viet-text {
+[data-flow="true"] .translation-text {
   display: inline;
 }
 [data-flow="true"] .row-actions-bar {
@@ -268,6 +382,42 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   text-align: justify;
 }
 
+
+/* ── Language chip toggles in settings ─────────── */
+.lang-check-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.lang-chip-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+  background: var(--surface);
+  color: var(--text);
+}
+.lang-chip-toggle input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 15px;
+  height: 15px;
+}
+.lang-chip-toggle:has(input:checked) {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.lang-chip-toggle:hover {
+  border-color: #c4a882;
+  background: #f8f2ea;
+}
 
 /* Tooltips for <sup> footnotes */
 sup {

@@ -180,13 +180,10 @@ function _injectActions(row, paraId, lineId, bookmarkSet, noteMap) {
     const url     = `${location.origin}${location.pathname}?para=${paraId}&line=${lineId}`;
     const pali    = row.querySelector('.pali-text')?.innerText?.trim() || '';
 
-    // Pick the first active translation language from settings
+    // Pick translation text from settings
     let translation = '';
-    if (s.english && !translation) {
-      translation = row.querySelector('.eng-text')?.innerText?.trim() || '';
-    }
-    if (s.vietnamese && !translation) {
-      translation = row.querySelector('.viet-text')?.innerText?.trim() || '';
+    if (s.translation) {
+      translation = row.querySelector('.translation-text')?.innerText?.trim() || '';
     }
 
     // Rich share: bookName → hyperlink → translation text

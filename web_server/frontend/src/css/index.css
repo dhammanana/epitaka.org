@@ -93,6 +93,94 @@ body::before {
 }
 #open-books-btn:active { transform: scale(0.97); }
 
+/* ── Language selector chips ──────────────────────── */
+.landing-languages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-bottom: 2.2rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lang-chip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  text-decoration: none;
+  transition: all 0.15s ease;
+  min-width: 80px;
+  position: relative;
+}
+
+.lang-chip::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  border: 1.5px solid transparent;
+  transition: border-color 0.15s ease;
+  pointer-events: none;
+}
+
+.lang-chip:hover {
+  border-color: #c4a882;
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 94, 60, 0.12);
+}
+
+.lang-chip:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.lang-chip.active {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  box-shadow: 0 2px 8px rgba(139, 94, 60, 0.15);
+}
+
+.lang-chip.active::after {
+  border-color: var(--accent);
+}
+
+.lang-native {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.3;
+  transition: color 0.15s;
+}
+
+.lang-chip.active .lang-native {
+  color: #7a4f2f;
+}
+
+.lang-english {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  margin-top: 1px;
+  transition: color 0.15s;
+}
+
+.lang-chip.active .lang-english {
+  color: var(--accent);
+}
+
 /* ── Disclaimer overlay ──────────────────────────── */
 
 #disclaimer-overlay {

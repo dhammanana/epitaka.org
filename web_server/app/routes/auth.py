@@ -7,7 +7,7 @@ import firebase_admin
 from firebase_admin import credentials, auth as firebase_auth
 from flask import Blueprint, jsonify, request, g
 
-from ..utils.db import get_db
+from ..utils.db import get_db, get_webdata_db
 from ..config import Config
 
 bp = Blueprint('auth', __name__)
@@ -62,7 +62,7 @@ def _upsert_user(conn, decoded_token):
 # ── Schema migration (call at app startup) ────────────────────
 
 def init_auth_db():
-    with get_db() as conn:
+    with get_webdata_db() as conn:
         conn.executescript('''
             CREATE TABLE IF NOT EXISTS users (
                 uid          TEXT    PRIMARY KEY,
@@ -95,7 +95,7 @@ def init_auth_db():
 @require_auth
 def api_auth_sync():
     """Sync Firebase user into SQLite; returns profile row."""
-    with get_db() as conn:
+    with get_webdata_db() as conn:
         _upsert_user(conn, g.decoded_token)
         cursor = conn.cursor()
         cursor.execute(
@@ -122,7 +122,7 @@ def api_auth_profile():
     sets = ', '.join(f'{k} = ?' for k in updates)
     vals = list(updates.values()) + [int(time.time()), g.uid]
 
-    with get_db() as conn:
+    with get_webdata_db() as conn:
         cursor = conn.cursor()
         cursor.execute(f'UPDATE users SET {sets}, updated_at = ? WHERE uid = ?', vals)
         conn.commit()

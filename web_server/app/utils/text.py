@@ -50,8 +50,9 @@ def trim_text(text, query_words):
     query_pos = min(
         [text.lower().find(word.lower()) for word in query_words if text.lower().find(word.lower()) != -1] or [0]
     )
-    start = max(0, query_pos - config.MAX_SEARCH_RESULTS_LENGTH // 2)
-    end = min(len(text), query_pos + config.MAX_SEARCH_RESULTS_LENGTH // 2)
+    CONTEXT_LENGTH = 100
+    start = max(0, query_pos - CONTEXT_LENGTH // 2)
+    end = min(len(text), query_pos + CONTEXT_LENGTH // 2)
     temp_text = text[end - 10:end + 10]
     if re.match(r'<\w', temp_text, re.I):
         end = end - 10 + temp_text.find('<')

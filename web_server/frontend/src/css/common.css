@@ -1,7 +1,7 @@
 /* ===== Google Fonts Import ===== */
 /*
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;700&family=Noto+Serif+Devanagari:wght@400;700&family=Noto+Serif:wght@400;700&family=Sarabun:wght@400;700&family=Noto+Serif+Khmer:wght@400;700&family=Noto+Serif+Bengali:wght@400;700&family=Noto+Sans+Gurmukhi:wght@400;700&family=Noto+Serif+Gujarati:wght@400;700&family=Noto+Serif+Telugu:wght@400;700&family=Noto+Serif+Kannada:wght@400;700&family=Noto+Serif+Malayalam:wght@400;700&family=Noto+Sans+Tibetan:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;700&family=Noto+Sans+Myanmar:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;700&amp;family=Noto+Serif+Devanagari:wght@400;700&amp;family=Noto+Serif:wght@400;700&amp;family=Sarabun:wght@400;700&amp;family=Noto+Serif+Khmer:wght@400;700&amp;family=Noto+Serif+Bengali:wght@400;700&amp;family=Noto+Sans+Gurmukhi:wght@400;700&amp;family=Noto+Serif+Gujarati:wght@400;700&amp;family=Noto+Serif+Telugu:wght@400;700&amp;family=Noto+Serif+Kannada:wght@400;700&amp;family=Noto+Serif+Malayalam:wght@400;700&amp;family=Noto+Sans+Tibetan:wght@400;700&amp;display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;700&amp;family=Noto+Sans+Myanmar:wght@400;700&amp;display=swap');
 */
 
 @font-face { src: url('../fonts/NotoSerifSinhala-Regular.ttf') format('truetype'); font-weight: normal; font-family: 'sinhala'; }
@@ -67,18 +67,17 @@
 
 /* Text styles */
 .pali-text {
-  color: var(--pali-color);
+  color: var(--pali-color, #7c2d12);
   overflow-wrap: break-word;
   cursor: pointer; /* clickable for dictionary */
 }
 .pali-text:hover { background: rgba(139,94,60,0.06); border-radius: 3px; }
-.eng-text {
-  color: var(--eng-color);
-  line-height: 1.65; overflow-wrap: break-word;
-}
-.viet-text {
-  color: var(--viet-color);
-  line-height: 1.65; overflow-wrap: break-word;
+.translation-text {
+  color: var(--trans-color, #1e3a5f);
+  line-height: 1.65;
+  overflow-wrap: break-word;
+  font-size: 0.95em;
+  margin-top: 0.1rem;
 }
 
 body[script="si"] .pali-text { font-family: 'sinhala'; line-height: 1.5rem; }

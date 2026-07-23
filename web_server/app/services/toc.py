@@ -1,56 +1,94 @@
 # app/services/toc.py
 """
 Table-of-contents and sentence fetching helpers.
+Works with the new epitaka.db schema where:
+  - headings table uses `level` instead of `heading_number`
+  - sentences table uses `pali` instead of `pali_sentence`
+  - translation databases use `translation` instead of `english_translation`
 """
 
 from ..utils.text import markdown_to_html
+from ..utils.db import get_db, get_translation_db
 
 
 def get_book_toc(book_id, conn):
     """Fetch table of contents (headings) for a book."""
     cursor = conn.cursor()
     cursor.execute('''
-        SELECT para_id, heading_number, title
+        SELECT para_id, level, title
         FROM headings
-        WHERE book_id = ? AND heading_number <= 6
+        WHERE book_id = ? AND level <= 6
         ORDER BY para_id
     ''', (book_id,))
     rows = cursor.fetchall()
     return [
-        {'para_id': row['para_id'], 'level': row['heading_number'], 'title': row['title']}
+        {
+            'para_id': row['para_id'],
+            'level': row['level'],
+            'title': row['title'],
+        }
         for row in rows
     ]
 
 
-def get_section_sentences(book_id, para_id, conn):
+def get_section_sentences(book_id, para_id, conn, lang_code=None):
     """
-    Fetch sentences for a TOC section: from para_id up to (but not including)
-    the next heading-6-or-lower para_id.
+    Fetch Pāli sentences for a TOC section: from para_id up to (but not including)
+    the next heading's para_id.
+
+    Returns sentences with Pāli text and optionally translation from the
+    specified language database.
     """
     cursor = conn.cursor()
+
+    # Compute section range from headings ONCE (headings is only in epitaka.db)
     cursor.execute('''
-        SELECT para_id, line_id, pali_sentence, english_translation, vietnamese_translation
+        SELECT COALESCE(
+            (SELECT MIN(para_id) FROM headings
+             WHERE book_id = ? AND para_id > ? AND level <= 6),
+            999999
+        ) AS end_para
+    ''', (book_id, para_id))
+    end_para = cursor.fetchone()['end_para']
+
+    # Fetch Pāli sentences using the pre-computed range
+    cursor.execute('''
+        SELECT para_id, line_id, pali
         FROM sentences
-        WHERE book_id = ? AND para_id >= ? AND para_id < (
-            SELECT COALESCE(
-                (SELECT MIN(para_id) FROM headings
-                 WHERE book_id = ? AND para_id > ? AND heading_number <= 6),
-                999999
-            )
-        )
+        WHERE book_id = ? AND para_id >= ? AND para_id < ?
         ORDER BY para_id, line_id
-    ''', (book_id, para_id, book_id, para_id))
+    ''', (book_id, para_id, end_para))
     rows = cursor.fetchall()
-    return [
-        {
-            'para_id':     r['para_id'],
-            'line_id':     r['line_id'],
-            'pali':        markdown_to_html(r['pali_sentence']),
-            'english':     markdown_to_html(r['english_translation']),
-            'vietnamese':  markdown_to_html(r['vietnamese_translation']),
-        }
-        for r in rows
-    ]
+
+    # Fetch translation if language is specified (using the same range,
+    # no headings subquery needed since range is already computed)
+    translation_map = {}
+    if lang_code:
+        trans_db = get_translation_db(lang_code)
+        if trans_db:
+            trans_cursor = trans_db.cursor()
+            trans_cursor.execute('''
+                SELECT para_id, line_id, translation
+                FROM sentences
+                WHERE book_id = ? AND para_id >= ? AND para_id < ?
+                ORDER BY para_id, line_id
+            ''', (book_id, para_id, end_para))
+            for tr in trans_cursor.fetchall():
+                translation_map[(tr['para_id'], tr['line_id'])] = tr['translation']
+
+    result = []
+    for r in rows:
+        pid = r['para_id']
+        lid = r['line_id']
+        translation = translation_map.get((pid, lid), '')
+        result.append({
+            'para_id':     pid,
+            'line_id':     lid,
+            'pali':        markdown_to_html(r['pali']) if r['pali'] else '',
+            'translation': markdown_to_html(translation) if translation else '',
+        })
+
+    return result
 
 
 def resolve_split_book(book_id, para_id, cursor):

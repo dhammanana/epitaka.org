@@ -1,10 +1,11 @@
 # app/routes/api.py
 """
 REST API routes for book content, cross-references, and related-paragraph lookup.
+Updated for new schema: pali column, level column, separate translation DBs.
 """
 from flask import Blueprint, jsonify, request
 
-from ..utils.db   import get_db
+from ..utils.db   import get_db, get_translation_db
 from ..utils.text import markdown_to_html
 from ..services.books import load_hierarchy
 from ..services.toc   import get_section_sentences
@@ -20,8 +21,9 @@ register_search_route(bp)
 @bp.route('/book/<book_id>/section/<int:para_id>')
 def api_book_section(book_id, para_id):
     book_id = book_id.replace('_chunks', '')
+    lang = request.args.get('lang', '')
     with get_db() as conn:
-        sentences = get_section_sentences(book_id, para_id, conn)
+        sentences = get_section_sentences(book_id, para_id, conn, lang_code=lang or None)
     return jsonify({'para_id': para_id, 'sentences': sentences})
 
 
@@ -29,6 +31,7 @@ def api_book_section(book_id, para_id):
 def api_book_sections(book_id):
     book_id = book_id.replace('_chunks', '')
     raw = request.args.get('para_ids', '')
+    lang = request.args.get('lang', '')
     try:
         para_ids = [int(x) for x in raw.split(',') if x.strip()]
     except ValueError:
@@ -37,7 +40,7 @@ def api_book_sections(book_id):
     result = {}
     with get_db() as conn:
         for pid in para_ids:
-            result[pid] = get_section_sentences(book_id, pid, conn)
+            result[pid] = get_section_sentences(book_id, pid, conn, lang_code=lang or None)
     return jsonify(result)
 
 
@@ -50,7 +53,7 @@ def get_related_para(book_id, para_id):
         cursor = conn.cursor()
         cursor.execute('''
             SELECT title FROM headings
-            WHERE book_id = ? AND para_id <= ? AND heading_number = 10
+            WHERE book_id = ? AND para_id <= ? AND level = 10
             ORDER BY para_id DESC LIMIT 1
         ''', (book_id, para_id))
         result = cursor.fetchone()
@@ -71,13 +74,13 @@ def get_related_para(book_id, para_id):
             'mul': [(f'{base_id}a.att', 'att_para_id'), (f'{base_id}t.tik', 'tik_para_id')],
             'att': [(f'{base_id}m.mul', 'mul_para_id'), (f'{base_id}t.tik', 'tik_para_id')],
             'tik': [(f'{base_id}m.mul', 'mul_para_id'), (f'{base_id}a.att', 'att_para_id')],
-        }[book_type]
+        }.get(book_type, {})
 
         response = {'att_para_id': None, 'tik_para_id': None, 'mul_para_id': None}
-        for target_book, key in targets:
+        for target_book, key in targets.items():
             cursor.execute('''
                 SELECT para_id FROM headings
-                WHERE book_id = ? AND title = ? AND heading_number = 10
+                WHERE book_id = ? AND title = ? AND level = 10
                 ORDER BY ABS(para_id - ?) LIMIT 1
             ''', (target_book, heading_title, para_id))
             found = cursor.fetchone()
@@ -97,12 +100,14 @@ def book_links(book_id):
     except (ValueError, TypeError):
         return jsonify({'error': 'para_id required'}), 400
 
+    lang = request.args.get('lang', '')
+
     with get_db() as conn:
         cursor = conn.cursor()
 
         cursor.execute('''
             SELECT para_id FROM headings
-            WHERE book_id = ? AND para_id > ? AND heading_number < 10
+            WHERE book_id = ? AND para_id > ? AND level < 10
             ORDER BY para_id ASC LIMIT 1
         ''', (book_id, para_id))
         next_row = cursor.fetchone()
@@ -123,7 +128,7 @@ def book_links(book_id):
             dst_line = lnk['dst_line']
 
             cursor.execute('''
-                SELECT para_id, line_id, pali_sentence, english_translation, vietnamese_translation
+                SELECT para_id, line_id, pali
                 FROM sentences
                 WHERE book_id = ? AND para_id = ?
                   AND line_id BETWEEN ? AND ?
@@ -133,11 +138,26 @@ def book_links(book_id):
             preview = [{
                 'para_id':   r['para_id'],
                 'line_id':   r['line_id'],
-                'pali':      markdown_to_html(r['pali_sentence'])       if r['pali_sentence']       else '',
-                'english':   markdown_to_html(r['english_translation']) if r['english_translation'] else '',
-                'vietnamese':   markdown_to_html(r['vietnamese_translation']) if r['vietnamese_translation'] else '',
+                'pali':      markdown_to_html(r['pali']) if r['pali'] else '',
                 'is_target': r['line_id'] == dst_line,
             } for r in cursor.fetchall()]
+
+            # Optionally fetch translation
+            if lang:
+                trans_db = get_translation_db(lang)
+                if trans_db:
+                    trans_cursor = trans_db.cursor()
+                    trans_cursor.execute('''
+                        SELECT para_id, line_id, translation
+                        FROM sentences
+                        WHERE book_id = ? AND para_id = ?
+                          AND line_id BETWEEN ? AND ?
+                        ORDER BY line_id
+                    ''', (dst_book, dst_para, max(0, dst_line - 1), dst_line + 1))
+                    for tr in trans_cursor.fetchall():
+                        for p in preview:
+                            if p['para_id'] == tr['para_id'] and p['line_id'] == tr['line_id']:
+                                p['translation'] = markdown_to_html(tr['translation']) if tr['translation'] else ''
 
             result.append({
                 'src_para':      lnk['src_para'],
@@ -156,6 +176,7 @@ def book_links(book_id):
 @bp.route('/book_link_section')
 def book_link_section():
     dst_book = request.args.get('dst_book', '').strip()
+    lang = request.args.get('lang', '')
     try:
         dst_para = int(request.args.get('dst_para', ''))
         dst_line = int(request.args.get('dst_line', ''))
@@ -169,7 +190,7 @@ def book_link_section():
 
         cursor.execute('''
             SELECT para_id, title FROM headings
-            WHERE book_id = ? AND heading_number = 10 AND para_id <= ?
+            WHERE book_id = ? AND level = 10 AND para_id <= ?
             ORDER BY para_id DESC LIMIT 1
         ''', (dst_book, dst_para))
         section_start = cursor.fetchone()
@@ -181,14 +202,14 @@ def book_link_section():
 
         cursor.execute('''
             SELECT para_id FROM headings
-            WHERE book_id = ? AND heading_number = 10 AND para_id > ?
+            WHERE book_id = ? AND level = 10 AND para_id > ?
             ORDER BY para_id ASC LIMIT 1
         ''', (dst_book, section_para_id))
         next_section = cursor.fetchone()
         end_para = next_section['para_id'] if next_section else 999999999
 
         cursor.execute('''
-            SELECT para_id, line_id, pali_sentence, english_translation, vietnamese_translation
+            SELECT para_id, line_id, pali
             FROM sentences
             WHERE book_id = ? AND para_id >= ? AND para_id < ?
             ORDER BY para_id, line_id
@@ -198,10 +219,27 @@ def book_link_section():
     sentences = [{
         'para_id': r['para_id'],
         'line_id': r['line_id'],
-        'pali':    markdown_to_html(r['pali_sentence'])       if r['pali_sentence']       else '',
-        'english': markdown_to_html(r['english_translation']) if r['english_translation'] else '',
-        'vietnamese': markdown_to_html(r['vietnamese_translation']) if r['vietnamese_translation'] else '',
+        'pali':    markdown_to_html(r['pali']) if r['pali'] else '',
     } for r in rows]
+
+    # Optionally fetch translation
+    if lang:
+        trans_db = get_translation_db(lang)
+        if trans_db:
+            trans_cursor = trans_db.cursor()
+            trans_cursor.execute('''
+                SELECT para_id, line_id, translation
+                FROM sentences
+                WHERE book_id = ? AND para_id >= ? AND para_id < ?
+                ORDER BY para_id, line_id
+            ''', (dst_book, section_para_id, end_para))
+            trans_map = {}
+            for tr in trans_cursor.fetchall():
+                trans_map[(tr['para_id'], tr['line_id'])] = tr['translation']
+            for s in sentences:
+                tr = trans_map.get((s['para_id'], s['line_id']), '')
+                if tr:
+                    s['translation'] = markdown_to_html(tr)
 
     return jsonify({
         'section_title': section_title,

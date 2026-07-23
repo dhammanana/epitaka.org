@@ -727,7 +727,7 @@ export class HomeDialogSearch {
               return `
                 <a href="${url}" class="search-result-item dict-entry fts-entry" data-url="${url}">
                   ${item.pali    ? `<div class="fts-pali">${hl(item.pali)}</div>`       : ''}
-                  ${item.english ? `<div class="fts-english">${hl(item.english)}</div>` : ''}
+                  ${item.translation ? `<div class="fts-trans">${hl(item.translation)}</div>` : ''}
                   <div class="fts-meta">para ${item.para_id}</div>
                 </a>`;
             }).join('')}

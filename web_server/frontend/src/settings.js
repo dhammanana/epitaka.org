@@ -15,19 +15,16 @@ const STORAGE_KEY = 'epitaka_settings_v3';
 export function defaultSettings() {
   return {
     pali:           true,
-    english:        true,
-    vietnamese:     false,
+    translation:    true,
     layout:         'stacked',   // 'stacked' | 'sidebyside'
     paliScript:     Script.RO,   // default Roman
     paliColor:      '#7c2d12',
-    engColor:       '#1e3a5f',
-    vietColor:      '#4a1d6b',
+    transColor:     '#1e3a5f',
     bgColor:        '#faf7f2',
     actionButtons:  'line',      // 'line' | 'para' | 'none'
     fontSize:       16,          // px – applied to #main-content
     actionCollapse: false,       // true = collapse row buttons into a single ⋯ menu
-    load_attha: true,
-    
+    load_attha:     true,
   };
 }
 
@@ -45,15 +42,12 @@ export function saveSettings(settings) {
 
 // ── Apply settings to the DOM ─────────────────────────
 export function applySettings(s) {
-  // CSS variables for colors
   const root = document.documentElement;
-  root.style.setProperty('--pali-color', s.paliColor);
-  root.style.setProperty('--eng-color',  s.engColor);
-  root.style.setProperty('--viet-color', s.vietColor);
-  root.style.setProperty('--bg',         s.bgColor);
+  root.style.setProperty('--pali-color',    s.paliColor);
+  root.style.setProperty('--trans-color',   s.transColor);
+  root.style.setProperty('--bg',            s.bgColor);
   document.body.style.backgroundColor = s.bgColor;
 
-  // Font size – clamp to sensible range
   const fs = Math.min(Math.max(parseInt(s.fontSize) || 16, 10), 32);
   root.style.setProperty('--reader-font-size', `${fs}px`);
   root.style.setProperty('font-size', `${fs}px`);
@@ -62,22 +56,18 @@ export function applySettings(s) {
   document.body.setAttribute('data-ra-mode',     s.actionButtons  || 'line');
   document.body.setAttribute('data-ra-collapse', s.actionCollapse ? 'true' : 'false');
 
-  const visibleCount = [s.pali, s.english, s.vietnamese].filter(Boolean).length;
-  document.body.setAttribute('data-flow', visibleCount === 1 ? 'true' : 'false');
+  const visibleCount = [s.pali, s.translation].filter(Boolean).length;
+  document.body.setAttribute('data-flow', visibleCount <= 1 ? 'true' : 'false');
 
   // Language visibility
   document.querySelectorAll('.pali-text').forEach(el => el.style.display = s.pali ? '' : 'none');
-  document.querySelectorAll('.eng-text').forEach(el  => el.style.display = s.english ? '' : 'none');
-  document.querySelectorAll('.viet-text').forEach(el => el.style.display = s.vietnamese ? '' : 'none');
+  document.querySelectorAll('.translation-text').forEach(el => el.style.display = s.translation ? '' : 'none');
 
-  // Layout: side-by-side only makes sense when exactly 1 translation is shown alongside pali
   applyLayout(s);
 }
 
 function applyLayout(s) {
-  const singleTranslation =
-    (s.pali && s.english && !s.vietnamese) ||
-    (s.pali && !s.english && s.vietnamese);
+  const singleTranslation = s.pali && s.translation;
 
   document.querySelectorAll('.sentence-row').forEach(row => {
     if (s.layout === 'sidebyside' && singleTranslation) {
@@ -88,53 +78,65 @@ function applyLayout(s) {
   });
 }
 
+// ── Helpers for null-safe DOM access ──────────────────
+function _setChecked(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.checked = !!value;
+}
+
+function _getChecked(id, fallback) {
+  const el = document.getElementById(id);
+  return el ? el.checked : (fallback ?? false);
+}
+
+function _setValue(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.value = value;
+}
+
+function _getValue(id) {
+  const el = document.getElementById(id);
+  return el ? el.value : '';
+}
+
 // ── Populate settings form ────────────────────────────
 export function populateSettingsForm(s) {
-  document.getElementById('cb-pali').checked       = s.pali;
-  document.getElementById('cb-english').checked    = s.english;
-  document.getElementById('cb-vietnamese').checked = s.vietnamese;
+  _setChecked('cb-pali',        s.pali);
+  _setChecked('cb-translation', s.translation);
 
-  document.querySelector(`input[name="layout"][value="${s.layout}"]`).checked = true;
-  document.querySelector(`input[name="action-mode"][value="${s.actionButtons || 'line'}"]`).checked = true;
+  const layoutRadio = document.querySelector(`input[name="layout"][value="${s.layout}"]`);
+  if (layoutRadio) layoutRadio.checked = true;
+  const modeRadio = document.querySelector(`input[name="action-mode"][value="${s.actionButtons || 'line'}"]`);
+  if (modeRadio) modeRadio.checked = true;
 
-  document.getElementById('color-pali').value = s.paliColor;
-  document.getElementById('color-eng').value  = s.engColor;
-  document.getElementById('color-viet').value = s.vietColor;
-  document.getElementById('color-bg').value   = s.bgColor;
+  _setValue('color-pali',  s.paliColor);
+  _setValue('color-trans', s.transColor);
+  _setValue('color-bg',    s.bgColor);
 
-  // Pali script selector
   const sel = document.getElementById('pali-script-select');
   if (sel) sel.value = s.paliScript;
 
-  // Font size
   const fsEl = document.getElementById('range-font-size');
   if (fsEl) { fsEl.value = s.fontSize || 16; _updateFontSizeLabel(fsEl.value); }
 
-  // Action collapse toggle
-  const acEl = document.getElementById('cb-action-collapse');
-  if (acEl) acEl.checked = !!s.actionCollapse;
-
-  // Cross-book links toggle
-  const athaEl = document.getElementById('cb-load-attha');
-  if (athaEl) athaEl.checked = s.load_attha ?? true;
+  _setChecked('cb-action-collapse', !!s.actionCollapse);
+  _setChecked('cb-load-attha', s.load_attha ?? true);
 }
 
 // ── Read settings from form ───────────────────────────
 export function readSettingsForm() {
   return {
-    pali:           document.getElementById('cb-pali').checked,
-    english:        document.getElementById('cb-english').checked,
-    vietnamese:     document.getElementById('cb-vietnamese').checked,
+    pali:           _getChecked('cb-pali'),
+    translation:    _getChecked('cb-translation'),
     layout:         document.querySelector('input[name="layout"]:checked')?.value || 'stacked',
     actionButtons:  document.querySelector('input[name="action-mode"]:checked')?.value || 'line',
     paliScript:     document.getElementById('pali-script-select')?.value || Script.RO,
-    paliColor:      document.getElementById('color-pali').value,
-    engColor:       document.getElementById('color-eng').value,
-    vietColor:      document.getElementById('color-viet').value,
-    bgColor:        document.getElementById('color-bg').value,
+    paliColor:      _getValue('color-pali'),
+    transColor:     _getValue('color-trans'),
+    bgColor:        _getValue('color-bg'),
     fontSize:       parseInt(document.getElementById('range-font-size')?.value) || 16,
-    actionCollapse: document.getElementById('cb-action-collapse')?.checked || false,
-    load_attha:     document.getElementById('cb-load-attha')?.checked ?? true,
+    actionCollapse: _getChecked('cb-action-collapse'),
+    load_attha:     _getChecked('cb-load-attha', true),
   };
 }
 

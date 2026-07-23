@@ -6,8 +6,8 @@ from tqdm import tqdm
 import os
 import csv
 import json  # New: For embedding serialization
-import sqlite_vec  # New: Successor extension
-import sqlite_vss
+# import sqlite_vec  # New: Successor extension
+# import sqlite_vss
 import unicodedata  # New: For diacritics stripping
 from collections import defaultdict  # New: For word frequency tracking
 
