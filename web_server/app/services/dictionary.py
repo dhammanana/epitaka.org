@@ -112,6 +112,31 @@ def _search_dpd(word: str) -> list:
     except (json.JSONDecodeError, TypeError):
         headword_ids = []
 
+    # Parse deconstructor for compound analysis
+    deconstructor_parts = []
+    if deconstructor_json:
+        try:
+            deconstructor_parts = json.loads(deconstructor_json)
+        except (json.JSONDecodeError, TypeError):
+            pass
+
+    # If no headwords but deconstructor exists, return decomposition entries
+    if not headword_ids and deconstructor_parts:
+        for decon_str in deconstructor_parts:
+            # Parse each decomposition: "canda + gutto" → ["canda", "gutto"]
+            component_words = [w.strip() for w in decon_str.replace(' + ', '+').split('+') if w.strip()]
+            if component_words:
+                results.append({
+                    'word': word,
+                    'type': 'deconstruction',
+                    'deconstruction': decon_str,
+                    'components': component_words,
+                    'book_name': 'DPD — Compound Analysis',
+                    'definition': '',
+                    'stem': word,
+                })
+        return results
+
     if not headword_ids:
         return []
 
@@ -131,14 +156,6 @@ def _search_dpd(word: str) -> list:
 
         # Clean lemma: remove trailing id suffix like " 1.1", " 2.1"
         clean_lemma = re.sub(r'\s+[\d\.]+$', '', lemma).strip()
-
-        # Parse deconstructor for compound analysis
-        deconstructor_parts = []
-        if deconstructor_json:
-            try:
-                deconstructor_parts = json.loads(deconstructor_json)
-            except (json.JSONDecodeError, TypeError):
-                pass
 
         # Build definition HTML
         definition = meaning_html

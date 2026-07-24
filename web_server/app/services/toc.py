@@ -36,8 +36,16 @@ def get_section_sentences(book_id, para_id, conn, lang_code=None):
     Fetch Pāli sentences for a TOC section: from para_id up to (but not including)
     the next heading's para_id.
 
-    Returns sentences with Pāli text and optionally translation from the
-    specified language database.
+    Skips the first sentence if it matches the heading's para_id (to avoid
+    duplicating the heading text), and returns its translation as a separate
+    `heading_translation` field.
+
+    Returns a dict:
+      {
+        'sentences': [ { para_id, line_id, pali, translation }, ... ],
+        'heading_translation': str | None,  # translation of the heading sentence
+        'has_content': bool,  # whether there are content sentences beyond the heading
+      }
     """
     cursor = conn.cursor()
 
@@ -60,8 +68,7 @@ def get_section_sentences(book_id, para_id, conn, lang_code=None):
     ''', (book_id, para_id, end_para))
     rows = cursor.fetchall()
 
-    # Fetch translation if language is specified (using the same range,
-    # no headings subquery needed since range is already computed)
+    # Fetch translation if language is specified
     translation_map = {}
     if lang_code:
         trans_db = get_translation_db(lang_code)
@@ -76,11 +83,19 @@ def get_section_sentences(book_id, para_id, conn, lang_code=None):
             for tr in trans_cursor.fetchall():
                 translation_map[(tr['para_id'], tr['line_id'])] = tr['translation']
 
+    # Check if the first sentence is the heading itself (same para_id)
+    heading_translation = None
     result = []
-    for r in rows:
+    for i, r in enumerate(rows):
         pid = r['para_id']
         lid = r['line_id']
         translation = translation_map.get((pid, lid), '')
+
+        # Skip the first row if it has the same para_id as the heading
+        if i == 0 and pid == para_id:
+            heading_translation = markdown_to_html(translation) if translation else None
+            continue
+
         result.append({
             'para_id':     pid,
             'line_id':     lid,
@@ -88,7 +103,11 @@ def get_section_sentences(book_id, para_id, conn, lang_code=None):
             'translation': markdown_to_html(translation) if translation else '',
         })
 
-    return result
+    return {
+        'sentences': result,
+        'heading_translation': heading_translation,
+        'has_content': len(result) > 0,
+    }
 
 
 def resolve_split_book(book_id, para_id, cursor):

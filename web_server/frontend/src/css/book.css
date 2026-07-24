@@ -185,7 +185,7 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 #main-content {
   margin-top: var(--topbar-h);
   padding: 1.5rem 0.5rem 5rem;
-  max-width: 820px;
+  /*max-width: 820px;*/
   margin-left: auto; margin-right: auto;
   /* em base: all child em values scale with user font-size setting */
   font-size: var(--reader-font-size);
@@ -237,6 +237,69 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   font-family: var(--font-serif);
   flex: 1;
   line-height: 1.4;
+}
+
+/* Heading translation shown below the Pali heading */
+.section-heading-translation {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.78em;
+  font-weight: 400;
+  color: var(--trans-color);
+  line-height: 1.4;
+  margin-top: 0.1rem;
+  font-style: italic;
+}
+
+/* Empty parent section (no real content) — not clickable/expandable */
+.section-heading-empty {
+  cursor: default;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.section-heading-empty:hover {
+  background: transparent;
+}
+.section-heading-empty .section-heading-text {
+  font-family: var(--font-serif);
+  flex: 1;
+  line-height: 1.4;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Level-based sizing for empty section headings */
+.section-heading-empty[data-level="1"] .section-heading-text {
+  font-size: 1.18em;
+  font-weight: 650;
+  color: var(--accent);
+}
+.section-heading-empty[data-level="2"] .section-heading-text {
+  font-size: 1.08em;
+  font-weight: 600;
+}
+.section-heading-empty[data-level="3"] .section-heading-text {
+  font-size: 1em;
+  font-weight: 600;
+}
+.section-heading-empty[data-level="4"] .section-heading-text {
+  font-size: 0.93em;
+}
+.section-heading-empty[data-level="5"] .section-heading-text {
+  font-size: 0.86em;
+}
+.section-heading-empty[data-level="6"] .section-heading-text {
+  font-size: 0.82em;
 }
 
 /* Level-based heading sizing */
@@ -310,8 +373,17 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   position: relative;
   padding: 0.2rem 0.3rem 0.6rem 0.4rem;
   border-bottom: 1px solid #f0ebe4;
+  /* Vertical bar on the right to visually group sentences in same paragraph */
+  border-right: 2px solid var(--border);
+  margin-right: 0.25rem;
 }
-.para-group:last-child { border-bottom: none; }
+.para-group:last-child {
+  border-bottom: none;
+  border-right: 2px solid transparent;
+}
+.para-group:only-child {
+  border-right: 2px solid transparent;
+}
 .para-group.highlight-flash { animation: flash 1.8s ease-out forwards; }
 @keyframes flash { 0% { background: #fde68a; } 100% { background: transparent; } }
 
@@ -380,6 +452,7 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 [data-flow="true"] .para-group {
   line-height: 1.6;
   text-align: justify;
+  border-right: none;
 }
 
 

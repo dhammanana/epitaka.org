@@ -10,9 +10,9 @@ Supports multi-language URL routing:
 """
 from flask import Blueprint, render_template, request, redirect, jsonify, abort
 
-from ..utils.db   import get_db, get_available_translations, get_translation_db
+from ..utils.db   import get_db, get_translation_db
 from ..utils.text import normalize_pali, markdown_to_html
-from ..services.books import load_hierarchy, organize_hierarchy, get_book_name
+from ..services.books import load_hierarchy, organize_hierarchy
 from ..services.toc   import get_book_toc, resolve_split_book, get_section_sentences
 from ..config import Config
 
@@ -64,7 +64,6 @@ def index(lang):
     """Index page for a specific language."""
     hierarchy = load_hierarchy()  # must be before 'if' block below
     translations = Config.detect_translations()
-    available_langs = list(translations.keys())
 
     if lang not in translations:
         # If the default language itself is not found, render anyway
@@ -98,7 +97,6 @@ def index(lang):
 def book(lang, book_id, section_path=None):
     """Book page with TOC, optionally with expanded section for SEO."""
     translations = Config.detect_translations()
-    available_langs = list(translations.keys())
 
     if lang not in translations:
         return redirect(Config.BASE_URL + '/' + Config.DEFAULT_LANG + '/')
@@ -118,35 +116,40 @@ def book(lang, book_id, section_path=None):
         # ── Parse section_path for SEO-friendly deep-linking ────────────
         active_para_id = None
         active_line_id = None
-        section_slug = None
+        section_slug = section_path
 
-        if section_path:
-            parts = section_path.strip('/').split('/')
-            if len(parts) >= 1:
-                section_slug = parts[0]
-            if len(parts) >= 2:
-                try:
-                    active_para_id = int(parts[1])
-                except ValueError:
-                    pass
-            if len(parts) >= 3:
-                try:
-                    active_line_id = int(parts[2])
-                except ValueError:
-                    pass
+        # if section_path:
+        #     parts = section_path.strip('/').split('/')
+        #     if len(parts) >= 1:
+        #         section_slug = parts[0]
+        #     if len(parts) >= 2:
+        #         try:
+        #             active_para_id = int(parts[1])
+        #         except ValueError:
+        #             pass
+        #     if len(parts) >= 3:
+        #         try:
+        #             active_line_id = int(parts[2])
+        #         except ValueError:
+        #             pass
 
-        # If no explicit para_id, find it from the section slug
-        if not active_para_id and section_slug:
-            for item in toc:
-                slug = item['title'].lower().replace(' ', '-') if item['title'] else ''
-                if slug == section_slug:
-                    active_para_id = item['para_id']
-                    break
+        # If no explicit para_id, extract it from the section slug ({slug}-{para_id})
+        if not active_para_id and section_slug and '-' in section_slug:
+            try:
+                slug_para_id = int(section_slug.rsplit('-', 1)[1])
+                active_para_id = slug_para_id
+            except ValueError:
+                pass
 
         # ── Server-side render the expanded section content for SEO ───
         section_content = None
+        heading_translation = None
+        section_has_content = False
         if active_para_id:
-            section_content = get_section_sentences(book_id, active_para_id, conn, lang_code=lang)
+            section_data = get_section_sentences(book_id, active_para_id, conn, lang_code=lang)
+            section_content = section_data['sentences']
+            heading_translation = section_data['heading_translation']
+            section_has_content = section_data['has_content']
 
         # ── Book links (short previews, 3 lines, with translation) ────
         book_links_html = None
@@ -201,12 +204,15 @@ def book(lang, book_id, section_path=None):
                     dst_pid = match['para_id']
                     # Find parent level<10 heading for section slug
                     cursor.execute('''
-                        SELECT title FROM headings
+                        SELECT title, para_id FROM headings
                         WHERE book_id = ? AND level < 10 AND para_id <= ?
                         ORDER BY para_id DESC LIMIT 1
                     ''', (bid, dst_pid))
                     parent = cursor.fetchone()
-                    dst_slug = parent[0].lower().replace(' ', '-') if parent and parent[0] else ''
+                    if parent and parent['title']:
+                        dst_slug = parent['title'].lower().replace(' ', '-') + '-' + str(parent['para_id'])
+                    else:
+                        dst_slug = ''
                     info = hierarchy.get(bid, {})
                     refs.append({
                         'book_id':   bid,
@@ -262,6 +268,8 @@ def book(lang, book_id, section_path=None):
         active_line_id=active_line_id,
         section_slug=section_slug,
         section_content=section_content,
+        heading_translation=heading_translation,
+        section_has_content=section_has_content,
         book_links_by_line=book_links_by_line,
         firebase_config=Config.FIREBASE_CONFIG,
         menu=organize_hierarchy(hierarchy),
@@ -315,18 +323,23 @@ def _render_book_links(book_id, para_id, hierarchy, conn, lang_code=None):
 
     def _get_slug(bid, pid):
         """Return the heading slug for a (book_id, para_id) pair.
-        Uses same method as the Jinja template: .lower().replace(' ', '-')."""
+        Uses same method as the Jinja template: .lower().replace(' ', '-').
+        The suffix is the heading's para_id (not the content para_id) so
+        the slug uniquely identifies the section heading URL."""
         key = (bid, pid)
         if key in seen_slugs:
             return seen_slugs[key]
         cursor.execute('''
-            SELECT title FROM headings
+            SELECT title, para_id FROM headings
             WHERE book_id = ? AND level < 10 AND para_id <= ?
             ORDER BY para_id DESC LIMIT 1
         ''', (bid, pid))
         row = cursor.fetchone()
-        title = row[0] if row else ''
-        slug = title.lower().replace(' ', '-') if title else ''
+        if row and row['title']:
+            heading_pid = row['para_id']
+            slug = row['title'].lower().replace(' ', '-') + '-' + str(heading_pid)
+        else:
+            slug = ''
         seen_slugs[key] = slug
         return slug
 
@@ -495,6 +508,7 @@ def search_headings_suggest():
         'book_name': hierarchy.get(r['book_id'], {}).get('book_name', 'Unknown'),
         'para_id':   r['para_id'],
         'title':     r['title'],
+        'slug':      (r['title'].lower().replace(' ', '-') + '-' + str(r['para_id'])) if r['title'] else '',
     } for r in results])
 
 
@@ -515,13 +529,32 @@ def bold_suggest():
             LIMIT 50
         ''', (normalize_pali(query),))
         results = cursor.fetchall()
-    return jsonify([{
-        'book_id':   r['book_id'],
-        'book_name': hierarchy.get(r['book_id'], {}).get('book_name', 'Unknown'),
-        'para_id':   r['para_id'],
-        'line_id':   r['line_id'],
-        'title':     r['word'],
-    } for r in results])
+
+        # Pre-compute slugs by querying parent headings for each result
+        slug_cache = {}
+        output = []
+        for r in results:
+            cache_key = (r['book_id'], r['para_id'])
+            if cache_key not in slug_cache:
+                cursor.execute('''
+                    SELECT title, para_id FROM headings
+                    WHERE book_id = ? AND level < 10 AND para_id <= ?
+                    ORDER BY para_id DESC LIMIT 1
+                ''', (r['book_id'], r['para_id']))
+                parent = cursor.fetchone()
+                if parent and parent['title']:
+                    slug_cache[cache_key] = parent['title'].lower().replace(' ', '-') + '-' + str(parent['para_id'])
+                else:
+                    slug_cache[cache_key] = ''
+            output.append({
+                'book_id':   r['book_id'],
+                'book_name': hierarchy.get(r['book_id'], {}).get('book_name', 'Unknown'),
+                'para_id':   r['para_id'],
+                'line_id':   r['line_id'],
+                'title':     r['word'],
+                'slug':      slug_cache[cache_key],
+            })
+    return jsonify(output)
 
 
 @bp.route('/api/bold_definition')
@@ -557,28 +590,44 @@ def bold_definition():
         ''', (normalize_pali(query),))
         results = cursor.fetchall()
 
-    output = []
-    for r in results:
-        entry = {
-            'book_id':         r['book_id'],
-            'book_name':       hierarchy.get(r['book_id'], {}).get('book_name', 'Unknown'),
-            'para_id':         r['para_id'],
-            'line_id':         r['line_id'],
-            'title':           r['word'],
-            'definition_pali': markdown_to_html(r['pali']),
-        }
-        # Look up translation for this sentence
-        if trans_cursor:
-            try:
-                trans_cursor.execute('''
-                    SELECT translation FROM sentences
-                    WHERE book_id = ? AND para_id = ? AND line_id = ?
-                ''', (r['book_id'], r['para_id'], r['line_id']))
-                trans_row = trans_cursor.fetchone()
-                if trans_row and trans_row['translation']:
-                    entry['definition_en'] = markdown_to_html(trans_row['translation'])
-            except Exception:
-                pass
-        output.append(entry)
+        # ── Pre-compute slugs by querying parent headings ──
+        slug_cache = {}
+        output = []
+        for r in results:
+            cache_key = (r['book_id'], r['para_id'])
+            if cache_key not in slug_cache:
+                cursor.execute('''
+                    SELECT title, para_id FROM headings
+                    WHERE book_id = ? AND level < 10 AND para_id <= ?
+                    ORDER BY para_id DESC LIMIT 1
+                ''', (r['book_id'], r['para_id']))
+                parent = cursor.fetchone()
+                if parent and parent['title']:
+                    slug_cache[cache_key] = parent['title'].lower().replace(' ', '-') + '-' + str(parent['para_id'])
+                else:
+                    slug_cache[cache_key] = ''
+
+            entry = {
+                'book_id':         r['book_id'],
+                'book_name':       hierarchy.get(r['book_id'], {}).get('book_name', 'Unknown'),
+                'para_id':         r['para_id'],
+                'line_id':         r['line_id'],
+                'title':           r['word'],
+                'slug':            slug_cache[cache_key],
+                'definition_pali': markdown_to_html(r['pali']),
+            }
+            # Look up translation for this sentence
+            if trans_cursor:
+                try:
+                    trans_cursor.execute('''
+                        SELECT translation FROM sentences
+                        WHERE book_id = ? AND para_id = ? AND line_id = ?
+                    ''', (r['book_id'], r['para_id'], r['line_id']))
+                    trans_row = trans_cursor.fetchone()
+                    if trans_row and trans_row['translation']:
+                        entry['definition_en'] = markdown_to_html(trans_row['translation'])
+                except Exception:
+                    pass
+            output.append(entry)
 
     return jsonify(output)

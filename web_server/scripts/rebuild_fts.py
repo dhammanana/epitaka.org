@@ -7,7 +7,8 @@ Usage:
 
 This script:
   1. Creates/opens webdata.db in the data/ directory
-  2. Drops and recreates all FTS tables (sentences_fts, sentences_fts_v2, passages_fts, words)
+  2. Drops and recreates paragraphs_fts (newline-separated paragraph index)
+     and words (autocomplete frequency index)
   3. Reads Pāli text from epitaka.db (read-only, does not modify it)
   4. Populates the FTS tables for fast full-text search
 
@@ -26,8 +27,6 @@ SCRIPT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR   = os.path.join(SCRIPT_DIR, 'data')
 EPITAKA_DB = os.path.join(DATA_DIR, 'epitaka.db')
 WEBDATA_DB = os.path.join(DATA_DIR, 'webdata.db')
-
-PASSAGE_TARGET = 4  # soft sentence target for passage building
 
 
 # ── Text helpers ───────────────────────────────────────────────────────────
@@ -77,7 +76,7 @@ def drop_fts_tables(conn):
         "passages_fts",
         "sentences_fts_v2",
         "sentences_fts",
-        "words",
+        "paragraphs_fts",
     ]
     for table in tables:
         print(f"  → Dropping {table}...")
@@ -89,42 +88,13 @@ def drop_fts_tables(conn):
 
 
 def create_fts_tables(conn):
-    """Create all FTS tables in webdata.db."""
-    print("  → Creating sentences_fts (paragraph level)...")
+    """Create FTS tables in webdata.db."""
+    print("  → Creating paragraphs_fts (paragraph level, newline-separated lines)...")
     conn.execute("""
-        CREATE VIRTUAL TABLE IF NOT EXISTS sentences_fts USING fts5(
+        CREATE VIRTUAL TABLE IF NOT EXISTS paragraphs_fts USING fts5(
             book_id              UNINDEXED,
             para_id              UNINDEXED,
-            pali_paragraph,
-            english_paragraph,
-            vietnamese_paragraph,
-            tokenize = 'unicode61 remove_diacritics 2'
-        )
-    """)
-
-    print("  → Creating sentences_fts_v2 (sentence level)...")
-    conn.execute("""
-        CREATE VIRTUAL TABLE IF NOT EXISTS sentences_fts_v2 USING fts5(
-            book_id              UNINDEXED,
-            para_id              UNINDEXED,
-            line_id              UNINDEXED,
-            pali_sentence,
-            english_translation,
-            vietnamese_translation,
-            tokenize = 'unicode61 remove_diacritics 2'
-        )
-    """)
-
-    print("  → Creating passages_fts (sliding-window passage level)...")
-    conn.execute("""
-        CREATE VIRTUAL TABLE IF NOT EXISTS passages_fts USING fts5(
-            book_id              UNINDEXED,
-            anchor_para_id       UNINDEXED,
-            seq_start            UNINDEXED,
-            seq_end              UNINDEXED,
-            pali_passage,
-            english_passage,
-            vietnamese_passage,
+            paragraph_text,
             tokenize = 'unicode61 remove_diacritics 2'
         )
     """)
@@ -140,24 +110,6 @@ def create_fts_tables(conn):
     """)
     conn.execute("CREATE INDEX IF NOT EXISTS idx_words_plain ON words (plain)")
     conn.commit()
-
-
-# ── Passage building ───────────────────────────────────────────────────────
-
-def _emit_passage(buffer, book_id, window):
-    """Append one passage tuple to buffer from a list of sentence rows."""
-    pali_parts = []
-    for s in window:
-        pali_parts.append((s['pali'] or '').replace('*', ''))
-    buffer.append((
-        book_id,
-        window[0]['para_id'],   # anchor_para_id
-        window[0]['line_id'],   # seq_start
-        window[-1]['line_id'],  # seq_end
-        ' '.join(pali_parts),
-        '',  # english_passage (not indexed for Pali)
-        '',  # vietnamese_passage (not indexed for Pali)
-    ))
 
 
 # ── Main rebuild ───────────────────────────────────────────────────────────
@@ -177,134 +129,72 @@ def rebuild_fts():
     print(f"    webdata.db: {'exists' if os.path.isfile(WEBDATA_DB) else 'will be created'}")
 
     # ── Drop & create tables ────────────────────────────────────────────
-    print("\n[2] Resetting FTS tables in webdata.db...")
+    print("\n[2] Resetting tables in webdata.db...")
     drop_fts_tables(web_conn)
     create_fts_tables(web_conn)
 
     # ── Query Pali text from epitaka.db ─────────────────────────────────
     print("\n[3] Querying Pali text from epitaka.db...")
-    para_rows = epi_conn.execute("""
-        SELECT book_id, para_id,
-               GROUP_CONCAT(pali, ' ') AS pali_paragraph
-        FROM sentences
-        GROUP BY book_id, para_id
-        ORDER BY book_id, para_id
-    """).fetchall()
-    print(f"    {len(para_rows):,} paragraphs found.")
-
     sent_rows = epi_conn.execute("""
         SELECT book_id, para_id, line_id, pali
         FROM sentences
         ORDER BY book_id, para_id, line_id
     """).fetchall()
-    print(f"    {len(sent_rows):,} sentences found.")
+    print(f"    {len(sent_rows):,} individual lines found.")
+
+    # Group into paragraphs with newline-separated lines
+    print("\n[4] Building paragraphs (grouping lines by book_id, para_id)...")
+    paragraph_map = {}
+    for row in sent_rows:
+        key = (row['book_id'], row['para_id'])
+        if key not in paragraph_map:
+            paragraph_map[key] = []
+        paragraph_map[key].append({
+            'line_id': row['line_id'],
+            'pali': row['pali'],
+        })
+    print(f"    {len(paragraph_map):,} paragraphs built.")
 
     # ── Word extraction ─────────────────────────────────────────────────
-    print("\n[4] Extracting words for autocomplete index...")
+    print("\n[5] Extracting words for autocomplete index...")
     word_data = defaultdict(lambda: {"plain": "", "freq": 0})
-    for row in para_rows:
-        pali_text = (row['pali_paragraph'] or "").replace("*", "")
-        pali_text = clean_pali_for_indexing(pali_text)
-        for w in pali_text.split():
-            w = w.strip('.,!?;:"()[]{}#*').lower()
-            if w:
-                if not word_data[w]["plain"]:
-                    word_data[w]["plain"] = strip_diacritics(w)
-                word_data[w]["freq"] += 1
+    for key, lines in paragraph_map.items():
+        for line in lines:
+            pali_text = (line['pali'] or '').replace('*', '')
+            pali_text = clean_pali_for_indexing(pali_text)
+            for w in pali_text.split():
+                w = w.strip('.,!?;:"()[]{}#*').lower()
+                if w:
+                    if not word_data[w]["plain"]:
+                        word_data[w]["plain"] = strip_diacritics(w)
+                    word_data[w]["freq"] += 1
     print(f"    {len(word_data):,} unique words extracted.")
 
-    # ── Insert into sentences_fts ──────────────────────────────────────
-    print("\n[5] Inserting into sentences_fts (paragraph level)...")
+    # ── Insert into paragraphs_fts ──────────────────────────────────────
+    print("\n[6] Inserting into paragraphs_fts (paragraph level)...")
     BATCH_SIZE = 5000
     inserted = 0
-    for row in para_rows:
-        pali_text = clean_pali_for_indexing((row['pali_paragraph'] or "").replace("*", ""))
+    for (book_id, para_id), lines in paragraph_map.items():
+        # Join lines with newline so each line is a separate token span
+        para_text_parts = []
+        for line in lines:
+            pali = clean_pali_for_indexing((line['pali'] or '').replace('*', ''))
+            para_text_parts.append(pali)
+        para_text = '\n'.join(para_text_parts)
+
         web_conn.execute(
-            "INSERT INTO sentences_fts (book_id, para_id, pali_paragraph, english_paragraph, vietnamese_paragraph) "
-            "VALUES (?, ?, ?, ?, ?)",
-            (row['book_id'], row['para_id'], pali_text, '', ''),
+            "INSERT INTO paragraphs_fts (book_id, para_id, paragraph_text) VALUES (?, ?, ?)",
+            (book_id, para_id, para_text),
         )
         inserted += 1
         if inserted % BATCH_SIZE == 0:
             web_conn.commit()
-            print(f"    {inserted:,}/{len(para_rows):,} paragraph FTS rows committed.")
+            print(f"    {inserted:,}/{len(paragraph_map):,} paragraph FTS rows committed.")
     web_conn.commit()
-    print(f"    ✓ {inserted:,} rows inserted into sentences_fts.")
-
-    # ── Insert into sentences_fts_v2 ───────────────────────────────────
-    print("\n[6] Inserting into sentences_fts_v2 (sentence level)...")
-    inserted = 0
-    for row in sent_rows:
-        pali_text = clean_pali_for_indexing((row['pali'] or "").replace("*", ""))
-        web_conn.execute(
-            "INSERT INTO sentences_fts_v2 (book_id, para_id, line_id, pali_sentence, english_translation, vietnamese_translation) "
-            "VALUES (?, ?, ?, ?, ?, ?)",
-            (row['book_id'], row['para_id'], row['line_id'], pali_text, '', ''),
-        )
-        inserted += 1
-        if inserted % BATCH_SIZE == 0:
-            web_conn.commit()
-            print(f"    {inserted:,}/{len(sent_rows):,} sentence FTS rows committed.")
-    web_conn.commit()
-    print(f"    ✓ {inserted:,} rows inserted into sentences_fts_v2.")
-
-    # ── Build and insert passages ──────────────────────────────────────
-    print(f"\n[7] Building passages (paragraph-rounded, target={PASSAGE_TARGET} sentences)...")
-    books_paras = defaultdict(list)
-    cur_key = None
-    cur_para = None
-    for row in sent_rows:
-        key = row['book_id']
-        pid = row['para_id']
-        if key != cur_key or pid != cur_para:
-            books_paras[key].append([])
-            cur_key = key
-            cur_para = pid
-        books_paras[key][-1].append(row)
-
-    passage_buffer = []
-    total_passages = 0
-
-    for book_id, paras in books_paras.items():
-        np = len(paras)
-        p = 0
-        while p < np:
-            window_paras = []
-            sentence_count = 0
-            q = p
-            while q < np:
-                window_paras.append(paras[q])
-                sentence_count += len(paras[q])
-                q += 1
-                if sentence_count >= PASSAGE_TARGET:
-                    break
-            flat = [s for para in window_paras for s in para]
-            _emit_passage(passage_buffer, book_id, flat)
-            total_passages += 1
-            if len(passage_buffer) >= BATCH_SIZE:
-                web_conn.executemany(
-                    "INSERT INTO passages_fts (book_id, anchor_para_id, seq_start, seq_end, "
-                    "pali_passage, english_passage, vietnamese_passage) "
-                    "VALUES (?, ?, ?, ?, ?, ?, ?)",
-                    passage_buffer,
-                )
-                web_conn.commit()
-                print(f"    {total_passages:,} passage rows committed...")
-                passage_buffer.clear()
-            p += 1
-
-    if passage_buffer:
-        web_conn.executemany(
-            "INSERT INTO passages_fts (book_id, anchor_para_id, seq_start, seq_end, "
-            "pali_passage, english_passage, vietnamese_passage) "
-            "VALUES (?, ?, ?, ?, ?, ?, ?)",
-            passage_buffer,
-        )
-        web_conn.commit()
-    print(f"    ✓ {total_passages:,} rows inserted into passages_fts.")
+    print(f"    ✓ {inserted:,} rows inserted into paragraphs_fts.")
 
     # ── Insert into words ──────────────────────────────────────────────
-    print("\n[8] Inserting into words table...")
+    print("\n[7] Inserting into words table...")
     cursor = web_conn.cursor()
     buffer = []
     for word, data in word_data.items():
@@ -325,7 +215,7 @@ def rebuild_fts():
     print(f"    ✓ {len(word_data):,} entries inserted into words.")
 
     # ── Finalize ──────────────────────────────────────────────────────────
-    print("\n[9] Vacuuming webdata.db...")
+    print("\n[8] Vacuuming webdata.db...")
     web_conn.execute("VACUUM")
     print(f"    Final size: {os.path.getsize(WEBDATA_DB):,} bytes")
 
@@ -334,9 +224,7 @@ def rebuild_fts():
 
     print("\n" + "=" * 60)
     print("FTS rebuild complete!")
-    print(f"  {len(para_rows):,} paragraphs indexed")
-    print(f"  {len(sent_rows):,} sentences indexed")
-    print(f"  {total_passages:,} passages built")
+    print(f"  {len(paragraph_map):,} paragraphs indexed")
     print(f"  {len(word_data):,} unique words")
     print("=" * 60)
 

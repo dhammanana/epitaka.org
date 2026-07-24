@@ -1,16 +1,13 @@
 # app/utils/index_builder.py
 """
-Builds / rebuilds the search-related tables in translations.db:
-  - sentences_fts   (FTS5 virtual table — paragraph level)
-  - sentences_fts_v2 (FTS5 virtual table — sentence level)
-  - passages_fts    (FTS5 virtual table — sliding-window passages for NEAR/distance search)
+Builds / rebuilds the search-related tables in webdata.db:
+  - paragraphs_fts  (FTS5 virtual table — paragraph level, newline-separated)
   - words           (frequency + plain-form index)
   - pali_definition (bold-marked Pali terms with ending, stem, plain)
   - book_links      (cross-references between mula↔attha/tika and attha↔tika)
 
 Flask CLI usage (register once in create_app):
-    flask rebuild fts          # drop + recreate + populate sentences_fts, sentences_fts_v2,
-                               #   passages_fts & words
+    flask rebuild fts          # drop + recreate + populate paragraphs_fts & words
     flask rebuild words        # drop + recreate + populate words only
     flask rebuild palidef      # drop + recreate + populate pali_definition
     flask rebuild booklink     # drop + recreate + populate book_links
@@ -19,12 +16,6 @@ Flask CLI usage (register once in create_app):
     flask cleanup              # drop all tables and VACUUM the database
 
 Or call each function directly from Python.
-
-Passage window constant (tune to taste):
-    PASSAGE_TARGET  — soft sentence target before the window rounds up to the
-                      end of the current paragraph (default 4).
-                      The actual passage size is always a whole number of
-                      paragraphs, so it is >= PASSAGE_TARGET sentences.
 """
 
 import re
@@ -36,31 +27,6 @@ import click
 from flask import Flask
 
 from ..utils.db import get_db
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# Passage-building constant
-# ─────────────────────────────────────────────────────────────────────────────
-
-# Soft sentence target.  After accumulating this many sentences the builder
-# finishes the current paragraph before closing the passage.  This means every
-# passage always contains complete paragraphs — it never cuts mid-paragraph.
-#
-# Example (PASSAGE_TARGET = 4):
-#   Para A = 3 sentences, Para B = 3 sentences, Para C = 5 sentences.
-#
-#   Passage 1: starts at A[0].  After A (3 sentences) we have < 4, so we
-#              carry on into B.  After B (6 total) we have >= 4 AND the
-#              paragraph just ended → close.  Passage = A + B (6 sentences).
-#
-#   Passage 2: starts at B (the paragraph that pushed us over 4 last time).
-#              After B (3 sentences) < 4, carry on into C.  After C (8 total)
-#              >= 4 AND paragraph ended → close.  Passage = B + C (8 sentences).
-#
-# The overlap (Para B appears in both passage 1 and passage 2) ensures that
-# words spread across the A/B or B/C boundary are always caught.
-
-PASSAGE_TARGET: int = 4   # soft sentence target before rounding to paragraph end
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -281,95 +247,32 @@ PATTERN_BOLD = re.compile(
 # Per-table: drop → create → populate
 # ─────────────────────────────────────────────────────────────────────────────
 
-def _emit_passage(buffer: list, book_id: str, window: list) -> None:
-    """
-    Append one passage tuple to buffer from a list of sentence rows.
-    Called by rebuild_fts whenever a passage window is closed.
-    """
-    pali_parts = []
-    en_parts   = []
-    vi_parts   = []
-    for s in window:
-        pali_parts.append((s['pali'] or '').replace('*', ''))
-        en_parts.append('')
-        vi_parts.append('')
-
-    buffer.append((
-        book_id,
-        window[0]['para_id'],   # anchor_para_id  (first sentence's paragraph)
-        window[0]['line_id'],   # seq_start
-        window[-1]['line_id'],  # seq_end
-        ' '.join(pali_parts),
-        ' '.join(en_parts),
-        ' '.join(vi_parts),
-    ))
-
-
 def rebuild_fts(batch_size: int = 5000) -> None:
     """
     Drop, recreate, and populate:
-      - sentences_fts      (paragraph level  — used by 'para' search mode)
-      - sentences_fts_v2   (sentence level   — used by 'sentence/exact' search mode)
-      - passages_fts       (paragraph-rounded windows — used by 'distance/NEAR' search mode)
+      - paragraphs_fts  (paragraph level — newline-separated lines)
       - words
-
-    Passage parameter (at top of file):
-      PASSAGE_TARGET = 4   soft sentence target; window always rounds up to end
-                           of the current paragraph before closing.
     """
-    print("=== Rebuilding: sentences_fts + sentences_fts_v2 + passages_fts + words ===")
+    print("=== Rebuilding: paragraphs_fts + words ===")
 
     # ── Drop old tables ───────────────────────────────────────────────────────
     with get_db() as conn:
         print("  → Dropping old tables...")
-        conn.execute("DROP TABLE IF EXISTS sentences_fts")
-        conn.execute("DROP TABLE IF EXISTS sentences_fts_v2")
         conn.execute("DROP TABLE IF EXISTS passages_fts")
+        conn.execute("DROP TABLE IF EXISTS sentences_fts_v2")
+        conn.execute("DROP TABLE IF EXISTS sentences_fts")
+        conn.execute("DROP TABLE IF EXISTS paragraphs_fts")
         conn.execute("DROP TABLE IF EXISTS words")
         conn.commit()
 
     # ── Create tables ─────────────────────────────────────────────────────────
     with get_db() as conn:
-        print("  → Creating sentences_fts (paragraph level)...")
+        print("  → Creating paragraphs_fts (paragraph level, newline-separated lines)...")
         conn.execute("""
-            CREATE VIRTUAL TABLE IF NOT EXISTS sentences_fts USING fts5(
+            CREATE VIRTUAL TABLE IF NOT EXISTS paragraphs_fts USING fts5(
                 book_id              UNINDEXED,
                 para_id              UNINDEXED,
-                pali_paragraph,
-                english_paragraph,
-                vietnamese_paragraph,
-                tokenize = 'unicode61 remove_diacritics 2'
-            )
-        """)
-
-        print("  → Creating sentences_fts_v2 (sentence level)...")
-        conn.execute("""
-            CREATE VIRTUAL TABLE IF NOT EXISTS sentences_fts_v2 USING fts5(
-                book_id              UNINDEXED,
-                para_id              UNINDEXED,
-                line_id              UNINDEXED,
-                pali_sentence,
-                english_translation,
-                vietnamese_translation,
-                tokenize = 'unicode61 remove_diacritics 2'
-            )
-        """)
-
-        print("  → Creating passages_fts (sliding-window passage level)...")
-        # Stores concatenated text from PASSAGE_WINDOW consecutive sentences.
-        # seq_start / seq_end are the line_ids of the first and last sentence
-        # in the window — used after a match to fetch the individual sentences
-        # for display.  anchor_para_id is the para_id of the first sentence
-        # so we can group results by paragraph.
-        conn.execute("""
-            CREATE VIRTUAL TABLE IF NOT EXISTS passages_fts USING fts5(
-                book_id              UNINDEXED,
-                anchor_para_id       UNINDEXED,
-                seq_start            UNINDEXED,
-                seq_end              UNINDEXED,
-                pali_passage,
-                english_passage,
-                vietnamese_passage,
+                paragraph_text,
                 tokenize = 'unicode61 remove_diacritics 2'
             )
         """)
@@ -388,175 +291,62 @@ def rebuild_fts(batch_size: int = 5000) -> None:
 
     # ── Query source data ─────────────────────────────────────────────────────
 
-    print("  → Querying paragraphs from sentences...")
-    with get_db() as conn:
-        para_rows = conn.execute("""
-            SELECT book_id, para_id,
-                   GROUP_CONCAT(pali, ' ') AS pali_paragraph,
-                   '' AS english_paragraph,
-                   '' AS vietnamese_paragraph
-            FROM sentences
-            GROUP BY book_id, para_id
-        """).fetchall()
-    print(f"  → {len(para_rows):,} paragraphs found.")
-
     print("  → Querying individual sentences (ordered)...")
     with get_db() as conn:
         sent_rows = conn.execute("""
-            SELECT book_id, para_id, line_id,
-                   pali, '' AS english_translation, '' AS vietnamese_translation
+            SELECT book_id, para_id, line_id, pali
             FROM sentences
             ORDER BY book_id, para_id, line_id
         """).fetchall()
-    print(f"  → {len(sent_rows):,} sentences found.")
+    print(f"  → {len(sent_rows):,} individual lines found.")
+
+    # Group into paragraphs
+    print("  → Building paragraphs (grouping lines by book_id, para_id)...")
+    paragraph_map = {}
+    for row in sent_rows:
+        key = (row['book_id'], row['para_id'])
+        if key not in paragraph_map:
+            paragraph_map[key] = []
+        paragraph_map[key].append({
+            'line_id': row['line_id'],
+            'pali': row['pali'],
+        })
+    print(f"  → {len(paragraph_map):,} paragraphs built.")
 
     # ── Word extraction (from paragraphs) ────────────────────────────────────
     word_data: dict = defaultdict(lambda: {"plain": "", "freq": 0})
-    for row in para_rows:
-        book_id, para_id, pali_para, en_para, vi_para = row
-        pali_para = (pali_para or "").replace("*", "")
-        for field, is_pali in [(pali_para, True), (en_para, False), (vi_para, False)]:
-            if not field:
-                continue
-            for w in field.split():
+    for key, lines in paragraph_map.items():
+        for line in lines:
+            pali_para = (line['pali'] or '').replace('*', '')
+            for w in pali_para.split():
                 w = w.strip('.,!?;:"()[]{}#*').lower()
                 if w:
                     if not word_data[w]["plain"]:
-                        word_data[w]["plain"] = strip_diacritics(w) if is_pali else w
+                        word_data[w]["plain"] = strip_diacritics(w)
                     word_data[w]["freq"] += 1
     print(f"  → {len(word_data):,} unique words extracted.")
 
-    # ── Insert into sentences_fts (paragraph level) ──────────────────────────
-    print("  → Inserting into sentences_fts (paragraph level)...")
+    # ── Insert into paragraphs_fts ───────────────────────────────────────────
+    print("  → Inserting into paragraphs_fts (paragraph level)...")
     with get_db() as conn:
         inserted = 0
-        for row in para_rows:
-            book_id, para_id, pali_para, en_para, vi_para = row
-            conn.execute("""
-                INSERT INTO sentences_fts
-                    (book_id, para_id, pali_paragraph, english_paragraph, vietnamese_paragraph)
-                VALUES (?, ?, ?, ?, ?)
-            """, (book_id, para_id, (pali_para or "").replace("*", ""), en_para, vi_para))
+        for (book_id, para_id), lines in paragraph_map.items():
+            para_text_parts = []
+            for line in lines:
+                pali = (line['pali'] or '').replace('*', '')
+                para_text_parts.append(pali)
+            para_text = '\n'.join(para_text_parts)
+
+            conn.execute(
+                "INSERT INTO paragraphs_fts (book_id, para_id, paragraph_text) VALUES (?, ?, ?)",
+                (book_id, para_id, para_text),
+            )
             inserted += 1
             if inserted % batch_size == 0:
                 conn.commit()
-                print(f"     {inserted:,}/{len(para_rows):,} paragraph FTS rows committed.")
+                print(f"     {inserted:,}/{len(paragraph_map):,} paragraph FTS rows committed.")
         conn.commit()
-    print(f"  → sentences_fts populated ({inserted:,} rows).")
-
-    # ── Insert into sentences_fts_v2 (sentence level) ────────────────────────
-    print("  → Inserting into sentences_fts_v2 (sentence level)...")
-    with get_db() as conn:
-        inserted = 0
-        for row in sent_rows:
-            book_id, para_id, line_id, pali_s, en_s, vi_s = row
-            conn.execute("""
-                INSERT INTO sentences_fts_v2
-                    (book_id, para_id, line_id,
-                     pali_sentence, english_translation, vietnamese_translation)
-                VALUES (?, ?, ?, ?, ?, ?)
-            """, (
-                book_id, para_id, line_id,
-                (pali_s or "").replace("*", ""), en_s or '', vi_s or '',
-            ))
-            inserted += 1
-            if inserted % batch_size == 0:
-                conn.commit()
-                print(f"     {inserted:,}/{len(sent_rows):,} sentence FTS rows committed.")
-        conn.commit()
-    print(f"  → sentences_fts_v2 populated ({inserted:,} rows).")
-
-    # ── Build and insert passages (paragraph-rounded windows) ───────────────────
-    #
-    # Works at the PARAGRAPH level, not the sentence level — no rewinding.
-    #
-    # Algorithm:
-    #   1. Group sentences into paragraphs (ordered lists).
-    #   2. Walk the paragraph list with a sliding pointer `p`.
-    #   3. Accumulate whole paragraphs into `window_paras` until the total
-    #      sentence count >= PASSAGE_TARGET.
-    #   4. Emit the passage, then advance the start pointer by 1 paragraph
-    #      (the overlap: the last paragraph of this passage becomes the first
-    #      paragraph of the next).  This guarantees words spanning a paragraph
-    #      boundary are always captured together in at least one passage.
-    #   5. Never rewind — p always moves forward.
-    #
-    # Example (PASSAGE_TARGET=4):
-    #   Para A=3s, Para B=3s, Para C=2s, Para D=5s
-    #
-    #   Passage 1: add A(3) < 4 → add B(6) >= 4 → emit A+B.  Next starts at B.
-    #   Passage 2: add B(3) < 4 → add C(5) >= 4 → emit B+C.  Next starts at C.
-    #   Passage 3: add C(2) < 4 → add D(7) >= 4 → emit C+D.  Next starts at D.
-    #   Passage 4: add D(5) >= 4 → end of book   → emit D.
-    #
-    print(f"  → Building passages (paragraph-rounded, target={PASSAGE_TARGET} sentences)...")
-
-    # Step 1: group sentences by (book_id, para_id) preserving order
-    # Result: books_paras[book_id] = [ [sent, sent, …], [sent, …], … ]
-    books_paras: dict = defaultdict(list)
-    cur_key  = None
-    cur_para = None
-    for row in sent_rows:   # already ordered book_id, para_id, line_id
-        key = row['book_id']
-        pid = row['para_id']
-        if key != cur_key or pid != cur_para:
-            books_paras[key].append([])
-            cur_key  = key
-            cur_para = pid
-        books_paras[key][-1].append(row)
-
-    passage_buffer = []
-    total_passages = 0
-
-    def flush_buffer(conn, buf):
-        conn.executemany("""
-            INSERT INTO passages_fts
-                (book_id, anchor_para_id, seq_start, seq_end,
-                 pali_passage, english_passage, vietnamese_passage)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, buf)
-        conn.commit()
-
-    with get_db() as conn:
-        for book_id, paras in books_paras.items():
-            # paras is a list of paragraphs; each paragraph is a list of sentence rows.
-            np = len(paras)
-            p  = 0   # start pointer — always moves forward, never rewinds
-
-            while p < np:
-                window_paras = []   # paragraphs accumulated for this passage
-                sentence_count = 0
-                q = p
-
-                # Accumulate whole paragraphs until we hit the target
-                while q < np:
-                    window_paras.append(paras[q])
-                    sentence_count += len(paras[q])
-                    q += 1
-                    if sentence_count >= PASSAGE_TARGET:
-                        break
-                # window_paras now contains >= PASSAGE_TARGET sentences
-                # (or all remaining paragraphs if fewer than target remain)
-
-                # Flatten window_paras into a single sentence list for _emit_passage
-                flat = [s for para in window_paras for s in para]
-                _emit_passage(passage_buffer, book_id, flat)
-                total_passages += 1
-
-                if len(passage_buffer) >= batch_size:
-                    flush_buffer(conn, passage_buffer)
-                    print(f"     {total_passages:,} passage rows committed...")
-                    passage_buffer.clear()
-
-                # Advance start by 1 paragraph (overlap = all but the first para)
-                p += 1
-
-        # Final flush
-        if passage_buffer:
-            flush_buffer(conn, passage_buffer)
-            passage_buffer.clear()
-
-    print(f"  → passages_fts populated ({total_passages:,} rows).")
+    print(f"  → paragraphs_fts populated ({inserted:,} rows).")
 
     # ── Insert into words ─────────────────────────────────────────────────────
     print("  → Inserting into words...")
@@ -579,7 +369,7 @@ def rebuild_fts(batch_size: int = 5000) -> None:
             )
             conn.commit()
     print(f"  → words populated ({len(word_data):,} entries).")
-    print("=== Done: sentences_fts + sentences_fts_v2 + passages_fts + words ===")
+    print("=== Done: paragraphs_fts + words ===")
 
 
 def rebuild_words(batch_size: int = 5000) -> None:
@@ -608,26 +398,20 @@ def rebuild_words(batch_size: int = 5000) -> None:
     with get_db() as conn:
         rows = conn.execute("""
             SELECT book_id, para_id,
-                   GROUP_CONCAT(pali, ' ') AS pali_paragraph,
-                   '' AS english_paragraph,
-                   '' AS vietnamese_paragraph
+                   GROUP_CONCAT(pali, ' ') AS pali_paragraph
             FROM sentences
             GROUP BY book_id, para_id
         """).fetchall()
 
     word_data: dict = defaultdict(lambda: {"plain": "", "freq": 0})
     for row in rows:
-        book_id, para_id, pali_para, en_para, vi_para = row
-        pali_para = (pali_para or "").replace("*", "")
-        for field, is_pali in [(pali_para, True), (en_para, False), (vi_para, False)]:
-            if not field:
-                continue
-            for w in field.split():
-                w = w.strip('.,!?;:"()[]{}#*').lower()
-                if w:
-                    if not word_data[w]["plain"]:
-                        word_data[w]["plain"] = strip_diacritics(w) if is_pali else w
-                    word_data[w]["freq"] += 1
+        pali_para = (row['pali_paragraph'] or '').replace('*', '')
+        for w in pali_para.split():
+            w = w.strip('.,!?;:"()[]{}#*').lower()
+            if w:
+                if not word_data[w]["plain"]:
+                    word_data[w]["plain"] = strip_diacritics(w)
+                word_data[w]["freq"] += 1
 
     print(f"  → {len(word_data):,} unique words extracted.")
 
@@ -674,6 +458,7 @@ def cleanup_tables() -> None:
         passages_fts
         sentences_fts_v2
         sentences_fts
+        paragraphs_fts
         words
     """
     print("=== Cleanup: dropping index tables ===")
@@ -681,9 +466,7 @@ def cleanup_tables() -> None:
     tables = [
         "book_links",
         "pali_definition",
-        "passages_fts",
-        "sentences_fts_v2",
-        "sentences_fts",
+        "paragraphs_fts",
         "words",
     ]
 
@@ -711,7 +494,7 @@ def register_cli(app: Flask) -> None:
     command groups.
 
     Usage:
-        flask rebuild fts        # sentences_fts + sentences_fts_v2 + passages_fts + words
+        flask rebuild fts        # paragraphs_fts + words
         flask rebuild words      # words only
         flask rebuild palidef    # pali_definition
         flask rebuild booklink   # book_links
@@ -726,7 +509,7 @@ def register_cli(app: Flask) -> None:
 
     @rebuild_cli.command("fts")
     def rebuild_fts_cmd():
-        """Drop, recreate, and populate sentences_fts, sentences_fts_v2, passages_fts and words."""
+        """Drop, recreate, and populate paragraphs_fts and words."""
         rebuild_fts()
 
     @rebuild_cli.command("words")

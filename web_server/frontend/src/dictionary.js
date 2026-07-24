@@ -173,6 +173,15 @@ function renderDictResults(data) {
   let lastBook = null;
 
   for (const entry of data) {
+    if (entry.type === 'deconstruction') {
+      // ── Render as an interactive decomposition card ──
+      html += `<div class="dict-book-group">
+        <div class="dict-book-name">${entry.book_name}</div>
+        ${buildDeconstructionHtml(entry)}
+      </div>`;
+      continue;
+    }
+
     if (entry.book_name !== lastBook) {
       if (lastBook) html += '</div>'; // close prev dict-book-group
       html += `<div class="dict-book-group">
@@ -189,6 +198,49 @@ function renderDictResults(data) {
 
   if (lastBook) html += '</div>';
   dictResults.innerHTML = html;
+
+  // ── Bind click handlers for component word chips ──
+  dictResults.querySelectorAll('.decon-part').forEach(el => {
+    const word = el.dataset.word;
+    if (word) {
+      el.addEventListener('click', e => {
+        e.stopPropagation();
+        selectSuggestion(word);
+      });
+    }
+  });
+}
+
+
+// ── Deconstruction cards ────────────────────────────────────────────────────
+
+function buildDeconstructionHtml(entry) {
+  const deconStr = entry.deconstruction || '';
+  const components = entry.components || [];
+
+  if (!deconStr || !components.length) return '';
+
+  // Build a card showing the compound word broken into components
+  const partsHtml = components.map((part, i) => {
+    const isLast = i === components.length - 1;
+    return `
+      <span class="decon-part" data-word="${escHtml(part)}" tabindex="0" role="button">
+        <span class="decon-part-word">${escHtml(part)}</span>
+        <span class="decon-part-hint">click to define</span>
+      </span>
+      ${!isLast ? '<span class="decon-plus">+</span>' : ''}`;
+  }).join('');
+
+  return `<div class="decon-card">
+    <div class="decon-formula">
+      <span class="decon-original-word">${escHtml(entry.word)}</span>
+      <span class="decon-arrow">→</span>
+      <span class="decon-breakdown">
+        ${partsHtml}
+      </span>
+    </div>
+    <div class="decon-hint">Click any component word to look up its meaning</div>
+  </div>`;
 }
 
 

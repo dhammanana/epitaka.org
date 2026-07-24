@@ -26,7 +26,7 @@ export const SEARCH_TYPES = [
     desc:  'Search Pāli & translations',
     placeholder: 'Type words to search…',
     hasAutocomplete: true,
-    hasFtsOptions:   true,
+    hasFtsOptions:   false,
     autocompleteMode: 'word',
   },
   {
@@ -49,12 +49,6 @@ export const SEARCH_TYPES = [
   },
 ];
 
-export const FTS_MODES = [
-  { id: 'exact',    label: 'Sentence' },
-  { id: 'para',     label: 'Paragraph' },
-  { id: 'distance', label: 'Distance' },
-];
-
 /* ─────────────────────────────────────────────────────────────
    HomeDialogSearch class
 ───────────────────────────────────────────────────────────── */
@@ -64,8 +58,6 @@ export class HomeDialogSearch {
    * @param {string}   opts.baseUrl
    * @param {object}   [opts.initialState]          Persisted state from localStorage
    * @param {string}   [opts.initialState.searchTypeId]
-   * @param {string}   [opts.initialState.ftsModeId]
-   * @param {number}   [opts.initialState.ftsDistance]
    * @param {object}   opts.hierarchy
    * @param {Function} opts.onResultSelect
    * @param {Function} opts.onShowResults
@@ -83,12 +75,6 @@ export class HomeDialogSearch {
     const savedType = SEARCH_TYPES.find(t => t.id === initialState.searchTypeId);
     this.currentType = savedType ?? SEARCH_TYPES[0];
 
-    const savedMode = FTS_MODES.find(m => m.id === initialState.ftsModeId);
-    this.ftsModeId  = savedMode ? savedMode.id : 'exact';
-
-    const savedDist = Number(initialState.ftsDistance);
-    this.ftsDistance = Number.isFinite(savedDist) && savedDist >= 1 ? savedDist : 2;
-
     this._acDebounce    = null;
     this._acController  = null;
     this._focusedIdx    = -1;
@@ -103,9 +89,6 @@ export class HomeDialogSearch {
     this.typeMenu       = null;
     this.searchInput    = null;
     this.suggestionsEl  = null;
-    this.ftsBar         = null;
-    this.distanceWrap   = null;
-    this.distanceNum    = null;
     this.goBtn          = null;
     this.resultsPanel   = null;
     this.filterWrap     = null;
@@ -114,10 +97,13 @@ export class HomeDialogSearch {
     this._lastQuery     = '';
     this._lastType      = null;
 
-    this._ftsPage       = 1;
-    this._ftsTotalPages = 1;
-    this._ftsWords      = [];
-    this._ftsLoading    = false;
+    // FTS state
+    this._ftsData            = null;   // last full response from API
+    this._ftsPage            = 1;
+    this._ftsTotalPages      = 1;
+    this._ftsWords           = [];
+    this._ftsLoading         = false;
+    this._ftsExpandedBookId  = null;   // which book card is currently expanded (accordion)
   }
 
   /**
@@ -129,15 +115,11 @@ export class HomeDialogSearch {
     this.typeMenu      = document.getElementById('search-type-menu');
     this.searchInput   = document.getElementById('home-search-input');
     this.suggestionsEl = document.getElementById('home-suggestions');
-    this.ftsBar        = document.getElementById('fts-options-bar');
-    this.distanceWrap  = document.getElementById('fts-distance-wrap');
-    this.distanceNum   = document.getElementById('fts-distance-num');
     this.goBtn         = document.getElementById('home-search-go');
     this.resultsPanel  = document.getElementById('home-results-panel');
     this.filterWrap    = document.getElementById('home-filter-wrap');
 
     this._bindTypeDropdown();
-    this._bindFtsOptions();
     this._bindInput();
     this._bindGoButton();
 
@@ -146,10 +128,7 @@ export class HomeDialogSearch {
     }
 
     // Apply the (possibly restored) state to the DOM.
-    // This must come AFTER _bindFtsOptions() so distanceWrap visibility works.
     this._applyTypeUI(this.currentType);
-    this._applyFtsModeUI(this.ftsModeId);
-    this._applyFtsDistanceUI(this.ftsDistance);
   }
 
   /* ── Type dropdown ───────────────────────────────────────── */
@@ -208,7 +187,7 @@ export class HomeDialogSearch {
   _applyTypeUI(type) {
     // Update button label
     this.typeBtn.innerHTML =
-      `<span>${type.icon} ${type.label}</span><span class="arrow">▾</span>`;
+      `<span>${type.icon} ${type.label}</span><span class=\"arrow\">▾</span>`;
 
     // Update placeholder
     this.searchInput.placeholder = type.placeholder;
@@ -217,26 +196,6 @@ export class HomeDialogSearch {
     this.typeMenu.querySelectorAll('.search-type-option').forEach(opt => {
       opt.classList.toggle('selected', opt.dataset.type === type.id);
     });
-
-    // Show / hide FTS sub-options bar
-    this.ftsBar.classList.toggle('show', type.hasFtsOptions);
-  }
-
-  /* ── FTS mode helpers ────────────────────────────────────── */
-
-  /** Set the active chip class and show/hide distance input — no event needed. */
-  _applyFtsModeUI(modeId) {
-    this.ftsModeId = modeId;
-    this.ftsBar.querySelectorAll('.fts-chip').forEach(c => {
-      c.classList.toggle('active', c.dataset.mode === modeId);
-    });
-    this.distanceWrap.classList.toggle('show', modeId === 'distance');
-  }
-
-  /** Sync the distance number input to the internal value. */
-  _applyFtsDistanceUI(distance) {
-    this.ftsDistance       = distance;
-    this.distanceNum.value = distance;
   }
 
   /* ── Filter change handler ───────────────────────────────── */
@@ -251,21 +210,7 @@ export class HomeDialogSearch {
       const filtered = this.bookFilter.filterResults(this._lastResults);
       this._renderDictResults(filtered, this._lastQuery);
     }
-  }
-
-  /* ── FTS sub-options ─────────────────────────────────────── */
-
-  _bindFtsOptions() {
-    this.ftsBar.querySelectorAll('.fts-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        this._applyFtsModeUI(chip.dataset.mode);
-      });
-    });
-
-    this.distanceNum.addEventListener('change', () => {
-      const val = Math.max(1, parseInt(this.distanceNum.value) || 2);
-      this._applyFtsDistanceUI(val);
-    });
+    // FTS re-fetches from API when filter changes (handled by storing _ftsData)
   }
 
   /* ── Input & autocomplete ────────────────────────────────── */
@@ -445,9 +390,11 @@ export class HomeDialogSearch {
     this._closeSuggestions();
 
     if (this.currentType.id === 'headings') {
-      this.onResultSelect(`${this.baseUrl}/${this.lang}/book/${item.book_id}#${item.para_id}`);
+      const slug = item.slug || '';
+      this.onResultSelect(`${this.baseUrl}/${this.lang}/book/${item.book_id}/${slug}#${item.para_id}`);
     } else if (this.currentType.id === 'pali-def') {
-      this.onResultSelect(`${this.baseUrl}/${this.lang}/book/${item.book_id}#${item.para_id}-${item.line_id}`);
+      const slug = item.slug || '';
+      this.onResultSelect(`${this.baseUrl}/${this.lang}/book/${item.book_id}/${slug}#${item.para_id}-${item.line_id}`);
     }
   }
 
@@ -519,6 +466,7 @@ export class HomeDialogSearch {
 
     } else if (type.id === 'fulltext') {
       this._ftsPage = 1;
+      this._ftsData = null;
       await this._executeFtsSearch(q);
 
     } else if (type.id === 'pali-def') {
@@ -562,7 +510,8 @@ export class HomeDialogSearch {
       '<mark>$1</mark>'
     );
     this.resultsPanel.innerHTML = data.map(item => {
-      const url = `${this.baseUrl}/${this.lang}/book/${item.book_id}#${item.para_id}`;
+      const slug = item.slug || '';
+      const url = `${this.baseUrl}/${this.lang}/book/${item.book_id}/${slug}#${item.para_id}`;
       return `
       <a href="${url}"
          class="search-result-item"
@@ -617,7 +566,8 @@ export class HomeDialogSearch {
           </button>
           <div class="dict-book-body">
             ${group.items.map(item => {
-              const url = `${this.baseUrl}/${this.lang}/book/${item.book_id}#${item.para_id}-${item.line_id}`;
+              const slug = item.slug || '';
+              const url = `${this.baseUrl}/${this.lang}/book/${item.book_id}/${slug}#${item.para_id}-${item.line_id}`;
               return `
               <a href="${url}"
                  class="search-result-item dict-entry"
@@ -659,16 +609,12 @@ export class HomeDialogSearch {
 
     if (page !== null) this._ftsPage = page;
 
-    const params = new URLSearchParams({ q, page: this._ftsPage, limit: 20 });
-
-    if (this.ftsModeId === 'distance') {
-      params.set('mode', 'distance');
-      params.set('distance', this.ftsDistance);
-    } else if (this.ftsModeId === 'para') {
-      params.set('mode', 'para');
-    } else {
-      params.set('mode', 'exact');
-    }
+    const params = new URLSearchParams({
+      q,
+      page: this._ftsPage,
+      limit: 30,
+      lang: this.lang,
+    });
 
     const { pitakas, layers } = this.bookFilter.getFilterParams();
     if (pitakas.length) params.set('pitakas', pitakas.join(','));
@@ -684,36 +630,249 @@ export class HomeDialogSearch {
       return;
     }
 
-    this._ftsTotalPages = data.pages || 1;
+    this._ftsData       = data;
     this._ftsWords      = data.words || [];
-    this._lastResults   = data.results || [];
+    this._ftsExpandedBookId = null;   // reset on new search
     this._lastQuery     = q;
     this._lastType      = 'fulltext';
 
     this._renderFtsResults(data, q);
   }
 
+  /**
+   * Render FTS search results.
+   *
+   * Two display modes:
+   *   - Book summary: shown when total > 30 and no book is selected
+   *   - Full results: shown when total <= 30, or when a book is selected
+   */
   _renderFtsResults(data, query) {
     this.onShowResults();
 
-    const results = data.results || [];
-    const words   = data.words   || [query];
+    const books         = data.books   || [];
+    const results       = data.results || [];
+    const totalResults  = data.total   || 0;
+    const page          = data.page    || 1;
+    const totalPages    = data.pages   || 1;
 
-    if (!results.length) {
+    if (!totalResults) {
       this.resultsPanel.innerHTML = '<div class="hd-empty">No results found.</div>';
       return;
     }
 
-    const hlPattern = new RegExp(
-      `(${words.map(w => escapeRegex(w)).join('|')})`, 'gi'
-    );
-    const hl = str => (str || '').replace(hlPattern, '<mark>$1</mark>');
+    if (results.length) {
+      // ── Full results mode ──────────────────────────────────────────
+      this._renderFtsFullResults(results, totalResults, page, totalPages, query);
+    } else {
+      // ── Book summary mode (total > 30) ────────────────────────────
+      this._renderFtsBookSummary(books, totalResults, query);
+    }
+  }
 
-    const totalResults = data.total  || 0;
-    const page         = data.page   || 1;
-    const totalPages   = data.pages  || 1;
+  /**
+   * Show book-level summary with result counts.
+   * Each book card acts as an accordion: click to expand results inline,
+   * click again to collapse. Only one book expanded at a time.
+   * Respects the reader's layout preference (stacked vs side-by-side).
+   */
+  _renderFtsBookSummary(books, totalResults, query) {
+    const layoutMode = this._getLayoutMode();
 
-    let html = `<div id="home-filter-wrap"></div><div class="dict-results-summary1">${totalResults.toLocaleString()} result${totalResults !== 1 ? 's' : ''} &mdash; page ${page} of ${totalPages}</div>`;
+    let html = `<div class="dict-results-summary1">${totalResults.toLocaleString()} results in ${books.length} book${books.length !== 1 ? 's' : ''}</div>`;
+    html += `<div class="fts-book-list">`;
+
+    for (const book of books) {
+      html += `
+        <div class="fts-book-card-wrap">
+          <button class="fts-book-card" data-book-id="${book.book_id}" data-book-name="${this._escapeAttr(book.book_name)}">
+            <span class="fts-book-name">${book.book_name}</span>
+            <span class="fts-book-count-badge">${book.count.toLocaleString()}</span>
+          </button>
+          <div class="fts-book-results ${layoutMode}" data-book-id="${book.book_id}"></div>
+        </div>`;
+    }
+
+    html += `</div>`;
+    this.resultsPanel.innerHTML = html;
+
+    // Bind click — accordion expand/collapse
+    this.resultsPanel.querySelectorAll('.fts-book-card').forEach(card => {
+      card.addEventListener('click', async () => {
+        const bid   = card.dataset.bookId;
+        const name  = card.dataset.bookName;
+        const wrap  = card.closest('.fts-book-card-wrap');
+        const resultsEl = wrap?.querySelector('.fts-book-results');
+
+        if (!bid || !resultsEl) return;
+
+        // Invalid bookId guard
+        if (bid === 'undefined' || bid === 'null') {
+          resultsEl.innerHTML = '';
+          resultsEl.classList.remove('expanded');
+          return;
+        }
+
+        // If already expanded → collapse
+        if (this._ftsExpandedBookId === bid) {
+          card.classList.remove('active');
+          resultsEl.innerHTML = '';
+          resultsEl.classList.remove('expanded');
+          this._ftsExpandedBookId = null;
+          this._ftsData = null;
+          return;
+        }
+
+        // Collapse any other currently expanded book
+        if (this._ftsExpandedBookId) {
+          const prevCard  = this.resultsPanel.querySelector(`.fts-book-card[data-book-id="${this._ftsExpandedBookId}"]`);
+          const prevWrap  = prevCard?.closest('.fts-book-card-wrap');
+          if (prevCard)  prevCard.classList.remove('active');
+          if (prevWrap) {
+            const prevResults = prevWrap.querySelector('.fts-book-results');
+            if (prevResults) {
+              prevResults.innerHTML = '';
+              prevResults.classList.remove('expanded');
+            }
+          }
+        }
+
+        // Expand this book
+        card.classList.add('active');
+        resultsEl.innerHTML = '<div class="hd-loading">Loading…</div>';
+        resultsEl.classList.add('expanded');
+        this._ftsExpandedBookId = bid;
+        this._ftsPage = 1;
+        this._ftsData = null;
+
+        // Fetch results for this book
+        await this._loadBookResults(bid, name, resultsEl);
+
+        // Scroll so the results are visible
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    });
+  }
+
+  /**
+   * Fetch and render results for a single book into its inline results container.
+   */
+  async _loadBookResults(bookId, bookName, containerEl) {
+    if (!bookId || bookId === 'undefined' || bookId === 'null') {
+      console.warn('[FTS] _loadBookResults called with invalid book_id:', bookId);
+      return;
+    }
+    if (!containerEl) return;
+
+    const params = new URLSearchParams({
+      q: this._lastQuery,
+      book_id: bookId,
+      page: 1,
+      limit: 30,
+      lang: this.lang,
+    });
+
+    const { pitakas, layers } = this.bookFilter.getFilterParams();
+    if (pitakas.length) params.set('pitakas', pitakas.join(','));
+    if (layers.length)  params.set('layers',  layers.join(','));
+
+    const data = await this._apiFetch(`${this.baseUrl}/api/fts_search?${params}`);
+    if (!data || !data.results?.length) {
+      containerEl.innerHTML = '<div class="hd-empty">No results found for this book.</div>';
+      return;
+    }
+
+    this._ftsData = data;
+    this._renderPerBookView(data, bookName || bookId, containerEl);
+  }
+
+  /**
+   * Render per-book results into the given container element.
+   * Respects the reader's layout preference (stacked vs side-by-side).
+   */
+  _renderPerBookView(data, bookName, containerEl) {
+    if (!containerEl) return;
+
+    const results      = data.results || [];
+    const total        = data.total   || 0;
+    const page         = data.page    || 1;
+    const totalPages   = data.pages   || 1;
+    const layoutMode   = this._getLayoutMode();
+
+    let html = `
+      <div class="fts-results-header">
+        <span class="fts-results-name">${this._escapeHtml(bookName)}</span>
+        <span class="fts-results-count">${total} result${total !== 1 ? 's' : ''}</span>
+      </div>`;
+
+    for (const group of results) {
+      html += `
+        <div class="dict-book-group expanded">
+          <div class="dict-book-body" style="display:block">
+            ${group.items.map(item => {
+              const slug = item.slug || '';
+              const url = `${this.baseUrl}/${this.lang}/book/${item.book_id}/${slug}#${item.para_id}`;
+              const lines = item.lines || [];
+
+              let linesHtml = '';
+              for (const line of lines) {
+                if (!line.matched) continue;
+                const sideClass = layoutMode === 'sidebyside' ? ' side-by-side' : '';
+                linesHtml += `
+                  <div class="fts-line-row fts-line-matched${sideClass}">
+                    <div class="fts-line-pali">${line.pali || ''}</div>
+                    ${line.translation ? `<div class="fts-line-trans">${line.translation}</div>` : ''}
+                  </div>`;
+              }
+
+              return `
+                <a href="${url}" class="search-result-item dict-entry fts-entry" data-url="${url}">
+                  <div class="fts-para-meta">Paragraph ${item.para_id}</div>
+                  ${linesHtml}
+                </a>`;
+            }).join('')}
+          </div>
+        </div>`;
+    }
+
+    if (totalPages > 1) {
+      html += `
+        <div class="fts-pagination">
+          <button class="fts-page-btn fts-prev" ${page <= 1 ? 'disabled' : ''}>← Prev</button>
+          <span class="fts-page-info">Page ${page} / ${totalPages}</span>
+          <button class="fts-page-btn fts-next" ${page >= totalPages ? 'disabled' : ''}>Next →</button>
+        </div>`;
+    }
+
+    containerEl.innerHTML = html;
+
+    // Entry click → navigate
+    containerEl.querySelectorAll('.fts-entry').forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        this.onResultSelect(el.dataset.url);
+      });
+    });
+
+    // Pagination — find buttons within this container only
+    containerEl.querySelector('.fts-prev')?.addEventListener('click', () => {
+      this._handleFtsPage(this._ftsPage - 1);
+    });
+    containerEl.querySelector('.fts-next')?.addEventListener('click', () => {
+      this._handleFtsPage(this._ftsPage + 1);
+    });
+  }
+
+  /**
+   * Render full line-level results (with matched lines only).
+   */
+  _renderFtsFullResults(results, totalResults, page, totalPages, query) {
+    let html = `<div class="dict-results-summary1">${totalResults.toLocaleString()} result${totalResults !== 1 ? 's' : ''}`;
+
+    // If multiple books shown, show back button
+    if (results.length > 1 && this._ftsData?.books?.length > 1) {
+      html += ` &mdash; <button class="fts-back-btn" id="fts-back-summary">← Back to all books</button>`;
+    }
+    html += `</div>`;
 
     let groupIndex = 0;
     for (const group of results) {
@@ -728,12 +887,25 @@ export class HomeDialogSearch {
           </button>
           <div class="dict-book-body">
             ${group.items.map(item => {
-              const url = `${this.baseUrl}/${this.lang}/book/${item.book_id}#${item.para_id}`;
+              const slug = item.slug || '';
+              const url = `${this.baseUrl}/${this.lang}/book/${item.book_id}/${slug}#${item.para_id}`;
+              const lines = item.lines || [];
+
+              // Show only matched lines (backend already highlights with <mark>)
+              let linesHtml = '';
+              for (const line of lines) {
+                if (!line.matched) continue;
+                linesHtml += `
+                  <div class="fts-line-row fts-line-matched">
+                    <div class="fts-line-pali">${line.pali || ''}</div>
+                    ${line.translation ? `<div class="fts-line-trans">${line.translation}</div>` : ''}
+                  </div>`;
+              }
+
               return `
                 <a href="${url}" class="search-result-item dict-entry fts-entry" data-url="${url}">
-                  ${item.pali    ? `<div class="fts-pali">${hl(item.pali)}</div>`       : ''}
-                  ${item.translation ? `<div class="fts-trans">${hl(item.translation)}</div>` : ''}
-                  <div class="fts-meta">para ${item.para_id}</div>
+                  <div class="fts-para-meta">Paragraph ${item.para_id}</div>
+                  ${linesHtml}
                 </a>`;
             }).join('')}
           </div>
@@ -751,6 +923,7 @@ export class HomeDialogSearch {
 
     this.resultsPanel.innerHTML = html;
 
+    // Book group toggle
     this.resultsPanel.querySelectorAll('.dict-book-header').forEach(btn => {
       btn.addEventListener('click', () => {
         const groupEl = document.getElementById(btn.dataset.group);
@@ -761,6 +934,7 @@ export class HomeDialogSearch {
       });
     });
 
+    // Entry click → navigate
     this.resultsPanel.querySelectorAll('.fts-entry').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
@@ -768,12 +942,52 @@ export class HomeDialogSearch {
       });
     });
 
+    // Pagination
     this.resultsPanel.querySelector('#fts-prev')?.addEventListener('click', () => {
-      this._executeFtsSearch(this._lastQuery, this._ftsPage - 1);
+      this._handleFtsPage(this._ftsPage - 1);
     });
     this.resultsPanel.querySelector('#fts-next')?.addEventListener('click', () => {
-      this._executeFtsSearch(this._lastQuery, this._ftsPage + 1);
+      this._handleFtsPage(this._ftsPage + 1);
     });
+
+    // Back to book summary
+    this.resultsPanel.querySelector('#fts-back-summary')?.addEventListener('click', () => {
+      this._renderFtsBookSummary(this._ftsData.books, this._ftsData.total, this._lastQuery);
+    });
+  }
+
+  /**
+   * Handle pagination page change — re-fetch and update the expanded book's container.
+   */
+  async _handleFtsPage(newPage) {
+    const bookId = this._ftsExpandedBookId;
+    if (!bookId) return;
+
+    // Find the container for the currently expanded book
+    const wrap = this.resultsPanel.querySelector('.fts-book-results.expanded');
+    if (!wrap) return;
+
+    wrap.innerHTML = '<div class="hd-loading">Loading…</div>';
+
+    const params = new URLSearchParams({
+      q: this._lastQuery,
+      book_id: bookId,
+      page: newPage,
+      limit: 30,
+      lang: this.lang,
+    });
+    const { pitakas, layers } = this.bookFilter.getFilterParams();
+    if (pitakas.length) params.set('pitakas', pitakas.join(','));
+    if (layers.length)  params.set('layers',  layers.join(','));
+
+    const newData = await this._apiFetch(`${this.baseUrl}/api/fts_search?${params}`);
+    if (newData && newData.results?.length) {
+      this._ftsData  = newData;
+      this._ftsPage  = newPage;
+      const card = wrap.closest('.fts-book-card-wrap')?.querySelector('.fts-book-card');
+      const name = card?.dataset.bookName || bookId;
+      this._renderPerBookView(newData, name, wrap);
+    }
   }
 
   /* ── Helpers ─────────────────────────────────────────────── */
@@ -785,6 +999,29 @@ export class HomeDialogSearch {
     } catch {
       return null;
     }
+  }
+
+  /**
+   * Read the user's layout preference from the reader settings (localStorage).
+   * Returns 'sidebyside' or 'stacked'.
+   */
+  _getLayoutMode() {
+    try {
+      const settings = JSON.parse(localStorage.getItem('epitaka_settings_v3') || '{}');
+      return settings.layout === 'sidebyside' ? 'sidebyside' : 'stacked';
+    } catch {
+      return 'stacked';
+    }
+  }
+
+  _escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  _escapeAttr(str) {
+    if (!str) return '';
+    return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 }
 

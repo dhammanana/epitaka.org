@@ -45,6 +45,7 @@ export class HomeDialogBookList {
       <div id="home-tab-panels-wrap"
            style="flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0">
         ${panelsHTML}
+        <div id="home-filter-wrap"></div>
         <div id="home-results-panel"></div>
       </div>
     `;

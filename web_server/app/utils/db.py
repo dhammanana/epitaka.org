@@ -1,11 +1,12 @@
 # app/utils/db.py
-from contextlib import contextmanager
-from flask import g, current_app
+import os
 import sqlite3
 import unicodedata
-import os
-from ..config import Config
+from contextlib import contextmanager
 
+from flask import current_app, g
+
+from ..config import Config
 
 # ── Epitaka database (Pāli text, books, headings — shared with mobile) ────
 

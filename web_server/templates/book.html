@@ -180,20 +180,42 @@
              aria-label="{{ item.title }}">
 
       {# ── Section heading ── #}
-      {% set slug = item.title.lower().replace(' ', '-') if item.title else '' %}
+      {% set slug = (item.title.lower().replace(' ', '-') + '-' + item.para_id|string) if item.title else '' %}
       {% set section_url = base_url + '/' + lang + '/book/' + book_id + '/' + slug %}
+      {% set is_active = active_para_id == item.para_id %}
+      {% set is_empty = is_active and not section_has_content %}
 
-      <a href="{{ section_url }}" class="section-heading-link" data-level="{{ item.level }}">
-        <span class="section-heading-text pali-text">{{ item.title }}</span>
-        <span class="chevron" aria-hidden="true">▶</span>
-      </a>
+      {% if is_empty %}
+        {# ── Empty parent section (no real content) — not expandable ── #}
+        <div class="section-heading-link section-heading-empty" data-level="{{ item.level }}">
+          <span class="section-heading-text pali-text">{{ item.title }}</span>
+          {% if heading_translation %}
+          <span class="section-heading-translation">{{ heading_translation | safe }}</span>
+          {% endif %}
+        </div>
+      {% else %}
+        <a href="{{ section_url }}" class="section-heading-link" data-level="{{ item.level }}">
+          <span class="section-heading-text pali-text">{{ item.title }}</span>
+          {% if is_active and heading_translation %}
+          <span class="section-heading-translation">{{ heading_translation | safe }}</span>
+          {% endif %}
+          <span class="chevron" aria-hidden="true">▶</span>
+        </a>
+      {% endif %}
 
       {# ── Section content: pre-rendered for SEO if this is the active section ── #}
-      <div class="section-content {% if active_para_id == item.para_id %}open{% endif %}"
-           {% if active_para_id == item.para_id %}aria-hidden="false"{% else %}aria-hidden="true"{% endif %}>
+      <div class="section-content {% if is_active and not is_empty %}open{% endif %}"
+           {% if is_active and not is_empty %}aria-hidden="false"{% else %}aria-hidden="true"{% endif %}>
 
-        {% if active_para_id == item.para_id and section_content %}
+        {% if is_active and section_content %}
+          {# ── Group sentences by para_id with para-group wrappers ── #}
+          {% set ns = namespace(current_para=none) %}
           {% for sentence in section_content %}
+            {% if ns.current_para != sentence.para_id %}
+              {% if ns.current_para is not none %}</div>{% endif %}
+              {% set ns.current_para = sentence.para_id %}
+              <div class="para-group" data-para-id="{{ sentence.para_id }}">
+            {% endif %}
           <div class="sentence-row" id="p-{{ sentence.para_id }}-l-{{ sentence.line_id }}">
             <div class="pali-text">{{ sentence.pali | safe }}</div>
             {% if sentence.translation %}
@@ -211,6 +233,7 @@
             {% endfor %}
           </div>
           {% endfor %}
+          {% if ns.current_para is not none %}</div>{% endif %}
 
         {% else %}
           {# ── Empty placeholder — JS will load on demand ── #}

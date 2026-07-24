@@ -49,8 +49,8 @@ def book_edit(lang, book_id):
 def get_edit_content(lang, book_id, para_id):
     book_id_clean = book_id.replace('_chunks', '')
     with get_db() as conn:
-        sentences = get_section_sentences(book_id_clean, para_id, conn, lang_code=lang)
-    return jsonify(sentences)
+        section_data = get_section_sentences(book_id_clean, para_id, conn, lang_code=lang)
+    return jsonify(section_data['sentences'])
 
 
 @bp.route('/save_translation', methods=['POST'])

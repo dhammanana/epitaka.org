@@ -209,38 +209,238 @@
   padding: 0 1px;
 }
 
-/* ── FTS result entries ────────────────────────────────────── */
+/* ── FTS result entries (line-level) ──────────────────────── */
 .fts-entry {
   padding: 10px 12px 10px 20px;
 }
 
-.fts-pali {
-  font-size: 0.82rem;
-  color: #374151;
-  font-style: italic;
-  margin-bottom: 3px;
-  line-height: 1.5;
-  /* truncate very long paragraphs */
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.fts-english {
-  font-size: 0.82rem;
-  color: #111827;
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.fts-meta {
+.fts-para-meta {
   font-size: 0.7rem;
-  color: #9ca3af;
-  margin-top: 4px;
+  color: var(--text-muted, #9ca3af);
+  margin-bottom: 6px;
+}
+
+/* Each line row: Pali + translation side by side */
+.fts-line-row {
+  display: flex;
+  gap: 12px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border-light, #f0f0f0);
+  line-height: 1.6;
+}
+
+.fts-line-row:last-child {
+  border-bottom: none;
+}
+
+.fts-line-pali {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--text, #374151);
+  font-style: italic;
+  min-width: 40%;
+}
+
+.fts-line-trans {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--text-secondary, #111827);
+  min-width: 40%;
+}
+
+/* Matched lines get emphasis */
+.fts-line-matched {
+  background: var(--mark-light, #fffbeb);
+  border-radius: 3px;
+}
+
+.fts-line-matched .fts-line-pali {
+  font-weight: 600;
+}
+
+/* Context (non-matched) lines are dimmed */
+.fts-line-context .fts-line-pali {
+  opacity: 0.65;
+}
+
+.fts-line-context .fts-line-trans {
+  opacity: 0.65;
+}
+
+/* ── Book summary (book card list) ──────────────────────────── */
+.fts-book-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 0;
+}
+
+.fts-book-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 8px;
+  background: var(--card-bg, #fff);
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.85rem;
+  transition: background 0.12s, border-color 0.12s, box-shadow 0.12s;
+}
+
+.fts-book-card:hover {
+  background: var(--hover-bg, #f0f4ff);
+  border-color: var(--accent, #4f46e5);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.fts-book-card.active {
+  background: var(--accent, #4f46e5);
+  border-color: var(--accent, #4f46e5);
+  border-radius: 8px 8px 0 0;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(79,70,229,0.25);
+}
+
+.fts-book-card.active .fts-book-name {
+  color: #fff;
+}
+
+.fts-book-card.active .fts-book-count-badge {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+.fts-book-name {
+  flex: 1;
+  font-weight: 600;
+  color: var(--text, #111827);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fts-book-count-badge {
+  flex-shrink: 0;
+  background: var(--accent-light, #e0e7ff);
+  color: var(--accent, #4f46e5);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 99px;
+  min-width: 28px;
+  text-align: center;
+}
+
+/* ── Back button ──────────────────────────────────────────── */
+.fts-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border: 1px solid var(--border, #d1d5db);
+  border-radius: 6px;
+  background: var(--card-bg, #fff);
+  color: var(--text, #374151);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.1s;
+  vertical-align: middle;
+}
+
+.fts-back-btn:hover {
+  background: var(--hover-bg, #f3f4f6);
+  border-color: var(--border-strong, #9ca3af);
+}
+
+/* ── Accordion: book card wrap ─────────────────────────────── */
+.fts-book-card-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Accordion: inline results section ──────────────────────── */
+.fts-book-results {
+  display: none;
+  border: 1px solid var(--border, #e5e7eb);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+  background: var(--card-bg-alt, #fafafa);
+}
+
+.fts-book-results.expanded {
+  display: block;
+}
+
+/* ── Results header (book name + count) ────────────────────── */
+.fts-results-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0 10px;
+  border-bottom: 1px solid var(--border-light, #f0f0f0);
+  margin-bottom: 8px;
+}
+
+.fts-results-name {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text, #111827);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fts-results-count {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  color: var(--text-muted, #6b7280);
+}
+
+/* ── Line layout: stacked (default) ────────────────────────── */
+.fts-line-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-light, #f0f0f0);
+  line-height: 1.6;
+}
+
+.fts-line-row:last-child {
+  border-bottom: none;
+}
+
+.fts-line-pali {
+  font-size: 0.82rem;
+  color: var(--text, #374151);
+  font-style: italic;
+}
+
+.fts-line-trans {
+  font-size: 0.82rem;
+  color: var(--text-secondary, #111827);
+}
+
+/* ── Line layout: side-by-side ─────────────────────────────── */
+.fts-line-row.side-by-side {
+  flex-direction: row;
+  gap: 12px;
+}
+
+.fts-line-row.side-by-side .fts-line-pali {
+  flex: 1;
+  min-width: 40%;
+}
+
+.fts-line-row.side-by-side .fts-line-trans {
+  flex: 1;
+  min-width: 40%;
 }
 
 /* ── Pagination ────────────────────────────────────────────── */

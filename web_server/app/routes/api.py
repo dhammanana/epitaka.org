@@ -23,8 +23,13 @@ def api_book_section(book_id, para_id):
     book_id = book_id.replace('_chunks', '')
     lang = request.args.get('lang', '')
     with get_db() as conn:
-        sentences = get_section_sentences(book_id, para_id, conn, lang_code=lang or None)
-    return jsonify({'para_id': para_id, 'sentences': sentences})
+        section_data = get_section_sentences(book_id, para_id, conn, lang_code=lang or None)
+    return jsonify({
+        'para_id': para_id,
+        'sentences': section_data['sentences'],
+        'heading_translation': section_data['heading_translation'],
+        'has_content': section_data['has_content'],
+    })
 
 
 @bp.route('/book/<book_id>/sections')
@@ -40,7 +45,8 @@ def api_book_sections(book_id):
     result = {}
     with get_db() as conn:
         for pid in para_ids:
-            result[pid] = get_section_sentences(book_id, pid, conn, lang_code=lang or None)
+            section_data = get_section_sentences(book_id, pid, conn, lang_code=lang or None)
+            result[pid] = section_data
     return jsonify(result)
 
 

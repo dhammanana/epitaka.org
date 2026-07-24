@@ -3,7 +3,7 @@
  * Entry point for the Home / Book-Chooser Dialog.
  */
 
-import { HomeDialogSearch, SEARCH_TYPES, FTS_MODES } from './home-dialog-search.js';
+import { HomeDialogSearch, SEARCH_TYPES } from './home-dialog-search.js';
 import { HomeDialogBookList }                         from './home-dialog-booklist.js';
 import { LocalState }                                 from '../libs/local-state.js';
 import '../css/home-dialog.css';
@@ -24,10 +24,11 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu }) {
   const state = new LocalState('homeDialog_state', {
     searchQuery:  '',
     searchTypeId: SEARCH_TYPES[0]?.id ?? '',
-    ftsModeId:    FTS_MODES[0]?.id ?? '',
-    ftsDistance:  2,
     activeTabId:  null,
   });
+
+  /* ── Derive book hierarchy from menu for the BookFilter ──── */
+  const hierarchy = buildHierarchyFromMenu(menu);
 
   /* ── Sub-modules ────────────────────────────────────────── */
 
@@ -41,10 +42,9 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu }) {
   const search = new HomeDialogSearch({
     baseUrl,
     lang,
+    hierarchy,
     initialState: {
       searchTypeId: state.get('searchTypeId'),
-      ftsModeId:    state.get('ftsModeId'),
-      ftsDistance:  state.get('ftsDistance'),
     },
     onResultSelect: url => { _close(); window.location.href = url; },
     onShowResults:  ()  => _showResultsPanel(),
@@ -104,19 +104,7 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu }) {
           <button id="home-search-go" type="button">Go</button>
         </div>
 
-        <div id="fts-options-bar">
-          <span class="fts-label">Match:</span>
-          ${FTS_MODES.map(m => `
-            <button class="fts-chip${m.id === state.get('ftsModeId') ? ' active' : ''}"
-                    data-mode="${m.id}" type="button">${m.label}</button>
-          `).join('')}
-          <div id="fts-distance-wrap">
-            <label for="fts-distance-num">words apart:</label>
-            <input id="fts-distance-num" type="number" min="1" max="50"
-                   value="${Number.isFinite(state.get('ftsDistance')) ? state.get('ftsDistance') : 2}">
-          </div>
-        </div>
-        
+
       </div>
 
       <div id="home-dialog-body">
@@ -164,16 +152,6 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu }) {
     if (opt) state.set('searchTypeId', opt.dataset.type);
   });
 
-  document.getElementById('fts-options-bar').addEventListener('click', e => {
-    const chip = e.target.closest('.fts-chip');
-    if (chip) state.set('ftsModeId', chip.dataset.mode);
-  });
-
-  document.getElementById('fts-distance-num').addEventListener('change', e => {
-    const val = parseInt(e.target.value, 10);
-    if (Number.isFinite(val)) state.set('ftsDistance', val);
-  });
-
   document.getElementById('home-search-input').addEventListener('input', e => {
     state.set('searchQuery', e.target.value);
     const q = e.target.value.trim();
@@ -200,11 +178,15 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu }) {
   function _showResultsPanel() {
     document.querySelectorAll('.home-tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.home-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('home-tabs')?.classList.add('tabs-hidden');
+    document.getElementById('home-filter-wrap')?.classList.add('show');
     document.getElementById('home-results-panel')?.classList.add('active');
   }
 
   function _showBookPanels() {
     document.getElementById('home-results-panel')?.classList.remove('active');
+    document.getElementById('home-tabs')?.classList.remove('tabs-hidden');
+    document.getElementById('home-filter-wrap')?.classList.remove('show');
     const tabId = state.get('activeTabId');
     const tab   = tabId && document.querySelector(`.home-tab[data-tab="${tabId}"]`);
     const panel = tabId && document.querySelector(`.home-tab-panel[data-panel="${tabId}"]`);
@@ -234,4 +216,27 @@ function _escapeAttr(str) {
     .replace(/'/g, '&#39;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
+}
+
+/**
+ * Build a book_id → metadata lookup from the menu structure.
+ * Menu shape: { category: { nikaya: { sub_nikaya: [[book_id, title], …] } } }
+ */
+function buildHierarchyFromMenu(menu) {
+  const hierarchy = {};
+  for (const [category, nikayas] of Object.entries(menu)) {
+    for (const [nikayaName, subNikayas] of Object.entries(nikayas)) {
+      for (const [, books] of Object.entries(subNikayas)) {
+        if (Array.isArray(books)) {
+          for (const [bookId] of books) {
+            hierarchy[bookId] = {
+              nikaya: nikayaName,
+              category: category,
+            };
+          }
+        }
+      }
+    }
+  }
+  return hierarchy;
 }
