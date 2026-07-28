@@ -183,17 +183,9 @@
       {% set slug = (item.title.lower().replace(' ', '-') + '-' + item.para_id|string) if item.title else '' %}
       {% set section_url = base_url + '/' + lang + '/book/' + book_id + '/' + slug %}
       {% set is_active = active_para_id == item.para_id %}
-      {% set is_empty = is_active and not section_has_content %}
 
-      {% if is_empty %}
-        {# ── Empty parent section (no real content) — not expandable ── #}
-        <div class="section-heading-link section-heading-empty" data-level="{{ item.level }}">
-          <span class="section-heading-text pali-text">{{ item.title }}</span>
-          {% if heading_translation %}
-          <span class="section-heading-translation">{{ heading_translation | safe }}</span>
-          {% endif %}
-        </div>
-      {% else %}
+      {% if item.has_content %}
+        {# ── Heading has real content — clickable link ── #}
         <a href="{{ section_url }}" class="section-heading-link" data-level="{{ item.level }}">
           <span class="section-heading-text pali-text">{{ item.title }}</span>
           {% if is_active and heading_translation %}
@@ -201,11 +193,19 @@
           {% endif %}
           <span class="chevron" aria-hidden="true">▶</span>
         </a>
+      {% else %}
+        {# ── Empty heading (no real content, e.g. parent-only) — not expandable ── #}
+        <div class="section-heading-link section-heading-empty" data-level="{{ item.level }}">
+          <span class="section-heading-text pali-text">{{ item.title }}</span>
+          {% if heading_translation %}
+          <span class="section-heading-translation">{{ heading_translation | safe }}</span>
+          {% endif %}
+        </div>
       {% endif %}
 
       {# ── Section content: pre-rendered for SEO if this is the active section ── #}
-      <div class="section-content {% if is_active and not is_empty %}open{% endif %}"
-           {% if is_active and not is_empty %}aria-hidden="false"{% else %}aria-hidden="true"{% endif %}>
+      <div class="section-content {% if is_active and section_has_content %}open{% endif %}"
+           {% if is_active and section_has_content %}aria-hidden="false"{% else %}aria-hidden="true"{% endif %}>
 
         {% if is_active and section_content %}
           {# ── Group sentences by para_id with para-group wrappers ── #}

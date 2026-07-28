@@ -6,10 +6,8 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret-key'
 
     # config.py lives at epitaka.org/web_server/app/config.py
-    # _ROOT = epitaka.org/web_server/
-    # data/ lives at project root: ../../data/ from _ROOT
     _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    DATA_DIR = os.path.abspath(os.path.join(_ROOT, '..', '..', 'data'))
+    DATA_DIR = os.path.abspath(os.path.join(_ROOT, 'data'))
 
     # Paths to the Pali text database and DPD dictionary database
     DATABASE = os.path.join(DATA_DIR, 'epitaka.db')
@@ -152,7 +150,6 @@ class Config:
         'he': {'english_name': 'Hebrew',       'native_name': 'עברית'},
         'la': {'english_name': 'Latin',        'native_name': 'Latina'},
 
-        ```
         # ============================================================
         # South Asia
         # ============================================================

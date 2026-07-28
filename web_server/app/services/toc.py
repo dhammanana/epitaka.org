@@ -12,7 +12,13 @@ from ..utils.db import get_db, get_translation_db
 
 
 def get_book_toc(book_id, conn):
-    """Fetch table of contents (headings) for a book."""
+    """Fetch table of contents (headings) for a book.
+
+    Each TOC item now includes a `has_content` flag indicating whether the
+    heading has any content sentences beyond its own heading sentence.
+    Headings without content (e.g. parent headings that only contain
+    sub-headings) will not generate clickable links.
+    """
     cursor = conn.cursor()
     cursor.execute('''
         SELECT para_id, level, title
@@ -21,14 +27,30 @@ def get_book_toc(book_id, conn):
         ORDER BY para_id
     ''', (book_id,))
     rows = cursor.fetchall()
-    return [
-        {
-            'para_id': row['para_id'],
-            'level': row['level'],
-            'title': row['title'],
-        }
-        for row in rows
-    ]
+
+    if not rows:
+        return []
+
+    toc_items = []
+    for i, h in enumerate(rows):
+        # Next heading's para_id marks the end of this section
+        end_para = rows[i + 1]['para_id'] if i + 1 < len(rows) else 999999999
+
+        # Count content sentences beyond the heading's own sentence
+        cursor.execute('''
+            SELECT COUNT(*) as cnt FROM sentences
+            WHERE book_id = ? AND para_id > ? AND para_id < ?
+        ''', (book_id, h['para_id'], end_para))
+        row = cursor.fetchone()
+
+        toc_items.append({
+            'para_id':     h['para_id'],
+            'level':       h['level'],
+            'title':       h['title'],
+            'has_content': row['cnt'] > 0,
+        })
+
+    return toc_items
 
 
 def get_section_sentences(book_id, para_id, conn, lang_code=None):
