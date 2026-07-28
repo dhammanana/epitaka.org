@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/en/book/Padsādh/padasādhanaṃ-1</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Padsādh/padasādhanaṃ-1"/>
-    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Padsādh/padasādhanaṃ-1"/>
-    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Padsādh/padasādhanaṃ-1"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Padsādh/padasādhanaṃ-1"/>
-    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Padsādh/padasādhanaṃ-1"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Padsādh/padasādhanaṃ-1"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Padsādh/padasādhanaṃ-1"/>
+    <loc>https://epitaka.org/en/book/Padsādh/padasādhanaṃ-1</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Padsādh/padasādhanaṃ-1"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Padsādh/padasādhanaṃ-1"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Padsādh/padasādhanaṃ-1"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Padsādh/padasādhanaṃ-1"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Padsādh/padasādhanaṃ-1"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Padsādh/padasādhanaṃ-1"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Padsādh/padasādhanaṃ-1"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

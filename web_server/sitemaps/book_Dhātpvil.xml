@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/en/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
-    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
-    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
-    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
+    <loc>https://epitaka.org/en/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhātpvil/dhātupāṭha-vilāsiniyā-1"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

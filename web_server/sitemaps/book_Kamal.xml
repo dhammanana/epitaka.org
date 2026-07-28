@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/en/book/Kamal/kamalāñjali-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kamal/kamalāñjali-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kamal/kamalāñjali-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kamal/kamalāñjali-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kamal/kamalāñjali-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kamal/kamalāñjali-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kamal/kamalāñjali-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kamal/kamalāñjali-2"/>
+    <loc>https://epitaka.org/en/book/Kamal/kamalāñjali-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kamal/kamalāñjali-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kamal/kamalāñjali-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kamal/kamalāñjali-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kamal/kamalāñjali-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kamal/kamalāñjali-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kamal/kamalāñjali-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kamal/kamalāñjali-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
