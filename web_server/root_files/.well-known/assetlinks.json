@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.epitaka.app",
+      "sha256_cert_fingerprints": [
+        "CHANGE_ME_TO_YOUR_APP_SIGNING_CERTIFICATE_SHA256"
+      ]
+    }
+  }
+]

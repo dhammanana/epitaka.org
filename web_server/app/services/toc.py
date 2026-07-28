@@ -36,18 +36,36 @@ def get_book_toc(book_id, conn):
         # Next heading's para_id marks the end of this section
         end_para = rows[i + 1]['para_id'] if i + 1 < len(rows) else 999999999
 
-        # Count content sentences beyond the heading's own sentence
+        # Fetch the first two sentences in this section's range to determine
+        # whether there's any content beyond the heading's own sentence.
+        #
+        # We use para_id >= ? to catch sentences that share the heading's
+        # para_id but have a different line_id (i.e., the heading's own Pāli
+        # text is one sentence, and additional sentences with the same para_id
+        # are real content).
         cursor.execute('''
-            SELECT COUNT(*) as cnt FROM sentences
-            WHERE book_id = ? AND para_id > ? AND para_id < ?
+            SELECT para_id, line_id FROM sentences
+            WHERE book_id = ? AND para_id >= ? AND para_id < ?
+            ORDER BY para_id, line_id
+            LIMIT 2
         ''', (book_id, h['para_id'], end_para))
-        row = cursor.fetchone()
+        section_rows = cursor.fetchall()
+
+        has_content = False
+        if len(section_rows) > 1:
+            # At least 2 sentences — after skipping the heading's own line
+            # (first row), there's still content left.
+            has_content = True
+        elif len(section_rows) == 1:
+            # Single sentence — is it the heading itself or actual content?
+            # If its para_id differs from the heading, it's content.
+            has_content = section_rows[0]['para_id'] != h['para_id']
 
         toc_items.append({
             'para_id':     h['para_id'],
             'level':       h['level'],
             'title':       h['title'],
-            'has_content': row['cnt'] > 0,
+            'has_content': has_content,
         })
 
     return toc_items

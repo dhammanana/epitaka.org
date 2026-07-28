@@ -21,6 +21,9 @@ import os
 # Path to generated sitemap files
 _SITEMAP_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'sitemaps')
 
+# Path to root-level verification files (Google Search Console, Flutter app links, etc.)
+_ROOT_FILES_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'root_files')
+
 bp = Blueprint('main', __name__)
 
 
@@ -109,6 +112,42 @@ def sitemap_index():
 def sitemap_file(filename):
     """Serve per-book sitemap files."""
     return send_from_directory(_SITEMAP_DIR, filename)
+
+
+# ── Root-level verification files ─────────────────────────────────────────
+# These files (Google Search Console, Flutter Digital Asset Links, etc.)
+# are served at the root path for domain verification services.
+
+# ── Google Search Console verification ──────────────────────────────
+# Google generates a hex hash like google3fa1caa4638a5d58.html
+@bp.route('/google<path:hash>.html')
+def google_verification(hash):
+    """Serve Google Search Console verification files from root_files/."""
+    filename = f"google{hash}.html"
+    return send_from_directory(_ROOT_FILES_DIR, filename)
+
+
+# ── .well-known (Flutter app links, Apple Universal Links) ────────────
+@bp.route('/.well-known/<path:filename>')
+def well_known(filename):
+    """Serve .well-known files for domain verification (Flutter app links, etc.).
+
+    Android:  /.well-known/assetlinks.json
+    iOS:      /.well-known/apple-app-site-association
+    """
+    well_known_dir = os.path.join(_ROOT_FILES_DIR, '.well-known')
+    return send_from_directory(well_known_dir, filename)
+
+
+# ── Add more root-level verification routes below as needed ───────────
+# For example:
+# @bp.route('/BingSiteAuth.xml')
+# def bing_verification():
+#     return send_from_directory(_ROOT_FILES_DIR, 'BingSiteAuth.xml')
+#
+# @bp.route('/yandex<path:hash>.html')
+# def yandex_verification(hash):
+#     return send_from_directory(_ROOT_FILES_DIR, f'yandex{hash}.html')
 
 
 # ── Book page ──────────────────────────────────────────────────────────────
