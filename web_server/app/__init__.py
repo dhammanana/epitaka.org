@@ -73,8 +73,8 @@ def create_app(config_name='default'):
         if wdb is not None:
             wdb.close()
         # Clean up translation DB connections (stored as g.trans_db_{lang})
-        for key in ('trans_db_en', 'trans_db_th', 'trans_db_si', 'trans_db_my'):
-            if hasattr(g, key):
+        for key in list(g.__dict__.keys()):
+            if key.startswith('trans_db_'):
                 try:
                     conn = g.pop(key, None)
                     if conn is not None:

@@ -72,6 +72,7 @@ def get_webdata_db():
 def get_translation_db(lang_code):
     """
     Connect to epitaka_{lang_code}.db (translation database).
+    Falls back to _epitaka_{lang_code}.db if the standard name is not found.
     Returns a flask-g-managed connection or None if not found.
     """
     cache_key = f'trans_db_{lang_code}'
@@ -82,8 +83,11 @@ def get_translation_db(lang_code):
 
     db_path = os.path.join(Config.DATA_DIR, f'epitaka_{lang_code}.db')
     if not os.path.isfile(db_path):
-        setattr(g, cache_key, None)
-        return None
+        # Try underscore-prefixed variant (temporary rename to avoid conflicts)
+        db_path = os.path.join(Config.DATA_DIR, f'_epitaka_{lang_code}.db')
+        if not os.path.isfile(db_path):
+            setattr(g, cache_key, None)
+            return None
 
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
@@ -99,9 +103,14 @@ def get_available_translations():
 
 
 def get_translation_db_path(lang_code):
-    """Get the file path for a translation database."""
+    """Get the file path for a translation database.
+    Falls back to _epitaka_{lang_code}.db if the standard name is not found."""
     path = os.path.join(Config.DATA_DIR, f'epitaka_{lang_code}.db')
-    return path if os.path.isfile(path) else None
+    if os.path.isfile(path):
+        return path
+    # Try underscore-prefixed variant (temporary rename to avoid conflicts)
+    alt_path = os.path.join(Config.DATA_DIR, f'_epitaka_{lang_code}.db')
+    return alt_path if os.path.isfile(alt_path) else None
 
 
 def get_translation_info(lang_code):
