@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the Translation — E-Piṭaka</title>
+  <meta name="description" content="About the E-Piṭaka translation project: how AI-assisted translations are made from the Chaṭṭha Saṅgāyana Tipiṭaka using multiple source traditions.">
+  <link rel="canonical" href="{{ base_url }}/about">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}?v={{ v }}">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NQWX1DCC2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7NQWX1DCC2');
+  </script>
+  <style>
+    /* ── Design tokens (matching book.css) ── */
+    :root {
+      --bg:           #faf7f2;
+      --surface:      #ffffff;
+      --border:       #e8e0d5;
+      --accent:       #8b5e3c;
+      --accent-light: #f5ede4;
+      --pali-color:   #7c2d12;
+      --trans-color:  #1e3a5f;
+      --text:         #2d2420;
+      --muted:        #8a7a6e;
+      --font-serif:   'Crimson Pro', Georgia, serif;
+      --font-sans:    'DM Sans', system-ui, sans-serif;
+      --radius:       8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html  { scroll-behavior: smooth; }
+    body  { font-family: var(--font-sans); background: var(--bg); color: var(--text); }
+  </style>
+</head>
+
+<body class="about-page">
+
+  <!-- Faint dharma wheel SVG background -->
+  <svg class="about-svg-bg" viewBox="0 0 200 200" fill="none"
+       xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="100" cy="100" r="94" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="11" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="58" stroke="currentColor" stroke-width="1"
+            stroke-dasharray="3 2.5"/>
+    <g stroke="currentColor" stroke-width="1.2">
+      <line x1="100" y1="13"  x2="100" y2="89"/>
+      <line x1="100" y1="111" x2="100" y2="187"/>
+      <line x1="13"  y1="100" x2="89"  y2="100"/>
+      <line x1="111" y1="100" x2="187" y2="100"/>
+      <line x1="47"  y1="47"  x2="92"  y2="92"/>
+      <line x1="108" y1="108" x2="153" y2="153"/>
+      <line x1="153" y1="47"  x2="108" y2="92"/>
+      <line x1="92"  y1="108" x2="47"  y2="153"/>
+    </g>
+    <circle cx="100" cy="100" r="5" fill="currentColor"/>
+  </svg>
+
+  <div class="about-wrap">
+
+    <!-- ── HEADER ── -->
+    <header class="about-header">
+      <svg class="about-emblem" viewBox="0 0 36 36" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="18" cy="18" r="16.5" stroke="currentColor" stroke-width="1.3"/>
+        <circle cx="18" cy="18" r="2.8"  fill="currentColor"/>
+        <circle cx="18" cy="18" r="9"    stroke="currentColor" stroke-width="1"
+                stroke-dasharray="2 1.8"/>
+        <g stroke="currentColor" stroke-width="1.1">
+          <line x1="18"  y1="2.5"  x2="18"  y2="15.2"/>
+          <line x1="18"  y1="20.8" x2="18"  y2="33.5"/>
+          <line x1="2.5" y1="18"   x2="15.2" y2="18"/>
+          <line x1="20.8" y1="18"  x2="33.5" y2="18"/>
+          <line x1="6.5"  y1="6.5"  x2="14.9" y2="14.9"/>
+          <line x1="21.1" y1="21.1" x2="29.5" y2="29.5"/>
+          <line x1="29.5" y1="6.5"  x2="21.1" y2="14.9"/>
+          <line x1="14.9" y1="21.1" x2="6.5"  y2="29.5"/>
+        </g>
+      </svg>
+      <h1>About <span>E-Piṭaka</span></h1>
+      <div class="subtitle">AI-Assisted Translation Project</div>
+    </header>
+
+    <!-- ── CONTACT ── -->
+    <div class="about-card">
+      <h2><span class="h2-icon">💬</span> Get in Touch</h2>
+      <p>
+        This is a personal project — still very much a work in progress —
+        and I would be truly grateful for your help. If you notice
+        mistakes, have suggestions for improvement, or know of better
+        sources I should look into, please do reach out.
+      </p>
+      <div class="about-contact">
+        <span class="contact-icon">✉️</span>
+        <span class="contact-text">
+          Send your suggestions, corrections, or feedback to:
+        </span>
+        <a href="mailto:epitaka.org@gmail.com" class="contact-email">
+          epitaka.org@gmail.com
+        </a>
+      </div>
+    </div>
+
+    <!-- ── HOW THE TRANSLATION WORKS ── -->
+    <div class="about-card">
+      <h2><span class="h2-icon">🔎</span> How the Translation Works</h2>
+      <p>
+        The goal of this project is to make the Chaṭṭha Saṅgāyana (Sixth
+        Council) edition of the Tipiṭaka — together with its commentaries
+        (<em>Aṭṭhakathā</em>) and sub-commentaries (<em>Ṭīkā</em>) — more
+        accessible to readers around the world. The Pāli text itself follows the
+        <a href="https://tipitaka.org" target="_blank" rel="noopener">VRI (Vipassana Research Institute)</a>
+        edition, which is the standard digital version of the Chaṭṭha Saṅgāyana.
+      </p>
+      <p>
+        The translations you see here are <strong>AI-assisted</strong> — they are
+        not the work of a single human translator, but rather a careful process
+        of combining existing authoritative translations with modern language
+        models, then checking and refining the results. The method is still
+        evolving, and I am always looking for ways to improve it.
+      </p>
+
+      <h3 style="font-family:var(--font-sans);font-size:0.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin:1.2rem 0 0.6rem;">The Process, Step by Step</h3>
+
+      <ol class="about-steps">
+
+        <li>
+          <span class="step-num">1</span>
+          <div class="step-content">
+            <div class="step-title">Gather Source Translations</div>
+            <p>
+              Existing translations of the Tipiṭaka are collected from several
+              sources, including:
+            </p>
+            <ul>
+              <li>English translations by Venerable <strong>Bhikkhu Bodhi</strong>, <strong>Anandajoti</strong>, <strong>E.B. Cowell</strong>, and other respected translators</li>
+              <li><strong>Sinhala</strong> translations from <a href="https://tipitaka.lk" target="_blank" rel="noopener">tipitaka.lk</a></li>
+              <li><strong>Thai</strong> translations from the <strong>Mahāmakut</strong> royal edition</li>
+              <li><strong>Myanmar Nissaya</strong> (interlinear) translations from <a href="https://wikipali.org" target="_blank" rel="noopener">wikipali.org</a></li>
+              <li><strong>Vietnamese</strong> translations from <a href="https://tamtangpaliviet.net" target="_blank" rel="noopener">tamtangpaliviet.net</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <span class="step-num">2</span>
+          <div class="step-content">
+            <div class="step-title">Align by Book &amp; Heading</div>
+            <p>
+              Each source is algorithmically matched to the VRI paragraph
+              structure — books and section headings are aligned so that
+              the same passage in different translations can be compared
+              side by side.
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <span class="step-num">3</span>
+          <div class="step-content">
+            <div class="step-title">Sentence-Level AI Matching</div>
+            <p>
+              For each Pāli sentence (following the VRI paragraph divisions),
+              the aligned source translations in the relevant languages
+              are sent to an AI language model. The AI is prompted to
+              produce a translation that follows the Pāli closely, drawing
+              on all the source materials provided.
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <span class="step-num">4</span>
+          <div class="step-content">
+            <div class="step-title">Provide Rich Context</div>
+            <p>
+              Alongside the source translations, the AI is also given:
+            </p>
+            <ul>
+              <li>The relevant <strong>commentaries (Aṭṭhakathā)</strong> and <strong>sub-commentaries (Ṭīkā)</strong> linked to the passage being translated</li>
+              <li>A <strong>glossary</strong> of key terms and their preferred translations (generated and refined during the translation process)</li>
+              <li><strong>Pāli definitions</strong> with English explanations from previous translation runs (the bold words that appear across different books)</li>
+              <li><strong>Translations of preceding sections</strong> — to maintain consistency in style and terminology throughout each book</li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <span class="step-num">5</span>
+          <div class="step-content">
+            <div class="step-title">Re-check with the Original Pāli</div>
+            <p>
+              The AI-generated translation is then run through another
+              verification pass: the Pāli source and the new translation
+              are sent together to the AI again, asking it to check for
+              accuracy and correct any misinterpretations.
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <span class="step-num">6</span>
+          <div class="step-content">
+            <div class="step-title">Human Review &amp; Refinement</div>
+            <p>
+              Finally, a human reader reviews the results, checks for
+              consistency, and feeds back corrections. These lessons
+              inform adjustments to the prompts, the glossary, and the
+              process itself — so every cycle improves the next.
+            </p>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+
+    <!-- ── OPEN SOURCE ── -->
+    <div class="about-card">
+      <h2><span class="h2-icon">🔓</span> Open Source</h2>
+      <p>
+        This entire website is open source. You can browse the code,
+        report issues, or contribute on GitHub.
+      </p>
+
+      <a href="https://github.com/dhammanana/epitaka.org" target="_blank" rel="noopener" class="about-repo">
+        <span class="repo-icon">📂</span>
+        <span class="repo-info">
+          <span class="repo-title">github.com/dhammanana/epitaka.org</span>
+          <span class="repo-desc">Website source code — frontend, backend, and configuration</span>
+        </span>
+        <span class="repo-arrow">↗</span>
+      </a>
+
+      <p style="margin-top:1rem;">
+        The translation pipeline itself — the scripts that collect, align,
+        and AI-translate the texts — is also available. The code is a bit
+        rough and exploratory (kept simple so it can be easily edited during
+        research), but anyone interested in replicating or developing the
+        technique is welcome to look.
+      </p>
+
+      <a href="https://github.com/dhammanana/epitaka_translator" target="_blank" rel="noopener" class="about-repo">
+        <span class="repo-icon">🔧</span>
+        <span class="repo-info">
+          <span class="repo-title">github.com/dhammanana/epitaka_translator</span>
+          <span class="repo-desc">Translation pipeline — alignment, AI prompting, and quality checking scripts</span>
+        </span>
+        <span class="repo-arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- ── A NOTE OF HUMILITY ── -->
+    <div class="about-card">
+      <h2><span class="h2-icon">🙏</span> A Note of Humility</h2>
+      <p>
+        I am a student of the Dhamma, not a professional scholar. This
+        project is born from a desire to learn and to share — to make the
+        Buddha's words more accessible while deepening my own understanding
+        of the Pāli texts.
+      </p>
+      <p>
+        The translations here are <strong>not authoritative</strong>. They
+        are research aids, meant to help readers engage with the original
+        Pāli more directly. Please do not quote them as final or definitive.
+        If you find any passage that seems wrong, unclear, or misleading,
+        I would be very grateful if you let me know.
+      </p>
+      <p>
+        I am still learning how best to do this. The process changes and
+        improves as I discover better methods. I welcome your suggestions,
+        corrections, and advice — whether about the translations themselves,
+        the sources I use, or the technical approach.
+      </p>
+      <p>
+        <em>May all beings be happy. May all beings be free.</em>
+      </p>
+    </div>
+
+    <!-- ── BACK LINK ── -->
+    <a href="{{ base_url }}/en/" class="about-back">← Back to E-Piṭaka</a>
+
+  </div>
+
+</body>
+</html>

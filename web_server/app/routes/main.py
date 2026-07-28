@@ -691,3 +691,15 @@ def bold_definition():
             output.append(entry)
 
     return jsonify(output)
+
+
+# ── About / Translation page ────────────────────────────────────────────
+
+@bp.route('/about')
+@bp.route('/about-translation')
+def about():
+    """About the translation project page."""
+    return render_template(
+        'about.html',
+        base_url=Config.BASE_URL,
+    )

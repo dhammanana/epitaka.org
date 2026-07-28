@@ -745,6 +745,29 @@ sup:hover::after { display: block; }
 }
 .credits-close:hover { background: #eedcc8; }
 
+/* ── About-translation button inside credits modal ──── */
+.credit-about-link {
+  border-bottom: none !important;
+  padding-top: 0.7rem !important;
+  justify-content: center !important;
+}
+.about-credit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid #d4a97a;
+  border-radius: 8px;
+  padding: 0.4rem 1.2rem;
+  background: var(--accent-light);
+  transition: background 0.12s;
+}
+.about-credit-btn:hover {
+  background: #eedcc8;
+}
+
 /* ── Action button collapse ────────────────────────────────────────────
    All buttons (💬 🔖 📝 🔗) are children of .ra-wrap with class .ra-btn.
    The ⋯ toggle (.ra-collapse-toggle) is also in .ra-wrap but NOT .ra-btn

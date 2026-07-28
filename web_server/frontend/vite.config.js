@@ -13,6 +13,7 @@ export default defineConfig({
       input: {
         book:  resolve(__dirname, 'src/book.js'),
         index: resolve(__dirname, 'src/index.js'),
+        about: resolve(__dirname, 'src/about.js'),
       },
       output: {
         entryFileNames: 'js/[name].bundle.js',

@@ -1,0 +1,395 @@
+/* ═══════════════════════════════════════════════════
+   E-Piṭaka — about.css
+   Styles for the About / How Translation Works page.
+   ═══════════════════════════════════════════════════ */
+
+/* ── Page layout (no topbar — standalone page) ── */
+body.about-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg);
+  margin: 0;
+}
+
+/* ── Subtle background ornament ── */
+body.about-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 10%, rgba(139, 94, 60, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 85% 90%, rgba(139, 94, 60, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-svg-bg {
+  position: fixed;
+  left: -6vw;
+  top: 18%;
+  width: min(40vw, 360px);
+  height: min(40vw, 360px);
+  color: var(--border);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Main container ──────────────────────────── */
+.about-wrap {
+  position: relative;
+  z-index: 1;
+  width: min(740px, 94vw);
+  margin: 2.5rem auto 4rem;
+}
+
+/* ── Header card ──────────────────────────────── */
+.about-header {
+  background: var(--surface);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 2rem 2rem 1.6rem;
+  margin-bottom: 1.6rem;
+  text-align: center;
+}
+
+.about-emblem {
+  width: 40px;
+  height: 40px;
+  color: var(--accent);
+  margin: 0 auto 0.8rem;
+}
+
+.about-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.about-header h1 span {
+  color: var(--accent);
+}
+
+.about-header .subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Section cards ────────────────────────────── */
+.about-card {
+  background: var(--surface);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  padding: 1.6rem 2rem;
+  margin-bottom: 1.4rem;
+  transition: box-shadow 0.2s;
+}
+
+.about-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.about-card h2 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-card h2 .h2-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.about-card p {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 0.7rem;
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}
+
+.about-card a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.12s;
+}
+
+.about-card a:hover {
+  text-decoration: underline;
+  color: #7a4f2f;
+}
+
+/* ── Step list ─────────────────────────────────── */
+.about-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-steps li {
+  display: flex;
+  gap: 0.9rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #f0ebe4;
+  align-items: flex-start;
+}
+
+.about-steps li:last-child {
+  border-bottom: none;
+}
+
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content .step-title {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.step-content p {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+.step-content ul {
+  margin: 0.3rem 0 0 1.2rem;
+  padding: 0;
+}
+
+.step-content li {
+  font-family: var(--font-serif);
+  font-size: 0.87rem;
+  line-height: 1.55;
+  color: var(--muted);
+  border: none;
+  padding: 0.1rem 0;
+  list-style: disc;
+}
+
+/* ── Source list (translation sources) ────────── */
+.source-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.source-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 0.8rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: background 0.12s;
+}
+
+.source-item:hover {
+  background: var(--accent-light);
+}
+
+.source-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.source-info {
+  flex: 1;
+}
+
+.source-name {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.source-desc {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.source-item a {
+  font-weight: 500;
+}
+
+/* ── Contact box ───────────────────────────────── */
+.about-contact {
+  background: var(--accent-light);
+  border: 1px solid #d4a97a;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.about-contact .contact-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.about-contact .contact-text {
+  flex: 1;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.about-contact .contact-email {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--surface);
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #d4a97a;
+  white-space: nowrap;
+}
+
+/* ── GitHub link card ───────────────────────────── */
+.about-repo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-top: 0.7rem;
+  text-decoration: none;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.about-repo:hover {
+  background: var(--accent-light);
+  border-color: #d4a97a;
+}
+
+.about-repo .repo-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.about-repo .repo-info {
+  flex: 1;
+}
+
+.about-repo .repo-title {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.about-repo .repo-desc {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.about-repo .repo-arrow {
+  color: var(--accent);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* ── Back link ──────────────────────────────────── */
+.about-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: all 0.12s;
+  margin-top: 0.5rem;
+}
+
+.about-back:hover {
+  color: var(--accent);
+  border-color: #d4a97a;
+  background: var(--accent-light);
+}
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 540px) {
+  .about-wrap {
+    margin: 1.2rem auto 2rem;
+  }
+
+  .about-header {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .about-card {
+    padding: 1.2rem 1.1rem;
+  }
+
+  .about-contact {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .about-contact .contact-email {
+    align-self: stretch;
+    text-align: center;
+  }
+}
