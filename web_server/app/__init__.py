@@ -35,7 +35,7 @@ def create_app(config_name='default'):
                 # Serve built frontend assets from frontend/dist/.
                 # Vite outputs JS, CSS, and fonts here — clean separation.
                 static_folder=_FRONTEND_DIST,
-                static_url_path='/tpk/static')
+                static_url_path='/static')
 
     app.config.from_object(config_by_name[config_name])
 
