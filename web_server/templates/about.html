@@ -99,10 +99,21 @@
         <span class="contact-text">
           Send your suggestions, corrections, or feedback to:
         </span>
-        <a href="mailto:epitaka.org@gmail.com" class="contact-email">
-          epitaka.org@gmail.com
+        <a href="#" class="contact-email"
+           data-user="epitaka.org" data-domain="gmail.com"
+           onclick="this.href='mailto:'+this.dataset.user+'@'+this.dataset.domain;return true;">
+          epitaka<span style="display:none">-nospam-</span>.org<span style="display:none">-remove-</span>@gmail.com
         </a>
       </div>
+      <script>
+        // Restore the email text from data attributes on load so it displays
+        // properly without the hidden spam-bait spans.  Bots scraping the raw
+        // HTML will only see the fragments with "-nospam-" / "-remove-" noise.
+        (function(){
+          var el = document.querySelector('.contact-email[data-user][data-domain]');
+          if (el) el.textContent = el.dataset.user + '@' + el.dataset.domain;
+        })();
+      </script>
     </div>
 
     <!-- ── HOW THE TRANSLATION WORKS ── -->

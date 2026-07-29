@@ -13,11 +13,12 @@
 @font-face { src: url('../fonts/NotoSerif-Regular.ttf') format('truetype'); font-weight: normal; font-family: 'roman'; }
 @font-face { src: url('../fonts/NotoSerif-Bold.ttf') format('truetype'); font-weight: bold; font-family: 'roman'; }
 
-@font-face { src: url('../fonts/thai/THSarabunNew.ttf') format('truetype'); font-weight: normal; font-family: 'thai'; }
-@font-face { src: url('../fonts/thai/THSarabunNew-Bold.ttf') format('truetype'); font-weight: bold; font-family: 'thai'; }
+@font-face { src: url('../fonts/thai/THSarabunPali.ttf') format('truetype'); font-weight: normal; font-family: 'thai'; }
+@font-face { src: url('../fonts/thai/THSarabunPali.ttf') format('truetype'); font-weight: bold; font-family: 'thai'; }
 
-@font-face { src: url('../fonts/lao/LaoPaliAlpha-Light.woff') format('truetype'); font-weight: normal; font-family: 'lao'; }
-@font-face { src: url('../fonts/lao/LaoPaliAlpha-Regular.woff') format('truetype'); font-weight: bold; font-family: 'lao'; }
+@font-face { src: url('../fonts/lao/LaoPaliAlpha-Light.woff') format('woff'); font-weight: 300; font-family: 'lao'; }
+@font-face { src: url('../fonts/lao/LaoPaliAlpha-Regular.woff') format('woff'); font-weight: normal; font-family: 'lao'; }
+@font-face { src: url('../fonts/lao/LaoPaliAlpha-Regular.woff') format('woff'); font-weight: bold; font-family: 'lao'; }
 
 @font-face { src: url('../fonts/myanmar/mm3-multi-os(16-08-2011).ttf') format('truetype'); font-weight: normal; font-family: 'myanmar'; }
 @font-face { src: url('../fonts/myanmar/mm3-multi-os(16-08-2011).ttf') format('truetype'); font-weight: bold; font-family: 'myanmar'; }

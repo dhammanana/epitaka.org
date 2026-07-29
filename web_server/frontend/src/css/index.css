@@ -195,6 +195,8 @@ body::before {
   padding: 1.5rem;
   z-index: 300;
   animation: idx-fade-in 0.28s ease both;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 #disclaimer-overlay.hidden { display: none; }
 
