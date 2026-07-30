@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — E-Piṭaka</title>
+  <meta name="description" content="Privacy policy for E-Piṭaka — the Chaṭṭha Saṅgāyana Tipiṭaka reader. Covers website and mobile app.">
+  <link rel="canonical" href="{{ base_url }}/privacy">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}?v={{ v }}">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NQWX1DCC2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7NQWX1DCC2');
+  </script>
+  <style>
+    /* ── Design tokens (matching about.css) ── */
+    :root {
+      --bg:           #faf7f2;
+      --surface:      #ffffff;
+      --border:       #e8e0d5;
+      --accent:       #8b5e3c;
+      --accent-light: #f5ede4;
+      --text:         #2d2420;
+      --muted:        #8a7a6e;
+      --font-serif:   'Crimson Pro', Georgia, serif;
+      --font-sans:    'DM Sans', system-ui, sans-serif;
+      --radius:       8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html  { scroll-behavior: smooth; }
+    body  { font-family: var(--font-sans); background: var(--bg); color: var(--text); }
+
+    .policy-section + .policy-section {
+      margin-top: 1.4rem;
+    }
+    .policy-section h3 {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .policy-section p,
+    .policy-section li {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .policy-section ul {
+      margin: 0.4rem 0 0.6rem 1.3rem;
+    }
+    .policy-section li {
+      margin-bottom: 0.25rem;
+    }
+    .policy-section .tag {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.3rem;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.2rem 0;
+    }
+  </style>
+</head>
+
+<body class="about-page">
+
+  <!-- Faint dharma wheel SVG background -->
+  <svg class="about-svg-bg" viewBox="0 0 200 200" fill="none"
+       xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="100" cy="100" r="94" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="11" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="58" stroke="currentColor" stroke-width="1"
+            stroke-dasharray="3 2.5"/>
+    <g stroke="currentColor" stroke-width="1.2">
+      <line x1="100" y1="13"  x2="100" y2="89"/>
+      <line x1="100" y1="111" x2="100" y2="187"/>
+      <line x1="13"  y1="100" x2="89"  y2="100"/>
+      <line x1="111" y1="100" x2="187" y2="100"/>
+      <line x1="47"  y1="47"  x2="92"  y2="92"/>
+      <line x1="108" y1="108" x2="153" y2="153"/>
+      <line x1="153" y1="47"  x2="108" y2="92"/>
+      <line x1="92"  y1="108" x2="47"  y2="153"/>
+    </g>
+    <circle cx="100" cy="100" r="5" fill="currentColor"/>
+  </svg>
+
+  <div class="about-wrap">
+
+    <!-- ── HEADER ── -->
+    <header class="about-header">
+      <svg class="about-emblem" viewBox="0 0 36 36" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="18" cy="18" r="16.5" stroke="currentColor" stroke-width="1.3"/>
+        <circle cx="18" cy="18" r="2.8"  fill="currentColor"/>
+        <circle cx="18" cy="18" r="9"    stroke="currentColor" stroke-width="1"
+                stroke-dasharray="2 1.8"/>
+        <g stroke="currentColor" stroke-width="1.1">
+          <line x1="18"  y1="2.5"  x2="18"  y2="15.2"/>
+          <line x1="18"  y1="20.8" x2="18"  y2="33.5"/>
+          <line x1="2.5" y1="18"   x2="15.2" y2="18"/>
+          <line x1="20.8" y1="18"  x2="33.5" y2="18"/>
+          <line x1="6.5"  y1="6.5"  x2="14.9" y2="14.9"/>
+          <line x1="21.1" y1="21.1" x2="29.5" y2="29.5"/>
+          <line x1="29.5" y1="6.5"  x2="21.1" y2="14.9"/>
+          <line x1="14.9" y1="21.1" x2="6.5"  y2="29.5"/>
+        </g>
+      </svg>
+      <h1>Privacy Policy</h1>
+      <div class="subtitle">Last updated: July 2026</div>
+    </header>
+
+    <!-- ── INTRO ── -->
+    <div class="about-card">
+      <h2><span class="h2-icon">🔐</span> Overview</h2>
+      <p>
+        E-Piṭaka is an open-source project that provides access to the
+        Chaṭṭha Saṅgāyana Tipiṭaka (Pāli Canon) together with AI-assisted
+        translations. This policy covers both the website
+        (<strong>epitaka.org</strong>) and the companion mobile app
+        (<strong>E-Piṭaka</strong> for Android &amp; iOS).
+      </p>
+      <p>
+        We take a minimal-data approach: no accounts are required to read,
+        no personal data is sold, and the entire source code is publicly
+        visible so anyone can verify what we do.
+      </p>
+    </div>
+
+    <!-- ── WHAT WE COLLECT ── -->
+    <div class="about-card">
+      <h2><span class="h2-icon">📋</span> What We Collect &amp; Why</h2>
+
+      <div class="policy-section">
+        <h3>Google Analytics <span class="tag">website</span></h3>
+        <p>
+          We use Google Analytics (GA4) with measurement IDs
+          <code>G-7NQWX1DCC2</code> and <code>G-MFCG30HTCQ</code>
+          to understand how visitors use the site — which pages are
+          popular, how people navigate, etc. This helps us improve the
+          experience. Google Analytics collects anonymised data such as
+          page views, session duration, and browser type. No personally
+          identifiable information is sent to Google.
+        </p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="policy-section">
+        <h3>Firebase Authentication <span class="tag">website</span></h3>
+        <p>
+          If you choose to sign in (via Google or Facebook), we use
+          <strong>Firebase Authentication</strong> to manage your
+          session. This is optional — you can read the entire Tipiṭaka
+          without logging in. Signing in enables features like
+          bookmarks, reading history, and notes.
+        </p>
+        <p>
+          We only store your email address and display name (from your
+          Google or Facebook profile) to associate your bookmarks and
+          notes with your account. You can delete your data at any time
+          by contacting us.
+        </p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="policy-section">
+        <h3>Local Storage <span class="tag">website</span></h3>
+        <p>
+          The site stores a few preferences in your browser's
+          <strong>localStorage</strong> so that your settings (Pāli
+          script, font size, colour theme, disclaimer acknowledgement)
+          are remembered between visits. This data never leaves your
+          device unless you explicitly choose to sign in (see above).
+        </p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="policy-section">
+        <h3>Mobile App <span class="tag">Android &amp; iOS</span></h3>
+        <p>
+          The mobile app uses <strong>shared_preferences</strong> to
+          store your reading preferences locally on your device — just
+          like the website's localStorage. The app does <em>not</em>
+          include any analytics SDK, tracking code, or telemetry.
+        </p>
+        <p>
+          The app communicates with the epitaka.org server only to
+          fetch Tipiṭaka text data and dictionary lookups. No usage
+          data is transmitted.
+        </p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="policy-section">
+        <h3>Contact <span class="tag">email</span></h3>
+        <p>
+          If you send us an email at
+          <a href="mailto:epitaka.org@gmail.com">epitaka.org@gmail.com</a>,
+          we will keep the contents of your message and your email
+          address only as long as needed to respond to your query.
+          We never add you to a mailing list or share your address.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── THIRD PARTIES ── -->
+    <div class="about-card">
+      <h2><span class="h2-icon">🔗</span> Third-Party Services</h2>
+      <div class="policy-section">
+        <ul>
+          <li><strong>Google Analytics</strong> — anonymised usage stats (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>)</li>
+          <li><strong>Firebase Authentication</strong> — optional sign-in (<a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase privacy policy</a>)</li>
+          <li><strong>Google Fonts</strong> — typography (Crimson Pro &amp; DM Sans)</li>
+        </ul>
+        <p style="margin-top:0.5rem;">
+          None of these services receive any personally identifiable
+          information from us beyond what is standard for their
+          operation (e.g., your IP address when loading a page or
+          font file).
+        </p>
+      </div>
+    </div>
+
+    <!-- ── YOUR RIGHTS ── -->
+    <div class="about-card">
+      <h2><span class="h2-icon">🛡️</span> Your Rights</h2>
+      <div class="policy-section">
+        <p>You have the right to:</p>
+        <ul>
+          <li><strong>Access</strong> — ask us what data we hold about you</li>
+          <li><strong>Rectify</strong> — correct any inaccurate data</li>
+          <li><strong>Delete</strong> — request removal of your data</li>
+          <li><strong>Object</strong> — opt out of Google Analytics (you can use a <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">browser add-on</a>)</li>
+        </ul>
+        <p>
+          Since almost all data is stored locally in your browser or
+          device, you can clear it at any time through your browser or
+          app settings. For anything stored server-side (e.g., bookmarks
+          if you signed in), just <a href="mailto:epitaka.org@gmail.com">email us</a>
+          and we'll take care of it.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── OPEN SOURCE ── -->
+    <div class="about-card">
+      <h2><span class="h2-icon">🔓</span> Transparency — Open Source</h2>
+      <p>
+        Both the website and the mobile app are fully open source.
+        Anyone can inspect the code to verify what data is (and is not)
+        collected:
+      </p>
+
+      <a href="https://github.com/dhammanana/epitaka.org" target="_blank" rel="noopener" class="about-repo">
+        <span class="repo-icon">📂</span>
+        <span class="repo-info">
+          <span class="repo-title">github.com/dhammanana/epitaka.org</span>
+          <span class="repo-desc">Website source code — frontend, backend, and configuration</span>
+        </span>
+        <span class="repo-arrow">↗</span>
+      </a>
+
+      <a href="https://github.com/dhammanana/epitaka_app" target="_blank" rel="noopener" class="about-repo">
+        <span class="repo-icon">📱</span>
+        <span class="repo-info">
+          <span class="repo-title">github.com/dhammanana/epitaka_app</span>
+          <span class="repo-desc">Mobile app source code (Flutter) — Android &amp; iOS</span>
+        </span>
+        <span class="repo-arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- ── CONTACT ── -->
+    <div class="about-card">
+      <h2><span class="h2-icon">💬</span> Contact</h2>
+      <p>
+        If you have any questions about this policy or your data,
+        please reach out:
+      </p>
+      <div class="about-contact">
+        <span class="contact-icon">✉️</span>
+        <span class="contact-text">Data Controller — E-Piṭaka Project</span>
+        <a href="mailto:epitaka.org@gmail.com" class="contact-email">epitaka.org@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- ── BACK LINK ── -->
+    <a href="{{ base_url }}/en/" class="about-back">← Back to E-Piṭaka</a>
+
+  </div>
+
+</body>
+</html>

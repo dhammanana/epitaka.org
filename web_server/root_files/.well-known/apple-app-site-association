@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "TEAM_ID.org.epitaka.app",
-        "paths": ["*"]
+        "paths": ["/app/*"]
       }
     ]
   }

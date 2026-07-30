@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ book_name }} — Open in {{ app_name }}</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                   Ubuntu, Cantarell, sans-serif;
+      background: #faf7f2;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      padding: 40px 32px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    .icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .book-id {
+      font-family: 'Crimson Pro', 'Noto Serif', Georgia, serif;
+      font-size: 15px;
+      color: #7c2d12;
+      margin-bottom: 4px;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary {
+      background: #7c2d12;
+      color: #fff;
+    }
+    .btn-primary:hover { background: #6a2610; }
+    .btn-secondary {
+      background: #e8e4de;
+      color: #333;
+    }
+    .btn-secondary:hover { background: #ddd8d0; }
+    .note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #999;
+    }
+    .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(124, 45, 18, 0.2);
+      border-top-color: #7c2d12;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-right: 8px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-color-scheme: dark) {
+      body { background: #1a1a1a; color: #ddd; }
+      .card { background: #2a2a2a; }
+      p { color: #aaa; }
+      .book-id { color: #d4876a; }
+      .btn-secondary { background: #3a3a3a; color: #ddd; }
+      .btn-secondary:hover { background: #444; }
+      .note { color: #777; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <div class="icon">📖</div>
+    <h1>Open in {{ app_name }}</h1>
+    <div class="book-id">{{ book_name }}</div>
+    {% if para_id %}
+    <p>Paragraph {{ para_id }}{% if line_id %}, line {{ line_id }}{% endif %}</p>
+    {% endif %}
+    <p>You need the {{ app_name }} app installed to open this content directly.</p>
+
+    <div class="btn-group">
+      <a id="open-app-btn" href="{{ custom_scheme_uri }}" class="btn btn-primary">
+        <span class="spinner" id="spinner"></span>
+        <span id="btn-text">Open App</span>
+      </a>
+      <a href="{{ web_fallback }}" class="btn btn-secondary">
+        Open in Browser
+      </a>
+    </div>
+
+    <p class="note">
+      Not seeing the app? <a href="{{ web_fallback }}" style="color: #7c2d12;">Open in browser</a>
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      var appBtn   = document.getElementById('open-app-btn');
+      var spinner  = document.getElementById('spinner');
+      var btnText  = document.getElementById('btn-text');
+      var fallback = '{{ web_fallback }}';
+      var timer;
+
+      // On mobile browsers, when the custom scheme link is clicked the page
+      // either navigates away (app opens) or nothing happens (app not installed).
+      // We detect the failure case with a timeout.
+      function onAppLinkClick(e) {
+        // Show spinner on the button
+        spinner.style.display = 'inline-block';
+        btnText.textContent = 'Opening app…';
+
+        // If after 2 seconds the app hasn't opened, redirect to web fallback.
+        timer = setTimeout(function () {
+          spinner.style.display = 'none';
+          btnText.textContent = 'Open in Browser';
+          window.location.href = fallback;
+        }, 2000);
+      }
+
+      appBtn.addEventListener('click', onAppLinkClick);
+
+      // Stop the timer if the page visibility changes (app likely opened)
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+          clearTimeout(timer);  // App opened — cancel the redirect
+        }
+      });
+
+      // Also stop if we lose focus (iOS Safari behaviour)
+      window.addEventListener('blur', function () {
+        clearTimeout(timer);
+      });
+    })();
+  </script>
+</body>
+</html>

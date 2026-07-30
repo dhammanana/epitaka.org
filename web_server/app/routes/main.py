@@ -17,6 +17,9 @@ from ..services.toc   import get_book_toc, resolve_split_book, get_section_sente
 from ..config import Config
 
 import os
+import json
+
+_SHARE_LINK_REDIRECT_TEMPLATE = 'app_redirect.html'
 
 # Path to generated sitemap files
 _SITEMAP_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'sitemaps')
@@ -112,6 +115,75 @@ def sitemap_index():
 def sitemap_file(filename):
     """Serve per-book sitemap files."""
     return send_from_directory(_SITEMAP_DIR, filename)
+
+
+# ── App share link interstitials ──────────────────────────────────────────
+# The mobile app generates share links of the form:
+#   https://epitaka.org/app/{bookId}/{paraId}/{lineId}
+#
+# When clicked on a device with the app installed, the OS intercepts the link
+# (via Android App Links / iOS Universal Links) and opens the app directly.
+#
+# When the app is NOT installed, this page serves as a fallback that:
+# 1. Tries to open the app via the epitaka:// custom scheme
+# 2. Redirects to the web version if the app can't be opened
+
+@bp.route('/app/')
+@bp.route('/app/<book_id>')
+@bp.route('/app/<book_id>/<int:para_id>')
+@bp.route('/app/<book_id>/<int:para_id>/<int:line_id>')
+def app_share_link(book_id=None, para_id=None, line_id=None):
+    """
+    Interstitial page for mobile app share links.
+
+    URL patterns:
+      /app/{book_id}
+      /app/{book_id}/{para_id}
+      /app/{book_id}/{para_id}/{line_id}
+
+    Renders a page that:
+    - Attempts to open the app via epitaka:// custom scheme
+    - Falls back to /{lang}/book/{book_id}#{para_id} on the web
+    """
+    if not book_id:
+        return redirect(f'/{Config.DEFAULT_LANG}/')
+
+    # Resolve book name from database
+    book_name = book_id
+    try:
+        with get_db() as conn:
+            cursor = conn.cursor()
+            cursor.execute('SELECT book_name FROM books WHERE book_id = ?', (book_id,))
+            row = cursor.fetchone()
+            if row:
+                book_name = row['book_name']
+    except Exception:
+        pass
+
+    # Build deep link URI for the app custom scheme
+    custom_scheme_uri = f'epitaka://reader/{book_id}'
+    if para_id is not None:
+        custom_scheme_uri += f'?paraId={para_id}'
+        if line_id is not None:
+            custom_scheme_uri += f'&lineId={line_id}'
+
+    # Build web fallback URL
+    web_fallback = f'{Config.BASE_URL}/{Config.DEFAULT_LANG}/book/{book_id}'
+    if para_id is not None:
+        web_fallback += f'#{para_id}'
+
+    return render_template(
+        _SHARE_LINK_REDIRECT_TEMPLATE,
+        book_id=book_id,
+        book_name=book_name,
+        para_id=para_id,
+        line_id=line_id,
+        custom_scheme_uri=custom_scheme_uri,
+        web_fallback=web_fallback,
+        base_url=Config.BASE_URL,
+        app_name='Epitaka',
+        app_icon_url=f'{Config.BASE_URL}/static/icon.png' if Config.BASE_URL else '',
+    )
 
 
 # ── Root-level verification files ─────────────────────────────────────────
@@ -701,5 +773,16 @@ def about():
     """About the translation project page."""
     return render_template(
         'about.html',
+        base_url=Config.BASE_URL,
+    )
+
+
+# ── Privacy policy ─────────────────────────────────────────────────────────
+
+@bp.route('/privacy')
+def privacy():
+    """Privacy policy page."""
+    return render_template(
+        'privacy.html',
         base_url=Config.BASE_URL,
     )
