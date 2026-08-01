@@ -42,10 +42,13 @@ RUN pip install --no-cache-dir --upgrade pip && \
 EXPOSE 8080
 
 # Gunicorn – production ready
+# This app is SQLite/read-heavy. A single worker with several threads is the
+# memory-safe default for small VPS boxes; bump --workers only if you have
+# spare RAM. gthread is auto-selected when --threads > 1.
 CMD ["gunicorn", \
      "--bind", "0.0.0.0:8080", \
-     "--workers", "3", \
-     "--threads", "2", \
+     "--workers", "1", \
+     "--threads", "8", \
      "--timeout", "120", \
      "--access-logfile", "-", \
      "--error-logfile", "-", \

@@ -1,5 +1,6 @@
 import re
 import unicodedata
+from functools import lru_cache
 from ..config import Config
 
 # ─────────────────────────────────────────────
@@ -13,8 +14,9 @@ def remove_stars_inside_brackets(text):
     return PATTERN.sub(repl, text)
 
 
+@lru_cache(maxsize=8192)
 def markdown_to_html(text):
-    """Convert lightweight markdown to HTML."""
+    """Convert lightweight markdown to HTML (cached — pure function)."""
     if not text:
         return ''
     if isinstance(text, int):

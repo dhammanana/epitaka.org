@@ -2,7 +2,9 @@ from app import create_app
 import os
 from app.config import Config
 
-if os.environ.get('ENV') == 'production':
+# Accept both ENV and FLASK_ENV (docker-compose historically set FLASK_ENV).
+_env = (os.environ.get('ENV') or os.environ.get('FLASK_ENV') or '').lower()
+if _env in ('production', 'prod'):
     app = create_app('production')
 else:
     app = create_app('development')   # or read from ENV

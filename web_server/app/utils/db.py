@@ -1,6 +1,7 @@
 # app/utils/db.py
 import os
 import sqlite3
+import threading
 import unicodedata
 from contextlib import contextmanager
 
@@ -8,41 +9,60 @@ from flask import current_app, g
 
 from ..config import Config
 
+
+# ── Connection tuning ──────────────────────────────────────────────────────
+# Applied once when a connection is created (per-request, per-thread).
+def _configure(conn, *, writable=False):
+    """Apply performance pragmas for a read-heavy workload."""
+    try:
+        conn.execute('PRAGMA busy_timeout = 10000')
+        conn.execute('PRAGMA cache_size = -32768')          # 32 MB page cache per conn
+        conn.execute('PRAGMA mmap_size = 134217728')        # 128 MB mmap
+        if writable:
+            conn.execute('PRAGMA journal_mode = WAL')
+            conn.execute('PRAGMA synchronous = NORMAL')
+    except Exception:
+        pass  # pragmas are best-effort
+
+
 # ── Epitaka database (Pāli text, books, headings — shared with mobile) ────
 
 @contextmanager
 def get_db():
-    """Connect to epitaka.db (Pāli text, books, headings, pali_definition, book_links)."""
+    """Connect to epitaka.db (Pāli text, books, headings, pali_definition, book_links).
+
+    One connection per request, cached on Flask's ``g``, closed by
+    ``teardown_db`` at the end of the request.
+    """
     if not hasattr(g, 'db') or g.db is None:
         g.db = sqlite3.connect(current_app.config['DATABASE'])
         g.db.row_factory = sqlite3.Row
-    try:
-        yield g.db
-    finally:
-        if hasattr(g, 'db') and g.db is not None:
-            g.db.close()
-            g.pop('db', None)
+        _configure(g.db)
+    yield g.db
 
 
 # ── DPD dictionary database ────────────────────────────────────────────────
 
-_dpd_db_connection = None
+_dpd_local = threading.local()
 
 def get_dpd_db():
     """
-    Connect to dpd-dictionary.db.
+    Connect to dpd-dictionary.db (read-only, ~190 MB).
 
     Returns a raw sqlite3 connection or None if the file doesn't exist.
-    Cached globally (read-only database).
+    Cached per-thread (thread-local) so the shared connection is safe to use
+    with gunicorn's threaded workers.
     """
-    global _dpd_db_connection
     db_path = os.path.join(Config.DATA_DIR, 'dpd-dictionary.db')
     if not os.path.isfile(db_path):
         return None
-    if _dpd_db_connection is None:
-        _dpd_db_connection = sqlite3.connect(db_path)
-        _dpd_db_connection.row_factory = sqlite3.Row
-    return _dpd_db_connection
+    conn = getattr(_dpd_local, 'conn', None)
+    if conn is None:
+        conn = sqlite3.connect(db_path)
+        conn.row_factory = sqlite3.Row
+        _configure(conn)
+        _dpd_local.conn = conn
+    return conn
 
 
 # ── Web data database (FTS indexes, user data) ────────────────────────────
@@ -52,19 +72,17 @@ def get_dpd_db():
 def get_webdata_db():
     """
     Connect to webdata.db — web-only data:
-      - FTS search indexes (sentences_fts, sentences_fts_v2, passages_fts, words, search_fts_*)
+      - FTS search indexes (paragraphs_fts, ...)
       - User data (users, comments, notes, bookmarks, reading_history)
+
+    One connection per request, closed by ``teardown_db``.
     """
     db_path = Config.WEBDATA_DB
     if not hasattr(g, 'webdata_db') or g.webdata_db is None:
         g.webdata_db = sqlite3.connect(db_path)
         g.webdata_db.row_factory = sqlite3.Row
-    try:
-        yield g.webdata_db
-    finally:
-        if hasattr(g, 'webdata_db') and g.webdata_db is not None:
-            g.webdata_db.close()
-            g.pop('webdata_db', None)
+        _configure(g.webdata_db, writable=True)
+    yield g.webdata_db
 
 
 # ── Translation databases ──────────────────────────────────────────────────
@@ -91,6 +109,7 @@ def get_translation_db(lang_code):
 
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
+    _configure(conn, writable=True)
     setattr(g, cache_key, conn)
     return conn
 

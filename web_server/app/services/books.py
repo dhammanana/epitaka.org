@@ -1,11 +1,15 @@
-import sqlite3
-import os
-from ..utils.text import markdown_to_html, trim_text
+import threading
+import time
 from ..utils.db import get_db
 
 # ─────────────────────────────────────────────
 # Database Helpers
 # ─────────────────────────────────────────────
+
+# Books metadata changes only when the database is rebuilt — cache it.
+_HIERARCHY_CACHE = {}
+_HIERARCHY_LOCK = threading.Lock()
+_HIERARCHY_TTL = 60  # seconds
 
 def _parse_ref_list(value):
     """
@@ -21,7 +25,7 @@ def _parse_ref_list(value):
     return [p.strip() for p in str(value).split(' ') if p.strip()]
 
 
-def load_hierarchy():
+def load_hierarchy(force=False):
     """
     Load all book metadata from the books table in epitaka.db.
 
@@ -31,7 +35,16 @@ def load_hierarchy():
 
     Each entry also exposes the new para_id and chapter_len fields
     introduced when large books were split.
+
+    Results are cached in-memory with a short TTL since the books
+    table is effectively static at runtime.
     """
+    now = time.monotonic()
+    with _HIERARCHY_LOCK:
+        cached = _HIERARCHY_CACHE.get('data')
+        if not force and cached is not None and now - _HIERARCHY_CACHE.get('ts', 0) < _HIERARCHY_TTL:
+            return cached
+
     with get_db() as conn:
         cursor = conn.cursor()
         cursor.execute('''
@@ -58,6 +71,10 @@ def load_hierarchy():
             'para_id':     row['para_id'],
             'chapter_len': row['chapter_len'],
         }
+
+    with _HIERARCHY_LOCK:
+        _HIERARCHY_CACHE['data'] = hierarchy
+        _HIERARCHY_CACHE['ts'] = time.monotonic()
 
     return hierarchy
 

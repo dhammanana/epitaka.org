@@ -23,6 +23,7 @@ import re
 from ..utils.db import get_db, get_webdata_db, get_translation_db
 from ..utils.text import markdown_to_html
 from ..services.loadtocs import load_hierarchy
+from ..services.toc import build_slug_map
 from ..config import Config
 
 
@@ -114,20 +115,7 @@ def _load_book_order():
         return {}
 
 
-# ── Helper: get section slug for a para_id ────────────────────────────────
-def _get_slug(book_id, para_id):
-    try:
-        with get_db() as conn:
-            parent = conn.execute('''
-                SELECT title, para_id FROM headings
-                WHERE book_id = ? AND level < 10 AND para_id <= ?
-                ORDER BY para_id DESC LIMIT 1
-            ''', (book_id, para_id)).fetchone()
-            if parent and parent['title']:
-                return parent['title'].lower().replace(' ', '-') + '-' + str(parent['para_id'])
-    except Exception:
-        pass
-    return ''
+
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -409,8 +397,17 @@ def _build_results_grouped(rows, hierarchy, words, lang=None):
     """
     Take the raw results from _fetch_line_details / _search_all_lines
     and group them by book, adding book names, slugs, and highlighting.
+
+    Slugs are resolved with one batched query instead of one per result.
     """
     grouped = defaultdict(lambda: {'book_id': '', 'book_name': '', 'items': []})
+
+    # ── Batch slug resolution ───────────────────────────────────────────
+    pairs = [(row['book_id'], row['para_id']) for row in rows]
+    slug_map = {}
+    if pairs:
+        with get_db() as conn:
+            slug_map = build_slug_map(conn, pairs)
 
     for row in rows:
         bid = row['book_id']
@@ -418,7 +415,7 @@ def _build_results_grouped(rows, hierarchy, words, lang=None):
             grouped[bid]['book_id']   = bid
             grouped[bid]['book_name'] = hierarchy.get(bid, {}).get('book_name', bid)
 
-        slug = _get_slug(bid, row['para_id'])
+        slug = slug_map.get((bid, row['para_id']), '')
 
         lines = row.get('lines', [])
         # Highlight Pali in matched lines

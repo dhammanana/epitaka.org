@@ -9,6 +9,7 @@ from ..utils.db   import get_db, get_translation_db
 from ..utils.text import markdown_to_html
 from ..services.books import load_hierarchy
 from ..services.toc   import get_section_sentences
+from ..services.links import load_section_book_links
 from .fts_search import register_search_route
 
 bp = Blueprint('api', __name__, url_prefix='/api')
@@ -109,72 +110,31 @@ def book_links(book_id):
     lang = request.args.get('lang', '')
 
     with get_db() as conn:
-        cursor = conn.cursor()
+        links = load_section_book_links(conn, book_id, para_id, lang_code=lang or None)
 
-        cursor.execute('''
-            SELECT para_id FROM headings
-            WHERE book_id = ? AND para_id > ? AND level < 10
-            ORDER BY para_id ASC LIMIT 1
-        ''', (book_id, para_id))
-        next_row = cursor.fetchone()
-        end_para = next_row['para_id'] if next_row else 999999999
-
-        cursor.execute('''
-            SELECT src_para, src_line, dst_book, dst_para, dst_line, word
-            FROM book_links
-            WHERE src_book = ? AND src_para >= ? AND src_para < ?
-            ORDER BY src_para, src_line
-        ''', (book_id, para_id, end_para))
-        links = cursor.fetchall()
-
-        result = []
-        for lnk in links:
-            dst_book = lnk['dst_book']
-            dst_para = lnk['dst_para']
-            dst_line = lnk['dst_line']
-
-            cursor.execute('''
-                SELECT para_id, line_id, pali
-                FROM sentences
-                WHERE book_id = ? AND para_id = ?
-                  AND line_id BETWEEN ? AND ?
-                ORDER BY line_id
-            ''', (dst_book, dst_para, max(0, dst_line - 1), dst_line + 1))
-
-            preview = [{
-                'para_id':   r['para_id'],
-                'line_id':   r['line_id'],
-                'pali':      markdown_to_html(r['pali']) if r['pali'] else '',
-                'is_target': r['line_id'] == dst_line,
-            } for r in cursor.fetchall()]
-
-            # Optionally fetch translation
-            if lang:
-                trans_db = get_translation_db(lang)
-                if trans_db:
-                    trans_cursor = trans_db.cursor()
-                    trans_cursor.execute('''
-                        SELECT para_id, line_id, translation
-                        FROM sentences
-                        WHERE book_id = ? AND para_id = ?
-                          AND line_id BETWEEN ? AND ?
-                        ORDER BY line_id
-                    ''', (dst_book, dst_para, max(0, dst_line - 1), dst_line + 1))
-                    for tr in trans_cursor.fetchall():
-                        for p in preview:
-                            if p['para_id'] == tr['para_id'] and p['line_id'] == tr['line_id']:
-                                p['translation'] = markdown_to_html(tr['translation']) if tr['translation'] else ''
-
-            result.append({
-                'src_para':      lnk['src_para'],
-                'src_line':      lnk['src_line'],
-                'word':          lnk['word'],
-                'dst_book':      dst_book,
-                'dst_book_name': hierarchy.get(dst_book, {}).get('book_name', dst_book),
-                'dst_para':      dst_para,
-                'dst_line':      dst_line,
-                'preview':       preview,
-            })
+    result = []
+    for lnk in links:
+        preview = []
+        for p in lnk['preview']:
+            item = {
+                'para_id':   p['para_id'],
+                'line_id':   p['line_id'],
+                'pali':      p['pali'],
+                'is_target': p['is_target'],
+            }
+            if p.get('translation'):
+                item['translation'] = p['translation']
+            preview.append(item)
+        result.append({
+            'src_para':      lnk['src_para'],
+            'src_line':      lnk['src_line'],
+            'word':          lnk['word'],
+            'dst_book':      lnk['dst_book'],
+            'dst_book_name': hierarchy.get(lnk['dst_book'], {}).get('book_name', lnk['dst_book']),
+            'dst_para':      lnk['dst_para'],
+            'dst_line':      lnk['dst_line'],
+            'preview':       preview,
+        })
 
     return jsonify(result)
 

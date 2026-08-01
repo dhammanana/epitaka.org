@@ -1,6 +1,14 @@
 import os
 import json
 import re
+import threading
+import time
+
+# Translations are discovered by scanning DATA_DIR — cache the scan result
+# (filesystem I/O on every request is wasteful).
+_TRANSLATIONS_CACHE = {}
+_TRANSLATIONS_LOCK = threading.Lock()
+_TRANSLATIONS_TTL = 60  # seconds
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret-key'
@@ -16,6 +24,10 @@ class Config:
 
     BASE_URL = os.environ.get('BASE_URL', '')
     DEFAULT_LANG = 'en'
+
+    # Cache static assets (JS/CSS/fonts) in the browser — templates already
+    # version their URLs with ?v=<git hash>, so long expiry is safe.
+    SEND_FILE_MAX_AGE_DEFAULT = 86400 * 7  # 7 days
 
     MAX_SUGGESTIONS = 20
     MAX_SEARCH_RESULTS = 50
@@ -39,6 +51,28 @@ class Config:
 
     @classmethod
     def detect_translations(cls):
+        """
+        Scan DATA_DIR for files matching `epitaka_<lang>.db` or
+        `epitaka_<lang>_<suffix>.db` and return metadata about each.
+
+        Cached in-memory with a short TTL since the set of translation
+        databases only changes when the server is redeployed.
+        """
+        now = time.monotonic()
+        with _TRANSLATIONS_LOCK:
+            cached = _TRANSLATIONS_CACHE.get('data')
+            if cached is not None and now - _TRANSLATIONS_CACHE.get('ts', 0) < _TRANSLATIONS_TTL:
+                return cached
+
+        result = cls._scan_translations()
+
+        with _TRANSLATIONS_LOCK:
+            _TRANSLATIONS_CACHE['data'] = result
+            _TRANSLATIONS_CACHE['ts'] = time.monotonic()
+        return result
+
+    @classmethod
+    def _scan_translations(cls):
         """
         Scan DATA_DIR for files matching `epitaka_<lang>.db` or
         `epitaka_<lang>_<suffix>.db` and return metadata about each.

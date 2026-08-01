@@ -6,6 +6,8 @@ Works with the new epitaka.db schema where:
   - sentences table uses `pali` instead of `pali_sentence`
   - translation databases use `translation` instead of `english_translation`
 """
+import bisect
+from collections import defaultdict
 
 from ..utils.text import markdown_to_html
 from ..utils.db import get_db, get_translation_db
@@ -18,6 +20,9 @@ def get_book_toc(book_id, conn):
     heading has any content sentences beyond its own heading sentence.
     Headings without content (e.g. parent headings that only contain
     sub-headings) will not generate clickable links.
+
+    The content check is batched into a single query instead of one query
+    per heading.
     """
     cursor = conn.cursor()
     cursor.execute('''
@@ -31,35 +36,45 @@ def get_book_toc(book_id, conn):
     if not rows:
         return []
 
+    # ── Batch: sentence count per para_id for the book's heading span ────
+    # The original code ran a `LIMIT 2` query per heading; we instead count
+    # sentences per para_id once and resolve each heading's section in Python.
+    # Bound the scan to the first heading so books with stray metadata rows
+    # don't make the GROUP BY larger than needed.
+    cursor.execute('''
+        SELECT para_id, COUNT(*) AS cnt
+        FROM sentences
+        WHERE book_id = ? AND para_id >= ?
+        GROUP BY para_id
+        ORDER BY para_id
+    ''', (book_id, rows[0]['para_id']))
+    para_counts = cursor.fetchall()
+
+    para_ids = [r['para_id'] for r in para_counts]
+    counts = [r['cnt'] for r in para_counts]
+    # Prefix sums → O(1) "how many sentences in [start, end)"
+    prefix = [0]
+    for c in counts:
+        prefix.append(prefix[-1] + c)
+
     toc_items = []
     for i, h in enumerate(rows):
         # Next heading's para_id marks the end of this section
         end_para = rows[i + 1]['para_id'] if i + 1 < len(rows) else 999999999
 
-        # Fetch the first two sentences in this section's range to determine
-        # whether there's any content beyond the heading's own sentence.
-        #
-        # We use para_id >= ? to catch sentences that share the heading's
-        # para_id but have a different line_id (i.e., the heading's own Pāli
-        # text is one sentence, and additional sentences with the same para_id
-        # are real content).
-        cursor.execute('''
-            SELECT para_id, line_id FROM sentences
-            WHERE book_id = ? AND para_id >= ? AND para_id < ?
-            ORDER BY para_id, line_id
-            LIMIT 2
-        ''', (book_id, h['para_id'], end_para))
-        section_rows = cursor.fetchall()
+        lo = bisect.bisect_left(para_ids, h['para_id'])
+        hi = bisect.bisect_left(para_ids, end_para)
+        section_count = prefix[hi] - prefix[lo]
 
         has_content = False
-        if len(section_rows) > 1:
+        if section_count > 1:
             # At least 2 sentences — after skipping the heading's own line
             # (first row), there's still content left.
             has_content = True
-        elif len(section_rows) == 1:
+        elif section_count == 1 and lo < hi:
             # Single sentence — is it the heading itself or actual content?
             # If its para_id differs from the heading, it's content.
-            has_content = section_rows[0]['para_id'] != h['para_id']
+            has_content = para_ids[lo] != h['para_id']
 
         toc_items.append({
             'para_id':     h['para_id'],
@@ -69,6 +84,44 @@ def get_book_toc(book_id, conn):
         })
 
     return toc_items
+
+
+def build_slug_map(conn, book_para_pairs):
+    """
+    Given a list of (book_id, para_id) pairs, return a dict
+    {(book_id, para_id): slug} where the slug is built from the nearest
+    parent heading (level < 10) at or before para_id.
+
+    All lookups are batched into one query per book.
+    """
+    if not book_para_pairs:
+        return {}
+
+    by_book = defaultdict(set)
+    for bid, pid in book_para_pairs:
+        by_book[bid].add(pid)
+
+    cursor = conn.cursor()
+    slug_map = {}
+    for bid, pids in by_book.items():
+        cursor.execute('''
+            SELECT para_id, title FROM headings
+            WHERE book_id = ? AND level < 10
+            ORDER BY para_id
+        ''', (bid,))
+        parents = cursor.fetchall()
+        if not parents:
+            continue
+        para_list = [r['para_id'] for r in parents]
+        for pid in pids:
+            idx = bisect.bisect_right(para_list, pid) - 1
+            if idx >= 0 and parents[idx]['title']:
+                slug_map[(bid, pid)] = (
+                    parents[idx]['title'].lower().replace(' ', '-') + '-' + str(parents[idx]['para_id'])
+                )
+            else:
+                slug_map[(bid, pid)] = ''
+    return slug_map
 
 
 def get_section_sentences(book_id, para_id, conn, lang_code=None):
