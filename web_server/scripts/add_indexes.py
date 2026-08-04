@@ -20,7 +20,7 @@ EPITAKA_DB = os.path.join(DATA_DIR, 'epitaka.db')
 
 STATEMENTS = [
     # Section fetches: WHERE book_id=? AND para_id>=? AND para_id<? ORDER BY line_id
-    # (also covers the GROUP BY para_id used by get_book_toc and book_edit)
+    # (also covers the GROUP BY para_id used by get_book_toc)
     "CREATE INDEX IF NOT EXISTS idx_sentences_book_para_line "
     "ON sentences(book_id, para_id, line_id)",
 

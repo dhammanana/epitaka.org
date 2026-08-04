@@ -1,11 +1,16 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
     "target": {
       "namespace": "android_app",
-      "package_name": "org.epitaka.app",
+      "package_name": "com.dn.epitaka",
       "sha256_cert_fingerprints": [
-        "CHANGE_ME_TO_YOUR_APP_SIGNING_CERTIFICATE_SHA256"
+        "52:E7:51:2D:48:54:90:4A:23:3A:89:6F:3D:F7:EF:10:C7:7B:3C:D4:F0:19:E8:83:8F:ED:13:77:BF:33:C1:C1",
+        "0F:E4:85:3B:AB:E7:E0:2D:7E:AD:9A:C8:38:C0:06:10:B8:16:8A:85:14:BF:1B:E2:21:94:C3:37:E5:F5:D1:5C",
+        "3C:52:8A:3F:E8:34:36:81:1A:64:D1:35:76:5C:9D:48:D8:23:27:32:A4:CE:F9:7D:EB:B6:C8:1A:70:4E:F2:40"
       ]
     }
   }
