@@ -205,11 +205,10 @@ def google_verification(hash):
 def favicon_ico():
     """Serve the site favicon."""
     static_dir = os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
         'static'
     )
     return send_from_directory(static_dir, 'favicon.ico')
-
 
 # ── .well-known (Flutter app links, Apple Universal Links) ────────────
 @bp.route('/.well-known/<path:filename>')
