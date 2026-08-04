@@ -8,8 +8,10 @@ from .routes.api import bp as api_bp
 from .routes.dictionary import bp as dict_bp
 from .routes.auth   import bp as auth_bp,   init_auth_db
 from .routes.readers import bp as reader_bp, init_reader_db
+from .routes.editor import bp as editor_bp, init_editor_db, bootstrap_super_admin
 from .services.initialize_db import init_all_search_tables
-import subprocess, os
+import subprocess, os, time
+from werkzeug.security import generate_password_hash
 
 INIT = False
 
@@ -38,10 +40,33 @@ def create_app(config_name='default'):
 
     app.config.from_object(config_by_name[config_name])
 
+    # The editor console signs auth sessions with SECRET_KEY.  A weak default
+    # ships in development only — warn loudly in production.
+    if config_name in ('production', 'prod') and \
+            (os.environ.get('SECRET_KEY') or '') in ('', 'secret-key'):
+        print('\n'.join([
+            '\n',
+            '! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !',
+            'WARNING: SECRET_KEY is not set in production. The translation',
+            'editor console signs session cookies with the default secret.',
+            'Set it, e.g.:  export SECRET_KEY=$(python -c "import secrets;',
+            'print(secrets.token_hex(32))")',
+            '! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !',
+            '\n',
+        ]))
+
+    # Session cookie hardening (editor console auth)
+    app.config['SESSION_COOKIE_HTTPONLY'] = True
+    app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+    app.config['SESSION_COOKIE_SECURE'] = not app.debug
+    app.config['PERMANENT_SESSION_LIFETIME'] = 60 * 60 * 24 * 30  # 30 days
+
     with app.app_context():
         if INIT:
             init_auth_db()
             init_reader_db()
+        init_editor_db()
+        bootstrap_super_admin()
 
     # Register all blueprints
     app.register_blueprint(main_bp)
@@ -49,6 +74,7 @@ def create_app(config_name='default'):
     app.register_blueprint(dict_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(reader_bp)
+    app.register_blueprint(editor_bp)
 
     # Template filter
     @app.template_filter('is_numbered')

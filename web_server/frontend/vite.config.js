@@ -12,9 +12,10 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        book:  resolve(__dirname, 'src/book.js'),
-        index: resolve(__dirname, 'src/index.js'),
-        about: resolve(__dirname, 'src/about.js'),
+        book:   resolve(__dirname, 'src/book.js'),
+        index:  resolve(__dirname, 'src/index.js'),
+        about:  resolve(__dirname, 'src/about.js'),
+        editor: resolve(__dirname, 'src/editor.js'),
       },
       output: {
         entryFileNames: 'js/[name].bundle.js',

@@ -27,6 +27,9 @@ _SHARE_LINK_REDIRECT_TEMPLATE = 'app_redirect.html'
 # Path to generated sitemap files
 _SITEMAP_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'sitemaps')
 
+# Path to built frontend assets (web_server/frontend/dist)
+_FRONTEND_DIST = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'frontend', 'dist')
+
 # Path to root-level verification files (Google Search Console, Flutter app links, etc.)
 _ROOT_FILES_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'root_files')
 
@@ -101,6 +104,29 @@ def index(lang):
         lang=lang,
         lang_info=lang_info,
         available_langs=[translations[code] for code in sorted(translations.keys())],
+    )
+
+
+# ── Translation editor console ────────────────────────────────────────────
+# Private workspace for translators. Accounts are created only by the super
+# admin; the page itself is a thin shell — all logic lives in the editor
+# frontend bundle (frontend/src/editor.js) and the /editor/api/* blueprint.
+
+@bp.route('/editor')
+def editor_page():
+    # Cache-bust the editor bundle with its file mtime so browsers never serve
+    # a stale build after we rebuild the frontend.
+    v = 0
+    try:
+        bundle = os.path.join(_FRONTEND_DIST, 'js', 'editor.bundle.js')
+        v = int(os.path.getmtime(bundle))
+    except OSError:
+        pass
+    return render_template(
+        'editor.html',
+        base_url=Config.BASE_URL,
+        lang=Config.DEFAULT_LANG,
+        v=v,
     )
 
 
