@@ -113,6 +113,7 @@ def index(lang):
 # frontend bundle (frontend/src/editor.js) and the /editor/api/* blueprint.
 
 @bp.route('/editor')
+@bp.route('/editor/')
 def editor_page():
     # Cache-bust the editor bundle with its file mtime so browsers never serve
     # a stale build after we rebuild the frontend.

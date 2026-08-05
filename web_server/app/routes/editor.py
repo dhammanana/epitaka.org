@@ -4,8 +4,9 @@ Translation editor console.
 
 A closed group of translators works on the translation databases. Accounts are
 created ONLY by the super admin (no public registration). Editors propose
-per-line translation fixes; the super admin reviews the queue (human
-suggestions + AI findings) and can apply changes selectively or all at once.
+per-line translation fixes and review the AI findings (apply / reject them);
+the super admin keeps full access and mainly reviews the human proposals.
+Changes are applied directly to the translation databases.
 
 Auth: Flask session cookie (email + password). Super admin flag + allowed
 languages are stored in webdata.db.
@@ -15,12 +16,17 @@ reader API.
 """
 import os
 import re
+import sqlite3
 import threading
 import time
 from functools import wraps
+from html import escape as _html_escape
+from html import unescape as _html_unescape
 
 from flask import Blueprint, jsonify, request, session
 from werkzeug.security import check_password_hash, generate_password_hash
+
+from ..services.dictionary import search_auto
 
 # Explicit, widely-supported hash method (scrypt hashing can fail to verify on
 # some OpenSSL builds, which would lock everyone out of the editor console).
@@ -34,6 +40,26 @@ from ..services.toc import get_book_toc
 bp = Blueprint('editor', __name__, url_prefix='/editor/api')
 
 EMAIL_RE = re.compile(r'^[^@\s]+@[^@\s]+\.[^@\s]+$')
+
+# Only <b> / <i> markup is allowed in Pāli & translation text (italic book
+# titles, bold emphasis).  Matches the *escaped* form so re-enabling is safe:
+# after html.escape() every tag becomes &lt;…&gt;, and only the two allowed
+# ones are turned back into real tags — <script>, <img onerror=…>, etc. stay
+# escaped and can never inject HTML into the editor.
+_ALLOWED_ESCAPED_TAG = re.compile(r'&lt;(/)?(b|i)&gt;', re.IGNORECASE)
+
+
+def sanitize_text_html(text):
+    """
+    Return `text` with ONLY <b>/<i> markup preserved and everything else
+    HTML-escaped.  This runs server-side as defense-in-depth on every value
+    that is written into (or applied into) a translation database, so a
+    malicious payload can never end up stored as live HTML.
+    """
+    out = _html_escape(str(text or ''), quote=False)
+    return _ALLOWED_ESCAPED_TAG.sub(
+        lambda m: f'<{m.group(1) or ""}{m.group(2).lower()}>', out
+    )
 
 
 # ══════════════════════════════════════════════════════════════════════════
@@ -226,8 +252,212 @@ def _lang_meta():
 
 
 # ══════════════════════════════════════════════════════════════════════════
+# GLOSSARY + TRANSLATION QUALITY HELPERS
+# ══════════════════════════════════════════════════════════════════════════
+
+_TAG_RE = re.compile(r'<[^>]*>')
+
+
+def _strip_html(text):
+    """Strip HTML tags (Pāli/translations carry <b>/<i> markup) and decode entities."""
+    return _html_unescape(_TAG_RE.sub('', str(text or '')))
+
+
+def _open_glossary_db(lang):
+    """Read-only connection to glossary_{lang}.db, falling back to English."""
+    path = os.path.join(Config.DATA_DIR, f'glossary_{lang}.db')
+    if not os.path.isfile(path):
+        path = os.path.join(Config.DATA_DIR, 'glossary_en.db')
+    if not os.path.isfile(path):
+        return None
+    conn = sqlite3.connect(f'file:{path}?mode=ro', uri=True)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+# Per-(lang, book) cache of glossary terms so the heavy full-table scan for a
+# book happens once per process.  glossary_*.db files are read-only for us.
+_glossary_cache = {}
+_glossary_lock = threading.Lock()
+
+
+def _book_glossary_terms(lang, book_id):
+    """All glossary rows for a book (source_id = book_id), cached per process."""
+    key = (lang, book_id)
+    with _glossary_lock:
+        if key in _glossary_cache:
+            return _glossary_cache[key]
+    db = _open_glossary_db(lang)
+    if db is None:
+        return []
+    terms = []
+    try:
+        rows = db.execute(
+            'SELECT pali, translation, context, note, para_id_start, para_id_end '
+            'FROM glossary WHERE source_id = ?',
+            (book_id,)
+        ).fetchall()
+        for r in rows:
+            terms.append({
+                'pali': r['pali'] or '',
+                'translation': r['translation'] or '',
+                'context': r['context'] or '',
+                'note': r['note'] or '',
+                'start': r['para_id_start'],
+                'end': r['para_id_end'],
+            })
+    finally:
+        db.close()
+    with _glossary_lock:
+        _glossary_cache[key] = terms
+    return terms
+
+
+def _section_glossary(lang, book_id, para_id, section_pali):
+    """
+    Context-aware glossary terms for one section:
+      - contextual:  the term's stored book+paragraph range covers this section
+      - in_text:     the term (whole word) actually appears in the section text
+    Contextual terms come first; results are capped so the payload stays small.
+    """
+    terms = _book_glossary_terms(lang, book_id)
+    if not terms:
+        return []
+    plain = _strip_html(section_pali).lower()
+    words = set(re.findall(r'[\w]+', plain))
+    contextual = []
+    in_text = []
+    seen = set()
+    for t in terms:
+        term = (t['pali'] or '').strip().lower()
+        if not term or term in seen:
+            continue
+        is_contextual = (t['start'] is not None and t['end'] is not None
+                         and t['start'] <= para_id <= t['end'])
+        found_in_text = term in plain if ' ' in term else term in words
+        if not (is_contextual or found_in_text):
+            continue
+        seen.add(term)
+        entry = {
+            'pali': t['pali'],
+            'translation': t['translation'],
+            'note': t['note'],
+            'context': t['context'],
+            'reason': 'context' if is_contextual else 'in_text',
+        }
+        (contextual if is_contextual else in_text).append(entry)
+    # Contextual terms first; in-text terms are always kept (never starved out
+    # by a large contextual set) so inline highlighting stays complete.
+    return (contextual + in_text)[:150]
+
+
+# Per-(lang, book) length-ratio baselines, computed once per process from the
+# book's own lines: ratio = len(translation) / len(Pāli).  Lines whose ratio
+# falls outside the 5th–95th percentile band are flagged as suspicious.
+_length_cache = {}
+_length_lock = threading.Lock()
+
+
+def _book_length_stats(lang, book_id):
+    """Return (low, high) ratio thresholds for a book, or None if not computable."""
+    key = (lang, book_id)
+    with _length_lock:
+        if key in _length_cache:
+            return _length_cache[key]
+    trans_db = _open_trans_db(lang)
+    if trans_db is None:
+        return None
+    try:
+        trows = trans_db.execute(
+            'SELECT para_id, line_id, translation FROM sentences WHERE book_id = ?',
+            (book_id,)
+        ).fetchall()
+    except Exception:
+        return None
+    tmap = {(r['para_id'], r['line_id']): r['translation'] or '' for r in trows}
+    ratios = []
+    with get_db() as conn:
+        for pr in conn.execute(
+            'SELECT para_id, line_id, pali FROM sentences WHERE book_id = ?', (book_id,)
+        ).fetchall():
+            tl = len(_strip_html(tmap.get((pr['para_id'], pr['line_id']), '')).strip())
+            pl = len(_strip_html(pr['pali'] or '').strip())
+            if pl >= 8 and tl >= 2:
+                ratios.append(tl / pl)
+    stats = None
+    if len(ratios) >= 30:
+        ratios.sort()
+        low = ratios[min(len(ratios) - 1, int(len(ratios) * 0.05))]
+        high = ratios[min(len(ratios) - 1, int(len(ratios) * 0.95))]
+        if high > low:
+            stats = (low, high)
+    with _length_lock:
+        _length_cache[key] = stats
+    return stats
+
+
+def _line_checks(stats, pali, translation):
+    """Return a list of {code, label, msg} quality flags for one line."""
+    if not (translation or '').strip():
+        return [{'code': 'missing', 'label': 'missing translation',
+                 'msg': 'This line has no translation.'}]
+    if stats is None:
+        return []
+    pl = len(_strip_html(pali).strip())
+    tl = len(_strip_html(translation).strip())
+    if pl < 8 or tl < 2:
+        return []
+    ratio = tl / pl
+    low, high = stats
+    pct = int(ratio * 100)
+    if ratio < low:
+        return [{'code': 'too_short', 'label': 'too short',
+                 'msg': f'Translation is {pct}% of the Pāli length (expected ≥ {int(low * 100)}%) — possible omission.'}]
+    if ratio > high:
+        return [{'code': 'too_long', 'label': 'too long',
+                 'msg': f'Translation is {pct}% of the Pāli length (expected ≤ {int(high * 100)}%) — possible over-translation.'}]
+    return []
+
+
+# ══════════════════════════════════════════════════════════════════════════
 # SESSION AUTH
 # ══════════════════════════════════════════════════════════════════════════
+
+# Simple in-memory brute-force throttle for the login endpoint (the one public
+# attack surface of the editor).  Limits failed attempts per (IP + email) to
+# a sliding 15-minute window.  In-memory is fine for the single-process
+# gunicorn workers used here; the goal is to slow down credential stuffing,
+# not to be a hard rate limiter across many processes.
+_LOGIN_MAX_ATTEMPTS = 10
+_LOGIN_WINDOW = 15 * 60  # seconds
+_LOGIN_ATTEMPTS = {}     # key -> [timestamps]
+_LOGIN_LOCK = threading.Lock()
+
+
+def _login_key(ip, email):
+    return f'{ip}|{email}'
+
+
+def _login_blocked(key):
+    now = time.time()
+    with _LOGIN_LOCK:
+        stamps = [t for t in _LOGIN_ATTEMPTS.get(key, []) if now - t < _LOGIN_WINDOW]
+        _LOGIN_ATTEMPTS[key] = stamps
+        return len(stamps) >= _LOGIN_MAX_ATTEMPTS
+
+
+def _record_login_failure(key):
+    now = time.time()
+    with _LOGIN_LOCK:
+        stamps = [t for t in _LOGIN_ATTEMPTS.get(key, []) if now - t < _LOGIN_WINDOW]
+        stamps.append(now)
+        _LOGIN_ATTEMPTS[key] = stamps
+
+
+def _reset_login_failures(key):
+    with _LOGIN_LOCK:
+        _LOGIN_ATTEMPTS.pop(key, None)
+
 
 @bp.route('/login', methods=['POST'])
 @require_same_origin
@@ -239,6 +469,13 @@ def api_login():
     if not email or not password:
         return jsonify({'error': 'Email and password required'}), 400
 
+    # Reject before even checking credentials once the limit is hit (also
+    # avoids the hashing cost on a throttled account).
+    ip = request.remote_addr or ''
+    key = _login_key(ip, email)
+    if _login_blocked(key):
+        return jsonify({'error': 'Too many login attempts. Try again later.'}), 429
+
     with get_webdata_db() as conn:
         row = conn.execute(
             'SELECT id, email, password_hash, display_name, is_super FROM editors WHERE email = ?',
@@ -246,6 +483,7 @@ def api_login():
         ).fetchone()
 
     if not row or not check_password_hash(row['password_hash'], password):
+        _record_login_failure(key)
         return jsonify({'error': 'Invalid email or password'}), 401
 
     langs = []
@@ -265,6 +503,7 @@ def api_login():
     session['editor_super'] = bool(row['is_super'])
     session['editor_langs'] = langs
 
+    _reset_login_failures(key)
     return jsonify(_current_editor())
 
 
@@ -279,6 +518,66 @@ def api_logout():
 @require_editor
 def api_me(editor):
     return jsonify(editor)
+
+
+@bp.route('/account', methods=['PATCH'])
+@require_same_origin
+@require_editor
+def api_update_account(editor):
+    """Self-service: update the signed-in editor's own display name."""
+    data = request.get_json(silent=True) or {}
+    name = (data.get('display_name') or '').strip()
+    if not name or len(name) > 120:
+        return jsonify({'error': 'A display name between 1 and 120 characters is required'}), 400
+    with get_webdata_db() as conn:
+        conn.execute(
+            'UPDATE editors SET display_name = ?, updated_at = ? WHERE id = ?',
+            (name, int(time.time()), editor['id'])
+        )
+        conn.commit()
+    # Keep the session in sync so the top bar updates immediately.
+    session['editor_name'] = name
+    return jsonify({'ok': True, 'display_name': name})
+
+
+@bp.route('/account/password', methods=['POST'])
+@require_same_origin
+@require_editor
+def api_change_password(editor):
+    """
+    Self-service password change.  The current password must be verified first
+    (so a hijacked session can't silently set a new password), and the new one
+    must meet the same minimum-length policy as account creation.
+    """
+    data = request.get_json(silent=True) or {}
+    current = data.get('current_password') or ''
+    new_password = data.get('new_password') or ''
+    if not current or not new_password:
+        return jsonify({'error': 'Current and new password are required'}), 400
+    if len(new_password) < 8:
+        return jsonify({'error': 'New password must be at least 8 characters'}), 400
+    if new_password == current:
+        return jsonify({'error': 'New password must be different from the current password'}), 400
+
+    # Guard the current-password check with the same brute-force throttle as
+    # login, so a hijacked session can't guess the current password freely.
+    key = _login_key(request.remote_addr or '', editor['email'])
+    if _login_blocked(key):
+        return jsonify({'error': 'Too many attempts. Try again later.'}), 429
+
+    with get_webdata_db() as conn:
+        row = conn.execute(
+            'SELECT password_hash FROM editors WHERE id = ?', (editor['id'],)
+        ).fetchone()
+        if not row or not check_password_hash(row['password_hash'], current):
+            _record_login_failure(key)
+            return jsonify({'error': 'Current password is incorrect'}), 401
+        conn.execute(
+            'UPDATE editors SET password_hash = ?, updated_at = ? WHERE id = ?',
+            (generate_password_hash(new_password, method=_HASH_METHOD), int(time.time()), editor['id'])
+        )
+        conn.commit()
+    return jsonify({'ok': True})
 
 
 # ══════════════════════════════════════════════════════════════════════════
@@ -524,11 +823,23 @@ def api_editor_section(editor, lang, book_id, para_id):
     for s in sentences:
         s['translation'] = trans_map.get((s['para_id'], s['line_id']), '')
 
+    # Context-aware glossary terms for this section + per-line length checks.
+    # The heading sentence itself is skipped for checks to avoid noise.
+    section_text = ' '.join(s['pali'] for s in sentences)
+    glossary = _section_glossary(lang, book_id, para_id, section_text)
+    stats = _book_length_stats(lang, book_id)
+    for s in sentences:
+        if s['para_id'] == para_id:
+            s['checks'] = []
+        else:
+            s['checks'] = _line_checks(stats, s['pali'], s['translation'])
+
     return jsonify({
         'book_id': book_id,
         'para_id': para_id,
         'sentences': sentences,
         'remarks': remarks,
+        'glossary': glossary,
     })
 
 
@@ -542,7 +853,8 @@ def api_propose_line(editor, lang, book_id):
     data = request.get_json(silent=True) or {}
     para_id = data.get('para_id')
     line_id = data.get('line_id')
-    proposed = (data.get('proposed') or '').strip()
+    # Strip + sanitize so only <b>/<i> markup can ever be stored.
+    proposed = sanitize_text_html((data.get('proposed') or '').strip())
     note = (data.get('note') or '').strip()[:1000]
 
     if not isinstance(para_id, int) or not isinstance(line_id, int):
@@ -597,18 +909,56 @@ def api_propose_line(editor, lang, book_id):
     return jsonify({'id': remark_id, 'status': 'pending', 'translation': proposed})
 
 
+@bp.route('/lookup')
+@require_editor
+def api_lookup(editor):
+    """
+    Dictionary lookup for the editor (double-click on a Pāli word).  Reuses the
+    public DPD + epitaka pipeline but returns plain-text definitions only — the
+    DPD meaning_html is trusted but is stripped to text so nothing is rendered
+    as HTML inside the editor.
+    """
+    word = (request.args.get('word') or '').strip()
+    if not word:
+        return jsonify({'error': 'word required'}), 400
+    if len(word) > 60:
+        return jsonify({'error': 'word too long'}), 400
+
+    results = []
+    try:
+        for entry in search_auto(word)[:5]:
+            results.append({
+                'word': entry.get('word') or word,
+                'book_name': entry.get('book_name') or '',
+                'type': entry.get('type') or '',
+                'deconstruction': entry.get('deconstruction') or '',
+                'components': entry.get('components') or [],
+                'definition': _strip_html(entry.get('definition') or '').strip(),
+            })
+    except Exception:
+        results = []
+    return jsonify({'word': word, 'results': results})
+
+
 # ══════════════════════════════════════════════════════════════════════════
-# SUPER ADMIN — REVIEW QUEUE
+# REVIEW QUEUE
+# Editors review AI findings; the super admin keeps full access (and mainly
+# reviews human proposals).  Everything below is enforced server-side — an
+# editor can never list or act on human remarks even with crafted requests.
 # ══════════════════════════════════════════════════════════════════════════
 
 @bp.route('/review')
-@require_super
+@require_editor
 def api_review_list(editor):
     """List remarks (AI + human) with optional filters and pagination."""
     lang = (request.args.get('lang') or '').strip()
     kind = (request.args.get('kind') or '').strip()
     status = (request.args.get('status') or '').strip()
     book_id = (request.args.get('book_id') or '').strip()
+    if not editor['is_super']:
+        # Editors only see AI findings in the review queue; the admin reviews
+        # the human proposals.
+        kind = 'ai'
     try:
         offset = max(0, int(request.args.get('offset', 0)))
         limit = min(200, max(1, int(request.args.get('limit', 100))))
@@ -740,7 +1090,12 @@ def _apply_remark(trans_db, remark, applied_by):
     if not ok:
         return False, msg
 
+    # Sanitize at write time for AI-sourced content (written by the external
+    # pipeline, so untrusted).  Human proposals were already sanitized when
+    # stored, so applying them again would double-escape any &lt; entities.
     suggestion = remark['proposed'] or remark['translation'] or ''
+    if remark['kind'] != 'human':
+        suggestion = sanitize_text_html(suggestion)
     cur = trans_db.execute(
         'UPDATE sentences SET translation = ? WHERE book_id = ? AND para_id = ? AND line_id = ?',
         (suggestion, remark['book_id'], remark['para_id'], remark['line_id'])
@@ -758,10 +1113,10 @@ def _apply_remark(trans_db, remark, applied_by):
 
 @bp.route('/review/apply', methods=['POST'])
 @require_same_origin
-@require_super
+@require_editor
 def api_review_apply(editor):
     """Apply selected remarks. Ids are scoped per language, so the client sends
-    a list of {lang, id} pairs."""
+    a list of {lang, id} pairs.  Editors may only apply AI findings."""
     data = request.get_json(silent=True) or {}
     items = data.get('items') or []
     if not isinstance(items, list) or not items:
@@ -792,6 +1147,9 @@ def api_review_apply(editor):
         if not row:
             results.append({'id': rid, 'ok': False, 'message': 'Remark not found'})
             continue
+        if not editor['is_super'] and (row['kind'] or 'ai') != 'ai':
+            results.append({'id': rid, 'ok': False, 'message': 'Human proposals are reviewed by the admin'})
+            continue
         ok, msg = _apply_remark(trans_db, dict(row), editor['display_name'])
         results.append({'id': rid, 'lang': lc, 'ok': ok, 'message': msg})
         if trans_db not in committed:
@@ -806,14 +1164,17 @@ def api_review_apply(editor):
 
 @bp.route('/review/apply_all', methods=['POST'])
 @require_same_origin
-@require_super
+@require_editor
 def api_review_apply_all(editor):
-    """Apply all pending remarks matching filters (per language)."""
+    """Apply all pending remarks matching filters (per language).  Editors are
+    restricted to AI findings regardless of the requested kind."""
     data = request.get_json(silent=True) or {}
     kind = (data.get('kind') or '').strip()
     status = (data.get('status') or 'pending').strip()
     book_id = (data.get('book_id') or '').strip()
     lang_filter = (data.get('lang') or '').strip()
+    if not editor['is_super']:
+        kind = 'ai'
     if lang_filter and not _check_lang_permission(editor, lang_filter):
         return jsonify({'error': 'Forbidden'}), 403
 
@@ -856,10 +1217,10 @@ def api_review_apply_all(editor):
 
 @bp.route('/review/reject', methods=['POST'])
 @require_same_origin
-@require_super
+@require_editor
 def api_review_reject(editor):
     """Reject selected remarks. Ids are scoped per language — the client sends
-    a list of {lang, id} pairs."""
+    a list of {lang, id} pairs.  Editors may only reject AI findings."""
     data = request.get_json(silent=True) or {}
     items = data.get('items') or []
     if not isinstance(items, list) or not items:
@@ -882,6 +1243,15 @@ def api_review_reject(editor):
     for lc, ids in by_lang.items():
         trans_db = _open_trans_db(lc)
         if trans_db is None:
+            continue
+        if not editor['is_super']:
+            # Editors only reject AI findings — verify the remark kind first.
+            ph = ','.join('?' for _ in ids)
+            rows = trans_db.execute(
+                f'SELECT id FROM translation_remarks WHERE id IN ({ph}) AND kind = \'ai\'', ids
+            ).fetchall()
+            ids = [r['id'] for r in rows]
+        if not ids:
             continue
         placeholders = ','.join('?' for _ in ids)
         cur = trans_db.execute(

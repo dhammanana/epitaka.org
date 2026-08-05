@@ -768,6 +768,82 @@ sup:hover::after { display: block; }
   background: #eedcc8;
 }
 
+/* ── App banner (mobile app promo) ────────────────────────────────────
+   Small dismissible card inviting readers to open the native app.
+   Shown once per session, auto-fades after a few seconds. */
+.app-banner {
+  position: fixed;
+  left: 12px; right: 12px;
+  bottom: 12px;
+  margin: 0 auto;
+  max-width: 440px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.7rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+  z-index: 210; /* above topbar (200), below dict panel (250) & modals */
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.app-banner.show { opacity: 1; transform: translateY(0); }
+.app-banner.hide { opacity: 0; transform: translateY(16px); }
+
+.app-banner-icon {
+  flex-shrink: 0;
+  width: 2.3rem; height: 2.3rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem;
+  background: var(--accent-light);
+  border-radius: 10px;
+}
+.app-banner-body { flex: 1; min-width: 0; }
+.app-banner-title { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+.app-banner-text  { font-size: 0.72rem; color: var(--muted); line-height: 1.35; }
+
+.app-banner-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.44rem 0.72rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s, transform 0.1s;
+}
+.app-banner-btn:hover   { background: #7a4f2f; }
+.app-banner-btn:active  { transform: scale(0.97); }
+
+.app-banner-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: var(--muted);
+  padding: 0.2rem;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+.app-banner-close:hover {
+  color: var(--text);
+  background: var(--accent-light);
+}
+
+@media (max-width: 380px) {
+  .app-banner-text { display: none; }
+}
+
 /* ── Action button collapse ────────────────────────────────────────────
    All buttons (💬 🔖 📝 🔗) are children of .ra-wrap with class .ra-btn.
    The ⋯ toggle (.ra-collapse-toggle) is also in .ra-wrap but NOT .ra-btn

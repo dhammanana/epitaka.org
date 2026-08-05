@@ -6,7 +6,7 @@
  * Views:
  *   - Login          (email + password, no public registration)
  *   - Workspace      (choose language → book → section → edit lines)
- *   - Review  (super) pending AI + human remarks, apply selected/all
+ *   - Review         editors review AI findings; super admins review AI + human
  *   - Editors (super) manage translator accounts & permissions
  *
  * Talks to the Flask blueprint at /editor/api/* using session cookies.
@@ -39,6 +39,7 @@ const state = {
   currentSection: null,
   sentences: [],
   remarks: [],
+  glossary: [],          // context-aware glossary terms for the current section
   // review
   reviewFilter: { lang: '', kind: '', status: 'pending', book_id: '', offset: 0 },
   reviewItems: [],
@@ -58,6 +59,15 @@ function esc(s = '') {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+// Renders text that may legitimately contain <b>/<i> markup (Pāli & translation
+// text).  Everything is escaped first, then ONLY the two allowed tags are
+// turned back into real HTML — any other markup (<script>, <img onerror=…>,
+// …) stays escaped, so a malicious value can never inject HTML into the page.
+const ALLOWED_TAG = /&lt;(\/?)(b|i)&gt;/gi;
+function fmt(s = '') {
+  return esc(s).replace(ALLOWED_TAG, (m, slash, tag) => `<${slash}${tag.toLowerCase()}>`);
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -112,23 +122,116 @@ function renderLogin() {
 }
 
 // ══════════════════════════════════════════════════════════════
+// ACCOUNT MODAL (self-service: display name + password)
+// ══════════════════════════════════════════════════════════════
+function renderAccountModal() {
+  if (document.querySelector('.ed-modal-overlay')) return;
+  const me = state.me;
+  const overlay = document.createElement('div');
+  overlay.className = 'ed-modal-overlay';
+  overlay.innerHTML = `
+    <div class="ed-modal" role="dialog" aria-modal="true" aria-label="My account">
+      <div class="ed-modal-head">
+        <h3>👤 My account</h3>
+        <button class="ed-modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="ed-form">
+        <label class="ed-field"><span>Display name</span>
+          <input type="text" id="acc-name" maxlength="120" value="${esc(me.display_name || '')}"></label>
+        <label class="ed-field"><span>Email</span>
+          <input type="email" id="acc-email" value="${esc(me.email)}" disabled></label>
+        <div class="ed-account-sep">Change password</div>
+        <label class="ed-field"><span>Current password</span>
+          <input type="password" id="acc-cur" autocomplete="current-password"></label>
+        <label class="ed-field"><span>New password (min 8 chars)</span>
+          <input type="password" id="acc-new" autocomplete="new-password" minlength="8"></label>
+        <label class="ed-field"><span>Confirm new password</span>
+          <input type="password" id="acc-confirm" autocomplete="new-password" minlength="8"></label>
+        <p id="acc-msg" class="ed-error" hidden></p>
+        <div class="ed-edit-actions">
+          <button class="ed-btn ed-btn-primary" id="acc-save">Save changes</button>
+          <span class="ed-save-msg" id="acc-msg-ok"></span>
+        </div>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  const onKey = ev => { if (ev.key === 'Escape') close(); };
+  const close = () => {
+    document.removeEventListener('keydown', onKey);
+    overlay.remove();
+  };
+  overlay.querySelector('.ed-modal-close').addEventListener('click', close);
+  overlay.addEventListener('click', ev => { if (ev.target === overlay) close(); });
+  document.addEventListener('keydown', onKey);
+
+  overlay.querySelector('#acc-save').addEventListener('click', async () => {
+    const errEl = overlay.querySelector('#acc-msg');
+    const okEl = overlay.querySelector('#acc-msg-ok');
+    const saveBtn = overlay.querySelector('#acc-save');
+    errEl.hidden = true;
+    okEl.textContent = '';
+    const name = overlay.querySelector('#acc-name').value.trim();
+    const cur = overlay.querySelector('#acc-cur').value;
+    const neu = overlay.querySelector('#acc-new').value;
+    const conf = overlay.querySelector('#acc-confirm').value;
+    if (!name) { errEl.textContent = 'Display name cannot be empty.'; errEl.hidden = false; return; }
+    const changing = cur || neu || conf;
+    if (changing) {
+      if (!cur || !neu || !conf) {
+        errEl.textContent = 'Fill in all three password fields to change your password.'; errEl.hidden = false; return;
+      }
+      if (neu.length < 8) {
+        errEl.textContent = 'New password must be at least 8 characters.'; errEl.hidden = false; return;
+      }
+      if (neu !== conf) {
+        errEl.textContent = 'New password and confirmation do not match.'; errEl.hidden = false; return;
+      }
+    }
+    saveBtn.disabled = true;
+    try {
+      await api('/editor/api/account', { method: 'PATCH', body: { display_name: name } });
+      if (changing) {
+        await api('/editor/api/account/password', {
+          method: 'POST',
+          body: { current_password: cur, new_password: neu },
+        });
+      }
+      state.me.display_name = name;
+      const nameEl = document.querySelector('.ed-user-name');
+      if (nameEl) nameEl.textContent = name;
+      okEl.textContent = '✓ Saved';
+      overlay.querySelector('#acc-cur').value = '';
+      overlay.querySelector('#acc-new').value = '';
+      overlay.querySelector('#acc-confirm').value = '';
+      setTimeout(close, 900);
+    } catch (ex) {
+      errEl.textContent = ex.message;
+      errEl.hidden = false;
+      saveBtn.disabled = false;
+    }
+  });
+}
+
+// ══════════════════════════════════════════════════════════════
 // APP SHELL
 // ══════════════════════════════════════════════════════════════
 function renderShell() {
   const me = state.me;
-  const superTabs = me.is_super
-    ? `<button class="ed-nav-btn" data-view="workspace">✏️ Edit</button>
-       <button class="ed-nav-btn" data-view="review">🛂 Review${state.pendingCount ? ` <span class="ed-badge">${state.pendingCount}</span>` : ''}</button>
-       <button class="ed-nav-btn" data-view="editors">👥 Editors</button>`
-    : `<button class="ed-nav-btn" data-view="workspace">✏️ Edit</button>`;
+  // Editors review AI findings; super admins also review human proposals and
+  // manage accounts.
+  const navTabs = `<button class="ed-nav-btn" data-view="workspace">✏️ Edit</button>
+    <button class="ed-nav-btn" data-view="review">🛂 Review${state.pendingCount ? ` <span class="ed-badge">${state.pendingCount}</span>` : ''}</button>
+    ${me.is_super ? '<button class="ed-nav-btn" data-view="editors">👥 Editors</button>' : ''}`;
 
   root.innerHTML = `
     <header class="ed-topbar">
       <div class="ed-brand">📖 E-Piṭaka <span class="ed-brand-sub">Translation Editor</span></div>
-      <nav class="ed-nav">${superTabs}</nav>
+      <nav class="ed-nav">${navTabs}</nav>
       <div class="ed-user">
         <span class="ed-user-name">${esc(me.display_name || me.email)}</span>
         ${me.is_super ? '<span class="ed-super-tag">admin</span>' : ''}
+        <button class="ed-btn ed-btn-ghost" id="ed-account">👤 Account</button>
         <button class="ed-btn ed-btn-ghost" id="ed-logout">Sign out</button>
       </div>
     </header>
@@ -141,6 +244,7 @@ function renderShell() {
   document.querySelectorAll('.ed-nav-btn').forEach(btn => {
     btn.addEventListener('click', () => switchView(btn.dataset.view));
   });
+  document.getElementById('ed-account').addEventListener('click', renderAccountModal);
   document.getElementById('ed-logout').addEventListener('click', async () => {
     try { await api('/editor/api/logout', { method: 'POST' }); } catch (_) { /* noop */ }
     state.me = null;
@@ -178,6 +282,7 @@ async function loadBooks() {
   state.currentSection = null;
   state.sentences = [];
   state.remarks = [];
+  state.glossary = [];
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -208,11 +313,16 @@ function renderWorkspace() {
           <div class="ed-ws-label">Section</div>
           <div id="ed-toc" class="ed-toc"></div>
         </div>
+        <div class="ed-ws-block ed-ws-glossary">
+          <div class="ed-ws-label">Glossary <span id="ed-gloss-count" class="ed-gloss-count"></span></div>
+          <div id="ed-glossary" class="ed-glossary"></div>
+        </div>
       </aside>
       <main class="ed-ws-main">
         <div class="ed-ws-head">
           <h2 class="ed-ws-bookname">${state.currentBook ? esc(state.currentBook.name) : 'Choose a book'}</h2>
-          <span class="ed-ws-hint">Click a translation line to propose an edit</span>
+          <span class="ed-ws-hint">Click a translation line to propose an edit · double-click a Pāli word for the dictionary</span>
+          <span id="ed-check-summary" class="ed-check-summary"></span>
         </div>
         <div id="ed-lines" class="ed-lines"></div>
       </main>
@@ -230,6 +340,7 @@ function renderWorkspace() {
   renderBookTree();
   renderToc();
   renderLines();
+  renderGlossary();
 }
 
 function _resolvedCategories() {
@@ -282,6 +393,7 @@ function renderBookTree() {
       state.currentSection = null;
       state.sentences = [];
       state.remarks = [];
+      state.glossary = [];
       renderWorkspace();
       document.querySelector('.ed-ws-sections')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
@@ -349,7 +461,92 @@ function renderToc() {
       const data = await api(`/editor/api/${state.currentLang}/book/${state.currentBook.id}/section/${state.currentSection}`);
       state.sentences = data.sentences;
       state.remarks = data.remarks;
+      state.glossary = data.glossary || [];
       renderLines();
+      renderGlossary();
+    });
+  });
+}
+
+// ══════════════════════════════════════════════════════════════
+// GLOSSARY (context-aware)
+// ══════════════════════════════════════════════════════════════
+function renderGlossary() {
+  const el = document.getElementById('ed-glossary');
+  const countEl = document.getElementById('ed-gloss-count');
+  if (!el) return;
+  const terms = state.glossary || [];
+  if (countEl) countEl.textContent = terms.length ? `${terms.length} term${terms.length === 1 ? '' : 's'}` : '';
+  if (!terms.length) {
+    el.innerHTML = '<p class="ed-empty">No glossary terms for this section.</p>';
+    return;
+  }
+  el.innerHTML = terms.map(t => `
+    <button class="ed-gloss-term" data-word="${esc(t.pali)}" title="${esc(t.translation || '')}">
+      <span class="ed-gloss-term-pali">${esc(t.pali)}</span>
+      <span class="ed-gloss-term-trans">${esc(t.translation || '')}</span>
+    </button>
+    ${t.note ? `<p class="ed-gloss-note">${esc(t.note)}</p>` : ''}
+  `).join('');
+  el.querySelectorAll('.ed-gloss-term').forEach(btn => {
+    btn.addEventListener('click', () => showLookup(btn.dataset.word, btn));
+  });
+}
+
+function escRegex(s = '') {
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Lookbehind in regex needs Safari 16.4+ / modern Chrome/Firefox.  The editor
+// is an internal tool, but guard so old browsers fall back to no highlighting
+// instead of throwing inside renderLines.
+let SUPPORTS_LOOKBEHIND = true;
+try { new RegExp('(?<=a)b'); } catch (_) { SUPPORTS_LOOKBEHIND = false; }
+
+// Wraps glossary terms that appear in each Pāli line with a highlighted span.
+// Runs on the rendered DOM (text nodes only) so the <b>/<i> markup is untouched.
+function highlightGlossaryTerms() {
+  // Single words first (so longer terms win overlap), then multi-word phrases.
+  const terms = (state.glossary || [])
+    .filter(t => t.pali && t.pali.length <= 40)
+    .sort((a, b) => b.pali.length - a.pali.length);
+  if (!SUPPORTS_LOOKBEHIND || !terms.length) return;
+  document.querySelectorAll('.ed-line-pali').forEach(div => {
+    const walker = document.createTreeWalker(div, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      const text = node.nodeValue || '';
+      if (!text) return;
+      // Find all whole-word matches (longer terms first), then keep non-overlapping.
+      const ranges = [];
+      for (const t of terms) {
+        const re = new RegExp(`(?<![\\p{L}\\p{N}])(${escRegex(t.pali)})(?![\\p{L}\\p{N}])`, 'giu');
+        let m;
+        while ((m = re.exec(text)) !== null) ranges.push({ start: m.index, end: m.index + m[1].length, term: t });
+      }
+      if (!ranges.length) return;
+      ranges.sort((a, b) => a.start - b.start || (b.end - b.start) - (a.end - a.start));
+      const keep = [];
+      let curEnd = -1;
+      for (const r of ranges) {
+        if (r.start >= curEnd) { keep.push(r); curEnd = r.end; }
+      }
+      const parent = node.parentNode;
+      const frag = document.createDocumentFragment();
+      let pos = 0;
+      for (const r of keep) {
+        if (r.start > pos) frag.appendChild(document.createTextNode(text.slice(pos, r.start)));
+        const span = document.createElement('span');
+        span.className = 'ed-gloss-hit';
+        span.dataset.word = r.term.pali;
+        span.title = r.term.translation || 'Glossary term';
+        span.textContent = text.slice(r.start, r.end);
+        frag.appendChild(span);
+        pos = r.end;
+      }
+      if (pos < text.length) frag.appendChild(document.createTextNode(text.slice(pos)));
+      parent.replaceChild(frag, node);
     });
   });
 }
@@ -366,6 +563,13 @@ function renderLines() {
     return;
   }
 
+  // Summary bar for suspicious lines flagged by the length check.
+  const flaggedCount = state.sentences.filter(s => (s.checks || []).length).length;
+  const summaryEl = document.getElementById('ed-check-summary');
+  if (summaryEl) {
+    summaryEl.textContent = flaggedCount ? `⚠ ${flaggedCount} line${flaggedCount === 1 ? '' : 's'} flagged by length check — hover the chip for details` : '';
+  }
+
   el.innerHTML = state.sentences.map((s, i) => {
     const remarks = _remarksFor(s.para_id, s.line_id);
     const aiRemarks = remarks.filter(r => r.kind === 'ai');
@@ -375,7 +579,7 @@ function renderLines() {
       <div class="ed-remark ed-remark-ai" title="AI finding">
         <div class="ed-remark-head">⚡ AI finding${r.status === 'applied' ? ' <em class="ed-st-applied">· applied</em>' : ''}</div>
         ${r.translation && r.translation !== s.translation
-          ? `<p class="ed-remark-fix"><span class="ed-remark-label">Suggestion</span><ins>${esc(r.translation)}</ins></p>`
+          ? `<p class="ed-remark-fix"><span class="ed-remark-label">Suggestion</span><ins>${fmt(r.translation)}</ins></p>`
           : ''}
         ${r.conflict ? `<p class="ed-remark-note"><span class="ed-remark-label">Conflict</span>${esc(r.conflict)}</p>` : ''}
         ${r.note ? `<p class="ed-remark-note">${esc(r.note)}</p>` : ''}
@@ -391,21 +595,25 @@ function renderLines() {
         </div>
         ${r.note ? `<p class="ed-remark-note">${esc(r.note)}</p>` : ''}
         ${suggestion && suggestion !== s.translation
-          ? `<p class="ed-remark-fix"><del>${esc(s.translation)}</del> → <ins>${esc(suggestion)}</ins></p>`
+          ? `<p class="ed-remark-fix"><del>${fmt(s.translation)}</del> → <ins>${fmt(suggestion)}</ins></p>`
           : ''}
       </div>`;
     }).join('');
 
     const hasPending = humanRemarks.some(r => r.status === 'pending');
+    const checkChips = (s.checks || []).map(c =>
+      `<span class="ed-chip ed-chip-check ed-chip-${c.code}" title="${esc(c.msg)}">⚠ ${esc(c.label)}</span>`
+    ).join('');
 
     return `
       <div class="ed-line" data-para="${s.para_id}" data-line="${s.line_id}" id="edl-${s.para_id}-${s.line_id}">
         <div class="ed-line-meta">
           <span class="ed-line-num">¶${s.para_id}.${s.line_id}</span>
           ${hasPending ? '<span class="ed-chip ed-chip-pending">proposed</span>' : ''}
+          ${checkChips}
         </div>
-        <div class="ed-line-pali">${esc(s.pali)}</div>
-        <div class="ed-line-trans" data-role="trans">${esc(s.translation)}</div>
+        <div class="ed-line-pali" data-role="pali" title="Double-click a Pāli word for the dictionary">${fmt(s.pali)}</div>
+        <div class="ed-line-trans" data-role="trans">${fmt(s.translation)}</div>
         ${aiHtml}
         ${humanHtml}
         <div class="ed-edit-box" hidden>
@@ -420,14 +628,37 @@ function renderLines() {
       </div>`;
   }).join('');
 
-  // Inline editing: click on the translation text opens the edit box
+  // Inline editing: click on the translation text opens the edit box.  The
+  // static translation display is hidden while editing so the text appears
+  // only once (in the textarea).
   el.querySelectorAll('.ed-line-trans').forEach(trans => {
     trans.addEventListener('click', () => {
       const line = trans.closest('.ed-line');
-      line.querySelector('.ed-edit-box').hidden = false;
+      const box = line.querySelector('.ed-edit-box');
+      trans.hidden = true;
+      box.hidden = false;
       const ta = line.querySelector('.ed-textarea');
       ta.focus();
       ta.setSelectionRange(ta.value.length, ta.value.length);
+    });
+  });
+
+  // Glossary term highlighting + dictionary lookup on the Pāli text.
+  highlightGlossaryTerms();
+  el.querySelectorAll('.ed-gloss-hit').forEach(span => {
+    span.addEventListener('click', ev => {
+      ev.stopPropagation();
+      showLookup(span.dataset.word, span);
+    });
+  });
+  el.querySelectorAll('.ed-line-pali').forEach(pali => {
+    pali.addEventListener('dblclick', ev => {
+      let word = '';
+      const sel = window.getSelection();
+      if (sel && sel.rangeCount && !sel.isCollapsed) word = sel.toString().trim();
+      if (!word || /\s/.test(word) || word.length > 40) word = wordAtPoint(pali, ev.clientX, ev.clientY);
+      if (!word) return;
+      showLookup(word, ev.target);
     });
   });
 
@@ -436,7 +667,10 @@ function renderLines() {
     const para = parseInt(line.dataset.para);
     const lid = parseInt(line.dataset.line);
 
-    box.querySelector('.ed-cancel').addEventListener('click', () => { box.hidden = true; });
+    box.querySelector('.ed-cancel').addEventListener('click', () => {
+      box.hidden = true;
+      line.querySelector('.ed-line-trans').hidden = false;
+    });
 
     box.querySelector('.ed-save').addEventListener('click', async () => {
       const proposed = box.querySelector('.ed-textarea').value.trim();
@@ -467,7 +701,8 @@ function renderLines() {
 }
 
 // ══════════════════════════════════════════════════════════════
-// REVIEW VIEW (super admin)
+// REVIEW VIEW
+// Editors review AI findings only; super admins review AI + human.
 // ══════════════════════════════════════════════════════════════
 async function loadReview() {
   const f = state.reviewFilter;
@@ -489,22 +724,30 @@ async function loadReview() {
 
 function renderReview() {
   const el = document.getElementById('ed-review-view');
+  const isSuper = !!state.me?.is_super;
+  if (!isSuper) state.reviewFilter.kind = 'ai';
+  const kindFilter = isSuper
+    ? `<select id="rf-kind">
+        <option value="">All kinds</option>
+        <option value="human" ${state.reviewFilter.kind === 'human' ? 'selected' : ''}>Human proposals</option>
+        <option value="ai" ${state.reviewFilter.kind === 'ai' ? 'selected' : ''}>AI findings</option>
+      </select>`
+    : '<span class="ed-filter-note">AI findings</span>';
+  const hint = isSuper
+    ? 'Approve AI findings and human proposals. Applied changes write directly into the translation database.'
+    : 'You review the AI findings; the admin reviews human proposals. Applied changes write directly into the translation database.';
   el.innerHTML = `
     <div class="ed-review">
       <div class="ed-review-head">
         <h2>🛂 Review queue</h2>
-        <p class="ed-ws-hint">Approve AI findings and human proposals. Applied changes write directly into the translation database.</p>
+        <p class="ed-ws-hint">${esc(hint)}</p>
       </div>
       <div class="ed-filters">
         <select id="rf-lang">
           <option value="">All languages</option>
           ${state.langs.map(l => `<option value="${l.code}" ${state.reviewFilter.lang === l.code ? 'selected' : ''}>${esc(l.english_name)}</option>`).join('')}
         </select>
-        <select id="rf-kind">
-          <option value="">All kinds</option>
-          <option value="human" ${state.reviewFilter.kind === 'human' ? 'selected' : ''}>Human proposals</option>
-          <option value="ai" ${state.reviewFilter.kind === 'ai' ? 'selected' : ''}>AI findings</option>
-        </select>
+        ${kindFilter}
         <select id="rf-status">
           <option value="pending">Pending</option>
           <option value="applied" ${state.reviewFilter.status === 'applied' ? 'selected' : ''}>Applied</option>
@@ -530,7 +773,8 @@ function renderReview() {
   el.querySelectorAll('#rf-lang, #rf-kind, #rf-status').forEach(sel => {
     sel.addEventListener('change', () => {
       state.reviewFilter.lang = document.getElementById('rf-lang').value;
-      state.reviewFilter.kind = document.getElementById('rf-kind').value;
+      const kindSel = document.getElementById('rf-kind');
+      if (kindSel) state.reviewFilter.kind = kindSel.value;
       state.reviewFilter.status = document.getElementById('rf-status').value;
       state.reviewFilter.offset = 0;
     });
@@ -584,7 +828,10 @@ function renderReview() {
     showReviewMsg(`Applied ${sum}, failed ${fail}.`);
   });
 
-  renderReviewList();
+  // Load the queue on arrival so the view is never empty on first open.
+  loadReview()
+    .then(() => renderReviewList())
+    .catch(ex => showReviewMsg(ex.message));
 }
 
 function renderReviewList() {
@@ -602,7 +849,7 @@ function renderReviewList() {
     // `proposed`. AI remarks always use `translation`.
     const suggestion = (human ? (r.proposed || r.translation) : r.translation) || '';
     const fix = r.applicable && suggestion
-      ? `<p class="ed-remark-fix"><del>${esc(r.live)}</del> → <ins>${esc(suggestion)}</ins></p>`
+      ? `<p class="ed-remark-fix"><del>${fmt(r.live)}</del> → <ins>${fmt(suggestion)}</ins></p>`
       : '';
     const notApplicable = !r.applicable && (suggestion || r.apply_msg)
       ? `<p class="ed-remark-note"><span class="ed-remark-label">Not auto-appliable</span>${esc(r.apply_msg || 'See reasons below')}</p>`
@@ -621,7 +868,7 @@ function renderReviewList() {
             ${r.editor_name ? `<span class="ed-rv-editor">by ${esc(r.editor_name)}</span>` : ''}
             <em class="ed-st-${r.status}">${r.status}</em>
           </div>
-          <div class="ed-rv-pali">${esc(r.pali)}</div>
+          <div class="ed-rv-pali">${fmt(r.pali)}</div>
           ${fix}
           ${notApplicable}
           ${r.conflict ? `<p class="ed-remark-note"><span class="ed-remark-label">Conflict</span>${esc(r.conflict)}</p>` : ''}
@@ -644,6 +891,68 @@ function renderReviewList() {
 function showReviewMsg(text) {
   const el = document.getElementById('rv-msg');
   if (el) el.textContent = text;
+}
+
+// ══════════════════════════════════════════════════════════════
+// DICTIONARY LOOKUP POPOVER (DPD)
+// ══════════════════════════════════════════════════════════════
+// Returns the word under (x, y) inside `rootEl`, if any.
+function wordAtPoint(rootEl, x, y) {
+  const range = document.caretRangeFromPoint ? document.caretRangeFromPoint(x, y) : null;
+  if (!range || !range.startContainer || !rootEl.contains(range.startContainer)) return '';
+  const text = range.startContainer.nodeValue || '';
+  let pos = range.startOffset;
+  let start = pos, end = pos;
+  while (start > 0 && /[\p{L}\p{N}]/u.test(text[start - 1])) start--;
+  while (end < text.length && /[\p{L}\p{N}]/u.test(text[end])) end++;
+  return text.slice(start, end);
+}
+
+function hideLookup() {
+  document.querySelectorAll('.ed-lookup-pop').forEach(p => p.remove());
+}
+
+document.addEventListener('click', ev => {
+  if (!ev.target.closest('.ed-lookup-pop')) hideLookup();
+});
+document.addEventListener('keydown', ev => {
+  if (ev.key === 'Escape') hideLookup();
+});
+
+async function showLookup(word, anchor) {
+  hideLookup();
+  if (!word) return;
+  const pop = document.createElement('div');
+  pop.className = 'ed-lookup-pop';
+  pop.innerHTML = `
+    <div class="ed-lookup-head">
+      <span class="ed-lookup-title">📖 ${esc(word)}</span>
+      <button class="ed-lookup-close" aria-label="Close">✕</button>
+    </div>
+    <div class="ed-lookup-body ed-empty">Looking up…</div>`;
+  document.body.appendChild(pop);
+  const rect = anchor && anchor.getBoundingClientRect ? anchor.getBoundingClientRect() : null;
+  const left = rect ? rect.left : 120;
+  const top = rect ? rect.bottom + 8 : 120;
+  pop.style.left = `${Math.max(8, Math.min(left, window.innerWidth - 360))}px`;
+  pop.style.top = `${Math.max(8, Math.min(top, window.innerHeight - 200))}px`;
+  pop.querySelector('.ed-lookup-close').addEventListener('click', hideLookup);
+  try {
+    const data = await api(`/editor/api/lookup?word=${encodeURIComponent(word)}`);
+    const body = pop.querySelector('.ed-lookup-body');
+    if (!data.results || !data.results.length) {
+      body.textContent = 'No dictionary entry found for this word.';
+      return;
+    }
+    body.innerHTML = data.results.map(r => `
+      <div class="ed-lookup-entry">
+        <div class="ed-lookup-word">${esc(r.word)}${r.book_name ? ` <span class="ed-lookup-src">${esc(r.book_name)}</span>` : ''}</div>
+        ${r.type === 'deconstruction' && r.deconstruction ? `<div class="ed-lookup-def">${esc(r.deconstruction)}</div>` : ''}
+        ${r.definition ? `<div class="ed-lookup-def">${esc(r.definition)}</div>` : ''}
+      </div>`).join('');
+  } catch (ex) {
+    pop.querySelector('.ed-lookup-body').textContent = ex.message;
+  }
 }
 
 // ══════════════════════════════════════════════════════════════

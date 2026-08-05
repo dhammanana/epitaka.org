@@ -25,6 +25,9 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
+/* The hidden attribute must always win over display rules — .ed-edit-box uses
+   display:flex, which would otherwise keep every edit textbox visible. */
+[hidden] { display: none !important; }
 body {
   font-family: var(--font-sans);
   background: var(--bg);
@@ -260,6 +263,89 @@ input, textarea, select { font-family: inherit; font-size: 0.95rem; }
 }
 .ed-book:hover { background: var(--accent-light); color: var(--accent-dark); }
 
+/* Glossary panel */
+.ed-ws-glossary { max-height: 32vh; display: flex; flex-direction: column; }
+.ed-glossary { overflow-y: auto; flex: 1; min-height: 0; }
+.ed-gloss-count { color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
+.ed-gloss-term {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 5px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 1.35;
+}
+.ed-gloss-term:hover { background: var(--accent-light); }
+.ed-gloss-term-pali { font-weight: 600; color: var(--accent-dark); white-space: nowrap; }
+.ed-gloss-term-trans { color: var(--text); font-size: 0.85rem; text-align: right; }
+.ed-gloss-note { font-size: 0.75rem; color: var(--muted); padding: 0 6px 6px; line-height: 1.4; }
+
+/* Glossary hits inside the Pāli text */
+.ed-gloss-hit {
+  background: rgba(139, 94, 60, 0.14);
+  border-bottom: 1px dotted var(--accent);
+  border-radius: 3px;
+  cursor: help;
+  padding: 0 1px;
+}
+.ed-gloss-hit:hover { background: rgba(139, 94, 60, 0.28); }
+
+/* Length-check chips */
+.ed-chip-check { cursor: help; }
+.ed-chip-too_short, .ed-chip-too_long { background: var(--warn-light); color: var(--warn); }
+.ed-chip-missing { background: var(--danger-light); color: var(--danger); }
+.ed-check-summary {
+  color: var(--warn);
+  font-size: 0.85rem;
+  font-weight: 600;
+  width: 100%;
+}
+
+/* Dictionary lookup popover */
+.ed-lookup-pop {
+  position: fixed;
+  z-index: 100;
+  width: 350px;
+  max-width: calc(100vw - 24px);
+  max-height: 60vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(60, 40, 20, 0.22);
+  padding: 12px 14px;
+}
+.ed-lookup-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.ed-lookup-title { font-weight: 700; color: var(--accent-dark); font-size: 1.05rem; }
+.ed-lookup-close {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+.ed-lookup-close:hover { background: var(--danger-light); color: var(--danger); }
+.ed-lookup-entry { border-top: 1px solid var(--border); padding: 8px 0 4px; }
+.ed-lookup-entry:first-child { border-top: none; }
+.ed-lookup-word { font-weight: 600; color: var(--trans-color); }
+.ed-lookup-src {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 1px 7px;
+  border-radius: 20px;
+  margin-left: 6px;
+}
+.ed-lookup-def { font-size: 0.85rem; color: var(--text); line-height: 1.45; margin-top: 2px; }
+
 /* TOC */
 .ed-toc-item {
   display: block;
@@ -411,6 +497,15 @@ input, textarea, select { font-family: inherit; font-size: 0.95rem; }
   padding: 8px 10px;
   background: #fdfcf9;
 }
+.ed-filter-note {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: var(--warn-light);
+}
 .ed-filters input { flex: 1; min-width: 160px; }
 .ed-review-actions {
   display: flex;
@@ -476,6 +571,55 @@ input, textarea, select { font-family: inherit; font-size: 0.95rem; }
 .ed-editor-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .ed-editor-fields .ed-field:has(.ed-f-lang) { grid-column: 1 / -1; }
 .ed-editor-fields .ed-check { grid-column: 1 / -1; }
+
+/* ── Account modal ─────────────────────────────────────────── */
+.ed-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(45, 36, 32, 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8vh 16px 16px;
+}
+.ed-modal {
+  width: 420px;
+  max-width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(45, 36, 32, 0.28);
+  padding: 20px 22px 22px;
+}
+.ed-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.ed-modal-head h3 { font-family: var(--font-serif); font-size: 1.3rem; color: var(--accent-dark); }
+.ed-modal-close {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1.05rem;
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.ed-modal-close:hover { background: var(--danger-light); color: var(--danger); }
+.ed-modal .ed-field input:disabled { background: #f3efe9; color: var(--muted); }
+.ed-account-sep {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  border-top: 1px dashed var(--border);
+  padding-top: 12px;
+  margin: 4px 0 10px;
+}
 
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 900px) {

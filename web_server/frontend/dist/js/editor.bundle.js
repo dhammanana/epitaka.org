@@ -1,4 +1,4 @@
-const{baseUrl:I}=window.EDITOR_CONFIG;async function c(t,{method:e="GET",body:a}={}){const s=await fetch(I+t,{method:e,headers:a?{"Content-Type":"application/json"}:void 0,body:a?JSON.stringify(a):void 0}),l=await s.json().catch(()=>({}));if(!s.ok)throw new Error(l.error||`HTTP ${s.status}`);return l}const n={me:null,langs:[],currentLang:null,menu:null,currentBook:null,toc:[],currentSection:null,sentences:[],remarks:[],reviewFilter:{lang:"",kind:"",status:"pending",book_id:"",offset:0},reviewItems:[],reviewTotals:{},selectedReview:new Map},E=document.getElementById("editor-root");function d(t=""){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}function S(){E.innerHTML=`
+const{baseUrl:R}=window.EDITOR_CONFIG;async function m(t,{method:e="GET",body:n}={}){const a=await fetch(R+t,{method:e,headers:n?{"Content-Type":"application/json"}:void 0,body:n?JSON.stringify(n):void 0}),o=await a.json().catch(()=>({}));if(!a.ok)throw new Error(o.error||`HTTP ${a.status}`);return o}const s={me:null,langs:[],currentLang:null,menu:null,currentBook:null,toc:[],currentSection:null,sentences:[],remarks:[],glossary:[],reviewFilter:{lang:"",kind:"",status:"pending",book_id:"",offset:0},reviewItems:[],reviewTotals:{},selectedReview:new Map},I=document.getElementById("editor-root");function r(t=""){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}const F=/&lt;(\/?)(b|i)&gt;/gi;function h(t=""){return r(t).replace(F,(e,n,a)=>`<${n}${a.toLowerCase()}>`)}function T(){I.innerHTML=`
     <div class="ed-login-wrap">
       <div class="ed-login-card">
         <div class="ed-login-logo">📖 E-Piṭaka</div>
@@ -17,15 +17,40 @@ const{baseUrl:I}=window.EDITOR_CONFIG;async function c(t,{method:e="GET",body:a}
           <button type="submit" class="ed-btn ed-btn-primary ed-btn-block" id="ed-login-btn">Sign in</button>
         </form>
       </div>
-    </div>`,document.getElementById("ed-login-form").addEventListener("submit",async t=>{t.preventDefault();const e=document.getElementById("ed-login-btn"),a=document.getElementById("ed-login-error");e.disabled=!0,e.textContent="Signing in…",a.hidden=!0;try{const s=await c("/editor/api/login",{method:"POST",body:{email:document.getElementById("ed-login-email").value,password:document.getElementById("ed-login-password").value}});n.me=s,await L()}catch(s){a.textContent=s.message,a.hidden=!1,e.disabled=!1,e.textContent="Sign in"}})}function A(){const t=n.me,e=t.is_super?`<button class="ed-nav-btn" data-view="workspace">✏️ Edit</button>
-       <button class="ed-nav-btn" data-view="review">🛂 Review${n.pendingCount?` <span class="ed-badge">${n.pendingCount}</span>`:""}</button>
-       <button class="ed-nav-btn" data-view="editors">👥 Editors</button>`:'<button class="ed-nav-btn" data-view="workspace">✏️ Edit</button>';E.innerHTML=`
+    </div>`,document.getElementById("ed-login-form").addEventListener("submit",async t=>{t.preventDefault();const e=document.getElementById("ed-login-btn"),n=document.getElementById("ed-login-error");e.disabled=!0,e.textContent="Signing in…",n.hidden=!0;try{const a=await m("/editor/api/login",{method:"POST",body:{email:document.getElementById("ed-login-email").value,password:document.getElementById("ed-login-password").value}});s.me=a,await A()}catch(a){n.textContent=a.message,n.hidden=!1,e.disabled=!1,e.textContent="Sign in"}})}function H(){if(document.querySelector(".ed-modal-overlay"))return;const t=s.me,e=document.createElement("div");e.className="ed-modal-overlay",e.innerHTML=`
+    <div class="ed-modal" role="dialog" aria-modal="true" aria-label="My account">
+      <div class="ed-modal-head">
+        <h3>👤 My account</h3>
+        <button class="ed-modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="ed-form">
+        <label class="ed-field"><span>Display name</span>
+          <input type="text" id="acc-name" maxlength="120" value="${r(t.display_name||"")}"></label>
+        <label class="ed-field"><span>Email</span>
+          <input type="email" id="acc-email" value="${r(t.email)}" disabled></label>
+        <div class="ed-account-sep">Change password</div>
+        <label class="ed-field"><span>Current password</span>
+          <input type="password" id="acc-cur" autocomplete="current-password"></label>
+        <label class="ed-field"><span>New password (min 8 chars)</span>
+          <input type="password" id="acc-new" autocomplete="new-password" minlength="8"></label>
+        <label class="ed-field"><span>Confirm new password</span>
+          <input type="password" id="acc-confirm" autocomplete="new-password" minlength="8"></label>
+        <p id="acc-msg" class="ed-error" hidden></p>
+        <div class="ed-edit-actions">
+          <button class="ed-btn ed-btn-primary" id="acc-save">Save changes</button>
+          <span class="ed-save-msg" id="acc-msg-ok"></span>
+        </div>
+      </div>
+    </div>`,document.body.appendChild(e);const n=o=>{o.key==="Escape"&&a()},a=()=>{document.removeEventListener("keydown",n),e.remove()};e.querySelector(".ed-modal-close").addEventListener("click",a),e.addEventListener("click",o=>{o.target===e&&a()}),document.addEventListener("keydown",n),e.querySelector("#acc-save").addEventListener("click",async()=>{const o=e.querySelector("#acc-msg"),i=e.querySelector("#acc-msg-ok"),d=e.querySelector("#acc-save");o.hidden=!0,i.textContent="";const c=e.querySelector("#acc-name").value.trim(),p=e.querySelector("#acc-cur").value,u=e.querySelector("#acc-new").value,f=e.querySelector("#acc-confirm").value;if(!c){o.textContent="Display name cannot be empty.",o.hidden=!1;return}const v=p||u||f;if(v){if(!p||!u||!f){o.textContent="Fill in all three password fields to change your password.",o.hidden=!1;return}if(u.length<8){o.textContent="New password must be at least 8 characters.",o.hidden=!1;return}if(u!==f){o.textContent="New password and confirmation do not match.",o.hidden=!1;return}}d.disabled=!0;try{await m("/editor/api/account",{method:"PATCH",body:{display_name:c}}),v&&await m("/editor/api/account/password",{method:"POST",body:{current_password:p,new_password:u}}),s.me.display_name=c;const l=document.querySelector(".ed-user-name");l&&(l.textContent=c),i.textContent="✓ Saved",e.querySelector("#acc-cur").value="",e.querySelector("#acc-new").value="",e.querySelector("#acc-confirm").value="",setTimeout(a,900)}catch(l){o.textContent=l.message,o.hidden=!1,d.disabled=!1}})}function P(){const t=s.me,e=`<button class="ed-nav-btn" data-view="workspace">✏️ Edit</button>
+    <button class="ed-nav-btn" data-view="review">🛂 Review${s.pendingCount?` <span class="ed-badge">${s.pendingCount}</span>`:""}</button>
+    ${t.is_super?'<button class="ed-nav-btn" data-view="editors">👥 Editors</button>':""}`;I.innerHTML=`
     <header class="ed-topbar">
       <div class="ed-brand">📖 E-Piṭaka <span class="ed-brand-sub">Translation Editor</span></div>
       <nav class="ed-nav">${e}</nav>
       <div class="ed-user">
-        <span class="ed-user-name">${d(t.display_name||t.email)}</span>
+        <span class="ed-user-name">${r(t.display_name||t.email)}</span>
         ${t.is_super?'<span class="ed-super-tag">admin</span>':""}
+        <button class="ed-btn ed-btn-ghost" id="ed-account">👤 Account</button>
         <button class="ed-btn ed-btn-ghost" id="ed-logout">Sign out</button>
       </div>
     </header>
@@ -33,13 +58,13 @@ const{baseUrl:I}=window.EDITOR_CONFIG;async function c(t,{method:e="GET",body:a}
       <div id="ed-workspace-view" class="ed-view" hidden></div>
       <div id="ed-review-view"   class="ed-view" hidden></div>
       <div id="ed-editors-view"  class="ed-view" hidden></div>
-    </div>`,document.querySelectorAll(".ed-nav-btn").forEach(a=>{a.addEventListener("click",()=>k(a.dataset.view))}),document.getElementById("ed-logout").addEventListener("click",async()=>{try{await c("/editor/api/logout",{method:"POST"})}catch{}n.me=null,S()}),k("workspace")}function k(t){document.querySelectorAll(".ed-nav-btn").forEach(a=>a.classList.toggle("is-active",a.dataset.view===t)),document.querySelectorAll(".ed-view").forEach(a=>a.hidden=!0);const e=document.getElementById(`ed-${t}-view`);e.hidden=!1,t==="workspace"?h():t==="review"?R():t==="editors"&&M()}async function L(){var e;const t=await c("/editor/api/languages");n.langs=t.languages,n.currentLang=((e=n.langs[0])==null?void 0:e.code)||null,n.currentLang&&await _(),A()}async function _(){if(!n.currentLang)return;const t=await c(`/editor/api/${n.currentLang}/books`);n.menu=t.menu,n.currentBook=null,n.toc=[],n.currentSection=null,n.sentences=[],n.remarks=[]}const w=["Mūla","Aṭṭhakathā","Ṭīkā"],q=["Vinaya","Suttanta","Sutta","Abhidhamma"];function h(){const t=document.getElementById("ed-workspace-view");t.innerHTML=`
+    </div>`,document.querySelectorAll(".ed-nav-btn").forEach(n=>{n.addEventListener("click",()=>_(n.dataset.view))}),document.getElementById("ed-account").addEventListener("click",H),document.getElementById("ed-logout").addEventListener("click",async()=>{try{await m("/editor/api/logout",{method:"POST"})}catch{}s.me=null,T()}),_("workspace")}function _(t){document.querySelectorAll(".ed-nav-btn").forEach(n=>n.classList.toggle("is-active",n.dataset.view===t)),document.querySelectorAll(".ed-view").forEach(n=>n.hidden=!0);const e=document.getElementById(`ed-${t}-view`);e.hidden=!1,t==="workspace"?L():t==="review"?Y():t==="editors"&&Q()}async function A(){var e;const t=await m("/editor/api/languages");s.langs=t.languages,s.currentLang=((e=s.langs[0])==null?void 0:e.code)||null,s.currentLang&&await B(),P()}async function B(){if(!s.currentLang)return;const t=await m(`/editor/api/${s.currentLang}/books`);s.menu=t.menu,s.currentBook=null,s.toc=[],s.currentSection=null,s.sentences=[],s.remarks=[],s.glossary=[]}const q=["Mūla","Aṭṭhakathā","Ṭīkā"],N=["Vinaya","Suttanta","Sutta","Abhidhamma"];function L(){const t=document.getElementById("ed-workspace-view");t.innerHTML=`
     <div class="ed-ws">
       <aside class="ed-ws-side">
         <div class="ed-ws-block">
           <div class="ed-ws-label">Language</div>
           <div class="ed-lang-row">
-            ${n.langs.map(e=>`<button class="ed-lang-chip${e.code===n.currentLang?" is-active":""}" data-lang="${e.code}" title="${d(e.english_name)}">${d(e.native_name)}</button>`).join("")}
+            ${s.langs.map(e=>`<button class="ed-lang-chip${e.code===s.currentLang?" is-active":""}" data-lang="${e.code}" title="${r(e.english_name)}">${r(e.native_name)}</button>`).join("")}
           </div>
         </div>
         <div class="ed-ws-block ed-ws-books">
@@ -51,53 +76,65 @@ const{baseUrl:I}=window.EDITOR_CONFIG;async function c(t,{method:e="GET",body:a}
           <div class="ed-ws-label">Section</div>
           <div id="ed-toc" class="ed-toc"></div>
         </div>
+        <div class="ed-ws-block ed-ws-glossary">
+          <div class="ed-ws-label">Glossary <span id="ed-gloss-count" class="ed-gloss-count"></span></div>
+          <div id="ed-glossary" class="ed-glossary"></div>
+        </div>
       </aside>
       <main class="ed-ws-main">
         <div class="ed-ws-head">
-          <h2 class="ed-ws-bookname">${n.currentBook?d(n.currentBook.name):"Choose a book"}</h2>
-          <span class="ed-ws-hint">Click a translation line to propose an edit</span>
+          <h2 class="ed-ws-bookname">${s.currentBook?r(s.currentBook.name):"Choose a book"}</h2>
+          <span class="ed-ws-hint">Click a translation line to propose an edit · double-click a Pāli word for the dictionary</span>
+          <span id="ed-check-summary" class="ed-check-summary"></span>
         </div>
         <div id="ed-lines" class="ed-lines"></div>
       </main>
-    </div>`,document.querySelectorAll(".ed-lang-chip").forEach(e=>{e.addEventListener("click",async()=>{e.dataset.lang!==n.currentLang&&(n.currentLang=e.dataset.lang,await _(),h())})}),T(),C(),y()}function B(){if(!n.menu)return[];const t=Object.keys(n.menu);return[...w.filter(a=>t.includes(a)),...t.filter(a=>!w.includes(a))].map(a=>({label:a,data:n.menu[a]}))}function T(){const t=document.getElementById("ed-book-tabs"),e=document.getElementById("ed-book-tree");if(!t||!e)return;const a=B();if(!a.length){e.innerHTML='<p class="ed-empty">No books in this language.</p>';return}t.innerHTML=a.map((i,o)=>`<button class="ed-tab${o===0?" is-active":""}" data-tab="${o}">${d(i.label)}</button>`).join("");const s=0,l=a.map((i,o)=>`<div class="ed-tree-panel${o===s?" is-active":""}" data-panel="${o}">${x(i.data)}</div>`).join("");e.innerHTML=l,t.querySelectorAll(".ed-tab").forEach(i=>{i.addEventListener("click",()=>{t.querySelectorAll(".ed-tab").forEach(o=>o.classList.toggle("is-active",o===i)),e.querySelectorAll(".ed-tree-panel").forEach(o=>o.classList.toggle("is-active",parseInt(o.dataset.panel)===parseInt(i.dataset.tab)))})}),e.querySelectorAll(".ed-nikaya-title").forEach(i=>{i.addEventListener("click",()=>{var o;i.classList.toggle("open"),(o=i.nextElementSibling)==null||o.classList.toggle("open")})}),e.querySelectorAll(".ed-book").forEach(i=>{i.addEventListener("click",async()=>{var u;const o=i.dataset.bookId;n.currentBook={id:o,name:i.dataset.bookName};const p=await c(`/editor/api/${n.currentLang}/book/${o}/toc`);n.toc=p.toc,n.currentSection=null,n.sentences=[],n.remarks=[],h(),(u=document.querySelector(".ed-ws-sections"))==null||u.scrollIntoView({behavior:"smooth",block:"start"})})})}function x(t){return!t||typeof t!="object"?"":Object.keys(t).sort((a,s)=>{const l=i=>{const o=q.findIndex(p=>i.includes(p));return o===-1?99:o};return l(a)-l(s)}).map(a=>`
+    </div>`,document.querySelectorAll(".ed-lang-chip").forEach(e=>{e.addEventListener("click",async()=>{e.dataset.lang!==s.currentLang&&(s.currentLang=e.dataset.lang,await B(),L())})}),D(),V(),x(),j()}function O(){if(!s.menu)return[];const t=Object.keys(s.menu);return[...q.filter(n=>t.includes(n)),...t.filter(n=>!q.includes(n))].map(n=>({label:n,data:s.menu[n]}))}function D(){const t=document.getElementById("ed-book-tabs"),e=document.getElementById("ed-book-tree");if(!t||!e)return;const n=O();if(!n.length){e.innerHTML='<p class="ed-empty">No books in this language.</p>';return}t.innerHTML=n.map((i,d)=>`<button class="ed-tab${d===0?" is-active":""}" data-tab="${d}">${r(i.label)}</button>`).join("");const a=0,o=n.map((i,d)=>`<div class="ed-tree-panel${d===a?" is-active":""}" data-panel="${d}">${G(i.data)}</div>`).join("");e.innerHTML=o,t.querySelectorAll(".ed-tab").forEach(i=>{i.addEventListener("click",()=>{t.querySelectorAll(".ed-tab").forEach(d=>d.classList.toggle("is-active",d===i)),e.querySelectorAll(".ed-tree-panel").forEach(d=>d.classList.toggle("is-active",parseInt(d.dataset.panel)===parseInt(i.dataset.tab)))})}),e.querySelectorAll(".ed-nikaya-title").forEach(i=>{i.addEventListener("click",()=>{var d;i.classList.toggle("open"),(d=i.nextElementSibling)==null||d.classList.toggle("open")})}),e.querySelectorAll(".ed-book").forEach(i=>{i.addEventListener("click",async()=>{var p;const d=i.dataset.bookId;s.currentBook={id:d,name:i.dataset.bookName};const c=await m(`/editor/api/${s.currentLang}/book/${d}/toc`);s.toc=c.toc,s.currentSection=null,s.sentences=[],s.remarks=[],s.glossary=[],L(),(p=document.querySelector(".ed-ws-sections"))==null||p.scrollIntoView({behavior:"smooth",block:"start"})})})}function G(t){return!t||typeof t!="object"?"":Object.keys(t).sort((n,a)=>{const o=i=>{const d=N.findIndex(c=>i.includes(c));return d===-1?99:d};return o(n)-o(a)}).map(n=>`
     <div class="ed-category">
-      <div class="ed-category-title">${d(a)}</div>
-      ${j(t[a])}
-    </div>`).join("")}function j(t){if(!t||typeof t!="object")return"";const e=[];return t[""]&&e.push(`<ol class="ed-book-list open">${$(t[""])}</ol>`),Object.entries(t).forEach(([a,s])=>{a!==""&&e.push(`
+      <div class="ed-category-title">${r(n)}</div>
+      ${W(t[n])}
+    </div>`).join("")}function W(t){if(!t||typeof t!="object")return"";const e=[];return t[""]&&e.push(`<ol class="ed-book-list open">${C(t[""])}</ol>`),Object.entries(t).forEach(([n,a])=>{n!==""&&e.push(`
       <div class="ed-nikaya">
-        <div class="ed-nikaya-title">${d(a)} <span class="ed-chev">▶</span></div>
-        <ol class="ed-book-list">${$(s)}</ol>
-      </div>`)}),e.join("")}function $(t){return Array.isArray(t)?t.map(([e,a])=>`<li><button class="ed-book" data-book-id="${d(e)}" data-book-name="${d(a)}">${d(a)}</button></li>`).join(""):""}function C(){const t=document.getElementById("ed-toc");if(t){if(!n.toc.length){t.innerHTML='<p class="ed-empty">Pick a book to see its sections.</p>';return}t.innerHTML=n.toc.map(e=>{const a=e.has_content;return`
-      <button class="ed-toc-item${n.currentSection===e.para_id?" is-active":""}" data-para="${e.para_id}"
+        <div class="ed-nikaya-title">${r(n)} <span class="ed-chev">▶</span></div>
+        <ol class="ed-book-list">${C(a)}</ol>
+      </div>`)}),e.join("")}function C(t){return Array.isArray(t)?t.map(([e,n])=>`<li><button class="ed-book" data-book-id="${r(e)}" data-book-name="${r(n)}">${r(n)}</button></li>`).join(""):""}function V(){const t=document.getElementById("ed-toc");if(t){if(!s.toc.length){t.innerHTML='<p class="ed-empty">Pick a book to see its sections.</p>';return}t.innerHTML=s.toc.map(e=>{const n=e.has_content;return`
+      <button class="ed-toc-item${s.currentSection===e.para_id?" is-active":""}" data-para="${e.para_id}"
               style="padding-left:${Math.min((e.level||1)-1,4)*14+8}px"
-              ${a?"":"disabled"}>
-        ${d(e.title)}${a?"":' <span class="ed-toc-no">·</span>'}
-      </button>`}).join(""),t.querySelectorAll(".ed-toc-item:not([disabled])").forEach(e=>{e.addEventListener("click",async()=>{n.currentSection=parseInt(e.dataset.para);const a=await c(`/editor/api/${n.currentLang}/book/${n.currentBook.id}/section/${n.currentSection}`);n.sentences=a.sentences,n.remarks=a.remarks,y()})})}}function F(t,e){return(n.remarks||[]).filter(a=>a.para_id===t&&a.line_id===e)}function y(){const t=document.getElementById("ed-lines");if(t){if(!n.sentences.length){t.innerHTML='<p class="ed-empty">Pick a section to edit its lines.</p>';return}t.innerHTML=n.sentences.map((e,a)=>{const s=F(e.para_id,e.line_id),l=s.filter(r=>r.kind==="ai"),i=s.filter(r=>r.kind==="human"),o=l.map(r=>`
+              ${n?"":"disabled"}>
+        ${r(e.title)}${n?"":' <span class="ed-toc-no">·</span>'}
+      </button>`}).join(""),t.querySelectorAll(".ed-toc-item:not([disabled])").forEach(e=>{e.addEventListener("click",async()=>{s.currentSection=parseInt(e.dataset.para);const n=await m(`/editor/api/${s.currentLang}/book/${s.currentBook.id}/section/${s.currentSection}`);s.sentences=n.sentences,s.remarks=n.remarks,s.glossary=n.glossary||[],x(),j()})})}}function j(){const t=document.getElementById("ed-glossary"),e=document.getElementById("ed-gloss-count");if(!t)return;const n=s.glossary||[];if(e&&(e.textContent=n.length?`${n.length} term${n.length===1?"":"s"}`:""),!n.length){t.innerHTML='<p class="ed-empty">No glossary terms for this section.</p>';return}t.innerHTML=n.map(a=>`
+    <button class="ed-gloss-term" data-word="${r(a.pali)}" title="${r(a.translation||"")}">
+      <span class="ed-gloss-term-pali">${r(a.pali)}</span>
+      <span class="ed-gloss-term-trans">${r(a.translation||"")}</span>
+    </button>
+    ${a.note?`<p class="ed-gloss-note">${r(a.note)}</p>`:""}
+  `).join(""),t.querySelectorAll(".ed-gloss-term").forEach(a=>{a.addEventListener("click",()=>E(a.dataset.word,a))})}function U(t=""){return String(t).replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}let M=!0;try{new RegExp("(?<=a)b")}catch{M=!1}function K(){const t=(s.glossary||[]).filter(e=>e.pali&&e.pali.length<=40).sort((e,n)=>n.pali.length-e.pali.length);!M||!t.length||document.querySelectorAll(".ed-line-pali").forEach(e=>{const n=document.createTreeWalker(e,NodeFilter.SHOW_TEXT),a=[];for(;n.nextNode();)a.push(n.currentNode);a.forEach(o=>{const i=o.nodeValue||"";if(!i)return;const d=[];for(const l of t){const g=new RegExp(`(?<![\\p{L}\\p{N}])(${U(l.pali)})(?![\\p{L}\\p{N}])`,"giu");let k;for(;(k=g.exec(i))!==null;)d.push({start:k.index,end:k.index+k[1].length,term:l})}if(!d.length)return;d.sort((l,g)=>l.start-g.start||g.end-g.start-(l.end-l.start));const c=[];let p=-1;for(const l of d)l.start>=p&&(c.push(l),p=l.end);const u=o.parentNode,f=document.createDocumentFragment();let v=0;for(const l of c){l.start>v&&f.appendChild(document.createTextNode(i.slice(v,l.start)));const g=document.createElement("span");g.className="ed-gloss-hit",g.dataset.word=l.term.pali,g.title=l.term.translation||"Glossary term",g.textContent=i.slice(l.start,l.end),f.appendChild(g),v=l.end}v<i.length&&f.appendChild(document.createTextNode(i.slice(v))),u.replaceChild(f,o)})})}function X(t,e){return(s.remarks||[]).filter(n=>n.para_id===t&&n.line_id===e)}function x(){const t=document.getElementById("ed-lines");if(!t)return;if(!s.sentences.length){t.innerHTML='<p class="ed-empty">Pick a section to edit its lines.</p>';return}const e=s.sentences.filter(a=>(a.checks||[]).length).length,n=document.getElementById("ed-check-summary");n&&(n.textContent=e?`⚠ ${e} line${e===1?"":"s"} flagged by length check — hover the chip for details`:""),t.innerHTML=s.sentences.map((a,o)=>{const i=X(a.para_id,a.line_id),d=i.filter(l=>l.kind==="ai"),c=i.filter(l=>l.kind==="human"),p=d.map(l=>`
       <div class="ed-remark ed-remark-ai" title="AI finding">
-        <div class="ed-remark-head">⚡ AI finding${r.status==="applied"?' <em class="ed-st-applied">· applied</em>':""}</div>
-        ${r.translation&&r.translation!==e.translation?`<p class="ed-remark-fix"><span class="ed-remark-label">Suggestion</span><ins>${d(r.translation)}</ins></p>`:""}
-        ${r.conflict?`<p class="ed-remark-note"><span class="ed-remark-label">Conflict</span>${d(r.conflict)}</p>`:""}
-        ${r.note?`<p class="ed-remark-note">${d(r.note)}</p>`:""}
-      </div>`).join(""),p=i.map(r=>{const b=r.proposed||r.translation||"";return`
+        <div class="ed-remark-head">⚡ AI finding${l.status==="applied"?' <em class="ed-st-applied">· applied</em>':""}</div>
+        ${l.translation&&l.translation!==a.translation?`<p class="ed-remark-fix"><span class="ed-remark-label">Suggestion</span><ins>${h(l.translation)}</ins></p>`:""}
+        ${l.conflict?`<p class="ed-remark-note"><span class="ed-remark-label">Conflict</span>${r(l.conflict)}</p>`:""}
+        ${l.note?`<p class="ed-remark-note">${r(l.note)}</p>`:""}
+      </div>`).join(""),u=c.map(l=>{const g=l.proposed||l.translation||"";return`
       <div class="ed-remark ed-remark-human">
         <div class="ed-remark-head">
-          🖊 ${d(r.editor_name||"Human")} · <em class="ed-st-${r.status}">${r.status}</em>
-          ${r.created_at?` <span class="ed-remark-date">${d(r.created_at)}</span>`:""}
+          🖊 ${r(l.editor_name||"Human")} · <em class="ed-st-${l.status}">${l.status}</em>
+          ${l.created_at?` <span class="ed-remark-date">${r(l.created_at)}</span>`:""}
         </div>
-        ${r.note?`<p class="ed-remark-note">${d(r.note)}</p>`:""}
-        ${b&&b!==e.translation?`<p class="ed-remark-fix"><del>${d(e.translation)}</del> → <ins>${d(b)}</ins></p>`:""}
-      </div>`}).join(""),u=i.some(r=>r.status==="pending");return`
-      <div class="ed-line" data-para="${e.para_id}" data-line="${e.line_id}" id="edl-${e.para_id}-${e.line_id}">
+        ${l.note?`<p class="ed-remark-note">${r(l.note)}</p>`:""}
+        ${g&&g!==a.translation?`<p class="ed-remark-fix"><del>${h(a.translation)}</del> → <ins>${h(g)}</ins></p>`:""}
+      </div>`}).join(""),f=c.some(l=>l.status==="pending"),v=(a.checks||[]).map(l=>`<span class="ed-chip ed-chip-check ed-chip-${l.code}" title="${r(l.msg)}">⚠ ${r(l.label)}</span>`).join("");return`
+      <div class="ed-line" data-para="${a.para_id}" data-line="${a.line_id}" id="edl-${a.para_id}-${a.line_id}">
         <div class="ed-line-meta">
-          <span class="ed-line-num">¶${e.para_id}.${e.line_id}</span>
-          ${u?'<span class="ed-chip ed-chip-pending">proposed</span>':""}
+          <span class="ed-line-num">¶${a.para_id}.${a.line_id}</span>
+          ${f?'<span class="ed-chip ed-chip-pending">proposed</span>':""}
+          ${v}
         </div>
-        <div class="ed-line-pali">${d(e.pali)}</div>
-        <div class="ed-line-trans" data-role="trans">${d(e.translation)}</div>
-        ${o}
+        <div class="ed-line-pali" data-role="pali" title="Double-click a Pāli word for the dictionary">${h(a.pali)}</div>
+        <div class="ed-line-trans" data-role="trans">${h(a.translation)}</div>
         ${p}
+        ${u}
         <div class="ed-edit-box" hidden>
-          <textarea class="ed-textarea" rows="3" placeholder="Proposed translation…">${d(e.translation)}</textarea>
+          <textarea class="ed-textarea" rows="3" placeholder="Proposed translation…">${r(a.translation)}</textarea>
           <input type="text" class="ed-note" placeholder="Optional note for the reviewer" maxlength="1000">
           <div class="ed-edit-actions">
             <button class="ed-btn ed-btn-primary ed-save">Save proposal</button>
@@ -105,28 +142,28 @@ const{baseUrl:I}=window.EDITOR_CONFIG;async function c(t,{method:e="GET",body:a}
             <span class="ed-save-msg"></span>
           </div>
         </div>
-      </div>`}).join(""),t.querySelectorAll(".ed-line-trans").forEach(e=>{e.addEventListener("click",()=>{const a=e.closest(".ed-line");a.querySelector(".ed-edit-box").hidden=!1;const s=a.querySelector(".ed-textarea");s.focus(),s.setSelectionRange(s.value.length,s.value.length)})}),t.querySelectorAll(".ed-edit-box").forEach(e=>{const a=e.closest(".ed-line"),s=parseInt(a.dataset.para),l=parseInt(a.dataset.line);e.querySelector(".ed-cancel").addEventListener("click",()=>{e.hidden=!0}),e.querySelector(".ed-save").addEventListener("click",async()=>{const i=e.querySelector(".ed-textarea").value.trim(),o=e.querySelector(".ed-note").value.trim(),p=e.querySelector(".ed-save-msg");if(!i){p.textContent="Translation cannot be empty.";return}p.textContent="Saving…";const u=e.querySelector(".ed-save");u.disabled=!0;try{await c(`/editor/api/${n.currentLang}/book/${n.currentBook.id}/line`,{method:"POST",body:{para_id:s,line_id:l,proposed:i,note:o}}),p.textContent="✓ Saved as proposal",e.hidden=!0;const r=await c(`/editor/api/${n.currentLang}/book/${n.currentBook.id}/section/${n.currentSection}`);n.sentences=r.sentences,n.remarks=r.remarks,y()}catch(r){p.textContent=r.message,u.disabled=!1}})})}}async function m(){const t=n.reviewFilter,e=new URLSearchParams;t.lang&&e.set("lang",t.lang),t.kind&&e.set("kind",t.kind),t.status&&e.set("status",t.status),t.book_id&&e.set("book_id",t.book_id),e.set("offset",t.offset);const a=await c(`/editor/api/review?${e}`);n.reviewItems=a.items,n.reviewTotals=a.totals,n.selectedReview=new Map,n.pendingCount=t.status==="pending"?Object.values(a.totals).reduce((s,l)=>s+l,0):n.pendingCount||0}function R(){const t=document.getElementById("ed-review-view");t.innerHTML=`
+      </div>`}).join(""),t.querySelectorAll(".ed-line-trans").forEach(a=>{a.addEventListener("click",()=>{const o=a.closest(".ed-line"),i=o.querySelector(".ed-edit-box");a.hidden=!0,i.hidden=!1;const d=o.querySelector(".ed-textarea");d.focus(),d.setSelectionRange(d.value.length,d.value.length)})}),K(),t.querySelectorAll(".ed-gloss-hit").forEach(a=>{a.addEventListener("click",o=>{o.stopPropagation(),E(a.dataset.word,a)})}),t.querySelectorAll(".ed-line-pali").forEach(a=>{a.addEventListener("dblclick",o=>{let i="";const d=window.getSelection();d&&d.rangeCount&&!d.isCollapsed&&(i=d.toString().trim()),(!i||/\s/.test(i)||i.length>40)&&(i=J(a,o.clientX,o.clientY)),i&&E(i,o.target)})}),t.querySelectorAll(".ed-edit-box").forEach(a=>{const o=a.closest(".ed-line"),i=parseInt(o.dataset.para),d=parseInt(o.dataset.line);a.querySelector(".ed-cancel").addEventListener("click",()=>{a.hidden=!0,o.querySelector(".ed-line-trans").hidden=!1}),a.querySelector(".ed-save").addEventListener("click",async()=>{const c=a.querySelector(".ed-textarea").value.trim(),p=a.querySelector(".ed-note").value.trim(),u=a.querySelector(".ed-save-msg");if(!c){u.textContent="Translation cannot be empty.";return}u.textContent="Saving…";const f=a.querySelector(".ed-save");f.disabled=!0;try{await m(`/editor/api/${s.currentLang}/book/${s.currentBook.id}/line`,{method:"POST",body:{para_id:i,line_id:d,proposed:c,note:p}}),u.textContent="✓ Saved as proposal",a.hidden=!0;const v=await m(`/editor/api/${s.currentLang}/book/${s.currentBook.id}/section/${s.currentSection}`);s.sentences=v.sentences,s.remarks=v.remarks,x()}catch(v){u.textContent=v.message,f.disabled=!1}})})}async function y(){const t=s.reviewFilter,e=new URLSearchParams;t.lang&&e.set("lang",t.lang),t.kind&&e.set("kind",t.kind),t.status&&e.set("status",t.status),t.book_id&&e.set("book_id",t.book_id),e.set("offset",t.offset);const n=await m(`/editor/api/review?${e}`);s.reviewItems=n.items,s.reviewTotals=n.totals,s.selectedReview=new Map,s.pendingCount=t.status==="pending"?Object.values(n.totals).reduce((a,o)=>a+o,0):s.pendingCount||0}function Y(){var o;const t=document.getElementById("ed-review-view"),e=!!((o=s.me)!=null&&o.is_super);e||(s.reviewFilter.kind="ai");const n=e?`<select id="rf-kind">
+        <option value="">All kinds</option>
+        <option value="human" ${s.reviewFilter.kind==="human"?"selected":""}>Human proposals</option>
+        <option value="ai" ${s.reviewFilter.kind==="ai"?"selected":""}>AI findings</option>
+      </select>`:'<span class="ed-filter-note">AI findings</span>',a=e?"Approve AI findings and human proposals. Applied changes write directly into the translation database.":"You review the AI findings; the admin reviews human proposals. Applied changes write directly into the translation database.";t.innerHTML=`
     <div class="ed-review">
       <div class="ed-review-head">
         <h2>🛂 Review queue</h2>
-        <p class="ed-ws-hint">Approve AI findings and human proposals. Applied changes write directly into the translation database.</p>
+        <p class="ed-ws-hint">${r(a)}</p>
       </div>
       <div class="ed-filters">
         <select id="rf-lang">
           <option value="">All languages</option>
-          ${n.langs.map(e=>`<option value="${e.code}" ${n.reviewFilter.lang===e.code?"selected":""}>${d(e.english_name)}</option>`).join("")}
+          ${s.langs.map(i=>`<option value="${i.code}" ${s.reviewFilter.lang===i.code?"selected":""}>${r(i.english_name)}</option>`).join("")}
         </select>
-        <select id="rf-kind">
-          <option value="">All kinds</option>
-          <option value="human" ${n.reviewFilter.kind==="human"?"selected":""}>Human proposals</option>
-          <option value="ai" ${n.reviewFilter.kind==="ai"?"selected":""}>AI findings</option>
-        </select>
+        ${n}
         <select id="rf-status">
           <option value="pending">Pending</option>
-          <option value="applied" ${n.reviewFilter.status==="applied"?"selected":""}>Applied</option>
-          <option value="rejected" ${n.reviewFilter.status==="rejected"?"selected":""}>Rejected</option>
+          <option value="applied" ${s.reviewFilter.status==="applied"?"selected":""}>Applied</option>
+          <option value="rejected" ${s.reviewFilter.status==="rejected"?"selected":""}>Rejected</option>
         </select>
-        <input type="text" id="rf-book" placeholder="Book id (e.g. Dhp-a)" value="${d(n.reviewFilter.book_id)}">
+        <input type="text" id="rf-book" placeholder="Book id (e.g. Dhp-a)" value="${r(s.reviewFilter.book_id)}">
         <button class="ed-btn" id="rf-apply">Filter</button>
       </div>
       <div class="ed-review-actions">
@@ -137,31 +174,41 @@ const{baseUrl:I}=window.EDITOR_CONFIG;async function c(t,{method:e="GET",body:a}
       </div>
       <div class="ed-review-list" id="ed-review-list"></div>
       <div class="ed-pager">
-        <button class="ed-btn ed-btn-ghost" id="rv-prev" ${n.reviewFilter.offset===0?"disabled":""}>← Prev</button>
-        <span class="ed-pager-info">offset ${n.reviewFilter.offset}</span>
-        <button class="ed-btn ed-btn-ghost" id="rv-next" ${n.reviewItems.length<100?"disabled":""}>Next →</button>
+        <button class="ed-btn ed-btn-ghost" id="rv-prev" ${s.reviewFilter.offset===0?"disabled":""}>← Prev</button>
+        <span class="ed-pager-info">offset ${s.reviewFilter.offset}</span>
+        <button class="ed-btn ed-btn-ghost" id="rv-next" ${s.reviewItems.length<100?"disabled":""}>Next →</button>
       </div>
-    </div>`,t.querySelectorAll("#rf-lang, #rf-kind, #rf-status").forEach(e=>{e.addEventListener("change",()=>{n.reviewFilter.lang=document.getElementById("rf-lang").value,n.reviewFilter.kind=document.getElementById("rf-kind").value,n.reviewFilter.status=document.getElementById("rf-status").value,n.reviewFilter.offset=0})}),t.querySelector("#rf-apply").addEventListener("click",async()=>{n.reviewFilter.book_id=document.getElementById("rf-book").value.trim(),n.reviewFilter.offset=0;try{await m(),v()}catch(e){g(e.message)}}),t.querySelector("#rv-prev").addEventListener("click",async()=>{n.reviewFilter.offset=Math.max(0,n.reviewFilter.offset-100),await m(),v()}),t.querySelector("#rv-next").addEventListener("click",async()=>{n.reviewFilter.offset+=100,await m(),v()}),t.querySelector("#rv-apply-selected").addEventListener("click",async()=>{const e=[...n.selectedReview.values()];if(!e.length)return g("Select remarks first.");const a=await c("/editor/api/review/apply",{method:"POST",body:{items:e}});await m(),v();const s=a.results.filter(i=>i.ok).length,l=a.results.filter(i=>!i.ok).map(i=>i.message).join("; ");g(`Applied ${s}/${e.length}.${l?" "+l:""}`)}),t.querySelector("#rv-reject-selected").addEventListener("click",async()=>{const e=[...n.selectedReview.values()];if(!e.length)return g("Select remarks first.");await c("/editor/api/review/reject",{method:"POST",body:{items:e}}),await m(),v(),g(`Rejected ${e.length}.`)}),t.querySelector("#rv-apply-all").addEventListener("click",async()=>{if(!confirm("Apply ALL pending remarks matching the current filter? This directly changes the translation database."))return;const e=await c("/editor/api/review/apply_all",{method:"POST",body:{lang:n.reviewFilter.lang,kind:n.reviewFilter.kind,status:"pending",book_id:n.reviewFilter.book_id}}),a=e.summary.reduce((l,i)=>l+i.applied,0),s=e.summary.reduce((l,i)=>l+i.failed,0);await m(),v(),g(`Applied ${a}, failed ${s}.`)}),v()}function v(){const t=document.getElementById("ed-review-list");if(t){if(!n.reviewItems.length){t.innerHTML='<p class="ed-empty">Nothing here. Adjust the filters.</p>';return}t.innerHTML=n.reviewItems.map(e=>{const a=`${e.lang}:${e.id}`,s=n.selectedReview.has(a)?"checked":"",l=e.kind==="human",i=l&&e.proposed||e.translation||"",o=e.applicable&&i?`<p class="ed-remark-fix"><del>${d(e.live)}</del> → <ins>${d(i)}</ins></p>`:"",p=!e.applicable&&(i||e.apply_msg)?`<p class="ed-remark-note"><span class="ed-remark-label">Not auto-appliable</span>${d(e.apply_msg||"See reasons below")}</p>`:"";return`
-      <div class="ed-rv-item" data-key="${d(a)}">
+    </div>`,t.querySelectorAll("#rf-lang, #rf-kind, #rf-status").forEach(i=>{i.addEventListener("change",()=>{s.reviewFilter.lang=document.getElementById("rf-lang").value;const d=document.getElementById("rf-kind");d&&(s.reviewFilter.kind=d.value),s.reviewFilter.status=document.getElementById("rf-status").value,s.reviewFilter.offset=0})}),t.querySelector("#rf-apply").addEventListener("click",async()=>{s.reviewFilter.book_id=document.getElementById("rf-book").value.trim(),s.reviewFilter.offset=0;try{await y(),b()}catch(i){w(i.message)}}),t.querySelector("#rv-prev").addEventListener("click",async()=>{s.reviewFilter.offset=Math.max(0,s.reviewFilter.offset-100),await y(),b()}),t.querySelector("#rv-next").addEventListener("click",async()=>{s.reviewFilter.offset+=100,await y(),b()}),t.querySelector("#rv-apply-selected").addEventListener("click",async()=>{const i=[...s.selectedReview.values()];if(!i.length)return w("Select remarks first.");const d=await m("/editor/api/review/apply",{method:"POST",body:{items:i}});await y(),b();const c=d.results.filter(u=>u.ok).length,p=d.results.filter(u=>!u.ok).map(u=>u.message).join("; ");w(`Applied ${c}/${i.length}.${p?" "+p:""}`)}),t.querySelector("#rv-reject-selected").addEventListener("click",async()=>{const i=[...s.selectedReview.values()];if(!i.length)return w("Select remarks first.");await m("/editor/api/review/reject",{method:"POST",body:{items:i}}),await y(),b(),w(`Rejected ${i.length}.`)}),t.querySelector("#rv-apply-all").addEventListener("click",async()=>{if(!confirm("Apply ALL pending remarks matching the current filter? This directly changes the translation database."))return;const i=await m("/editor/api/review/apply_all",{method:"POST",body:{lang:s.reviewFilter.lang,kind:s.reviewFilter.kind,status:"pending",book_id:s.reviewFilter.book_id}}),d=i.summary.reduce((p,u)=>p+u.applied,0),c=i.summary.reduce((p,u)=>p+u.failed,0);await y(),b(),w(`Applied ${d}, failed ${c}.`)}),y().then(()=>b()).catch(i=>w(i.message))}function b(){const t=document.getElementById("ed-review-list");if(t){if(!s.reviewItems.length){t.innerHTML='<p class="ed-empty">Nothing here. Adjust the filters.</p>';return}t.innerHTML=s.reviewItems.map(e=>{const n=`${e.lang}:${e.id}`,a=s.selectedReview.has(n)?"checked":"",o=e.kind==="human",i=o&&e.proposed||e.translation||"",d=e.applicable&&i?`<p class="ed-remark-fix"><del>${h(e.live)}</del> → <ins>${h(i)}</ins></p>`:"",c=!e.applicable&&(i||e.apply_msg)?`<p class="ed-remark-note"><span class="ed-remark-label">Not auto-appliable</span>${r(e.apply_msg||"See reasons below")}</p>`:"";return`
+      <div class="ed-rv-item" data-key="${r(n)}">
         <label class="ed-rv-check">
-          <input type="checkbox" class="rv-cb" data-lang="${d(e.lang)}" data-id="${e.id}" ${s}>
+          <input type="checkbox" class="rv-cb" data-lang="${r(e.lang)}" data-id="${e.id}" ${a}>
         </label>
         <div class="ed-rv-body">
           <div class="ed-rv-meta">
-            <span class="ed-chip ed-chip-${e.kind}">${l?"human":"AI"}</span>
-            <span class="ed-rv-book">${d(e.book_id)}</span>
+            <span class="ed-chip ed-chip-${e.kind}">${o?"human":"AI"}</span>
+            <span class="ed-rv-book">${r(e.book_id)}</span>
             <span class="ed-rv-pos">¶${e.para_id}.${e.line_id}</span>
-            <span class="ed-rv-lang">${d(e.lang)}</span>
-            ${e.editor_name?`<span class="ed-rv-editor">by ${d(e.editor_name)}</span>`:""}
+            <span class="ed-rv-lang">${r(e.lang)}</span>
+            ${e.editor_name?`<span class="ed-rv-editor">by ${r(e.editor_name)}</span>`:""}
             <em class="ed-st-${e.status}">${e.status}</em>
           </div>
-          <div class="ed-rv-pali">${d(e.pali)}</div>
-          ${o}
-          ${p}
-          ${e.conflict?`<p class="ed-remark-note"><span class="ed-remark-label">Conflict</span>${d(e.conflict)}</p>`:""}
-          ${e.note?`<p class="ed-remark-note">${d(e.note)}</p>`:""}
+          <div class="ed-rv-pali">${h(e.pali)}</div>
+          ${d}
+          ${c}
+          ${e.conflict?`<p class="ed-remark-note"><span class="ed-remark-label">Conflict</span>${r(e.conflict)}</p>`:""}
+          ${e.note?`<p class="ed-remark-note">${r(e.note)}</p>`:""}
         </div>
-      </div>`}).join(""),t.querySelectorAll(".rv-cb").forEach(e=>{e.addEventListener("change",()=>{const a=e.dataset.lang,s=parseInt(e.dataset.id),l=`${a}:${s}`;e.checked?n.selectedReview.set(l,{lang:a,id:s}):n.selectedReview.delete(l)})})}}function g(t){const e=document.getElementById("rv-msg");e&&(e.textContent=t)}async function H(){return(await c("/editor/api/editors")).editors}function M(){const t=document.getElementById("ed-editors-view");t.innerHTML=`
+      </div>`}).join(""),t.querySelectorAll(".rv-cb").forEach(e=>{e.addEventListener("change",()=>{const n=e.dataset.lang,a=parseInt(e.dataset.id),o=`${n}:${a}`;e.checked?s.selectedReview.set(o,{lang:n,id:a}):s.selectedReview.delete(o)})})}}function w(t){const e=document.getElementById("rv-msg");e&&(e.textContent=t)}function J(t,e,n){const a=document.caretRangeFromPoint?document.caretRangeFromPoint(e,n):null;if(!a||!a.startContainer||!t.contains(a.startContainer))return"";const o=a.startContainer.nodeValue||"";let i=a.startOffset,d=i,c=i;for(;d>0&&/[\p{L}\p{N}]/u.test(o[d-1]);)d--;for(;c<o.length&&/[\p{L}\p{N}]/u.test(o[c]);)c++;return o.slice(d,c)}function $(){document.querySelectorAll(".ed-lookup-pop").forEach(t=>t.remove())}document.addEventListener("click",t=>{t.target.closest(".ed-lookup-pop")||$()});document.addEventListener("keydown",t=>{t.key==="Escape"&&$()});async function E(t,e){if($(),!t)return;const n=document.createElement("div");n.className="ed-lookup-pop",n.innerHTML=`
+    <div class="ed-lookup-head">
+      <span class="ed-lookup-title">📖 ${r(t)}</span>
+      <button class="ed-lookup-close" aria-label="Close">✕</button>
+    </div>
+    <div class="ed-lookup-body ed-empty">Looking up…</div>`,document.body.appendChild(n);const a=e&&e.getBoundingClientRect?e.getBoundingClientRect():null,o=a?a.left:120,i=a?a.bottom+8:120;n.style.left=`${Math.max(8,Math.min(o,window.innerWidth-360))}px`,n.style.top=`${Math.max(8,Math.min(i,window.innerHeight-200))}px`,n.querySelector(".ed-lookup-close").addEventListener("click",$);try{const d=await m(`/editor/api/lookup?word=${encodeURIComponent(t)}`),c=n.querySelector(".ed-lookup-body");if(!d.results||!d.results.length){c.textContent="No dictionary entry found for this word.";return}c.innerHTML=d.results.map(p=>`
+      <div class="ed-lookup-entry">
+        <div class="ed-lookup-word">${r(p.word)}${p.book_name?` <span class="ed-lookup-src">${r(p.book_name)}</span>`:""}</div>
+        ${p.type==="deconstruction"&&p.deconstruction?`<div class="ed-lookup-def">${r(p.deconstruction)}</div>`:""}
+        ${p.definition?`<div class="ed-lookup-def">${r(p.definition)}</div>`:""}
+      </div>`).join("")}catch(d){n.querySelector(".ed-lookup-body").textContent=d.message}}async function z(){return(await m("/editor/api/editors")).editors}function Q(){const t=document.getElementById("ed-editors-view");t.innerHTML=`
     <div class="ed-editors">
       <div class="ed-review-head">
         <h2>👥 Editor accounts</h2>
@@ -178,7 +225,7 @@ const{baseUrl:I}=window.EDITOR_CONFIG;async function c(t,{method:e="GET",body:a}
             <div class="ed-field">
               <span>Can edit languages</span>
               <div class="ed-lang-checkbox-row" id="ne-langs">
-                ${n.langs.map(e=>`<label class="ed-lang-check"><input type="checkbox" value="${e.code}"> ${d(e.english_name)}</label>`).join("")}
+                ${s.langs.map(e=>`<label class="ed-lang-check"><input type="checkbox" value="${e.code}"> ${r(e.english_name)}</label>`).join("")}
               </div>
             </div>
             <label class="ed-check"><input type="checkbox" id="ne-super"> Super admin</label>
@@ -192,31 +239,31 @@ const{baseUrl:I}=window.EDITOR_CONFIG;async function c(t,{method:e="GET",body:a}
           <div id="ed-editor-list"></div>
         </div>
       </div>
-    </div>`,document.getElementById("ed-new-form").addEventListener("submit",async e=>{e.preventDefault();const a=document.getElementById("ne-msg");a.hidden=!0;const s=[...document.querySelectorAll("#ne-langs input:checked")].map(l=>l.value);try{await c("/editor/api/editors",{method:"POST",body:{display_name:document.getElementById("ne-name").value,email:document.getElementById("ne-email").value,password:document.getElementById("ne-pass").value,langs:s,is_super:document.getElementById("ne-super").checked}}),await f(),document.getElementById("ed-new-form").reset()}catch(l){a.textContent=l.message,a.hidden=!1}}),f()}async function f(){const t=document.getElementById("ed-editor-list");if(!t)return;const e=await H();t.innerHTML=e.map(a=>`
-    <div class="ed-editor-card" data-eid="${a.id}">
+    </div>`,document.getElementById("ed-new-form").addEventListener("submit",async e=>{e.preventDefault();const n=document.getElementById("ne-msg");n.hidden=!0;const a=[...document.querySelectorAll("#ne-langs input:checked")].map(o=>o.value);try{await m("/editor/api/editors",{method:"POST",body:{display_name:document.getElementById("ne-name").value,email:document.getElementById("ne-email").value,password:document.getElementById("ne-pass").value,langs:a,is_super:document.getElementById("ne-super").checked}}),await S(),document.getElementById("ed-new-form").reset()}catch(o){n.textContent=o.message,n.hidden=!1}}),S()}async function S(){const t=document.getElementById("ed-editor-list");if(!t)return;const e=await z();t.innerHTML=e.map(n=>`
+    <div class="ed-editor-card" data-eid="${n.id}">
       <div class="ed-editor-top">
         <div>
-          <strong>${d(a.display_name||a.email)}</strong>
-          ${a.is_super?'<span class="ed-super-tag">admin</span>':""}
+          <strong>${r(n.display_name||n.email)}</strong>
+          ${n.is_super?'<span class="ed-super-tag">admin</span>':""}
         </div>
         <div class="ed-editor-actions">
-          <button class="ed-btn ed-btn-ghost ed-ed-save" data-eid="${a.id}">Save</button>
-          <button class="ed-btn ed-btn-danger ed-ed-del" data-eid="${a.id}">Delete</button>
+          <button class="ed-btn ed-btn-ghost ed-ed-save" data-eid="${n.id}">Save</button>
+          <button class="ed-btn ed-btn-danger ed-ed-del" data-eid="${n.id}">Delete</button>
         </div>
       </div>
       <div class="ed-editor-fields">
         <label class="ed-field"><span>Display name</span>
-          <input type="text" class="ed-f-name" value="${d(a.display_name)}"></label>
+          <input type="text" class="ed-f-name" value="${r(n.display_name)}"></label>
         <label class="ed-field"><span>Email</span>
-          <input type="email" class="ed-f-email" value="${d(a.email)}"></label>
+          <input type="email" class="ed-f-email" value="${r(n.email)}"></label>
         <label class="ed-field"><span>New password (leave blank to keep)</span>
           <input type="password" class="ed-f-pass" placeholder="••••••••"></label>
         <div class="ed-field"><span>Languages</span>
           <div class="ed-lang-checkbox-row">
-            ${n.langs.map(s=>`<label class="ed-lang-check"><input type="checkbox" class="ed-f-lang" value="${s.code}" ${a.langs.includes(s.code)?"checked":""}> ${d(s.english_name)}</label>`).join("")}
+            ${s.langs.map(a=>`<label class="ed-lang-check"><input type="checkbox" class="ed-f-lang" value="${a.code}" ${n.langs.includes(a.code)?"checked":""}> ${r(a.english_name)}</label>`).join("")}
           </div>
         </div>
-        <label class="ed-check"><input type="checkbox" class="ed-f-super" ${a.is_super?"checked":""}> Super admin</label>
+        <label class="ed-check"><input type="checkbox" class="ed-f-super" ${n.is_super?"checked":""}> Super admin</label>
       </div>
       <p class="ed-error ed-ed-msg" hidden></p>
-    </div>`).join(""),t.querySelectorAll(".ed-ed-save").forEach(a=>{a.addEventListener("click",async()=>{const s=a.closest(".ed-editor-card"),l=parseInt(a.dataset.eid),i=s.querySelector(".ed-ed-msg");i.hidden=!0;try{const o={display_name:s.querySelector(".ed-f-name").value,is_super:s.querySelector(".ed-f-super").checked,langs:[...s.querySelectorAll(".ed-f-lang:checked")].map(u=>u.value)},p=s.querySelector(".ed-f-pass").value;p&&(o.password=p),await c(`/editor/api/editors/${l}`,{method:"PATCH",body:o}),i.textContent="✓ Saved",i.classList.add("ed-ok"),i.hidden=!1,setTimeout(()=>{i.hidden=!0},2e3)}catch(o){i.textContent=o.message,i.hidden=!1}})}),t.querySelectorAll(".ed-ed-del").forEach(a=>{a.addEventListener("click",async()=>{const s=parseInt(a.dataset.eid);if(confirm("Delete this editor account? This cannot be undone."))try{await c(`/editor/api/editors/${s}`,{method:"DELETE"}),await f()}catch(l){alert(l.message)}})})}(async function(){try{const e=await c("/editor/api/me");n.me=e,await L()}catch{S()}})();
+    </div>`).join(""),t.querySelectorAll(".ed-ed-save").forEach(n=>{n.addEventListener("click",async()=>{const a=n.closest(".ed-editor-card"),o=parseInt(n.dataset.eid),i=a.querySelector(".ed-ed-msg");i.hidden=!0;try{const d={display_name:a.querySelector(".ed-f-name").value,is_super:a.querySelector(".ed-f-super").checked,langs:[...a.querySelectorAll(".ed-f-lang:checked")].map(p=>p.value)},c=a.querySelector(".ed-f-pass").value;c&&(d.password=c),await m(`/editor/api/editors/${o}`,{method:"PATCH",body:d}),i.textContent="✓ Saved",i.classList.add("ed-ok"),i.hidden=!1,setTimeout(()=>{i.hidden=!0},2e3)}catch(d){i.textContent=d.message,i.hidden=!1}})}),t.querySelectorAll(".ed-ed-del").forEach(n=>{n.addEventListener("click",async()=>{const a=parseInt(n.dataset.eid);if(confirm("Delete this editor account? This cannot be undone."))try{await m(`/editor/api/editors/${a}`,{method:"DELETE"}),await S()}catch(o){alert(o.message)}})})}(async function(){try{const e=await m("/editor/api/me");s.me=e,await A()}catch{T()}})();

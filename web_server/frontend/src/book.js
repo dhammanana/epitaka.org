@@ -22,6 +22,7 @@ import {
 import { attachPaliClickListeners } from './dictionary.js';
 import { initAuthUI }               from './auth/auth-ui.js';
 import { initLibraryUI }            from './row_actions/library-ui.js';
+import { initAppBanner }            from './app-banner.js';
 
 import { auth, getIdToken }         from './auth/auth.js';
 import { installPaliInput, removeDiacritics } from './libs/pali_typing.js';
@@ -335,6 +336,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   initAuthUI();
   initLibraryUI();
+  initAppBanner();
 
   _initHistoryTracking();
 
