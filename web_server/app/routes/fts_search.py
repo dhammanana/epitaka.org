@@ -18,10 +18,10 @@ Architecture:
   Only matched lines are returned (no context lines).
 """
 from flask import Blueprint, jsonify, request
-from collections import defaultdict
+from collections import defaultdict, Counter
 import re
 from ..utils.db import get_db, get_webdata_db, get_translation_db
-from ..utils.text import markdown_to_html
+from ..utils.text import markdown_to_html, normalize_pali, highlight_text
 from ..services.loadtocs import load_hierarchy
 from ..services.toc import build_slug_map
 from ..config import Config
@@ -63,6 +63,32 @@ def _normalise_query(query):
     return [w for w in clean.split() if w]
 
 
+# ── Helper: build the FTS5 MATCH query from search words ──────────────────
+def _build_fts_query(words):
+    """
+    Build an FTS5 prefix query:  "w1"* AND "w2"*  (all words in same paragraph).
+
+    The paragraphs_fts index is created with `unicode61 remove_diacritics 2`,
+    so its tokens are stored WITHOUT Pāli diacritics (ā→a, ṃ→m, ṭ→t, …). FTS5
+    normally applies the same normalisation to the query string, but some
+    SQLite builds on older servers do not strip diacritics from query terms,
+    which silently turns every query containing a diacritic into zero results.
+
+    Stripping diacritics and lowercasing the query terms here in Python makes
+    matching deterministic regardless of the server's SQLite version.
+    """
+    norm = []
+    for w in words:
+        n = normalize_pali(w).lower()
+        if n:
+            norm.append(n)
+    if not norm:
+        # Pathological input (e.g. combining marks only) — fall back to the
+        # raw words rather than emitting an empty MATCH string.
+        return ' AND '.join(f'"{w}"*' for w in words)
+    return ' AND '.join(f'"{w}"*' for w in norm)
+
+
 # ── Helper: book-filter SQL fragment ─────────────────────────────────────
 def _book_filter_clause(allowed_books, alias='p'):
     if allowed_books is None:
@@ -73,33 +99,79 @@ def _book_filter_clause(allowed_books, alias='p'):
 
 # ── Helper: highlight search words in HTML text ───────────────────────────
 def _highlight_words(html_text: str, words: list) -> str:
+    """Highlight search words, matching Pāli diacritics-insensitively
+    (e.g. 'anuruddhattheraga' highlights 'anuruddhattheragāthā')."""
     if not html_text or not words:
         return html_text
-    escaped = [re.escape(w) for w in words]
-    combined = '|'.join(escaped)
     parts = re.split(r'(<[^>]+>)', html_text)
     result = []
     for part in parts:
         if part.startswith('<'):
             result.append(part)
         else:
-            part = re.sub(
-                r'(?i)(' + combined + r')',
-                r'<mark>\1</mark>',
-                part
-            )
-            result.append(part)
+            result.append(highlight_text(part, words))
     return ''.join(result)
 
 
 # ── Helper: determine which lines match the search words ─────────────────
 def _find_matching_lines(lines: list, words: list) -> set:
+    """Match lines diacritics-insensitively so results found by the
+    (diacritic-stripped) FTS index still display for diacritic queries."""
+    norm_words = [normalize_pali(w).lower() for w in words if normalize_pali(w)]
     matched = set()
     for line in lines:
-        pali_lower = (line['pali'] or '').lower()
-        if any(w.lower() in pali_lower for w in words):
+        pali_norm = normalize_pali(line['pali'] or '').lower()
+        if any(w in pali_norm for w in norm_words):
             matched.add(line['line_id'])
     return matched
+
+
+# ── Helper: fallback substring search when the FTS index misses ───────────
+def _fallback_paragraph_matches(conn, words, allowed_books=None, limit=5000):
+    """
+    Fallback search against the authoritative `sentences` table (epitaka.db).
+
+    Used when the FTS index returns no matches — e.g. the index is stale and
+    missing recently-added paragraphs, or the server's SQLite can't match
+    diacritic query terms. Returns up to `limit` (book_id, para_id) tuples
+    whose paragraph text contains ALL of the search words.
+
+    Sets are intersected progressively (not truncated per word) so a common
+    word like "vaṇṇanā" never hides paragraphs that also contain a rarer word.
+    """
+    if not words:
+        return []
+
+    bf_sql, bf_params = _book_filter_clause(allowed_books, alias='s')
+
+    def escape_like(word):
+        return (word.replace('\\', '\\\\')
+                    .replace('%', '\\%')
+                    .replace('_', '\\_'))
+
+    common = None
+    for w in words:
+        if not w:
+            continue
+        pattern = f'%{escape_like(w)}%'
+        # Bound each per-word set to keep pathological queries fast. The cap
+        # is far above any realistic Pāli word frequency, so intersection
+        # results stay correct in practice; ultra-common words ("ca", …) may
+        # undercount slightly, which only affects the fallback path.
+        rows = conn.execute(f'''
+            SELECT DISTINCT s.book_id, s.para_id
+            FROM sentences s
+            WHERE s.pali LIKE ? ESCAPE '\\'{bf_sql}
+            LIMIT 200000
+        ''', [pattern] + bf_params).fetchall()
+        word_set = {(r['book_id'], r['para_id']) for r in rows}
+        if not word_set:
+            return []
+        common = word_set if common is None else (common & word_set)
+        if not common:
+            return []
+
+    return sorted(common)[:limit]
 
 
 # ── Helper: load book ordering from books table ───────────────────────────
@@ -165,7 +237,32 @@ def register_search_route(bp):
             wcursor = wconn.cursor()
 
             # ── Step 1: Get book-level counts (always fast) ─────────────
-            books_data, total = _get_book_counts(wcursor, words, allowed_books)
+            try:
+                books_data, total = _get_book_counts(wcursor, words, allowed_books)
+            except Exception as e:
+                # Missing / corrupt FTS index (e.g. webdata.db not built) —
+                # degrade to the substring fallback below instead of 500ing.
+                print(f"[fts_search] book counts error: {e}")
+                books_data, total = [], 0
+
+            # Fallback: if the FTS index found nothing (stale index missing
+            # recently-added content, or an older SQLite that can't match
+            # diacritic query terms), search the authoritative sentences
+            # table directly so searches still return results.
+            use_fallback   = False
+            fallback_pairs = []
+            if total == 0:
+                try:
+                    with get_db() as epi_conn:
+                        fallback_pairs = _fallback_paragraph_matches(epi_conn, words, allowed_books)
+                except Exception as e:
+                    print(f"[fts_search] fallback error: {e}")
+                    fallback_pairs = []
+                if fallback_pairs:
+                    use_fallback = True
+                    counts = Counter(p[0] for p in fallback_pairs)
+                    books_data = [{'book_id': bid, 'count': cnt} for bid, cnt in counts.items()]
+                    total = len(fallback_pairs)
 
             # Look up book names and sort by books.id
             book_order = _load_book_order()
@@ -184,9 +281,15 @@ def register_search_route(bp):
             if book_id:
                 # Per-book paginated detail
                 try:
-                    rows, book_total = _search_book_lines(
-                        wcursor, words, allowed_books, book_id, page, limit, lang
-                    )
+                    if use_fallback:
+                        filtered    = [p for p in fallback_pairs if p[0] == book_id]
+                        book_total  = len(filtered)
+                        start       = (page - 1) * limit
+                        rows        = _fetch_line_details(filtered[start:start + limit], words, lang)
+                    else:
+                        rows, book_total = _search_book_lines(
+                            wcursor, words, allowed_books, book_id, page, limit, lang
+                        )
                     results = _build_results_grouped(rows, hierarchy, words, lang)
                     display_total = book_total
                 except Exception as e:
@@ -197,9 +300,14 @@ def register_search_route(bp):
             elif total <= 30:
                 # Small result set — return everything directly
                 try:
-                    rows, _ = _search_all_lines(
-                        wcursor, words, allowed_books, lang
-                    )
+                    if use_fallback:
+                        rows = _fetch_line_details(fallback_pairs, words, lang)
+                    else:
+                        # NOTE: _search_all_lines returns a plain list — do NOT
+                        # unpack it as a (rows, total) tuple here.
+                        rows = _search_all_lines(
+                            wcursor, words, allowed_books, lang
+                        )
                     results = _build_results_grouped(rows, hierarchy, words, lang)
                     display_total = total
                 except Exception as e:
@@ -232,7 +340,7 @@ def _get_book_counts(cursor, words, allowed_books):
     Get per-book match counts from paragraphs_fts.
     Returns (list_of_dicts, total_count).
     """
-    fts_query         = ' AND '.join(f'"{w}"*' for w in words)
+    fts_query         = _build_fts_query(words)
     bf_sql, bf_params = _book_filter_clause(allowed_books)
 
     sql = f'''
@@ -254,7 +362,7 @@ def _get_book_counts(cursor, words, allowed_books):
 
 def _search_all_lines(cursor, words, allowed_books, lang=None):
     """Fetch ALL matching paragraphs (used when total <= 30)."""
-    fts_query         = ' AND '.join(f'"{w}"*' for w in words)
+    fts_query         = _build_fts_query(words)
     bf_sql, bf_params = _book_filter_clause(allowed_books)
 
     data_sql = f'''
@@ -278,7 +386,7 @@ def _search_all_lines(cursor, words, allowed_books, lang=None):
 
 def _search_book_lines(cursor, words, allowed_books, book_id, page, limit, lang=None):
     """Fetch paginated results for a single book."""
-    fts_query         = ' AND '.join(f'"{w}"*' for w in words)
+    fts_query         = _build_fts_query(words)
     bf_sql, bf_params = _book_filter_clause(allowed_books)
 
     # Count

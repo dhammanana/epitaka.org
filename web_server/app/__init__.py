@@ -10,7 +10,7 @@ from .routes.auth   import bp as auth_bp,   init_auth_db
 from .routes.readers import bp as reader_bp, init_reader_db
 from .routes.editor import bp as editor_bp, init_editor_db, bootstrap_super_admin
 from .services.initialize_db import init_all_search_tables
-import subprocess, os, time
+import os, hashlib
 from werkzeug.security import generate_password_hash
 
 INIT = False
@@ -22,13 +22,31 @@ INIT = False
 _WEB_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _FRONTEND_DIST = os.path.join(_WEB_ROOT, 'frontend', 'dist')
 
-def get_git_hash():
-    try:
-        return subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD']).decode().strip()
-    except:
-        return os.environ.get('APP_VERSION', 'dev')
+def get_asset_version():
+    """Static-asset cache-buster used for ?v= on every JS/CSS link.
 
-APP_VERSION = get_git_hash()
+    Content hash of the built bundles in frontend/dist/ — it changes on
+    every rebuild, so browsers and CDNs always fetch fresh assets after
+    a deploy.  An explicit APP_VERSION env var overrides it.  (Previously
+    this fell back to a constant 'dev' on production, so asset URLs never
+    changed between deploys and stale bundles were served for up to the
+    7-day cache lifetime — the reason the app banner was invisible.)
+    """
+    env_ver = os.environ.get('APP_VERSION')
+    if env_ver:
+        return env_ver
+    try:
+        digest = hashlib.md5()
+        for root, _, files in os.walk(_FRONTEND_DIST):
+            for name in sorted(files):
+                if name.endswith(('.js', '.css')):
+                    with open(os.path.join(root, name), 'rb') as f:
+                        digest.update(f.read())
+        return digest.hexdigest()[:10]
+    except Exception:
+        return 'dev'
+
+APP_VERSION = get_asset_version()
 
 def create_app(config_name='default'):
     app = Flask(__name__,
