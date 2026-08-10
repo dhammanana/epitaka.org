@@ -5,7 +5,10 @@
 
 import { BookFilter } from './home-dialog-search-filter.js';
 import { installPaliInput } from '../libs/pali_typing.js';
-import '../css/home-dialog-fts.css';
+// NOTE: home-dialog-fts.css is @imported from home-dialog.css (CSS-level
+// import) so both the index bundle and the book bundle (via sidebar.css)
+// inline it — a JS import here would make Vite split it into a shared chunk
+// that our hand-written HTML never links.
 /* ─────────────────────────────────────────────────────────────
    Search type configuration
 ───────────────────────────────────────────────────────────── */
@@ -50,6 +53,71 @@ export const SEARCH_TYPES = [
 ];
 
 /* ─────────────────────────────────────────────────────────────
+   Element ids used by the search module.
+
+   The module was designed for the home dialog, but the book-page
+   sidebar reuses it — these ids let it bind to a different DOM
+   subtree (prefix `sb-`), so both can exist on separate pages
+   without conflicting.
+───────────────────────────────────────────────────────────── */
+export const HOME_SEARCH_IDS = {
+  searchRow:      'home-search-row',
+  searchInputWrap: 'home-search-input-wrap',
+  typeBtn:      'search-type-btn',
+  typeMenu:     'search-type-menu',
+  searchInput:  'home-search-input',
+  suggestions:  'home-suggestions',
+  goBtn:        'home-search-go',
+  resultsPanel: 'home-results-panel',
+  filterWrap:   'home-filter-wrap',
+};
+
+/**
+ * Build the search header HTML (type dropdown + input + Go button).
+ * Shared by the home dialog and the book-page sidebar.
+ */
+export function buildSearchHeaderHTML(ids, currentTypeId, value = '') {
+  const current = SEARCH_TYPES.find(t => t.id === currentTypeId) ?? SEARCH_TYPES[0];
+  return `
+    <div id="${ids.searchRow}">
+      <div style="position:relative">
+        <button id="${ids.typeBtn}" type="button" aria-haspopup="true">
+          <span>${current.icon} ${current.label}</span>
+          <span class="arrow">▾</span>
+        </button>
+        <div id="${ids.typeMenu}" role="listbox">
+          ${SEARCH_TYPES.map(t => `
+            <div class="search-type-option${t.id === current.id ? ' selected' : ''}"
+                 data-type="${t.id}" role="option" tabindex="0">
+              <span class="opt-icon">${t.icon}</span>
+              <div>
+                <div class="opt-label">${t.label}</div>
+                <div class="opt-desc">${t.desc}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div id="${ids.searchInputWrap}">
+        <input id="${ids.searchInput}"
+               type="search"
+               autocomplete="off"
+               spellcheck="false"
+               placeholder="${current.placeholder}"
+               aria-label="Search"
+               aria-autocomplete="list"
+               aria-controls="${ids.suggestions}"
+               value="${_escapeAttr(value)}">
+        <div id="${ids.suggestions}" role="listbox" aria-label="Suggestions"></div>
+      </div>
+
+      <button id="${ids.goBtn}" type="button">Go</button>
+    </div>
+  `;
+}
+
+/* ─────────────────────────────────────────────────────────────
    HomeDialogSearch class
 ───────────────────────────────────────────────────────────── */
 export class HomeDialogSearch {
@@ -59,14 +127,16 @@ export class HomeDialogSearch {
    * @param {object}   [opts.initialState]          Persisted state from localStorage
    * @param {string}   [opts.initialState.searchTypeId]
    * @param {object}   opts.hierarchy
+   * @param {object}   [opts.ids]                   Element ids to bind to
    * @param {Function} opts.onResultSelect
    * @param {Function} opts.onShowResults
    * @param {Function} opts.onShowBooks
    */
-  constructor({ baseUrl, lang, initialState = {}, hierarchy = {}, onResultSelect, onShowResults, onShowBooks }) {
+  constructor({ baseUrl, lang, initialState = {}, hierarchy = {}, ids = HOME_SEARCH_IDS, onResultSelect, onShowResults, onShowBooks }) {
     this.baseUrl        = baseUrl;
     this.lang           = lang;
     this.hierarchy      = hierarchy;
+    this.ids            = ids;
     this.onResultSelect = onResultSelect;
     this.onShowResults  = onShowResults;
     this.onShowBooks    = onShowBooks;
@@ -111,13 +181,14 @@ export class HomeDialogSearch {
    * Must be called after the dialog HTML has been inserted into the page.
    */
   bind() {
-    this.typeBtn       = document.getElementById('search-type-btn');
-    this.typeMenu      = document.getElementById('search-type-menu');
-    this.searchInput   = document.getElementById('home-search-input');
-    this.suggestionsEl = document.getElementById('home-suggestions');
-    this.goBtn         = document.getElementById('home-search-go');
-    this.resultsPanel  = document.getElementById('home-results-panel');
-    this.filterWrap    = document.getElementById('home-filter-wrap');
+    const $ = id => document.getElementById(id);
+    this.typeBtn       = $(this.ids.typeBtn);
+    this.typeMenu      = $(this.ids.typeMenu);
+    this.searchInput   = $(this.ids.searchInput);
+    this.suggestionsEl = $(this.ids.suggestions);
+    this.goBtn         = $(this.ids.goBtn);
+    this.resultsPanel  = $(this.ids.resultsPanel);
+    this.filterWrap    = $(this.ids.filterWrap);
 
     this._bindTypeDropdown();
     this._bindInput();
@@ -129,6 +200,30 @@ export class HomeDialogSearch {
 
     // Apply the (possibly restored) state to the DOM.
     this._applyTypeUI(this.currentType);
+  }
+
+  /** Serialise current search state for persistence across page loads. */
+  getState() {
+    return {
+      typeId:  this.currentType?.id || SEARCH_TYPES[0].id,
+      query:   this.searchInput?.value?.trim() || '',
+      pitakas: [...this.bookFilter.getFilterParams().pitakas],
+      layers:  [...this.bookFilter.getFilterParams().layers],
+    };
+  }
+
+  /** Restore a previously saved search state and re-run the search. */
+  async restore(state) {
+    if (!state) return;
+    if (state.typeId) {
+      const type = SEARCH_TYPES.find(t => t.id === state.typeId);
+      if (type && type.id !== this.currentType.id) this._selectType(type);
+    }
+    if (state.query && this.searchInput) this.searchInput.value = state.query;
+    if ((state.pitakas?.length || state.layers?.length) && this.bookFilter) {
+      this.bookFilter.setFilterParams({ pitakas: state.pitakas, layers: state.layers });
+    }
+    if (state.query) await this._executeSearch();
   }
 
   /* ── Type dropdown ───────────────────────────────────────── */
@@ -164,9 +259,21 @@ export class HomeDialogSearch {
 
   _positionBelow(anchor, dropdown) {
     const r = anchor.getBoundingClientRect();
-    dropdown.style.top      = `${r.bottom + 4}px`;
-    dropdown.style.left     = `${r.left}px`;
-    dropdown.style.maxWidth = `${window.innerWidth - r.left - 8}px`;
+    const pos = getComputedStyle(dropdown).position;
+    if (pos === 'absolute' && dropdown.offsetParent) {
+      // Inside the book-page sidebar the dropdown is absolutely positioned
+      // (the drawer's slide transform would hijack position:fixed). Compute
+      // coordinates relative to the offset parent (the anchor wrapper).
+      const cb = dropdown.offsetParent.getBoundingClientRect();
+      dropdown.style.top  = `${r.bottom - cb.top + 4}px`;
+      dropdown.style.left = `${r.left - cb.left}px`;
+      dropdown.style.maxWidth = `${dropdown.offsetParent.clientWidth - (r.left - cb.left)}px`;
+    } else {
+      // Home dialog: position:fixed — use viewport coordinates.
+      dropdown.style.top  = `${r.bottom + 4}px`;
+      dropdown.style.left = `${r.left}px`;
+      dropdown.style.maxWidth = `${window.innerWidth - r.left - 8}px`;
+    }
   }
 
   _selectType(type) {
@@ -1027,4 +1134,13 @@ export class HomeDialogSearch {
 
 function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function _escapeAttr(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }

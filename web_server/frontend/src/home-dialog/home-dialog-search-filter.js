@@ -88,6 +88,14 @@ export class BookFilter {
     };
   }
 
+  /** Restore filter state from a saved snapshot ({pitakas: [], layers: []}). */
+  setFilterParams({ pitakas = [], layers = [] } = {}) {
+    this._pitakas = new Set(Array.isArray(pitakas) ? pitakas : []);
+    this._layers  = new Set(Array.isArray(layers)  ? layers  : []);
+    this.refresh();
+    this.onChange();
+  }
+
   /** Mount the filter UI into a container element */
   mount(container) {
     this._el = document.createElement('div');

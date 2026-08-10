@@ -3,7 +3,7 @@
  * Entry point for the Home / Book-Chooser Dialog.
  */
 
-import { HomeDialogSearch, SEARCH_TYPES } from './home-dialog-search.js';
+import { HomeDialogSearch, SEARCH_TYPES, buildSearchHeaderHTML, HOME_SEARCH_IDS } from './home-dialog-search.js';
 import { HomeDialogBookList }                         from './home-dialog-booklist.js';
 import { LocalState }                                 from '../libs/local-state.js';
 import '../css/home-dialog.css';
@@ -12,7 +12,7 @@ import '../css/home-dialog.css';
    Public init function
 ───────────────────────────────────────────────────────────── */
 
-export function initHomeDialog({ triggerSelector, baseUrl, lang, menu }) {
+export function initHomeDialog({ triggerSelector, baseUrl, lang, menu, hierarchy }) {
   if (document.getElementById('home-dialog-overlay')) return;
 
   const trigger = document.querySelector(triggerSelector);
@@ -28,21 +28,21 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu }) {
   });
 
   /* ── Derive book hierarchy from menu for the BookFilter ──── */
-  const hierarchy = buildHierarchyFromMenu(menu);
+  const effectiveHierarchy = hierarchy || buildHierarchyFromMenu(menu || {});
 
   /* ── Sub-modules ────────────────────────────────────────── */
 
   const bookList = new HomeDialogBookList({
     baseUrl,
     lang,
-    menu,
+    menu: menu || {},
     onNavigate: url => { _close(); window.location.href = url; },
   });
 
   const search = new HomeDialogSearch({
     baseUrl,
     lang,
-    hierarchy,
+    hierarchy: effectiveHierarchy,
     initialState: {
       searchTypeId: state.get('searchTypeId'),
     },
@@ -68,41 +68,7 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu }) {
           <button id="home-dialog-close" aria-label="Close">✕</button>
         </div>
 
-        <div id="home-search-row">
-          <div style="position:relative">
-            <button id="search-type-btn" type="button" aria-haspopup="true">
-              <span>${_labelForTypeId(state.get('searchTypeId'))}</span>
-              <span class="arrow">▾</span>
-            </button>
-            <div id="search-type-menu" role="listbox">
-              ${SEARCH_TYPES.map(t => `
-                <div class="search-type-option${t.id === state.get('searchTypeId') ? ' selected' : ''}"
-                     data-type="${t.id}" role="option" tabindex="0">
-                  <span class="opt-icon">${t.icon}</span>
-                  <div>
-                    <div class="opt-label">${t.label}</div>
-                    <div class="opt-desc">${t.desc}</div>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-
-          <div id="home-search-input-wrap">
-            <input id="home-search-input"
-                   type="search"
-                   autocomplete="off"
-                   spellcheck="false"
-                   placeholder="Search section headings…"
-                   aria-label="Search"
-                   aria-autocomplete="list"
-                   aria-controls="home-suggestions"
-                   value="${_escapeAttr(state.get('searchQuery'))}">
-            <div id="home-suggestions" role="listbox" aria-label="Suggestions"></div>
-          </div>
-
-          <button id="home-search-go" type="button">Go</button>
-        </div>
+        ${buildSearchHeaderHTML(HOME_SEARCH_IDS, state.get('searchTypeId'), state.get('searchQuery'))}
 
 
       </div>
@@ -204,11 +170,6 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu }) {
 
 /* ── Private utilities ────────────────────────────────────── */
 
-function _labelForTypeId(id) {
-  const found = SEARCH_TYPES.find(t => t.id === id);
-  return found ? `${found.icon} ${found.label}` : '☰ Search Headings';
-}
-
 function _escapeAttr(str) {
   return String(str ?? '')
     .replace(/&/g, '&amp;')
@@ -222,7 +183,7 @@ function _escapeAttr(str) {
  * Build a book_id → metadata lookup from the menu structure.
  * Menu shape: { category: { nikaya: { sub_nikaya: [[book_id, title], …] } } }
  */
-function buildHierarchyFromMenu(menu) {
+export function buildHierarchyFromMenu(menu) {
   const hierarchy = {};
   for (const [category, nikayas] of Object.entries(menu)) {
     for (const [nikayaName, subNikayas] of Object.entries(nikayas)) {

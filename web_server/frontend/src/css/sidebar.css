@@ -1,0 +1,283 @@
+/* ═══════════════════════════════════════════════════════════
+   E-Piṭaka — sidebar.css
+   VSCode-style activity rail + drawer sidebar for the book page.
+
+   Reuses the home-dialog + FTS search styles: the sidebar search panel
+   mounts the same search module (HomeDialogSearch) with the same element
+   ids, so those styles apply as-is. We @import them here (CSS @import is
+   inlined by Vite — the established pattern that avoids JS code-splitting
+   between the index and book bundles).
+   ═══════════════════════════════════════════════════════════ */
+
+@import url('./home-dialog.css');   /* also pulls in home-dialog-fts.css */
+
+/* ── Root ────────────────────────────────────────────────── */
+#sb-root {
+  position: fixed;
+  top: var(--topbar-h);
+  left: 0;
+  bottom: 0;
+  z-index: 205;
+  display: flex;
+  pointer-events: none;
+}
+#sb-root > * { pointer-events: auto; }
+
+/* ── Backdrop ────────────────────────────────────────────── */
+#sb-backdrop {
+  display: none;
+  position: fixed;
+  top: var(--topbar-h);
+  left: 0; right: 0; bottom: 0;
+  background: rgba(20, 12, 6, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 200;
+}
+
+/* ── Activity rail ───────────────────────────────────────── */
+#sb-activity {
+  display: none;                       /* hidden on phones (hamburger only) */
+  flex-direction: column;
+  align-items: center;
+  width: 48px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 0.4rem 0 0.75rem;
+  gap: 0.2rem;
+  overflow-y: auto;
+}
+.sb-activity-btn {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; border-radius: 8px;
+  background: transparent; color: var(--muted);
+  font-size: 1.05rem; cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.sb-activity-btn:hover { background: var(--accent-light); color: var(--accent); }
+.sb-activity-btn.active {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+/* ── Drawer ──────────────────────────────────────────────── */
+#sb-drawer {
+  position: fixed;
+  top: var(--topbar-h);
+  left: 0;
+  bottom: 0;
+  width: min(88vw, 340px);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  box-shadow: 4px 0 20px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 210;
+}
+#sb-drawer.open { transform: translateX(0); }
+
+#sb-drawer-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.7rem 1rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+#sb-panel-title {
+  font-family: var(--font-serif);
+  font-size: 1rem; font-weight: 600; color: var(--accent);
+}
+.sb-header-actions {
+  display: flex; align-items: center; gap: 0.15rem;
+}
+#sb-close,
+#sb-pin {
+  background: none; border: none; cursor: pointer;
+  font-size: 1rem; color: var(--muted); padding: 0.2rem 0.4rem;
+  border-radius: 6px; line-height: 1;
+  transition: background 0.12s, color 0.12s;
+}
+#sb-close:hover { background: var(--accent-light); color: var(--accent); }
+#sb-pin { font-size: 0.85rem; }
+#sb-pin:hover { background: var(--accent-light); }
+#sb-pin.active {
+  background: var(--accent);
+  color: var(--surface);
+}
+
+/* ── Phone tab row (panel switcher inside the drawer) ────── */
+#sb-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.sb-tab {
+  flex: 1;
+  padding: 0.55rem 0.25rem;
+  border: none; background: none; cursor: pointer;
+  font-size: 0.8rem; font-weight: 600; color: var(--muted);
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+.sb-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ── Panels ──────────────────────────────────────────────── */
+.sb-panel { display: none; flex: 1; min-height: 0; flex-direction: column; }
+.sb-panel.active { display: flex; }
+
+.sb-panel-scroll {
+  flex: 1; min-height: 0;
+  overflow-y: auto;
+  padding: 0.6rem 0.7rem 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+.sb-panel-scroll::-webkit-scrollbar,
+#home-results-panel::-webkit-scrollbar,
+#toc-list::-webkit-scrollbar { width: 4px; }
+.sb-panel-scroll::-webkit-scrollbar-thumb,
+#home-results-panel::-webkit-scrollbar-thumb,
+#toc-list::-webkit-scrollbar-thumb { background: #d5c9bd; border-radius: 2px; }
+
+/* ── Library panel ───────────────────────────────────────── */
+#sb-library-filter {
+  width: 100%;
+  padding: 0.38rem 0.6rem;
+  border: 1px solid var(--border); border-radius: 6px;
+  font-size: 0.82rem; background: var(--bg); color: var(--text);
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+#sb-library-filter:focus { border-color: var(--accent); }
+
+.sb-cat { margin-bottom: 0.4rem; }
+.sb-cat-title {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0.4rem;
+  padding: 0.45rem 0.6rem;
+  border: none; border-radius: 6px;
+  background: var(--bg);
+  font-family: var(--font-serif);
+  font-size: 0.92rem; font-weight: 600; color: var(--accent);
+  cursor: pointer; text-align: left;
+  transition: background 0.12s;
+}
+.sb-cat-title:hover { background: var(--accent-light); }
+.sb-cat-title .sb-caret { font-size: 0.6rem; color: var(--muted); transition: transform 0.18s; }
+.sb-cat-body { display: block; padding: 0.25rem 0 0.1rem; }
+.sb-cat-body:not(.open) { display: none; }
+.sb-cat-title[aria-expanded="false"] .sb-caret { transform: rotate(-90deg); }
+
+/* Reuse home-dialog book list styles for the tree */
+#sb-library-tree .book-nikaya { margin-bottom: 0.3rem; }
+#sb-library-tree .book-nikaya-title {
+  padding: 0.22rem 0.5rem;
+  font-size: 0.7rem;
+}
+#sb-library-tree .book-entry { padding: 0.24rem 0.5rem; font-size: 0.9rem; }
+#sb-library-tree .book-entry.current { background: var(--accent-light); color: var(--accent); }
+#sb-library-tree .book-entry.current .book-name { color: var(--accent); }
+
+.sb-sub .sb-sub-title { padding-left: 0.9rem; }
+.sb-sub .book-nikaya-list { padding-left: 0.9rem; }
+
+/* ── Search panel ────────────────────────────────────────── */
+.sb-search-wrap {
+  flex-shrink: 0;
+  padding: 0.6rem 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.sb-search-wrap #home-search-row { gap: 0.35rem; }
+.sb-search-wrap #search-type-btn {
+  max-width: 118px;
+  overflow: hidden;
+  font-size: 0.7rem;
+}
+.sb-search-wrap #search-type-btn span:not(.arrow) {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+#sb-panel-search #home-results-panel {
+  flex: 1; min-height: 0;
+  overflow-y: auto;
+  padding: 0.5rem 0.7rem 1rem;
+}
+/* Inside the drawer, the slide transform would hijack position:fixed, so
+   the type menu + suggestions become absolute (relative to their anchors).
+   _positionBelow() detects this and computes offset-parent coordinates. */
+#sb-panel-search #search-type-menu,
+#sb-panel-search #home-suggestions {
+  position: absolute;
+}
+#sb-panel-search #home-filter-wrap .book-filter {
+  padding: 6px 2px;
+}
+
+/* ── TOC panel ───────────────────────────────────────────── */
+.sb-toc-head {
+  flex-shrink: 0;
+  padding: 0.6rem 0.7rem 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+#sb-panel-toc #toc-search {
+  width: 100%;
+  padding: 0.38rem 0.6rem;
+  border: 1px solid var(--border); border-radius: 6px;
+  font-size: 0.82rem; background: var(--bg); color: var(--text);
+  outline: none;
+}
+#sb-panel-toc #toc-search:focus { border-color: var(--accent); }
+#sb-panel-toc #toc-list {
+  flex: 1; min-height: 0;
+  overflow-y: auto;
+  padding: 0.4rem 0;
+  list-style: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+/* Tablet & desktop: VSCode-style sidebar.
+   The rail is always visible; the panel opens IN PLACE next to it
+   (no slide-in sheet). When PINNED it docks and pushes the reading
+   content right; when not pinned it overlays the page (soft shadow,
+   no layout shift) so the reader never loses their place in the text.
+   No modal backdrop either way. */
+@media (min-width: 768px) {
+  /* The rail always paints above the drawer, so the sheet never covers the
+     buttons while hidden off to the left (or when its shadow spreads). */
+  #sb-activity { display: flex; position: relative; z-index: 2; }
+  body {
+    padding-left: 48px;
+    transition: padding-left 0.2s ease;
+  }
+  body.sb-pinned.sb-drawer-open { padding-left: 388px; }   /* 48 rail + 340 panel */
+  #sb-drawer {
+    left: 48px;
+    width: 340px;
+    transform: none;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: none;
+    z-index: 1;   /* below the activity rail */
+    transition: opacity 0.16s ease, visibility 0s linear 0.16s;
+  }
+  #sb-drawer.open {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.16s ease;
+  }
+  /* Overlay mode (unpinned): a soft shadow separates the panel from the page. */
+  body.sb-drawer-open:not(.sb-pinned) #sb-drawer {
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
+  }
+  #sb-tabs { display: none; }
+}
+/* Phone: the drawer is a slide-in sheet with a backdrop + tab row. */
+@media (max-width: 767px) {
+  #sb-backdrop.show { display: block; }
+  body.sb-drawer-open { overflow: hidden; }
+}

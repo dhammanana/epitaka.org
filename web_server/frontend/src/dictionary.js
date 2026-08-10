@@ -10,12 +10,36 @@ const dictWordInput   = document.getElementById('dict-word-input');
 const dictSuggestions = document.getElementById('dict-suggestions');
 const dictPanel     = document.getElementById('dict-panel');
 const dictClose     = document.getElementById('dict-close');
+const dictPin       = document.getElementById('dict-pin');
 const dictWord      = document.getElementById('dict-word');
 const dictResults   = document.getElementById('dict-results');
 
 
 let suggestAbortController = null;
 let activeSuggestionIndex  = -1;
+
+/* ── Pin (keep dictionary docked on the right) ───────────────────── */
+const PIN_KEY = 'epitaka_dict_pinned';
+
+function isDictPinned() {
+  try { return localStorage.getItem(PIN_KEY) === '1'; } catch { return false; }
+}
+
+function applyDictPinState() {
+  const pinned = isDictPinned();
+  dictPin?.classList.toggle('active', pinned);
+  dictPin?.setAttribute('aria-pressed', String(pinned));
+  dictPin?.setAttribute('aria-label', pinned ? 'Unpin dictionary' : 'Pin dictionary open');
+  dictPin?.setAttribute('title', pinned ? 'Unpin dictionary' : 'Keep dictionary open');
+}
+
+export function setDictOpen(open) {
+  if (!dictPanel) return;
+  dictPanel.classList.toggle('open', open);
+  // Docked (takes space) only when pinned — unpinned it overlays the page so
+  // the reader never loses their place in the text.
+  document.body.classList.toggle('dict-pinned', open && isDictPinned());
+}
 
 export function attachPaliClickListeners(root) {
   root.querySelectorAll('.sentence-row .pali-text').forEach(el => {
@@ -44,7 +68,7 @@ function onPaliClick(e) {
 function openDictionary(word) {
   dictWordInput.value = word;
   hideSuggestions();
-  dictPanel.classList.add('open');
+  setDictOpen(true);
   lookupDictionary(word);
 }
 
@@ -284,23 +308,46 @@ function highlightInflected(sentence, surface) {
 
 function escHtml(str) {
   return String(str ?? '')
-  return String(str ?? '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 }
 
-dictClose?.addEventListener('click', () => dictPanel.classList.remove('open'));
 
-// Close dict panel when clicking outside
+
+// Close dict panel when clicking outside.
+// Clicking the sidebar's Dictionary activity button (#sb-activity) opens the
+// panel — ignore those clicks so it doesn't close again immediately.
+// When pinned, the panel stays docked and never auto-closes.
 document.addEventListener('click', e => {
-  if (dictPanel.classList.contains('open') &&
+  if (!isDictPinned() &&
+      dictPanel.classList.contains('open') &&
       !dictPanel.contains(e.target) &&
-      !e.target.closest('.pali-text')) {
-    dictPanel.classList.remove('open');
+      !e.target.closest('.pali-text') &&
+      !e.target.closest('#sb-activity')) {
+    setDictOpen(false);
   }
 });
+
+/* ── Pin toggle + restore ─────────────────────────────────────── */
+
+dictPin?.addEventListener('click', () => {
+  try {
+    if (isDictPinned()) localStorage.removeItem(PIN_KEY);
+    else localStorage.setItem(PIN_KEY, '1');
+  } catch { /* ignore */ }
+  applyDictPinState();
+  // Pinning docks the dictionary immediately (it stays until unpinned/closed);
+  // unpinning while open switches it back to overlay. Re-sync via setDictOpen.
+  if (isDictPinned() || dictPanel.classList.contains('open')) setDictOpen(true);
+});
+
+applyDictPinState();
+// Keep the dictionary docked on the right across page loads when pinned.
+if (isDictPinned()) setDictOpen(true);
+
+if (dictClose) dictClose.addEventListener('click', () => setDictOpen(false));
 
 
 //-----------------------------

@@ -464,7 +464,6 @@ def book(lang, book_id, section_path=None):
         section_has_content=section_has_content,
         book_links_by_line=book_links_by_line,
         firebase_config=Config.FIREBASE_CONFIG,
-        menu=organize_hierarchy(hierarchy),
     )
 
 
@@ -563,6 +562,29 @@ def book_ref(lang, book_id):
             return redirect(f'/{lang}/book/{book_id}')
 
     return redirect(f'/{lang}/book/{book_id}#{result_para}')
+
+
+# ── Library menu API ──────────────────────────────────────────────────────
+# Served to the client so the book-page sidebar and home dialog can build
+# the library tree without embedding the (large) menu JSON in every HTML
+# render — keeps page HTML small and cache-friendly.
+
+@bp.route('/api/menu')
+def api_menu():
+    hierarchy = load_hierarchy()
+    return jsonify({
+        'menu': organize_hierarchy(hierarchy),
+        # Flat map used by the search filter (pitaka / layer chips):
+        #   {book_id: {nikaya, category, book_name}}
+        'hierarchy': {
+            bid: {
+                'nikaya':    h.get('nikaya'),
+                'category':  h.get('category'),
+                'book_name': h.get('book_name'),
+            }
+            for bid, h in hierarchy.items()
+        },
+    })
 
 
 # ── Suggest / search API ───────────────────────────────────────────────────

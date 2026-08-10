@@ -3,6 +3,11 @@
    Styles for the home/book-chooser dialog overlay.
    ═══════════════════════════════════════════════════════════ */
 
+/* Inlined by Vite into this stylesheet so both the index bundle and the
+   book bundle (via sidebar.css) receive the FTS search styles without
+   shared-chunk splitting. */
+@import url('./home-dialog-fts.css');
+
 /* ── Overlay ─────────────────────────────────────────────── */
 #home-dialog-overlay {
   display: none;
@@ -464,7 +469,12 @@
   color: var(--muted, #8a7a6e);
 }
 .book-nikaya-title.open .nikaya-chevron { transform: rotate(90deg); }
-.book-nikaya-list { display: none; }
+.book-nikaya-list {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 .book-nikaya-list.open { display: block; }
 
 /* Individual book link */

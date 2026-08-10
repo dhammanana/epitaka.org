@@ -23,9 +23,9 @@ import { attachPaliClickListeners } from './dictionary.js';
 import { initAuthUI }               from './auth/auth-ui.js';
 import { initLibraryUI }            from './row_actions/library-ui.js';
 import { initAppBanner }            from './app-banner.js';
+import { initSidebar }              from './sidebar.js';
 
 import { auth, getIdToken }         from './auth/auth.js';
-import { installPaliInput, removeDiacritics } from './libs/pali_typing.js';
 
 // ── Config injected from book.html ────────────────────────────
 const { bookId, baseUrl, lang, bookref } = window.BOOK_CONFIG;
@@ -34,92 +34,16 @@ const { bookId, baseUrl, lang, bookref } = window.BOOK_CONFIG;
 const originalPaliText = new WeakMap();
 
 // ── DOM refs ──────────────────────────────────────────────────
-const tocSidebar     = document.getElementById('toc-sidebar');
-const tocOverlay     = document.getElementById('toc-overlay');
-const tocList        = document.getElementById('toc-list');
-const tocToggle      = document.getElementById('toc-toggle-btn');
-const tocSearch      = document.getElementById('toc-search');
 const settingsBtn    = document.getElementById('settings-btn');
 const settingsModal  = document.getElementById('settings-modal');
 const settingsForm   = document.getElementById('settings-form');
 const settingsCancel = document.getElementById('settings-cancel');
 
 // ════════════════════════════════════════════
-// TOC
+// Sidebar — VSCode-style activity rail + drawer.
+// Owns: library tree, search panel, table of contents, dictionary toggle.
 // ════════════════════════════════════════════
-
-function openToc()  { tocSidebar.classList.add('open');    tocOverlay.classList.add('show'); }
-function closeToc() { tocSidebar.classList.remove('open'); tocOverlay.classList.remove('show'); }
-
-tocToggle.addEventListener('click', () =>
-  tocSidebar.classList.contains('open') ? closeToc() : openToc()
-);
-tocOverlay.addEventListener('click', closeToc);
-
-installPaliInput(tocSearch, {
-  mode: 'both',
-  onConvert: (normalized) => {
-    const q = normalized.trim();
-    tocSearch.value = q;
-    tocSearch.dispatchEvent(new Event('input'));
-  },
-});
-
-function normalizeForSearch(text) {
-  if (!text) return '';
-  return removeDiacritics(text).toLowerCase();
-}
-
-const tocItems = tocList.querySelectorAll('.toc-item');
-const normalizedTocTexts = Array.from(tocItems).map(item =>
-  normalizeForSearch(item.textContent)
-);
-
-tocSearch.addEventListener('input', () => {
-  const rawQuery = tocSearch.value;
-  const normalizedQuery = normalizeForSearch(rawQuery);
-
-  if (!normalizedQuery) {
-    tocItems.forEach(item => { item.closest('li').style.display = ''; });
-    return;
-  }
-
-  tocItems.forEach((item, index) => {
-    const matches = normalizedTocTexts[index].includes(normalizedQuery);
-    item.closest('li').style.display = matches ? '' : 'none';
-  });
-});
-
-// TOC items navigate to section URLs (naturally cause full page load)
-tocList.querySelectorAll('.toc-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const paraId = parseInt(item.dataset.paraId);
-    if (window.innerWidth < 960) closeToc();
-    // Find the section block and build its URL from the heading link
-    const section = document.querySelector(`.section-block[data-para-id="${paraId}"]`);
-    const headingLink = section?.querySelector('.section-heading-link');
-    if (headingLink?.href) {
-      window.location.href = headingLink.href;
-    }
-  });
-  item.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      item.click();
-    }
-  });
-});
-
-// Highlight the TOC item matching the currently expanded section
-const tocObserver = new IntersectionObserver(entries => {
-  for (const entry of entries) {
-    if (!entry.isIntersecting) continue;
-    const paraId = parseInt(entry.target.dataset.paraId);
-    highlightTocItem(paraId);
-  }
-}, { rootMargin: '-52px 0px -67% 0px' }); // 1/3 from top
-
-document.querySelectorAll('.section-block').forEach(el => tocObserver.observe(el));
+const sidebar = initSidebar({ bookId });
 
 // ── Sentence-row observer for granular ref-link tracking ───────────
 // When a sentence row enters the viewport, find the nearest numbered
@@ -174,15 +98,7 @@ function observeSentenceRows() {
 }
 observeSentenceRows();
 
-function highlightTocItem(paraId) {
-  document.querySelectorAll('#toc-list .toc-item').forEach(item => {
-    const active = parseInt(item.dataset.paraId) === paraId;
-    item.classList.toggle('active', active);
-    if (active && tocSidebar.classList.contains('open')) {
-      item.scrollIntoView({ block: 'nearest' });
-    }
-  });
-}
+
 
 // ════════════════════════════════════════════
 // Pali script conversion
