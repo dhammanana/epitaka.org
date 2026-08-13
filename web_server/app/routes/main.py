@@ -149,7 +149,8 @@ def sitemap_file(filename):
 
 # ── App share link interstitials ──────────────────────────────────────────
 # The mobile app generates share links of the form:
-#   https://epitaka.org/app/{bookId}/{paraId}/{lineId}
+#   https://epitaka.org/app/{lang}/{bookId}/{heading-slug}#{paraId}-{lineId}
+# (canonical) or the legacy https://epitaka.org/app/{bookId}/{paraId}/{lineId}.
 #
 # When clicked on a device with the app installed, the OS intercepts the link
 # (via Android App Links / iOS Universal Links) and opens the app directly.
@@ -157,26 +158,59 @@ def sitemap_file(filename):
 # When the app is NOT installed, this page serves as a fallback that:
 # 1. Tries to open the app via the epitaka:// custom scheme
 # 2. Redirects to the web version if the app can't be opened
+#
+# NOTE: the #paraId-lineId fragment never reaches the server. The interstitial
+# template reads window.location.hash client-side and re-appends it to the web
+# fallback / custom-scheme URI, so the exact passage survives (see DEEP_LINKS.md).
+
+@bp.route('/app/reader/<book_id>')
+def legacy_app_reader_redirect(book_id):
+    """Redirect old /app/reader/{bookId} universal links to the plain
+    /app/{bookId} form (preserving ?paraId=…&lineId=…), so they flow
+    through the same interstitial handling as the rest of the legacy links.
+    """
+    qs = request.query_string.decode() if request.query_string else ''
+    return redirect(f'/app/{book_id}?{qs}' if qs else f'/app/{book_id}')
+
 
 @bp.route('/app/')
 @bp.route('/app/<book_id>')
 @bp.route('/app/<book_id>/<int:para_id>')
 @bp.route('/app/<book_id>/<int:para_id>/<int:line_id>')
-def app_share_link(book_id=None, para_id=None, line_id=None):
+@bp.route('/app/<lang>/<book_id>')
+@bp.route('/app/<lang>/<book_id>/<path:section_path>')
+def app_share_link(lang=None, book_id=None, para_id=None, line_id=None, section_path=None):
     """
     Interstitial page for mobile app share links.
 
     URL patterns:
-      /app/{book_id}
-      /app/{book_id}/{para_id}
-      /app/{book_id}/{para_id}/{line_id}
+      Canonical: /app/{lang}/{book_id}[/{heading-slug}]#{paraId}-{lineId}
+      Legacy:    /app/{book_id}[/{para_id}[/{line_id}]]
+
+    The heading slug is carried in the path (matched as section_path); the
+    exact passage (#paraId-lineId) is carried in the URL fragment, which is
+    handled client-side by the template.
 
     Renders a page that:
     - Attempts to open the app via epitaka:// custom scheme
-    - Falls back to /{lang}/book/{book_id}#{para_id} on the web
+    - Falls back to /{lang}/book/{book_id}[/{slug}]#{paraId}-{lineId} on the web
     """
+    # Legacy links have no language prefix; canonical ones do. Flask routes
+    # the legacy int-segment forms (/app/{bookId}/{paraId}/{lineId}) to this
+    # handler with lang=None, so only canonical links set a lang here.
+    if lang is not None and lang not in Config.detect_translations():
+        # Not a real translation language (e.g. an old bookId-first link) —
+        # fall back to the default-language home.
+        return redirect(f'/{Config.DEFAULT_LANG}/')
+
     if not book_id:
         return redirect(f'/{Config.DEFAULT_LANG}/')
+
+    # The app also emits /app/search?q=… deep links, but search lives in the
+    # home-dialog on the web (no standalone search URL) — send those to the
+    # language home instead of rendering a bogus book interstitial.
+    if book_id == 'search':
+        return redirect(f'/{lang or Config.DEFAULT_LANG}/')
 
     # Resolve book name from database
     book_name = book_id
@@ -190,17 +224,25 @@ def app_share_link(book_id=None, para_id=None, line_id=None):
     except Exception:
         pass
 
-    # Build deep link URI for the app custom scheme
-    custom_scheme_uri = f'epitaka://reader/{book_id}'
+    # ── Web fallback base (fragment appended client-side) ────────────
+    web_lang = lang or Config.DEFAULT_LANG
+    web_fallback = f'{Config.BASE_URL}/{web_lang}/book/{book_id}'
+    if section_path:
+        web_fallback += f'/{section_path}'
+    # Legacy path segments carry the position; encode it into the fragment
+    # (#paraId or #paraId-lineId) so the reader lands on the exact passage.
     if para_id is not None:
+        web_fallback += f'#{para_id}'
+        if line_id is not None:
+            web_fallback += f'-{line_id}'
+
+    # ── Custom scheme URI base (para/line appended client-side from the
+    #    fragment for canonical links; from path segments for legacy) ──
+    custom_scheme_uri = f'epitaka://reader/{book_id}'
+    if lang is None and para_id is not None:
         custom_scheme_uri += f'?paraId={para_id}'
         if line_id is not None:
             custom_scheme_uri += f'&lineId={line_id}'
-
-    # Build web fallback URL
-    web_fallback = f'{Config.BASE_URL}/{Config.DEFAULT_LANG}/book/{book_id}'
-    if para_id is not None:
-        web_fallback += f'#{para_id}'
 
     return render_template(
         _SHARE_LINK_REDIRECT_TEMPLATE,

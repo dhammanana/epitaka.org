@@ -111,9 +111,7 @@
     <div class="icon">📖</div>
     <h1>Open in {{ app_name }}</h1>
     <div class="book-id">{{ book_name }}</div>
-    {% if para_id %}
-    <p>Paragraph {{ para_id }}{% if line_id %}, line {{ line_id }}{% endif %}</p>
-    {% endif %}
+    <p id="position-label">{% if para_id %}Paragraph {{ para_id }}{% if line_id %}, line {{ line_id }}{% endif %}{% endif %}</p>
     <p>You need the {{ app_name }} app installed to open this content directly.</p>
 
     <div class="btn-group">
@@ -121,13 +119,13 @@
         <span class="spinner" id="spinner"></span>
         <span id="btn-text">Open App</span>
       </a>
-      <a href="{{ web_fallback }}" class="btn btn-secondary">
+      <a id="web-fallback-btn" href="{{ web_fallback }}" class="btn btn-secondary">
         Open in Browser
       </a>
     </div>
 
     <p class="note">
-      Not seeing the app? <a href="{{ web_fallback }}" style="color: #7c2d12;">Open in browser</a>
+      Not seeing the app? <a id="web-fallback-note" href="{{ web_fallback }}" style="color: #7c2d12;">Open in browser</a>
     </p>
   </div>
 
@@ -138,6 +136,45 @@
       var btnText  = document.getElementById('btn-text');
       var fallback = '{{ web_fallback }}';
       var timer;
+
+      // Canonical app links carry the exact passage in the URL fragment
+      // (#paraId-lineId). The fragment is never sent to the server, so
+      // re-append it here to the web fallback and translate it into the
+      // custom-scheme query params the app understands.
+      (function applyHash() {
+        var hash = window.location.hash;
+        if (!hash) return;
+        var m = hash.match(/^#(\d+)(?:-(\d+))?$/);
+        if (!m) return;
+        var paraId = m[1];
+        var lineId = m[2];
+
+        // Web fallback keeps the fragment so the reader lands on the passage.
+        fallback += hash;
+        document.getElementById('web-fallback-btn').href = fallback;
+        document.getElementById('web-fallback-note').href = fallback;
+
+        // Custom scheme URI needs the position as query params.
+        var scheme = 'epitaka://reader/{{ book_id }}' +
+                     '?paraId=' + paraId +
+                     (lineId ? '&lineId=' + lineId : '');
+        appBtn.href = scheme;
+
+        // Keep the descriptive text in sync.
+        var pos = document.getElementById('position-label');
+        if (pos) {
+          pos.textContent = 'Paragraph ' + paraId +
+                            (lineId ? ', line ' + lineId : '');
+        }
+      })();
+
+      // Hide the position line for book-only links (no paragraph).
+      (function hideEmptyPosition() {
+        var pos = document.getElementById('position-label');
+        if (pos && !pos.textContent.trim()) {
+          pos.style.display = 'none';
+        }
+      })();
 
       // On mobile browsers, when the custom scheme link is clicked the page
       // either navigates away (app opens) or nothing happens (app not installed).
