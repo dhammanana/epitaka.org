@@ -52,6 +52,33 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   text-align: center;
 }
+
+/* ── SEO helpers ────────────────────────────────────
+   Visually-hidden H1 so search engines get a proper heading without
+   changing the visible reader design. */
+.seo-h1 {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Breadcrumb above the article — subtle, readable */
+.seo-breadcrumb {
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding: 0.45rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-sans);
+}
+.seo-breadcrumb a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.seo-breadcrumb a:hover { text-decoration: underline; }
 .topbar-right { display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0; }
 
 .topbar-btn {

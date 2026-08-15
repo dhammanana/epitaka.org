@@ -42,14 +42,15 @@ RUN pip install --no-cache-dir --upgrade pip && \
 EXPOSE 8080
 
 # Gunicorn – production ready
-# This app is SQLite/read-heavy. A single worker with several threads is the
-# memory-safe default for small VPS boxes; bump --workers only if you have
-# spare RAM. gthread is auto-selected when --threads > 1.
+# This app is SQLite/read-heavy. 2 workers × 4 threads is the sweet spot for
+# a 1 vCPU box (see deploy/epitaka.service for the systemd deployment — the
+# Docker path is a secondary/alternative deployment).
 CMD ["gunicorn", \
      "--bind", "0.0.0.0:8080", \
-     "--workers", "1", \
-     "--threads", "8", \
-     "--timeout", "120", \
+     "--workers", "2", \
+     "--threads", "4", \
+     "--timeout", "30", \
+     "--keep-alive", "2", \
      "--access-logfile", "-", \
      "--error-logfile", "-", \
      "run:app"]

@@ -3,18 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ book_title }} — E-Piṭaka ({{ lang_info.english_name }})</title>
+  <title>{{ seo_title }}</title>
   <meta name="description" content="{{ meta_description }}">
   <link rel="canonical" href="{{ canonical_url }}">
-  <meta property="og:title"       content="{{ book_title }} — E-Piṭaka">
+  <meta property="og:title"       content="{{ seo_title }}">
   <meta property="og:description" content="{{ meta_description }}">
   <meta property="og:type"        content="article">
+  <meta property="og:site_name"   content="E-Piṭaka">
   <meta property="og:url"         content="{{ canonical_url }}">
+  <meta property="og:image"       content="{{ site_url }}/static/og-image.png">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"    content="E-Piṭaka — {{ seo_title }}">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="{{ seo_title }}">
+  <meta name="twitter:description" content="{{ meta_description }}">
+  <meta name="twitter:image"       content="{{ site_url }}/static/og-image.png">
 
-  {# ── Alternate language links for SEO ── #}
+  {# ── Alternate language links for SEO (absolute URLs + x-default) ── #}
+  <link rel="alternate" hreflang="x-default" href="{{ site_url }}/en/book/{{ book_id }}">
   {% for alt_lang in available_langs %}
-  <link rel="alternate" hreflang="{{ alt_lang.code }}" href="{{ base_url }}/{{ alt_lang.code }}/book/{{ book_id }}">
+  <link rel="alternate" hreflang="{{ alt_lang.code }}" href="{{ site_url }}/{{ alt_lang.code }}/book/{{ book_id }}">
   {% endfor %}
+
+  <script type="application/ld+json">{{ book_jsonld | tojson }}</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -150,8 +162,17 @@
 
 <!-- MAIN CONTENT -->
 <main id="main-content" role="main">
+  {# ── Visually-hidden H1 for SEO (the visible book title lives in the
+     top bar; JS reads .book-title for reading history, so it stays a span) ── #}
+  <h1 class="seo-h1">{{ english_name or book_title }}{% if english_name and english_name|lower != book_title|lower %} <span class="pali-seo-name">{{ book_title }}</span>{% endif %}</h1>
+
+  <nav class="seo-breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ home_url }}">Home</a> <span aria-hidden="true">›</span>
+    <span>{{ english_name or book_title }}</span>
+  </nav>
+
   <article itemscope itemtype="https://schema.org/Book">
-    <meta itemprop="name" content="{{ book_title }}">
+    <meta itemprop="name" content="{{ english_name or book_title }}">
     <meta itemprop="inLanguage" content="pi">
     {% for item in toc %}
     <section class="section-block" id="para-{{ item.para_id }}"

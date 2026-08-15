@@ -8,10 +8,14 @@ Supports multi-language URL routing:
   /<lang>/book/<book_id>      → Book page with TOC in language
   /<lang>/book/<book_id>/<section_slug>  → Book page with expanded section (SEO)
 """
-from flask import Blueprint, render_template, request, redirect, jsonify, abort, send_from_directory
+from flask import Blueprint, render_template, request, redirect, jsonify, abort, send_from_directory, make_response
 
 from ..utils.db   import get_db, get_translation_db
 from ..utils.text import normalize_pali, markdown_to_html
+from ..utils.cache import TTLCache
+from ..utils.ratelimit import rate_limit
+from ..utils.assets import get_asset_version
+from ..utils import seo
 from ..services.books import load_hierarchy, organize_hierarchy
 from ..services.toc   import get_book_toc, resolve_split_book, get_section_sentences, build_slug_map
 from ..services.links import load_section_book_links
@@ -35,6 +39,13 @@ _ROOT_FILES_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(o
 
 bp = Blueprint('main', __name__)
 
+# Rendered book-page HTML cache. The book page is the most expensive route
+# (TOC + ref_links bulk queries + Jinja render of a long TOC) and crawlers
+# re-hit the same URLs constantly. Bounded LRU so memory stays flat on the
+# small VPS; strings are cached (not Response objects) so each request gets
+# a fresh response to finalize.
+_BOOK_PAGE_CACHE = TTLCache(max_size=24, ttl=300)
+
 
 def get_lang_info(lang_code):
     """Get language display info."""
@@ -50,17 +61,19 @@ def get_lang_info(lang_code):
 @bp.route('/book/<book_id>')
 @bp.route('/book/<book_id>/<path:section_path>')
 def legacy_book_redirect(book_id, section_path=None):
-    """Redirect old /book/... URLs to /{lang}/book/..."""
+    """Redirect old /book/... URLs to /{lang}/book/... (permanently —
+    Google still indexes legacy URLs like /book/Moh; a 301 consolidates
+    their authority onto the canonical /en/book/... pages)."""
     if section_path:
-        return redirect(f'/{Config.DEFAULT_LANG}/book/{book_id}/{section_path}')
-    return redirect(f'/{Config.DEFAULT_LANG}/book/{book_id}')
+        return redirect(f'/{Config.DEFAULT_LANG}/book/{book_id}/{section_path}', code=301)
+    return redirect(f'/{Config.DEFAULT_LANG}/book/{book_id}', code=301)
 
 
 @bp.route('/book_ref/<book_id>')
 def legacy_book_ref_redirect(book_id):
     """Redirect old /book_ref/... URLs to /{lang}/book_ref/..."""
     qs = request.query_string.decode() if request.query_string else ''
-    return redirect(f'/{Config.DEFAULT_LANG}/book_ref/{book_id}?{qs}')
+    return redirect(f'/{Config.DEFAULT_LANG}/book_ref/{book_id}?{qs}', code=301)
 
 
 # ── Language redirect ──────────────────────────────────────────────────────
@@ -83,27 +96,42 @@ def index(lang):
     translations = Config.detect_translations()
 
     if lang not in translations:
+        if lang != Config.DEFAULT_LANG:
+            # Unknown language segment (bots probing /wp-admin, /tmp, …)
+            # — 404 instead of rendering the home-page shell for them.
+            abort(404)
         # If the default language itself is not found, render anyway
         # with empty available_langs to avoid redirect loop
         print(f"WARNING: Language '{lang}' not found in translations at {Config.DATA_DIR}")
         return render_template(
             'index.html',
             base_url=Config.BASE_URL,
+            site_url=seo.site_base(),
+            home_url=seo.absolute(f'/{lang}/'),
             menu=organize_hierarchy(hierarchy),
             lang=lang,
             lang_info={'code': lang, 'english_name': lang.upper(), 'native_name': lang.upper()},
             available_langs=[],
+            seo_home=seo.home_l10n(lang, 0),
+            popular_books=[],
+            website_jsonld=seo.website_jsonld(lang),
         )
 
     lang_info = translations[lang]
+    available = [translations[code] for code in sorted(translations.keys())]
 
     return render_template(
         'index.html',
         base_url=Config.BASE_URL,
+        site_url=seo.site_base(),
+        home_url=seo.absolute(f'/{lang}/'),
         menu=organize_hierarchy(hierarchy),
         lang=lang,
         lang_info=lang_info,
-        available_langs=[translations[code] for code in sorted(translations.keys())],
+        available_langs=available,
+        seo_home=seo.home_l10n(lang, len(available)),
+        popular_books=seo.popular_books(lang),
+        website_jsonld=seo.website_jsonld(lang),
     )
 
 
@@ -129,6 +157,38 @@ def editor_page():
         lang=Config.DEFAULT_LANG,
         v=v,
     )
+
+
+# ── robots.txt ─────────────────────────────────────────────────────────────
+# Previously the site had NO robots.txt — every compliant crawler treated
+# the whole site as open season, and bots requesting /robots.txt itself got
+# a 404→home redirect. Disallow the non-content paths and point crawlers at
+# the sitemap.
+
+@bp.route('/robots.txt')
+def robots_txt():
+    robots = (
+        'User-agent: *\n'
+        'Allow: /\n'
+        'Disallow: /editor\n'
+        'Disallow: /app\n'
+        'Disallow: /static/\n'
+        'Disallow: /*?*\n'  # query-string URLs (search pages etc.)
+        'Disallow: /api/\n'
+        '\n'
+        # Ahrefs crawler + site-audit bot: block entirely (heavy scraper
+        # that burns CPU on deep-crawl re-hits; nothing in it for SEO).
+        'User-agent: AhrefsBot\n'
+        'Disallow: /\n'
+        '\n'
+        'User-agent: AhrefsSiteAudit\n'
+        'Disallow: /\n'
+        '\n'
+        f'Sitemap: {Config.BASE_URL or "https://epitaka.org"}/sitemap.xml\n'
+    )
+    resp = make_response(robots, 200, {'Content-Type': 'text/plain'})
+    resp.headers['Cache-Control'] = 'public, max-age=86400'
+    return resp
 
 
 # ── Sitemap routes ─────────────────────────────────────────────────────────
@@ -315,6 +375,14 @@ def book(lang, book_id, section_path=None):
 
     book_id = book_id.replace('_chunks', '')
 
+    # Serve the cached render for identical URLs (crawlers hammer the same
+    # deep section links). Keyed on asset version too, so a deploy can never
+    # serve pages pointing at old bundles beyond the TTL.
+    cache_key = (lang, book_id, section_path, get_asset_version())
+    cached_html = _BOOK_PAGE_CACHE.get(cache_key)
+    if cached_html is not None:
+        return make_response(cached_html)
+
     lang_info = translations[lang]
     hierarchy = load_hierarchy()
 
@@ -322,6 +390,7 @@ def book(lang, book_id, section_path=None):
         cursor = conn.cursor()
         cursor.execute('SELECT book_name FROM books WHERE book_id = ?', (book_id,))
         row = cursor.fetchone()
+        book_exists = row is not None
         book_title = row['book_name'] if row else 'Unknown Book'
         toc = get_book_toc(book_id, conn)
 
@@ -461,7 +530,9 @@ def book(lang, book_id, section_path=None):
             if entry:
                 ref_links[num_pid] = entry
 
-    if not book_title:
+    if not book_exists:
+        # Unknown book_id (bots probing junk paths) — 404 immediately
+        # instead of rendering a full page around 'Unknown Book'.
         abort(404)
 
     bookinfo = hierarchy.get(book_id, {})
@@ -482,13 +553,32 @@ def book(lang, book_id, section_path=None):
         'tika_ref':  enrich_refs(bookinfo.get('tika_ref',  [])),
     }
 
-    canonical_url = f"{Config.BASE_URL}/{lang}/book/{book_id}"
-    meta_description = f"Read {book_title} from the Chaṭṭha Saṅgāyana Tipiṭaka in {lang_info['english_name']}."
+    # ── SEO: English display name + section title for the current URL ──
+    english_name = seo.english_book_name(book_id)
+    section_title = next(
+        (t['title'] for t in toc if t['para_id'] == active_para_id), None
+    ) if active_para_id else None
 
-    return render_template(
+    canonical_url = seo.absolute(f'/{lang}/book/{book_id}')
+    page_url = canonical_url
+    home_url = seo.absolute(f'/{lang}/')
+    seo_title = seo.book_seo_title(
+        book_id, book_title, lang, lang_info['native_name'])
+    meta_description = seo.book_seo_description(
+        book_id, book_title, lang, lang_info['english_name'], section_title)
+    book_ld = seo.book_jsonld(
+        book_id, book_title, lang, page_url, home_url, section_title)
+
+    html = render_template(
         'book.html',
         book_id=book_id,
         book_title=book_title,
+        english_name=english_name,
+        seo_title=seo_title,
+        site_url=seo.site_base(),
+        home_url=home_url,
+        page_url=page_url,
+        book_jsonld=book_ld,
         bookref=bookref,
         ref_links=ref_links,
         toc=toc,
@@ -507,6 +597,8 @@ def book(lang, book_id, section_path=None):
         book_links_by_line=book_links_by_line,
         firebase_config=Config.FIREBASE_CONFIG,
     )
+    _BOOK_PAGE_CACHE.set(cache_key, html)
+    return make_response(html)
 
 
 # ── Book link rendering ────────────────────────────────────────────────────
@@ -632,6 +724,7 @@ def api_menu():
 # ── Suggest / search API ───────────────────────────────────────────────────
 
 @bp.route('/api/suggest_word')
+@rate_limit(60, 60)
 def suggest_word():
     query = request.args.get('q', '').strip()
     if not query:
@@ -642,6 +735,7 @@ def suggest_word():
 
 
 @bp.route('/api/search_headings')
+@rate_limit(60, 60)
 def search_headings_suggest():
     hierarchy = load_hierarchy()
     query = request.args.get('q', '').strip()
@@ -664,6 +758,7 @@ def search_headings_suggest():
 
 
 @bp.route('/api/bold_suggest')
+@rate_limit(60, 60)
 def bold_suggest():
     hierarchy = load_hierarchy()
     query = request.args.get('q', '').strip()
@@ -697,6 +792,7 @@ def bold_suggest():
 
 
 @bp.route('/api/bold_definition')
+@rate_limit(60, 60)
 def bold_definition():
     hierarchy = load_hierarchy()
     query = request.args.get('q', '').strip()
@@ -768,6 +864,8 @@ def about():
     return render_template(
         'about.html',
         base_url=Config.BASE_URL,
+        site_url=seo.site_base(),
+        page_url=seo.absolute('/about'),
     )
 
 
@@ -779,4 +877,6 @@ def privacy():
     return render_template(
         'privacy.html',
         base_url=Config.BASE_URL,
+        site_url=seo.site_base(),
+        page_url=seo.absolute('/privacy'),
     )

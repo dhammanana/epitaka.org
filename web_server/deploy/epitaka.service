@@ -1,0 +1,60 @@
+# Tuned systemd unit for E-Pitaka gunicorn.
+# Replace /etc/systemd/system/epitaka.service with this, then:
+#   sudo systemctl daemon-reload && sudo systemctl restart epitaka
+#
+# Changes vs the old unit:
+#   * --workers 1 --threads 2  →  --workers 2 --threads 4
+#     With 1 vCPU / ~2 GB RAM this is the sweet spot: 2 processes (so a
+#     hung request in one never blocks the other) × 4 threads for I/O-bound
+#     SQLite work. If RAM is tight (< 1.5 GB free), use --workers 1
+#     --threads 8 instead.
+#   * --bind 127.0.0.1:8080  — only reachable via nginx on the same host.
+#     If nginx is NOT on this host, revert to 0.0.0.0:8080.
+#   * --keep-alive 2  — nginx owns client keep-alive; short keep-alive
+#     prevents idle browser/crawler connections from hogging threads.
+#   * --timeout 30  — the search fallback can no longer run unbounded
+#     full-table LIKE scans (see app/routes/fts_search.py), so 30 s is safe.
+#
+# Optional: pin the asset cache-buster at boot so no request ever pays the
+# frontend/dist scan:
+#   Environment="APP_VERSION=2026-08-14"
+
+[Unit]
+Description=E-Pitaka Production Flask API
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=exec
+
+User=deploy
+Group=deploy
+
+WorkingDirectory=/home/deploy/apps/epitaka/web_server
+
+Environment="PATH=/home/deploy/apps/epitaka/web_server/venv/bin"
+EnvironmentFile=-/home/deploy/apps/epitaka/web_server/.env
+
+ExecStart=/home/deploy/apps/epitaka/web_server/venv/bin/gunicorn \
+    --workers 2 \
+    --threads 4 \
+    --bind 127.0.0.1:8080 \
+    --timeout 30 \
+    --graceful-timeout 30 \
+    --keep-alive 2 \
+    --access-logfile - \
+    --error-logfile - \
+    run:app
+
+Restart=on-failure
+RestartSec=5
+
+TimeoutStartSec=30
+TimeoutStopSec=30
+KillSignal=SIGTERM
+
+UMask=0027
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

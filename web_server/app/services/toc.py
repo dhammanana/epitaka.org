@@ -11,6 +11,14 @@ from collections import defaultdict
 
 from ..utils.text import markdown_to_html
 from ..utils.db import get_db, get_translation_db
+from ..utils.cache import TTLCache
+
+# TOC + section content are static per (book, lang) and are fetched by the
+# book page, the section API, AND the mobile app — bots + readers hit the
+# same sections over and over. Cache them so the expensive batched queries
+# run once per TTL instead of once per request.
+_SECTION_CACHE = TTLCache(max_size=512, ttl=300)
+_TOC_CACHE = TTLCache(max_size=256, ttl=300)
 
 
 def get_book_toc(book_id, conn):
@@ -24,6 +32,9 @@ def get_book_toc(book_id, conn):
     The content check is batched into a single query instead of one query
     per heading.
     """
+    cached = _TOC_CACHE.get(book_id)
+    if cached is not None:
+        return cached
     cursor = conn.cursor()
     cursor.execute('''
         SELECT para_id, level, title
@@ -83,6 +94,7 @@ def get_book_toc(book_id, conn):
             'has_content': has_content,
         })
 
+    _TOC_CACHE.set(book_id, toc_items)
     return toc_items
 
 
@@ -140,6 +152,10 @@ def get_section_sentences(book_id, para_id, conn, lang_code=None):
         'has_content': bool,  # whether there are content sentences beyond the heading
       }
     """
+    cache_key = (book_id, para_id, lang_code or '')
+    cached = _SECTION_CACHE.get(cache_key)
+    if cached is not None:
+        return cached
     cursor = conn.cursor()
 
     # Compute section range from headings ONCE (headings is only in epitaka.db)
@@ -196,11 +212,13 @@ def get_section_sentences(book_id, para_id, conn, lang_code=None):
             'translation': markdown_to_html(translation) if translation else '',
         })
 
-    return {
+    section = {
         'sentences': result,
         'heading_translation': heading_translation,
         'has_content': len(result) > 0,
     }
+    _SECTION_CACHE.set(cache_key, section)
+    return section
 
 
 def resolve_split_book(book_id, para_id, cursor):

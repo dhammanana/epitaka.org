@@ -22,6 +22,8 @@ from collections import defaultdict, Counter
 import re
 from ..utils.db import get_db, get_webdata_db, get_translation_db
 from ..utils.text import markdown_to_html, normalize_pali, highlight_text
+from ..utils.cache import TTLCache
+from ..utils.ratelimit import rate_limit
 from ..services.loadtocs import load_hierarchy
 from ..services.toc import build_slug_map
 from ..config import Config
@@ -127,6 +129,12 @@ def _find_matching_lines(lines: list, words: list) -> set:
 
 
 # ── Helper: fallback substring search when the FTS index misses ───────────
+# Cached (query + filters → matching paragraphs) because crawler bots hammer
+# the same junk queries, and each miss would otherwise trigger a full-table
+# LIKE scan — the single most expensive thing this server can do on 1 vCPU.
+_FALLBACK_CACHE = TTLCache(max_size=128, ttl=60)
+
+
 def _fallback_paragraph_matches(conn, words, allowed_books=None, limit=5000):
     """
     Fallback search against the authoritative `sentences` table (epitaka.db).
@@ -141,6 +149,15 @@ def _fallback_paragraph_matches(conn, words, allowed_books=None, limit=5000):
     """
     if not words:
         return []
+    # A 1–2 char word can't be matched by the FTS index but a full-table
+    # LIKE '%x%' scan would still scan the whole sentences table and peg the
+    # CPU for seconds. Never fall back for those — return nothing instead.
+    if any(len(w) < 3 for w in words):
+        return []
+    cache_key = ('|'.join(words), tuple(sorted(allowed_books)) if allowed_books else '')
+    cached = _FALLBACK_CACHE.get(cache_key)
+    if cached is not None:
+        return cached
 
     bf_sql, bf_params = _book_filter_clause(allowed_books, alias='s')
 
@@ -166,12 +183,16 @@ def _fallback_paragraph_matches(conn, words, allowed_books=None, limit=5000):
         ''', [pattern] + bf_params).fetchall()
         word_set = {(r['book_id'], r['para_id']) for r in rows}
         if not word_set:
+            _FALLBACK_CACHE.set(cache_key, [])
             return []
         common = word_set if common is None else (common & word_set)
         if not common:
+            _FALLBACK_CACHE.set(cache_key, [])
             return []
 
-    return sorted(common)[:limit]
+    result = sorted(common)[:limit]
+    _FALLBACK_CACHE.set(cache_key, result)
+    return result
 
 
 # ── Helper: load book ordering from books table ───────────────────────────
@@ -197,6 +218,7 @@ def _load_book_order():
 def register_search_route(bp):
 
     @bp.route('/fts_search')
+    @rate_limit(30, 60)
     def fts_search():
         """
         Full-text search endpoint.

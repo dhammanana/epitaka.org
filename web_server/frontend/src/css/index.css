@@ -9,12 +9,14 @@
 /* ── Page layout ─────────────────────────────────── */
 
 /* Override book.css body which assumes topbar + reader layout */
+/* The page scrolls now: the landing stays a full viewport, then the
+   server-rendered SEO/about section follows below the fold. */
 body {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100dvh;
-  overflow: hidden;
+  overflow-y: auto;
   margin-top: 0 !important; /* cancel book.css #main-content margin */
 }
 
@@ -51,6 +53,12 @@ body::before {
   z-index: 1;
   text-align: center;
   padding: 2rem;
+  /* Fill exactly one viewport and center its content, like the old layout */
+  flex: 0 0 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .landing-wordmark {
@@ -178,6 +186,79 @@ body::before {
 }
 
 .lang-chip.active .lang-english {
+  color: var(--accent);
+}
+
+/* ── SEO / about section (below the landing) ────────
+   Server-rendered so search engines see real content and links
+   (the interactive library itself is a JS dialog). */
+
+.seo-about {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 2.5rem 1.25rem 4rem;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.seo-about-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.seo-about h1 {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 0.8rem;
+}
+.seo-about p {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+.seo-about h2 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 1.75rem 0 0.5rem;
+}
+.popular-books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+.popular-books li a {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--accent);
+  text-decoration: none;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  transition: background 0.12s, border-color 0.12s;
+}
+.popular-books li a:hover {
+  background: var(--accent-light);
+  border-color: #d4a97a;
+}
+.seo-translations {
+  font-size: 0.95rem;
+}
+.seo-translations a {
+  color: var(--accent);
+}
+.seo-footer-links {
+  font-size: 0.9rem;
+}
+.seo-footer-links a {
   color: var(--accent);
 }
 

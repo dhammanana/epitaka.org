@@ -3,14 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Piṭaka — Chaṭṭha Saṅgāyana Tipiṭaka ({{ lang_info.english_name }})</title>
-  <meta name="description" content="Read and research the Pāli Tipiṭaka with AI-assisted translation. Chaṭṭha Saṅgāyana edition.">
+  <title>{{ seo_home.title }}</title>
+  <meta name="description" content="{{ seo_home.description }}">
+  <link rel="canonical" href="{{ home_url }}">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
+  {# ── Open Graph / Twitter ── #}
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="E-Piṭaka">
+  <meta property="og:title"       content="{{ seo_home.title }}">
+  <meta property="og:description" content="{{ seo_home.description }}">
+  <meta property="og:url"         content="{{ home_url }}">
+  <meta property="og:image"       content="{{ site_url }}/static/og-image.png">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"    content="E-Piṭaka — the Pāli Canon, line-by-line translations">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="{{ seo_home.title }}">
+  <meta name="twitter:description" content="{{ seo_home.description }}">
+  <meta name="twitter:image"       content="{{ site_url }}/static/og-image.png">
 
-  {# ── Alternate language links for SEO ── #}
+  {# ── Alternate language links for SEO (absolute URLs + x-default) ── #}
+  {# x-default always points at the default language (en) homepage. #}
+  <link rel="alternate" hreflang="x-default" href="{{ site_url }}/en/">
   {% for alt_lang in available_langs %}
-  <link rel="alternate" hreflang="{{ alt_lang.code }}" href="{{ base_url }}/{{ alt_lang.code }}/">
+  <link rel="alternate" hreflang="{{ alt_lang.code }}" href="{{ site_url }}/{{ alt_lang.code }}/">
   {% endfor %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +36,8 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}?v={{ v }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/home-dialog.css') }}?v={{ v }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}?v={{ v }}">
+
+  <script type="application/ld+json">{{ website_jsonld | tojson }}</script>
 
   <script>
     window.INDEX_CONFIG = {
@@ -65,8 +84,38 @@
       {% endfor %}
     </div>
 
-    <button id="open-books-btn" type="button">☸ Browse the Canon</button>
+    <button id="open-books-btn" type="button">☸ {{ seo_home.browse }}</button>
   </div>
+
+  {# ── Server-rendered content for search engines ──────────────────
+     The interactive landing is a JS dialog; without this section Google
+     would see an almost empty page. This block also links to the most
+     popular books (internal linking) and to every language homepage. #}
+  <main class="seo-about" id="seo-about">
+    <div class="seo-about-inner">
+      <h1>{{ seo_home.h1 }}</h1>
+      <p>{{ seo_home.intro }}</p>
+
+      <h2>{{ seo_home.popular }}</h2>
+      <ul class="popular-books">
+        {% for b in popular_books %}
+        <li><a href="{{ base_url }}/{{ lang }}/book/{{ b.id }}">{{ b.name }}</a></li>
+        {% endfor %}
+      </ul>
+
+      <p class="seo-translations">
+        <strong>{{ seo_home.translations }}</strong>
+        {% for alt in available_langs %}
+        <a href="{{ base_url }}/{{ alt.code }}/">{{ alt.native_name }} ({{ alt.english_name }})</a>{% if not loop.last %} · {% endif %}
+        {% endfor %}
+      </p>
+
+      <p class="seo-footer-links">
+        <a href="{{ base_url }}/about">{{ seo_home.about }}</a> ·
+        <a href="{{ base_url }}/privacy">{{ seo_home.privacy }}</a>
+      </p>
+    </div>
+  </main>
 
   <div id="disclaimer-overlay" role="dialog" aria-modal="true"
        aria-labelledby="disclaimer-heading">
