@@ -48,9 +48,12 @@ export function attachPaliClickListeners(root) {
 }
 
 function onPaliClick(e) {
+  // If the reader has selected text (e.g. to copy/share), don't hijack the
+  // click — the selection is the user's intent, not a dictionary lookup.
   const selection = window.getSelection();
-  let word = selection?.toString().trim();
-  if (!word) word = getWordAtPoint(e);
+  if (selection && selection.toString().trim()) return;
+
+  const word = getWordAtPoint(e);
   if (!word) return;
 
   const s = loadSettings();
@@ -396,6 +399,12 @@ function extractWordAt(text, offset, lang, script) {
 
 function extractByWhitespace(text, offset) {
   const wordBoundary = /[\s\u200b\u00a0।॥၊။,\.!\?;:"'()\[\]{}<>\/\\]/;
+  // Only treat the click as a word if it landed ON a word character.
+  // Clicking the whitespace/punctuation between or around words must not
+  // grab a nearby word — that made copy-selection frustrating.
+  const ch = text[offset];
+  if (ch === undefined || wordBoundary.test(ch)) return null;
+
   let start = offset;
   let end = offset;
 
@@ -452,6 +461,11 @@ function extractByScriptRange(text, offset) {
     const cp = ch.codePointAt(0);
     return scriptRanges.some(([lo, hi]) => cp >= lo && cp <= hi);
   }
+
+  // Must be ON a script character — clicking a gap/punctuation must not
+  // grab a nearby word.
+  const ch = text[offset];
+  if (ch === undefined || !isScriptChar(ch)) return null;
 
   let start = offset;
   let end   = offset;

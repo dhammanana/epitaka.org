@@ -277,16 +277,33 @@
             {% if sentence.translation %}
             <div class="translation-text">{{ sentence.translation | safe }}</div>
             {% endif %}
-            {# ── Book-link badges inline with the source sentence ── #}
+            {# ── Book-link badges inline with the source sentence. Lines can
+               have dozens of cross-book links, so only the first 3 are shown
+               and the rest stay hidden behind a +N more button (toggled by
+               JS in the book-link-badge section below). ── #}
             {% set para_links = book_links_by_line.get(sentence.para_id, {}) %}
             {% set line_links = para_links.get(sentence.line_id, []) %}
-            {% for link in line_links %}
+            {% for link in line_links[:3] %}
             <span class="book-link-badge" tabindex="0" role="button"
                   data-link='{{ link | tojson }}'
                   title="{{ link.dst_book_name }}">
               {{ link.word }}
             </span>
             {% endfor %}
+            {% for link in line_links[3:] %}
+            <span class="book-link-badge book-link-badge--hidden"
+                  tabindex="0" role="button"
+                  data-link='{{ link | tojson }}'
+                  title="{{ link.dst_book_name }}">
+              {{ link.word }}
+            </span>
+            {% endfor %}
+            {% if line_links | length > 3 %}
+            <button type="button" class="book-link-more" aria-expanded="false"
+                    title="Show all {{ line_links | length }} cross-book links">
+              +{{ line_links | length - 3 }}
+            </button>
+            {% endif %}
           </div>
           {% endfor %}
           {% if ns.current_para is not none %}</div>{% endif %}
@@ -611,6 +628,31 @@
         _activeBlPopup = null;
       }
     }
+
+    // ── Book-link "+N" more button ──────────────────────────────
+    // Reveals/collapses the hidden cross-book badges of the same sentence
+    // row. Hidden badges keep their normal click behavior once visible.
+    document.querySelectorAll('.book-link-more').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const row = this.closest('.sentence-row');
+        if (!row) return;
+        const hidden = row.querySelectorAll('.book-link-badge--hidden');
+        const n = hidden.length;
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        // The --hidden class itself carries display:none, so toggling it
+        // reveals/collapses the badges (expanded=false -> remove -> show).
+        hidden.forEach(h => h.classList.toggle('book-link-badge--hidden', expanded));
+        this.textContent = expanded ? '+' + n : '−' + n;
+      });
+      btn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
   })();
 </script>
 

@@ -183,6 +183,8 @@ def robots_txt():
         '\n'
         # Ahrefs crawler + site-audit bot: block entirely (heavy scraper
         # that burns CPU on deep-crawl re-hits; nothing in it for SEO).
+        'User-agent: Applebot\n'
+        'Crawl-delay: 5\n'
         'User-agent: AhrefsBot\n'
         'Disallow: /\n'
         '\n'

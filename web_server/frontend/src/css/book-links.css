@@ -39,6 +39,39 @@
   outline: none;
 }
 
+/* ── Hidden badges (lines with more than 3 links) ────────────────
+   Kept in the DOM (so their click handlers work) but collapsed behind
+   the .book-link-more button; JS removes this class to reveal them. ─── */
+.book-link-badge--hidden {
+  display: none;
+}
+
+/* ── "+N" more button ────────────────────────────────────────────
+   Shown when a line has more than 3 cross-book links; expands to
+   reveal the rest and collapses again (label flips to −N). ──────── */
+.book-link-more {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.05rem 0.45rem;
+  font-size: 0.78em;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  transition: background 0.12s, color 0.12s;
+}
+.book-link-more:hover,
+.book-link-more:focus-visible {
+  background: var(--accent-light);
+  color: var(--accent);
+  outline: none;
+}
+
 /* ── Preview popup (3-line tooltip card) ────────────────────
    Positioned by JS near the badge.
    ─────────────────────────────────────────────────────────── */
