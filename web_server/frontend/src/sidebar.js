@@ -43,12 +43,15 @@ import {
 
 const { baseUrl = '', lang = 'en' } = window.BOOK_CONFIG || {};
 
-const PANELS = ['library', 'search', 'toc'];
-const PANEL_TITLES = { library: 'Library', search: 'Search', toc: 'Table of Contents' };
+const PANELS = ['library', 'search', 'toc', 'outline'];
+const PANEL_TITLES = {
+  library: 'Library', search: 'Search', toc: 'Table of Contents', outline: 'Outline',
+};
 const ACTIVITY_ICONS = [
   { panel: 'library', icon: '📚', label: 'Library' },
   { panel: 'search',  icon: '🔍', label: 'Search' },
   { panel: 'toc',     icon: '☰',  label: 'Table of contents' },
+  { panel: 'outline', icon: '📋', label: 'Outline of this book' },
   { panel: 'dict',    icon: '📖', label: 'Dictionary' },
 ];
 
@@ -142,10 +145,22 @@ function buildDom() {
 
       <div id="sb-panel-toc" class="sb-panel" role="tabpanel">
         <div class="sb-toc-head">
+          <a id="sb-toc-outline" class="sb-outline-link"
+             href="${baseUrl}/en/book/${currentBookId}/outline">📋 Outline of this book</a>
           <input id="toc-search" type="search" placeholder="Filter headings…"
                  autocomplete="off" aria-label="Filter table of contents">
         </div>
         <ul id="toc-list" role="list"></ul>
+      </div>
+
+      <div id="sb-panel-outline" class="sb-panel" role="tabpanel">
+        <div class="sb-outline-wrap">
+          <a id="sb-outline-full" class="sb-outline-full" target="_blank" rel="noopener noreferrer">
+            Open full outline page ↗
+          </a>
+          <div class="sb-outline-loading">Loading outline…</div>
+          <div id="sb-outline-tree" class="sb-outline-tree"></div>
+        </div>
       </div>
     </div>
   `;
@@ -223,11 +238,15 @@ function openPanel(name) {
   document.body.classList.add('sb-drawer-open');
   hamburgerBtn?.setAttribute('aria-expanded', 'true');
 
+  // Load the outline lazily the first time the panel is opened.
+  if (name === 'outline') loadOutline();
+
   // Focus the panel's primary control (best practice for drawers/dialogs).
   requestAnimationFrame(() => {
     const focusTarget =
       name === 'search' ? document.getElementById(HOME_SEARCH_IDS.searchInput)
       : name === 'toc'   ? document.getElementById('toc-search')
+      : name === 'outline' ? document.getElementById('sb-outline-full')
       : document.getElementById('sb-library-filter');
     focusTarget?.focus({ preventScroll: true });
   });
@@ -608,6 +627,106 @@ function highlightTocItem(paraId) {
       item.scrollIntoView({ block: 'nearest' });
     }
   });
+}
+
+/* ════════════════════════════════════════════
+   Outline panel — the book's outline (all sections) fetched from
+   /api/outline/<book_id>, the same data as the standalone SEO page.
+   ════════════════════════════════════════════ */
+
+let outlineLoaded = false;
+
+function loadOutline() {
+  const tree = document.getElementById('sb-outline-tree');
+  const full = document.getElementById('sb-outline-full');
+  const loading = document.querySelector('.sb-outline-loading');
+  if (!tree || outlineLoaded) return;
+  outlineLoaded = true;
+
+  // Fallback href so the button still works even if the API call fails.
+  if (full) full.href = `${baseUrl}/en/book/${currentBookId}/outline`;
+
+  (async () => {
+    try {
+      const res = await fetch(`${baseUrl}/api/outline/${encodeURIComponent(currentBookId)}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (full && data.outline_url) full.href = data.outline_url;
+      renderOutlineTree(tree, data.groups || []);
+    } catch (err) {
+      console.warn('[sidebar] failed to load outline', err);
+      if (tree) tree.innerHTML = '<div class="sb-outline-empty">Outline not available.</div>';
+    } finally {
+      if (loading) loading.style.display = 'none';
+    }
+  })();
+}
+
+function renderOutlineTree(tree, groups) {
+  tree.innerHTML = '';
+  if (!groups.length) {
+    tree.innerHTML = '<div class="sb-outline-empty">No sections found for this book.</div>';
+    return;
+  }
+
+  for (const g of groups) {
+    const vagga = document.createElement('div');
+    vagga.className = 'sb-outline-vagga';
+
+    const gTitle = document.createElement('div');
+    gTitle.className = 'sb-outline-vagga-title open';
+    gTitle.innerHTML = `${escapeHtml(g.title || '')}<span class="sb-caret" aria-hidden="true">▾</span>`;
+    const gBody = document.createElement('div');
+    gBody.className = 'sb-outline-vagga-body open';
+    gTitle.addEventListener('click', () => {
+      const open = gBody.classList.toggle('open');
+      gTitle.classList.toggle('open', open);
+    });
+
+    for (const st of g.suttas || []) {
+      const sutta = document.createElement('div');
+      sutta.className = 'sb-outline-sutta';
+      if (st.title) {
+        const stTitle = document.createElement('div');
+        stTitle.className = 'sb-outline-sutta-title';
+        stTitle.textContent = st.title;
+        sutta.appendChild(stTitle);
+      }
+      const list = document.createElement('ol');
+      list.className = 'sb-outline-list';
+      for (const item of st.sections || []) {
+        const li = document.createElement('li');
+        li.className = 'sb-outline-item';
+
+        const a = document.createElement('a');
+        a.className = 'sb-outline-item-link pali-text';
+        a.href = item.book_url || '#';
+        a.textContent = item.title || ('Section ' + item.para_id);
+        a.addEventListener('click', () => {
+          if (window.innerWidth < 768) close();
+          clearSidebarSearchState();
+        });
+        li.appendChild(a);
+
+        if (item.study_url) {
+          const s = document.createElement('a');
+          s.className = 'sb-outline-study';
+          s.href = item.study_url;
+          s.target = '_blank';
+          s.rel = 'noopener noreferrer';
+          s.title = item.study_title || 'Study guide';
+          s.setAttribute('aria-label', 'Study guide');
+          s.textContent = '📖';
+          li.appendChild(s);
+        }
+        list.appendChild(li);
+      }
+      sutta.appendChild(list);
+      gBody.appendChild(sutta);
+    }
+    vagga.append(gTitle, gBody);
+    tree.appendChild(vagga);
+  }
 }
 
 /* ════════════════════════════════════════════

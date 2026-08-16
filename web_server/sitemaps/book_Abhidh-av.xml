@@ -2,614 +2,721 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/abhidhammāvatāro-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/abhidhammāvatāro-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/abhidhammāvatāro-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/abhidhammāvatāro-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/abhidhammāvatāro-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/abhidhammāvatāro-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/abhidhammāvatāro-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/abhidhammāvatāro-2"/>
+    <loc>/en/book/Abhidh-av/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Abhidh-av/abhidhammāvatāro-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/abhidhammāvatāro-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/abhidhammāvatāro-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/abhidhammāvatāro-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/abhidhammāvatāro-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/abhidhammāvatāro-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/abhidhammāvatāro-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/abhidhammāvatāro-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/abhidhammāvatāro-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/abhidhammāvatāro-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/ganthārambhakathā-3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/ganthārambhakathā-3"/>
+    <loc>/en/book/Abhidh-av/ganthārambhakathā-3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/ganthārambhakathā-3"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/1-paṭhamo-paricchedo-25</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
+    <loc>/en/book/Abhidh-av/1-paṭhamo-paricchedo-25</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/1-paṭhamo-paricchedo-25"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/cittaniddeso-26</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/cittaniddeso-26"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/cittaniddeso-26"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/cittaniddeso-26"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/cittaniddeso-26"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/cittaniddeso-26"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/cittaniddeso-26"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/cittaniddeso-26"/>
+    <loc>/en/book/Abhidh-av/cittaniddeso-26</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/cittaniddeso-26"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/cittaniddeso-26"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/cittaniddeso-26"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/cittaniddeso-26"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/cittaniddeso-26"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/cittaniddeso-26"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/cittaniddeso-26"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/cittaniddeso-26"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/cittaniddeso-26"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/2-dutiyo-paricchedo-258</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
+    <loc>/en/book/Abhidh-av/2-dutiyo-paricchedo-258</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/2-dutiyo-paricchedo-258"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/cetasikaniddeso-259</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/cetasikaniddeso-259"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/cetasikaniddeso-259"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/cetasikaniddeso-259"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/cetasikaniddeso-259"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/cetasikaniddeso-259"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/cetasikaniddeso-259"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/cetasikaniddeso-259"/>
+    <loc>/en/book/Abhidh-av/cetasikaniddeso-259</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/cetasikaniddeso-259"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/cetasikaniddeso-259"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/cetasikaniddeso-259"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/cetasikaniddeso-259"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/cetasikaniddeso-259"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/cetasikaniddeso-259"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/cetasikaniddeso-259"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/cetasikaniddeso-259"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/cetasikaniddeso-259"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/3-tatiyo-paricchedo-398</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
+    <loc>/en/book/Abhidh-av/3-tatiyo-paricchedo-398</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/3-tatiyo-paricchedo-398"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/cetasikavibhāganiddeso-399</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
+    <loc>/en/book/Abhidh-av/cetasikavibhāganiddeso-399</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/cetasikavibhāganiddeso-399"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/4-catuttho-paricchedo-519</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/4-catuttho-paricchedo-519"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/4-catuttho-paricchedo-519"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/4-catuttho-paricchedo-519"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/4-catuttho-paricchedo-519"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/4-catuttho-paricchedo-519"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/4-catuttho-paricchedo-519"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/4-catuttho-paricchedo-519"/>
+    <loc>/en/book/Abhidh-av/4-catuttho-paricchedo-519</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/4-catuttho-paricchedo-519"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/4-catuttho-paricchedo-519"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/4-catuttho-paricchedo-519"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/4-catuttho-paricchedo-519"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/4-catuttho-paricchedo-519"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/4-catuttho-paricchedo-519"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/4-catuttho-paricchedo-519"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/4-catuttho-paricchedo-519"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/4-catuttho-paricchedo-519"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/ekavidhādiniddeso-520</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/ekavidhādiniddeso-520"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/ekavidhādiniddeso-520"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/ekavidhādiniddeso-520"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/ekavidhādiniddeso-520"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/ekavidhādiniddeso-520"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/ekavidhādiniddeso-520"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/ekavidhādiniddeso-520"/>
+    <loc>/en/book/Abhidh-av/ekavidhādiniddeso-520</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/ekavidhādiniddeso-520"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/ekavidhādiniddeso-520"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/ekavidhādiniddeso-520"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/ekavidhādiniddeso-520"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/ekavidhādiniddeso-520"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/ekavidhādiniddeso-520"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/ekavidhādiniddeso-520"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/ekavidhādiniddeso-520"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/ekavidhādiniddeso-520"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/5-pañcamo-paricchedo-690</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
+    <loc>/en/book/Abhidh-av/5-pañcamo-paricchedo-690</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/5-pañcamo-paricchedo-690"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
+    <loc>/en/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/bhūmipuggalacittuppattiniddeso-691"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/6-chaṭṭho-paricchedo-1028</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
+    <loc>/en/book/Abhidh-av/6-chaṭṭho-paricchedo-1028</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/6-chaṭṭho-paricchedo-1028"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/ārammaṇavibhāganiddeso-1029</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
+    <loc>/en/book/Abhidh-av/ārammaṇavibhāganiddeso-1029</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/ārammaṇavibhāganiddeso-1029"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/7-sattamo-paricchedo-1300</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
+    <loc>/en/book/Abhidh-av/7-sattamo-paricchedo-1300</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/7-sattamo-paricchedo-1300"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/vipākacittappavattiniddeso-1301</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
+    <loc>/en/book/Abhidh-av/vipākacittappavattiniddeso-1301</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/vipākacittappavattiniddeso-1301"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
+    <loc>/en/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/8-aṭṭhamo-paricchedo-1609"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/pakiṇṇakaniddeso-1610</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
+    <loc>/en/book/Abhidh-av/pakiṇṇakaniddeso-1610</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/pakiṇṇakaniddeso-1610"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/9-navamo-paricchedo-1872</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/9-navamo-paricchedo-1872"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/9-navamo-paricchedo-1872"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/9-navamo-paricchedo-1872"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/9-navamo-paricchedo-1872"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/9-navamo-paricchedo-1872"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/9-navamo-paricchedo-1872"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/9-navamo-paricchedo-1872"/>
+    <loc>/en/book/Abhidh-av/9-navamo-paricchedo-1872</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/9-navamo-paricchedo-1872"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/9-navamo-paricchedo-1872"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/9-navamo-paricchedo-1872"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/9-navamo-paricchedo-1872"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/9-navamo-paricchedo-1872"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/9-navamo-paricchedo-1872"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/9-navamo-paricchedo-1872"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/9-navamo-paricchedo-1872"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/9-navamo-paricchedo-1872"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/puññavipākapaccayaniddeso-1873</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
+    <loc>/en/book/Abhidh-av/puññavipākapaccayaniddeso-1873</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/puññavipākapaccayaniddeso-1873"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/10-dasamo-paricchedo-2066</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
+    <loc>/en/book/Abhidh-av/10-dasamo-paricchedo-2066</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/10-dasamo-paricchedo-2066"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/rūpavibhāganiddeso-2067</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
+    <loc>/en/book/Abhidh-av/rūpavibhāganiddeso-2067</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/rūpavibhāganiddeso-2067"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/11-ekādasamo-paricchedo-2588</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
+    <loc>/en/book/Abhidh-av/11-ekādasamo-paricchedo-2588</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/11-ekādasamo-paricchedo-2588"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/nibbānaniddeso-2589</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/nibbānaniddeso-2589"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/nibbānaniddeso-2589"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/nibbānaniddeso-2589"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/nibbānaniddeso-2589"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/nibbānaniddeso-2589"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/nibbānaniddeso-2589"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/nibbānaniddeso-2589"/>
+    <loc>/en/book/Abhidh-av/nibbānaniddeso-2589</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/nibbānaniddeso-2589"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/nibbānaniddeso-2589"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/nibbānaniddeso-2589"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/nibbānaniddeso-2589"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/nibbānaniddeso-2589"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/nibbānaniddeso-2589"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/nibbānaniddeso-2589"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/nibbānaniddeso-2589"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/nibbānaniddeso-2589"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/12-dvādasamo-paricchedo-2634</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
+    <loc>/en/book/Abhidh-av/12-dvādasamo-paricchedo-2634</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/12-dvādasamo-paricchedo-2634"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/paññattiniddeso-2635</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/paññattiniddeso-2635"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/paññattiniddeso-2635"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/paññattiniddeso-2635"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/paññattiniddeso-2635"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/paññattiniddeso-2635"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/paññattiniddeso-2635"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/paññattiniddeso-2635"/>
+    <loc>/en/book/Abhidh-av/paññattiniddeso-2635</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/paññattiniddeso-2635"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/paññattiniddeso-2635"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/paññattiniddeso-2635"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/paññattiniddeso-2635"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/paññattiniddeso-2635"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/paññattiniddeso-2635"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/paññattiniddeso-2635"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/paññattiniddeso-2635"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/paññattiniddeso-2635"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/13-terasamo-paricchedo-2646</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
+    <loc>/en/book/Abhidh-av/13-terasamo-paricchedo-2646</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/13-terasamo-paricchedo-2646"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/kārakapaṭivedhaniddeso-2647</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
+    <loc>/en/book/Abhidh-av/kārakapaṭivedhaniddeso-2647</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/kārakapaṭivedhaniddeso-2647"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/14-cuddasamo-paricchedo-2705</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
+    <loc>/en/book/Abhidh-av/14-cuddasamo-paricchedo-2705</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/14-cuddasamo-paricchedo-2705"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
+    <loc>/en/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/rūpāvacarasamādhibhāvanāniddeso-2706"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/15-pannarasamo-paricchedo-3290</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
+    <loc>/en/book/Abhidh-av/15-pannarasamo-paricchedo-3290</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/15-pannarasamo-paricchedo-3290"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
+    <loc>/en/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/arūpāvacarasamādhibhāvanāniddeso-3291"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/16-soḷasamo-paricchedo-3498</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
+    <loc>/en/book/Abhidh-av/16-soḷasamo-paricchedo-3498</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/16-soḷasamo-paricchedo-3498"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/abhiññāniddeso-3499</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/abhiññāniddeso-3499"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/abhiññāniddeso-3499"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/abhiññāniddeso-3499"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/abhiññāniddeso-3499"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/abhiññāniddeso-3499"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/abhiññāniddeso-3499"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/abhiññāniddeso-3499"/>
+    <loc>/en/book/Abhidh-av/abhiññāniddeso-3499</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/abhiññāniddeso-3499"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/abhiññāniddeso-3499"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/abhiññāniddeso-3499"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/abhiññāniddeso-3499"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/abhiññāniddeso-3499"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/abhiññāniddeso-3499"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/abhiññāniddeso-3499"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/abhiññāniddeso-3499"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/abhiññāniddeso-3499"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/17-sattarasamo-paricchedo-3704</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
+    <loc>/en/book/Abhidh-av/17-sattarasamo-paricchedo-3704</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/17-sattarasamo-paricchedo-3704"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/abhiññārammaṇaniddeso-3705</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
+    <loc>/en/book/Abhidh-av/abhiññārammaṇaniddeso-3705</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/abhiññārammaṇaniddeso-3705"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
+    <loc>/en/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/18-aṭṭhārasamo-paricchedo-3910"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
+    <loc>/en/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/diṭṭhivisuddhiniddeso-3911"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
+    <loc>/en/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/19-ekūnavīsatimo-paricchedo-4102"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
+    <loc>/en/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/kaṅkhāvitaraṇavisuddhiniddeso-4103"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/20-vīsatimo-paricchedo-4226</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
+    <loc>/en/book/Abhidh-av/20-vīsatimo-paricchedo-4226</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/20-vīsatimo-paricchedo-4226"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
+    <loc>/en/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/maggāmaggañāṇadassanavisuddhiniddeso-4227"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
+    <loc>/en/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/21-ekavīsatimo-paricchedo-4347"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
+    <loc>/en/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/paṭipadāñāṇadassanavisuddhiniddeso-4348"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
+    <loc>/en/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/22-bāvīsatimo-paricchedo-4414"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
+    <loc>/en/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/ñāṇadassanavisuddhiniddeso-4415"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/23-tevīsatimo-paricchedo-4600</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
+    <loc>/en/book/Abhidh-av/23-tevīsatimo-paricchedo-4600</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/23-tevīsatimo-paricchedo-4600"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/kilesappahānakathā-4601</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/kilesappahānakathā-4601"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/kilesappahānakathā-4601"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/kilesappahānakathā-4601"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/kilesappahānakathā-4601"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/kilesappahānakathā-4601"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/kilesappahānakathā-4601"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/kilesappahānakathā-4601"/>
+    <loc>/en/book/Abhidh-av/kilesappahānakathā-4601</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/kilesappahānakathā-4601"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/kilesappahānakathā-4601"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/kilesappahānakathā-4601"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/kilesappahānakathā-4601"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/kilesappahānakathā-4601"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/kilesappahānakathā-4601"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/kilesappahānakathā-4601"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/kilesappahānakathā-4601"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/kilesappahānakathā-4601"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
+    <loc>/en/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/24-catuvīsatimo-paricchedo-4703"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/paccayaniddeso-4704</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/paccayaniddeso-4704"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/paccayaniddeso-4704"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/paccayaniddeso-4704"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/paccayaniddeso-4704"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/paccayaniddeso-4704"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/paccayaniddeso-4704"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/paccayaniddeso-4704"/>
+    <loc>/en/book/Abhidh-av/paccayaniddeso-4704</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/paccayaniddeso-4704"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/paccayaniddeso-4704"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/paccayaniddeso-4704"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/paccayaniddeso-4704"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/paccayaniddeso-4704"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/paccayaniddeso-4704"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/paccayaniddeso-4704"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/paccayaniddeso-4704"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/paccayaniddeso-4704"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Abhidh-av/nigamanakathā-4746</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Abhidh-av/nigamanakathā-4746"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Abhidh-av/nigamanakathā-4746"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Abhidh-av/nigamanakathā-4746"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Abhidh-av/nigamanakathā-4746"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Abhidh-av/nigamanakathā-4746"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Abhidh-av/nigamanakathā-4746"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Abhidh-av/nigamanakathā-4746"/>
+    <loc>/en/book/Abhidh-av/nigamanakathā-4746</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Abhidh-av/nigamanakathā-4746"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Abhidh-av/nigamanakathā-4746"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Abhidh-av/nigamanakathā-4746"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Abhidh-av/nigamanakathā-4746"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Abhidh-av/nigamanakathā-4746"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Abhidh-av/nigamanakathā-4746"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Abhidh-av/nigamanakathā-4746"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Abhidh-av/nigamanakathā-4746"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Abhidh-av/nigamanakathā-4746"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

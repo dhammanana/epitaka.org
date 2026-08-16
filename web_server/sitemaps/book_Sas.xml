@@ -2,158 +2,189 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Sas/sāsanavaṃsappadīpikā-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/sāsanavaṃsappadīpikā-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/sāsanavaṃsappadīpikā-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/sāsanavaṃsappadīpikā-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/sāsanavaṃsappadīpikā-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/sāsanavaṃsappadīpikā-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/sāsanavaṃsappadīpikā-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/sāsanavaṃsappadīpikā-2"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Sas/sāsanavaṃsappadīpikā-3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/sāsanavaṃsappadīpikā-3"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/sāsanavaṃsappadīpikā-3"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/sāsanavaṃsappadīpikā-3"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/sāsanavaṃsappadīpikā-3"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/sāsanavaṃsappadīpikā-3"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/sāsanavaṃsappadīpikā-3"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/sāsanavaṃsappadīpikā-3"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Sas/tatrāyaṃmātikā-24</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/tatrāyaṃmātikā-24"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/tatrāyaṃmātikā-24"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/tatrāyaṃmātikā-24"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/tatrāyaṃmātikā-24"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/tatrāyaṃmātikā-24"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/tatrāyaṃmātikā-24"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/tatrāyaṃmātikā-24"/>
+    <loc>/en/book/Sas/outline</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
+    <loc>/en/book/Sas/sāsanavaṃsappadīpikā-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/sāsanavaṃsappadīpikā-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/sāsanavaṃsappadīpikā-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/sāsanavaṃsappadīpikā-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/sāsanavaṃsappadīpikā-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/sāsanavaṃsappadīpikā-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/sāsanavaṃsappadīpikā-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/sāsanavaṃsappadīpikā-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/sāsanavaṃsappadīpikā-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/sāsanavaṃsappadīpikā-2"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>/en/book/Sas/sāsanavaṃsappadīpikā-3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/sāsanavaṃsappadīpikā-3"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/sāsanavaṃsappadīpikā-3"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/sāsanavaṃsappadīpikā-3"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/sāsanavaṃsappadīpikā-3"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/sāsanavaṃsappadīpikā-3"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/sāsanavaṃsappadīpikā-3"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/sāsanavaṃsappadīpikā-3"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/sāsanavaṃsappadīpikā-3"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/sāsanavaṃsappadīpikā-3"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
+    <loc>/en/book/Sas/tatrāyaṃmātikā-24</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/tatrāyaṃmātikā-24"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/tatrāyaṃmātikā-24"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/tatrāyaṃmātikā-24"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/tatrāyaṃmātikā-24"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/tatrāyaṃmātikā-24"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/tatrāyaṃmātikā-24"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/tatrāyaṃmātikā-24"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/tatrāyaṃmātikā-24"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/tatrāyaṃmātikā-24"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/1-navaṭṭhānāgatasāsanavaṃsakathāmaggo-35"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
+    <loc>/en/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/2-sīhaḷadīpikasāsanavaṃsakathāmaggo-130"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
+    <loc>/en/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/3-suvaṇṇabhūmisāsanavaṃsakathāmaggo-244"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
+    <loc>/en/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/4-yonakaraṭṭhasāsanavaṃsakathāmaggo-305"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
+    <loc>/en/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/5-navavāsīraṭṭhasāsanavaṃsakathāmaggo-338"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
+    <loc>/en/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/6-aparantaraṭṭhasāsanavaṃsakathāmaggo-364"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
+    <loc>/en/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/7-kasmiragandhāraraṭṭhasāsanavaṃsakathāmaggo-907"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
+    <loc>/en/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/8-mahiṃsakaraṭṭhassāsanavaṃsakathāmaggo-929"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
+    <loc>/en/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/9-mahāraṭṭhasāsanavaṃsakathāmaggo-938"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sas/10-cinaraṭṭhasāsanavaṃsakathāmaggo-950"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

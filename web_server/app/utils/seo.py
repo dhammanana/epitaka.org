@@ -9,16 +9,43 @@ Pāli titles ("Dhammapadapāḷi"). These helpers give every page a proper
 English-language title, meta description, canonical URL, and structured
 data regardless of the display language.
 """
+import html
 import os
+import re
+
+from flask import current_app, has_request_context, request
 
 from ..config import Config
 
-# Canonical site origin. Config.BASE_URL wins (set it in the server .env);
-# otherwise fall back to the well-known domain. Never derive from the
-# request Host because Cloudflare/nginx can present http or a bare IP.
+
+def _dev_mode() -> bool:
+    """True when running the local development server (no BASE_URL)."""
+    try:
+        if has_request_context():
+            return bool(current_app.debug)
+    except Exception:
+        pass
+    env = (os.environ.get('ENV') or os.environ.get('FLASK_ENV') or '').lower()
+    return env in ('', 'development', 'dev')
+
+
+# Canonical site origin. Config.BASE_URL wins (set it in the server .env).
+# During local development (no BASE_URL) derive it from the current request so
+# every rendered link — outline, study guides, canonical URLs — stays on the
+# local server instead of pointing at the production domain. In production,
+# fall back to the well-known domain and never trust the request Host, because
+# Cloudflare/nginx can present http or a bare IP.
 def site_base() -> str:
-    base = (Config.BASE_URL or 'https://epitaka.org').strip().rstrip('/')
-    return base
+    base = (Config.BASE_URL or '').strip().rstrip('/')
+    if base:
+        return base
+    if _dev_mode():
+        try:
+            if has_request_context():
+                return f'{request.scheme}://{request.host}'.rstrip('/')
+        except Exception:
+            pass
+    return 'https://epitaka.org'
 
 
 def absolute(path: str) -> str:
@@ -105,13 +132,46 @@ def english_book_name(book_id: str) -> str | None:
     return None
 
 
-def book_seo_title(book_id: str, pali_name: str, lang_code: str, lang_native: str) -> str:
-    """SEO <title> for a book page.
+def strip_html(text: str) -> str:
+    """Strip HTML tags and decode entities → plain text (for titles/descriptions)."""
+    if not text:
+        return ''
+    return html.unescape(re.sub(r'<[^>]+>', '', text)).strip()
 
-    English name leads (that is what people search for), Pāli in
-    parentheses, then the language and site name. Stays under ~70 chars.
+
+def clean_translation(text: str) -> str:
+    """Plain-text translation for titles: strip HTML and trailing punctuation."""
+    text = strip_html(text)
+    return text.rstrip('.').strip()
+
+
+def _truncate(text: str, limit: int) -> str:
+    """Truncate to `limit` chars, appending an ellipsis when cut."""
+    text = text.strip()
+    if len(text) <= limit:
+        return text
+    return text[:limit - 1].rstrip() + '…'
+
+
+def book_seo_title(book_id: str, pali_name: str, lang_code: str, lang_native: str,
+                   section_title: str | None = None,
+                   section_translation: str | None = None,
+                   section_path_titles: list[str] | None = None) -> str:
+    """SEO <title> for a book page — or a deep-section page.
+
+    Section pages lead with the section's translation (Pāli in parentheses),
+    then the breadcrumb path (book › sutta), so every section in a book gets
+    a unique title instead of sharing the book's. Book pages keep the
+    English name first with the Pāli in parentheses.
     """
     en = english_book_name(book_id)
+    if section_title:
+        lead = f'{section_translation} ({section_title})' if section_translation else section_title
+        context = ' · '.join([t for t in (section_path_titles or []) if t])
+        if not context:
+            context = en if en and en.lower() != pali_name.lower() else pali_name
+        return f'{lead} — {context} | E-Piṭaka'[:90]
+
     if en and en.lower() != pali_name.lower():
         title = f'{en} ({pali_name})'
     else:
@@ -122,15 +182,41 @@ def book_seo_title(book_id: str, pali_name: str, lang_code: str, lang_native: st
 
 
 def book_seo_description(book_id: str, pali_name: str, lang_code: str, lang_name: str,
-                         section_title: str | None = None) -> str:
-    """Meta description for a book / deep-section page."""
+                         section_title: str | None = None,
+                         section_translation: str | None = None,
+                         section_path: str | None = None,
+                         section_excerpt: str | None = None) -> str:
+    """Meta description for a book / deep-section page.
+
+    Section pages get a unique description built from the section's own
+    translation, its breadcrumb path, and a short excerpt of its translated
+    text — no two sections in a book share a meta description. Kept under
+    ~160 chars (Google's snippet length).
+    """
     en = english_book_name(book_id)
     label = en if en and en.lower() != pali_name.lower() else pali_name
-    if section_title:
-        return (f'Read {section_title} — {label} from the Chaṭṭha Saṅgāyana '
-                f'Tipiṭaka with line-by-line {lang_name} translation. Free to read online.')
-    return (f'Read {label} from the Chaṭṭha Saṅgāyana Tipiṭaka with '
-            f'line-by-line {lang_name} translation. Free, searchable, mobile-friendly.')
+    if not section_title:
+        return (f'Read {label} from the Chaṭṭha Saṅgāyana Tipiṭaka with '
+                f'line-by-line {lang_name} translation. Free, searchable, mobile-friendly.')
+
+    prefix = f'Read {section_title}'
+    if section_translation:
+        prefix += f' ({section_translation})'
+    if section_path:
+        prefix += f' — {section_path}'
+    if section_excerpt:
+        # Lead with a quote from the section's own translation — this is what
+        # makes each section's description unique — budgeting the excerpt so
+        # the whole description stays under ~160 chars.
+        tail = '. Read free online.'
+        excerpt_budget = 150 - len(prefix) - len(tail) - 4  # room for `: “…”`
+        if excerpt_budget > 24:
+            excerpt = _truncate(section_excerpt, excerpt_budget)
+            excerpt = excerpt.strip('“”\"\'’‘').strip()
+            return prefix + f': “{excerpt}”' + tail
+    tail = (f', from the Chaṭṭha Saṅgāyana Tipiṭaka with line-by-line '
+            f'{lang_name} translation. Free to read online.')
+    return _truncate(prefix + tail, 150)
 
 
 # ── Localized home-page content ─────────────────────────────────────────
@@ -497,11 +583,118 @@ def website_jsonld(lang_code: str) -> dict:
     }
 
 
-def book_jsonld(book_id: str, pali_name: str, lang_code: str, page_url: str,
-                home_url: str, section_title: str | None = None) -> dict:
-    """Book + BreadcrumbList schema for book and deep-section pages."""
+# ── Study-guide / outline pages ───────────────────────────────────────────
+# AI-generated study guides are English-only content, so these pages live at
+# /en/study/... and /en/book/.../outline and get their own unique titles,
+# descriptions, canonical URLs and Article schema.
+
+def study_seo_title(book_id: str, summary_title: str, pali_name: str) -> str:
+    """SEO <title> for one study-guide page."""
+    en = english_book_name(book_id)
+    context = en if en and en.lower() != pali_name.lower() else pali_name
+    title = summary_title.strip() or 'Study Guide'
+    return f'{title} — {context} | E-Piṭaka'[:90]
+
+
+def study_seo_description(summary_title: str, pali_name: str,
+                          plain_text: str) -> str:
+    """Meta description for a study-guide page — unique per section."""
+    lead = summary_title.strip() or 'Study guide'
+    if plain_text:
+        budget = 150 - len(lead) - 30
+        if budget > 24:
+            excerpt = _truncate(plain_text, budget)
+            return _truncate(f'{lead}: {excerpt}. Read free online.', 155)
+    return _truncate(f'{lead} — from the {pali_name} with commentary and '
+                     f'sub-commentary. Read free online.', 155)
+
+
+def study_jsonld(book_id: str, summary_title: str, pali_name: str,
+                 page_url: str, home_url: str, book_url: str,
+                 sutta_title: str | None = None,
+                 section_url: str | None = None) -> dict:
+    """Article + BreadcrumbList schema for a study-guide page."""
     en = english_book_name(book_id)
     name = f'{en} ({pali_name})' if en and en.lower() != pali_name.lower() else pali_name
+    breadcrumb = [
+        {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': home_url},
+        {'@type': 'ListItem', 'position': 2, 'name': name, 'item': book_url},
+    ]
+    if sutta_title:
+        crumb = {'@type': 'ListItem', 'position': 3, 'name': sutta_title}
+        if section_url:
+            crumb['item'] = section_url
+        breadcrumb.append(crumb)
+    breadcrumb.append({
+        '@type': 'ListItem', 'position': len(breadcrumb) + 1,
+        'name': summary_title.strip() or 'Study Guide', 'item': page_url,
+    })
+    return {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'Article',
+                '@id': page_url + '#article',
+                'headline': summary_title.strip() or 'Study Guide',
+                'inLanguage': 'en',
+                'url': page_url,
+                'image': absolute('/static/og-image.png'),
+                'isPartOf': {
+                    '@type': 'Book',
+                    'name': name,
+                    'alternateName': pali_name,
+                    'url': book_url,
+                },
+                'about': name,
+                'publisher': {'@type': 'Organization', 'name': 'E-Piṭaka', 'url': absolute('/')},
+                'author': {'@type': 'Organization', 'name': 'E-Piṭaka', 'url': absolute('/')},
+                'mainEntityOfPage': page_url,
+            },
+            {'@type': 'BreadcrumbList', 'itemListElement': breadcrumb},
+        ],
+    }
+
+
+def outline_seo_title(book_id: str, pali_name: str) -> str:
+    """SEO <title> for a book's outline page."""
+    en = english_book_name(book_id)
+    context = en if en and en.lower() != pali_name.lower() else pali_name
+    return f'Outline of {context} ({pali_name}) — all sections | E-Piṭaka'[:90]
+
+
+def outline_seo_description(book_id: str, pali_name: str) -> str:
+    """Meta description for a book's outline page."""
+    en = english_book_name(book_id)
+    label = en if en and en.lower() != pali_name.lower() else pali_name
+    return (f'Complete outline of {label}: every section of the {pali_name} '
+            f'with links to its study guide and the original Pāli text. '
+            'Free to read online.')
+
+
+def book_jsonld(book_id: str, pali_name: str, lang_code: str, page_url: str,
+                home_url: str, book_url: str | None = None,
+                section_path: list[dict] | None = None) -> dict:
+    """Book + BreadcrumbList schema for book and deep-section pages.
+
+    `section_path` is a list of {'title', 'url'} from the book down to the
+    active section; each becomes a BreadcrumbList item so crawlers see the
+    full navigation path to the passage.
+    """
+    en = english_book_name(book_id)
+    name = f'{en} ({pali_name})' if en and en.lower() != pali_name.lower() else pali_name
+    book_url = book_url or page_url
+    breadcrumb = [
+        {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': home_url},
+        {'@type': 'ListItem', 'position': 2, 'name': name, 'item': book_url},
+    ]
+    if section_path:
+        for i, item in enumerate(section_path, start=3):
+            crumb = {'@type': 'ListItem', 'position': i, 'name': item['title']}
+            # Headings without a page of their own (e.g. a sutta that only
+            # contains sub-headings) stay text-only crumbs — no `item`.
+            if item.get('url'):
+                crumb['item'] = item['url']
+            breadcrumb.append(crumb)
     graph = [
         {
             '@type': 'Book',
@@ -509,7 +702,7 @@ def book_jsonld(book_id: str, pali_name: str, lang_code: str, page_url: str,
             'name': name,
             'alternateName': pali_name,
             'inLanguage': lang_code,
-            'url': page_url,
+            'url': book_url,
             'image': absolute('/static/og-image.png'),
             'isPartOf': {
                 '@type': 'CreativeWork',
@@ -522,14 +715,7 @@ def book_jsonld(book_id: str, pali_name: str, lang_code: str, page_url: str,
         },
         {
             '@type': 'BreadcrumbList',
-            'itemListElement': [
-                {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': home_url},
-                {'@type': 'ListItem', 'position': 2, 'name': name, 'item': page_url},
-            ],
+            'itemListElement': breadcrumb,
         },
     ]
-    if section_title:
-        graph[1]['itemListElement'].append(
-            {'@type': 'ListItem', 'position': 3, 'name': section_title, 'item': page_url}
-        )
     return {'@context': 'https://schema.org', '@graph': graph}

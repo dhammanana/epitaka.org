@@ -2,938 +2,1099 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/10-dasakanipāta-1</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
+    <loc>/en/book/Ja-ṭ-iii/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/10-dasakanipāta-1</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/10-dasakanipāta-1"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
+    <loc>/en/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/1-catudvārajātakavaṇṇanā-439-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
+    <loc>/en/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/2-kaṇhajātakavaṇṇanā-440-10"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
+    <loc>/en/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/3-catuposathikajātakavaṇṇanā-441-19"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
+    <loc>/en/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/4-saṅkhajātakavaṇṇanā-442-22"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
+    <loc>/en/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/5-cūlabodhijātakavaṇṇanā-443-26"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
+    <loc>/en/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/6-kaṇhadīpāyanajātakavaṇṇanā-444-30"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
+    <loc>/en/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/7-nigrodhajātakavaṇṇanā-445-33"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
+    <loc>/en/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/8-takkalajātakavaṇṇanā-446-36"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
+    <loc>/en/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/9-mahādhammapālajātakavaṇṇanā-447-39"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
+    <loc>/en/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/10-kukkuṭajātakavaṇṇanā-448-43"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
+    <loc>/en/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/11-maṭṭhakuṇḍalījātakavaṇṇanā-449-47"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
+    <loc>/en/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/12-bilārakosiyajātakavaṇṇanā-450-50"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
+    <loc>/en/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/13-cakkavākajātakavaṇṇanā-451-60"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
+    <loc>/en/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/14-bhūripaññajātakavaṇṇanā-452-65"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
+    <loc>/en/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/15-mahāmaṅgalajātakavaṇṇanā-453-68"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
+    <loc>/en/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/16-ghaṭapaṇḍitajātakavaṇṇanā-454-83"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/11-ekādasakanipāta-95</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/12-dvādasakanipāta-163</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
+    <loc>/en/book/Ja-ṭ-iii/11-ekādasakanipāta-95</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/11-ekādasakanipāta-95"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
+    <loc>/en/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
+    <loc>/en/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/mātuposakajātakavaṇṇanā-455-96"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
+    <loc>/en/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/2-juṇhajātakavaṇṇanā-456-103"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
+    <loc>/en/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/3-dhammadevaputtajātakavaṇṇanā-457-108"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
+    <loc>/en/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/4-udayabhaddajātakavaṇṇanā-458-114"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
+    <loc>/en/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/5-pānīyajātakavaṇṇanā-459-121"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
+    <loc>/en/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/6-yudhañcayajātakavaṇṇanā-460-128"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
+    <loc>/en/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/7-dasarathajātakavaṇṇanā-461-132"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
+    <loc>/en/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/8-saṃvarajātakavaṇṇanā-462-142"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
+    <loc>/en/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/9-suppārakajātakavaṇṇanā-463-153"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/13-terasakanipāta-267</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
+    <loc>/en/book/Ja-ṭ-iii/12-dvādasakanipāta-163</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/12-dvādasakanipāta-163"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
+    <loc>/en/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/1-cūlakuṇālajātakavaṇṇanā-464-164"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
+    <loc>/en/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/2-bhaddasālajātakavaṇṇanā-465-167"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
+    <loc>/en/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/3-samuddavāṇijajātakavaṇṇanā-466-187"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
+    <loc>/en/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/4-kāmajātakavaṇṇanā-467-212"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
+    <loc>/en/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/5-janasandhajātakavaṇṇanā-468-223"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
+    <loc>/en/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/6-mahākaṇhajātakavaṇṇanā-469-231"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
+    <loc>/en/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/7-kosiyajātakavaṇṇanā-470-245"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
+    <loc>/en/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/8-meṇḍakapañhajātakavaṇṇanā-471-248"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
+    <loc>/en/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/9-mahāpadumajātakavaṇṇanā-472-251"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
+    <loc>/en/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/10-mittāmittajātakavaṇṇanā-473-263"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/13-terasakanipāta-267</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/13-terasakanipāta-267"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
+    <loc>/en/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/1-ambajātakavaṇṇanā-474-268"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
+    <loc>/en/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/2-phandanajātakavaṇṇanā-475-274"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
+    <loc>/en/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/3-javanahaṃsajātakavaṇṇanā-476-279"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
+    <loc>/en/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/4-cūlanāradajātakavaṇṇanā-477-287"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
+    <loc>/en/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/5-dūtajātakavaṇṇanā-478-295"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
+    <loc>/en/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/6-kāliṅgabodhijātakavaṇṇanā-479-301"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
+    <loc>/en/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/8-takkāriyajātakavaṇṇanā-481-339"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
+    <loc>/en/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/9-rurumigarājajātakavaṇṇanā-482-352"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
+    <loc>/en/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/10-sarabhamigajātakavaṇṇanā-483-358"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/15-vīsatinipāta-578</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
+    <loc>/en/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/14-pakiṇṇakanipāta-427"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
+    <loc>/en/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/1-sālikedārajātakavaṇṇanā-484-428"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
+    <loc>/en/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/2-candakinnarījātakavaṇṇanā-485-433"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
+    <loc>/en/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/3-mahāukkusajātakavaṇṇanā-486-443"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
+    <loc>/en/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/4-uddālakajātakavaṇṇanā-487-450"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
+    <loc>/en/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/5-bhisajātakavaṇṇanā-488-457"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
+    <loc>/en/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/6-surucijātakavaṇṇanā-489-466"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
+    <loc>/en/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/7-pañcuposathajātakavaṇṇanā-490-506"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
+    <loc>/en/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/8-mahāmorajātakavaṇṇanā-491-515"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
+    <loc>/en/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/9-tacchasūkarajātavaṇṇanā-492-530"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
+    <loc>/en/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/10-mahāvāṇijajātakavaṇṇanā-493-542"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
+    <loc>/en/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/11-sādhinajātakavaṇṇanā-494-551"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
+    <loc>/en/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/12-dasabrāhmaṇajātakavaṇṇanā-495-558"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
+    <loc>/en/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/13-bhikkhāparamparajātakavaṇṇanā-496-569"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
+    <loc>/en/book/Ja-ṭ-iii/15-vīsatinipāta-578</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/15-vīsatinipāta-578"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/1-mātaṅgajātakavaṇṇanā-497-579"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/2-cittasambhūtajātakavaṇṇanā-498-608"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/3-sivijātakavaṇṇanā-499-626"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/4-sirīmantajātakavaṇṇanā-500-640"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/5-rohaṇamigajātakavaṇṇanā-501-643"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/6-cūlahaṃsajātakavaṇṇanā-502-650"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/7-sattigumbajātakavaṇṇanā-503-656"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/8-bhallātiyajātakavaṇṇanā-504-668"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/9-somanassajātakavaṇṇanā-505-675"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/10-campeyyajātakavaṇṇanā-506-685"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/11-mahāpalobhanajātakavaṇṇanā-507-699"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/12-pañcapaṇḍitajātakavaṇṇanā-508-708"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/13-hatthipālajātakavaṇṇanā-509-711"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/en/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Ja-ṭ-iii/14-ayogharajātakavaṇṇanā-510-740"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

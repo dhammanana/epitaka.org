@@ -2,650 +2,763 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
+    <loc>/en/book/Paṭṭh-mt/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/ganthārambhavaṇṇanā-1060"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
+    <loc>/en/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/paccayuddesavaṇṇanā-1064"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/paccayaniddeso-1098</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/paccayaniddeso-1098"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/paccayaniddeso-1098"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/paccayaniddeso-1098"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/paccayaniddeso-1098"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/paccayaniddeso-1098"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/paccayaniddeso-1098"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/paccayaniddeso-1098"/>
+    <loc>/en/book/Paṭṭh-mt/paccayaniddeso-1098</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/paccayaniddeso-1098"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/paccayaniddeso-1098"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/paccayaniddeso-1098"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/paccayaniddeso-1098"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/paccayaniddeso-1098"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/paccayaniddeso-1098"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/paccayaniddeso-1098"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/paccayaniddeso-1098"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/paccayaniddeso-1098"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
+    <loc>/en/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/1-hetupaccayaniddesavaṇṇanā-1099"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
+    <loc>/en/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/2-ārammaṇapaccayaniddesavaṇṇanā-1111"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
+    <loc>/en/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/3-adhipatipaccayaniddesavaṇṇanā-1117"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
+    <loc>/en/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/4-anantarapaccayaniddesavaṇṇanā-1123"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
+    <loc>/en/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/6-sahajātapaccayaniddesavaṇṇanā-1127"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
+    <loc>/en/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/8-nissayapaccayaniddesavaṇṇanā-1131"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
+    <loc>/en/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/9-upanissayapaccayaniddesavaṇṇanā-1134"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
+    <loc>/en/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/10-purejātapaccayaniddesavaṇṇanā-1146"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
+    <loc>/en/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/11-pacchājātapaccayaniddesavaṇṇanā-1150"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
+    <loc>/en/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/12-āsevanapaccayaniddesavaṇṇanā-1153"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
+    <loc>/en/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/13-kammapaccayaniddesavaṇṇanā-1156"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
+    <loc>/en/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/14-vipākapaccayaniddesavaṇṇanā-1160"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
+    <loc>/en/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/15-āhārapaccayaniddesavaṇṇanā-1163"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
+    <loc>/en/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/16-indriyapaccayaniddesavaṇṇanā-1167"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
+    <loc>/en/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/17-jhānapaccayaniddesavaṇṇanā-1173"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
+    <loc>/en/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/18-maggapaccayaniddesavaṇṇanā-1177"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
+    <loc>/en/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/20-vippayuttapaccayaniddesavaṇṇanā-1180"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
+    <loc>/en/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/21-atthipaccayaniddesavaṇṇanā-1183"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
+    <loc>/en/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/22-23-24-natthivigataavigatapaccayaniddesavaṇṇanā-1187"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
+    <loc>/en/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/paccayaniddesapakiṇṇakavinicchayakathāvaṇṇanā-1191"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/pucchāvāro-1203</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/pucchāvāro-1203"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/pucchāvāro-1203"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/pucchāvāro-1203"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/pucchāvāro-1203"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/pucchāvāro-1203"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/pucchāvāro-1203"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/pucchāvāro-1203"/>
+    <loc>/en/book/Paṭṭh-mt/pucchāvāro-1203</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/pucchāvāro-1203"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/pucchāvāro-1203"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/pucchāvāro-1203"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/pucchāvāro-1203"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/pucchāvāro-1203"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/pucchāvāro-1203"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/pucchāvāro-1203"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/pucchāvāro-1203"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/pucchāvāro-1203"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
+    <loc>/en/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/1-paccayānulomavaṇṇanā-1204"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
+    <loc>/en/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/2-paccayapaccanīyavaṇṇanā-1220"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
+    <loc>/en/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/3-anulomapaccanīyavaṇṇanā-1223"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/1-kusalattikaṃ-1228</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
+    <loc>/en/book/Paṭṭh-mt/1-kusalattikaṃ-1228</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/1-kusalattikaṃ-1228"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
+    <loc>/en/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/1-paṭiccavāravaṇṇanā-1229"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/1-paccayānulomaṃ-1230</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
+    <loc>/en/book/Paṭṭh-mt/1-paccayānulomaṃ-1230</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/1-paccayānulomaṃ-1230"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/1-vibhaṅgavāro-1231</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
+    <loc>/en/book/Paṭṭh-mt/1-vibhaṅgavāro-1231</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/1-vibhaṅgavāro-1231"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/2-saṅkhyāvāro-1253</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
+    <loc>/en/book/Paṭṭh-mt/2-saṅkhyāvāro-1253</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/2-saṅkhyāvāro-1253"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/paṭiccavāro-1260</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/paṭiccavāro-1260"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/paṭiccavāro-1260"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/paṭiccavāro-1260"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/paṭiccavāro-1260"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/paṭiccavāro-1260"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/paṭiccavāro-1260"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/paṭiccavāro-1260"/>
+    <loc>/en/book/Paṭṭh-mt/paṭiccavāro-1260</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/paṭiccavāro-1260"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/paṭiccavāro-1260"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/paṭiccavāro-1260"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/paṭiccavāro-1260"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/paṭiccavāro-1260"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/paṭiccavāro-1260"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/paṭiccavāro-1260"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/paṭiccavāro-1260"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/paṭiccavāro-1260"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
+    <loc>/en/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/paccayapaccanīyavaṇṇanā-1261"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
+    <loc>/en/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/paccayānulomapaccanīyavaṇṇanā-1268"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
+    <loc>/en/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/paccayapaccanīyānulomavaṇṇanā-1271"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
+    <loc>/en/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/2-sahajātavāravaṇṇanā-1280"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
+    <loc>/en/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/3-paccayavāravaṇṇanā-1283"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
+    <loc>/en/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/4-nissayavāravaṇṇanā-1291"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
+    <loc>/en/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/5-saṃsaṭṭhavāravaṇṇanā-1294"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
+    <loc>/en/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/6-sampayuttavāravaṇṇanā-1298"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
+    <loc>/en/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/7-pañhāvāravibhaṅgavaṇṇanā-1301"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
+    <loc>/en/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/pañhāvārassa-ghaṭane-anulomagaṇanā-1320"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
+    <loc>/en/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/paccanīyuddhāravaṇṇanā-1343"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
+    <loc>/en/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/paccanīyagaṇanavaṇṇanā-1356"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
+    <loc>/en/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/nahetumūlakavaṇṇanā-1357"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
+    <loc>/en/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/anulomapaccanīyavaṇṇanā-1370"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
+    <loc>/en/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/paccanīyānulomavaṇṇanā-1375"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
+    <loc>/en/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/2-vedanāttikavaṇṇanā-1386"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
+    <loc>/en/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/3-vipākattikavaṇṇanā-1396"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
+    <loc>/en/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/4-upādinnattikavaṇṇanā-1400"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
+    <loc>/en/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/6-vitakkattikavaṇṇanā-1406"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
+    <loc>/en/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/8-dassanenapahātabbattikavaṇṇanā-1414"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
+    <loc>/en/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Paṭṭh-mt/pucchāgaṇanagāthāyo-1417"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

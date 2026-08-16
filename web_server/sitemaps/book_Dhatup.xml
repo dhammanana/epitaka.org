@@ -2,110 +2,133 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Dhatup/kaccāyana-dhātu-mañjūsā-1</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
+    <loc>/en/book/Dhatup/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Dhatup/kaccāyana-dhātu-mañjūsā-1</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatup/kaccāyana-dhātu-mañjūsā-1"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatup/tudādayo-avuddhikā-261</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatup/tudādayo-avuddhikā-261"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatup/tudādayo-avuddhikā-261"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatup/tudādayo-avuddhikā-261"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatup/tudādayo-avuddhikā-261"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatup/tudādayo-avuddhikā-261"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatup/tudādayo-avuddhikā-261"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatup/tudādayo-avuddhikā-261"/>
+    <loc>/en/book/Dhatup/tudādayo-avuddhikā-261</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatup/tudādayo-avuddhikā-261"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatup/tudādayo-avuddhikā-261"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatup/tudādayo-avuddhikā-261"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatup/tudādayo-avuddhikā-261"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatup/tudādayo-avuddhikā-261"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatup/tudādayo-avuddhikā-261"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatup/tudādayo-avuddhikā-261"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatup/tudādayo-avuddhikā-261"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatup/tudādayo-avuddhikā-261"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
+    <loc>/en/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatup/juhotyādayo-sadvibhāvaluttavikaraṇā-312"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatup/rudhādayo-317</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatup/rudhādayo-317"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatup/rudhādayo-317"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatup/rudhādayo-317"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatup/rudhādayo-317"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatup/rudhādayo-317"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatup/rudhādayo-317"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatup/rudhādayo-317"/>
+    <loc>/en/book/Dhatup/rudhādayo-317</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatup/rudhādayo-317"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatup/rudhādayo-317"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatup/rudhādayo-317"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatup/rudhādayo-317"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatup/rudhādayo-317"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatup/rudhādayo-317"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatup/rudhādayo-317"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatup/rudhādayo-317"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatup/rudhādayo-317"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatup/divādayo-325</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatup/divādayo-325"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatup/divādayo-325"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatup/divādayo-325"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatup/divādayo-325"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatup/divādayo-325"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatup/divādayo-325"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatup/divādayo-325"/>
+    <loc>/en/book/Dhatup/divādayo-325</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatup/divādayo-325"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatup/divādayo-325"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatup/divādayo-325"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatup/divādayo-325"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatup/divādayo-325"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatup/divādayo-325"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatup/divādayo-325"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatup/divādayo-325"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatup/divādayo-325"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatup/svādayo-366</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatup/svādayo-366"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatup/svādayo-366"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatup/svādayo-366"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatup/svādayo-366"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatup/svādayo-366"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatup/svādayo-366"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatup/svādayo-366"/>
+    <loc>/en/book/Dhatup/svādayo-366</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatup/svādayo-366"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatup/svādayo-366"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatup/svādayo-366"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatup/svādayo-366"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatup/svādayo-366"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatup/svādayo-366"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatup/svādayo-366"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatup/svādayo-366"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatup/svādayo-366"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatup/kiyādayo-369</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatup/kiyādayo-369"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatup/kiyādayo-369"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatup/kiyādayo-369"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatup/kiyādayo-369"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatup/kiyādayo-369"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatup/kiyādayo-369"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatup/kiyādayo-369"/>
+    <loc>/en/book/Dhatup/kiyādayo-369</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatup/kiyādayo-369"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatup/kiyādayo-369"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatup/kiyādayo-369"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatup/kiyādayo-369"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatup/kiyādayo-369"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatup/kiyādayo-369"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatup/kiyādayo-369"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatup/kiyādayo-369"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatup/kiyādayo-369"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatup/tanādayo-377</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatup/tanādayo-377"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatup/tanādayo-377"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatup/tanādayo-377"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatup/tanādayo-377"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatup/tanādayo-377"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatup/tanādayo-377"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatup/tanādayo-377"/>
+    <loc>/en/book/Dhatup/tanādayo-377</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatup/tanādayo-377"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatup/tanādayo-377"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatup/tanādayo-377"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatup/tanādayo-377"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatup/tanādayo-377"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatup/tanādayo-377"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatup/tanādayo-377"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatup/tanādayo-377"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatup/tanādayo-377"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
+    <loc>/en/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatup/sācariyānusiṭṭhā-parisiṭṭhaparibhāsā-479"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

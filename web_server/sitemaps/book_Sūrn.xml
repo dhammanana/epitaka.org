@@ -2,86 +2,105 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Sūrn/sūrassatīnīti-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sūrn/sūrassatīnīti-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sūrn/sūrassatīnīti-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sūrn/sūrassatīnīti-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sūrn/sūrassatīnīti-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sūrn/sūrassatīnīti-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sūrn/sūrassatīnīti-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sūrn/sūrassatīnīti-2"/>
+    <loc>/en/book/Sūrn/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Sūrn/sūrassatīnīti-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sūrn/sūrassatīnīti-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sūrn/sūrassatīnīti-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sūrn/sūrassatīnīti-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sūrn/sūrassatīnīti-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sūrn/sūrassatīnīti-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sūrn/sūrassatīnīti-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sūrn/sūrassatīnīti-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sūrn/sūrassatīnīti-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sūrn/sūrassatīnīti-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sūrn/paṭhamo-bhāgo-3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sūrn/paṭhamo-bhāgo-3"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sūrn/paṭhamo-bhāgo-3"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sūrn/paṭhamo-bhāgo-3"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sūrn/paṭhamo-bhāgo-3"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sūrn/paṭhamo-bhāgo-3"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sūrn/paṭhamo-bhāgo-3"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sūrn/paṭhamo-bhāgo-3"/>
+    <loc>/en/book/Sūrn/paṭhamo-bhāgo-3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sūrn/paṭhamo-bhāgo-3"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sūrn/paṭhamo-bhāgo-3"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sūrn/paṭhamo-bhāgo-3"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sūrn/paṭhamo-bhāgo-3"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sūrn/paṭhamo-bhāgo-3"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sūrn/paṭhamo-bhāgo-3"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sūrn/paṭhamo-bhāgo-3"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sūrn/paṭhamo-bhāgo-3"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sūrn/paṭhamo-bhāgo-3"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sūrn/paṇāmagāthā-4</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sūrn/paṇāmagāthā-4"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sūrn/paṇāmagāthā-4"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sūrn/paṇāmagāthā-4"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sūrn/paṇāmagāthā-4"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sūrn/paṇāmagāthā-4"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sūrn/paṇāmagāthā-4"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sūrn/paṇāmagāthā-4"/>
+    <loc>/en/book/Sūrn/paṇāmagāthā-4</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sūrn/paṇāmagāthā-4"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sūrn/paṇāmagāthā-4"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sūrn/paṇāmagāthā-4"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sūrn/paṇāmagāthā-4"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sūrn/paṇāmagāthā-4"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sūrn/paṇāmagāthā-4"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sūrn/paṇāmagāthā-4"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sūrn/paṇāmagāthā-4"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sūrn/paṇāmagāthā-4"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sūrn/sūrassatīnīti-22</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sūrn/sūrassatīnīti-22"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sūrn/sūrassatīnīti-22"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sūrn/sūrassatīnīti-22"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sūrn/sūrassatīnīti-22"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sūrn/sūrassatīnīti-22"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sūrn/sūrassatīnīti-22"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sūrn/sūrassatīnīti-22"/>
+    <loc>/en/book/Sūrn/sūrassatīnīti-22</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sūrn/sūrassatīnīti-22"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sūrn/sūrassatīnīti-22"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sūrn/sūrassatīnīti-22"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sūrn/sūrassatīnīti-22"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sūrn/sūrassatīnīti-22"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sūrn/sūrassatīnīti-22"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sūrn/sūrassatīnīti-22"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sūrn/sūrassatīnīti-22"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sūrn/sūrassatīnīti-22"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sūrn/sūrassatīnīti-292</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sūrn/sūrassatīnīti-292"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sūrn/sūrassatīnīti-292"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sūrn/sūrassatīnīti-292"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sūrn/sūrassatīnīti-292"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sūrn/sūrassatīnīti-292"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sūrn/sūrassatīnīti-292"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sūrn/sūrassatīnīti-292"/>
+    <loc>/en/book/Sūrn/sūrassatīnīti-292</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sūrn/sūrassatīnīti-292"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sūrn/sūrassatīnīti-292"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sūrn/sūrassatīnīti-292"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sūrn/sūrassatīnīti-292"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sūrn/sūrassatīnīti-292"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sūrn/sūrassatīnīti-292"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sūrn/sūrassatīnīti-292"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sūrn/sūrassatīnīti-292"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sūrn/sūrassatīnīti-292"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sūrn/dutiyo-bhāgo-293</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sūrn/dutiyo-bhāgo-293"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sūrn/dutiyo-bhāgo-293"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sūrn/dutiyo-bhāgo-293"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sūrn/dutiyo-bhāgo-293"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sūrn/dutiyo-bhāgo-293"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sūrn/dutiyo-bhāgo-293"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sūrn/dutiyo-bhāgo-293"/>
+    <loc>/en/book/Sūrn/dutiyo-bhāgo-293</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sūrn/dutiyo-bhāgo-293"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sūrn/dutiyo-bhāgo-293"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sūrn/dutiyo-bhāgo-293"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sūrn/dutiyo-bhāgo-293"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sūrn/dutiyo-bhāgo-293"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sūrn/dutiyo-bhāgo-293"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sūrn/dutiyo-bhāgo-293"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sūrn/dutiyo-bhāgo-293"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sūrn/dutiyo-bhāgo-293"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Sūrn/cāṇakyanītilā-gāthā-447</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
+    <loc>/en/book/Sūrn/cāṇakyanītilā-gāthā-447</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Sūrn/cāṇakyanītilā-gāthā-447"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

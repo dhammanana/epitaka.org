@@ -221,6 +221,56 @@ def get_section_sentences(book_id, para_id, conn, lang_code=None):
     return section
 
 
+def get_level10_sections(conn, book_id):
+    """
+    Every level-10 (numbered) heading of a book in document order, with its
+    sutta (level 4) and vagga (level 2) ancestor titles resolved via the
+    headings `parent` chain. Used by the Outline page.
+
+    Returns [{'para_id', 'title', 'sutta_title', 'vagga_title'}, ...].
+    """
+    cursor = conn.cursor()
+    cursor.execute('''
+        SELECT para_id, level, title, parent
+        FROM headings
+        WHERE book_id = ? AND level = 10
+        ORDER BY para_id
+    ''', (book_id,))
+    items = cursor.fetchall()
+    if not items:
+        return []
+
+    cursor.execute('''
+        SELECT para_id, level, title, parent
+        FROM headings
+        WHERE book_id = ? AND level < 10
+    ''', (book_id,))
+    parents = {r['para_id']: r for r in cursor.fetchall()}
+
+    def _ancestor_titles(pid, target_levels):
+        """Walk the parent chain, collecting the title of each target level."""
+        found = {}
+        seen = set()
+        while pid and pid not in seen and pid in parents:
+            seen.add(pid)
+            h = parents[pid]
+            if h['level'] in target_levels:
+                found[h['level']] = h['title'] or ''
+            pid = h['parent']
+        return found
+
+    out = []
+    for it in items:
+        titles = _ancestor_titles(it['parent'], (2, 4))
+        out.append({
+            'para_id':     it['para_id'],
+            'title':       it['title'] or '',
+            'sutta_title': titles.get(4, ''),
+            'vagga_title': titles.get(2, ''),
+        })
+    return out
+
+
 def resolve_split_book(book_id, para_id, cursor):
     """
     When a book_id doesn't exist directly (it was split into segments),

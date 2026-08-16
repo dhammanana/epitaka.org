@@ -2,674 +2,791 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
+    <loc>/en/book/Khuddas-pt/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/khuddasikkhā-purāṇaṭīkā-1620"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/ganthārambhakathā-1621</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/ganthārambhakathā-1621"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/ganthārambhakathā-1621"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/ganthārambhakathā-1621"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/ganthārambhakathā-1621"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/ganthārambhakathā-1621"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/ganthārambhakathā-1621"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/ganthārambhakathā-1621"/>
+    <loc>/en/book/Khuddas-pt/ganthārambhakathā-1621</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/ganthārambhakathā-1621"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/ganthārambhakathā-1621"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/ganthārambhakathā-1621"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/ganthārambhakathā-1621"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/ganthārambhakathā-1621"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/ganthārambhakathā-1621"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/ganthārambhakathā-1621"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/ganthārambhakathā-1621"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/ganthārambhakathā-1621"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
+    <loc>/en/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/ganthārambhakathāvaṇṇanā-1632"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/mātikāvaṇṇanā-1646</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
+    <loc>/en/book/Khuddas-pt/mātikāvaṇṇanā-1646</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/mātikāvaṇṇanā-1646"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
+    <loc>/en/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/1-pārājikaniddesavaṇṇanā-1648"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
+    <loc>/en/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/2-saṅghādisesaniddesavaṇṇanā-1677"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
+    <loc>/en/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/3-cīvaraniddesavaṇṇanā-1708"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
+    <loc>/en/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/4-rajananiddesavaṇṇanā-1758"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
+    <loc>/en/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/5-pattaniddesavaṇṇanā-1762"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
+    <loc>/en/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/6-thālakaniddesavaṇṇanā-1774"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
+    <loc>/en/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/7-pavāraṇāniddesavaṇṇanā-1777"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
+    <loc>/en/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/8-kālikaniddesavaṇṇanā-1789"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
+    <loc>/en/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/9-paṭiggāhaniddesavaṇṇanā-1828"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
+    <loc>/en/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/10-akappiyamaṃsaniddesavaṇṇanā-1837"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
+    <loc>/en/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/11-nissaggiyaniddesavaṇṇanā-1842"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
+    <loc>/en/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/12-pācittiyaniddesavaṇṇanā-1849"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
+    <loc>/en/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/13-samaṇakappaniddesavaṇṇanā-1873"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
+    <loc>/en/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/14-bhūminiddesavaṇṇanā-1884"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
+    <loc>/en/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/15-upajjhācariyavattaniddesavaṇṇanā-1894"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
+    <loc>/en/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/16-vaccappassāvaṭṭhānikaniddesavaṇṇanā-1906"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
+    <loc>/en/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/17-āpucchakaraṇaniddesavaṇṇanā-1913"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
+    <loc>/en/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/18-nagganiddesavaṇṇanā-1920"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
+    <loc>/en/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/19-nhānakappaniddesavaṇṇanā-1924"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
+    <loc>/en/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/20-avandiyaniddesavaṇṇanā-1929"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
+    <loc>/en/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/21-cammaniddesavaṇṇanā-1932"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
+    <loc>/en/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/22-upāhananiddesavaṇṇanā-1939"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
+    <loc>/en/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/23-anolokiyaniddesavaṇṇanā-1945"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
+    <loc>/en/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/24-añjanīniddesavaṇṇanā-1948"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
+    <loc>/en/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/25-akappiyasayananiddesavaṇṇanā-1954"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
+    <loc>/en/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/26-samānāsanikaniddesavaṇṇanā-1964"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
+    <loc>/en/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/27-asaṃvāsikaniddesavaṇṇanā-1969"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
+    <loc>/en/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/28-kammaniddesavaṇṇanā-1972"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
+    <loc>/en/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/29-micchājīvavivajjanāniddesavaṇṇanā-1985"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
+    <loc>/en/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/30-vattaniddesavaṇṇanā-1990"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
+    <loc>/en/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/31-vikappanāniddesavaṇṇanā-1997"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
+    <loc>/en/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/32-nissayaniddesavaṇṇanā-2005"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
+    <loc>/en/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/33-kāyabandhananiddesavaṇṇanā-2018"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
+    <loc>/en/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/34-pathavīniddesavaṇṇanā-2027"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
+    <loc>/en/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/35-parikkhāraniddesavaṇṇanā-2041"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
+    <loc>/en/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/36-bhesajjaniddesavaṇṇanā-2052"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
+    <loc>/en/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/37-uggahaniddesavaṇṇanā-2060"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
+    <loc>/en/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/38-kuladūsananiddesavaṇṇanā-2073"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
+    <loc>/en/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/39-vassūpanāyikaniddesavaṇṇanā-2085"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
+    <loc>/en/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/40-avebhaṅgiyaniddesavaṇṇanā-2098"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
+    <loc>/en/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/41-pakiṇṇakaniddesavaṇṇanā-2113"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
+    <loc>/en/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/42-desanāniddesavaṇṇanā-2162"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
+    <loc>/en/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/43-chandadānaniddesavaṇṇanā-2196"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
+    <loc>/en/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/44-uposathaniddesavaṇṇanā-2207"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
+    <loc>/en/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/45-pavāraṇāniddesavaṇṇanā-2241"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
+    <loc>/en/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/46-saṃvaraniddesavaṇṇanā-2252"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
+    <loc>/en/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/47-suddhiniddesavaṇṇanā-2262"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
+    <loc>/en/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/48-santosaniddesavaṇṇanā-2268"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
+    <loc>/en/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/49-caturārakkhaniddesavaṇṇanā-2272"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
+    <loc>/en/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/50-vipassanāniddesavaṇṇanā-2329"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
+    <loc>/en/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/nigamanakathāvaṇṇanā-2350"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
+    <loc>/en/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Khuddas-pt/khuddasikkhā-abhinavaṭīkā-2361"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

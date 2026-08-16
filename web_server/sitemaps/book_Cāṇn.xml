@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Cāṇn/cāṇakyanītipāḷi-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Cāṇn/cāṇakyanītipāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Cāṇn/cāṇakyanītipāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Cāṇn/cāṇakyanītipāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Cāṇn/cāṇakyanītipāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Cāṇn/cāṇakyanītipāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Cāṇn/cāṇakyanītipāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Cāṇn/cāṇakyanītipāḷi-2"/>
+    <loc>/en/book/Cāṇn/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Cāṇn/cāṇakyanītipāḷi-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Cāṇn/cāṇakyanītipāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Cāṇn/cāṇakyanītipāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Cāṇn/cāṇakyanītipāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Cāṇn/cāṇakyanītipāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Cāṇn/cāṇakyanītipāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Cāṇn/cāṇakyanītipāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Cāṇn/cāṇakyanītipāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Cāṇn/cāṇakyanītipāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Cāṇn/cāṇakyanītipāḷi-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

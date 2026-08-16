@@ -2,518 +2,609 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/vinayavinicchayo-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/vinayavinicchayo-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/vinayavinicchayo-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/vinayavinicchayo-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/vinayavinicchayo-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/vinayavinicchayo-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/vinayavinicchayo-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/vinayavinicchayo-2"/>
+    <loc>/en/book/Vin-vn/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Vin-vn/vinayavinicchayo-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/vinayavinicchayo-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/vinayavinicchayo-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/vinayavinicchayo-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/vinayavinicchayo-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/vinayavinicchayo-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/vinayavinicchayo-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/vinayavinicchayo-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/vinayavinicchayo-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/vinayavinicchayo-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/ganthārambhakathā-3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/ganthārambhakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/ganthārambhakathā-3"/>
+    <loc>/en/book/Vin-vn/ganthārambhakathā-3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/ganthārambhakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/ganthārambhakathā-3"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/bhikkhuvibhaṅgo-19</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
+    <loc>/en/book/Vin-vn/bhikkhuvibhaṅgo-19</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/bhikkhuvibhaṅgo-19"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/pārājikakathā-20</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/pārājikakathā-20"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/pārājikakathā-20"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/pārājikakathā-20"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/pārājikakathā-20"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/pārājikakathā-20"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/pārājikakathā-20"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/pārājikakathā-20"/>
+    <loc>/en/book/Vin-vn/pārājikakathā-20</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/pārājikakathā-20"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/pārājikakathā-20"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/pārājikakathā-20"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/pārājikakathā-20"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/pārājikakathā-20"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/pārājikakathā-20"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/pārājikakathā-20"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/pārājikakathā-20"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/pārājikakathā-20"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/paṭhamapārājikakathā-21</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/paṭhamapārājikakathā-21"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/paṭhamapārājikakathā-21"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/paṭhamapārājikakathā-21"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/paṭhamapārājikakathā-21"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/paṭhamapārājikakathā-21"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/paṭhamapārājikakathā-21"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/paṭhamapārājikakathā-21"/>
+    <loc>/en/book/Vin-vn/paṭhamapārājikakathā-21</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/paṭhamapārājikakathā-21"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/paṭhamapārājikakathā-21"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/paṭhamapārājikakathā-21"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/paṭhamapārājikakathā-21"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/paṭhamapārājikakathā-21"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/paṭhamapārājikakathā-21"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/paṭhamapārājikakathā-21"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/paṭhamapārājikakathā-21"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/paṭhamapārājikakathā-21"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/dutiyapārājikakathā-126</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/dutiyapārājikakathā-126"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/dutiyapārājikakathā-126"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/dutiyapārājikakathā-126"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/dutiyapārājikakathā-126"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/dutiyapārājikakathā-126"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/dutiyapārājikakathā-126"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/dutiyapārājikakathā-126"/>
+    <loc>/en/book/Vin-vn/dutiyapārājikakathā-126</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/dutiyapārājikakathā-126"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/dutiyapārājikakathā-126"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/dutiyapārājikakathā-126"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/dutiyapārājikakathā-126"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/dutiyapārājikakathā-126"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/dutiyapārājikakathā-126"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/dutiyapārājikakathā-126"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/dutiyapārājikakathā-126"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/dutiyapārājikakathā-126"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/tatiyapārājikakathā-764</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/tatiyapārājikakathā-764"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/tatiyapārājikakathā-764"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/tatiyapārājikakathā-764"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/tatiyapārājikakathā-764"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/tatiyapārājikakathā-764"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/tatiyapārājikakathā-764"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/tatiyapārājikakathā-764"/>
+    <loc>/en/book/Vin-vn/tatiyapārājikakathā-764</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/tatiyapārājikakathā-764"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/tatiyapārājikakathā-764"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/tatiyapārājikakathā-764"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/tatiyapārājikakathā-764"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/tatiyapārājikakathā-764"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/tatiyapārājikakathā-764"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/tatiyapārājikakathā-764"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/tatiyapārājikakathā-764"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/tatiyapārājikakathā-764"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/catutthapārājikakathā-965</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/catutthapārājikakathā-965"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/catutthapārājikakathā-965"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/catutthapārājikakathā-965"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/catutthapārājikakathā-965"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/catutthapārājikakathā-965"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/catutthapārājikakathā-965"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/catutthapārājikakathā-965"/>
+    <loc>/en/book/Vin-vn/catutthapārājikakathā-965</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/catutthapārājikakathā-965"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/catutthapārājikakathā-965"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/catutthapārājikakathā-965"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/catutthapārājikakathā-965"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/catutthapārājikakathā-965"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/catutthapārājikakathā-965"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/catutthapārājikakathā-965"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/catutthapārājikakathā-965"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/catutthapārājikakathā-965"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/saṅghādisesakathā-1040</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/saṅghādisesakathā-1040"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/saṅghādisesakathā-1040"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/saṅghādisesakathā-1040"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/saṅghādisesakathā-1040"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/saṅghādisesakathā-1040"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/saṅghādisesakathā-1040"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/saṅghādisesakathā-1040"/>
+    <loc>/en/book/Vin-vn/saṅghādisesakathā-1040</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/saṅghādisesakathā-1040"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/saṅghādisesakathā-1040"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/saṅghādisesakathā-1040"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/saṅghādisesakathā-1040"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/saṅghādisesakathā-1040"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/saṅghādisesakathā-1040"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/saṅghādisesakathā-1040"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/saṅghādisesakathā-1040"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/saṅghādisesakathā-1040"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/aniyatakathā-1713</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/aniyatakathā-1713"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/aniyatakathā-1713"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/aniyatakathā-1713"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/aniyatakathā-1713"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/aniyatakathā-1713"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/aniyatakathā-1713"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/aniyatakathā-1713"/>
+    <loc>/en/book/Vin-vn/aniyatakathā-1713</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/aniyatakathā-1713"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/aniyatakathā-1713"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/aniyatakathā-1713"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/aniyatakathā-1713"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/aniyatakathā-1713"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/aniyatakathā-1713"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/aniyatakathā-1713"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/aniyatakathā-1713"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/aniyatakathā-1713"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/nissaggiyakathā-1744</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/nissaggiyakathā-1744"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/nissaggiyakathā-1744"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/nissaggiyakathā-1744"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/nissaggiyakathā-1744"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/nissaggiyakathā-1744"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/nissaggiyakathā-1744"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/nissaggiyakathā-1744"/>
+    <loc>/en/book/Vin-vn/nissaggiyakathā-1744</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/nissaggiyakathā-1744"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/nissaggiyakathā-1744"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/nissaggiyakathā-1744"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/nissaggiyakathā-1744"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/nissaggiyakathā-1744"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/nissaggiyakathā-1744"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/nissaggiyakathā-1744"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/nissaggiyakathā-1744"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/nissaggiyakathā-1744"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/pācittiyakathā-2806</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/pācittiyakathā-2806"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/pācittiyakathā-2806"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/pācittiyakathā-2806"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/pācittiyakathā-2806"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/pācittiyakathā-2806"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/pācittiyakathā-2806"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/pācittiyakathā-2806"/>
+    <loc>/en/book/Vin-vn/pācittiyakathā-2806</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/pācittiyakathā-2806"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/pācittiyakathā-2806"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/pācittiyakathā-2806"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/pācittiyakathā-2806"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/pācittiyakathā-2806"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/pācittiyakathā-2806"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/pācittiyakathā-2806"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/pācittiyakathā-2806"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/pācittiyakathā-2806"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/pāṭidesanīyakathā-5748</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/pāṭidesanīyakathā-5748"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/pāṭidesanīyakathā-5748"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/pāṭidesanīyakathā-5748"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/pāṭidesanīyakathā-5748"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/pāṭidesanīyakathā-5748"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/pāṭidesanīyakathā-5748"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/pāṭidesanīyakathā-5748"/>
+    <loc>/en/book/Vin-vn/pāṭidesanīyakathā-5748</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/pāṭidesanīyakathā-5748"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/pāṭidesanīyakathā-5748"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/pāṭidesanīyakathā-5748"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/pāṭidesanīyakathā-5748"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/pāṭidesanīyakathā-5748"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/pāṭidesanīyakathā-5748"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/pāṭidesanīyakathā-5748"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/pāṭidesanīyakathā-5748"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/pāṭidesanīyakathā-5748"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/sekhiyakathā-5874</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/sekhiyakathā-5874"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/sekhiyakathā-5874"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/sekhiyakathā-5874"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/sekhiyakathā-5874"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/sekhiyakathā-5874"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/sekhiyakathā-5874"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/sekhiyakathā-5874"/>
+    <loc>/en/book/Vin-vn/sekhiyakathā-5874</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/sekhiyakathā-5874"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/sekhiyakathā-5874"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/sekhiyakathā-5874"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/sekhiyakathā-5874"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/sekhiyakathā-5874"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/sekhiyakathā-5874"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/sekhiyakathā-5874"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/sekhiyakathā-5874"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/sekhiyakathā-5874"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/bhikkhunīvibhaṅgo-6208</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
+    <loc>/en/book/Vin-vn/bhikkhunīvibhaṅgo-6208</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/bhikkhunīvibhaṅgo-6208"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/pārājikakathā-6212</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/pārājikakathā-6212"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/pārājikakathā-6212"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/pārājikakathā-6212"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/pārājikakathā-6212"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/pārājikakathā-6212"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/pārājikakathā-6212"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/pārājikakathā-6212"/>
+    <loc>/en/book/Vin-vn/pārājikakathā-6212</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/pārājikakathā-6212"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/pārājikakathā-6212"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/pārājikakathā-6212"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/pārājikakathā-6212"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/pārājikakathā-6212"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/pārājikakathā-6212"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/pārājikakathā-6212"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/pārājikakathā-6212"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/pārājikakathā-6212"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/saṅghādisesakathā-6356</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/saṅghādisesakathā-6356"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/saṅghādisesakathā-6356"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/saṅghādisesakathā-6356"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/saṅghādisesakathā-6356"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/saṅghādisesakathā-6356"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/saṅghādisesakathā-6356"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/saṅghādisesakathā-6356"/>
+    <loc>/en/book/Vin-vn/saṅghādisesakathā-6356</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/saṅghādisesakathā-6356"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/saṅghādisesakathā-6356"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/saṅghādisesakathā-6356"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/saṅghādisesakathā-6356"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/saṅghādisesakathā-6356"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/saṅghādisesakathā-6356"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/saṅghādisesakathā-6356"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/saṅghādisesakathā-6356"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/saṅghādisesakathā-6356"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/nissaggiyakathā-6619</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/nissaggiyakathā-6619"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/nissaggiyakathā-6619"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/nissaggiyakathā-6619"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/nissaggiyakathā-6619"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/nissaggiyakathā-6619"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/nissaggiyakathā-6619"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/nissaggiyakathā-6619"/>
+    <loc>/en/book/Vin-vn/nissaggiyakathā-6619</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/nissaggiyakathā-6619"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/nissaggiyakathā-6619"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/nissaggiyakathā-6619"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/nissaggiyakathā-6619"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/nissaggiyakathā-6619"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/nissaggiyakathā-6619"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/nissaggiyakathā-6619"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/nissaggiyakathā-6619"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/nissaggiyakathā-6619"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/pācittiyakathā-6736</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/pācittiyakathā-6736"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/pācittiyakathā-6736"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/pācittiyakathā-6736"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/pācittiyakathā-6736"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/pācittiyakathā-6736"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/pācittiyakathā-6736"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/pācittiyakathā-6736"/>
+    <loc>/en/book/Vin-vn/pācittiyakathā-6736</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/pācittiyakathā-6736"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/pācittiyakathā-6736"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/pācittiyakathā-6736"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/pācittiyakathā-6736"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/pācittiyakathā-6736"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/pācittiyakathā-6736"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/pācittiyakathā-6736"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/pācittiyakathā-6736"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/pācittiyakathā-6736"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/pāṭidesanīyakathā-7752</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/pāṭidesanīyakathā-7752"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/pāṭidesanīyakathā-7752"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/pāṭidesanīyakathā-7752"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/pāṭidesanīyakathā-7752"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/pāṭidesanīyakathā-7752"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/pāṭidesanīyakathā-7752"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/pāṭidesanīyakathā-7752"/>
+    <loc>/en/book/Vin-vn/pāṭidesanīyakathā-7752</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/pāṭidesanīyakathā-7752"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/pāṭidesanīyakathā-7752"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/pāṭidesanīyakathā-7752"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/pāṭidesanīyakathā-7752"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/pāṭidesanīyakathā-7752"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/pāṭidesanīyakathā-7752"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/pāṭidesanīyakathā-7752"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/pāṭidesanīyakathā-7752"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/pāṭidesanīyakathā-7752"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/khandhakakathā-7804</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/khandhakakathā-7804"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/khandhakakathā-7804"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/khandhakakathā-7804"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/khandhakakathā-7804"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/khandhakakathā-7804"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/khandhakakathā-7804"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/khandhakakathā-7804"/>
+    <loc>/en/book/Vin-vn/khandhakakathā-7804</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/khandhakakathā-7804"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/khandhakakathā-7804"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/khandhakakathā-7804"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/khandhakakathā-7804"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/khandhakakathā-7804"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/khandhakakathā-7804"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/khandhakakathā-7804"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/khandhakakathā-7804"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/khandhakakathā-7804"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/mahāvaggo-7805</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/mahāvaggo-7805"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/mahāvaggo-7805"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/mahāvaggo-7805"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/mahāvaggo-7805"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/mahāvaggo-7805"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/mahāvaggo-7805"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/mahāvaggo-7805"/>
+    <loc>/en/book/Vin-vn/mahāvaggo-7805</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/mahāvaggo-7805"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/mahāvaggo-7805"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/mahāvaggo-7805"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/mahāvaggo-7805"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/mahāvaggo-7805"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/mahāvaggo-7805"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/mahāvaggo-7805"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/mahāvaggo-7805"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/mahāvaggo-7805"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/mahākhandhakakathā-7806</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/mahākhandhakakathā-7806"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/mahākhandhakakathā-7806"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/mahākhandhakakathā-7806"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/mahākhandhakakathā-7806"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/mahākhandhakakathā-7806"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/mahākhandhakakathā-7806"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/mahākhandhakakathā-7806"/>
+    <loc>/en/book/Vin-vn/mahākhandhakakathā-7806</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/mahākhandhakakathā-7806"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/mahākhandhakakathā-7806"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/mahākhandhakakathā-7806"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/mahākhandhakakathā-7806"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/mahākhandhakakathā-7806"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/mahākhandhakakathā-7806"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/mahākhandhakakathā-7806"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/mahākhandhakakathā-7806"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/mahākhandhakakathā-7806"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/pabbajjākathā-7807</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/pabbajjākathā-7807"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/pabbajjākathā-7807"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/pabbajjākathā-7807"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/pabbajjākathā-7807"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/pabbajjākathā-7807"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/pabbajjākathā-7807"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/pabbajjākathā-7807"/>
+    <loc>/en/book/Vin-vn/pabbajjākathā-7807</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/pabbajjākathā-7807"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/pabbajjākathā-7807"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/pabbajjākathā-7807"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/pabbajjākathā-7807"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/pabbajjākathā-7807"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/pabbajjākathā-7807"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/pabbajjākathā-7807"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/pabbajjākathā-7807"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/pabbajjākathā-7807"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/uposathakkhandhakakathā-8147</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/uposathakkhandhakakathā-8147"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/uposathakkhandhakakathā-8147"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/uposathakkhandhakakathā-8147"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/uposathakkhandhakakathā-8147"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/uposathakkhandhakakathā-8147"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/uposathakkhandhakakathā-8147"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/uposathakkhandhakakathā-8147"/>
+    <loc>/en/book/Vin-vn/uposathakkhandhakakathā-8147</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/uposathakkhandhakakathā-8147"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/uposathakkhandhakakathā-8147"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/uposathakkhandhakakathā-8147"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/uposathakkhandhakakathā-8147"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/uposathakkhandhakakathā-8147"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/uposathakkhandhakakathā-8147"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/uposathakkhandhakakathā-8147"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/uposathakkhandhakakathā-8147"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/uposathakkhandhakakathā-8147"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
+    <loc>/en/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/vassūpanāyikakkhandhakakathā-8327"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/pavāraṇakkhandhakakathā-8406</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
+    <loc>/en/book/Vin-vn/pavāraṇakkhandhakakathā-8406</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/pavāraṇakkhandhakakathā-8406"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/cammakkhandhakakathā-8459</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/cammakkhandhakakathā-8459"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/cammakkhandhakakathā-8459"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/cammakkhandhakakathā-8459"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/cammakkhandhakakathā-8459"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/cammakkhandhakakathā-8459"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/cammakkhandhakakathā-8459"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/cammakkhandhakakathā-8459"/>
+    <loc>/en/book/Vin-vn/cammakkhandhakakathā-8459</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/cammakkhandhakakathā-8459"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/cammakkhandhakakathā-8459"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/cammakkhandhakakathā-8459"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/cammakkhandhakakathā-8459"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/cammakkhandhakakathā-8459"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/cammakkhandhakakathā-8459"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/cammakkhandhakakathā-8459"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/cammakkhandhakakathā-8459"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/cammakkhandhakakathā-8459"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/bhesajjakkhandhakakathā-8506</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
+    <loc>/en/book/Vin-vn/bhesajjakkhandhakakathā-8506</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/bhesajjakkhandhakakathā-8506"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/kathinakkhandhakakathā-8604</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/kathinakkhandhakakathā-8604"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/kathinakkhandhakakathā-8604"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/kathinakkhandhakakathā-8604"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/kathinakkhandhakakathā-8604"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/kathinakkhandhakakathā-8604"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/kathinakkhandhakakathā-8604"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/kathinakkhandhakakathā-8604"/>
+    <loc>/en/book/Vin-vn/kathinakkhandhakakathā-8604</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/kathinakkhandhakakathā-8604"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/kathinakkhandhakakathā-8604"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/kathinakkhandhakakathā-8604"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/kathinakkhandhakakathā-8604"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/kathinakkhandhakakathā-8604"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/kathinakkhandhakakathā-8604"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/kathinakkhandhakakathā-8604"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/kathinakkhandhakakathā-8604"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/kathinakkhandhakakathā-8604"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/cīvarakkhandhakakathā-8693</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
+    <loc>/en/book/Vin-vn/cīvarakkhandhakakathā-8693</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/cīvarakkhandhakakathā-8693"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/cūḷavaggo-8762</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/cūḷavaggo-8762"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/cūḷavaggo-8762"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/cūḷavaggo-8762"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/cūḷavaggo-8762"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/cūḷavaggo-8762"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/cūḷavaggo-8762"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/cūḷavaggo-8762"/>
+    <loc>/en/book/Vin-vn/cūḷavaggo-8762</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/cūḷavaggo-8762"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/cūḷavaggo-8762"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/cūḷavaggo-8762"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/cūḷavaggo-8762"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/cūḷavaggo-8762"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/cūḷavaggo-8762"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/cūḷavaggo-8762"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/cūḷavaggo-8762"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/cūḷavaggo-8762"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/pārivāsikakkhandhakakathā-8763</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
+    <loc>/en/book/Vin-vn/pārivāsikakkhandhakakathā-8763</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/pārivāsikakkhandhakakathā-8763"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/samathakkhandhakakathā-8801</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/samathakkhandhakakathā-8801"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/samathakkhandhakakathā-8801"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/samathakkhandhakakathā-8801"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/samathakkhandhakakathā-8801"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/samathakkhandhakakathā-8801"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/samathakkhandhakakathā-8801"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/samathakkhandhakakathā-8801"/>
+    <loc>/en/book/Vin-vn/samathakkhandhakakathā-8801</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/samathakkhandhakakathā-8801"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/samathakkhandhakakathā-8801"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/samathakkhandhakakathā-8801"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/samathakkhandhakakathā-8801"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/samathakkhandhakakathā-8801"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/samathakkhandhakakathā-8801"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/samathakkhandhakakathā-8801"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/samathakkhandhakakathā-8801"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/samathakkhandhakakathā-8801"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/khuddakavatthukkhandhakakathā-8872</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
+    <loc>/en/book/Vin-vn/khuddakavatthukkhandhakakathā-8872</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/khuddakavatthukkhandhakakathā-8872"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/senāsanakkhandhakakathā-9006</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
+    <loc>/en/book/Vin-vn/senāsanakkhandhakakathā-9006</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/senāsanakkhandhakakathā-9006"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/vattakkhandhakakathā-9275</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/vattakkhandhakakathā-9275"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/vattakkhandhakakathā-9275"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/vattakkhandhakakathā-9275"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/vattakkhandhakakathā-9275"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/vattakkhandhakakathā-9275"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/vattakkhandhakakathā-9275"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/vattakkhandhakakathā-9275"/>
+    <loc>/en/book/Vin-vn/vattakkhandhakakathā-9275</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/vattakkhandhakakathā-9275"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/vattakkhandhakakathā-9275"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/vattakkhandhakakathā-9275"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/vattakkhandhakakathā-9275"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/vattakkhandhakakathā-9275"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/vattakkhandhakakathā-9275"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/vattakkhandhakakathā-9275"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/vattakkhandhakakathā-9275"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/vattakkhandhakakathā-9275"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/bhikkhunikkhandhakakathā-9397</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
+    <loc>/en/book/Vin-vn/bhikkhunikkhandhakakathā-9397</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/bhikkhunikkhandhakakathā-9397"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/catubbidhakammakathā-9493</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/catubbidhakammakathā-9493"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/catubbidhakammakathā-9493"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/catubbidhakammakathā-9493"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/catubbidhakammakathā-9493"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/catubbidhakammakathā-9493"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/catubbidhakammakathā-9493"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/catubbidhakammakathā-9493"/>
+    <loc>/en/book/Vin-vn/catubbidhakammakathā-9493</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/catubbidhakammakathā-9493"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/catubbidhakammakathā-9493"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/catubbidhakammakathā-9493"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/catubbidhakammakathā-9493"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/catubbidhakammakathā-9493"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/catubbidhakammakathā-9493"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/catubbidhakammakathā-9493"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/catubbidhakammakathā-9493"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/catubbidhakammakathā-9493"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/kammavipattikathā-9588</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/kammavipattikathā-9588"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/kammavipattikathā-9588"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/kammavipattikathā-9588"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/kammavipattikathā-9588"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/kammavipattikathā-9588"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/kammavipattikathā-9588"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/kammavipattikathā-9588"/>
+    <loc>/en/book/Vin-vn/kammavipattikathā-9588</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/kammavipattikathā-9588"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/kammavipattikathā-9588"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/kammavipattikathā-9588"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/kammavipattikathā-9588"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/kammavipattikathā-9588"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/kammavipattikathā-9588"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/kammavipattikathā-9588"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/kammavipattikathā-9588"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/kammavipattikathā-9588"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/sedamocanakathā-9635</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/sedamocanakathā-9635"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/sedamocanakathā-9635"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/sedamocanakathā-9635"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/sedamocanakathā-9635"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/sedamocanakathā-9635"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/sedamocanakathā-9635"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/sedamocanakathā-9635"/>
+    <loc>/en/book/Vin-vn/sedamocanakathā-9635</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/sedamocanakathā-9635"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/sedamocanakathā-9635"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/sedamocanakathā-9635"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/sedamocanakathā-9635"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/sedamocanakathā-9635"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/sedamocanakathā-9635"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/sedamocanakathā-9635"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/sedamocanakathā-9635"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/sedamocanakathā-9635"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/pakiṇṇakavinicchayakathā-9691</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
+    <loc>/en/book/Vin-vn/pakiṇṇakavinicchayakathā-9691</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/pakiṇṇakavinicchayakathā-9691"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
+    <loc>/en/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Vin-vn/kammaṭṭhānabhāvanāvidhānakathā-9989"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

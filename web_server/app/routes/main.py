@@ -19,6 +19,7 @@ from ..utils import seo
 from ..services.books import load_hierarchy, organize_hierarchy
 from ..services.toc   import get_book_toc, resolve_split_book, get_section_sentences, build_slug_map
 from ..services.links import load_section_book_links
+from ..services import summaries as summaries_svc
 from ..config import Config
 
 import os
@@ -45,6 +46,10 @@ bp = Blueprint('main', __name__)
 # small VPS; strings are cached (not Response objects) so each request gets
 # a fresh response to finalize.
 _BOOK_PAGE_CACHE = TTLCache(max_size=24, ttl=300)
+# Study-guide and outline pages are English-only content served at /en/…;
+# cached like the book page (crawlers re-hit the same URLs constantly).
+_STUDY_PAGE_CACHE   = TTLCache(max_size=64, ttl=300)
+_OUTLINE_PAGE_CACHE = TTLCache(max_size=32, ttl=300)
 
 
 def get_lang_info(lang_code):
@@ -184,7 +189,7 @@ def robots_txt():
         'User-agent: AhrefsSiteAudit\n'
         'Disallow: /\n'
         '\n'
-        f'Sitemap: {Config.BASE_URL or "https://epitaka.org"}/sitemap.xml\n'
+        f'Sitemap: {seo.site_base()}/sitemap.xml\n'
     )
     resp = make_response(robots, 200, {'Content-Type': 'text/plain'})
     resp.headers['Cache-Control'] = 'public, max-age=86400'
@@ -362,6 +367,381 @@ def well_known(filename):
 #     return send_from_directory(_ROOT_FILES_DIR, f'yandex{hash}.html')
 
 
+# ── Study guides (AI summaries) ────────────────────────────────────────────
+# The study pipeline (translator/study_builder.py) writes one study guide per
+# level-10 section into the `summaries` table of epitaka_en.db. Three
+# surfaces expose them:
+#   /<lang>/study/<book_id>/<slug>        full SEO page for one study guide
+#   /<lang>/book/<book_id>/outline        the book's outline (all sections)
+#   /api/study/<book_id>/<section_id>     JSON for the in-book popup
+# Guides are English content, so all three canonicalise to /en/… (non-en
+# prefixes 301 to /en, and hreflang is emitted for en + x-default only).
+
+@bp.route('/<lang>/study/<book_id>/<slug>')
+def study_guide(lang, book_id, slug):
+    """Server-rendered SEO page for a single study guide."""
+    translations = Config.detect_translations()
+    if lang not in translations:
+        return redirect(Config.BASE_URL + '/' + Config.DEFAULT_LANG + '/')
+    if lang != Config.DEFAULT_LANG:
+        return redirect(seo.absolute(f'/{Config.DEFAULT_LANG}/study/{book_id}/{slug}'), code=301)
+
+    book_id = book_id.replace('_chunks', '')
+    cache_key = ('study', book_id, slug, get_asset_version())
+    cached = _STUDY_PAGE_CACHE.get(cache_key)
+    if cached is not None:
+        return make_response(cached)
+
+    # Resolve slug → summary (slugs end with -{section_id}; verify, else scan).
+    target = None
+    tail = slug.rsplit('-', 1)[-1] if '-' in slug else ''
+    if tail.isdigit():
+        row = summaries_svc.get_summary(book_id, int(tail))
+        if row and summaries_svc.summary_slug(row) == slug:
+            target = row
+    if target is None:
+        for row in summaries_svc.get_all_summaries(book_id):
+            if summaries_svc.summary_slug(row) == slug:
+                target = row
+                break
+    if target is None:
+        abort(404)
+
+    hierarchy = load_hierarchy()
+    with get_db() as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT book_name FROM books WHERE book_id = ?', (book_id,))
+        brow = cursor.fetchone()
+        if not brow:
+            abort(404)
+        book_title = brow['book_name']
+        # Enclosing-section slugs for every cited (book, para) so citation
+        # links open the reader on the section page, not an empty book page.
+        citation_slugs = build_slug_map(
+            conn, list(summaries_svc.extract_citation_pairs(target['content'])))
+
+    section_id = target['section_id']
+    # Link to the enclosing (parent-heading) section page so the reader
+    # renders it open, then scroll to the numbered item via the hash.
+    parent_slug = citation_slugs.get((book_id, section_id)) if citation_slugs else None
+    section_url = None
+    if parent_slug:
+        section_url = seo.absolute(
+            f'/{Config.DEFAULT_LANG}/book/{book_id}/{parent_slug}#{section_id}')
+    book_url    = seo.absolute(f'/{Config.DEFAULT_LANG}/book/{book_id}')
+    outline_url = seo.absolute(f'/{Config.DEFAULT_LANG}/book/{book_id}/outline')
+    page_url    = seo.absolute(f'/{Config.DEFAULT_LANG}/study/{book_id}/{slug}')
+    home_url    = seo.absolute(f'/{Config.DEFAULT_LANG}/')
+
+    content_html = summaries_svc.render_study_markdown(
+        target['content'], book_id, Config.DEFAULT_LANG, citation_slugs)
+    plain = summaries_svc.study_plain_text(target['content'])
+
+    # Prev / next in section order
+    ordered = summaries_svc.get_all_summaries(book_id)
+    idx = next((i for i, s in enumerate(ordered)
+                if s['section_id'] == section_id), None)
+    prev_s, next_s = None, None
+    if idx is not None:
+        if idx > 0:
+            prev_s = ordered[idx - 1]
+        if idx + 1 < len(ordered):
+            next_s = ordered[idx + 1]
+
+    def _nav_url(row):
+        return seo.absolute(
+            f'/{Config.DEFAULT_LANG}/study/{book_id}/{summaries_svc.summary_slug(row)}')
+
+    summary_title = target['title'] or target['heading_title'] or 'Study Guide'
+    seo_title = seo.study_seo_title(book_id, summary_title, book_title)
+    meta_description = seo.study_seo_description(summary_title, book_title, plain)
+    jsonld = seo.study_jsonld(
+        book_id, summary_title, book_title, page_url, home_url, book_url,
+        sutta_title=target.get('sutta_title') or None,
+        section_url=section_url,
+    )
+
+    sources = []
+    try:
+        raw_sources = json.loads(target.get('sources') or '[]')
+    except (TypeError, ValueError):
+        raw_sources = []
+    for sid in raw_sources:
+        info = hierarchy.get(sid, {})
+        sources.append({'book_id': sid, 'book_name': info.get('book_name', sid)})
+
+    lang_info = translations[Config.DEFAULT_LANG]
+    html = render_template(
+        'study.html',
+        book_id=book_id,
+        book_title=book_title,
+        english_name=seo.english_book_name(book_id),
+        summary=target,
+        summary_title=summary_title,
+        content_html=content_html,
+        seo_title=seo_title,
+        meta_description=meta_description,
+        canonical_url=page_url,
+        page_url=page_url,
+        home_url=home_url,
+        book_url=book_url,
+        outline_url=outline_url,
+        section_url=section_url,
+        study_jsonld=jsonld,
+        sources=sources,
+        prev_s=prev_s,
+        next_s=next_s,
+        prev_url=_nav_url(prev_s) if prev_s else None,
+        next_url=_nav_url(next_s) if next_s else None,
+        prev_title=(prev_s.get('title') or prev_s.get('heading_title') or '') if prev_s else '',
+        next_title=(next_s.get('title') or next_s.get('heading_title') or '') if next_s else '',
+        sutta_title=target.get('sutta_title') or '',
+        vagga_title=target.get('vagga_title') or '',
+        model=target.get('model') or '',
+        base_url=Config.BASE_URL,
+        site_url=seo.site_base(),
+        lang=Config.DEFAULT_LANG,
+        lang_info=lang_info,
+        available_langs=[translations[code] for code in sorted(translations.keys())],
+    )
+    _STUDY_PAGE_CACHE.set(cache_key, html)
+    return make_response(html)
+
+
+# ── Outline helpers (shared by the outline page route, the sidebar JSON
+#    API, and the per-section inline outline in the book reader) ────────────
+
+def _book_outline_items(conn, book_id):
+    """
+    The sections that make up a book's outline, in document order.
+
+    Books normally have numbered (level-10) sections; some books (grammars,
+    anthologies, saṅgāyana summaries) only have level 2–6 headings — for
+    those, fall back to the headings themselves so every book gets a
+    non-empty outline.
+
+    Returns [{'para_id', 'title', 'level', 'sutta_title', 'vagga_title'}, ...]
+    where vagga (level 2) / sutta (level 4) are resolved via the parent
+    chain (a level-2/4 heading is its own group when no ancestor exists).
+    """
+    cursor = conn.cursor()
+    cursor.execute('''
+        SELECT para_id, level, title, parent FROM headings
+        WHERE book_id = ? AND level = 10
+        ORDER BY para_id
+    ''', (book_id,))
+    items = cursor.fetchall()
+    if not items:
+        cursor.execute('''
+            SELECT para_id, level, title, parent FROM headings
+            WHERE book_id = ? AND level BETWEEN 2 AND 6
+            ORDER BY para_id
+        ''', (book_id,))
+        items = cursor.fetchall()
+    if not items:
+        return []
+
+    cursor.execute('''
+        SELECT para_id, level, title, parent FROM headings
+        WHERE book_id = ? AND level < 10
+    ''', (book_id,))
+    parents = {r['para_id']: r for r in cursor.fetchall()}
+
+    def _ancestor_titles(pid, target_levels):
+        """Walk the parent chain, collecting the title of each target level."""
+        found = {}
+        seen = set()
+        while pid and pid not in seen and pid in parents:
+            seen.add(pid)
+            h = parents[pid]
+            if h['level'] in target_levels:
+                found[h['level']] = h['title'] or ''
+            pid = h['parent']
+        return found
+
+    out = []
+    for it in items:
+        level = it['level']
+        own = it['title'] or ''
+        anc = _ancestor_titles(it['parent'], (2, 4))
+        out.append({
+            'para_id':     it['para_id'],
+            'title':       own,
+            'level':       level,
+            # A level-2/4 heading acts as its own vagga/sutta group; deeper
+            # headings inherit from their level-2/4 ancestor instead.
+            'vagga_title': own if level == 2 else anc.get(2, ''),
+            'sutta_title': own if level == 4 else anc.get(4, ''),
+        })
+    return out
+
+
+def _group_outline(items):
+    """Group outline items vagga (level 2) → sutta (level 4) → items."""
+    groups = []
+    vagga = None
+    sutta = None
+    for sec in items:
+        if sec['vagga_title'] != (vagga['title'] if vagga else None):
+            vagga = {'title': sec['vagga_title'], 'suttas': []}
+            groups.append(vagga)
+            sutta = None
+        if sec['sutta_title'] != (sutta['title'] if sutta else None):
+            sutta = {'title': sec['sutta_title'], 'sections': []}
+            vagga['suttas'].append(sutta)
+        sutta['sections'].append(sec)
+    return groups
+
+
+def _enrich_outline(groups, book_id, summary_map, slug_map=None):
+    """Add per-item book URLs and (when a study guide exists) study URLs.
+
+    Level-10 (numbered) items deep-link to their enclosing level<10 section
+    with a #para_id hash — the reader renders that section open and scrolls
+    to the item. Level 2–6 headings (books without numbered sections) link
+    to their own section page.
+    """
+    for g in groups:
+        for st in g['suttas']:
+            for item in st['sections']:
+                pid = item['para_id']
+                if item.get('level') == 10:
+                    parent_slug = (slug_map or {}).get((book_id, pid)) or ''
+                    if parent_slug:
+                        item['book_url'] = seo.absolute(
+                            f'/{Config.DEFAULT_LANG}/book/{book_id}/{parent_slug}#{pid}')
+                        item.pop('level', None)
+                        sm = summary_map.get(pid)
+                        item['study_url'] = seo.absolute(
+                            f'/{Config.DEFAULT_LANG}' + sm['url_path']) if sm else None
+                        item['study_title'] = sm['title'] if sm else ''
+                        continue
+                slug = (item['title'].lower().replace(' ', '-') + '-' + str(pid)) \
+                    if item['title'] else str(pid)
+                item['book_url'] = seo.absolute(
+                    f'/{Config.DEFAULT_LANG}/book/{book_id}/{slug}')
+                sm = summary_map.get(pid)
+                item['study_url'] = seo.absolute(
+                    f'/{Config.DEFAULT_LANG}' + sm['url_path']) if sm else None
+                item['study_title'] = sm['title'] if sm else ''
+                item.pop('level', None)
+    return groups
+
+
+@bp.route('/<lang>/book/<book_id>/outline')
+def outline(lang, book_id):
+    """Server-rendered outline of every section of a book, with links to each
+    section's study guide (when one exists) and to the section in the book."""
+    translations = Config.detect_translations()
+    if lang not in translations:
+        return redirect(Config.BASE_URL + '/' + Config.DEFAULT_LANG + '/')
+    if lang != Config.DEFAULT_LANG:
+        return redirect(seo.absolute(f'/{Config.DEFAULT_LANG}/book/{book_id}/outline'), code=301)
+
+    book_id = book_id.replace('_chunks', '')
+    cache_key = ('outline', book_id, get_asset_version())
+    cached = _OUTLINE_PAGE_CACHE.get(cache_key)
+    if cached is not None:
+        return make_response(cached)
+
+    with get_db() as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT book_name FROM books WHERE book_id = ?', (book_id,))
+        brow = cursor.fetchone()
+        if not brow:
+            abort(404)
+        book_title = brow['book_name']
+        items = _book_outline_items(conn, book_id)
+        slug_map = build_slug_map(conn, [(book_id, it['para_id']) for it in items])
+
+    summary_map = summaries_svc.book_summary_map(book_id)
+    groups = _enrich_outline(_group_outline(items), book_id, summary_map, slug_map)
+
+    page_url = seo.absolute(f'/{Config.DEFAULT_LANG}/book/{book_id}/outline')
+    book_url = seo.absolute(f'/{Config.DEFAULT_LANG}/book/{book_id}')
+    home_url = seo.absolute(f'/{Config.DEFAULT_LANG}/')
+    english_name = seo.english_book_name(book_id)
+
+    html = render_template(
+        'outline.html',
+        book_id=book_id,
+        book_title=book_title,
+        english_name=english_name,
+        seo_title=seo.outline_seo_title(book_id, book_title),
+        meta_description=seo.outline_seo_description(book_id, book_title),
+        canonical_url=page_url,
+        page_url=page_url,
+        home_url=home_url,
+        book_url=book_url,
+        groups=groups,
+        summary_count=len(summary_map),
+        base_url=Config.BASE_URL,
+        site_url=seo.site_base(),
+        lang=Config.DEFAULT_LANG,
+        lang_info=translations[Config.DEFAULT_LANG],
+        available_langs=[translations[code] for code in sorted(translations.keys())],
+    )
+    _OUTLINE_PAGE_CACHE.set(cache_key, html)
+    return make_response(html)
+
+
+@bp.route('/api/outline/<book_id>')
+def api_outline(book_id):
+    """JSON outline for the book-page sidebar Outline panel.
+
+    Same data as the /book/<id>/outline page (grouped vagga → sutta →
+    sections, each with its book + study-guide URLs), so the panel and the
+    SEO page never drift apart.
+    """
+    book_id = book_id.replace('_chunks', '')
+    with get_db() as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT book_name FROM books WHERE book_id = ?', (book_id,))
+        brow = cursor.fetchone()
+        if not brow:
+            return jsonify({'error': 'not found'}), 404
+        items = _book_outline_items(conn, book_id)
+        slug_map = build_slug_map(conn, [(book_id, it['para_id']) for it in items])
+    summary_map = summaries_svc.book_summary_map(book_id)
+    groups = _enrich_outline(_group_outline(items), book_id, summary_map, slug_map)
+    return jsonify({
+        'book_id':      book_id,
+        'book_title':   brow['book_name'],
+        'english_name': seo.english_book_name(book_id),
+        'outline_url':  seo.absolute(f'/{Config.DEFAULT_LANG}/book/{book_id}/outline'),
+        'groups':       groups,
+        'summary_count': len(summary_map),
+    })
+
+
+@bp.route('/api/study/<book_id>/<int:section_id>')
+@rate_limit(120, 60)
+def api_study_section(book_id, section_id):
+    """JSON for the in-book study popup (rendered HTML + title + full URL)."""
+    row = summaries_svc.get_summary(book_id, section_id)
+    if row is None:
+        return jsonify({'error': 'not found'}), 404
+    lang = request.args.get('lang', '').strip() or Config.DEFAULT_LANG
+    if lang not in Config.detect_translations():
+        lang = Config.DEFAULT_LANG
+    with get_db() as conn:
+        citation_slugs = build_slug_map(
+            conn, list(summaries_svc.extract_citation_pairs(row.get('content') or '')))
+    return jsonify({
+        'book_id':      book_id,
+        'section_id':   section_id,
+        'title':        row.get('title') or '',
+        # Server-rendered HTML for web embeds AND the raw markdown so the
+        # mobile app can render citations client-side with its own markdown
+        # widget (which turns [book:para:line] into tap-to-preview links).
+        'content_html': summaries_svc.render_study_markdown(
+            row.get('content') or '', book_id, lang, citation_slugs),
+        'content_md':   row.get('content') or '',
+        'url': seo.absolute(
+            f'/{Config.DEFAULT_LANG}/study/{book_id}/{summaries_svc.summary_slug(row)}'),
+    })
+
+
 # ── Book page ──────────────────────────────────────────────────────────────
 
 @bp.route('/<lang>/book/<book_id>')
@@ -527,8 +907,26 @@ def book(lang, book_id, section_path=None):
                     })
                 if refs:
                     entry[rtype] = refs
-            if entry:
-                ref_links[num_pid] = entry
+        # ── Inline section outline: the level-10 numbered items inside the
+        #    active section, listed at the top of its content so readers can
+        #    see (and jump to) the section's structure ──
+        section_outline_rows = []
+        if active_para_id:
+            cursor.execute('''
+                SELECT COALESCE(
+                    (SELECT MIN(para_id) FROM headings
+                     WHERE book_id = ? AND para_id > ? AND level <= 6),
+                    999999999
+                ) AS end_para
+            ''', (book_id, active_para_id))
+            end_para = cursor.fetchone()['end_para']
+            cursor.execute('''
+                SELECT para_id, title FROM headings
+                WHERE book_id = ? AND level = 10
+                  AND para_id >= ? AND para_id < ?
+                ORDER BY para_id
+            ''', (book_id, active_para_id, end_para))
+            section_outline_rows = cursor.fetchall()
 
     if not book_exists:
         # Unknown book_id (bots probing junk paths) — 404 immediately
@@ -553,21 +951,111 @@ def book(lang, book_id, section_path=None):
         'tika_ref':  enrich_refs(bookinfo.get('tika_ref',  [])),
     }
 
-    # ── SEO: English display name + section title for the current URL ──
+    # ── SEO: English display name + breadcrumb path to the active section ──
     english_name = seo.english_book_name(book_id)
-    section_title = next(
-        (t['title'] for t in toc if t['para_id'] == active_para_id), None
-    ) if active_para_id else None
 
+    # Walk the TOC once, keeping the most recent heading per level up to the
+    # active section, so the full path (book › sutta › … › section) can go
+    # into the H1, <title>, meta description, and BreadcrumbList schema.
+    # The level-1 heading is skipped — it's the Pāli book title, already
+    # covered by the English book name that leads the path.
+    section_path = []
+    section_title = None
+    if active_para_id:
+        last_by_level = {}
+        target_level = None
+        for item in toc:
+            if item['para_id'] == active_para_id:
+                target_level = item['level']
+                last_by_level[target_level] = item
+                break
+            if item['para_id'] > active_para_id:
+                break
+            last_by_level[item['level']] = item
+        if target_level is not None:
+            path_items = []
+            for lvl in sorted(k for k in last_by_level if k <= target_level):
+                item = last_by_level[lvl]
+                if item['level'] == 1:
+                    continue  # covered by the English book name below
+                slug = (item['title'].lower().replace(' ', '-') + '-' + str(item['para_id'])) if item['title'] else ''
+                path_items.append({
+                    'title': item['title'],
+                    'translation': None,
+                    'url': seo.absolute(f'/{lang}/book/{book_id}/{slug}') if (item['has_content'] and slug) else None,
+                })
+            if path_items:
+                # Lead the path with the English book name (the level-1 Pāli
+                # heading was skipped above as redundant with it).
+                section_path = [{
+                    'title': english_name or book_title,
+                    'translation': None,
+                    'url': seo.absolute(f'/{lang}/book/{book_id}'),
+                }] + path_items
+                section_title = section_path[-1]['title']
+                # Translation of the section's own heading sentence.
+                leaf_translation = seo.clean_translation(heading_translation) if heading_translation else None
+                section_path[-1]['translation'] = leaf_translation
+
+    # ── Canonical: deep-section pages are self-canonical so each passage
+    #    URL is indexed with its own metadata instead of collapsing onto
+    #    the book page (previously every /book/D-i/<slug> canonicalised to
+    #    /book/D-i, which is why all the book's links shared one title /
+    #    description in search results).
     canonical_url = seo.absolute(f'/{lang}/book/{book_id}')
+    canonical_slug = None
+    if section_title and active_para_id:
+        canonical_slug = (section_title.lower().replace(' ', '-') + '-' + str(active_para_id))
+        canonical_url = seo.absolute(f'/{lang}/book/{book_id}/{canonical_slug}')
     page_url = canonical_url
     home_url = seo.absolute(f'/{lang}/')
+
+    # Path display strings for metadata: "book › sutta" (excluding the
+    # section itself, which leads the title) and the section's first
+    # translated sentence as a unique excerpt.
+    path_titles = [p['title'] for p in section_path]
+    context_titles = path_titles[:-1] if path_titles else []  # book › sutta (excl. section)
+    section_excerpt = None
+    if section_content:
+        first = section_content[0]
+        section_excerpt = seo.strip_html(first.get('translation', '')) or None
+    leaf_translation = section_path[-1]['translation'] if section_path else None
+
     seo_title = seo.book_seo_title(
-        book_id, book_title, lang, lang_info['native_name'])
+        book_id, book_title, lang, lang_info['native_name'],
+        section_title=section_title,
+        section_translation=leaf_translation,
+        section_path_titles=context_titles or None)
     meta_description = seo.book_seo_description(
-        book_id, book_title, lang, lang_info['english_name'], section_title)
+        book_id, book_title, lang, lang_info['english_name'],
+        section_title=section_title,
+        section_translation=leaf_translation,
+        section_path=' › '.join(context_titles) or None,
+        section_excerpt=section_excerpt)
     book_ld = seo.book_jsonld(
-        book_id, book_title, lang, page_url, home_url, section_title)
+        book_id, book_title, lang, page_url, home_url,
+        book_url=seo.absolute(f'/{lang}/book/{book_id}'),
+        # book_jsonld already emits the book as breadcrumb position 2, so
+        # hand it the headings only (drop the leading book element).
+        section_path=(section_path[1:] if len(section_path) > 1 else None))
+
+    # Study-guide icons: which para_ids in this book have a summary, plus the
+    # outline page URL (the “Outline” tab in the top bar).
+    summary_map = summaries_svc.book_summary_map(book_id)
+    outline_url = seo.absolute(f'/{Config.DEFAULT_LANG}/book/{book_id}/outline')
+
+    # Inline outline of the open section (numbered items, each with its
+    # study-guide link when one exists). Anchored to the para-group ids the
+    # template renders, so the browser jumps to the item natively.
+    section_outline = []
+    for r in section_outline_rows:
+        sm = summary_map.get(r['para_id'])
+        section_outline.append({
+            'para_id':     r['para_id'],
+            'title':       r['title'] or '',
+            'study_url':   seo.absolute(f'/{Config.DEFAULT_LANG}' + sm['url_path']) if sm else None,
+            'study_title': sm['title'] if sm else '',
+        })
 
     html = render_template(
         'book.html',
@@ -591,10 +1079,15 @@ def book(lang, book_id, section_path=None):
         active_para_id=active_para_id,
         active_line_id=active_line_id,
         section_slug=section_slug,
+        section_slug_canonical=canonical_slug,
+        section_path=section_path,
         section_content=section_content,
         heading_translation=heading_translation,
         section_has_content=section_has_content,
         book_links_by_line=book_links_by_line,
+        summary_map=summary_map,
+        outline_url=outline_url,
+        section_outline=section_outline,
         firebase_config=Config.FIREBASE_CONFIG,
     )
     _BOOK_PAGE_CACHE.set(cache_key, html)

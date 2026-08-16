@@ -2,386 +2,455 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
+    <loc>/en/book/Kacc-sadd/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/mahākaccāyanasaddāpāṭha-715"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/1-sandhikappa-716</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/1-sandhikappa-716"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/1-sandhikappa-716"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/1-sandhikappa-716"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/1-sandhikappa-716"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/1-sandhikappa-716"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/1-sandhikappa-716"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/1-sandhikappa-716"/>
+    <loc>/en/book/Kacc-sadd/1-sandhikappa-716</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/1-sandhikappa-716"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/1-sandhikappa-716"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/1-sandhikappa-716"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/1-sandhikappa-716"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/1-sandhikappa-716"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/1-sandhikappa-716"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/1-sandhikappa-716"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/1-sandhikappa-716"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/1-sandhikappa-716"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/paṭhamakaṇḍa-717</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
+    <loc>/en/book/Kacc-sadd/paṭhamakaṇḍa-717</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/paṭhamakaṇḍa-717"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/dutiyakaṇḍa-768</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/dutiyakaṇḍa-768"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/dutiyakaṇḍa-768"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/dutiyakaṇḍa-768"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/dutiyakaṇḍa-768"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/dutiyakaṇḍa-768"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/dutiyakaṇḍa-768"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/dutiyakaṇḍa-768"/>
+    <loc>/en/book/Kacc-sadd/dutiyakaṇḍa-768</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/dutiyakaṇḍa-768"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/dutiyakaṇḍa-768"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/dutiyakaṇḍa-768"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/dutiyakaṇḍa-768"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/dutiyakaṇḍa-768"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/dutiyakaṇḍa-768"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/dutiyakaṇḍa-768"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/dutiyakaṇḍa-768"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/dutiyakaṇḍa-768"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/tatiyakaṇḍa-825</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/tatiyakaṇḍa-825"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/tatiyakaṇḍa-825"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/tatiyakaṇḍa-825"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/tatiyakaṇḍa-825"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/tatiyakaṇḍa-825"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/tatiyakaṇḍa-825"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/tatiyakaṇḍa-825"/>
+    <loc>/en/book/Kacc-sadd/tatiyakaṇḍa-825</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/tatiyakaṇḍa-825"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/tatiyakaṇḍa-825"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/tatiyakaṇḍa-825"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/tatiyakaṇḍa-825"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/tatiyakaṇḍa-825"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/tatiyakaṇḍa-825"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/tatiyakaṇḍa-825"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/tatiyakaṇḍa-825"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/tatiyakaṇḍa-825"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/catutthakaṇḍa-854</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/catutthakaṇḍa-854"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/catutthakaṇḍa-854"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/catutthakaṇḍa-854"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/catutthakaṇḍa-854"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/catutthakaṇḍa-854"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/catutthakaṇḍa-854"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/catutthakaṇḍa-854"/>
+    <loc>/en/book/Kacc-sadd/catutthakaṇḍa-854</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/catutthakaṇḍa-854"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/catutthakaṇḍa-854"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/catutthakaṇḍa-854"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/catutthakaṇḍa-854"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/catutthakaṇḍa-854"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/catutthakaṇḍa-854"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/catutthakaṇḍa-854"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/catutthakaṇḍa-854"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/catutthakaṇḍa-854"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/pañcamakaṇḍa-909</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/pañcamakaṇḍa-909"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/pañcamakaṇḍa-909"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/pañcamakaṇḍa-909"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/pañcamakaṇḍa-909"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/pañcamakaṇḍa-909"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/pañcamakaṇḍa-909"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/pañcamakaṇḍa-909"/>
+    <loc>/en/book/Kacc-sadd/pañcamakaṇḍa-909</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/pañcamakaṇḍa-909"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/pañcamakaṇḍa-909"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/pañcamakaṇḍa-909"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/pañcamakaṇḍa-909"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/pañcamakaṇḍa-909"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/pañcamakaṇḍa-909"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/pañcamakaṇḍa-909"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/pañcamakaṇḍa-909"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/pañcamakaṇḍa-909"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/2-nāmakappa-948</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/2-nāmakappa-948"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/2-nāmakappa-948"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/2-nāmakappa-948"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/2-nāmakappa-948"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/2-nāmakappa-948"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/2-nāmakappa-948"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/2-nāmakappa-948"/>
+    <loc>/en/book/Kacc-sadd/2-nāmakappa-948</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/2-nāmakappa-948"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/2-nāmakappa-948"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/2-nāmakappa-948"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/2-nāmakappa-948"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/2-nāmakappa-948"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/2-nāmakappa-948"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/2-nāmakappa-948"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/2-nāmakappa-948"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/2-nāmakappa-948"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/paṭhamakaṇḍa-949</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
+    <loc>/en/book/Kacc-sadd/paṭhamakaṇḍa-949</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/paṭhamakaṇḍa-949"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/dutiyakaṇḍa-1274</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
+    <loc>/en/book/Kacc-sadd/dutiyakaṇḍa-1274</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/dutiyakaṇḍa-1274"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/tatiyakaṇḍa-1447</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
+    <loc>/en/book/Kacc-sadd/tatiyakaṇḍa-1447</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/tatiyakaṇḍa-1447"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/catutthakaṇḍa-1666</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/catutthakaṇḍa-1666"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/catutthakaṇḍa-1666"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/catutthakaṇḍa-1666"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/catutthakaṇḍa-1666"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/catutthakaṇḍa-1666"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/catutthakaṇḍa-1666"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/catutthakaṇḍa-1666"/>
+    <loc>/en/book/Kacc-sadd/catutthakaṇḍa-1666</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/catutthakaṇḍa-1666"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/catutthakaṇḍa-1666"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/catutthakaṇḍa-1666"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/catutthakaṇḍa-1666"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/catutthakaṇḍa-1666"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/catutthakaṇḍa-1666"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/catutthakaṇḍa-1666"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/catutthakaṇḍa-1666"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/catutthakaṇḍa-1666"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/pañcamakaṇḍa-1802</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
+    <loc>/en/book/Kacc-sadd/pañcamakaṇḍa-1802</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/pañcamakaṇḍa-1802"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/3-kārakakappa-1883</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/3-kārakakappa-1883"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/3-kārakakappa-1883"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/3-kārakakappa-1883"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/3-kārakakappa-1883"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/3-kārakakappa-1883"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/3-kārakakappa-1883"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/3-kārakakappa-1883"/>
+    <loc>/en/book/Kacc-sadd/3-kārakakappa-1883</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/3-kārakakappa-1883"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/3-kārakakappa-1883"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/3-kārakakappa-1883"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/3-kārakakappa-1883"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/3-kārakakappa-1883"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/3-kārakakappa-1883"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/3-kārakakappa-1883"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/3-kārakakappa-1883"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/3-kārakakappa-1883"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/chaṭṭhakaṇḍa-1884</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
+    <loc>/en/book/Kacc-sadd/chaṭṭhakaṇḍa-1884</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/chaṭṭhakaṇḍa-1884"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/4-samāsakappa-2109</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/4-samāsakappa-2109"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/4-samāsakappa-2109"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/4-samāsakappa-2109"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/4-samāsakappa-2109"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/4-samāsakappa-2109"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/4-samāsakappa-2109"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/4-samāsakappa-2109"/>
+    <loc>/en/book/Kacc-sadd/4-samāsakappa-2109</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/4-samāsakappa-2109"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/4-samāsakappa-2109"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/4-samāsakappa-2109"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/4-samāsakappa-2109"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/4-samāsakappa-2109"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/4-samāsakappa-2109"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/4-samāsakappa-2109"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/4-samāsakappa-2109"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/4-samāsakappa-2109"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/sattamakaṇḍa-2110</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/sattamakaṇḍa-2110"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/sattamakaṇḍa-2110"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/sattamakaṇḍa-2110"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/sattamakaṇḍa-2110"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/sattamakaṇḍa-2110"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/sattamakaṇḍa-2110"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/sattamakaṇḍa-2110"/>
+    <loc>/en/book/Kacc-sadd/sattamakaṇḍa-2110</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/sattamakaṇḍa-2110"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/sattamakaṇḍa-2110"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/sattamakaṇḍa-2110"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/sattamakaṇḍa-2110"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/sattamakaṇḍa-2110"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/sattamakaṇḍa-2110"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/sattamakaṇḍa-2110"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/sattamakaṇḍa-2110"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/sattamakaṇḍa-2110"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/5-taddhitakappa-2249</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/5-taddhitakappa-2249"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/5-taddhitakappa-2249"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/5-taddhitakappa-2249"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/5-taddhitakappa-2249"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/5-taddhitakappa-2249"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/5-taddhitakappa-2249"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/5-taddhitakappa-2249"/>
+    <loc>/en/book/Kacc-sadd/5-taddhitakappa-2249</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/5-taddhitakappa-2249"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/5-taddhitakappa-2249"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/5-taddhitakappa-2249"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/5-taddhitakappa-2249"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/5-taddhitakappa-2249"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/5-taddhitakappa-2249"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/5-taddhitakappa-2249"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/5-taddhitakappa-2249"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/5-taddhitakappa-2249"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/aṭṭhamakaṇḍa-2250</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
+    <loc>/en/book/Kacc-sadd/aṭṭhamakaṇḍa-2250</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/aṭṭhamakaṇḍa-2250"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/6-ākhyātakappa-2520</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/6-ākhyātakappa-2520"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/6-ākhyātakappa-2520"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/6-ākhyātakappa-2520"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/6-ākhyātakappa-2520"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/6-ākhyātakappa-2520"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/6-ākhyātakappa-2520"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/6-ākhyātakappa-2520"/>
+    <loc>/en/book/Kacc-sadd/6-ākhyātakappa-2520</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/6-ākhyātakappa-2520"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/6-ākhyātakappa-2520"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/6-ākhyātakappa-2520"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/6-ākhyātakappa-2520"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/6-ākhyātakappa-2520"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/6-ākhyātakappa-2520"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/6-ākhyātakappa-2520"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/6-ākhyātakappa-2520"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/6-ākhyātakappa-2520"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/paṭhamakaṇḍa-2521</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
+    <loc>/en/book/Kacc-sadd/paṭhamakaṇḍa-2521</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/paṭhamakaṇḍa-2521"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/dutiyakaṇḍa-2624</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
+    <loc>/en/book/Kacc-sadd/dutiyakaṇḍa-2624</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/dutiyakaṇḍa-2624"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/tatiyakaṇḍa-2717</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
+    <loc>/en/book/Kacc-sadd/tatiyakaṇḍa-2717</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/tatiyakaṇḍa-2717"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/catutthakaṇḍa-2806</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/catutthakaṇḍa-2806"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/catutthakaṇḍa-2806"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/catutthakaṇḍa-2806"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/catutthakaṇḍa-2806"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/catutthakaṇḍa-2806"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/catutthakaṇḍa-2806"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/catutthakaṇḍa-2806"/>
+    <loc>/en/book/Kacc-sadd/catutthakaṇḍa-2806</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/catutthakaṇḍa-2806"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/catutthakaṇḍa-2806"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/catutthakaṇḍa-2806"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/catutthakaṇḍa-2806"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/catutthakaṇḍa-2806"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/catutthakaṇḍa-2806"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/catutthakaṇḍa-2806"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/catutthakaṇḍa-2806"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/catutthakaṇḍa-2806"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/7-kibbidhānakappa-2955</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
+    <loc>/en/book/Kacc-sadd/7-kibbidhānakappa-2955</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/7-kibbidhānakappa-2955"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/paṭhamakaṇḍa-2956</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
+    <loc>/en/book/Kacc-sadd/paṭhamakaṇḍa-2956</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/paṭhamakaṇḍa-2956"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/dutiyakaṇḍa-3061</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
+    <loc>/en/book/Kacc-sadd/dutiyakaṇḍa-3061</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/dutiyakaṇḍa-3061"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/tatiyakaṇḍa-3126</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
+    <loc>/en/book/Kacc-sadd/tatiyakaṇḍa-3126</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/tatiyakaṇḍa-3126"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/catutthakaṇḍa-3202</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/catutthakaṇḍa-3202"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/catutthakaṇḍa-3202"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/catutthakaṇḍa-3202"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/catutthakaṇḍa-3202"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/catutthakaṇḍa-3202"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/catutthakaṇḍa-3202"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/catutthakaṇḍa-3202"/>
+    <loc>/en/book/Kacc-sadd/catutthakaṇḍa-3202</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/catutthakaṇḍa-3202"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/catutthakaṇḍa-3202"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/catutthakaṇḍa-3202"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/catutthakaṇḍa-3202"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/catutthakaṇḍa-3202"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/catutthakaṇḍa-3202"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/catutthakaṇḍa-3202"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/catutthakaṇḍa-3202"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/catutthakaṇḍa-3202"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/pañcamakaṇḍa-3261</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
+    <loc>/en/book/Kacc-sadd/pañcamakaṇḍa-3261</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/pañcamakaṇḍa-3261"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/8-uṇādikappa-3321</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/8-uṇādikappa-3321"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/8-uṇādikappa-3321"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/8-uṇādikappa-3321"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/8-uṇādikappa-3321"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/8-uṇādikappa-3321"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/8-uṇādikappa-3321"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/8-uṇādikappa-3321"/>
+    <loc>/en/book/Kacc-sadd/8-uṇādikappa-3321</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/8-uṇādikappa-3321"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/8-uṇādikappa-3321"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/8-uṇādikappa-3321"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/8-uṇādikappa-3321"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/8-uṇādikappa-3321"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/8-uṇādikappa-3321"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/8-uṇādikappa-3321"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/8-uṇādikappa-3321"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/8-uṇādikappa-3321"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Kacc-sadd/chaṭṭhakaṇḍa-3322</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
+    <loc>/en/book/Kacc-sadd/chaṭṭhakaṇḍa-3322</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Kacc-sadd/chaṭṭhakaṇḍa-3322"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

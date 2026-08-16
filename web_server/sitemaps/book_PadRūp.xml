@@ -2,662 +2,777 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/padarūpasiddhi-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/padarūpasiddhi-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/padarūpasiddhi-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/padarūpasiddhi-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/padarūpasiddhi-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/padarūpasiddhi-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/padarūpasiddhi-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/padarūpasiddhi-2"/>
+    <loc>/en/book/PadRūp/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/PadRūp/padarūpasiddhi-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/padarūpasiddhi-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/padarūpasiddhi-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/padarūpasiddhi-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/padarūpasiddhi-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/padarūpasiddhi-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/padarūpasiddhi-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/padarūpasiddhi-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/padarūpasiddhi-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/padarūpasiddhi-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/ganthārambha-3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/ganthārambha-3"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/ganthārambha-3"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/ganthārambha-3"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/ganthārambha-3"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/ganthārambha-3"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/ganthārambha-3"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/ganthārambha-3"/>
+    <loc>/en/book/PadRūp/ganthārambha-3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/ganthārambha-3"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/ganthārambha-3"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/ganthārambha-3"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/ganthārambha-3"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/ganthārambha-3"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/ganthārambha-3"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/ganthārambha-3"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/ganthārambha-3"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/ganthārambha-3"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/1-sandhikaṇḍa-14</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/1-sandhikaṇḍa-14"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/1-sandhikaṇḍa-14"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/1-sandhikaṇḍa-14"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/1-sandhikaṇḍa-14"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/1-sandhikaṇḍa-14"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/1-sandhikaṇḍa-14"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/1-sandhikaṇḍa-14"/>
+    <loc>/en/book/PadRūp/1-sandhikaṇḍa-14</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/1-sandhikaṇḍa-14"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/1-sandhikaṇḍa-14"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/1-sandhikaṇḍa-14"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/1-sandhikaṇḍa-14"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/1-sandhikaṇḍa-14"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/1-sandhikaṇḍa-14"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/1-sandhikaṇḍa-14"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/1-sandhikaṇḍa-14"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/1-sandhikaṇḍa-14"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/saññāvidhāna-20</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/saññāvidhāna-20"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/saññāvidhāna-20"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/saññāvidhāna-20"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/saññāvidhāna-20"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/saññāvidhāna-20"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/saññāvidhāna-20"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/saññāvidhāna-20"/>
+    <loc>/en/book/PadRūp/saññāvidhāna-20</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/saññāvidhāna-20"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/saññāvidhāna-20"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/saññāvidhāna-20"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/saññāvidhāna-20"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/saññāvidhāna-20"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/saññāvidhāna-20"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/saññāvidhāna-20"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/saññāvidhāna-20"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/saññāvidhāna-20"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/sarasandhividhāna-77</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/sarasandhividhāna-77"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/sarasandhividhāna-77"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/sarasandhividhāna-77"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/sarasandhividhāna-77"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/sarasandhividhāna-77"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/sarasandhividhāna-77"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/sarasandhividhāna-77"/>
+    <loc>/en/book/PadRūp/sarasandhividhāna-77</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/sarasandhividhāna-77"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/sarasandhividhāna-77"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/sarasandhividhāna-77"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/sarasandhividhāna-77"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/sarasandhividhāna-77"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/sarasandhividhāna-77"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/sarasandhividhāna-77"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/sarasandhividhāna-77"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/sarasandhividhāna-77"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/itthiliṅga-203</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/itthiliṅga-203"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/itthiliṅga-203"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/itthiliṅga-203"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/itthiliṅga-203"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/itthiliṅga-203"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/itthiliṅga-203"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/itthiliṅga-203"/>
+    <loc>/en/book/PadRūp/itthiliṅga-203</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/itthiliṅga-203"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/itthiliṅga-203"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/itthiliṅga-203"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/itthiliṅga-203"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/itthiliṅga-203"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/itthiliṅga-203"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/itthiliṅga-203"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/itthiliṅga-203"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/itthiliṅga-203"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/napuṃsakaliṅga-340</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/napuṃsakaliṅga-340"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/napuṃsakaliṅga-340"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/napuṃsakaliṅga-340"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/napuṃsakaliṅga-340"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/napuṃsakaliṅga-340"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/napuṃsakaliṅga-340"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/napuṃsakaliṅga-340"/>
+    <loc>/en/book/PadRūp/napuṃsakaliṅga-340</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/napuṃsakaliṅga-340"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/napuṃsakaliṅga-340"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/napuṃsakaliṅga-340"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/napuṃsakaliṅga-340"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/napuṃsakaliṅga-340"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/napuṃsakaliṅga-340"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/napuṃsakaliṅga-340"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/napuṃsakaliṅga-340"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/napuṃsakaliṅga-340"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/sabbanāma-413</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/sabbanāma-413"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/sabbanāma-413"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/sabbanāma-413"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/sabbanāma-413"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/sabbanāma-413"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/sabbanāma-413"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/sabbanāma-413"/>
+    <loc>/en/book/PadRūp/sabbanāma-413</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/sabbanāma-413"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/sabbanāma-413"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/sabbanāma-413"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/sabbanāma-413"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/sabbanāma-413"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/sabbanāma-413"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/sabbanāma-413"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/sabbanāma-413"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/sabbanāma-413"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/pakatisandhividhāna-488</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/pakatisandhividhāna-488"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/pakatisandhividhāna-488"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/pakatisandhividhāna-488"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/pakatisandhividhāna-488"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/pakatisandhividhāna-488"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/pakatisandhividhāna-488"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/pakatisandhividhāna-488"/>
+    <loc>/en/book/PadRūp/pakatisandhividhāna-488</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/pakatisandhividhāna-488"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/pakatisandhividhāna-488"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/pakatisandhividhāna-488"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/pakatisandhividhāna-488"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/pakatisandhividhāna-488"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/pakatisandhividhāna-488"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/pakatisandhividhāna-488"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/pakatisandhividhāna-488"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/pakatisandhividhāna-488"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/byañjanasandhividhāna-506</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/byañjanasandhividhāna-506"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/byañjanasandhividhāna-506"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/byañjanasandhividhāna-506"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/byañjanasandhividhāna-506"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/byañjanasandhividhāna-506"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/byañjanasandhividhāna-506"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/byañjanasandhividhāna-506"/>
+    <loc>/en/book/PadRūp/byañjanasandhividhāna-506</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/byañjanasandhividhāna-506"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/byañjanasandhividhāna-506"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/byañjanasandhividhāna-506"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/byañjanasandhividhāna-506"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/byañjanasandhividhāna-506"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/byañjanasandhividhāna-506"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/byañjanasandhividhāna-506"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/byañjanasandhividhāna-506"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/byañjanasandhividhāna-506"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/niggahītasandhividhāna-627</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/niggahītasandhividhāna-627"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/niggahītasandhividhāna-627"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/niggahītasandhividhāna-627"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/niggahītasandhividhāna-627"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/niggahītasandhividhāna-627"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/niggahītasandhividhāna-627"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/niggahītasandhividhāna-627"/>
+    <loc>/en/book/PadRūp/niggahītasandhividhāna-627</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/niggahītasandhividhāna-627"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/niggahītasandhividhāna-627"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/niggahītasandhividhāna-627"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/niggahītasandhividhāna-627"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/niggahītasandhividhāna-627"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/niggahītasandhividhāna-627"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/niggahītasandhividhāna-627"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/niggahītasandhividhāna-627"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/niggahītasandhividhāna-627"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/2-nāmakaṇḍa-697</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/2-nāmakaṇḍa-697"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/2-nāmakaṇḍa-697"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/2-nāmakaṇḍa-697"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/2-nāmakaṇḍa-697"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/2-nāmakaṇḍa-697"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/2-nāmakaṇḍa-697"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/2-nāmakaṇḍa-697"/>
+    <loc>/en/book/PadRūp/2-nāmakaṇḍa-697</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/2-nāmakaṇḍa-697"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/2-nāmakaṇḍa-697"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/2-nāmakaṇḍa-697"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/2-nāmakaṇḍa-697"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/2-nāmakaṇḍa-697"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/2-nāmakaṇḍa-697"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/2-nāmakaṇḍa-697"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/2-nāmakaṇḍa-697"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/2-nāmakaṇḍa-697"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/pulliṅga-703</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/pulliṅga-703"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/pulliṅga-703"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/pulliṅga-703"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/pulliṅga-703"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/pulliṅga-703"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/pulliṅga-703"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/pulliṅga-703"/>
+    <loc>/en/book/PadRūp/pulliṅga-703</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/pulliṅga-703"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/pulliṅga-703"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/pulliṅga-703"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/pulliṅga-703"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/pulliṅga-703"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/pulliṅga-703"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/pulliṅga-703"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/pulliṅga-703"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/pulliṅga-703"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/aliṅganāma-1301</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/aliṅganāma-1301"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/aliṅganāma-1301"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/aliṅganāma-1301"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/aliṅganāma-1301"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/aliṅganāma-1301"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/aliṅganāma-1301"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/aliṅganāma-1301"/>
+    <loc>/en/book/PadRūp/aliṅganāma-1301</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/aliṅganāma-1301"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/aliṅganāma-1301"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/aliṅganāma-1301"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/aliṅganāma-1301"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/aliṅganāma-1301"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/aliṅganāma-1301"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/aliṅganāma-1301"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/aliṅganāma-1301"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/aliṅganāma-1301"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/vibhattippaccayavidhāna-1415</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/vibhattippaccayavidhāna-1415"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/vibhattippaccayavidhāna-1415"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/vibhattippaccayavidhāna-1415"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/vibhattippaccayavidhāna-1415"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/vibhattippaccayavidhāna-1415"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/vibhattippaccayavidhāna-1415"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/vibhattippaccayavidhāna-1415"/>
+    <loc>/en/book/PadRūp/vibhattippaccayavidhāna-1415</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/vibhattippaccayavidhāna-1415"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/vibhattippaccayavidhāna-1415"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/vibhattippaccayavidhāna-1415"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/vibhattippaccayavidhāna-1415"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/vibhattippaccayavidhāna-1415"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/vibhattippaccayavidhāna-1415"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/vibhattippaccayavidhāna-1415"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/vibhattippaccayavidhāna-1415"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/vibhattippaccayavidhāna-1415"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/opasaggikapada-1484</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/opasaggikapada-1484"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/opasaggikapada-1484"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/opasaggikapada-1484"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/opasaggikapada-1484"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/opasaggikapada-1484"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/opasaggikapada-1484"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/opasaggikapada-1484"/>
+    <loc>/en/book/PadRūp/opasaggikapada-1484</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/opasaggikapada-1484"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/opasaggikapada-1484"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/opasaggikapada-1484"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/opasaggikapada-1484"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/opasaggikapada-1484"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/opasaggikapada-1484"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/opasaggikapada-1484"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/opasaggikapada-1484"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/opasaggikapada-1484"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/nepātikapada-1520</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/nepātikapada-1520"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/nepātikapada-1520"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/nepātikapada-1520"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/nepātikapada-1520"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/nepātikapada-1520"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/nepātikapada-1520"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/nepātikapada-1520"/>
+    <loc>/en/book/PadRūp/nepātikapada-1520</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/nepātikapada-1520"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/nepātikapada-1520"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/nepātikapada-1520"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/nepātikapada-1520"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/nepātikapada-1520"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/nepātikapada-1520"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/nepātikapada-1520"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/nepātikapada-1520"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/nepātikapada-1520"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/3-kārakakaṇḍa-1598</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/3-kārakakaṇḍa-1598"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/3-kārakakaṇḍa-1598"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/3-kārakakaṇḍa-1598"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/3-kārakakaṇḍa-1598"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/3-kārakakaṇḍa-1598"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/3-kārakakaṇḍa-1598"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/3-kārakakaṇḍa-1598"/>
+    <loc>/en/book/PadRūp/3-kārakakaṇḍa-1598</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/3-kārakakaṇḍa-1598"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/3-kārakakaṇḍa-1598"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/3-kārakakaṇḍa-1598"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/3-kārakakaṇḍa-1598"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/3-kārakakaṇḍa-1598"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/3-kārakakaṇḍa-1598"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/3-kārakakaṇḍa-1598"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/3-kārakakaṇḍa-1598"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/3-kārakakaṇḍa-1598"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/4-samāsakaṇḍa-1981</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/4-samāsakaṇḍa-1981"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/4-samāsakaṇḍa-1981"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/4-samāsakaṇḍa-1981"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/4-samāsakaṇḍa-1981"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/4-samāsakaṇḍa-1981"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/4-samāsakaṇḍa-1981"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/4-samāsakaṇḍa-1981"/>
+    <loc>/en/book/PadRūp/4-samāsakaṇḍa-1981</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/4-samāsakaṇḍa-1981"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/4-samāsakaṇḍa-1981"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/4-samāsakaṇḍa-1981"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/4-samāsakaṇḍa-1981"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/4-samāsakaṇḍa-1981"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/4-samāsakaṇḍa-1981"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/4-samāsakaṇḍa-1981"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/4-samāsakaṇḍa-1981"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/4-samāsakaṇḍa-1981"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/abyayībhāvasamāsa-1984</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/abyayībhāvasamāsa-1984"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/abyayībhāvasamāsa-1984"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/abyayībhāvasamāsa-1984"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/abyayībhāvasamāsa-1984"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/abyayībhāvasamāsa-1984"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/abyayībhāvasamāsa-1984"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/abyayībhāvasamāsa-1984"/>
+    <loc>/en/book/PadRūp/abyayībhāvasamāsa-1984</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/abyayībhāvasamāsa-1984"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/abyayībhāvasamāsa-1984"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/abyayībhāvasamāsa-1984"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/abyayībhāvasamāsa-1984"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/abyayībhāvasamāsa-1984"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/abyayībhāvasamāsa-1984"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/abyayībhāvasamāsa-1984"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/abyayībhāvasamāsa-1984"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/abyayībhāvasamāsa-1984"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/kammadhārayasamāsa-2037</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/kammadhārayasamāsa-2037"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/kammadhārayasamāsa-2037"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/kammadhārayasamāsa-2037"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/kammadhārayasamāsa-2037"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/kammadhārayasamāsa-2037"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/kammadhārayasamāsa-2037"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/kammadhārayasamāsa-2037"/>
+    <loc>/en/book/PadRūp/kammadhārayasamāsa-2037</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/kammadhārayasamāsa-2037"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/kammadhārayasamāsa-2037"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/kammadhārayasamāsa-2037"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/kammadhārayasamāsa-2037"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/kammadhārayasamāsa-2037"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/kammadhārayasamāsa-2037"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/kammadhārayasamāsa-2037"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/kammadhārayasamāsa-2037"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/kammadhārayasamāsa-2037"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/digusamāsa-2108</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/digusamāsa-2108"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/digusamāsa-2108"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/digusamāsa-2108"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/digusamāsa-2108"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/digusamāsa-2108"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/digusamāsa-2108"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/digusamāsa-2108"/>
+    <loc>/en/book/PadRūp/digusamāsa-2108</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/digusamāsa-2108"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/digusamāsa-2108"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/digusamāsa-2108"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/digusamāsa-2108"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/digusamāsa-2108"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/digusamāsa-2108"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/digusamāsa-2108"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/digusamāsa-2108"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/digusamāsa-2108"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/tappurisasamāsa-2129</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/tappurisasamāsa-2129"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/tappurisasamāsa-2129"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/tappurisasamāsa-2129"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/tappurisasamāsa-2129"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/tappurisasamāsa-2129"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/tappurisasamāsa-2129"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/tappurisasamāsa-2129"/>
+    <loc>/en/book/PadRūp/tappurisasamāsa-2129</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/tappurisasamāsa-2129"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/tappurisasamāsa-2129"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/tappurisasamāsa-2129"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/tappurisasamāsa-2129"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/tappurisasamāsa-2129"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/tappurisasamāsa-2129"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/tappurisasamāsa-2129"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/tappurisasamāsa-2129"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/tappurisasamāsa-2129"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/bahubbīhisamāsa-2173</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/bahubbīhisamāsa-2173"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/bahubbīhisamāsa-2173"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/bahubbīhisamāsa-2173"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/bahubbīhisamāsa-2173"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/bahubbīhisamāsa-2173"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/bahubbīhisamāsa-2173"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/bahubbīhisamāsa-2173"/>
+    <loc>/en/book/PadRūp/bahubbīhisamāsa-2173</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/bahubbīhisamāsa-2173"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/bahubbīhisamāsa-2173"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/bahubbīhisamāsa-2173"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/bahubbīhisamāsa-2173"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/bahubbīhisamāsa-2173"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/bahubbīhisamāsa-2173"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/bahubbīhisamāsa-2173"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/bahubbīhisamāsa-2173"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/bahubbīhisamāsa-2173"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/dvandasamāsa-2225</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/dvandasamāsa-2225"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/dvandasamāsa-2225"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/dvandasamāsa-2225"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/dvandasamāsa-2225"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/dvandasamāsa-2225"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/dvandasamāsa-2225"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/dvandasamāsa-2225"/>
+    <loc>/en/book/PadRūp/dvandasamāsa-2225</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/dvandasamāsa-2225"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/dvandasamāsa-2225"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/dvandasamāsa-2225"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/dvandasamāsa-2225"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/dvandasamāsa-2225"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/dvandasamāsa-2225"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/dvandasamāsa-2225"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/dvandasamāsa-2225"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/dvandasamāsa-2225"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/5-taddhitakaṇḍa-2285</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/5-taddhitakaṇḍa-2285"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/5-taddhitakaṇḍa-2285"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/5-taddhitakaṇḍa-2285"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/5-taddhitakaṇḍa-2285"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/5-taddhitakaṇḍa-2285"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/5-taddhitakaṇḍa-2285"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/5-taddhitakaṇḍa-2285"/>
+    <loc>/en/book/PadRūp/5-taddhitakaṇḍa-2285</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/5-taddhitakaṇḍa-2285"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/5-taddhitakaṇḍa-2285"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/5-taddhitakaṇḍa-2285"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/5-taddhitakaṇḍa-2285"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/5-taddhitakaṇḍa-2285"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/5-taddhitakaṇḍa-2285"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/5-taddhitakaṇḍa-2285"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/5-taddhitakaṇḍa-2285"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/5-taddhitakaṇḍa-2285"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/apaccataddhita-2286</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/apaccataddhita-2286"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/apaccataddhita-2286"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/apaccataddhita-2286"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/apaccataddhita-2286"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/apaccataddhita-2286"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/apaccataddhita-2286"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/apaccataddhita-2286"/>
+    <loc>/en/book/PadRūp/apaccataddhita-2286</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/apaccataddhita-2286"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/apaccataddhita-2286"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/apaccataddhita-2286"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/apaccataddhita-2286"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/apaccataddhita-2286"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/apaccataddhita-2286"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/apaccataddhita-2286"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/apaccataddhita-2286"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/apaccataddhita-2286"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
+    <loc>/en/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/saṃsaṭṭhādianekatthataddhita-2340"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/bhāvataddhita-2427</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/bhāvataddhita-2427"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/bhāvataddhita-2427"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/bhāvataddhita-2427"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/bhāvataddhita-2427"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/bhāvataddhita-2427"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/bhāvataddhita-2427"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/bhāvataddhita-2427"/>
+    <loc>/en/book/PadRūp/bhāvataddhita-2427</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/bhāvataddhita-2427"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/bhāvataddhita-2427"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/bhāvataddhita-2427"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/bhāvataddhita-2427"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/bhāvataddhita-2427"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/bhāvataddhita-2427"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/bhāvataddhita-2427"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/bhāvataddhita-2427"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/bhāvataddhita-2427"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/visesataddhita-2449</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/visesataddhita-2449"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/visesataddhita-2449"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/visesataddhita-2449"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/visesataddhita-2449"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/visesataddhita-2449"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/visesataddhita-2449"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/visesataddhita-2449"/>
+    <loc>/en/book/PadRūp/visesataddhita-2449</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/visesataddhita-2449"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/visesataddhita-2449"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/visesataddhita-2449"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/visesataddhita-2449"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/visesataddhita-2449"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/visesataddhita-2449"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/visesataddhita-2449"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/visesataddhita-2449"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/visesataddhita-2449"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/assatthitaddhita-2471</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/assatthitaddhita-2471"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/assatthitaddhita-2471"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/assatthitaddhita-2471"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/assatthitaddhita-2471"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/assatthitaddhita-2471"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/assatthitaddhita-2471"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/assatthitaddhita-2471"/>
+    <loc>/en/book/PadRūp/assatthitaddhita-2471</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/assatthitaddhita-2471"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/assatthitaddhita-2471"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/assatthitaddhita-2471"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/assatthitaddhita-2471"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/assatthitaddhita-2471"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/assatthitaddhita-2471"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/assatthitaddhita-2471"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/assatthitaddhita-2471"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/assatthitaddhita-2471"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/saṅkhyātaddhita-2499</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/saṅkhyātaddhita-2499"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/saṅkhyātaddhita-2499"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/saṅkhyātaddhita-2499"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/saṅkhyātaddhita-2499"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/saṅkhyātaddhita-2499"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/saṅkhyātaddhita-2499"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/saṅkhyātaddhita-2499"/>
+    <loc>/en/book/PadRūp/saṅkhyātaddhita-2499</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/saṅkhyātaddhita-2499"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/saṅkhyātaddhita-2499"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/saṅkhyātaddhita-2499"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/saṅkhyātaddhita-2499"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/saṅkhyātaddhita-2499"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/saṅkhyātaddhita-2499"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/saṅkhyātaddhita-2499"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/saṅkhyātaddhita-2499"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/saṅkhyātaddhita-2499"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/abyayataddhita-2578</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/abyayataddhita-2578"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/abyayataddhita-2578"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/abyayataddhita-2578"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/abyayataddhita-2578"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/abyayataddhita-2578"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/abyayataddhita-2578"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/abyayataddhita-2578"/>
+    <loc>/en/book/PadRūp/abyayataddhita-2578</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/abyayataddhita-2578"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/abyayataddhita-2578"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/abyayataddhita-2578"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/abyayataddhita-2578"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/abyayataddhita-2578"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/abyayataddhita-2578"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/abyayataddhita-2578"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/abyayataddhita-2578"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/abyayataddhita-2578"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/6-ākhyātakaṇḍa-2604</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
+    <loc>/en/book/PadRūp/6-ākhyātakaṇḍa-2604</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/6-ākhyātakaṇḍa-2604"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/bhūvādigaṇa-2605</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/bhūvādigaṇa-2605"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/bhūvādigaṇa-2605"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/bhūvādigaṇa-2605"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/bhūvādigaṇa-2605"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/bhūvādigaṇa-2605"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/bhūvādigaṇa-2605"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/bhūvādigaṇa-2605"/>
+    <loc>/en/book/PadRūp/bhūvādigaṇa-2605</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/bhūvādigaṇa-2605"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/bhūvādigaṇa-2605"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/bhūvādigaṇa-2605"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/bhūvādigaṇa-2605"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/bhūvādigaṇa-2605"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/bhūvādigaṇa-2605"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/bhūvādigaṇa-2605"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/bhūvādigaṇa-2605"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/bhūvādigaṇa-2605"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/vibhattividhāna-2606</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/vibhattividhāna-2606"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/vibhattividhāna-2606"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/vibhattividhāna-2606"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/vibhattividhāna-2606"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/vibhattividhāna-2606"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/vibhattividhāna-2606"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/vibhattividhāna-2606"/>
+    <loc>/en/book/PadRūp/vibhattividhāna-2606</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/vibhattividhāna-2606"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/vibhattividhāna-2606"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/vibhattividhāna-2606"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/vibhattividhāna-2606"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/vibhattividhāna-2606"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/vibhattividhāna-2606"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/vibhattividhāna-2606"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/vibhattividhāna-2606"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/vibhattividhāna-2606"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/vikaraṇavidhāna-2886</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/vikaraṇavidhāna-2886"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/vikaraṇavidhāna-2886"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/vikaraṇavidhāna-2886"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/vikaraṇavidhāna-2886"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/vikaraṇavidhāna-2886"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/vikaraṇavidhāna-2886"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/vikaraṇavidhāna-2886"/>
+    <loc>/en/book/PadRūp/vikaraṇavidhāna-2886</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/vikaraṇavidhāna-2886"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/vikaraṇavidhāna-2886"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/vikaraṇavidhāna-2886"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/vikaraṇavidhāna-2886"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/vikaraṇavidhāna-2886"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/vikaraṇavidhāna-2886"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/vikaraṇavidhāna-2886"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/vikaraṇavidhāna-2886"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/vikaraṇavidhāna-2886"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/rudhādigaṇa-3096</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/rudhādigaṇa-3096"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/rudhādigaṇa-3096"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/rudhādigaṇa-3096"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/rudhādigaṇa-3096"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/rudhādigaṇa-3096"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/rudhādigaṇa-3096"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/rudhādigaṇa-3096"/>
+    <loc>/en/book/PadRūp/rudhādigaṇa-3096</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/rudhādigaṇa-3096"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/rudhādigaṇa-3096"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/rudhādigaṇa-3096"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/rudhādigaṇa-3096"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/rudhādigaṇa-3096"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/rudhādigaṇa-3096"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/rudhādigaṇa-3096"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/rudhādigaṇa-3096"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/rudhādigaṇa-3096"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/divādigaṇa-3111</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/divādigaṇa-3111"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/divādigaṇa-3111"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/divādigaṇa-3111"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/divādigaṇa-3111"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/divādigaṇa-3111"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/divādigaṇa-3111"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/divādigaṇa-3111"/>
+    <loc>/en/book/PadRūp/divādigaṇa-3111</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/divādigaṇa-3111"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/divādigaṇa-3111"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/divādigaṇa-3111"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/divādigaṇa-3111"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/divādigaṇa-3111"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/divādigaṇa-3111"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/divādigaṇa-3111"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/divādigaṇa-3111"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/divādigaṇa-3111"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/svādigaṇa-3138</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/svādigaṇa-3138"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/svādigaṇa-3138"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/svādigaṇa-3138"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/svādigaṇa-3138"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/svādigaṇa-3138"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/svādigaṇa-3138"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/svādigaṇa-3138"/>
+    <loc>/en/book/PadRūp/svādigaṇa-3138</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/svādigaṇa-3138"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/svādigaṇa-3138"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/svādigaṇa-3138"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/svādigaṇa-3138"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/svādigaṇa-3138"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/svādigaṇa-3138"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/svādigaṇa-3138"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/svādigaṇa-3138"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/svādigaṇa-3138"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/kiyādigaṇa-3155</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/kiyādigaṇa-3155"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/kiyādigaṇa-3155"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/kiyādigaṇa-3155"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/kiyādigaṇa-3155"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/kiyādigaṇa-3155"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/kiyādigaṇa-3155"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/kiyādigaṇa-3155"/>
+    <loc>/en/book/PadRūp/kiyādigaṇa-3155</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/kiyādigaṇa-3155"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/kiyādigaṇa-3155"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/kiyādigaṇa-3155"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/kiyādigaṇa-3155"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/kiyādigaṇa-3155"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/kiyādigaṇa-3155"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/kiyādigaṇa-3155"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/kiyādigaṇa-3155"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/kiyādigaṇa-3155"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/tanādigaṇa-3199</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/tanādigaṇa-3199"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/tanādigaṇa-3199"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/tanādigaṇa-3199"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/tanādigaṇa-3199"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/tanādigaṇa-3199"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/tanādigaṇa-3199"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/tanādigaṇa-3199"/>
+    <loc>/en/book/PadRūp/tanādigaṇa-3199</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/tanādigaṇa-3199"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/tanādigaṇa-3199"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/tanādigaṇa-3199"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/tanādigaṇa-3199"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/tanādigaṇa-3199"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/tanādigaṇa-3199"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/tanādigaṇa-3199"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/tanādigaṇa-3199"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/tanādigaṇa-3199"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/curādigaṇa-3236</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/curādigaṇa-3236"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/curādigaṇa-3236"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/curādigaṇa-3236"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/curādigaṇa-3236"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/curādigaṇa-3236"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/curādigaṇa-3236"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/curādigaṇa-3236"/>
+    <loc>/en/book/PadRūp/curādigaṇa-3236</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/curādigaṇa-3236"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/curādigaṇa-3236"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/curādigaṇa-3236"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/curādigaṇa-3236"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/curādigaṇa-3236"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/curādigaṇa-3236"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/curādigaṇa-3236"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/curādigaṇa-3236"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/curādigaṇa-3236"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/dhātuppaccayantanaya-3261</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/dhātuppaccayantanaya-3261"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/dhātuppaccayantanaya-3261"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/dhātuppaccayantanaya-3261"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/dhātuppaccayantanaya-3261"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/dhātuppaccayantanaya-3261"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/dhātuppaccayantanaya-3261"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/dhātuppaccayantanaya-3261"/>
+    <loc>/en/book/PadRūp/dhātuppaccayantanaya-3261</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/dhātuppaccayantanaya-3261"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/dhātuppaccayantanaya-3261"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/dhātuppaccayantanaya-3261"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/dhātuppaccayantanaya-3261"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/dhātuppaccayantanaya-3261"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/dhātuppaccayantanaya-3261"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/dhātuppaccayantanaya-3261"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/dhātuppaccayantanaya-3261"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/dhātuppaccayantanaya-3261"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/7-kibbidhānakaṇḍa-3384</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
+    <loc>/en/book/PadRūp/7-kibbidhānakaṇḍa-3384</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/7-kibbidhānakaṇḍa-3384"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/tekālika-3385</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/tekālika-3385"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/tekālika-3385"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/tekālika-3385"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/tekālika-3385"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/tekālika-3385"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/tekālika-3385"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/tekālika-3385"/>
+    <loc>/en/book/PadRūp/tekālika-3385</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/tekālika-3385"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/tekālika-3385"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/tekālika-3385"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/tekālika-3385"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/tekālika-3385"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/tekālika-3385"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/tekālika-3385"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/tekālika-3385"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/tekālika-3385"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/kiccappaccayantanaya-3386</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/kiccappaccayantanaya-3386"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/kiccappaccayantanaya-3386"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/kiccappaccayantanaya-3386"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/kiccappaccayantanaya-3386"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/kiccappaccayantanaya-3386"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/kiccappaccayantanaya-3386"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/kiccappaccayantanaya-3386"/>
+    <loc>/en/book/PadRūp/kiccappaccayantanaya-3386</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/kiccappaccayantanaya-3386"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/kiccappaccayantanaya-3386"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/kiccappaccayantanaya-3386"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/kiccappaccayantanaya-3386"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/kiccappaccayantanaya-3386"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/kiccappaccayantanaya-3386"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/kiccappaccayantanaya-3386"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/kiccappaccayantanaya-3386"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/kiccappaccayantanaya-3386"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/tekālika-3481</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/tekālika-3481"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/tekālika-3481"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/tekālika-3481"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/tekālika-3481"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/tekālika-3481"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/tekālika-3481"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/tekālika-3481"/>
+    <loc>/en/book/PadRūp/tekālika-3481</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/tekālika-3481"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/tekālika-3481"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/tekālika-3481"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/tekālika-3481"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/tekālika-3481"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/tekālika-3481"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/tekālika-3481"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/tekālika-3481"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/tekālika-3481"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/kitakappaccayantanaya-3482</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/kitakappaccayantanaya-3482"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/kitakappaccayantanaya-3482"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/kitakappaccayantanaya-3482"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/kitakappaccayantanaya-3482"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/kitakappaccayantanaya-3482"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/kitakappaccayantanaya-3482"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/kitakappaccayantanaya-3482"/>
+    <loc>/en/book/PadRūp/kitakappaccayantanaya-3482</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/kitakappaccayantanaya-3482"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/kitakappaccayantanaya-3482"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/kitakappaccayantanaya-3482"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/kitakappaccayantanaya-3482"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/kitakappaccayantanaya-3482"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/kitakappaccayantanaya-3482"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/kitakappaccayantanaya-3482"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/kitakappaccayantanaya-3482"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/kitakappaccayantanaya-3482"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/atītappaccayantanaya-3701</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/atītappaccayantanaya-3701"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/atītappaccayantanaya-3701"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/atītappaccayantanaya-3701"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/atītappaccayantanaya-3701"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/atītappaccayantanaya-3701"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/atītappaccayantanaya-3701"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/atītappaccayantanaya-3701"/>
+    <loc>/en/book/PadRūp/atītappaccayantanaya-3701</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/atītappaccayantanaya-3701"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/atītappaccayantanaya-3701"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/atītappaccayantanaya-3701"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/atītappaccayantanaya-3701"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/atītappaccayantanaya-3701"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/atītappaccayantanaya-3701"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/atītappaccayantanaya-3701"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/atītappaccayantanaya-3701"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/atītappaccayantanaya-3701"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/tavetunādippaccayantanaya-3813</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/tavetunādippaccayantanaya-3813"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/tavetunādippaccayantanaya-3813"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/tavetunādippaccayantanaya-3813"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/tavetunādippaccayantanaya-3813"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/tavetunādippaccayantanaya-3813"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/tavetunādippaccayantanaya-3813"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/tavetunādippaccayantanaya-3813"/>
+    <loc>/en/book/PadRūp/tavetunādippaccayantanaya-3813</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/tavetunādippaccayantanaya-3813"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/tavetunādippaccayantanaya-3813"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/tavetunādippaccayantanaya-3813"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/tavetunādippaccayantanaya-3813"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/tavetunādippaccayantanaya-3813"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/tavetunādippaccayantanaya-3813"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/tavetunādippaccayantanaya-3813"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/tavetunādippaccayantanaya-3813"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/tavetunādippaccayantanaya-3813"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
+    <loc>/en/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/vattamānakālikamānantappaccayantanaya-3866"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/anāgatakālikappaccayantanaya-3898</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
+    <loc>/en/book/PadRūp/anāgatakālikappaccayantanaya-3898</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/anāgatakālikappaccayantanaya-3898"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/uṇādippaccayantanaya-3918</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/uṇādippaccayantanaya-3918"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/uṇādippaccayantanaya-3918"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/uṇādippaccayantanaya-3918"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/uṇādippaccayantanaya-3918"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/uṇādippaccayantanaya-3918"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/uṇādippaccayantanaya-3918"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/uṇādippaccayantanaya-3918"/>
+    <loc>/en/book/PadRūp/uṇādippaccayantanaya-3918</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/uṇādippaccayantanaya-3918"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/uṇādippaccayantanaya-3918"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/uṇādippaccayantanaya-3918"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/uṇādippaccayantanaya-3918"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/uṇādippaccayantanaya-3918"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/uṇādippaccayantanaya-3918"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/uṇādippaccayantanaya-3918"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/uṇādippaccayantanaya-3918"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/uṇādippaccayantanaya-3918"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/PadRūp/nigamana-4044</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/PadRūp/nigamana-4044"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/PadRūp/nigamana-4044"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/PadRūp/nigamana-4044"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/PadRūp/nigamana-4044"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/PadRūp/nigamana-4044"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/PadRūp/nigamana-4044"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/PadRūp/nigamana-4044"/>
+    <loc>/en/book/PadRūp/nigamana-4044</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/PadRūp/nigamana-4044"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/PadRūp/nigamana-4044"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/PadRūp/nigamana-4044"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/PadRūp/nigamana-4044"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/PadRūp/nigamana-4044"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/PadRūp/nigamana-4044"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/PadRūp/nigamana-4044"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/PadRūp/nigamana-4044"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/PadRūp/nigamana-4044"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

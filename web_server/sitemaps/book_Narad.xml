@@ -2,242 +2,287 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Narad/naradakkhadīpanī-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/naradakkhadīpanī-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/naradakkhadīpanī-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/naradakkhadīpanī-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/naradakkhadīpanī-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/naradakkhadīpanī-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/naradakkhadīpanī-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/naradakkhadīpanī-2"/>
+    <loc>/en/book/Narad/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Narad/naradakkhadīpanī-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/naradakkhadīpanī-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/naradakkhadīpanī-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/naradakkhadīpanī-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/naradakkhadīpanī-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/naradakkhadīpanī-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/naradakkhadīpanī-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/naradakkhadīpanī-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/naradakkhadīpanī-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/naradakkhadīpanī-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/naradakkhadīpanī-27</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/naradakkhadīpanī-27"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/naradakkhadīpanī-27"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/naradakkhadīpanī-27"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/naradakkhadīpanī-27"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/naradakkhadīpanī-27"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/naradakkhadīpanī-27"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/naradakkhadīpanī-27"/>
+    <loc>/en/book/Narad/naradakkhadīpanī-27</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/naradakkhadīpanī-27"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/naradakkhadīpanī-27"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/naradakkhadīpanī-27"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/naradakkhadīpanī-27"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/naradakkhadīpanī-27"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/naradakkhadīpanī-27"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/naradakkhadīpanī-27"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/naradakkhadīpanī-27"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/naradakkhadīpanī-27"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/paṇāma-29</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/paṇāma-29"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/paṇāma-29"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/paṇāma-29"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/paṇāma-29"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/paṇāma-29"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/paṇāma-29"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/paṇāma-29"/>
+    <loc>/en/book/Narad/paṇāma-29</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/paṇāma-29"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/paṇāma-29"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/paṇāma-29"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/paṇāma-29"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/paṇāma-29"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/paṇāma-29"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/paṇāma-29"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/paṇāma-29"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/paṇāma-29"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/naradakkhadīpakassa-30</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/naradakkhadīpakassa-30"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/naradakkhadīpakassa-30"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/naradakkhadīpakassa-30"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/naradakkhadīpakassa-30"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/naradakkhadīpakassa-30"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/naradakkhadīpakassa-30"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/naradakkhadīpakassa-30"/>
+    <loc>/en/book/Narad/naradakkhadīpakassa-30</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/naradakkhadīpakassa-30"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/naradakkhadīpakassa-30"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/naradakkhadīpakassa-30"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/naradakkhadīpakassa-30"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/naradakkhadīpakassa-30"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/naradakkhadīpakassa-30"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/naradakkhadīpakassa-30"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/naradakkhadīpakassa-30"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/naradakkhadīpakassa-30"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/matthanā-35</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/matthanā-35"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/matthanā-35"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/matthanā-35"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/matthanā-35"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/matthanā-35"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/matthanā-35"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/matthanā-35"/>
+    <loc>/en/book/Narad/matthanā-35</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/matthanā-35"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/matthanā-35"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/matthanā-35"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/matthanā-35"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/matthanā-35"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/matthanā-35"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/matthanā-35"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/matthanā-35"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/matthanā-35"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/āsīsa-41</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/āsīsa-41"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/āsīsa-41"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/āsīsa-41"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/āsīsa-41"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/āsīsa-41"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/āsīsa-41"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/āsīsa-41"/>
+    <loc>/en/book/Narad/āsīsa-41</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/āsīsa-41"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/āsīsa-41"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/āsīsa-41"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/āsīsa-41"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/āsīsa-41"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/āsīsa-41"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/āsīsa-41"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/āsīsa-41"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/āsīsa-41"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/abhiyācaka-47</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/abhiyācaka-47"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/abhiyācaka-47"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/abhiyācaka-47"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/abhiyācaka-47"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/abhiyācaka-47"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/abhiyācaka-47"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/abhiyācaka-47"/>
+    <loc>/en/book/Narad/abhiyācaka-47</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/abhiyācaka-47"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/abhiyācaka-47"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/abhiyācaka-47"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/abhiyācaka-47"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/abhiyācaka-47"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/abhiyācaka-47"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/abhiyācaka-47"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/abhiyācaka-47"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/abhiyācaka-47"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/paññā-niddesa-304</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/paññā-niddesa-304"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/paññā-niddesa-304"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/paññā-niddesa-304"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/paññā-niddesa-304"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/paññā-niddesa-304"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/paññā-niddesa-304"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/paññā-niddesa-304"/>
+    <loc>/en/book/Narad/paññā-niddesa-304</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/paññā-niddesa-304"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/paññā-niddesa-304"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/paññā-niddesa-304"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/paññā-niddesa-304"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/paññā-niddesa-304"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/paññā-niddesa-304"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/paññā-niddesa-304"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/paññā-niddesa-304"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/paññā-niddesa-304"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/cāritta-niddesa-530</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/cāritta-niddesa-530"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/cāritta-niddesa-530"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/cāritta-niddesa-530"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/cāritta-niddesa-530"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/cāritta-niddesa-530"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/cāritta-niddesa-530"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/cāritta-niddesa-530"/>
+    <loc>/en/book/Narad/cāritta-niddesa-530</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/cāritta-niddesa-530"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/cāritta-niddesa-530"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/cāritta-niddesa-530"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/cāritta-niddesa-530"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/cāritta-niddesa-530"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/cāritta-niddesa-530"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/cāritta-niddesa-530"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/cāritta-niddesa-530"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/cāritta-niddesa-530"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/gharāvāsa-niddesa-890</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/gharāvāsa-niddesa-890"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/gharāvāsa-niddesa-890"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/gharāvāsa-niddesa-890"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/gharāvāsa-niddesa-890"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/gharāvāsa-niddesa-890"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/gharāvāsa-niddesa-890"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/gharāvāsa-niddesa-890"/>
+    <loc>/en/book/Narad/gharāvāsa-niddesa-890</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/gharāvāsa-niddesa-890"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/gharāvāsa-niddesa-890"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/gharāvāsa-niddesa-890"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/gharāvāsa-niddesa-890"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/gharāvāsa-niddesa-890"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/gharāvāsa-niddesa-890"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/gharāvāsa-niddesa-890"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/gharāvāsa-niddesa-890"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/gharāvāsa-niddesa-890"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/sādhujana-niddesa-1100</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/sādhujana-niddesa-1100"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/sādhujana-niddesa-1100"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/sādhujana-niddesa-1100"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/sādhujana-niddesa-1100"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/sādhujana-niddesa-1100"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/sādhujana-niddesa-1100"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/sādhujana-niddesa-1100"/>
+    <loc>/en/book/Narad/sādhujana-niddesa-1100</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/sādhujana-niddesa-1100"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/sādhujana-niddesa-1100"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/sādhujana-niddesa-1100"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/sādhujana-niddesa-1100"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/sādhujana-niddesa-1100"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/sādhujana-niddesa-1100"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/sādhujana-niddesa-1100"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/sādhujana-niddesa-1100"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/sādhujana-niddesa-1100"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/tatīya-sādhunara-1196</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/tatīya-sādhunara-1196"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/tatīya-sādhunara-1196"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/tatīya-sādhunara-1196"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/tatīya-sādhunara-1196"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/tatīya-sādhunara-1196"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/tatīya-sādhunara-1196"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/tatīya-sādhunara-1196"/>
+    <loc>/en/book/Narad/tatīya-sādhunara-1196</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/tatīya-sādhunara-1196"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/tatīya-sādhunara-1196"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/tatīya-sādhunara-1196"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/tatīya-sādhunara-1196"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/tatīya-sādhunara-1196"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/tatīya-sādhunara-1196"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/tatīya-sādhunara-1196"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/tatīya-sādhunara-1196"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/tatīya-sādhunara-1196"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/catuttha-sādhunara-1202</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/catuttha-sādhunara-1202"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/catuttha-sādhunara-1202"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/catuttha-sādhunara-1202"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/catuttha-sādhunara-1202"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/catuttha-sādhunara-1202"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/catuttha-sādhunara-1202"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/catuttha-sādhunara-1202"/>
+    <loc>/en/book/Narad/catuttha-sādhunara-1202</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/catuttha-sādhunara-1202"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/catuttha-sādhunara-1202"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/catuttha-sādhunara-1202"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/catuttha-sādhunara-1202"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/catuttha-sādhunara-1202"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/catuttha-sādhunara-1202"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/catuttha-sādhunara-1202"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/catuttha-sādhunara-1202"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/catuttha-sādhunara-1202"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/kāyakhamanīya-niddesa-1213</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/kāyakhamanīya-niddesa-1213"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/kāyakhamanīya-niddesa-1213"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/kāyakhamanīya-niddesa-1213"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/kāyakhamanīya-niddesa-1213"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/kāyakhamanīya-niddesa-1213"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/kāyakhamanīya-niddesa-1213"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/kāyakhamanīya-niddesa-1213"/>
+    <loc>/en/book/Narad/kāyakhamanīya-niddesa-1213</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/kāyakhamanīya-niddesa-1213"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/kāyakhamanīya-niddesa-1213"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/kāyakhamanīya-niddesa-1213"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/kāyakhamanīya-niddesa-1213"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/kāyakhamanīya-niddesa-1213"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/kāyakhamanīya-niddesa-1213"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/kāyakhamanīya-niddesa-1213"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/kāyakhamanīya-niddesa-1213"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/kāyakhamanīya-niddesa-1213"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/pakiṇṇaka-niddesa-1299</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/pakiṇṇaka-niddesa-1299"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/pakiṇṇaka-niddesa-1299"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/pakiṇṇaka-niddesa-1299"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/pakiṇṇaka-niddesa-1299"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/pakiṇṇaka-niddesa-1299"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/pakiṇṇaka-niddesa-1299"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/pakiṇṇaka-niddesa-1299"/>
+    <loc>/en/book/Narad/pakiṇṇaka-niddesa-1299</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/pakiṇṇaka-niddesa-1299"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/pakiṇṇaka-niddesa-1299"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/pakiṇṇaka-niddesa-1299"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/pakiṇṇaka-niddesa-1299"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/pakiṇṇaka-niddesa-1299"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/pakiṇṇaka-niddesa-1299"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/pakiṇṇaka-niddesa-1299"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/pakiṇṇaka-niddesa-1299"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/pakiṇṇaka-niddesa-1299"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/sīla-niddesa-1502</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/sīla-niddesa-1502"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/sīla-niddesa-1502"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/sīla-niddesa-1502"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/sīla-niddesa-1502"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/sīla-niddesa-1502"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/sīla-niddesa-1502"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/sīla-niddesa-1502"/>
+    <loc>/en/book/Narad/sīla-niddesa-1502</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/sīla-niddesa-1502"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/sīla-niddesa-1502"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/sīla-niddesa-1502"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/sīla-niddesa-1502"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/sīla-niddesa-1502"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/sīla-niddesa-1502"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/sīla-niddesa-1502"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/sīla-niddesa-1502"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/sīla-niddesa-1502"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/naradakkha-thomanā-āsīsa-1819</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
+    <loc>/en/book/Narad/naradakkha-thomanā-āsīsa-1819</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/naradakkha-thomanā-āsīsa-1819"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/3-gāthā-1820</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/3-gāthā-1820"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/3-gāthā-1820"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/3-gāthā-1820"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/3-gāthā-1820"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/3-gāthā-1820"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/3-gāthā-1820"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/3-gāthā-1820"/>
+    <loc>/en/book/Narad/3-gāthā-1820</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/3-gāthā-1820"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/3-gāthā-1820"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/3-gāthā-1820"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/3-gāthā-1820"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/3-gāthā-1820"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/3-gāthā-1820"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/3-gāthā-1820"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/3-gāthā-1820"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/3-gāthā-1820"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/naradakkha-thomanā-āsīsa-1836</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
+    <loc>/en/book/Narad/naradakkha-thomanā-āsīsa-1836</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/naradakkha-thomanā-āsīsa-1836"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Narad/2-gāthā-1837</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Narad/2-gāthā-1837"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Narad/2-gāthā-1837"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Narad/2-gāthā-1837"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Narad/2-gāthā-1837"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Narad/2-gāthā-1837"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Narad/2-gāthā-1837"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Narad/2-gāthā-1837"/>
+    <loc>/en/book/Narad/2-gāthā-1837</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Narad/2-gāthā-1837"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Narad/2-gāthā-1837"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Narad/2-gāthā-1837"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Narad/2-gāthā-1837"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Narad/2-gāthā-1837"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Narad/2-gāthā-1837"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Narad/2-gāthā-1837"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Narad/2-gāthā-1837"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Narad/2-gāthā-1837"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

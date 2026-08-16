@@ -2,110 +2,133 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
+    <loc>/en/book/Cūḷgv/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Cūḷgv/cūḷaganthavaṃsapāḷi-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Cūḷgv/1-piṭakattayaparicchedo-3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
+    <loc>/en/book/Cūḷgv/1-piṭakattayaparicchedo-3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Cūḷgv/1-piṭakattayaparicchedo-3"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
+    <loc>/en/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Cūḷgv/2-ganthakārakācariya-paricchedo-25"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
+    <loc>/en/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Cūḷgv/3-ācariyānaṃ-sañjātaṭṭhānaparicchedo-37"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Cūḷgv/4-āyāyakācariya-paricchedo-42</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
+    <loc>/en/book/Cūḷgv/4-āyāyakācariya-paricchedo-42</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Cūḷgv/4-āyāyakācariya-paricchedo-42"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
+    <loc>/en/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Cūḷgv/ka-buddhaghosācariya-ganthadīpanā-44"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
+    <loc>/en/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Cūḷgv/kha-buddhadattācariya-ganthadīpanā-47"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
+    <loc>/en/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Cūḷgv/ga-dhammapālācariyena-ganthadīpanā-51"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
+    <loc>/en/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Cūḷgv/5-pakiṇṇaka-paricchedo-66"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

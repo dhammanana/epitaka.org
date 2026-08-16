@@ -26,6 +26,9 @@ SCRIPT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR   = os.path.join(SCRIPT_DIR, 'data')
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'sitemaps')        # per-book sitemaps
 EPITAKA_DB = os.path.join(DATA_DIR, 'epitaka.db')
+# AI study guides live in the `summaries` table of the English translation
+# DB (epitaka_en.db) — no separate summary DB to deploy.
+SUMMARY_DB = os.path.join(DATA_DIR, 'epitaka_en.db')
 
 # Default base URL — override via BASE_URL env var
 BASE_URL = os.environ.get('BASE_URL', '').rstrip('/')
@@ -97,6 +100,62 @@ def build_section_url(lang: str, book_id: str, slug: str) -> str:
     return f"{BASE_URL}/{lang}/book/{book_id}/{slug}"
 
 
+def study_slug_from_title(title: str, section_id: int) -> str:
+    """
+    URL slug for a study-guide page — must match app/services/summaries.py's
+    summary_slug() exactly.
+    """
+    base = re.sub(r'^Study Guide[\s:\-\u2013\u2014]*', '', title or '', flags=re.IGNORECASE)
+    base = re.sub(r'\([^)]*\)', '', base)          # drop (…) parentheticals
+    base = re.sub(r'\[[^\]]*\]', '', base)          # drop [citation] spans
+    base = re.sub(r'[^\w\s\-]', '', base, flags=re.UNICODE).strip()
+    base = re.sub(r'\s+', '-', base).strip('-')
+    base = re.sub(r'-+', '-', base)[:60].rstrip('-').lower()
+    if not base:
+        base = 'study-guide'
+    return f'{base}-{section_id}'
+
+
+def write_study_sitemap(book_id: str, summaries: list, langs: list[str]):
+    """
+    Per-book sitemap for study-guide pages: the outline URL plus every
+    summary URL (English-only content → /en/…, no hreflang alternates).
+    """
+    safe_id = sanitize_book_id(book_id)
+    filename = f'study_{safe_id}.xml'
+    filepath = os.path.join(OUTPUT_DIR, filename)
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+
+    # Outline hub page
+    lines.append('  <url>')
+    lines.append(f'    <loc>{xml_escape(f"{BASE_URL}/en/book/{book_id}/outline")}</loc>')
+    lines.append('    <changefreq>weekly</changefreq>')
+    lines.append('    <priority>0.7</priority>')
+    lines.append('  </url>')
+
+    for s in summaries:
+        slug = study_slug_from_title(s['title'] or s['heading_title'] or '', s['section_id'])
+        url = f'{BASE_URL}/en/study/{book_id}/{slug}'
+        lastmod = (s['updated_at'] or '')[:10]
+        lines.append('  <url>')
+        lines.append(f'    <loc>{xml_escape(url)}</loc>')
+        if lastmod:
+            lines.append(f'    <lastmod>{xml_escape(lastmod)}</lastmod>')
+        lines.append('    <changefreq>weekly</changefreq>')
+        lines.append('    <priority>0.8</priority>')
+        lines.append('  </url>')
+
+    lines.append('</urlset>')
+
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(lines) + '\n')
+    print(f'  ✓ {filename}: {len(summaries) + 1} URLs (outline + {len(summaries)} study guides)')
+
+
 # ── XML generators ─────────────────────────────────────────────────────────
 
 def write_sitemap_index(sitemap_files: list[str]):
@@ -136,6 +195,15 @@ def write_book_sitemap(book_id: str, headings: list[dict], langs: list[str]):
         '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     ]
 
+    # The book's outline page (English-only, like the study guides) is the
+    # hub linking every section to its study guide — always include it so
+    # every book's outline is crawlable, not just books with summaries.
+    lines.append('  <url>')
+    lines.append(f'    <loc>{xml_escape(f"{BASE_URL}/en/book/{book_id}/outline")}</loc>')
+    lines.append('    <changefreq>weekly</changefreq>')
+    lines.append('    <priority>0.7</priority>')
+    lines.append('  </url>')
+
     for h in headings:
         para_id = h['para_id']
         title = h['title'] or ''
@@ -174,9 +242,9 @@ def write_book_sitemap(book_id: str, headings: list[dict], langs: list[str]):
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
 
-    num_urls = len(headings)
-    num_alt = num_urls * len(langs)
-    print(f"  ✓ {filename}: {num_urls} URLs × {len(langs)} languages = {num_alt} alternates")
+    num_urls = len(headings) + 1  # +1 outline page
+    num_alt = len(headings) * len(langs)
+    print(f"  ✓ {filename}: {num_urls} URLs (incl. outline) × {len(langs)} languages = {num_alt} alternates")
 
 
 # ── Main ───────────────────────────────────────────────────────────────────
@@ -215,10 +283,30 @@ def build_sitemaps():
     # ── Create output directory ──────────────────────────────────────────
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+    # ── Study-guide table (optional — opened once if present) ─────────────
+    # The summaries table only exists once study_builder.py has run against
+    # this English translation DB; without it, skip study sitemaps quietly.
+    sum_conn = None
+    if os.path.isfile(SUMMARY_DB):
+        try:
+            conn_tmp = sqlite3.connect(f'file:{SUMMARY_DB}?mode=ro', uri=True)
+            conn_tmp.row_factory = sqlite3.Row
+            has_table = conn_tmp.execute(
+                "SELECT 1 FROM sqlite_master WHERE type='table' AND name='summaries'"
+            ).fetchone()
+            if has_table:
+                sum_conn = conn_tmp
+            else:
+                conn_tmp.close()
+        except sqlite3.Error as exc:
+            print(f"    ! study-guide sitemaps skipped (summary DB unreadable): {exc}")
+            sum_conn = None
+
     # ── Generate per-book sitemaps ────────────────────────────────────────
     print("\n[4] Generating per-book sitemaps...")
     sitemap_files = []
     total_urls = 0
+    study_urls = 0
     book_count = 0
 
     for book in books:
@@ -243,10 +331,27 @@ def build_sitemaps():
         total_urls += len(headings)
         book_count += 1
 
+        # Study-guide sitemap (outline + every summary for this book)
+        if sum_conn is not None:
+            try:
+                rows = sum_conn.execute(
+                    'SELECT title, heading_title, section_id, updated_at '
+                    'FROM summaries WHERE book_id = ? ORDER BY section_id',
+                    (book_id,),
+                ).fetchall()
+                if rows:
+                    write_study_sitemap(book_id, rows, langs)
+                    sitemap_files.append(f"study_{safe_id}.xml")
+                    study_urls += len(rows)
+            except sqlite3.Error as exc:
+                print(f"    ! study sitemap for {book_id} skipped: {exc}")
+
         # Progress indicator for large books
         if book_count % 50 == 0:
             print(f"    ... {book_count}/{len(books)} books processed ({total_urls} URLs so far)")
 
+    if sum_conn is not None:
+        sum_conn.close()
     conn.close()
 
     # ── Generate sitemap index ───────────────────────────────────────────
@@ -259,6 +364,8 @@ def build_sitemaps():
     print(f"  {book_count} books with headings")
     print(f"  {total_urls:,} heading URLs")
     print(f"  {total_urls * len(langs):,} total alternate links across {len(langs)} languages")
+    if study_urls:
+        print(f"  {study_urls:,} study-guide URLs (outline + summaries)")
     print(f"  {len(sitemap_files)} per-book sitemap files")
     print(f"  Index file:  {os.path.join(OUTPUT_DIR, '..', 'sitemap.xml')}")
     print(f"  Sitemaps in: {OUTPUT_DIR}/")

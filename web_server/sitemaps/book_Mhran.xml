@@ -2,74 +2,91 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Mhran/mahārahanīti-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mhran/mahārahanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mhran/mahārahanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mhran/mahārahanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mhran/mahārahanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mhran/mahārahanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mhran/mahārahanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mhran/mahārahanīti-2"/>
+    <loc>/en/book/Mhran/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Mhran/mahārahanīti-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mhran/mahārahanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mhran/mahārahanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mhran/mahārahanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mhran/mahārahanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mhran/mahārahanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mhran/mahārahanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mhran/mahārahanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mhran/mahārahanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mhran/mahārahanīti-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mhran/paṇḍitakathā-3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mhran/paṇḍitakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mhran/paṇḍitakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mhran/paṇḍitakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mhran/paṇḍitakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mhran/paṇḍitakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mhran/paṇḍitakathā-3"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mhran/paṇḍitakathā-3"/>
+    <loc>/en/book/Mhran/paṇḍitakathā-3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mhran/paṇḍitakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mhran/paṇḍitakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mhran/paṇḍitakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mhran/paṇḍitakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mhran/paṇḍitakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mhran/paṇḍitakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mhran/paṇḍitakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mhran/paṇḍitakathā-3"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mhran/paṇḍitakathā-3"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mhran/sambhedakathā-408</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mhran/sambhedakathā-408"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mhran/sambhedakathā-408"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mhran/sambhedakathā-408"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mhran/sambhedakathā-408"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mhran/sambhedakathā-408"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mhran/sambhedakathā-408"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mhran/sambhedakathā-408"/>
+    <loc>/en/book/Mhran/sambhedakathā-408</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mhran/sambhedakathā-408"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mhran/sambhedakathā-408"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mhran/sambhedakathā-408"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mhran/sambhedakathā-408"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mhran/sambhedakathā-408"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mhran/sambhedakathā-408"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mhran/sambhedakathā-408"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mhran/sambhedakathā-408"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mhran/sambhedakathā-408"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mhran/mittakathā-569</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mhran/mittakathā-569"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mhran/mittakathā-569"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mhran/mittakathā-569"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mhran/mittakathā-569"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mhran/mittakathā-569"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mhran/mittakathā-569"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mhran/mittakathā-569"/>
+    <loc>/en/book/Mhran/mittakathā-569</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mhran/mittakathā-569"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mhran/mittakathā-569"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mhran/mittakathā-569"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mhran/mittakathā-569"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mhran/mittakathā-569"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mhran/mittakathā-569"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mhran/mittakathā-569"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mhran/mittakathā-569"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mhran/mittakathā-569"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mhran/nāyakakathā-825</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mhran/nāyakakathā-825"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mhran/nāyakakathā-825"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mhran/nāyakakathā-825"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mhran/nāyakakathā-825"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mhran/nāyakakathā-825"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mhran/nāyakakathā-825"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mhran/nāyakakathā-825"/>
+    <loc>/en/book/Mhran/nāyakakathā-825</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mhran/nāyakakathā-825"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mhran/nāyakakathā-825"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mhran/nāyakakathā-825"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mhran/nāyakakathā-825"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mhran/nāyakakathā-825"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mhran/nāyakakathā-825"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mhran/nāyakakathā-825"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mhran/nāyakakathā-825"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mhran/nāyakakathā-825"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mhran/itthikathā-996</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mhran/itthikathā-996"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mhran/itthikathā-996"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mhran/itthikathā-996"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mhran/itthikathā-996"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mhran/itthikathā-996"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mhran/itthikathā-996"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mhran/itthikathā-996"/>
+    <loc>/en/book/Mhran/itthikathā-996</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mhran/itthikathā-996"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mhran/itthikathā-996"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mhran/itthikathā-996"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mhran/itthikathā-996"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mhran/itthikathā-996"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mhran/itthikathā-996"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mhran/itthikathā-996"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mhran/itthikathā-996"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mhran/itthikathā-996"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -2,50 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/LakkhBudth/lakkhaṇāto-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/LakkhBudth/lakkhaṇāto-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/LakkhBudth/lakkhaṇāto-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/LakkhBudth/lakkhaṇāto-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/LakkhBudth/lakkhaṇāto-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/LakkhBudth/lakkhaṇāto-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/LakkhBudth/lakkhaṇāto-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/LakkhBudth/lakkhaṇāto-2"/>
+    <loc>/en/book/LakkhBudth/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/LakkhBudth/lakkhaṇāto-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/LakkhBudth/lakkhaṇāto-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/LakkhBudth/lakkhaṇāto-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/LakkhBudth/lakkhaṇāto-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/LakkhBudth/lakkhaṇāto-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/LakkhBudth/lakkhaṇāto-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/LakkhBudth/lakkhaṇāto-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/LakkhBudth/lakkhaṇāto-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/LakkhBudth/lakkhaṇāto-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/LakkhBudth/lakkhaṇāto-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/LakkhBudth/buddhathomanāgāthā-3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/LakkhBudth/buddhathomanāgāthā-3"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/LakkhBudth/buddhathomanāgāthā-3"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/LakkhBudth/buddhathomanāgāthā-3"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/LakkhBudth/buddhathomanāgāthā-3"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/LakkhBudth/buddhathomanāgāthā-3"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/LakkhBudth/buddhathomanāgāthā-3"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/LakkhBudth/buddhathomanāgāthā-3"/>
+    <loc>/en/book/LakkhBudth/buddhathomanāgāthā-3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/LakkhBudth/buddhathomanāgāthā-3"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/LakkhBudth/buddhathomanāgāthā-3"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/LakkhBudth/buddhathomanāgāthā-3"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/LakkhBudth/buddhathomanāgāthā-3"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/LakkhBudth/buddhathomanāgāthā-3"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/LakkhBudth/buddhathomanāgāthā-3"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/LakkhBudth/buddhathomanāgāthā-3"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/LakkhBudth/buddhathomanāgāthā-3"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/LakkhBudth/buddhathomanāgāthā-3"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/LakkhBudth/buddhavandanā-268</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/LakkhBudth/buddhavandanā-268"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/LakkhBudth/buddhavandanā-268"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/LakkhBudth/buddhavandanā-268"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/LakkhBudth/buddhavandanā-268"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/LakkhBudth/buddhavandanā-268"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/LakkhBudth/buddhavandanā-268"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/LakkhBudth/buddhavandanā-268"/>
+    <loc>/en/book/LakkhBudth/buddhavandanā-268</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/LakkhBudth/buddhavandanā-268"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/LakkhBudth/buddhavandanā-268"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/LakkhBudth/buddhavandanā-268"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/LakkhBudth/buddhavandanā-268"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/LakkhBudth/buddhavandanā-268"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/LakkhBudth/buddhavandanā-268"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/LakkhBudth/buddhavandanā-268"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/LakkhBudth/buddhavandanā-268"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/LakkhBudth/buddhavandanā-268"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/LakkhBudth/uṇṇālomikanātha-vandanā-304</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
+    <loc>/en/book/LakkhBudth/uṇṇālomikanātha-vandanā-304</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/LakkhBudth/uṇṇālomikanātha-vandanā-304"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

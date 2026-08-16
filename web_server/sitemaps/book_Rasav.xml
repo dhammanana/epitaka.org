@@ -2,554 +2,651 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/rasavāhinī-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/rasavāhinī-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/rasavāhinī-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/rasavāhinī-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/rasavāhinī-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/rasavāhinī-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/rasavāhinī-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/rasavāhinī-2"/>
+    <loc>/en/book/Rasav/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Rasav/rasavāhinī-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/rasavāhinī-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/rasavāhinī-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/rasavāhinī-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/rasavāhinī-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/rasavāhinī-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/rasavāhinī-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/rasavāhinī-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/rasavāhinī-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/rasavāhinī-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/paṇāmādikathā-3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/paṇāmādikathā-3"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/paṇāmādikathā-3"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/paṇāmādikathā-3"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/paṇāmādikathā-3"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/paṇāmādikathā-3"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/paṇāmādikathā-3"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/paṇāmādikathā-3"/>
+    <loc>/en/book/Rasav/paṇāmādikathā-3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/paṇāmādikathā-3"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/paṇāmādikathā-3"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/paṇāmādikathā-3"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/paṇāmādikathā-3"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/paṇāmādikathā-3"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/paṇāmādikathā-3"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/paṇāmādikathā-3"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/paṇāmādikathā-3"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/paṇāmādikathā-3"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/dhammasoṇḍakavaggo-38</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/dhammasoṇḍakavaggo-38"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/dhammasoṇḍakavaggo-38"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/dhammasoṇḍakavaggo-38"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/dhammasoṇḍakavaggo-38"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/dhammasoṇḍakavaggo-38"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/dhammasoṇḍakavaggo-38"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/dhammasoṇḍakavaggo-38"/>
+    <loc>/en/book/Rasav/dhammasoṇḍakavaggo-38</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/dhammasoṇḍakavaggo-38"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/dhammasoṇḍakavaggo-38"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/dhammasoṇḍakavaggo-38"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/dhammasoṇḍakavaggo-38"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/dhammasoṇḍakavaggo-38"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/dhammasoṇḍakavaggo-38"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/dhammasoṇḍakavaggo-38"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/dhammasoṇḍakavaggo-38"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/dhammasoṇḍakavaggo-38"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
+    <loc>/en/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/1-dhammasoṇḍakassa-vatthumhi-ayamānupubbīkathā-39"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
+    <loc>/en/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/2-migaluddakassa-vatthumhi-ayamānupubbikathā-215"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
+    <loc>/en/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/3-tiṇṇaṃjanānaṃ-vatthumhi-ayamānupubbīkathā-308"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
+    <loc>/en/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/4-buddheniyā-vatthumhi-ayamānupubbīkathā-364"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
+    <loc>/en/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/5-ahituṇḍikassa-vatthumhi-ayamānupubbīkathā-402"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
+    <loc>/en/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/6-saraṇattherassa-vatthumhi-ayamānupubbīkathā-438"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
+    <loc>/en/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/7-vessāmittāya-vatthumhi-ayamānupubbīkathā-491"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
+    <loc>/en/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/8-mahāmandhātuvatthumhi-ayamānupubbīkathā-551"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
+    <loc>/en/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/9-buddhavammavāṇijakavatthumhi-ayamānupubbīkathā-592"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
+    <loc>/en/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/10-rūpadeviyā-vatthumhi-ayamānupubbīkathā-616"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/nandiyarājavaggo-673</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/nandiyarājavaggo-673"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/nandiyarājavaggo-673"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/nandiyarājavaggo-673"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/nandiyarājavaggo-673"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/nandiyarājavaggo-673"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/nandiyarājavaggo-673"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/nandiyarājavaggo-673"/>
+    <loc>/en/book/Rasav/nandiyarājavaggo-673</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/nandiyarājavaggo-673"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/nandiyarājavaggo-673"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/nandiyarājavaggo-673"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/nandiyarājavaggo-673"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/nandiyarājavaggo-673"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/nandiyarājavaggo-673"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/nandiyarājavaggo-673"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/nandiyarājavaggo-673"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/nandiyarājavaggo-673"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
+    <loc>/en/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/11-nandiyarājassa-vatthumhi-ayamānupubbīkathā-674"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
+    <loc>/en/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/12-aññataramanussassa-vatthumhi-ayamānupubbīkathā-736"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
+    <loc>/en/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/13-visamalomakumārassa-vatthumhi-ayamānupubbīkathā-765"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
+    <loc>/en/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/14-kañcanadeviyā-vatthumhi-ayamānupubbīkathā-804"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
+    <loc>/en/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/15-byagghassa-vatthumhi-ayamānupubbīkathā-836"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
+    <loc>/en/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/16-phalakakhaṇḍadinnassa-vatthumhi-ayamānupubbīkathā-864"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
+    <loc>/en/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/17-corasahāyassa-vatthumhi-ayamānupubbīkathā-903"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
+    <loc>/en/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/18-maruttabrāhmaṇassa-vatthumhi-ayamānupubbīkathā-986"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
+    <loc>/en/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/19-pānīyadinnassa-vatthumhi-ayamānupubbīkathā-1001"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
+    <loc>/en/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/20-sahāyassa-pariccattajīvitakassa-vatthumhi-ayamānupubbīkathā-1041"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/yakkhavañcitavaggo-1062</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/yakkhavañcitavaggo-1062"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/yakkhavañcitavaggo-1062"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/yakkhavañcitavaggo-1062"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/yakkhavañcitavaggo-1062"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/yakkhavañcitavaggo-1062"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/yakkhavañcitavaggo-1062"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/yakkhavañcitavaggo-1062"/>
+    <loc>/en/book/Rasav/yakkhavañcitavaggo-1062</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/yakkhavañcitavaggo-1062"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/yakkhavañcitavaggo-1062"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/yakkhavañcitavaggo-1062"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/yakkhavañcitavaggo-1062"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/yakkhavañcitavaggo-1062"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/yakkhavañcitavaggo-1062"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/yakkhavañcitavaggo-1062"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/yakkhavañcitavaggo-1062"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/yakkhavañcitavaggo-1062"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
+    <loc>/en/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/21-yakkhavañcita-vatthumhi-ayamānupubbīkathā-1063"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
+    <loc>/en/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/22-micchadiṭṭhikassa-vatthumhi-ayamānupubbīkathā-1089"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
+    <loc>/en/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/23-pādapīṭhikāya-vatthumhi-ayamānupubbīkathā-1136"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
+    <loc>/en/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/24-uttarasāmaṇerassa-vatthumhi-ayamānupubbīkathā-1213"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
+    <loc>/en/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/25-kavīrapaṭṭana-vatthumhi-ayamānupubbīkathā-1354"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
+    <loc>/en/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/26-coraghātakavatthumhi-ayamānupubbīkathā-1399"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
+    <loc>/en/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/27-saddhopāsakassa-vatthumhi-ayamānupubbīkathā-1426"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
+    <loc>/en/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/28-kapaṇassa-vatthumhi-ayamānupubbīkathā-1513"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
+    <loc>/en/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/29-devaputtassa-vatthumhi-ayamānupubbīkathā-1575"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
+    <loc>/en/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/30-sīvalittherassa-vatthumhi-ayamānupubbīkathā-1644"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/mahāsenavaggo-1792</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/mahāsenavaggo-1792"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/mahāsenavaggo-1792"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/mahāsenavaggo-1792"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/mahāsenavaggo-1792"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/mahāsenavaggo-1792"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/mahāsenavaggo-1792"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/mahāsenavaggo-1792"/>
+    <loc>/en/book/Rasav/mahāsenavaggo-1792</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/mahāsenavaggo-1792"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/mahāsenavaggo-1792"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/mahāsenavaggo-1792"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/mahāsenavaggo-1792"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/mahāsenavaggo-1792"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/mahāsenavaggo-1792"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/mahāsenavaggo-1792"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/mahāsenavaggo-1792"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/mahāsenavaggo-1792"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
+    <loc>/en/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/31-mahāsenarañño-vatthumhi-ayamānupubbīkathā-1793"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
+    <loc>/en/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/32-suvaṇṇatilakāya-vatthumhi-ayamānupubbīkathā-1812"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
+    <loc>/en/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/33-kapaṇāya-vatthumhi-ayamānupubbīkathā-1923"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
+    <loc>/en/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/34-indaguttattherassa-vatthumhi-ayamānupubbīkathā-1986"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
+    <loc>/en/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/35-sākhamālapūjikāya-vatthumhi-ayamānupubbīkathā-2091"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
+    <loc>/en/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/36-moriyabrahmaṇassa-vatthumhi-ayamānupubbīkathā-2145"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
+    <loc>/en/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/37-puttavatthumhi-ayamānupubbīkathā-2197"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
+    <loc>/en/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/38-tebhātikamadhuvāṇijakānaṃ-vatthumhi-ayamānupubbīkathā-2222"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
+    <loc>/en/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/39-bodhirājadhītuyā-bodhirājadhītāya-itisabbattha-vatthumhi-ayamānupubbīkathā-2354"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
+    <loc>/en/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Rasav/40-kuṇḍaliyā-vatthumhi-ayamānupubbīkathā-2414"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

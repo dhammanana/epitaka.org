@@ -2,26 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Tigumb/tigumbacetiya-thomanā-428</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Tigumb/tigumbacetiya-thomanā-428"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Tigumb/tigumbacetiya-thomanā-428"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Tigumb/tigumbacetiya-thomanā-428"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Tigumb/tigumbacetiya-thomanā-428"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Tigumb/tigumbacetiya-thomanā-428"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Tigumb/tigumbacetiya-thomanā-428"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Tigumb/tigumbacetiya-thomanā-428"/>
+    <loc>/en/book/Tigumb/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Tigumb/tigumbacetiya-thomanā-428</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Tigumb/tigumbacetiya-thomanā-428"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Tigumb/tigumbacetiya-thomanā-428"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Tigumb/tigumbacetiya-thomanā-428"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Tigumb/tigumbacetiya-thomanā-428"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Tigumb/tigumbacetiya-thomanā-428"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Tigumb/tigumbacetiya-thomanā-428"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Tigumb/tigumbacetiya-thomanā-428"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Tigumb/tigumbacetiya-thomanā-428"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Tigumb/tigumbacetiya-thomanā-428"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Tigumb/vāsamālinīkya-479</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Tigumb/vāsamālinīkya-479"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Tigumb/vāsamālinīkya-479"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Tigumb/vāsamālinīkya-479"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Tigumb/vāsamālinīkya-479"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Tigumb/vāsamālinīkya-479"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Tigumb/vāsamālinīkya-479"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Tigumb/vāsamālinīkya-479"/>
+    <loc>/en/book/Tigumb/vāsamālinīkya-479</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Tigumb/vāsamālinīkya-479"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Tigumb/vāsamālinīkya-479"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Tigumb/vāsamālinīkya-479"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Tigumb/vāsamālinīkya-479"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Tigumb/vāsamālinīkya-479"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Tigumb/vāsamālinīkya-479"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Tigumb/vāsamālinīkya-479"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Tigumb/vāsamālinīkya-479"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Tigumb/vāsamālinīkya-479"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

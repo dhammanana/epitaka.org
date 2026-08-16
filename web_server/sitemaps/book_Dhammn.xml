@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Dhammn/dhammanīti-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhammn/dhammanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhammn/dhammanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhammn/dhammanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhammn/dhammanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhammn/dhammanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhammn/dhammanīti-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhammn/dhammanīti-2"/>
+    <loc>/en/book/Dhammn/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Dhammn/dhammanīti-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhammn/dhammanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhammn/dhammanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhammn/dhammanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhammn/dhammanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhammn/dhammanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhammn/dhammanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhammn/dhammanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhammn/dhammanīti-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhammn/dhammanīti-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

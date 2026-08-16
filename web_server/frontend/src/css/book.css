@@ -79,6 +79,21 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   text-decoration: none;
 }
 .seo-breadcrumb a:hover { text-decoration: underline; }
+
+/* Visible link to the book's outline — an internal link for SEO plus a
+   discoverable path for readers who missed the topbar button. */
+.book-outline-link {
+  padding: 0.4rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--accent-light);
+  font-size: 0.8rem;
+}
+.book-outline-link a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.book-outline-link a:hover { text-decoration: underline; }
 .topbar-right { display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0; }
 
 .topbar-btn {
@@ -95,6 +110,20 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 .ref-btn--mula  { color: #6b4c1d; }
 .ref-btn--attha { color: #2d5a3d; }
 .ref-btn--tika  { color: #4a3f6b; }
+
+/* The Outline tab is the main entry point to the book's outline (a key
+   SEO surface) — keep it visually distinct from the plain text buttons. */
+.outline-tab-btn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+.outline-tab-btn:hover {
+  background: #7a4f2f;
+  border-color: #7a4f2f;
+  color: #fff;
+}
 
 /* ── Language dropdown ─────────────────── */
 .lang-dropdown { position: relative; }
@@ -334,6 +363,63 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   display: block;
 }
 
+/* ── Inline section outline (at the top of each open section) ── */
+.section-outline {
+  margin: 0.1rem 0.9rem 0.9rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.section-outline-title {
+  font-size: 0.68rem; font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.45rem;
+}
+.section-outline-list {
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.section-outline-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.18rem 0;
+}
+.section-outline-link {
+  flex: 1; min-width: 0;
+  display: flex; align-items: baseline; gap: 0.5rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+.section-outline-link:hover { color: var(--accent); text-decoration: none; }
+.section-outline-num {
+  flex-shrink: 0;
+  min-width: 1.4rem;
+  text-align: right;
+  font-size: 0.76rem; font-weight: 600;
+  color: var(--muted);
+}
+.section-outline-text { color: inherit; }
+.section-outline-study {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0 0.1rem;
+}
+.section-outline-more {
+  display: inline-block;
+  margin-top: 0.55rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.section-outline-more:hover { text-decoration: underline; }
+
 /* Loading states */
 .section-loading {
   padding: 1.25rem 1.2rem; color: var(--muted);
@@ -533,7 +619,7 @@ sup:hover::after { display: block; }
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
 }
-.modal-header h2 {
+.modal-header-title {
   font-family: var(--font-serif); font-size: 1.1rem;
   color: var(--accent); margin: 0;
 }
@@ -704,7 +790,7 @@ sup:hover::after { display: block; }
   padding: 1.6rem; max-width: 420px; width: 100%;
   box-shadow: 0 8px 40px rgba(0,0,0,0.22);
 }
-.credits-box h3 {
+.credits-box-title {
   font-family: var(--font-serif); font-size: 1.1rem;
   color: var(--accent); margin-bottom: 1.1rem;
 }
@@ -869,3 +955,180 @@ sup:hover::after { display: block; }
   from { opacity: 0; transform: scale(0.88); }
   to   { opacity: 1; transform: scale(1); }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   Study guides (AI summaries) — 📖 icon on sections + popup modal
+   ══════════════════════════════════════════════════════════════ */
+
+/* Icon at the top-right of each para-group that has a study guide */
+.study-icon {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.4rem;
+  z-index: 5;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  padding: 0.12rem 0.34rem;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s, background 0.15s, transform 0.1s;
+  line-height: 1.2;
+}
+.study-icon:hover,
+.study-icon:focus-visible {
+  opacity: 1;
+  background: var(--accent-light);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* Modal overlay + box (matches settings-modal pattern) */
+.study-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 500;
+  padding: 1rem;
+}
+.study-modal-box {
+  background: var(--surface);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 720px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 6px 40px rgba(0,0,0,0.3);
+}
+.study-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.study-modal-kicker {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.study-modal-body {
+  overflow-y: auto;
+  padding: 1.1rem 1.3rem 1.3rem;
+  -webkit-overflow-scrolling: touch;
+}
+.study-modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.35;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+.study-modal-footer {
+  padding: 0.7rem 1.1rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  flex-shrink: 0;
+  background: var(--bg);
+}
+.study-full-link {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.study-full-link:hover { text-decoration: underline; }
+.study-loading {
+  padding: 1rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.study-loading:not(.error)::before {
+  content: "";
+  display: inline-block;
+  width: 13px; height: 13px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin-right: 0.45rem;
+  vertical-align: middle;
+}
+.study-loading.error { color: #c0392b; }
+
+/* Typography of the rendered study guide inside the popup */
+.study-content { font-size: 0.95rem; line-height: 1.6; color: var(--text); }
+.study-content h2 {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  margin: 1.3rem 0 0.5rem;
+  color: var(--text);
+}
+.study-content h3 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  margin: 1rem 0 0.4rem;
+  color: var(--text);
+}
+.study-content h4 { font-size: 0.95rem; margin: 0.85rem 0 0.35rem; }
+.study-content p { margin: 0.5rem 0; }
+.study-content ul,
+.study-content ol { margin: 0.5rem 0 0.5rem 1.3rem; }
+.study-content li { margin: 0.18rem 0; }
+.study-content em { color: var(--trans); }
+.study-content blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-light);
+  padding: 0.5rem 0.85rem;
+  margin: 0.65rem 0;
+  border-radius: 0 6px 6px 0;
+  color: #5a4632;
+}
+.study-content table {
+  border-collapse: collapse;
+  margin: 0.7rem 0;
+  width: 100%;
+  font-size: 0.88rem;
+}
+.study-content th,
+.study-content td {
+  border: 1px solid var(--border);
+  padding: 0.32rem 0.55rem;
+  text-align: left;
+}
+.study-content th { background: var(--accent-light); }
+.study-content hr { border: none; border-top: 1px solid var(--border); margin: 1.1rem 0; }
+.study-content pre {
+  background: #2d2420;
+  color: #f5f0ea;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  margin: 0.6rem 0;
+}
+.study-content code {
+  background: #f0e9df;
+  padding: 0.08rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+.study-content pre code { background: none; padding: 0; }
+.study-citation {
+  color: var(--trans);
+  border-bottom: 1px dotted #9db4d4;
+  font-size: 0.82em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.study-citation:hover { background: var(--accent-light); text-decoration: none; }

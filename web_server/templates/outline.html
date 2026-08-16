@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ seo_title }}</title>
+  <meta name="description" content="{{ meta_description }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:title"       content="{{ seo_title }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  <meta property="og:type"        content="article">
+  <meta property="og:site_name"   content="E-Piṭaka">
+  <meta property="og:url"         content="{{ canonical_url }}">
+  <meta property="og:image"       content="{{ site_url }}/static/og-image.png">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="{{ seo_title }}">
+  <meta name="twitter:description" content="{{ meta_description }}">
+
+  <link rel="alternate" hreflang="x-default" href="{{ canonical_url }}">
+  <link rel="alternate" hreflang="en" href="{{ canonical_url }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Book",
+        "@id": {{ (page_url + '#book') | tojson }},
+        "name": {{ (english_name or book_title) | tojson }},
+        "alternateName": {{ book_title | tojson }},
+        "url": {{ book_url | tojson }},
+        "image": {{ (site_url + '/static/og-image.png') | tojson }},
+        "isPartOf": { "@type": "CreativeWork", "name": "Chaṭṭha Saṅgāyana Tipiṭaka", "url": {{ home_url | tojson }} },
+        "publisher": { "@type": "Organization", "name": "E-Piṭaka", "url": {{ home_url | tojson }} },
+        "bookFormat": "https://schema.org/EBook",
+        "accessMode": "textual"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ home_url | tojson }} },
+          { "@type": "ListItem", "position": 2, "name": {{ (english_name or book_title) | tojson }}, "item": {{ book_url | tojson }} },
+          { "@type": "ListItem", "position": 3, "name": "Outline", "item": {{ page_url | tojson }} }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    :root {
+      --bg: #faf7f2; --surface: #ffffff; --border: #e8e0d5;
+      --accent: #8b5e3c; --accent-light: #f5ede4;
+      --text: #2d2420; --muted: #8a7a6e; --trans: #1e3a5f;
+      --font-serif: "Crimson Pro", Georgia, serif;
+      --font-sans: "Noto Sans", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: .5rem;
+      padding: .6rem 1rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+    .topbar a { font-size: .8rem; }
+    .topbar .book-title { flex: 1; font-family: var(--font-serif); font-size: 1rem; font-weight: 600;
+      color: var(--accent); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .breadcrumb { font-size: .78rem; color: var(--muted); padding: .6rem 1.1rem;
+      border-bottom: 1px solid var(--border); }
+
+    main { max-width: 820px; margin: 0 auto; padding: 1.6rem 1.1rem 4rem; }
+    h1 { font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: .4rem; }
+    .outline-intro { font-size: .88rem; color: var(--muted); margin-bottom: 1.6rem; }
+
+    .vagga-block { margin-bottom: 1.8rem; }
+    .vagga-block > h2 { font-family: var(--font-serif); font-size: 1.15rem; color: var(--accent);
+      border-bottom: 1px solid var(--border); padding-bottom: .35rem; margin-bottom: .9rem; }
+    .sutta-block { margin: 0 0 1.1rem .4rem; }
+    .sutta-block > h3 { font-size: .98rem; margin-bottom: .4rem; color: var(--text); }
+    .outline-items { list-style: none; }
+    .outline-items li { display: flex; align-items: baseline; gap: .6rem; padding: .28rem .4rem;
+      border-radius: 6px; font-size: .9rem; }
+    .outline-items li:hover { background: var(--accent-light); }
+    .item-num { min-width: 2.2rem; font-weight: 600; color: var(--muted); font-size: .82rem; text-align: right; }
+    .study-link { font-weight: 600; }
+    .book-link { font-size: .8rem; color: var(--muted); margin-left: auto; white-space: nowrap; }
+    .book-link:hover { color: var(--accent); }
+    .no-study { color: var(--muted); }
+
+    footer { text-align: center; font-size: .78rem; color: var(--muted); padding: 1.5rem 1rem 3rem; }
+  </style>
+</head>
+<body>
+
+<header class="topbar" role="banner">
+  <a href="{{ home_url }}" aria-label="Home" title="Home">⌂ Home</a>
+  <a href="{{ book_url }}" class="book-title" title="{{ book_title }}">{{ book_title }}</a>
+  <a href="{{ book_url }}" title="Read the book">Read the book</a>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ home_url }}">Home</a> <span aria-hidden="true">›</span>
+  <a href="{{ book_url }}">{{ english_name or book_title }}</a>
+  <span aria-hidden="true">›</span><span>Outline</span>
+</nav>
+
+<main>
+  <h1>Outline of {{ english_name or book_title }}</h1>
+  <p class="outline-intro">
+    Every section of the {{ book_title }}{% if summary_count %}, with {{ summary_count }} study guide{{ 's' if summary_count != 1 else '' }} linked below{% endif %}.
+    Each study guide synthesises the section's mūla text with its aṭṭhakathā (commentary) and ṭīkā (sub-commentary),
+    with citations back to the original Pāli.
+  </p>
+
+  {% if not groups %}
+    <p class="no-study">No sections found for this book.</p>
+  {% endif %}
+
+  {% for g in groups %}
+  <section class="vagga-block">
+    <h2>{{ g.title or english_name or book_title }}</h2>
+    {% for st in g.suttas %}
+    <section class="sutta-block">
+      {% if st.title %}<h3>{{ st.title }}</h3>{% endif %}
+      <ol class="outline-items">
+        {% for item in st.sections %}
+        <li>
+          <span class="item-num">{{ item.title }}</span>
+          {% if item.study_url %}
+          <a class="study-link" href="{{ item.study_url }}">{{ item.study_title or 'Study guide' }}</a>
+          <a class="book-link" href="{{ item.book_url }}" target="_blank" rel="noopener noreferrer">Pāli text ↗</a>
+          {% else %}
+          <a class="book-link" href="{{ item.book_url }}">Read in the book ↗</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
+    {% endfor %}
+  </section>
+  {% endfor %}
+</main>
+
+<footer>
+  <a href="{{ home_url }}">E-Piṭaka</a> — Chaṭṭha Saṅgāyana Tipiṭaka · Free to read online
+</footer>
+
+</body>
+</html>

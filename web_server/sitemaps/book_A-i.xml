@@ -2,422 +2,497 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/A-i/ekakanipātapāḷi-3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/ekakanipātapāḷi-3"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/ekakanipātapāḷi-3"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/ekakanipātapāḷi-3"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/ekakanipātapāḷi-3"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/ekakanipātapāḷi-3"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/ekakanipātapāḷi-3"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/ekakanipātapāḷi-3"/>
+    <loc>/en/book/A-i/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/A-i/ekakanipātapāḷi-3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/ekakanipātapāḷi-3"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/ekakanipātapāḷi-3"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/ekakanipātapāḷi-3"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/ekakanipātapāḷi-3"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/ekakanipātapāḷi-3"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/ekakanipātapāḷi-3"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/ekakanipātapāḷi-3"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/ekakanipātapāḷi-3"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/ekakanipātapāḷi-3"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/1-rūpādivaggo-4</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/1-rūpādivaggo-4"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/1-rūpādivaggo-4"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/1-rūpādivaggo-4"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/1-rūpādivaggo-4"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/1-rūpādivaggo-4"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/1-rūpādivaggo-4"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/1-rūpādivaggo-4"/>
+    <loc>/en/book/A-i/1-rūpādivaggo-4</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/1-rūpādivaggo-4"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/1-rūpādivaggo-4"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/1-rūpādivaggo-4"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/1-rūpādivaggo-4"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/1-rūpādivaggo-4"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/1-rūpādivaggo-4"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/1-rūpādivaggo-4"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/1-rūpādivaggo-4"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/1-rūpādivaggo-4"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/2-nīvaraṇappahānavaggo-17</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/2-nīvaraṇappahānavaggo-17"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/2-nīvaraṇappahānavaggo-17"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/2-nīvaraṇappahānavaggo-17"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/2-nīvaraṇappahānavaggo-17"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/2-nīvaraṇappahānavaggo-17"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/2-nīvaraṇappahānavaggo-17"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/2-nīvaraṇappahānavaggo-17"/>
+    <loc>/en/book/A-i/2-nīvaraṇappahānavaggo-17</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/2-nīvaraṇappahānavaggo-17"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/2-nīvaraṇappahānavaggo-17"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/2-nīvaraṇappahānavaggo-17"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/2-nīvaraṇappahānavaggo-17"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/2-nīvaraṇappahānavaggo-17"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/2-nīvaraṇappahānavaggo-17"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/2-nīvaraṇappahānavaggo-17"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/2-nīvaraṇappahānavaggo-17"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/2-nīvaraṇappahānavaggo-17"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/3-akammaniyavaggo-29</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/3-akammaniyavaggo-29"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/3-akammaniyavaggo-29"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/3-akammaniyavaggo-29"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/3-akammaniyavaggo-29"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/3-akammaniyavaggo-29"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/3-akammaniyavaggo-29"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/3-akammaniyavaggo-29"/>
+    <loc>/en/book/A-i/3-akammaniyavaggo-29</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/3-akammaniyavaggo-29"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/3-akammaniyavaggo-29"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/3-akammaniyavaggo-29"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/3-akammaniyavaggo-29"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/3-akammaniyavaggo-29"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/3-akammaniyavaggo-29"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/3-akammaniyavaggo-29"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/3-akammaniyavaggo-29"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/3-akammaniyavaggo-29"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/4-adantavaggo-41</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/4-adantavaggo-41"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/4-adantavaggo-41"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/4-adantavaggo-41"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/4-adantavaggo-41"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/4-adantavaggo-41"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/4-adantavaggo-41"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/4-adantavaggo-41"/>
+    <loc>/en/book/A-i/4-adantavaggo-41</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/4-adantavaggo-41"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/4-adantavaggo-41"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/4-adantavaggo-41"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/4-adantavaggo-41"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/4-adantavaggo-41"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/4-adantavaggo-41"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/4-adantavaggo-41"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/4-adantavaggo-41"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/4-adantavaggo-41"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/5-paṇihitaacchavaggo-53</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/5-paṇihitaacchavaggo-53"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/5-paṇihitaacchavaggo-53"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/5-paṇihitaacchavaggo-53"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/5-paṇihitaacchavaggo-53"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/5-paṇihitaacchavaggo-53"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/5-paṇihitaacchavaggo-53"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/5-paṇihitaacchavaggo-53"/>
+    <loc>/en/book/A-i/5-paṇihitaacchavaggo-53</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/5-paṇihitaacchavaggo-53"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/5-paṇihitaacchavaggo-53"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/5-paṇihitaacchavaggo-53"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/5-paṇihitaacchavaggo-53"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/5-paṇihitaacchavaggo-53"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/5-paṇihitaacchavaggo-53"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/5-paṇihitaacchavaggo-53"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/5-paṇihitaacchavaggo-53"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/5-paṇihitaacchavaggo-53"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/6-accharāsaṅghātavaggo-65</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/6-accharāsaṅghātavaggo-65"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/6-accharāsaṅghātavaggo-65"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/6-accharāsaṅghātavaggo-65"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/6-accharāsaṅghātavaggo-65"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/6-accharāsaṅghātavaggo-65"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/6-accharāsaṅghātavaggo-65"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/6-accharāsaṅghātavaggo-65"/>
+    <loc>/en/book/A-i/6-accharāsaṅghātavaggo-65</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/6-accharāsaṅghātavaggo-65"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/6-accharāsaṅghātavaggo-65"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/6-accharāsaṅghātavaggo-65"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/6-accharāsaṅghātavaggo-65"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/6-accharāsaṅghātavaggo-65"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/6-accharāsaṅghātavaggo-65"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/6-accharāsaṅghātavaggo-65"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/6-accharāsaṅghātavaggo-65"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/6-accharāsaṅghātavaggo-65"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/7-vīriyārambhādivaggo-77</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/7-vīriyārambhādivaggo-77"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/7-vīriyārambhādivaggo-77"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/7-vīriyārambhādivaggo-77"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/7-vīriyārambhādivaggo-77"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/7-vīriyārambhādivaggo-77"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/7-vīriyārambhādivaggo-77"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/7-vīriyārambhādivaggo-77"/>
+    <loc>/en/book/A-i/7-vīriyārambhādivaggo-77</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/7-vīriyārambhādivaggo-77"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/7-vīriyārambhādivaggo-77"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/7-vīriyārambhādivaggo-77"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/7-vīriyārambhādivaggo-77"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/7-vīriyārambhādivaggo-77"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/7-vīriyārambhādivaggo-77"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/7-vīriyārambhādivaggo-77"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/7-vīriyārambhādivaggo-77"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/7-vīriyārambhādivaggo-77"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/8-kalyāṇamittādivaggo-89</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/8-kalyāṇamittādivaggo-89"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/8-kalyāṇamittādivaggo-89"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/8-kalyāṇamittādivaggo-89"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/8-kalyāṇamittādivaggo-89"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/8-kalyāṇamittādivaggo-89"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/8-kalyāṇamittādivaggo-89"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/8-kalyāṇamittādivaggo-89"/>
+    <loc>/en/book/A-i/8-kalyāṇamittādivaggo-89</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/8-kalyāṇamittādivaggo-89"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/8-kalyāṇamittādivaggo-89"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/8-kalyāṇamittādivaggo-89"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/8-kalyāṇamittādivaggo-89"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/8-kalyāṇamittādivaggo-89"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/8-kalyāṇamittādivaggo-89"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/8-kalyāṇamittādivaggo-89"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/8-kalyāṇamittādivaggo-89"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/8-kalyāṇamittādivaggo-89"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/9-pamādādivaggo-101</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/9-pamādādivaggo-101"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/9-pamādādivaggo-101"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/9-pamādādivaggo-101"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/9-pamādādivaggo-101"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/9-pamādādivaggo-101"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/9-pamādādivaggo-101"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/9-pamādādivaggo-101"/>
+    <loc>/en/book/A-i/9-pamādādivaggo-101</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/9-pamādādivaggo-101"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/9-pamādādivaggo-101"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/9-pamādādivaggo-101"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/9-pamādādivaggo-101"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/9-pamādādivaggo-101"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/9-pamādādivaggo-101"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/9-pamādādivaggo-101"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/9-pamādādivaggo-101"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/9-pamādādivaggo-101"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/10-dutiyapamādādivaggo-120</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/10-dutiyapamādādivaggo-120"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/10-dutiyapamādādivaggo-120"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/10-dutiyapamādādivaggo-120"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/10-dutiyapamādādivaggo-120"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/10-dutiyapamādādivaggo-120"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/10-dutiyapamādādivaggo-120"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/10-dutiyapamādādivaggo-120"/>
+    <loc>/en/book/A-i/10-dutiyapamādādivaggo-120</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/10-dutiyapamādādivaggo-120"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/10-dutiyapamādādivaggo-120"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/10-dutiyapamādādivaggo-120"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/10-dutiyapamādādivaggo-120"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/10-dutiyapamādādivaggo-120"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/10-dutiyapamādādivaggo-120"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/10-dutiyapamādādivaggo-120"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/10-dutiyapamādādivaggo-120"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/10-dutiyapamādādivaggo-120"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/11-adhammavaggo-140</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/11-adhammavaggo-140"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/11-adhammavaggo-140"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/11-adhammavaggo-140"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/11-adhammavaggo-140"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/11-adhammavaggo-140"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/11-adhammavaggo-140"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/11-adhammavaggo-140"/>
+    <loc>/en/book/A-i/11-adhammavaggo-140</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/11-adhammavaggo-140"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/11-adhammavaggo-140"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/11-adhammavaggo-140"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/11-adhammavaggo-140"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/11-adhammavaggo-140"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/11-adhammavaggo-140"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/11-adhammavaggo-140"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/11-adhammavaggo-140"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/11-adhammavaggo-140"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/12-anāpattivaggo-145</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/12-anāpattivaggo-145"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/12-anāpattivaggo-145"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/12-anāpattivaggo-145"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/12-anāpattivaggo-145"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/12-anāpattivaggo-145"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/12-anāpattivaggo-145"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/12-anāpattivaggo-145"/>
+    <loc>/en/book/A-i/12-anāpattivaggo-145</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/12-anāpattivaggo-145"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/12-anāpattivaggo-145"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/12-anāpattivaggo-145"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/12-anāpattivaggo-145"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/12-anāpattivaggo-145"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/12-anāpattivaggo-145"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/12-anāpattivaggo-145"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/12-anāpattivaggo-145"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/12-anāpattivaggo-145"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/13-ekapuggalavaggo-153</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/13-ekapuggalavaggo-153"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/13-ekapuggalavaggo-153"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/13-ekapuggalavaggo-153"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/13-ekapuggalavaggo-153"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/13-ekapuggalavaggo-153"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/13-ekapuggalavaggo-153"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/13-ekapuggalavaggo-153"/>
+    <loc>/en/book/A-i/13-ekapuggalavaggo-153</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/13-ekapuggalavaggo-153"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/13-ekapuggalavaggo-153"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/13-ekapuggalavaggo-153"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/13-ekapuggalavaggo-153"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/13-ekapuggalavaggo-153"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/13-ekapuggalavaggo-153"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/13-ekapuggalavaggo-153"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/13-ekapuggalavaggo-153"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/13-ekapuggalavaggo-153"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/14-etadaggavaggo-162</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/14-etadaggavaggo-162"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/14-etadaggavaggo-162"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/14-etadaggavaggo-162"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/14-etadaggavaggo-162"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/14-etadaggavaggo-162"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/14-etadaggavaggo-162"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/14-etadaggavaggo-162"/>
+    <loc>/en/book/A-i/14-etadaggavaggo-162</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/14-etadaggavaggo-162"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/14-etadaggavaggo-162"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/14-etadaggavaggo-162"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/14-etadaggavaggo-162"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/14-etadaggavaggo-162"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/14-etadaggavaggo-162"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/14-etadaggavaggo-162"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/14-etadaggavaggo-162"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/14-etadaggavaggo-162"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/1-paṭhamavaggo-163</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/1-paṭhamavaggo-163"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/1-paṭhamavaggo-163"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/1-paṭhamavaggo-163"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/1-paṭhamavaggo-163"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/1-paṭhamavaggo-163"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/1-paṭhamavaggo-163"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/1-paṭhamavaggo-163"/>
+    <loc>/en/book/A-i/1-paṭhamavaggo-163</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/1-paṭhamavaggo-163"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/1-paṭhamavaggo-163"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/1-paṭhamavaggo-163"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/1-paṭhamavaggo-163"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/1-paṭhamavaggo-163"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/1-paṭhamavaggo-163"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/1-paṭhamavaggo-163"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/1-paṭhamavaggo-163"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/1-paṭhamavaggo-163"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/2-dutiyavaggo-175</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/2-dutiyavaggo-175"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/2-dutiyavaggo-175"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/2-dutiyavaggo-175"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/2-dutiyavaggo-175"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/2-dutiyavaggo-175"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/2-dutiyavaggo-175"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/2-dutiyavaggo-175"/>
+    <loc>/en/book/A-i/2-dutiyavaggo-175</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/2-dutiyavaggo-175"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/2-dutiyavaggo-175"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/2-dutiyavaggo-175"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/2-dutiyavaggo-175"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/2-dutiyavaggo-175"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/2-dutiyavaggo-175"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/2-dutiyavaggo-175"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/2-dutiyavaggo-175"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/2-dutiyavaggo-175"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/3-tatiyavaggo-188</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/3-tatiyavaggo-188"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/3-tatiyavaggo-188"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/3-tatiyavaggo-188"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/3-tatiyavaggo-188"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/3-tatiyavaggo-188"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/3-tatiyavaggo-188"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/3-tatiyavaggo-188"/>
+    <loc>/en/book/A-i/3-tatiyavaggo-188</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/3-tatiyavaggo-188"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/3-tatiyavaggo-188"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/3-tatiyavaggo-188"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/3-tatiyavaggo-188"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/3-tatiyavaggo-188"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/3-tatiyavaggo-188"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/3-tatiyavaggo-188"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/3-tatiyavaggo-188"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/3-tatiyavaggo-188"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/4-catutthavaggo-200</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/4-catutthavaggo-200"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/4-catutthavaggo-200"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/4-catutthavaggo-200"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/4-catutthavaggo-200"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/4-catutthavaggo-200"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/4-catutthavaggo-200"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/4-catutthavaggo-200"/>
+    <loc>/en/book/A-i/4-catutthavaggo-200</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/4-catutthavaggo-200"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/4-catutthavaggo-200"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/4-catutthavaggo-200"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/4-catutthavaggo-200"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/4-catutthavaggo-200"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/4-catutthavaggo-200"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/4-catutthavaggo-200"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/4-catutthavaggo-200"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/4-catutthavaggo-200"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/5-pañcamavaggo-218</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/5-pañcamavaggo-218"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/5-pañcamavaggo-218"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/5-pañcamavaggo-218"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/5-pañcamavaggo-218"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/5-pañcamavaggo-218"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/5-pañcamavaggo-218"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/5-pañcamavaggo-218"/>
+    <loc>/en/book/A-i/5-pañcamavaggo-218</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/5-pañcamavaggo-218"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/5-pañcamavaggo-218"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/5-pañcamavaggo-218"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/5-pañcamavaggo-218"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/5-pañcamavaggo-218"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/5-pañcamavaggo-218"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/5-pañcamavaggo-218"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/5-pañcamavaggo-218"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/5-pañcamavaggo-218"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/6-chaṭṭhavaggo-233</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/6-chaṭṭhavaggo-233"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/6-chaṭṭhavaggo-233"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/6-chaṭṭhavaggo-233"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/6-chaṭṭhavaggo-233"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/6-chaṭṭhavaggo-233"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/6-chaṭṭhavaggo-233"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/6-chaṭṭhavaggo-233"/>
+    <loc>/en/book/A-i/6-chaṭṭhavaggo-233</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/6-chaṭṭhavaggo-233"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/6-chaṭṭhavaggo-233"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/6-chaṭṭhavaggo-233"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/6-chaṭṭhavaggo-233"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/6-chaṭṭhavaggo-233"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/6-chaṭṭhavaggo-233"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/6-chaṭṭhavaggo-233"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/6-chaṭṭhavaggo-233"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/6-chaṭṭhavaggo-233"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/7-sattamavaggo-245</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/7-sattamavaggo-245"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/7-sattamavaggo-245"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/7-sattamavaggo-245"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/7-sattamavaggo-245"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/7-sattamavaggo-245"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/7-sattamavaggo-245"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/7-sattamavaggo-245"/>
+    <loc>/en/book/A-i/7-sattamavaggo-245</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/7-sattamavaggo-245"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/7-sattamavaggo-245"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/7-sattamavaggo-245"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/7-sattamavaggo-245"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/7-sattamavaggo-245"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/7-sattamavaggo-245"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/7-sattamavaggo-245"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/7-sattamavaggo-245"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/7-sattamavaggo-245"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/15-aṭṭhānapāḷi-258</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/15-aṭṭhānapāḷi-258"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/15-aṭṭhānapāḷi-258"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/15-aṭṭhānapāḷi-258"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/15-aṭṭhānapāḷi-258"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/15-aṭṭhānapāḷi-258"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/15-aṭṭhānapāḷi-258"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/15-aṭṭhānapāḷi-258"/>
+    <loc>/en/book/A-i/15-aṭṭhānapāḷi-258</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/15-aṭṭhānapāḷi-258"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/15-aṭṭhānapāḷi-258"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/15-aṭṭhānapāḷi-258"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/15-aṭṭhānapāḷi-258"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/15-aṭṭhānapāḷi-258"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/15-aṭṭhānapāḷi-258"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/15-aṭṭhānapāḷi-258"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/15-aṭṭhānapāḷi-258"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/15-aṭṭhānapāḷi-258"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/1-paṭhamavaggo-259</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/1-paṭhamavaggo-259"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/1-paṭhamavaggo-259"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/1-paṭhamavaggo-259"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/1-paṭhamavaggo-259"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/1-paṭhamavaggo-259"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/1-paṭhamavaggo-259"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/1-paṭhamavaggo-259"/>
+    <loc>/en/book/A-i/1-paṭhamavaggo-259</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/1-paṭhamavaggo-259"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/1-paṭhamavaggo-259"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/1-paṭhamavaggo-259"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/1-paṭhamavaggo-259"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/1-paṭhamavaggo-259"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/1-paṭhamavaggo-259"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/1-paṭhamavaggo-259"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/1-paṭhamavaggo-259"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/1-paṭhamavaggo-259"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/2-dutiyavaggo-271</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/2-dutiyavaggo-271"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/2-dutiyavaggo-271"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/2-dutiyavaggo-271"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/2-dutiyavaggo-271"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/2-dutiyavaggo-271"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/2-dutiyavaggo-271"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/2-dutiyavaggo-271"/>
+    <loc>/en/book/A-i/2-dutiyavaggo-271</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/2-dutiyavaggo-271"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/2-dutiyavaggo-271"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/2-dutiyavaggo-271"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/2-dutiyavaggo-271"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/2-dutiyavaggo-271"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/2-dutiyavaggo-271"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/2-dutiyavaggo-271"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/2-dutiyavaggo-271"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/2-dutiyavaggo-271"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/3-tatiyavaggo-279</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/3-tatiyavaggo-279"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/3-tatiyavaggo-279"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/3-tatiyavaggo-279"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/3-tatiyavaggo-279"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/3-tatiyavaggo-279"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/3-tatiyavaggo-279"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/3-tatiyavaggo-279"/>
+    <loc>/en/book/A-i/3-tatiyavaggo-279</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/3-tatiyavaggo-279"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/3-tatiyavaggo-279"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/3-tatiyavaggo-279"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/3-tatiyavaggo-279"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/3-tatiyavaggo-279"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/3-tatiyavaggo-279"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/3-tatiyavaggo-279"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/3-tatiyavaggo-279"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/3-tatiyavaggo-279"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/16-ekadhammapāḷi-288</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/16-ekadhammapāḷi-288"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/16-ekadhammapāḷi-288"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/16-ekadhammapāḷi-288"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/16-ekadhammapāḷi-288"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/16-ekadhammapāḷi-288"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/16-ekadhammapāḷi-288"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/16-ekadhammapāḷi-288"/>
+    <loc>/en/book/A-i/16-ekadhammapāḷi-288</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/16-ekadhammapāḷi-288"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/16-ekadhammapāḷi-288"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/16-ekadhammapāḷi-288"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/16-ekadhammapāḷi-288"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/16-ekadhammapāḷi-288"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/16-ekadhammapāḷi-288"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/16-ekadhammapāḷi-288"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/16-ekadhammapāḷi-288"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/16-ekadhammapāḷi-288"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/1-paṭhamavaggo-289</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/1-paṭhamavaggo-289"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/1-paṭhamavaggo-289"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/1-paṭhamavaggo-289"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/1-paṭhamavaggo-289"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/1-paṭhamavaggo-289"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/1-paṭhamavaggo-289"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/1-paṭhamavaggo-289"/>
+    <loc>/en/book/A-i/1-paṭhamavaggo-289</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/1-paṭhamavaggo-289"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/1-paṭhamavaggo-289"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/1-paṭhamavaggo-289"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/1-paṭhamavaggo-289"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/1-paṭhamavaggo-289"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/1-paṭhamavaggo-289"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/1-paṭhamavaggo-289"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/1-paṭhamavaggo-289"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/1-paṭhamavaggo-289"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/2-dutiyavaggo-293</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/2-dutiyavaggo-293"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/2-dutiyavaggo-293"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/2-dutiyavaggo-293"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/2-dutiyavaggo-293"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/2-dutiyavaggo-293"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/2-dutiyavaggo-293"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/2-dutiyavaggo-293"/>
+    <loc>/en/book/A-i/2-dutiyavaggo-293</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/2-dutiyavaggo-293"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/2-dutiyavaggo-293"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/2-dutiyavaggo-293"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/2-dutiyavaggo-293"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/2-dutiyavaggo-293"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/2-dutiyavaggo-293"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/2-dutiyavaggo-293"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/2-dutiyavaggo-293"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/2-dutiyavaggo-293"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/3-tatiyavaggo-305</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/3-tatiyavaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/3-tatiyavaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/3-tatiyavaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/3-tatiyavaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/3-tatiyavaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/3-tatiyavaggo-305"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/3-tatiyavaggo-305"/>
+    <loc>/en/book/A-i/3-tatiyavaggo-305</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/3-tatiyavaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/3-tatiyavaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/3-tatiyavaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/3-tatiyavaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/3-tatiyavaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/3-tatiyavaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/3-tatiyavaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/3-tatiyavaggo-305"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/3-tatiyavaggo-305"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/4-catutthavaggo-321</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/4-catutthavaggo-321"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/4-catutthavaggo-321"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/4-catutthavaggo-321"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/4-catutthavaggo-321"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/4-catutthavaggo-321"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/4-catutthavaggo-321"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/4-catutthavaggo-321"/>
+    <loc>/en/book/A-i/4-catutthavaggo-321</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/4-catutthavaggo-321"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/4-catutthavaggo-321"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/4-catutthavaggo-321"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/4-catutthavaggo-321"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/4-catutthavaggo-321"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/4-catutthavaggo-321"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/4-catutthavaggo-321"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/4-catutthavaggo-321"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/4-catutthavaggo-321"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/17-pasādakaradhammavaggo-350</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/17-pasādakaradhammavaggo-350"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/17-pasādakaradhammavaggo-350"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/17-pasādakaradhammavaggo-350"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/17-pasādakaradhammavaggo-350"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/17-pasādakaradhammavaggo-350"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/17-pasādakaradhammavaggo-350"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/17-pasādakaradhammavaggo-350"/>
+    <loc>/en/book/A-i/17-pasādakaradhammavaggo-350</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/17-pasādakaradhammavaggo-350"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/17-pasādakaradhammavaggo-350"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/17-pasādakaradhammavaggo-350"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/17-pasādakaradhammavaggo-350"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/17-pasādakaradhammavaggo-350"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/17-pasādakaradhammavaggo-350"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/17-pasādakaradhammavaggo-350"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/17-pasādakaradhammavaggo-350"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/17-pasādakaradhammavaggo-350"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/18-aparaaccharāsaṅghātavaggo-354</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
+    <loc>/en/book/A-i/18-aparaaccharāsaṅghātavaggo-354</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/18-aparaaccharāsaṅghātavaggo-354"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/19-kāyagatāsativaggo-373</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/19-kāyagatāsativaggo-373"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/19-kāyagatāsativaggo-373"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/19-kāyagatāsativaggo-373"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/19-kāyagatāsativaggo-373"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/19-kāyagatāsativaggo-373"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/19-kāyagatāsativaggo-373"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/19-kāyagatāsativaggo-373"/>
+    <loc>/en/book/A-i/19-kāyagatāsativaggo-373</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/19-kāyagatāsativaggo-373"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/19-kāyagatāsativaggo-373"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/19-kāyagatāsativaggo-373"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/19-kāyagatāsativaggo-373"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/19-kāyagatāsativaggo-373"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/19-kāyagatāsativaggo-373"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/19-kāyagatāsativaggo-373"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/19-kāyagatāsativaggo-373"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/19-kāyagatāsativaggo-373"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/A-i/20-amatavaggo-385</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/A-i/20-amatavaggo-385"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/A-i/20-amatavaggo-385"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/A-i/20-amatavaggo-385"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/A-i/20-amatavaggo-385"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/A-i/20-amatavaggo-385"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/A-i/20-amatavaggo-385"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/A-i/20-amatavaggo-385"/>
+    <loc>/en/book/A-i/20-amatavaggo-385</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/A-i/20-amatavaggo-385"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/A-i/20-amatavaggo-385"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/A-i/20-amatavaggo-385"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/A-i/20-amatavaggo-385"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/A-i/20-amatavaggo-385"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/A-i/20-amatavaggo-385"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/A-i/20-amatavaggo-385"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/A-i/20-amatavaggo-385"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/A-i/20-amatavaggo-385"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

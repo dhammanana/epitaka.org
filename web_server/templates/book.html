@@ -20,10 +20,12 @@
   <meta name="twitter:description" content="{{ meta_description }}">
   <meta name="twitter:image"       content="{{ site_url }}/static/og-image.png">
 
-  {# ── Alternate language links for SEO (absolute URLs + x-default) ── #}
-  <link rel="alternate" hreflang="x-default" href="{{ site_url }}/en/book/{{ book_id }}">
+  {# ── Alternate language links for SEO (absolute URLs + x-default).
+     Section pages point each hreflang at the same section in that language ── #}
+  {% set alt_book_path = book_id ~ ('/' ~ section_slug_canonical if section_slug_canonical else '') %}
+  <link rel="alternate" hreflang="x-default" href="{{ site_url }}/en/book/{{ alt_book_path }}">
   {% for alt_lang in available_langs %}
-  <link rel="alternate" hreflang="{{ alt_lang.code }}" href="{{ site_url }}/{{ alt_lang.code }}/book/{{ book_id }}">
+  <link rel="alternate" hreflang="{{ alt_lang.code }}" href="{{ site_url }}/{{ alt_lang.code }}/book/{{ alt_book_path }}">
   {% endfor %}
 
   <script type="application/ld+json">{{ book_jsonld | tojson }}</script>
@@ -155,6 +157,12 @@
       </div>
     {% endif %}
 
+    {# ── Outline tab: links every section to its study guide ── #}
+    <a id="outline-tab-btn"
+       href="{{ outline_url }}"
+       class="topbar-btn outline-tab-btn"
+       title="Outline of all sections with study guides">📋 Outline</a>
+
     <button id="settings-btn" class="topbar-btn icon-btn" title="Settings">⚙</button>
     <!-- auth-avatar-btn injected here by auth-ui.js -->
   </div>
@@ -163,13 +171,33 @@
 <!-- MAIN CONTENT -->
 <main id="main-content" role="main">
   {# ── Visually-hidden H1 for SEO (the visible book title lives in the
-     top bar; JS reads .book-title for reading history, so it stays a span) ── #}
-  <h1 class="seo-h1">{{ english_name or book_title }}{% if english_name and english_name|lower != book_title|lower %} <span class="pali-seo-name">{{ book_title }}</span>{% endif %}</h1>
+     top bar; JS reads .book-title for reading history, so it stays a span).
+     Deep-section pages render the full breadcrumb path to the passage, with
+     the section's translation in parentheses. ── #}
+  <h1 class="seo-h1">
+    {% if section_path %}
+      {% for p in section_path %}{% if not loop.first %}<span class="seo-path-sep" aria-hidden="true">›</span>{% endif %}<span class="seo-path-item">{{ p.title }}</span>{% if p.translation %} <span class="pali-seo-name">({{ p.translation }})</span>{% endif %}{% endfor %}
+    {% else %}
+      {{ english_name or book_title }}{% if english_name and english_name|lower != book_title|lower %} <span class="pali-seo-name">{{ book_title }}</span>{% endif %}
+    {% endif %}
+  </h1>
 
   <nav class="seo-breadcrumb" aria-label="Breadcrumb">
     <a href="{{ home_url }}">Home</a> <span aria-hidden="true">›</span>
-    <span>{{ english_name or book_title }}</span>
+    {% if section_path %}
+      {% for p in section_path %}
+        {% if p.url %}<a href="{{ p.url }}">{{ p.title }}</a>{% else %}<span>{{ p.title }}</span>{% endif %}
+        {% if not loop.last %}<span aria-hidden="true">›</span>{% endif %}
+      {% endfor %}
+    {% else %}
+      <span>{{ english_name or book_title }}</span>
+    {% endif %}
   </nav>
+
+  {# ── Visible link to the book's outline (SEO + reader navigation) ── #}
+  <div class="book-outline-link">
+    <a href="{{ outline_url }}">📋 Outline of {{ english_name or book_title }} — every section with its study guide</a>
+  </div>
 
   <article itemscope itemtype="https://schema.org/Book">
     <meta itemprop="name" content="{{ english_name or book_title }}">
@@ -208,13 +236,41 @@
            {% if is_active and section_has_content %}aria-hidden="false"{% else %}aria-hidden="true"{% endif %}>
 
         {% if is_active and section_content %}
+          {# ── Inline outline of this section's numbered items ── #}
+          {% if section_outline %}
+          <div class="section-outline" aria-label="Outline of this section">
+            <div class="section-outline-title">In this section</div>
+            <ol class="section-outline-list">
+              {% for o in section_outline %}
+              <li class="section-outline-item">
+                <a class="section-outline-link" href="#para-{{ o.para_id }}">
+                  <span class="section-outline-num">{{ loop.index }}</span>
+                  <span class="section-outline-text pali-text">{{ o.title or ('Section ' ~ o.para_id) }}</span>
+                </a>
+                {% if o.study_url %}
+                <a class="section-outline-study" href="{{ o.study_url }}" target="_blank" rel="noopener noreferrer"
+                   title="Study guide: {{ o.study_title }}" aria-label="Study guide">📖</a>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ol>
+            <a class="section-outline-more" href="{{ outline_url }}">Full outline of the book →</a>
+          </div>
+          {% endif %}
+
           {# ── Group sentences by para_id with para-group wrappers ── #}
           {% set ns = namespace(current_para=none) %}
           {% for sentence in section_content %}
             {% if ns.current_para != sentence.para_id %}
               {% if ns.current_para is not none %}</div>{% endif %}
               {% set ns.current_para = sentence.para_id %}
-              <div class="para-group" data-para-id="{{ sentence.para_id }}">
+              <div class="para-group" data-para-id="{{ sentence.para_id }}" id="para-{{ sentence.para_id }}">
+                {% if sentence.para_id in summary_map %}
+                <button type="button" class="study-icon"
+                        data-section-id="{{ sentence.para_id }}"
+                        aria-label="Open study guide"
+                        title="Open study guide">📖</button>
+                {% endif %}
             {% endif %}
           <div class="sentence-row" id="p-{{ sentence.para_id }}-l-{{ sentence.line_id }}">
             <div class="pali-text">{{ sentence.pali | safe }}</div>
@@ -265,7 +321,9 @@
 <div id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
   <div class="modal-box">
     <div class="modal-header">
-      <h2 id="settings-title">⚙️ Settings</h2>
+      {# Not a real heading (<div>) so Google doesn't index "Settings" as a
+         page heading — it's reader UI chrome, not content. #}
+      <div id="settings-title" class="modal-header-title">⚙️ Settings</div>
       <button type="button" class="modal-close-x" id="settings-cancel" aria-label="Close">✕</button>
     </div>
 
@@ -344,7 +402,8 @@
 <!-- CREDITS MODAL -->
 <div id="credits-modal" role="dialog" aria-modal="true" aria-label="Credits">
   <div class="credits-box">
-    <h3>📖 Credits &amp; Acknowledgements</h3>
+    {# Not a real heading (<div>) so Google doesn't index it as a heading. #}
+    <div class="credits-box-title">📖 Credits &amp; Acknowledgements</div>
 
     <div class="credit-item">
       <span class="ci-icon">📜</span>
@@ -554,6 +613,97 @@
     }
   })();
 </script>
+
+  <!-- ── Study-guide popup ──────────────────────────────────────────────
+       Clicking the 📖 icon on a section opens its AI study guide in a
+       modal (fetched from /api/study/...). Every citation inside the
+       guide links back into the book reader in a NEW tab. -->
+  <script>
+  (function () {
+    const cfg = window.BOOK_CONFIG || {};
+    let _modal = null;
+
+    function closeStudyModal() {
+      if (_modal) { _modal.remove(); _modal = null; }
+    }
+
+    function esc(s) {
+      const d = document.createElement('div');
+      d.textContent = String(s == null ? '' : s);
+      return d.innerHTML;
+    }
+
+    async function openStudyModal(sectionId) {
+      closeStudyModal();
+      const modal = document.createElement('div');
+      modal.className = 'study-modal';
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-label', 'Study guide');
+      modal.innerHTML =
+        '<div class="study-modal-box">' +
+          '<div class="study-modal-header">' +
+            '<span class="study-modal-kicker">📖 Study guide</span>' +
+            '<button type="button" class="modal-close-x" aria-label="Close">✕</button>' +
+          '</div>' +
+          '<div class="study-modal-body">' +
+            '<div class="study-loading">Loading study guide…</div>' +
+          '</div>' +
+          '<div class="study-modal-footer"></div>' +
+        '</div>';
+      document.body.appendChild(modal);
+      _modal = modal;
+
+      modal.querySelector('.modal-close-x').addEventListener('click', closeStudyModal);
+      modal.addEventListener('click', e => { if (e.target === modal) closeStudyModal(); });
+      const escHandler = e => { if (e.key === 'Escape') {
+        closeStudyModal(); document.removeEventListener('keydown', escHandler);
+      } };
+      document.addEventListener('keydown', escHandler);
+
+      const body   = modal.querySelector('.study-modal-body');
+      const footer = modal.querySelector('.study-modal-footer');
+      try {
+        const res = await fetch(
+          cfg.baseUrl + '/api/study/' + cfg.bookId + '/' + sectionId +
+          '?lang=' + encodeURIComponent(cfg.lang || 'en'));
+        if (!res.ok) throw new Error('not found');
+        const data = await res.json();
+        body.innerHTML =
+          (data.title ? '<h2 class="study-modal-title">' + esc(data.title) + '</h2>' : '') +
+          '<div class="study-content">' + data.content_html + '</div>';
+        if (data.url) {
+          const a = document.createElement('a');
+          a.className = 'study-full-link';
+          a.href      = data.url;
+          a.target    = '_blank';
+          a.rel       = 'noopener noreferrer';
+          a.textContent = 'Open full study guide ↗';
+          footer.appendChild(a);
+        }
+      } catch (err) {
+        body.innerHTML = '<p class="study-loading error">Study guide not available.</p>';
+      }
+    }
+
+    document.addEventListener('click', e => {
+      const icon = e.target.closest('.study-icon');
+      if (!icon) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const sid = icon.dataset.sectionId;
+      if (sid) openStudyModal(sid);
+    });
+    document.addEventListener('keydown', e => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList &&
+          e.target.classList.contains('study-icon')) {
+        e.preventDefault();
+        const sid = e.target.dataset.sectionId;
+        if (sid) openStudyModal(sid);
+      }
+    });
+  })();
+  </script>
 
   <!-- ── Mobile app banner ─────────────────────────────────────────────
        A small dismissible banner (Android only for now) invites readers

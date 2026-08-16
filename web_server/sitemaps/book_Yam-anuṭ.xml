@@ -2,554 +2,651 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/ganthārambhavaṇṇanā-918</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
+    <loc>/en/book/Yam-anuṭ/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Yam-anuṭ/ganthārambhavaṇṇanā-918</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/ganthārambhavaṇṇanā-918"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/1-mūlayamakaṃ-924</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
+    <loc>/en/book/Yam-anuṭ/1-mūlayamakaṃ-924</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/1-mūlayamakaṃ-924"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-925</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
+    <loc>/en/book/Yam-anuṭ/uddesavāravaṇṇanā-925</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/uddesavāravaṇṇanā-925"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/niddesavāravaṇṇanā-931</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
+    <loc>/en/book/Yam-anuṭ/niddesavāravaṇṇanā-931</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/niddesavāravaṇṇanā-931"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/2-khandhayamakaṃ-946</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
+    <loc>/en/book/Yam-anuṭ/2-khandhayamakaṃ-946</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/2-khandhayamakaṃ-946"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāro-947</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
+    <loc>/en/book/Yam-anuṭ/1-paṇṇattivāro-947</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/1-paṇṇattivāro-947"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-948</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
+    <loc>/en/book/Yam-anuṭ/uddesavāravaṇṇanā-948</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/uddesavāravaṇṇanā-948"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/niddesavāravaṇṇanā-959</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
+    <loc>/en/book/Yam-anuṭ/niddesavāravaṇṇanā-959</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/niddesavāravaṇṇanā-959"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
+    <loc>/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/2-pavattivāravaṇṇanā-964"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
+    <loc>/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-973"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/3-āyatanayamakaṃ-978</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
+    <loc>/en/book/Yam-anuṭ/3-āyatanayamakaṃ-978</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/3-āyatanayamakaṃ-978"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāro-979</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
+    <loc>/en/book/Yam-anuṭ/1-paṇṇattivāro-979</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/1-paṇṇattivāro-979"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-980</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
+    <loc>/en/book/Yam-anuṭ/uddesavāravaṇṇanā-980</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/uddesavāravaṇṇanā-980"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/niddesavāravaṇṇanā-983</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
+    <loc>/en/book/Yam-anuṭ/niddesavāravaṇṇanā-983</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/niddesavāravaṇṇanā-983"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
+    <loc>/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/2-pavattivāravaṇṇanā-986"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/4-dhātuyamakaṃ-1002</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
+    <loc>/en/book/Yam-anuṭ/4-dhātuyamakaṃ-1002</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/4-dhātuyamakaṃ-1002"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/5-saccayamakaṃ-1005</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
+    <loc>/en/book/Yam-anuṭ/5-saccayamakaṃ-1005</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/5-saccayamakaṃ-1005"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
+    <loc>/en/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1006"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
+    <loc>/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1010"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
+    <loc>/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1020"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
+    <loc>/en/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/6-saṅkhārayamakaṃ-1024"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
+    <loc>/en/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/1-paṇṇattivāravaṇṇanā-1025"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
+    <loc>/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1031"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/7-anusayayamakaṃ-1039</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
+    <loc>/en/book/Yam-anuṭ/7-anusayayamakaṃ-1039</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/7-anusayayamakaṃ-1039"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
+    <loc>/en/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/paricchedaparicchinnuddesavāravaṇṇanā-1040"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
+    <loc>/en/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/uppattiṭṭhānavāravaṇṇanā-1048"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/mahāvāro-1059</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/mahāvāro-1059"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/mahāvāro-1059"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/mahāvāro-1059"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/mahāvāro-1059"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/mahāvāro-1059"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/mahāvāro-1059"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/mahāvāro-1059"/>
+    <loc>/en/book/Yam-anuṭ/mahāvāro-1059</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/mahāvāro-1059"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/mahāvāro-1059"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/mahāvāro-1059"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/mahāvāro-1059"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/mahāvāro-1059"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/mahāvāro-1059"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/mahāvāro-1059"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/mahāvāro-1059"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/mahāvāro-1059"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
+    <loc>/en/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/1-anusayavāravaṇṇanā-1060"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
+    <loc>/en/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/2-sānusayavāravaṇṇanā-1064"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
+    <loc>/en/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/3-pajahanavāravaṇṇanā-1070"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
+    <loc>/en/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/5-pahīnavāravaṇṇanā-1074"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
+    <loc>/en/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/7-dhātuvāravaṇṇanā-1078"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/8-cittayamakaṃ-1082</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
+    <loc>/en/book/Yam-anuṭ/8-cittayamakaṃ-1082</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/8-cittayamakaṃ-1082"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1083</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
+    <loc>/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1083</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/uddesavāravaṇṇanā-1083"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/niddesavāravaṇṇanā-1087</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
+    <loc>/en/book/Yam-anuṭ/niddesavāravaṇṇanā-1087</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/niddesavāravaṇṇanā-1087"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/9-dhammayamakaṃ-1095</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
+    <loc>/en/book/Yam-anuṭ/9-dhammayamakaṃ-1095</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/9-dhammayamakaṃ-1095"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāro-1096</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
+    <loc>/en/book/Yam-anuṭ/1-paṇṇattivāro-1096</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/1-paṇṇattivāro-1096"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1097</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
+    <loc>/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1097</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/uddesavāravaṇṇanā-1097"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
+    <loc>/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1100"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/10-indriyayamakaṃ-1108</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
+    <loc>/en/book/Yam-anuṭ/10-indriyayamakaṃ-1108</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/10-indriyayamakaṃ-1108"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāro-1109</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
+    <loc>/en/book/Yam-anuṭ/1-paṇṇattivāro-1109</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/1-paṇṇattivāro-1109"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1110</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
+    <loc>/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1110</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/uddesavāravaṇṇanā-1110"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/niddesavāravaṇṇanā-1113</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
+    <loc>/en/book/Yam-anuṭ/niddesavāravaṇṇanā-1113</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/niddesavāravaṇṇanā-1113"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
+    <loc>/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/2-pavattivāravaṇṇanā-1117"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
+    <loc>/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/3-pariññāvāravaṇṇanā-1131"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
+    <loc>/en/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Yam-anuṭ/paṭṭhānapakaraṇa-anuṭīkā-1139"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

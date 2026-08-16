@@ -127,7 +127,8 @@ def create_app(config_name='default'):
         # Server-rendered HTML pages
         'main.index', 'main.book', 'main.about', 'main.privacy',
         'main.sitemap_index', 'main.sitemap_file', 'main.robots_txt',
-        'main.app_share_link',
+        'main.app_share_link', 'main.study_guide', 'main.outline',
+        'main.api_study_section',
         # Read-only JSON APIs (frontend + mobile app)
         'main.api_menu', 'main.suggest_word', 'main.search_headings_suggest',
         'main.bold_suggest', 'main.bold_definition',

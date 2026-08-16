@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ seo_title }}</title>
+  <meta name="description" content="{{ meta_description }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:title"       content="{{ seo_title }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  <meta property="og:type"        content="article">
+  <meta property="og:site_name"   content="E-Piṭaka">
+  <meta property="og:url"         content="{{ canonical_url }}">
+  <meta property="og:image"       content="{{ site_url }}/static/og-image.png">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="{{ seo_title }}">
+  <meta name="twitter:description" content="{{ meta_description }}">
+
+  {# English-only content → hreflang en + x-default (no other languages). #}
+  <link rel="alternate" hreflang="x-default" href="{{ canonical_url }}">
+  <link rel="alternate" hreflang="en" href="{{ canonical_url }}">
+
+  <script type="application/ld+json">{{ study_jsonld | tojson }}</script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    :root {
+      --bg: #faf7f2; --surface: #ffffff; --border: #e8e0d5;
+      --accent: #8b5e3c; --accent-light: #f5ede4;
+      --pali: #7c2d12; --trans: #1e3a5f; --text: #2d2420; --muted: #8a7a6e;
+      --font-serif: "Crimson Pro", Georgia, serif;
+      --font-sans: "Noto Sans", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.65; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: .5rem;
+      padding: .6rem 1rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+    .topbar a { font-size: .8rem; }
+    .topbar .book-title { flex: 1; font-family: var(--font-serif); font-size: 1rem; font-weight: 600;
+      color: var(--accent); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .breadcrumb { font-size: .78rem; color: var(--muted); padding: .6rem 1.1rem;
+      border-bottom: 1px solid var(--border); }
+
+    main { max-width: 760px; margin: 0 auto; padding: 1.6rem 1.1rem 4rem; }
+    h1 { font-family: var(--font-serif); font-size: 1.7rem; line-height: 1.3; color: var(--text); margin-bottom: .4rem; }
+    .study-context { font-size: .85rem; color: var(--muted); margin-bottom: 1.2rem; }
+    .study-context a { color: var(--accent); }
+    .study-meta { font-size: .78rem; color: var(--muted); margin-bottom: 1.6rem;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: .5rem 0; }
+
+    .study-content h2 { font-family: var(--font-serif); font-size: 1.25rem; margin: 1.6rem 0 .6rem; color: var(--text); }
+    .study-content h3 { font-family: var(--font-serif); font-size: 1.08rem; margin: 1.2rem 0 .45rem; color: var(--text); }
+    .study-content h4 { font-size: .95rem; margin: 1rem 0 .4rem; }
+    .study-content p { margin: .55rem 0; }
+    .study-content ul, .study-content ol { margin: .55rem 0 .55rem 1.4rem; }
+    .study-content li { margin: .22rem 0; }
+    .study-content strong { color: var(--text); }
+    .study-content em { color: var(--trans); }
+    .study-content blockquote { border-left: 3px solid var(--accent); background: var(--accent-light);
+      padding: .5rem .9rem; margin: .7rem 0; border-radius: 0 6px 6px 0; color: #5a4632; }
+    .study-content table { border-collapse: collapse; margin: .8rem 0; width: 100%; font-size: .9rem; }
+    .study-content th, .study-content td { border: 1px solid var(--border); padding: .35rem .6rem; text-align: left; }
+    .study-content th { background: var(--accent-light); }
+    .study-content hr { border: none; border-top: 1px solid var(--border); margin: 1.4rem 0; }
+    .study-content pre { background: #2d2420; color: #f5f0ea; padding: .8rem 1rem; border-radius: 8px;
+      overflow-x: auto; font-size: .82rem; margin: .7rem 0; }
+    .study-content code { background: #f0e9df; padding: .1rem .3rem; border-radius: 4px; font-size: .85em; }
+    .study-content pre code { background: none; padding: 0; }
+    .study-citation { color: var(--trans); border-bottom: 1px dotted #9db4d4; font-size: .82em; white-space: nowrap; }
+    .study-citation:hover { background: var(--accent-light); text-decoration: none; }
+
+    .study-cta { margin-top: 1.8rem; padding: .8rem 1rem; background: var(--accent-light);
+      border-radius: 8px; font-size: .9rem; }
+    .study-cta a { font-weight: 600; }
+
+    .study-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.2rem;
+      border-top: 1px solid var(--border); padding-top: 1rem; font-size: .88rem; }
+    .study-nav a { max-width: 48%; }
+    .study-nav .nav-next { text-align: right; }
+    .study-nav .nav-label { display: block; font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+
+    footer { text-align: center; font-size: .78rem; color: var(--muted); padding: 1.5rem 1rem 3rem; }
+    footer a { color: var(--muted); text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header class="topbar" role="banner">
+  <a href="{{ home_url }}" aria-label="Home" title="Home">⌂ Home</a>
+  <a href="{{ book_url }}" class="book-title" title="{{ book_title }}">{{ book_title }}</a>
+  <a href="{{ outline_url }}" title="Outline of all sections">Outline</a>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ home_url }}">Home</a> <span aria-hidden="true">›</span>
+  <a href="{{ book_url }}">{{ english_name or book_title }}</a>
+  {% if sutta_title %}<span aria-hidden="true">›</span><span>{{ sutta_title }}</span>{% endif %}
+  <span aria-hidden="true">›</span><span>Study guide</span>
+</nav>
+
+<main>
+  <article>
+    <h1>{{ summary_title }}</h1>
+    <p class="study-context">
+      Study guide for a section of the
+      <a href="{{ book_url }}">{{ english_name or book_title }}</a>
+      {% if sutta_title %}— <em>{{ sutta_title }}</em>{% endif %}.
+      Every quotation is cited to its source
+      (<a href="{{ book_url }}">mūla</a> / aṭṭhakathā / ṭīkā) as [book:para:line].
+    </p>
+
+    <div class="study-content">
+      {{ content_html | safe }}
+    </div>
+
+    {% if sources %}
+    <p class="study-meta">
+      <strong>Sources:</strong>
+      {% for s in sources %}<a href="{{ book_url }}">{{ s.book_name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}.
+      {% if model %}Generated with {{ model }}.{% endif %}
+    </p>
+    {% endif %}
+
+    <p class="study-cta">
+      📖 Read this section in the original Pāli with translation
+      {% if section_url %}<a href="{{ section_url }}" target="_blank" rel="noopener noreferrer">in the book reader ↗</a>{% else %}<a href="{{ book_url }}" target="_blank" rel="noopener noreferrer">in the book reader ↗</a>{% endif %}.
+      See the <a href="{{ outline_url }}">full outline of {{ english_name or book_title }}</a>.
+    </p>
+  </article>
+
+  <nav class="study-nav" aria-label="Study guide navigation">
+    {% if prev_url %}
+    <a class="nav-prev" href="{{ prev_url }}"><span class="nav-label">← Previous</span>{{ prev_title }}</a>
+    {% else %}<span></span>{% endif %}
+    {% if next_url %}
+    <a class="nav-next" href="{{ next_url }}"><span class="nav-label">Next →</span>{{ next_title }}</a>
+    {% endif %}
+  </nav>
+</main>
+
+<footer>
+  <a href="{{ home_url }}">E-Piṭaka</a> — Chaṭṭha Saṅgāyana Tipiṭaka · Free to read online
+</footer>
+
+</body>
+</html>

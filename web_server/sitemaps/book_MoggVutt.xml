@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
+    <loc>/en/book/MoggVutt/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/MoggVutt/moggallāna-vuttivivaraṇapañcikā-1"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

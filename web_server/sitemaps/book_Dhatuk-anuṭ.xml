@@ -2,314 +2,371 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
+    <loc>/en/book/Dhatuk-anuṭ/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/dhātukathāpakaraṇa-anuṭīkā-4"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
+    <loc>/en/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/ganthārambhavaṇṇanā-5"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
+    <loc>/en/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/1-mātikāvaṇṇanā-11"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
+    <loc>/en/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/1-nayamātikāvaṇṇanā-12"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
+    <loc>/en/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/2-abbhantaramātikāvaṇṇanā-14"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
+    <loc>/en/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/3-nayamukhamātikāvaṇṇanā-17"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
+    <loc>/en/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/4-lakkhaṇamātikāvaṇṇanā-22"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
+    <loc>/en/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/5-bāhiramātikāvaṇṇanā-24"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
+    <loc>/en/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/2-niddesavaṇṇanā-33"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
+    <loc>/en/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/1-paṭhamanayo-saṅgahāsaṅgahapadavaṇṇanā-34"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
+    <loc>/en/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/1-khandhapadavaṇṇanā-35"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
+    <loc>/en/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/āyatanapadādivaṇṇanā-38"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
+    <loc>/en/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/6-paṭiccasamuppādavaṇṇanā-40"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
+    <loc>/en/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/2-dutiyanayo-saṅgahitenaasaṅgahitapadavaṇṇanā-44"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
+    <loc>/en/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/3-tatiyanayo-asaṅgahitenasaṅgahitapadavaṇṇanā-59"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
+    <loc>/en/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/4-catutthanayo-saṅgahitenasaṅgahitapadavaṇṇanā-64"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
+    <loc>/en/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/5-pañcamanayo-asaṅgahitenaasaṅgahitapadavaṇṇanā-68"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
+    <loc>/en/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/6-chaṭṭhanayo-sampayogavippayogapadavaṇṇanā-75"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
+    <loc>/en/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/7-sattamanayo-sampayuttenavippayuttapadavaṇṇanā-87"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
+    <loc>/en/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/8-aṭṭhamanayo-vippayuttenasampayuttapadavaṇṇanā-93"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
+    <loc>/en/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/9-navamanayo-sampayuttenasampayuttapadavaṇṇanā-96"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
+    <loc>/en/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/10-dasamanayo-vippayuttenavippayuttapadavaṇṇanā-99"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
+    <loc>/en/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/11-ekādasamanayo-saṅgahitenasampayuttavippayuttapadavaṇṇanā-102"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
+    <loc>/en/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/12-dvādasamanayo-sampayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-105"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
+    <loc>/en/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/13-terasamanayo-asaṅgahitenasampayuttavippayuttapadavaṇṇanā-108"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
+    <loc>/en/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Dhatuk-anuṭ/14-cuddasamanayo-vippayuttenasaṅgahitāsaṅgahitapadavaṇṇanā-112"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

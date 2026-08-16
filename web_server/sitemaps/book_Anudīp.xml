@@ -2,170 +2,203 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/anudīpanīpāṭha-2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/anudīpanīpāṭha-2"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/anudīpanīpāṭha-2"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/anudīpanīpāṭha-2"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/anudīpanīpāṭha-2"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/anudīpanīpāṭha-2"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/anudīpanīpāṭha-2"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/anudīpanīpāṭha-2"/>
+    <loc>/en/book/Anudīp/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Anudīp/anudīpanīpāṭha-2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/anudīpanīpāṭha-2"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/anudīpanīpāṭha-2"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/anudīpanīpāṭha-2"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/anudīpanīpāṭha-2"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/anudīpanīpāṭha-2"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/anudīpanīpāṭha-2"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/anudīpanīpāṭha-2"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/anudīpanīpāṭha-2"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/anudīpanīpāṭha-2"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/1-cittasaṅgahaanudīpanā-3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
+    <loc>/en/book/Anudīp/1-cittasaṅgahaanudīpanā-3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/1-cittasaṅgahaanudīpanā-3"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
+    <loc>/en/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/2-cetasikasaṅgahaanudīpanā-145"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
+    <loc>/en/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/3-pakiṇṇakasaṅgahaanudīpanā-206"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/4-vīthisaṅgahaanudīpanā-215</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
+    <loc>/en/book/Anudīp/4-vīthisaṅgahaanudīpanā-215</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/4-vīthisaṅgahaanudīpanā-215"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
+    <loc>/en/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/5-vīthimuttasaṅgahaanudīpanā-239"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/6-rūpasaṅgahaanudīpanā-284</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
+    <loc>/en/book/Anudīp/6-rūpasaṅgahaanudīpanā-284</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/6-rūpasaṅgahaanudīpanā-284"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
+    <loc>/en/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/7-samuccayasaṅgahaanudīpanā-321"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/8-paccayasaṅgahaanudīpanā-355</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
+    <loc>/en/book/Anudīp/8-paccayasaṅgahaanudīpanā-355</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/8-paccayasaṅgahaanudīpanā-355"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/paṭiccasamuppādanayānudīpanā-356</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
+    <loc>/en/book/Anudīp/paṭiccasamuppādanayānudīpanā-356</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/paṭiccasamuppādanayānudīpanā-356"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/paṭṭhānanayānudīpanā-363</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
+    <loc>/en/book/Anudīp/paṭṭhānanayānudīpanā-363</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/paṭṭhānanayānudīpanā-363"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
+    <loc>/en/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/9-kammaṭṭhānasaṅgahaanudīpanā-388"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/nigamagāthāsu-425</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/nigamagāthāsu-425"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/nigamagāthāsu-425"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/nigamagāthāsu-425"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/nigamagāthāsu-425"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/nigamagāthāsu-425"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/nigamagāthāsu-425"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/nigamagāthāsu-425"/>
+    <loc>/en/book/Anudīp/nigamagāthāsu-425</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/nigamagāthāsu-425"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/nigamagāthāsu-425"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/nigamagāthāsu-425"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/nigamagāthāsu-425"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/nigamagāthāsu-425"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/nigamagāthāsu-425"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/nigamagāthāsu-425"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/nigamagāthāsu-425"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/nigamagāthāsu-425"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Anudīp/dīpaniyā-nigamagāthāsu-427</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
+    <loc>/en/book/Anudīp/dīpaniyā-nigamagāthāsu-427</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Anudīp/dīpaniyā-nigamagāthāsu-427"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

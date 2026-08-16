@@ -239,6 +239,114 @@
   list-style: none;
 }
 
+/* ── Outline entry in the Contents panel ────────────────── */
+.sb-outline-link {
+  display: flex; align-items: center; gap: 0.4rem;
+  margin-bottom: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.sb-outline-link:hover {
+  background: #ecdccb;
+  text-decoration: none;
+}
+
+/* ── Outline panel ──────────────────────────────────────── */
+.sb-outline-wrap {
+  flex: 1; min-height: 0;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.sb-outline-full {
+  flex-shrink: 0;
+  margin: 0.6rem 0.7rem 0.3rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.8rem; font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.sb-outline-full:hover { background: #ecdccb; text-decoration: none; }
+.sb-outline-loading {
+  flex-shrink: 0;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem; color: var(--muted);
+}
+.sb-outline-tree {
+  flex: 1; min-height: 0;
+  overflow-y: auto;
+  padding: 0.1rem 0.4rem 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+.sb-outline-empty {
+  padding: 1rem 0.6rem;
+  font-size: 0.82rem; color: var(--muted);
+}
+
+.sb-outline-vagga { margin-bottom: 0.35rem; }
+.sb-outline-vagga-title {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0.4rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  background: var(--bg);
+  font-family: var(--font-serif);
+  font-size: 0.9rem; font-weight: 600; color: var(--accent);
+  cursor: pointer; user-select: none;
+  transition: background 0.12s;
+}
+.sb-outline-vagga-title:hover { background: var(--accent-light); }
+.sb-outline-vagga-title .sb-caret {
+  font-size: 0.6rem; color: var(--muted);
+  transition: transform 0.18s;
+}
+.sb-outline-vagga-title:not(.open) .sb-caret { transform: rotate(-90deg); }
+.sb-outline-vagga-body:not(.open) { display: none; }
+
+.sb-outline-sutta { margin: 0.15rem 0 0.3rem; }
+.sb-outline-sutta-title {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.72rem; font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.sb-outline-list {
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.sb-outline-item {
+  display: flex; align-items: center; gap: 0.3rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 5px;
+}
+.sb-outline-item:hover { background: var(--accent-light); }
+.sb-outline-item-link {
+  flex: 1; min-width: 0;
+  padding: 0.22rem 0;
+  font-size: 0.85rem;
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1.35;
+}
+.sb-outline-item-link:hover { color: var(--accent); text-decoration: none; }
+.sb-outline-study {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.sb-outline-study:hover { text-decoration: none; }
+
 /* ── Responsive ──────────────────────────────────────────── */
 /* Tablet & desktop: VSCode-style sidebar.
    The rail is always visible; the panel opens IN PLACE next to it

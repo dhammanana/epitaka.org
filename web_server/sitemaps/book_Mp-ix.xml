@@ -2,578 +2,679 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/navakanipāta-aṭṭhakathā-275</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
+    <loc>/en/book/Mp-ix/outline</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>/en/book/Mp-ix/navakanipāta-aṭṭhakathā-275</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/navakanipāta-aṭṭhakathā-275"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
+    <loc>/en/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/1-paṭhamapaṇṇāsakaṃ-276"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/1-sambodhivaggo-277</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/1-sambodhivaggo-277"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/1-sambodhivaggo-277"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/1-sambodhivaggo-277"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/1-sambodhivaggo-277"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/1-sambodhivaggo-277"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/1-sambodhivaggo-277"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/1-sambodhivaggo-277"/>
+    <loc>/en/book/Mp-ix/1-sambodhivaggo-277</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/1-sambodhivaggo-277"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/1-sambodhivaggo-277"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/1-sambodhivaggo-277"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/1-sambodhivaggo-277"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/1-sambodhivaggo-277"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/1-sambodhivaggo-277"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/1-sambodhivaggo-277"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/1-sambodhivaggo-277"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/1-sambodhivaggo-277"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/1-sambodhisuttavaṇṇanā-278</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
+    <loc>/en/book/Mp-ix/1-sambodhisuttavaṇṇanā-278</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/1-sambodhisuttavaṇṇanā-278"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/2-nissayasuttavaṇṇanā-282</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
+    <loc>/en/book/Mp-ix/2-nissayasuttavaṇṇanā-282</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/2-nissayasuttavaṇṇanā-282"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/3-meghiyasuttavaṇṇanā-284</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
+    <loc>/en/book/Mp-ix/3-meghiyasuttavaṇṇanā-284</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/3-meghiyasuttavaṇṇanā-284"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/4-nandakasuttavaṇṇanā-287</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
+    <loc>/en/book/Mp-ix/4-nandakasuttavaṇṇanā-287</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/4-nandakasuttavaṇṇanā-287"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/5-balasuttavaṇṇanā-291</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
+    <loc>/en/book/Mp-ix/5-balasuttavaṇṇanā-291</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/5-balasuttavaṇṇanā-291"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/6-sevanāsuttavaṇṇanā-293</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
+    <loc>/en/book/Mp-ix/6-sevanāsuttavaṇṇanā-293</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/6-sevanāsuttavaṇṇanā-293"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/7-sutavāsuttavaṇṇanā-295</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
+    <loc>/en/book/Mp-ix/7-sutavāsuttavaṇṇanā-295</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/7-sutavāsuttavaṇṇanā-295"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
+    <loc>/en/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/8-10-sajjhasuttādivaṇṇanā-297"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/2-sīhanādavaggo-300</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/2-sīhanādavaggo-300"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/2-sīhanādavaggo-300"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/2-sīhanādavaggo-300"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/2-sīhanādavaggo-300"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/2-sīhanādavaggo-300"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/2-sīhanādavaggo-300"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/2-sīhanādavaggo-300"/>
+    <loc>/en/book/Mp-ix/2-sīhanādavaggo-300</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/2-sīhanādavaggo-300"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/2-sīhanādavaggo-300"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/2-sīhanādavaggo-300"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/2-sīhanādavaggo-300"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/2-sīhanādavaggo-300"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/2-sīhanādavaggo-300"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/2-sīhanādavaggo-300"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/2-sīhanādavaggo-300"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/2-sīhanādavaggo-300"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
+    <loc>/en/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/1-sīhanādasuttavaṇṇanā-301"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
+    <loc>/en/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/2-saupādisesasuttavaṇṇanā-308"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
+    <loc>/en/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/3-koṭṭhikasuttavaṇṇanā-310"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/4-samiddhisuttavaṇṇanā-312</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
+    <loc>/en/book/Mp-ix/4-samiddhisuttavaṇṇanā-312</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/4-samiddhisuttavaṇṇanā-312"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
+    <loc>/en/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/5-6-gaṇḍasuttādivaṇṇanā-314"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
+    <loc>/en/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/7-8-kulasuttādivaṇṇanā-316"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/9-devatāsuttavaṇṇanā-318</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
+    <loc>/en/book/Mp-ix/9-devatāsuttavaṇṇanā-318</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/9-devatāsuttavaṇṇanā-318"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/10-velāmasuttavaṇṇanā-320</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
+    <loc>/en/book/Mp-ix/10-velāmasuttavaṇṇanā-320</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/10-velāmasuttavaṇṇanā-320"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/3-sattāvāsavaggo-339</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/3-sattāvāsavaggo-339"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/3-sattāvāsavaggo-339"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/3-sattāvāsavaggo-339"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/3-sattāvāsavaggo-339"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/3-sattāvāsavaggo-339"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/3-sattāvāsavaggo-339"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/3-sattāvāsavaggo-339"/>
+    <loc>/en/book/Mp-ix/3-sattāvāsavaggo-339</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/3-sattāvāsavaggo-339"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/3-sattāvāsavaggo-339"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/3-sattāvāsavaggo-339"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/3-sattāvāsavaggo-339"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/3-sattāvāsavaggo-339"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/3-sattāvāsavaggo-339"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/3-sattāvāsavaggo-339"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/3-sattāvāsavaggo-339"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/3-sattāvāsavaggo-339"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
+    <loc>/en/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/1-tiṭhānasuttavaṇṇanā-340"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
+    <loc>/en/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/2-assakhaḷuṅkasuttavaṇṇanā-342"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
+    <loc>/en/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/3-taṇhāmūlakasuttavaṇṇanā-344"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
+    <loc>/en/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/4-sattāvāsasuttavaṇṇanā-348"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/5-paññāsuttavaṇṇanā-350</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
+    <loc>/en/book/Mp-ix/5-paññāsuttavaṇṇanā-350</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/5-paññāsuttavaṇṇanā-350"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
+    <loc>/en/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/6-silāyūpasuttavaṇṇanā-352"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
+    <loc>/en/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/7-8-verasuttadvayavaṇṇanā-355"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
+    <loc>/en/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/9-āghātavatthusuttavaṇṇanā-357"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
+    <loc>/en/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/10-11-āghātapaṭivinayasuttādivaṇṇanā-359"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/4-mahāvaggo-362</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/4-mahāvaggo-362"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/4-mahāvaggo-362"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/4-mahāvaggo-362"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/4-mahāvaggo-362"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/4-mahāvaggo-362"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/4-mahāvaggo-362"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/4-mahāvaggo-362"/>
+    <loc>/en/book/Mp-ix/4-mahāvaggo-362</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/4-mahāvaggo-362"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/4-mahāvaggo-362"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/4-mahāvaggo-362"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/4-mahāvaggo-362"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/4-mahāvaggo-362"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/4-mahāvaggo-362"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/4-mahāvaggo-362"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/4-mahāvaggo-362"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/4-mahāvaggo-362"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
+    <loc>/en/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/1-2-anupubbavihārasuttādivaṇṇanā-363"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
+    <loc>/en/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/3-nibbānasukhasuttavaṇṇanā-365"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
+    <loc>/en/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/4-gāvīupamāsuttavaṇṇanā-367"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/5-jhānasuttavaṇṇanā-369</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
+    <loc>/en/book/Mp-ix/5-jhānasuttavaṇṇanā-369</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/5-jhānasuttavaṇṇanā-369"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/6-ānandasuttavaṇṇanā-374</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
+    <loc>/en/book/Mp-ix/6-ānandasuttavaṇṇanā-374</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/6-ānandasuttavaṇṇanā-374"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
+    <loc>/en/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/7-lokāyatikasuttavaṇṇanā-378"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
+    <loc>/en/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/8-devāsurasaṅgāmasuttavaṇṇanā-381"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/9-nāgasuttavaṇṇanā-384</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
+    <loc>/en/book/Mp-ix/9-nāgasuttavaṇṇanā-384</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/9-nāgasuttavaṇṇanā-384"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/10-tapussasuttavaṇṇanā-386</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
+    <loc>/en/book/Mp-ix/10-tapussasuttavaṇṇanā-386</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/10-tapussasuttavaṇṇanā-386"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/5-sāmaññavaggo-390</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/5-sāmaññavaggo-390"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/5-sāmaññavaggo-390"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/5-sāmaññavaggo-390"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/5-sāmaññavaggo-390"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/5-sāmaññavaggo-390"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/5-sāmaññavaggo-390"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/5-sāmaññavaggo-390"/>
+    <loc>/en/book/Mp-ix/5-sāmaññavaggo-390</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/5-sāmaññavaggo-390"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/5-sāmaññavaggo-390"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/5-sāmaññavaggo-390"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/5-sāmaññavaggo-390"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/5-sāmaññavaggo-390"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/5-sāmaññavaggo-390"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/5-sāmaññavaggo-390"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/5-sāmaññavaggo-390"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/5-sāmaññavaggo-390"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/1-sambādhasuttavaṇṇanā-391</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
+    <loc>/en/book/Mp-ix/1-sambādhasuttavaṇṇanā-391</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/1-sambādhasuttavaṇṇanā-391"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
+    <loc>/en/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/2-kāyasakkhisuttavaṇṇanā-393"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
+    <loc>/en/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/3-paññāvimuttasuttavaṇṇanā-395"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
+    <loc>/en/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/4-ubhatobhāgavimuttasuttavaṇṇanā-397"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
+    <loc>/en/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/5-10-sandiṭṭhikadhammasuttādivaṇṇanā-399"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
+    <loc>/en/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/2-dutiyapaṇṇāsakavaṇṇanā-403"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://epitaka.org/en/book/Mp-ix/dasakanipāta-aṭṭhakathā-409</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://epitaka.org/en/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
-    <xhtml:link rel="alternate" hreflang="si" href="https://epitaka.org/si/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://epitaka.org/th/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://epitaka.org/lo/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://epitaka.org/my/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://epitaka.org/vi/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
-    <xhtml:link rel="alternate" hreflang="ta" href="https://epitaka.org/ta/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
+    <loc>/en/book/Mp-ix/dasakanipāta-aṭṭhakathā-409</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="/en/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
+    <xhtml:link rel="alternate" hreflang="si" href="/si/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
+    <xhtml:link rel="alternate" hreflang="th" href="/th/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
+    <xhtml:link rel="alternate" hreflang="lo" href="/lo/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
+    <xhtml:link rel="alternate" hreflang="my" href="/my/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="/vi/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="/ta/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="/pt/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
+    <xhtml:link rel="alternate" hreflang="cn" href="/cn/book/Mp-ix/dasakanipāta-aṭṭhakathā-409"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
