@@ -50,6 +50,10 @@ _BOOK_PAGE_CACHE = TTLCache(max_size=24, ttl=300)
 # cached like the book page (crawlers re-hit the same URLs constantly).
 _STUDY_PAGE_CACHE   = TTLCache(max_size=64, ttl=300)
 _OUTLINE_PAGE_CACHE = TTLCache(max_size=32, ttl=300)
+# The home page: crawlers hammer `/` and `/<lang>/` constantly, and the
+# rendered output is identical for every visitor — cache it like the
+# book page (keyed on asset version so deploys bust the cache).
+_INDEX_PAGE_CACHE   = TTLCache(max_size=32, ttl=300)
 
 
 def get_lang_info(lang_code):
@@ -97,7 +101,6 @@ def index_redirect():
 @bp.route('/<lang>/')
 def index(lang):
     """Index page for a specific language."""
-    hierarchy = load_hierarchy()  # must be before 'if' block below
     translations = Config.detect_translations()
 
     if lang not in translations:
@@ -107,6 +110,7 @@ def index(lang):
             abort(404)
         # If the default language itself is not found, render anyway
         # with empty available_langs to avoid redirect loop
+        hierarchy = load_hierarchy()
         print(f"WARNING: Language '{lang}' not found in translations at {Config.DATA_DIR}")
         return render_template(
             'index.html',
@@ -122,10 +126,19 @@ def index(lang):
             website_jsonld=seo.website_jsonld(lang),
         )
 
+    # Serve the cached render for identical URLs — crawlers re-hit `/` and
+    # `/<lang>/` constantly. Keyed on asset version too, so a deploy can
+    # never serve pages pointing at old bundles beyond the TTL.
+    cache_key = (lang, get_asset_version())
+    cached_html = _INDEX_PAGE_CACHE.get(cache_key)
+    if cached_html is not None:
+        return make_response(cached_html)
+
+    hierarchy = load_hierarchy()
     lang_info = translations[lang]
     available = [translations[code] for code in sorted(translations.keys())]
 
-    return render_template(
+    html = render_template(
         'index.html',
         base_url=Config.BASE_URL,
         site_url=seo.site_base(),
@@ -138,6 +151,8 @@ def index(lang):
         popular_books=seo.popular_books(lang),
         website_jsonld=seo.website_jsonld(lang),
     )
+    _INDEX_PAGE_CACHE.set(cache_key, html)
+    return html
 
 
 # ── Translation editor console ────────────────────────────────────────────

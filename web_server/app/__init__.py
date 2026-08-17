@@ -125,7 +125,10 @@ def create_app(config_name='default'):
     # at most a few minutes after a deploy.
     _CACHEABLE_ENDPOINTS = {
         # Server-rendered HTML pages
-        'main.index', 'main.book', 'main.about', 'main.privacy',
+        # (index_redirect = the bare `/` home page — must be listed too or
+        # the most-hit URL on the site ships without a Cache-Control header
+        # and gets re-rendered by the origin on every request)
+        'main.index', 'main.index_redirect', 'main.book', 'main.about', 'main.privacy',
         'main.sitemap_index', 'main.sitemap_file', 'main.robots_txt',
         'main.app_share_link', 'main.study_guide', 'main.outline',
         'main.api_study_section',
