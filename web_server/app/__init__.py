@@ -1,6 +1,6 @@
 # app/__init__.py
 
-from flask import Flask, g, request
+from flask import Flask, g, request, render_template
 from .config import config_by_name
 from .config import Config
 from .routes.main import bp as main_bp
@@ -82,17 +82,13 @@ def create_app(config_name='default'):
         # /wp-admin, /.env, /wp-login.php, … previously got a 302 for
         # every hit — doubling request volume and teaching crawlers to
         # keep coming back.
-        return (
-            '<!doctype html><html lang="en"><head><meta charset="utf-8">'
-            '<meta name="robots" content="noindex">'
-            '<title>404 — Not Found</title></head>'
-            '<body style="font-family:sans-serif;text-align:center;padding:3rem">'
-            '<h1>404</h1><p>Page not found.</p>'
-            f'<p><a href="{Config.BASE_URL}/{Config.DEFAULT_LANG}/">Home</a></p>'
-            '</body></html>',
-            404,
-            {'Cache-Control': 'public, max-age=300'},
+        html = render_template(
+            '404.html',
+            base_url=Config.BASE_URL,
+            lang=Config.DEFAULT_LANG,
+            v=get_asset_version(),
         )
+        return (html, 404, {'Cache-Control': 'public, max-age=300'})
 
     @app.teardown_appcontext
     def teardown_db(exception=None):
@@ -135,8 +131,8 @@ def create_app(config_name='default'):
         # Read-only JSON APIs (frontend + mobile app)
         'main.api_menu', 'main.suggest_word', 'main.search_headings_suggest',
         'main.bold_suggest', 'main.bold_definition',
-        'api.api_book_section', 'api.api_book_sections', 'api.book_links',
-        'api.book_link_section', 'api.get_related_para',
+        'api.api_book_section', 'api.api_book_sections', 'api.api_heading_translations',
+        'api.book_links', 'api.book_link_section', 'api.get_related_para',
         'dictionary.api_dictionary', 'api.fts_search',
     }
 

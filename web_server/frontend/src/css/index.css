@@ -84,7 +84,7 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.55rem 1.9rem;
+  padding: 0.6rem 2rem;
   border-radius: 40px;
   font-family: var(--font-serif);
   font-size: 1.05rem;
@@ -93,13 +93,16 @@ body::before {
   background: var(--surface);
   color: var(--accent);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(139, 94, 60, 0.08);
 }
 #open-books-btn:hover {
   background: var(--accent-light);
   border-color: #d4a97a;
+  box-shadow: 0 4px 16px rgba(139, 94, 60, 0.15);
+  transform: translateY(-1px);
 }
-#open-books-btn:active { transform: scale(0.97); }
+#open-books-btn:active { transform: scale(0.97); box-shadow: none; }
 
 /* ── Language selector chips ──────────────────────── */
 .landing-languages {
@@ -197,9 +200,15 @@ body::before {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 2.5rem 1.25rem 4rem;
+  padding: 3rem 1.25rem 4rem;
   border-top: 1px solid var(--border);
   background: var(--surface);
+  /* Smooth entrance animation */
+  animation: seo-fade-in 0.6s ease both;
+}
+@keyframes seo-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .seo-about-inner {
   max-width: 720px;
@@ -278,6 +287,21 @@ body::before {
   animation: idx-fade-in 0.28s ease both;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+/* ── Mobile adjustments ─────────────────────── */
+@media (max-width: 480px) {
+  #home-landing { padding: 1.5rem; }
+  .landing-wordmark { font-size: clamp(2rem, 8vw, 3rem); }
+  .landing-tagline { font-size: 0.9rem; margin-bottom: 2rem; }
+  .landing-languages { gap: 0.5rem; max-width: 100%; }
+  .lang-chip { min-width: 70px; padding: 0.4rem 0.8rem; }
+  .seo-about { padding: 2rem 1rem 3rem; }
+  .seo-about h1 { font-size: 1.3rem; }
+  .disclaimer-body { padding: 1.2rem 1.2rem 1rem; }
+  .disclaimer-footer { flex-direction: column; align-items: stretch; gap: 0.7rem; }
+  .disclaimer-footer .check-label { text-align: center; }
+  #disclaimer-ok { width: 100%; text-align: center; }
 }
 #disclaimer-overlay.hidden { display: none; }
 

@@ -193,13 +193,10 @@ def robots_txt():
         'Disallow: /editor\n'
         'Disallow: /app\n'
         'Disallow: /static/\n'
-        'Disallow: /*?*\n'  # query-string URLs (search pages etc.)
         'Disallow: /api/\n'
         '\n'
         # Ahrefs crawler + site-audit bot: block entirely (heavy scraper
         # that burns CPU on deep-crawl re-hits; nothing in it for SEO).
-        'User-agent: Applebot\n'
-        'Crawl-delay: 5\n'
         'User-agent: AhrefsBot\n'
         'Disallow: /\n'
         '\n'
@@ -617,18 +614,25 @@ def _enrich_outline(groups, book_id, summary_map, slug_map=None):
     with a #para_id hash — the reader renders that section open and scrolls
     to the item. Level 2–6 headings (books without numbered sections) link
     to their own section page.
+
+    For level-10 items, the heading title is typically just a number (e.g.
+    "1", "2"). When a study guide exists for the section, its descriptive
+    title replaces the number so the outline is useful for reading.
     """
     for g in groups:
         for st in g['suttas']:
             for item in st['sections']:
                 pid = item['para_id']
+                sm = summary_map.get(pid)
                 if item.get('level') == 10:
                     parent_slug = (slug_map or {}).get((book_id, pid)) or ''
                     if parent_slug:
                         item['book_url'] = seo.absolute(
                             f'/{Config.DEFAULT_LANG}/book/{book_id}/{parent_slug}#{pid}')
+                        # Use summary title instead of the bare number
+                        if sm and sm.get('title'):
+                            item['title'] = sm['title']
                         item.pop('level', None)
-                        sm = summary_map.get(pid)
                         item['study_url'] = seo.absolute(
                             f'/{Config.DEFAULT_LANG}' + sm['url_path']) if sm else None
                         item['study_title'] = sm['title'] if sm else ''
@@ -637,7 +641,9 @@ def _enrich_outline(groups, book_id, summary_map, slug_map=None):
                     if item['title'] else str(pid)
                 item['book_url'] = seo.absolute(
                     f'/{Config.DEFAULT_LANG}/book/{book_id}/{slug}')
-                sm = summary_map.get(pid)
+                # For non-level-10 items, also prefer summary title if available
+                if sm and sm.get('title'):
+                    item['title'] = sm['title']
                 item['study_url'] = seo.absolute(
                     f'/{Config.DEFAULT_LANG}' + sm['url_path']) if sm else None
                 item['study_title'] = sm['title'] if sm else ''
@@ -673,6 +679,10 @@ def outline(lang, book_id):
 
     summary_map = summaries_svc.book_summary_map(book_id)
     groups = _enrich_outline(_group_outline(items), book_id, summary_map, slug_map)
+    total_sections = 0
+    for g in groups:
+        g['section_count'] = sum(len(st['sections']) for st in g['suttas'])
+        total_sections += g['section_count']
 
     page_url = seo.absolute(f'/{Config.DEFAULT_LANG}/book/{book_id}/outline')
     book_url = seo.absolute(f'/{Config.DEFAULT_LANG}/book/{book_id}')
@@ -692,6 +702,7 @@ def outline(lang, book_id):
         book_url=book_url,
         groups=groups,
         summary_count=len(summary_map),
+        total_sections=total_sections,
         base_url=Config.BASE_URL,
         site_url=seo.site_base(),
         lang=Config.DEFAULT_LANG,

@@ -71,8 +71,8 @@
   color: var(--pali-color, #7c2d12);
   overflow-wrap: break-word;
   cursor: pointer; /* clickable for dictionary */
+  line-height: 1.6;
 }
-.pali-text:hover { background: rgba(139,94,60,0.06); border-radius: 3px; }
 .translation-text {
   color: var(--trans-color, #1e3a5f);
   line-height: 1.65;

@@ -14,6 +14,7 @@
 import './css/index.css';
 import './css/common.css';
 import { initHomeDialog } from './home-dialog/home-dialog.js';
+import { initCookieConsent } from './cookie-consent.js';
 
 // ── Config injected from index.html via Flask ──────────────────
 const { baseUrl, lang } = window.INDEX_CONFIG;
@@ -57,6 +58,9 @@ async function init() {
     hierarchy,
   });
 
+  // ── Cookie consent (GDPR) ──
+  initCookieConsent({ gaId: 'G-7NQWX1DCC2' });
+
   // ── Disclaimer logic ───────────────────────────────────────────
 
   function dismissDisclaimer(savePref) {
@@ -64,13 +68,13 @@ async function init() {
       localStorage.setItem(SKIP_KEY, '1');
     }
     overlay.classList.add('hidden');
-    homeDialog.open();
+    // Library stays closed — user clicks "Browse the Canon" to open it.
   }
 
   // Skip disclaimer if the user previously ticked "don't show again"
   if (localStorage.getItem(SKIP_KEY) === '1') {
     overlay.classList.add('hidden');
-    homeDialog.open();
+    // Library stays closed — user clicks "Browse the Canon" to open it.
   }
 
   // OK button — saves preference if checkbox is ticked

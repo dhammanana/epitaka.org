@@ -24,7 +24,7 @@
   --toc-width:    300px;
   --topbar-h:     52px;
   --font-serif:   'Crimson Pro', Georgia, serif;
-  --font-sans:    'Noto Sans', system-ui, sans-serif;
+  --font-sans:    'DM Sans', system-ui, sans-serif;
   --radius:       8px;
   --reader-font-size: 16px;
 }
@@ -52,6 +52,23 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   text-align: center;
 }
+
+/* ── Skip to content (accessibility) ────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 0 0 6px 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 1000;
+  text-decoration: none;
+  transition: top 0.15s;
+}
+.skip-link:focus { top: 0; }
 
 /* ── SEO helpers ────────────────────────────────────
    Visually-hidden H1 so search engines get a proper heading without
@@ -243,21 +260,27 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   border-bottom-color: var(--border);
 }
 
+/* Wrapper around heading text + translation — stacks vertically on mobile */
+.section-heading-label {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
 .section-heading-text {
   font-family: var(--font-serif);
-  flex: 1;
   line-height: 1.4;
 }
 
 /* Heading translation shown below the Pali heading */
 .section-heading-translation {
-  display: block;
   font-family: var(--font-sans);
   font-size: 0.78em;
   font-weight: 400;
   color: var(--trans-color);
   line-height: 1.4;
-  margin-top: 0.1rem;
   font-style: italic;
 }
 
@@ -476,6 +499,36 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   margin-bottom: 0;
 }
 
+/* Page number badge — right-corner separator like a printed book */
+.page-num-badge {
+  display: block;
+  margin: 0.3rem 0 0.15rem;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.68em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-align: right;
+  border-top: 1px solid var(--border);
+  cursor: default;
+  user-select: all;
+}
+
+/* Keep the old class name working for any stale templates */
+.vri-page-badge {
+  display: block;
+  margin: 0.3rem 0 0.15rem;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.68em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-align: right;
+  border-top: 1px solid var(--border);
+  cursor: default;
+  user-select: all;
+}
+
 /* Side-by-side layout: pali left, translation right, same row */
 .sentence-row.side-by-side {
   display: grid;
@@ -520,6 +573,25 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   line-height: 1.6;
   text-align: justify;
   border-right: none;
+}
+/* In flow mode, book-link badges are moved to the end of the paragraph
+   by JS (moveBookLinksToEndOfPara). Hide them inline so they don't
+   appear at the end of each sentence. */
+[data-flow="true"] .book-link-badge,
+[data-flow="true"] .book-link-more {
+  display: none !important;
+}
+[data-flow="true"] .para-group .book-links-end {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.3rem;
+  padding-top: 0.3rem;
+  border-top: 1px solid #f0ebe4;
+}
+/* When flow mode is OFF, the end container is hidden */
+[data-flow="true"] .book-links-end > * {
+  display: inline-block !important;
 }
 
 

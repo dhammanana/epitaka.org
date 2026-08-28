@@ -25,6 +25,7 @@ export function defaultSettings() {
     fontSize:       16,          // px – applied to #main-content
     actionCollapse: false,       // true = collapse row buttons into a single ⋯ menu
     load_attha:     true,
+    pageSystem:     'vri',       // 'none' | 'vri' | 'pts' | 'myanmar' | 'thai'
   };
 }
 
@@ -62,6 +63,13 @@ export function applySettings(s) {
   // Language visibility
   document.querySelectorAll('.pali-text').forEach(el => el.style.display = s.pali ? '' : 'none');
   document.querySelectorAll('.translation-text').forEach(el => el.style.display = s.translation ? '' : 'none');
+
+  // Page number system visibility
+  const pageSystem = s.pageSystem || 'vri';
+  document.querySelectorAll('.page-num-badge').forEach(el => {
+    const system = el.dataset.pageSystem;
+    el.style.display = (pageSystem !== 'none' && system === pageSystem) ? '' : 'none';
+  });
 
   applyLayout(s);
 }
@@ -121,6 +129,7 @@ export function populateSettingsForm(s) {
 
   _setChecked('cb-action-collapse', !!s.actionCollapse);
   _setChecked('cb-load-attha', s.load_attha ?? true);
+  _setValue('page-system-select', s.pageSystem || 'vri');
 }
 
 // ── Read settings from form ───────────────────────────
@@ -137,6 +146,7 @@ export function readSettingsForm() {
     fontSize:       parseInt(document.getElementById('range-font-size')?.value) || 16,
     actionCollapse: _getChecked('cb-action-collapse'),
     load_attha:     _getChecked('cb-load-attha', true),
+    pageSystem:     _getValue('page-system-select') || 'vri',
   };
 }
 

@@ -1,63 +1,10 @@
-/* ── Dictionary panel ────────────────────────
-   Mobile: bottom sheet. On tablet/desktop it docks on the RIGHT side
-   (see media query at the bottom of this file). */
-#dict-panel {
-  position: fixed; bottom: 0; left: 0; right: 0;
-  max-height: 42vh;
-  background: var(--surface);
-  border-top: 2px solid var(--accent);
-  border-radius: 14px 14px 0 0;
-  box-shadow: 0 -4px 24px rgba(0,0,0,0.12);
-  transform: translateY(100%);
-  transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
-  z-index: 250;
-  display: flex; flex-direction: column;
-  /* em base: scales with reader font-size setting */
-  font-size: var(--reader-font-size, 16px);
-}
-#dict-panel.open { transform: translateY(0); }
-#dict-panel-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0.75rem 1.1rem 0.5rem;
-  border-bottom: 1px solid var(--border); flex-shrink: 0;
-}
-#dict-word {
-  font-size: 1.1em; font-weight: 600; color: var(--pali-color);
-}
-#dict-close,
-#dict-pin {
-  background: none; border: none; cursor: pointer;
-  font-size: 1em; color: var(--muted); padding: 0.2rem 0.4rem;
-  border-radius: 6px;
-  transition: background 0.12s, color 0.12s;
-}
-#dict-close:hover { color: var(--text); }
-#dict-pin { font-size: 0.85em; }
-#dict-pin:hover { background: var(--accent-light); }
-#dict-pin.active {
-  background: var(--accent);
-  color: var(--surface);
-}
-
-/* ── Right-side dock on tablet/desktop ──────────────────── */
-@media (min-width: 768px) {
-  #dict-panel {
-    top: var(--topbar-h); bottom: 0; left: auto; right: 0;
-    width: min(400px, 38vw);
-    max-height: none;
-    border-top: none;
-    border-left: 2px solid var(--accent);
-    border-radius: 0;
-    box-shadow: -4px 0 24px rgba(0,0,0,0.12);
-    transform: translateX(100%);
-  }
-  #dict-panel.open { transform: translateX(0); }
-  /* Pinned dictionary: docked — shrink the reading column. Unpinned it
-     overlays the page so the reader keeps their place in the text. */
-  body.dict-pinned #main-content { margin-right: min(400px, 38vw); }
-}
+/* ── Dictionary (now inside sidebar panel) ────────────────
+   The dictionary lives in #sb-panel-dict. These styles target
+   the shared result elements (#dict-results, .dict-*) that are
+   rendered inside the sidebar's .sb-dict-results container.
+   ───────────────────────────────────────────────────────── */
 #dict-results {
-  flex: 1; overflow-y: auto; padding: 0.5rem 1.1rem 1rem;
+  /* padding is set by .sb-dict-results in sidebar.css */
 }
 .dict-loading, .dict-error, .dict-empty {
   padding: 1rem 0; text-align: center;

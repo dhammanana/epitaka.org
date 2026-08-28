@@ -556,7 +556,19 @@ BOOK_NAMES_LOCALIZED = {
 
 # ── JSON-LD builders ─────────────────────────────────────────────────────
 
-def website_jsonld(lang_code: str) -> dict:
+def website_jsonld(lang_code: str, available_langs: list | None = None) -> dict:
+    """WebSite + Organization JSON-LD for the homepage.
+
+    When *available_langs* is provided (list of lang dicts from
+    Config.detect_translations), the schema includes ``inLanguage`` as
+    an array so Google understands the site offers multiple language
+    versions — this helps trigger language sitelinks in search results.
+    """
+    # Build the inLanguage value: always a list for multi-language sites.
+    langs = [lang_code]
+    if available_langs:
+        langs = [l['code'] for l in available_langs]
+
     return {
         '@context': 'https://schema.org',
         '@graph': [
@@ -569,8 +581,16 @@ def website_jsonld(lang_code: str) -> dict:
                 'description': ('Read the Pāli Tipiṭaka of the Chaṭṭha Saṅgāyana '
                                 'edition with line-by-line translations in English, '
                                 'Sinhala, Thai, Lao, Myanmar, Vietnamese, Tamil and more.'),
-                'inLanguage': lang_code,
+                'inLanguage': langs,
                 'publisher': {'@type': 'Organization', 'name': 'E-Piṭaka', 'url': absolute('/')},
+                'potentialAction': {
+                    '@type': 'SearchAction',
+                    'target': {
+                        '@type': 'EntryPoint',
+                        'urlTemplate': absolute('/search?q={search_term_string}'),
+                    },
+                    'query-input': 'required name=search_term_string',
+                },
             },
             {
                 '@type': 'Organization',

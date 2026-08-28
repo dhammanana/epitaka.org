@@ -1,171 +1,409 @@
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="{{ lang | default('en') }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Results - Chaṭṭha Saṅgāyana Tipiṭaka</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if results %}{{ total_results }} results for "{{ query }}" — E-Piṭaka{% else %}Search — E-Piṭaka{% endif %}</title>
+  <meta name="description" content="Search the Chaṭṭha Saṅgāyana Tipiṭaka — find Pāli passages, suttas, and translations across all books.">
+  <link rel="canonical" href="{{ page_url | default(base_url ~ '/search?q=' ~ query, true) }}">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-    <script src="{{ url_for('static', filename='js/tailwind-3.4.17.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/autocomplete-theme-classic.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+  <meta property="og:title"       content="Search: {{ query }} — E-Piṭaka">
+  <meta property="og:description" content="Search the Chaṭṭha Saṅgāyana Tipiṭaka for {{ query }}.">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="{{ page_url | default(base_url ~ '/search?q=' ~ query, true) }}">
+  <meta property="og:image"       content="{{ site_url | default(base_url, true) }}/static/og-image.png">
+  <meta property="og:site_name"   content="E-Piṭaka">
+  <meta name="twitter:card"       content="summary">
+  <meta name="twitter:title"      content="Search: {{ query }} — E-Piṭaka">
+  <meta name="twitter:description" content="Search the Chaṭṭha Saṅgāyana Tipiṭaka for {{ query }}.">
 
-    <style>
-        .pali-text {
-            color: maroon;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
-        .trans-english {
-            color: darkblue;
-        }
-        .trans-viet {
-            color: darkviolet;
-        }
+  <style>
+    /* ── Design tokens (matching book.css) ── */
+    :root {
+      --bg:           #faf7f2;
+      --surface:      #ffffff;
+      --border:       #e8e0d5;
+      --accent:       #8b5e3c;
+      --accent-light: #f5ede4;
+      --pali-color:   #7c2d12;
+      --trans-color:  #1e3a5f;
+      --text:         #2d2420;
+      --muted:        #8a7a6e;
+      --font-serif:   'Crimson Pro', Georgia, serif;
+      --font-sans:    'DM Sans', system-ui, sans-serif;
+      --radius:       8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
 
-        #autocomplete-heading {
-            width: 100%;
-            max-width: 28rem;
-            margin: 0 auto;
-        }
+    /* ── Skip to content (accessibility) ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 0 0 6px 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      z-index: 1000;
+      text-decoration: none;
+      transition: top 0.15s;
+    }
+    .skip-link:focus { top: 0; }
 
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
+    /* ── Top bar ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 1rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .topbar-home {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .topbar-home:hover { text-decoration: underline; }
 
-        .pagination a, .pagination span {
-            padding: 0.5rem 1rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.25rem;
-            text-decoration: none;
-            color: #2563eb;
-        }
+    /* ── Search form ── */
+    .search-form {
+      flex: 1;
+      max-width: 560px;
+    }
+    .search-input-wrap {
+      display: flex;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--surface);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .search-input-wrap:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.12);
+    }
+    .search-input {
+      flex: 1;
+      padding: 0.55rem 0.9rem;
+      border: none;
+      outline: none;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      color: var(--text);
+      background: transparent;
+    }
+    .search-input::placeholder { color: var(--muted); }
+    .search-btn {
+      padding: 0.55rem 1.1rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .search-btn:hover { background: #7a4f2f; }
 
-        .pagination a:hover {
-            background-color: #f3f4f6;
-        }
+    /* ── Main content ── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 4rem;
+    }
 
-        .pagination .current {
-            background-color: #2563eb;
-            color: white;
-            border-color: #2563eb;
-        }
+    /* ── Result heading ── */
+    .result-heading {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+    .result-heading em {
+      color: var(--accent);
+      font-style: normal;
+    }
+    .no-results {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .no-results-icon { font-size: 2.5rem; margin-bottom: 0.8rem; opacity: 0.5; }
+    .no-results h2 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+    .no-results p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
 
-        .pagination .disabled {
-            color: #9ca3af;
-            pointer-events: none;
-        }
-    </style>
+    /* ── Result cards ── */
+    .result-list { list-style: none; }
+    .result-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      margin-bottom: 0.8rem;
+      transition: box-shadow 0.15s, border-color 0.15s;
+    }
+    .result-item:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-color: #d4a97a;
+    }
+
+    .result-book-link {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .result-book-link:hover { text-decoration: underline; }
+    .result-book-link::after {
+      content: '↗';
+      font-size: 0.75rem;
+      opacity: 0.5;
+    }
+
+    .result-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin: 0.3rem 0 0.6rem;
+    }
+
+    .result-pali {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      color: var(--pali-color);
+      line-height: 1.6;
+      margin-bottom: 0.3rem;
+    }
+
+    .result-translation {
+      font-size: 0.9rem;
+      color: var(--trans-color);
+      line-height: 1.55;
+    }
+
+    .result-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.5rem;
+      padding: 0.3rem 0.7rem;
+      background: var(--accent-light);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent);
+      cursor: pointer;
+      transition: background 0.12s;
+    }
+    .result-more-btn:hover { background: #eedcc8; border-color: #d4a97a; }
+
+    .result-more-list { display: none; margin-top: 0.6rem; }
+    .result-more-list.open { display: block; }
+    .result-more-item {
+      padding: 0.5rem 0;
+      border-top: 1px solid #f0ebe4;
+    }
+    .result-more-item:first-child { border-top: none; }
+
+    /* ── Pagination ── */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .pagination a,
+    .pagination span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.2rem;
+      padding: 0.4rem 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: var(--accent);
+      background: var(--surface);
+      transition: background 0.12s, border-color 0.12s;
+    }
+    .pagination a:hover {
+      background: var(--accent-light);
+      border-color: #d4a97a;
+    }
+    .pagination .current {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+    .pagination .disabled {
+      color: var(--muted);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .topbar { padding: 0.5rem 0.75rem; gap: 0.5rem; }
+      .search-btn { padding: 0.5rem 0.8rem; font-size: 0.8rem; }
+      .container { padding: 1rem 0.75rem 3rem; }
+      .result-item { padding: 0.8rem 1rem; }
+    }
+  </style>
 </head>
 
-<body class="bg-amber-50 text-gray-800 font-sans">
-    <div class="container mx-auto p-4">
-        <a href="{{ base_url }}" class="text-blue-600 hover:underline mb-4 inline-block">← Back to Home</a>
+<body>
+  <a href="#main-results" class="skip-link">Skip to results</a>
 
-        <!-- Search Bar -->
-        <div class="mb-4">
-            <form action="{{ base_url }}/search_headings" method="get" class="w-full max-w-md mx-auto">
-                <div id="autocomplete-heading" tabindex="0"></div>
-            </form>
-        </div>
+  <!-- TOP BAR -->
+  <header class="topbar" role="banner">
+    <a href="{{ base_url }}/" class="topbar-home">⌂ E-Piṭaka</a>
+    <form action="{{ base_url }}/search" method="get" class="search-form" role="search">
+      <div class="search-input-wrap">
+        <input type="text" name="q" value="{{ query }}" class="search-input"
+               placeholder="Search the Tipiṭaka…" aria-label="Search" autofocus>
+        <button type="submit" class="search-btn">Search</button>
+      </div>
+    </form>
+  </header>
 
-        {% if results %}
-        <h1 class="text-2xl font-bold mb-4">Found {{ total_results }} results for query "{{ query }}".</h1>
-        {% else %}
-        <h1 class="text-2xl font-bold mb-4">No Results Found for query "{{ query }}"</h1>
-        {% endif %}
+  <!-- MAIN CONTENT -->
+  <main id="main-results" class="container" role="main">
 
-        <!-- Search Results -->
-        {% if results %}
-        <ul class="space-y-6">
-            {% for group in results %}
-            <li class="border-b border-gray-300 pb-4">
-                <!-- First Result -->
-                <a href="{{ base_url }}/book/{{ group.book_id }}#para-{{ group.first.para_id }}"
-                    class="text-blue-600 hover:underline text-lg font-semibold">
-                    {{ group.book_title }}
-                </a>
-                |
-                <strong>Paragraph:</strong> {{ group.first.para_id }}
+    {% if results %}
+      <h1 class="result-heading">
+        Found <em>{{ total_results }}</em> result{{ 's' if total_results != 1 else '' }} for <em>"{{ query }}"</em>
+      </h1>
 
-                <p class="pali-text">{{ group.first.pali | safe }}</p>
-                <p class="trans-english">{{ group.first.english | safe }}</p>
-                <p class="trans-viet">{{ group.first.vietnamese | safe }}</p>
+      <ul class="result-list" role="list">
+        {% for group in results %}
+        <li class="result-item">
+          <a href="{{ base_url }}/{{ lang | default('en') }}/book/{{ group.book_id }}#para-{{ group.first.para_id }}"
+             class="result-book-link">
+            {{ group.book_title }}
+          </a>
+          <div class="result-meta">Paragraph {{ group.first.para_id }}</div>
 
-                {% if group.more %}
-                <!-- Show More Toggle -->
-                <button id="showmore-{{ group.book_id }}" class="text-sm text-blue-600 hover:underline mt-2" onclick="toggleMore('{{ group.book_id }}')">
-                    Show more
-                </button>
+          <div class="result-pali">{{ group.first.pali | safe }}</div>
+          {% if group.first.english %}
+          <div class="result-translation">{{ group.first.english | safe }}</div>
+          {% endif %}
 
-                <!-- Hidden More Results -->
-                <div id="more-{{ group.book_id }}" class="hidden mt-2 space-y-4">
-                    {% for item in group.more %}
-                    <div class="border-t pt-2">
-                        <a href="{{ base_url }}/book/{{ item.book_id }}#para-{{ item.para_id }}"
-                            class="text-blue-600 hover:underline">
-                            Paragraph: {{ item.para_id }}
-                        </a>
-                        <p class="pali-text">{{ item.pali | safe }}</p>
-                        <p class="trans-text">{{ item.vietnamese | safe }}</p>
-                    </div>
-                    {% endfor %}
-                </div>
-                {% endif %}
-            </li>
+          {% if group.more %}
+          <button type="button" class="result-more-btn"
+                  onclick="toggleMore(this)" aria-expanded="false"
+                  aria-controls="more-{{ group.book_id }}">
+            Show {{ group.more | length }} more result{{ 's' if group.more | length != 1 else '' }}
+          </button>
+          <div id="more-{{ group.book_id }}" class="result-more-list" role="list">
+            {% for item in group.more %}
+            <div class="result-more-item" role="listitem">
+              <a href="{{ base_url }}/{{ lang | default('en') }}/book/{{ item.book_id }}#para-{{ item.para_id }}"
+                 class="result-book-link" style="font-size:0.88rem;">
+                Paragraph {{ item.para_id }}
+              </a>
+              <div class="result-pali" style="font-size:0.9rem;">{{ item.pali | safe }}</div>
+              {% if item.vietnamese %}
+              <div class="result-translation" style="font-size:0.85rem;">{{ item.vietnamese | safe }}</div>
+              {% endif %}
+            </div>
             {% endfor %}
-        </ul>
+          </div>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
 
-        <script>
-            function toggleMore(bookId) {
-                const moreSection = document.getElementById('more-' + bookId);
-                const showmore = document.getElementById('showmore-' + bookId);
-                if (moreSection.classList.contains('hidden')) {
-                    moreSection.classList.remove('hidden');
-                    showmore.textContent = 'show less';
-                } else {
-                    moreSection.classList.add('hidden');
-                    showmore.textContent = 'show more';;
-
-                }
-            }
-        </script>
-
-        <!-- Pagination -->
-        {% if total_pages > 1 %}
-        <div class="pagination">
-            {% if page > 1 %}
-            <a href="{{ base_url }}/search?q={{ query | urlencode }}&page={{ page - 1 }}">Previous</a>
-            {% else %}
-            <span class="disabled">Previous</span>
-            {% endif %}
-
-            {% for p in range(1, total_pages + 1) %}
-            {% if p == page %}
-            <span class="current">{{ p }}</span>
-            {% else %}
-            <a href="{{ base_url }}/search?q={{ query | urlencode }}&page={{ p }}">{{ p }}</a>
-            {% endif %}
-            {% endfor %}
-
-            {% if page < total_pages %}
-            <a href="{{ base_url }}/search?q={{ query | urlencode }}&page={{ page + 1 }}">Next</a>
-            {% else %}
-            <span class="disabled">Next</span>
-            {% endif %}
-        </div>
-        {% endif %}
+      <!-- Pagination -->
+      {% if total_pages > 1 %}
+      <nav class="pagination" aria-label="Search results pages">
+        {% if page > 1 %}
+        <a href="{{ base_url }}/search?q={{ query | urlencode }}&page={{ page - 1 }}" aria-label="Previous page">← Prev</a>
         {% else %}
-        <p>No results found for "{{ query }}".</p>
+        <span class="disabled" aria-disabled="true">← Prev</span>
         {% endif %}
-    </div>
+
+        {% for p in range(1, total_pages + 1) %}
+          {% if p == page %}
+          <span class="current" aria-current="page">{{ p }}</span>
+          {% elif p <= 3 or p > total_pages - 3 or (p >= page - 1 and p <= page + 1) %}
+          <a href="{{ base_url }}/search?q={{ query | urlencode }}&page={{ p }}">{{ p }}</a>
+          {% elif p == 4 or p == total_pages - 3 %}
+          <span class="disabled" aria-hidden="true">…</span>
+          {% endif %}
+        {% endfor %}
+
+        {% if page < total_pages %}
+        <a href="{{ base_url }}/search?q={{ query | urlencode }}&page={{ page + 1 }}" aria-label="Next page">Next →</a>
+        {% else %}
+        <span class="disabled" aria-disabled="true">Next →</span>
+        {% endif %}
+      </nav>
+      {% endif %}
+
+    {% else %}
+      <div class="no-results">
+        <div class="no-results-icon">🔍</div>
+        <h2>No results found</h2>
+        <p>Try a different search term — perhaps a Pāli word like <em>dhamma</em>, or a book name like <em>Dhammapada</em>.</p>
+      </div>
+    {% endif %}
+
+  </main>
+
+  <script>
+    function toggleMore(btn) {
+      const targetId = btn.getAttribute('aria-controls');
+      const list = document.getElementById(targetId);
+      if (!list) return;
+      const expanded = list.classList.toggle('open');
+      btn.setAttribute('aria-expanded', expanded);
+      btn.textContent = expanded
+        ? 'Show less'
+        : btn.dataset.originalText || btn.textContent;
+    }
+    // Store original text for restore
+    document.querySelectorAll('.result-more-btn').forEach(btn => {
+      btn.dataset.originalText = btn.textContent;
+    });
+  </script>
 </body>
-
 </html>

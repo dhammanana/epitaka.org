@@ -51,6 +51,45 @@ def api_book_sections(book_id):
     return jsonify(result)
 
 
+# ── Heading translations (batch) ─────────────────────────────────────────────
+
+@bp.route('/book/<book_id>/heading_translations')
+def api_heading_translations(book_id):
+    """Return translations for all heading sentences in a book.
+
+    Returns {para_id: translation_html} for every heading whose first
+    sentence has a translation in the requested language.
+    """
+    book_id = book_id.replace('_chunks', '')
+    lang = request.args.get('lang', '')
+    if not lang:
+        return jsonify({})
+
+    with get_db() as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            'SELECT para_id FROM headings WHERE book_id = ? AND level <= 6 ORDER BY para_id',
+            (book_id,))
+        headings = [r['para_id'] for r in cursor.fetchall()]
+
+    if not headings:
+        return jsonify({})
+
+    result = {}
+    trans_db = get_translation_db(lang)
+    if trans_db:
+        trans_cursor = trans_db.cursor()
+        for pid in headings:
+            trans_cursor.execute(
+                'SELECT translation FROM sentences WHERE book_id = ? AND para_id = ? AND line_id = 1',
+                (book_id, pid))
+            row = trans_cursor.fetchone()
+            if row and row['translation']:
+                result[pid] = markdown_to_html(row['translation'])
+
+    return jsonify(result)
+
+
 # ── Related-paragraph lookup ───────────────────────────────────────────────────
 
 @bp.route('/get_related_para/<book_id>/<para_id>')

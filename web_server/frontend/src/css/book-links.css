@@ -10,32 +10,36 @@
 
 /* ── Inline word badge ──────────────────────────────────────
    Injected inside .sentence-row right after .pali-text.
+   Kept minimal to avoid disrupting the reading flow.
    ─────────────────────────────────────────────────────────── */
 .book-link-badge {
   display: inline-block;
-  margin-left: 0.35rem;
-  padding: 0.05rem 0.45rem;
-  font-size: 0.78em;
+  margin-left: 0.3rem;
+  padding: 0.02rem 0.35rem;
+  font-size: 0.72em;
   font-family: var(--font-serif);
-  color: var(--accent);
-  background: var(--accent-light);
-  border: 1px solid #d4a97a;
-  border-radius: 4px;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-bottom: 1px dotted var(--border);
+  border-radius: 0;
   cursor: pointer;
   user-select: none;
   vertical-align: middle;
-  transition: background 0.12s, color 0.12s;
+  transition: color 0.12s, border-color 0.12s;
+  opacity: 0.6;
 }
 .book-link-badge::before {
   content: '↗';
-  font-size: 0.72em;
-  margin-right: 0.2rem;
-  opacity: 0.65;
+  font-size: 0.7em;
+  margin-right: 0.15rem;
+  opacity: 0.5;
 }
 .book-link-badge:hover,
 .book-link-badge:focus-visible {
-  background: #eedcc8;
-  color: #5a2d00;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  opacity: 1;
   outline: none;
 }
 
@@ -51,24 +55,26 @@
    reveal the rest and collapses again (label flips to −N). ──────── */
 .book-link-more {
   display: inline-block;
-  margin-left: 0.35rem;
-  padding: 0.05rem 0.45rem;
-  font-size: 0.78em;
+  margin-left: 0.3rem;
+  padding: 0.02rem 0.35rem;
+  font-size: 0.72em;
   font-family: var(--font-serif);
-  font-weight: 600;
   color: var(--muted);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 4px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px dotted var(--border);
+  border-radius: 0;
   cursor: pointer;
   user-select: none;
   vertical-align: middle;
-  transition: background 0.12s, color 0.12s;
+  transition: color 0.12s;
+  opacity: 0.5;
 }
 .book-link-more:hover,
 .book-link-more:focus-visible {
-  background: var(--accent-light);
   color: var(--accent);
+  border-bottom-color: var(--accent);
+  opacity: 1;
   outline: none;
 }
 

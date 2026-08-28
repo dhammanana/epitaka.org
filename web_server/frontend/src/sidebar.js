@@ -31,7 +31,7 @@ import {
   SEARCH_TYPES,
 } from './home-dialog/home-dialog-search.js';
 import { installPaliInput, removeDiacritics } from './libs/pali_typing.js';
-import { setDictOpen } from './dictionary.js';
+import { initDictionary } from './dictionary.js';
 import {
   saveSidebarSearchState,
   loadSidebarSearchState,
@@ -43,9 +43,12 @@ import {
 
 const { baseUrl = '', lang = 'en' } = window.BOOK_CONFIG || {};
 
-const PANELS = ['library', 'search', 'toc', 'outline'];
+const PANELS = ['library', 'search', 'toc', 'outline', 'dict'];
 const PANEL_TITLES = {
-  library: 'Library', search: 'Search', toc: 'Table of Contents', outline: 'Outline',
+  library: 'Library', search: 'Search', toc: 'Table of Contents', outline: 'Outline', dict: 'Dictionary',
+};
+const PANEL_ICONS = {
+  library: '📚', search: '🔍', toc: '☰', outline: '📋', dict: '📖',
 };
 const ACTIVITY_ICONS = [
   { panel: 'library', icon: '📚', label: 'Library' },
@@ -74,12 +77,14 @@ export function initSidebar({ bookId = '' } = {}) {
   currentBookId = bookId;
 
   buildDom();
+  initDictionary();  // must run after buildDom() creates #dict-word-input
   applyPinState();
   bindHamburger();
   bindActivity();
   bindBackdrop();
   bindKeyboard();
   bindToc();
+  initResize();
 
   // Load the library menu + search in the background, then restore any
   // persisted search state (e.g. after clicking a search result).
@@ -123,7 +128,8 @@ function buildDom() {
       <div id="sb-tabs" role="tablist" aria-label="Sidebar panels">
         ${PANELS.map(p => `
           <button type="button" class="sb-tab" data-panel="${p}"
-                  role="tab" aria-selected="false">${PANEL_TITLES[p]}</button>
+                  role="tab" aria-selected="false"
+                  title="${PANEL_TITLES[p]}">${PANEL_ICONS[p]}</button>
         `).join('')}
       </div>
 
@@ -162,6 +168,20 @@ function buildDom() {
           <div id="sb-outline-tree" class="sb-outline-tree"></div>
         </div>
       </div>
+
+      <div id="sb-panel-dict" class="sb-panel" role="tabpanel">
+        <div class="sb-dict-wrap">
+          <div class="sb-dict-header">
+            <input id="dict-word-input" type="text" autocomplete="off"
+                   aria-label="Dictionary search word" placeholder="Search word…"
+                   class="sb-dict-input">
+            <ul id="dict-suggestions" role="listbox" aria-label="Suggestions"></ul>
+          </div>
+          <div id="dict-results" class="sb-dict-results"></div>
+        </div>
+      </div>
+
+      <div id="sb-resize-handle" aria-label="Resize sidebar" title="Drag to resize"></div>
     </div>
   `;
 
@@ -199,15 +219,20 @@ async function initAsync() {
   renderLibraryTree(data?.menu || {});
 
   // Restore a persisted search (user clicked a search result → new page).
-  // If there's no in-flight search, fall back to a pinned panel so the
-  // library stays open while browsing between pages (VSCode-style pin).
+  // Only restore if the sidebar is pinned — otherwise the user closed it
+  // and doesn't want it reopening on every navigation.
   const saved = loadSidebarSearchState();
-  if (saved?.search?.query) {
-    openPanel('search');
-    search.restore(saved.search);
-  } else if (isPinned()) {
-    openPanel(loadSidebarPin()?.panel || 'library');
+  if (isPinned()) {
+    if (saved?.search?.query) {
+      openPanel('search');
+      search.restore(saved.search);
+    } else {
+      openPanel(loadSidebarPin()?.panel || 'library');
+    }
   }
+  // Always clear the search state after attempting restore — if the
+  // sidebar isn't pinned, the state is stale and should not persist.
+  clearSidebarSearchState();
 }
 
 /* ════════════════════════════════════════════
@@ -215,7 +240,6 @@ async function initAsync() {
    ════════════════════════════════════════════ */
 
 function openPanel(name) {
-  if (name === 'dict') { toggleDict(); return; }
   if (!PANELS.includes(name)) name = 'library';
 
   activePanel = name;
@@ -244,9 +268,10 @@ function openPanel(name) {
   // Focus the panel's primary control (best practice for drawers/dialogs).
   requestAnimationFrame(() => {
     const focusTarget =
-      name === 'search' ? document.getElementById(HOME_SEARCH_IDS.searchInput)
+      name === 'search'  ? document.getElementById(HOME_SEARCH_IDS.searchInput)
       : name === 'toc'   ? document.getElementById('toc-search')
       : name === 'outline' ? document.getElementById('sb-outline-full')
+      : name === 'dict'  ? document.getElementById('dict-word-input')
       : document.getElementById('sb-library-filter');
     focusTarget?.focus({ preventScroll: true });
   });
@@ -262,22 +287,12 @@ function close() {
 }
 
 function toggleDict() {
-  const dictPanel = document.getElementById('dict-panel');
-  if (!dictPanel) return;
-  const isOpen = dictPanel.classList.contains('open');
-  // Keep the 📖 activity button in sync with the panel state.
-  const dictBtn = document.querySelector('#sb-activity .sb-activity-btn[data-panel="dict"]');
-  if (isOpen) {
-    setDictOpen(false);
-    dictBtn?.classList.remove('active');
-    dictBtn?.setAttribute('aria-pressed', 'false');
-  } else {
-    setDictOpen(true);
-    dictBtn?.classList.add('active');
-    dictBtn?.setAttribute('aria-pressed', 'true');
+  // Dict is now a regular sidebar panel.
+  // Clicking the dict button when it's already open → close.
+  if (activePanel === 'dict' && drawerEl.classList.contains('open') && !isPinned()) {
     close();
-    requestAnimationFrame(() =>
-      document.getElementById('dict-word-input')?.focus({ preventScroll: true }));
+  } else {
+    openPanel('dict');
   }
 }
 
@@ -361,6 +376,21 @@ function applyPinState() {
 
 function bindBackdrop() {
   backdropEl.addEventListener('click', close);
+
+  // Desktop: close sidebar when clicking outside it (only when not pinned).
+  // Skip closing when the click triggers a dictionary lookup (clicking a
+  // Pali word in the reading area) or when the click target is the
+  // hamburger toggle button.
+  document.addEventListener('click', e => {
+    if (!isPinned() && drawerEl.classList.contains('open')) {
+      const target = e.target;
+      if (!target.closest('#sb-root')
+          && !target.closest('#toc-toggle-btn')
+          && !target.closest('.sentence-row .pali-text')) {
+        close();
+      }
+    }
+  });
 }
 
 function bindKeyboard() {
@@ -369,6 +399,55 @@ function bindKeyboard() {
       close();
     }
   });
+}
+
+/* ════════════════════════════════════════════
+   Sidebar resize (drag the right edge)
+   ════════════════════════════════════════════ */
+
+const RESIZE_KEY = 'epitaka_sidebar_width';
+const MIN_WIDTH = 240;
+const MAX_WIDTH = 600;
+
+function initResize() {
+  const handle = document.getElementById('sb-resize-handle');
+  if (!handle) return;
+
+  // Restore saved width
+  try {
+    const saved = parseInt(localStorage.getItem(RESIZE_KEY));
+    if (saved >= MIN_WIDTH && saved <= MAX_WIDTH) {
+      document.documentElement.style.setProperty('--sb-width', saved + 'px');
+    }
+  } catch { /* ignore */ }
+
+  let startX, startW;
+
+  handle.addEventListener('mousedown', e => {
+    e.preventDefault();
+    startX = e.clientX;
+    startW = drawerEl.offsetWidth;
+    document.body.classList.add('sb-resizing');
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  });
+
+  function onMove(e) {
+    const dx = e.clientX - startX;
+    const w = Math.min(MAX_WIDTH, Math.max(MIN_WIDTH, startW + dx));
+    document.documentElement.style.setProperty('--sb-width', w + 'px');
+  }
+
+  function onUp() {
+    document.body.classList.remove('sb-resizing');
+    document.removeEventListener('mousemove', onMove);
+    document.removeEventListener('mouseup', onUp);
+    // Persist
+    try {
+      const w = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sb-width'));
+      if (w) localStorage.setItem(RESIZE_KEY, String(w));
+    } catch { /* ignore */ }
+  }
 }
 
 /* ════════════════════════════════════════════

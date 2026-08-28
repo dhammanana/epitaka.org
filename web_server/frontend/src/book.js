@@ -24,6 +24,7 @@ import { initAuthUI }               from './auth/auth-ui.js';
 import { initLibraryUI }            from './row_actions/library-ui.js';
 import { initAppBanner }            from './app-banner.js';
 import { initSidebar }              from './sidebar.js';
+import { initCookieConsent }         from './cookie-consent.js';
 
 import { auth, getIdToken }         from './auth/auth.js';
 
@@ -162,6 +163,34 @@ function updateCrossRefLinks(paraId) {
 }
 
 // ════════════════════════════════════════════
+// Book-link badges: move to end of paragraph in flow mode
+// ════════════════════════════════════════════
+
+function _moveBookLinksToEndOfPara() {
+  const isFlow = document.body.getAttribute('data-flow') === 'true';
+  document.querySelectorAll('.para-group').forEach(pg => {
+    let endContainer = pg.querySelector('.book-links-end');
+
+    if (isFlow) {
+      // Collect all book-link badges from sentence rows
+      const badges = pg.querySelectorAll('.sentence-row .book-link-badge, .sentence-row .book-link-more');
+      if (!badges.length) return;
+
+      if (!endContainer) {
+        endContainer = document.createElement('div');
+        endContainer.className = 'book-links-end';
+        pg.appendChild(endContainer);
+      }
+      endContainer.innerHTML = '';
+      badges.forEach(b => endContainer.appendChild(b.cloneNode(true)));
+    } else {
+      // Flow mode off — remove the end container (badges stay inline)
+      if (endContainer) endContainer.remove();
+    }
+  });
+}
+
+// ════════════════════════════════════════════
 // Settings modal
 // ════════════════════════════════════════════
 
@@ -179,6 +208,7 @@ settingsForm.addEventListener('submit', e => {
   e.preventDefault();
   const s = readSettingsForm();
   saveSettings(s); applySettings(s); applyPaliScript(s.paliScript);
+  _moveBookLinksToEndOfPara();
   settingsModal.classList.remove('show');
 });
 
@@ -238,6 +268,36 @@ function _initHistoryTracking() {
 }
 
 // ════════════════════════════════════════════
+// Fetch heading translations for ALL sections
+// ════════════════════════════════════════════
+
+async function _fetchHeadingTranslations() {
+  try {
+    const res = await fetch(`${baseUrl}/api/book/${bookId}/heading_translations?lang=${encodeURIComponent(lang)}`);
+    if (!res.ok) return;
+    const data = await res.json();
+    // data = { para_id: translation_html, ... }
+    for (const [paraId, translation] of Object.entries(data)) {
+      const section = document.querySelector(`.section-block[data-para-id="${paraId}"]`);
+      if (!section) continue;
+      // Find or create the heading translation element
+      let transEl = section.querySelector('.section-heading-translation');
+      if (!transEl) {
+        // Insert after the heading text
+        const headingLink = section.querySelector('.section-heading-link, .section-heading-empty');
+        if (!headingLink) continue;
+        transEl = document.createElement('span');
+        transEl.className = 'section-heading-translation';
+        headingLink.appendChild(transEl);
+      }
+      transEl.innerHTML = translation;
+    }
+  } catch (err) {
+    console.debug('[book] failed to fetch heading translations', err);
+  }
+}
+
+// ════════════════════════════════════════════
 // Init
 // ════════════════════════════════════════════
 
@@ -249,12 +309,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   applySettings(s);
   applyPaliScript(s.paliScript);
   buildScriptOptions(document.getElementById('pali-script-select'), s.paliScript);
+  _moveBookLinksToEndOfPara();
 
   initAuthUI();
   initLibraryUI();
   initAppBanner();
+  initCookieConsent({ gaId: 'G-7NQWX1DCC2' });
 
   _initHistoryTracking();
+  _fetchHeadingTranslations();
 
   // ── Helper: find the enclosing section block for a given para_id ──
   function _findEnclosingSection(paraId) {

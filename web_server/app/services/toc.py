@@ -147,10 +147,14 @@ def get_section_sentences(book_id, para_id, conn, lang_code=None):
 
     Returns a dict:
       {
-        'sentences': [ { para_id, line_id, pali, translation }, ... ],
+        'sentences': [ { para_id, line_id, pali, translation, vripage }, ... ],
         'heading_translation': str | None,  # translation of the heading sentence
         'has_content': bool,  # whether there are content sentences beyond the heading
       }
+
+    `vripage` is the VRI edition page reference (e.g. "3.1" = Vol 3, page 1);
+    it is only set on the sentence where a page break falls (most sentences are
+    empty) and is meant to be shown inline so readers can cite/excerpt by page.
     """
     cache_key = (book_id, para_id, lang_code or '')
     cached = _SECTION_CACHE.get(cache_key)
@@ -170,7 +174,7 @@ def get_section_sentences(book_id, para_id, conn, lang_code=None):
 
     # Fetch Pāli sentences using the pre-computed range
     cursor.execute('''
-        SELECT para_id, line_id, pali
+        SELECT para_id, line_id, pali, vripage, ptspage, mypage, thaipage
         FROM sentences
         WHERE book_id = ? AND para_id >= ? AND para_id < ?
         ORDER BY para_id, line_id
@@ -210,6 +214,10 @@ def get_section_sentences(book_id, para_id, conn, lang_code=None):
             'line_id':     lid,
             'pali':        markdown_to_html(r['pali']) if r['pali'] else '',
             'translation': markdown_to_html(translation) if translation else '',
+            'vripage':     r['vripage'] or '',
+            'ptspage':     r['ptspage'] or '',
+            'mypage':      r['mypage'] or '',
+            'thaipage':    r['thaipage'] or '',
         })
 
     section = {
