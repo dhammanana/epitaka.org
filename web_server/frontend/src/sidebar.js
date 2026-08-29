@@ -681,7 +681,11 @@ function bindToc() {
       clearSidebarSearchState();
       const section = document.querySelector(`.section-block[data-para-id="${paraId}"]`);
       const headingLink = section?.querySelector('.section-heading-link');
-      if (headingLink?.href) window.location.href = headingLink.href;
+      if (headingLink?.href) {
+        const url = new URL(headingLink.href, window.location.href);
+        url.hash = String(paraId);
+        window.location.href = url.href;
+      }
     });
     item.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }

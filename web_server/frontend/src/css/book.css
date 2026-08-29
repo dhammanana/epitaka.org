@@ -513,30 +513,47 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 .para-group.highlight-flash { animation: flash 1.8s ease-out forwards; }
 @keyframes flash { 0% { background: #fde68a; } 100% { background: transparent; } }
 
-/* Target marker for all in-page jumps: three quick outline blinks, then fade. */
-.jump-target-highlight {
-  animation: jump-target-highlight 2s ease-out forwards;
+/* Target marker: outline the complete paragraph, then fade away. */
+.para-group.jump-target-highlight {
+  animation: jump-target-highlight 5s ease-out forwards;
+  position: relative;
+  z-index: 1;
 }
 @keyframes jump-target-highlight {
-  0%, 30%, 60% {
+  0% {
     outline: 2px solid var(--accent);
-    outline-offset: -2px;
-    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    outline-offset: 3px;
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
   }
-  15%, 45%, 75%, 100% {
-    outline-color: transparent;
+  72% {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    background: color-mix(in srgb, var(--accent) 6%, transparent);
+  }
+  100% {
+    outline: 2px solid transparent;
+    outline-offset: 7px;
     background: transparent;
   }
 }
 
+.jump-search-term {
+  background: #fbbf24;
+  color: #3b2500;
+  border-radius: 3px;
+  padding: 0.05em 0.18em;
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.24);
+  font-weight: 650;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .jump-target-highlight {
-    animation: jump-target-highlight-reduced 2s ease-out forwards;
+  .para-group.jump-target-highlight {
+    animation: jump-target-highlight-reduced 5s ease-out forwards;
   }
 }
 @keyframes jump-target-highlight-reduced {
-  0%, 100% { outline: 2px solid transparent; background: transparent; }
-  15%, 75% { outline: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+  0%, 72% { outline: 2px solid var(--accent); outline-offset: 3px; }
+  100% { outline: 2px solid transparent; outline-offset: 7px; }
 }
 
 .para-num {

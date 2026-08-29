@@ -336,16 +336,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     return best;
   }
 
-  // ── Helper: find the first sentence-row element for a paragraph ──
+  // ── Helper: find the first sentence row for a paragraph ──
   function _findFirstSentenceRow(paraId) {
-    // Cannot use querySelector `^=` alone because `p-1` matches `p-12`.
-    // Query all candidates and filter by exact regex match.
-    const candidates = document.querySelectorAll('[id^="p-' + paraId + '-l-"]');
-    for (const el of candidates) {
-      const m = el.id.match(/^p-(\d+)-l-(\d+)$/);
-      if (m && parseInt(m[1]) === paraId) return el;
-    }
-    return null;
+    const rows = [...document.querySelectorAll('.sentence-row')];
+    return rows.find(el => {
+      const match = el.id.match(/^p-(\d+)-l-(\d+)$/);
+      return match && parseInt(match[1], 10) === paraId;
+    }) || null;
+  }
+
+  function _findLineRow(paraId, lineId) {
+    const el = document.getElementById(`p-${paraId}-l-${lineId}`);
+    return el?.id === `p-${paraId}-l-${lineId}` ? el : null;
   }
 
   // ── Helper: ensure section-content is open ──
@@ -361,14 +363,54 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   // ── Helper: scroll an element into view and show the jump marker ──
-  function _scrollToEl(el) {
-    setTimeout(() => {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  function _clearJumpHighlight() {
+    document.querySelectorAll('.jump-target-highlight').forEach(el => {
       el.classList.remove('jump-target-highlight');
-      // Restart the animation when the same target is selected repeatedly.
-      void el.offsetWidth;
-      el.classList.add('jump-target-highlight');
-    }, 200);
+    });
+  }
+
+  function _highlightSearchTerm(paragraph, term) {
+    if (!paragraph || !term) return;
+    const needle = term.trim();
+    if (!needle) return;
+    const lowerNeedle = needle.toLocaleLowerCase();
+    const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    let node;
+    while ((node = walker.nextNode())) {
+      if (node.parentElement?.closest('script, style, mark')) continue;
+      if (node.nodeValue.toLocaleLowerCase().includes(lowerNeedle)) nodes.push(node);
+    }
+    nodes.forEach(textNode => {
+      const text = textNode.nodeValue;
+      const lower = text.toLocaleLowerCase();
+      const frag = document.createDocumentFragment();
+      let from = 0;
+      let index;
+      while ((index = lower.indexOf(lowerNeedle, from)) !== -1) {
+        frag.append(text.slice(from, index));
+        const mark = document.createElement('mark');
+        mark.className = 'jump-search-term';
+        mark.textContent = text.slice(index, index + needle.length);
+        frag.append(mark);
+        from = index + needle.length;
+      }
+      frag.append(text.slice(from));
+      textNode.replaceWith(frag);
+    });
+  }
+
+  function _scrollToEl(el, searchTerm = '') {
+    requestAnimationFrame(() => {
+      _clearJumpHighlight();
+      const paragraph = el.closest('.para-group') || el;
+      paragraph.classList.remove('jump-target-highlight');
+      void paragraph.offsetWidth;
+      paragraph.classList.add('jump-target-highlight');
+      _highlightSearchTerm(paragraph, searchTerm);
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => paragraph.classList.remove('jump-target-highlight'), 5000);
+    });
   }
 
   // Shared handler for links that jump to a paragraph/line in this book.
@@ -382,29 +424,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const hash = url.hash.replace(/^#/, '');
     if (!hash) return;
-    const paraId = parseInt(hash.split('-')[0]);
+    const hashParts = hash.split('-');
+    const paraId = parseInt(hashParts[0], 10);
     if (isNaN(paraId)) return;
 
-    const lineId = parseInt(hash.split('-')[1]);
+    const lineId = parseInt(hashParts[1], 10);
     let target = !isNaN(lineId)
-      ? document.getElementById(`p-${paraId}-l-${lineId}`)
+      ? _findLineRow(paraId, lineId)
       : _findFirstSentenceRow(paraId);
     if (!target) {
       const section = _findEnclosingSection(paraId);
       _openSection(section);
       target = !isNaN(lineId)
-        ? document.getElementById(`p-${paraId}-l-${lineId}`)
+        ? _findLineRow(paraId, lineId)
         : _findFirstSentenceRow(paraId) || section;
     }
     if (target) {
       event.preventDefault();
       history.pushState(null, '', url.hash);
-      _scrollToEl(target);
+      _scrollToEl(target, url.searchParams.get('q') || '');
     }
   });
 
   // ── Deep-link: read hash fragment #para_id-line_id and scroll ──
   const hash = window.location.hash.replace(/^#/, '');
+  const jumpSearchTerm = new URLSearchParams(window.location.search).get('q') || '';
   if (hash) {
     const parts = hash.split('-');
     const paraId = parseInt(parts[0]);
@@ -413,20 +457,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!isNaN(paraId)) {
       if (!isNaN(lineId)) {
         // ── Hash has both para_id and line_id: #997-5 ──
-        const targetId = 'p-' + paraId + '-l-' + lineId;
-        let targetEl = document.getElementById(targetId);
+        let targetEl = _findLineRow(paraId, lineId);
         if (!targetEl) {
           // Section might not be open yet — find and open it
           const section = _findEnclosingSection(paraId);
           _openSection(section);
-          targetEl = document.getElementById(targetId);
+          targetEl = _findLineRow(paraId, lineId);
         }
         if (targetEl) {
-          _scrollToEl(targetEl);
+          _scrollToEl(targetEl, jumpSearchTerm);
         } else {
           // Fallback: scroll to section
           const section = _findEnclosingSection(paraId);
-          if (section) _scrollToEl(section);
+          if (section) _scrollToEl(section, jumpSearchTerm);
         }
       } else {
         // ── Hash has only para_id: #997 (e.g. from ref_links M/A/T) ──
@@ -438,10 +481,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           targetEl = _findFirstSentenceRow(paraId);
         }
         if (targetEl) {
-          _scrollToEl(targetEl);
+          _scrollToEl(targetEl, jumpSearchTerm);
         } else {
           const section = _findEnclosingSection(paraId);
-          if (section) _scrollToEl(section);
+          if (section) _scrollToEl(section, jumpSearchTerm);
         }
       }
     }

@@ -43,6 +43,7 @@ from .data_loader import Book
 
 # ── Font mapping: script code → (reportlab_name, font_filename) ─────────
 _SCRIPT_FONTS = {
+    'ro':  ('pali_ro',              'NotoSerif-Regular.ttf',             'NotoSerif-Bold.ttf',             None),
     'si':  ('pali_si',              'NotoSerifSinhala-Regular.ttf',      'NotoSerifSinhala-Bold.ttf',      None),
     'hi':  ('pali_hi',              'NotoSerifDevanagari-Regular.ttf',   'NotoSerifDevanagari-Bold.ttf',   None),
     'th':  ('pali_th',              'thai/THSarabunPali.ttf',           'thai/THSarabun-Bold.ttf',        None),
