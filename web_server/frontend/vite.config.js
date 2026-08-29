@@ -18,8 +18,10 @@ export default defineConfig({
         editor: resolve(__dirname, 'src/editor.js'),
       },
       output: {
+        // Keep the shared consent chunk name stable, while adding a hash to
+        // all entry bundles so an old entry can never pair with a new chunk.
         entryFileNames: 'js/[name].bundle.js',
-        chunkFileNames: 'js/[name].chunk.js',
+        chunkFileNames: 'js/[name]-[hash].chunk.js',
         assetFileNames: assetInfo =>
           assetInfo.name?.endsWith('.css')
             ? 'css/[name][extname]'

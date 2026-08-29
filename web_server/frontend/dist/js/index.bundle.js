@@ -1,4 +1,4 @@
-import{a as q,c as B,b as x,H,d as C,j}from"./cookie-consent.chunk.js";function M(c,t){if(!t)return c;const a=t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");return c.replace(new RegExp(`(${a})`,"gi"),"<mark>$1</mark>")}const w=["Mūla","Aṭṭhakathā","Ṭīkā"],N=["Vinaya","Suttanta","Sutta","Abhidhamma"];class O{constructor({baseUrl:t,lang:a,menu:e,onNavigate:s}){this.baseUrl=t,this.lang=a,this.menu=e,this.onNavigate=s,this._filterText=""}buildHTML(){const t=this._resolvedCategories(),a=t.map((s,n)=>`
+import{a as q,c as B,b as x,H,d as C,j}from"./cookie-consent-DaHwvWeS.chunk.js";function M(c,t){if(!t)return c;const a=t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");return c.replace(new RegExp(`(${a})`,"gi"),"<mark>$1</mark>")}const w=["Mūla","Aṭṭhakathā","Ṭīkā"],N=["Vinaya","Suttanta","Sutta","Abhidhamma"];class O{constructor({baseUrl:t,lang:a,menu:e,onNavigate:s}){this.baseUrl=t,this.lang=a,this.menu=e,this.onNavigate=s,this._filterText=""}buildHTML(){const t=this._resolvedCategories(),a=t.map((s,n)=>`
       <button class="home-tab${n===0?" active":""}"
               data-tab="${n}" type="button">${s.label}</button>
     `).join(""),e=t.map((s,n)=>`

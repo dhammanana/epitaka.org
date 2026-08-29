@@ -140,8 +140,10 @@ def create_app(config_name='default'):
     def add_cache_headers(response):
         ep = request.endpoint or ''
         if ep.startswith('static.'):
-            # Static files already carry Flask's long expiry
-            # (SEND_FILE_MAX_AGE_DEFAULT = 7 days).
+            # Asset URLs include a release version, so they can be cached
+            # safely. Never cache a missing asset response.
+            if response.status_code == 200:
+                response.headers['Cache-Control'] = 'public, max-age=31536000, immutable'
             return response
         if ep in _CACHEABLE_ENDPOINTS and 'Cache-Control' not in response.headers:
             response.headers['Cache-Control'] = 'public, max-age=300'

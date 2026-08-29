@@ -6,6 +6,7 @@ an import cycle.
 """
 import os
 import time
+import hashlib
 
 # app/utils/assets.py → app/utils → app → web_server/
 _FRONTEND_DIST = os.path.join(
@@ -35,7 +36,25 @@ def _compute_asset_version():
                         latest = m
     except OSError:
         return 'dev'
-    return str(int(latest)) if latest else 'dev'
+    if not latest:
+        return 'dev'
+
+    # A timestamp alone is unsafe when deploys preserve file mtimes or when
+    # an intermediary serves HTML from a different release than the assets.
+    # Include the complete asset set's metadata so every release gets a new
+    # URL version.
+    entries = []
+    try:
+        for root, _, files in os.walk(_FRONTEND_DIST):
+            for name in files:
+                if name.endswith(('.js', '.css')):
+                    path = os.path.join(root, name)
+                    entries.append((os.path.relpath(path, _FRONTEND_DIST),
+                                    os.path.getsize(path), os.path.getmtime(path)))
+    except OSError:
+        return str(int(latest))
+    digest = hashlib.sha256(repr(sorted(entries)).encode()).hexdigest()[:16]
+    return digest
 
 
 def get_asset_version():
