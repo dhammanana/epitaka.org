@@ -269,7 +269,6 @@ This project is open source. See the [GitHub repository](https://github.com/dham
 - **[tipitaka.lk](https://tipitaka.lk)** — Sinhala translations
 - **[Digital Pāli Dictionary](https://github.com/digitalpalidictionary/dpd-db)** — Pāli definitions
 - **Monks and teachers at IIT** — [theravado.com](https://theravado.com)
-- **Quảng An** — Server donation and management
 
 ---
 
