@@ -13,7 +13,7 @@ __pycache__/
 tipitaka_en/
 tipitaka_vn/
 export_test/
-output_*/
+output/
 web_server/data
 translations.*
 *.db
