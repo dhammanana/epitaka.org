@@ -159,6 +159,7 @@ function createBanner(onAccept, onReject) {
 }
 
 function closeBanner(overlay) {
+  overlay.classList.add('removing');
   overlay.remove();
 }
 
