@@ -22,6 +22,14 @@ const { baseUrl, lang } = window.INDEX_CONFIG;
 
 const SKIP_KEY = 'epika_disclaimer_skip';
 
+function hasSkippedDisclaimer() {
+  try {
+    return localStorage.getItem(SKIP_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
 // ── DOM refs ───────────────────────────────────────────────────
 const overlay  = document.getElementById('disclaimer-overlay');
 const okBtn    = document.getElementById('disclaimer-ok');
@@ -43,6 +51,12 @@ async function loadMenu() {
     console.warn('[index] failed to load menu, falling back to empty', err);
     return { menu: {}, hierarchy: {} };
   }
+}
+
+// Hide the server-rendered disclaimer before the module executes, avoiding
+// a flash for visitors who already saved the preference.
+if (hasSkippedDisclaimer()) {
+  overlay?.classList.add('hidden');
 }
 
 async function init() {
@@ -67,14 +81,17 @@ async function init() {
 
   function dismissDisclaimer(savePref) {
     if (savePref && checkbox.checked) {
-      localStorage.setItem(SKIP_KEY, '1');
+      try {
+        localStorage.setItem(SKIP_KEY, '1');
+        document.cookie = `${SKIP_KEY}=1; Max-Age=31536000; Path=/; SameSite=Lax`;
+      } catch {}
     }
     overlay.classList.add('hidden');
     // Library stays closed — user clicks "Browse the Canon" to open it.
   }
 
   // Skip disclaimer if the user previously ticked "don't show again"
-  if (localStorage.getItem(SKIP_KEY) === '1') {
+  if (hasSkippedDisclaimer()) {
     overlay.classList.add('hidden');
     // Library stays closed — user clicks "Browse the Canon" to open it.
   }

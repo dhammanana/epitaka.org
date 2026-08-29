@@ -14,6 +14,10 @@
 
 import './css/cookie-consent.css';
 
+// Keep this module's public API stable when Vite shares the chunk with other
+// entry points. In particular, do not rely on minified export names in HTML.
+
+
 const STORAGE_KEY = 'epika_cookie_consent';
 
 /**
@@ -114,14 +118,14 @@ function createBanner(onAccept, onReject) {
   acceptBtn.addEventListener('click', () => {
     const analytics = analyticsToggle.checked;
     saveConsent({ analytics });
-    overlay.classList.add('hidden');
+    closeBanner(overlay);
     if (analytics) onAccept();
     else onReject();
   });
 
   rejectBtn.addEventListener('click', () => {
     saveConsent({ analytics: false });
-    overlay.classList.add('hidden');
+    closeBanner(overlay);
     onReject();
   });
 
@@ -137,21 +141,25 @@ function createBanner(onAccept, onReject) {
     if (e.target === overlay) {
       // Treat backdrop click as reject (safe default)
       saveConsent({ analytics: false });
-      overlay.classList.add('hidden');
+      closeBanner(overlay);
       onReject();
     }
   });
 
   // Close on Escape
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
+    if (e.key === 'Escape' && document.body.contains(overlay)) {
       saveConsent({ analytics: false });
-      overlay.classList.add('hidden');
+      closeBanner(overlay);
       onReject();
     }
   });
 
   return overlay;
+}
+
+function closeBanner(overlay) {
+  overlay.remove();
 }
 
 function saveConsent(prefs) {
@@ -167,7 +175,8 @@ function saveConsent(prefs) {
 function getConsent() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
+    const consent = raw ? JSON.parse(raw) : null;
+    return consent && typeof consent === 'object' ? consent : null;
   } catch { return null; }
 }
 
