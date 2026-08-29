@@ -21,7 +21,6 @@ export function defaultSettings() {
     paliScript:     Script.RO,   // default Roman
     paliColor:      '#7c2d12',
     transColor:     '#1e3a5f',
-    bgColor:        '#faf7f2',
     actionButtons:  'line',      // 'line' | 'para' | 'none'
     fontSize:       16,          // px – applied to #main-content
     actionCollapse: false,       // true = collapse row buttons into a single ⋯ menu
@@ -40,7 +39,9 @@ export function loadSettings() {
 }
 
 export function saveSettings(settings) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+  const next = { ...settings };
+  delete next.bgColor;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
 }
 
 export function getThemePreference() {
@@ -68,10 +69,21 @@ export function applyTheme(theme = getThemePreference()) {
 export function applySettings(s) {
   const root = document.documentElement;
   applyTheme(getThemePreference());
-  root.style.setProperty('--pali-color',    s.paliColor);
-  root.style.setProperty('--trans-color',   s.transColor);
-  root.style.setProperty('--bg',            s.bgColor);
-  document.body.style.backgroundColor = s.bgColor;
+  const theme = root.dataset.theme;
+  const isDark = theme === 'dark' ||
+    (theme === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+  const lightenColor = color => {
+    if (!/^#[0-9a-f]{6}$/i.test(color)) return color;
+    const channels = color.slice(1).match(/../g).map(value => parseInt(value, 16));
+    const amount = isDark ? 0.45 : -0.25;
+    return '#' + channels.map(channel => {
+      const target = amount > 0 ? 255 : 0;
+      return Math.round(channel + (target - channel) * Math.abs(amount))
+        .toString(16).padStart(2, '0');
+    }).join('');
+  };
+  root.style.setProperty('--pali-color',    lightenColor(s.paliColor));
+  root.style.setProperty('--trans-color',   lightenColor(s.transColor));
 
   const fs = Math.min(Math.max(parseInt(s.fontSize) || 16, 10), 32);
   root.style.setProperty('--reader-font-size', `${fs}px`);
@@ -143,7 +155,6 @@ export function populateSettingsForm(s) {
 
   _setValue('color-pali',  s.paliColor);
   _setValue('color-trans', s.transColor);
-  _setValue('color-bg',    s.bgColor);
 
   const sel = document.getElementById('pali-script-select');
   if (sel) sel.value = s.paliScript;
@@ -167,7 +178,6 @@ export function readSettingsForm() {
     paliScript:     document.getElementById('pali-script-select')?.value || Script.RO,
     paliColor:      _getValue('color-pali'),
     transColor:     _getValue('color-trans'),
-    bgColor:        _getValue('color-bg'),
     fontSize:       parseInt(document.getElementById('range-font-size')?.value) || 16,
     actionCollapse: _getChecked('cb-action-collapse'),
     load_attha:     _getChecked('cb-load-attha', true),
