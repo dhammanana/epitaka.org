@@ -133,7 +133,10 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu, hierarchy
   function _open() {
     overlay.classList.add('show');
     document.body.style.overflow = 'hidden';
-    setTimeout(() => document.getElementById('home-search-input')?.focus(), 60);
+    // Skip auto-focus on mobile to prevent the virtual keyboard from opening
+    if (window.innerWidth >= 768) {
+      setTimeout(() => document.getElementById('home-search-input')?.focus(), 60);
+    }
   }
 
   function _close() {

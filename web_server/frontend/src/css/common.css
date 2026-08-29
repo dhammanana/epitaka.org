@@ -83,7 +83,7 @@
 
 body[script="si"] .pali-text { font-family: 'sinhala'; line-height: 1.5rem; }
 body[script="hi"] .pali-text { font-family: 'devanagari'; }
-body[script="ro"] .pali-text { font-family: 'sans-serif'; }
+body[script="ro"] .pali-text { font-family: 'roman'; }
 body[script="th"] .pali-text { font-family: 'thai'; font-size: 1.2rem; line-height: 1.7rem; }
 body[script="lo"] .pali-text { font-family: 'lao'; line-height: 170%; /*font-size: 125%;*/ }
 body[script="my"] .pali-text { font-family: 'myanmar'; }

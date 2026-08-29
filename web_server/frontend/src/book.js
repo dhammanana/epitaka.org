@@ -16,7 +16,7 @@ import './css/refbutton.css';
 import { TextProcessor, Script } from './pali-script.js';
 import {
   loadSettings, saveSettings, applySettings,
-  populateSettingsForm, readSettingsForm,
+  populateSettingsForm, readSettingsForm, setThemePreference, applyTheme,
   buildScriptOptions,
 } from './settings.js';
 import { attachPaliClickListeners } from './dictionary.js';
@@ -39,6 +39,8 @@ const settingsBtn    = document.getElementById('settings-btn');
 const settingsModal  = document.getElementById('settings-modal');
 const settingsForm   = document.getElementById('settings-form');
 const settingsCancel = document.getElementById('settings-cancel');
+
+applyTheme();
 
 // ════════════════════════════════════════════
 // Sidebar — VSCode-style activity rail + drawer.
@@ -106,7 +108,7 @@ observeSentenceRows();
 // ════════════════════════════════════════════
 
 export function applyPaliScript(targetScript) {
-  document.querySelectorAll('.pali-text').forEach(el => {
+  document.querySelectorAll('.pali-text, .book-link-badge').forEach(el => {
     if (!originalPaliText.has(el)) originalPaliText.set(el, el.innerHTML);
     const roman = originalPaliText.get(el);
     el.innerHTML = targetScript === Script.RO
@@ -207,7 +209,7 @@ settingsModal.addEventListener('click', e => {
 settingsForm.addEventListener('submit', e => {
   e.preventDefault();
   const s = readSettingsForm();
-  saveSettings(s); applySettings(s); applyPaliScript(s.paliScript);
+  saveSettings(s); setThemePreference(s.theme); applySettings(s); applyPaliScript(s.paliScript);
   _moveBookLinksToEndOfPara();
   settingsModal.classList.remove('show');
 });
@@ -358,13 +360,48 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // ── Helper: scroll an element into view with highlight ──
+  // ── Helper: scroll an element into view and show the jump marker ──
   function _scrollToEl(el) {
     setTimeout(() => {
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      el.classList.add('highlight-flash');
+      el.classList.remove('jump-target-highlight');
+      // Restart the animation when the same target is selected repeatedly.
+      void el.offsetWidth;
+      el.classList.add('jump-target-highlight');
     }, 200);
   }
+
+  // Shared handler for links that jump to a paragraph/line in this book.
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (!link || link.target === '_blank') return;
+
+    let url;
+    try { url = new URL(link.href, window.location.href); } catch { return; }
+    if (url.origin !== window.location.origin || url.pathname !== window.location.pathname) return;
+
+    const hash = url.hash.replace(/^#/, '');
+    if (!hash) return;
+    const paraId = parseInt(hash.split('-')[0]);
+    if (isNaN(paraId)) return;
+
+    const lineId = parseInt(hash.split('-')[1]);
+    let target = !isNaN(lineId)
+      ? document.getElementById(`p-${paraId}-l-${lineId}`)
+      : _findFirstSentenceRow(paraId);
+    if (!target) {
+      const section = _findEnclosingSection(paraId);
+      _openSection(section);
+      target = !isNaN(lineId)
+        ? document.getElementById(`p-${paraId}-l-${lineId}`)
+        : _findFirstSentenceRow(paraId) || section;
+    }
+    if (target) {
+      event.preventDefault();
+      history.pushState(null, '', url.hash);
+      _scrollToEl(target);
+    }
+  });
 
   // ── Deep-link: read hash fragment #para_id-line_id and scroll ──
   const hash = window.location.hash.replace(/^#/, '');

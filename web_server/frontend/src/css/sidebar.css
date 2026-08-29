@@ -73,7 +73,7 @@
   width: min(88vw, var(--sb-width));
   background: var(--surface);
   border-right: 1px solid var(--border);
-  box-shadow: 4px 0 20px rgba(0,0,0,0.12);
+  box-shadow: 4px 0 20px color-mix(in srgb, #000 25%, transparent);
   display: flex;
   flex-direction: column;
   transform: translateX(-100%);
@@ -143,7 +143,7 @@
 #toc-list::-webkit-scrollbar { width: 4px; }
 .sb-panel-scroll::-webkit-scrollbar-thumb,
 #home-results-panel::-webkit-scrollbar-thumb,
-#toc-list::-webkit-scrollbar-thumb { background: #d5c9bd; border-radius: 2px; }
+#toc-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 /* ── Library panel ───────────────────────────────────────── */
 #sb-library-filter {
@@ -254,7 +254,7 @@
   transition: background 0.15s;
 }
 .sb-outline-link:hover {
-  background: #ecdccb;
+  background: var(--accent-light);
   text-decoration: none;
 }
 
@@ -277,7 +277,7 @@
   text-decoration: none;
   transition: background 0.15s;
 }
-.sb-outline-full:hover { background: #ecdccb; text-decoration: none; }
+.sb-outline-full:hover { background: var(--accent-light); text-decoration: none; }
 .sb-outline-loading {
   flex-shrink: 0;
   padding: 0.5rem 0.8rem;
@@ -402,7 +402,7 @@ body.sb-resizing * {
   -webkit-overflow-scrolling: touch;
 }
 .sb-dict-results::-webkit-scrollbar { width: 4px; }
-.sb-dict-results::-webkit-scrollbar-thumb { background: #d5c9bd; border-radius: 2px; }
+.sb-dict-results::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 /* ── Responsive ──────────────────────────────────────────── */
 /* Tablet & desktop: VSCode-style sidebar.
@@ -437,7 +437,7 @@ body.sb-resizing * {
   }
   /* Overlay mode (unpinned): a soft shadow separates the panel from the page. */
   body.sb-drawer-open:not(.sb-pinned) #sb-drawer {
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 4px 0 20px color-mix(in srgb, #000 25%, transparent);
   }
   #sb-tabs { display: none; }
 }

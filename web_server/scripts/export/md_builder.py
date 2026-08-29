@@ -19,8 +19,20 @@ def build_markdown(book: Book, output_path: str) -> str:
     lines.append(f'book_id: "{book.book_id}"')
     if book.nikaya:
         lines.append(f'nikaya: "{_esc_yaml(book.nikaya)}"')
+    if book.sub_nikaya:
+        lines.append(f'sub_nikaya: "{_esc_yaml(book.sub_nikaya)}"')
+    if book.category:
+        lines.append(f'category: "{_esc_yaml(book.category)}"')
     if book.lang_name:
         lines.append(f'translation_language: "{book.lang_name}"')
+    if book.description:
+        lines.append(f'description: "{_esc_yaml(book.description)}"')
+    if book.vri_id:
+        lines.append(f'vri_id: "{book.vri_id}"')
+    if book.attha_ref:
+        lines.append(f'attha_ref: "{book.attha_ref}"')
+    if book.tika_ref:
+        lines.append(f'tika_ref: "{book.tika_ref}"')
     lines.append(f'source: "https://epitaka.org"')
     lines.append('---')
     lines.append('')
@@ -28,11 +40,17 @@ def build_markdown(book: Book, output_path: str) -> str:
     # ── Title ─────────────────────────────────────────────────────────
     lines.append(f'# {_md_title(book)}')
     lines.append('')
-    if book.nikaya:
+    if book.sub_nikaya:
+        lines.append(f'*{book.sub_nikaya}*')
+        lines.append('')
+    elif book.nikaya:
         lines.append(f'*{book.nikaya}*')
         lines.append('')
     if book.lang_name:
         lines.append(f'**{book.lang_name} Translation**')
+        lines.append('')
+    if book.description:
+        lines.append(f'> {book.description}')
         lines.append('')
     lines.append('---')
     lines.append('')

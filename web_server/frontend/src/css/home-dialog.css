@@ -112,7 +112,7 @@
   transition: background 0.15s;
   font-family: var(--font-sans, 'DM Sans', sans-serif);
 }
-#search-type-btn:hover { background: #edddd0; }
+#search-type-btn:hover {  background: var(--accent-light, #edddd0); }
 #search-type-btn .arrow {
   font-size: 0.6rem;
   transition: transform 0.15s;
@@ -283,7 +283,7 @@
 }
 #home-suggestions.show { display: block; }
 #home-suggestions::-webkit-scrollbar { width: 4px; }
-#home-suggestions::-webkit-scrollbar-thumb { background: #d5c9bd; border-radius: 2px; }
+#home-suggestions::-webkit-scrollbar-thumb { background: var(--border, #d5c9bd); border-radius: 2px; }
 
 .suggestion-item {
   padding: 0.5rem 0.85rem;
@@ -294,7 +294,7 @@
   align-items: baseline;
   gap: 0.5rem;
   transition: background 0.1s;
-  border-bottom: 1px solid #f5f0ea;
+  border-bottom: 1px solid var(--border, #f5f0ea);
 }
 .suggestion-item:last-child { border-bottom: none; }
 .suggestion-item:hover,
@@ -376,7 +376,7 @@
 }
 .home-tab-panel.active { display: block; }
 .home-tab-panel::-webkit-scrollbar { width: 4px; }
-.home-tab-panel::-webkit-scrollbar-thumb { background: #d5c9bd; border-radius: 2px; }
+.home-tab-panel::-webkit-scrollbar-thumb { background: var(--border, #d5c9bd); border-radius: 2px; }
 
 /* ── Search results panel ────────────────────────────────── */
 #home-results-panel {
@@ -387,7 +387,7 @@
 }
 #home-results-panel.active { display: block; }
 #home-results-panel::-webkit-scrollbar { width: 4px; }
-#home-results-panel::-webkit-scrollbar-thumb { background: #d5c9bd; border-radius: 2px; }
+#home-results-panel::-webkit-scrollbar-thumb { background: var(--border, #d5c9bd); border-radius: 2px; }
 
 .search-result-item {
   padding: 0.6rem 0.75rem;
@@ -504,7 +504,7 @@
 /* Search highlight */
 .book-entry mark,
 .search-result-heading mark {
-  background: #fde68a;
+  background: color-mix(in srgb, #fde68a 75%, var(--surface, #fff));
   color: inherit;
   border-radius: 2px;
   padding: 0 1px;

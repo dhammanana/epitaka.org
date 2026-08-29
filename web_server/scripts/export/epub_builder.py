@@ -58,9 +58,14 @@ def build_epub(book: Book, output_path: str, cover_bytes: bytes = b'') -> str:
         ebook.add_metadata('OPF', 'cover', 'cover-image', {'name': 'cover'})
     ebook.add_metadata('DC', 'subject', 'Buddhism')
     ebook.add_metadata('DC', 'subject', 'Pali Canon')
+    if book.sub_nikaya:
+        ebook.add_metadata('DC', 'subject', book.sub_nikaya)
     ebook.add_metadata('DC', 'description', _epub_description(book))
     ebook.add_metadata('DC', 'publisher', 'E-Pitaka (epitaka.org)')
-    ebook.add_metadata('DC', 'source', 'https://epitaka.org')
+    source = 'https://epitaka.org'
+    if book.vri_id:
+        source += f' (VRI: {book.vri_id})'
+    ebook.add_metadata('DC', 'source', source)
     ebook.add_metadata('DC', 'rights', 'Public Domain')
     ebook.add_metadata('DC', 'date', '2026')
 
@@ -79,6 +84,7 @@ def build_epub(book: Book, output_path: str, cover_bytes: bytes = b'') -> str:
     # ── Title page ────────────────────────────────────────────────────
     title_ch = _title_page(book, lang, css)
     title_ch.id = 'title_page'
+    ebook.add_item(title_ch)
 
     # ── Chapters ──────────────────────────────────────────────────────
     chapters = []
@@ -86,12 +92,14 @@ def build_epub(book: Book, output_path: str, cover_bytes: bytes = b'') -> str:
     ch_idx = 0
     if book.intro_sentences:
         ch = _intro_chapter(book, lang, css)
+        ebook.add_item(ch)
         chapters.append(ch)
         ch_idx += 1
 
     toc_items = []
     for vagga in book.vagga_sections:
         ch, verse_links = _vagga_chapter(vagga, book, lang, css, ch_idx)
+        ebook.add_item(ch)
         chapters.append(ch)
         if verse_links:
             toc_items.append((ch, verse_links))
@@ -100,17 +108,21 @@ def build_epub(book: Book, output_path: str, cover_bytes: bytes = b'') -> str:
         ch_idx += 1
 
     # ── Table of contents ─────────────────────────────────────────────
+    # ebooklib expects TOC entries as:
+    #   - epub.Link (flat entry)
+    #   - epub.EpubHtml (flat entry)
+    #   - tuple (section_link, [child_links]) for nested entries
     ebook.toc = [epub.Link('chap_title.xhtml', 'Title Page', 'title')]
     for item in toc_items:
         if isinstance(item, tuple):
             ch, verse_links = item
-            ebook.toc.append(
-                epub.Section(ch.title[:80], [
-                    epub.Link(v.href, v.title, v.uid) for v in verse_links
-                ])
-            )
+            ch_id = ch.id if hasattr(ch, 'id') else ''
+            section_link = epub.Link(ch.file_name, ch.title[:80], ch_id)
+            child_links = [
+                epub.Link(v.href, v.title, v.uid) for v in verse_links
+            ]
+            ebook.toc.append((section_link, child_links))
         else:
-            # EpubHtml has .id; epub.Link has .uid
             ch_id = item.id if hasattr(item, 'id') else getattr(item, 'uid', '')
             ebook.toc.append(epub.Link(item.file_name, item.title[:80], ch_id))
 
@@ -134,10 +146,14 @@ def _title_page(book, lang, css):
     if book.english_name and book.english_name.lower() != book.book_name.lower():
         parts.append(f'<p class="book-subtitle">{_h(book.english_name)}</p>')
     parts.append('<div class="title-divider"></div>')
-    if book.nikaya:
+    if book.sub_nikaya:
+        parts.append(f'<p class="book-lang">{_h(book.sub_nikaya)}</p>')
+    elif book.nikaya:
         parts.append(f'<p class="book-lang">{_h(book.nikaya)}</p>')
     if book.lang_name:
         parts.append(f'<p class="book-lang">{_h(book.lang_name)} Translation</p>')
+    if book.description:
+        parts.append(f'<p class="book-description">{_h(book.description)}</p>')
     parts.append(f'<p class="book-publisher">Chattha Sangayana Tipiṭaka</p>')
     parts.append(f'<p class="book-source">epitaka.org</p>')
     parts.append('</div>')
@@ -315,6 +331,7 @@ body {{
 .book-title {{ font-size: 1.8em; font-weight: bold; margin-bottom: 0.3em; }}
 .book-subtitle {{ font-size: 1.1em; color: #8a7a6e; }}
 .book-lang {{ font-size: 0.9em; color: #8b5e3c; }}
+.book-description {{ font-size: 0.85em; color: #6b7280; font-style: italic; margin: 1em 2em; line-height: 1.5; }}
 .title-divider {{ width: 40%; margin: 2em auto; border-top: 2px solid #d4a97a; }}
 .book-publisher, .book-source {{ font-size: 0.9em; color: #8a7a6e; margin-top: 1em; }}
 

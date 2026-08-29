@@ -10,7 +10,7 @@
 .cc-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(20, 12, 6, 0.35);
+  background: color-mix(in srgb, #000 35%, transparent);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   z-index: 900;
@@ -121,7 +121,7 @@
 .cc-btn-reject:hover {
   background: var(--accent-light);
   color: var(--accent);
-  border-color: #d4a97a;
+  border-color: var(--accent);
 }
 
 .cc-btn-settings {
@@ -191,7 +191,7 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--surface);
   transition: transform 0.2s;
   box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }

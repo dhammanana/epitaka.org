@@ -93,12 +93,21 @@ def organize_hierarchy(hierarchy):
         if nikaya not in menu[category]:
             menu[category][nikaya] = {}
 
-        # Use empty string as the key for books with no sub_nikaya
+        # Keep the database order all the way through to the client. The
+        # third tuple item is intentionally internal API data; consumers
+        # render only the first two values.
         key = sub_nikaya if sub_nikaya else ""
         if key not in menu[category][nikaya]:
             menu[category][nikaya][key] = []
-        menu[category][nikaya][key].append((book_id, book_name))
+        menu[category][nikaya][key].append((book_id, book_name, book_data['id']))
 
+    # Explicitly sort each visible list by books.id. Dict insertion order is
+    # preserved by Python, but sorting here makes the API contract clear and
+    # protects the library from future refactoring of the loader.
+    for category in menu.values():
+        for nikaya in category.values():
+            for books in nikaya.values():
+                books.sort(key=lambda item: item[2])
     return menu
 
 

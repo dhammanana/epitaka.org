@@ -94,6 +94,9 @@ class Book:
     lang_code: str           # translation language code
     lang_name: str           # e.g. "English"
     script: str = 'ro'       # Pāli destination script
+    vri_id: str = ''         # VRI identifier (e.g. "s0502m.mul")
+    attha_ref: str = ''      # Aṭṭhakathā reference (e.g. "Dhp-a")
+    tika_ref: str = ''       # Ṭīkā reference
     vagga_sections: list[VaggaSection] = field(default_factory=list)
     intro_sentences: list[Sentence] = field(default_factory=list)  # before first heading
     total_sentences: int = 0
@@ -264,6 +267,9 @@ def load_book(
             lang_code=lang_code,
             lang_name=_lang_display(lang_code),
             script=script or 'ro',
+            vri_id=row['vri_id'] or '',
+            attha_ref=row['attha_ref'] or '',
+            tika_ref=row['tika_ref'] or '',
         )
 
     # ── Load headings ─────────────────────────────────────────────────
@@ -444,11 +450,11 @@ def load_all_books(
         conn.row_factory = sqlite3.Row
         if mula_only:
             rows = conn.execute(
-                "SELECT book_id FROM books WHERE category = 'Mūla' ORDER BY sort_order"
+                "SELECT book_id FROM books WHERE category = 'Mūla' ORDER BY id"
             ).fetchall()
         else:
             rows = conn.execute(
-                'SELECT book_id FROM books ORDER BY sort_order'
+                'SELECT book_id FROM books ORDER BY id'
             ).fetchall()
 
     books = []

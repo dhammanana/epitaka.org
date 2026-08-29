@@ -56,8 +56,8 @@
   top: calc(100% + 4px);
   left: 0;
   right: 0;
-  background: var(--color-bg, #fff);
-  border: 1px solid #ddd;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border);
   border-radius: 6px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
   list-style: none;
@@ -78,7 +78,7 @@
 }
 .dict-suggestion-item:hover,
 .dict-suggestion-item.active {
-  background: rgba(0,0,0,0.06);
+  background: color-mix(in srgb, var(--text) 8%, transparent);
 }
 .suggest-word  { font-weight: 500; }
 .suggest-freq  { font-size: 0.75em; opacity: 0.45; }

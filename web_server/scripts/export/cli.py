@@ -15,6 +15,7 @@ Output naming:
 """
 import argparse
 import os
+import re
 import sys
 import time
 
@@ -29,6 +30,24 @@ from scripts.export.epub_builder import build_epub
 from scripts.export.pdf_builder import build_pdf
 from scripts.export.md_builder import build_markdown
 from scripts.export.docx_builder import build_docx
+
+
+def _sanitize_name(name: str) -> str:
+    """Convert a book name to a safe folder name.
+
+    Removes or replaces characters that are unsafe for file paths,
+    while preserving Unicode letters (including non-Latin scripts).
+    """
+    if not name:
+        return 'Untitled'
+    # Replace characters unsafe for file systems
+    safe = re.sub(r'[\\/:*?"<>|]', '', name)
+    # Replace multiple spaces/underscores with single underscore
+    safe = re.sub(r'[\s_]+', '_', safe).strip('_')
+    # Limit length
+    if len(safe) > 60:
+        safe = safe[:60].rstrip('_')
+    return safe or 'Untitled'
 
 
 def main():
@@ -141,13 +160,19 @@ Examples:
         if not args.no_cover:
             try:
                 lang_label = book.lang_name if book.lang_code else 'Pāli'
+                # Build subtitle: prefer sub_nikaya > nikaya > category
+                subtitle = book.sub_nikaya or book.nikaya or book.category
                 cover_bytes = generate_cover(
                     title=book.english_name or book.book_name,
-                    subtitle=book.nikaya or book.category,
+                    subtitle=subtitle,
                     author='Chaṭṭha Saṅgāyana Tipiṭaka',
                     lang_name=f'{lang_label} Translation',
                     category=book.category,
                     script=book.script,
+                    book_name=book.book_name or '',
+                    nikaya=book.nikaya or '',
+                    sub_nikaya=book.sub_nikaya or '',
+                    description=book.description or '',
                 )
                 print(f'  🎨 Cover generated')
             except Exception as e:
@@ -158,7 +183,22 @@ Examples:
             suffix = f'_{args.lang}' if args.lang else '_pali'
             ext_map = {'epub': '.epub', 'pdf': '.pdf', 'md': '.md', 'docx': '.docx'}
             filename = f'{book.book_id}{suffix}{ext_map[fmt]}'
-            filepath = os.path.join(output_dir, filename)
+
+            # Build folder path: lang/extension/category/nikaya/sub_nikaya/book_name
+            lang_folder = args.lang or 'pali'
+            cat_folder = book.category or 'Uncategorized'
+            nik_folder = book.nikaya or 'Uncategorized'
+            sub_folder = book.sub_nikaya or ''
+            # Use English book name for folder, sanitized
+            book_folder = _sanitize_name(book.english_name or book.book_name)
+
+            folder_parts = [lang_folder, fmt, cat_folder, nik_folder]
+            if sub_folder:
+                folder_parts.append(sub_folder)
+            folder_parts.append(book_folder)
+
+            rel_dir = os.path.join(*folder_parts)
+            filepath = os.path.join(output_dir, rel_dir, filename)
 
             try:
                 if fmt == 'epub':
@@ -171,7 +211,8 @@ Examples:
                     build_docx(book, filepath)
 
                 size_mb = os.path.getsize(filepath) / (1024 * 1024)
-                print(f'  ✅ {fmt.upper():<6} → {filename} ({size_mb:.1f} MB)')
+                rel_path = os.path.relpath(filepath, output_dir)
+                print(f'  ✅ {fmt.upper():<6} → {rel_path} ({size_mb:.1f} MB)')
                 success += 1
             except Exception as e:
                 print(f'  ❌ {fmt.upper():<6} → FAILED: {e}')

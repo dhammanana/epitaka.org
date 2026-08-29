@@ -642,8 +642,7 @@ def study_jsonld(book_id: str, summary_title: str, pali_name: str,
     ]
     if sutta_title:
         crumb = {'@type': 'ListItem', 'position': 3, 'name': sutta_title}
-        if section_url:
-            crumb['item'] = section_url
+        crumb['item'] = section_url or book_url
         breadcrumb.append(crumb)
     breadcrumb.append({
         '@type': 'ListItem', 'position': len(breadcrumb) + 1,
@@ -710,10 +709,9 @@ def book_jsonld(book_id: str, pali_name: str, lang_code: str, page_url: str,
     if section_path:
         for i, item in enumerate(section_path, start=3):
             crumb = {'@type': 'ListItem', 'position': i, 'name': item['title']}
-            # Headings without a page of their own (e.g. a sutta that only
-            # contains sub-headings) stay text-only crumbs — no `item`.
-            if item.get('url'):
-                crumb['item'] = item['url']
+            # Every itemListElement must have an `item` URL for Google.
+            # Headings without their own page link back to the current page.
+            crumb['item'] = item.get('url') or page_url
             breadcrumb.append(crumb)
     graph = [
         {

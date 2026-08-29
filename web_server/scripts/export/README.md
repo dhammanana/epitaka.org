@@ -1,122 +1,251 @@
-# E-Piṭaka Export Scripts
+# E-Piṭaka Export Script
 
 Convert books from the Chaṭṭha Saṅgāyana Tipiṭaka to EPUB, PDF, Markdown, and DOCX formats.
-
-## Features
-
-- **4 Output Formats**: EPUB 3, PDF, Markdown, DOCX
-- **Cover Generation**: Automatic Dharma wheel cover with book metadata
-- **Bilingual Support**: Pāli text + translation side-by-side
-- **Metadata**: Proper Dublin Core metadata for EPUB, front matter for Markdown
-- **Unicode**: Full support for Pāli diacritics (ā, ī, ū, ṃ, ṇ, ṭ, ḍ, ṣ, ḷ)
-- **65 Books**: All Mūla (original) texts from the Tipiṭaka
-- **10 Languages**: English, Vietnamese, Thai, Sinhala, Tamil, Lao, Myanmar, Portuguese, German, Khmer
 
 ## Quick Start
 
 ```bash
-# Export a single book (English)
-cd web_server
+# Export a single book
 python -m scripts.export.cli --book Dhp --lang en
 
-# Export with specific formats
-python -m scripts.export.cli --book Dhp --lang en --formats epub,pdf
-
-# Export ALL books
+# Export all Mūla books
 python -m scripts.export.cli --all --lang en
 
 # List available languages
 python -m scripts.export.cli --list-languages
 ```
 
-## CLI Options
-
-| Option | Description |
-|--------|-------------|
-| `--book`, `-b` | Book ID to export (e.g., `Dhp`, `D-i`, `Vin-iii`) |
-| `--all`, `-a` | Export all Mūla books |
-| `--lang`, `-l` | Translation language code (e.g., `en`, `vi`, `th`) |
-| `--formats`, `-f` | Comma-separated formats (default: `epub,pdf,md,docx`) |
-| `--output-dir`, `-o` | Output directory (default: `./output`) |
-| `--data-dir` | Path to `data/` directory (auto-detected) |
-| `--list-languages` | Show available translations |
-| `--no-cover` | Skip cover image generation |
-| `--all-categories` | Include Aṭṭhakathā and Ṭīkā books |
-
-## Output Files
-
-Files are named: `{book_id}_{lang}.{ext}`
-
-Example:
-```
-Dhp_en.epub    (0.6 MB)
-Dhp_en.pdf     (0.3 MB)
-Dhp_en.md      (0.0 MB)
-Dhp_en.docx    (0.0 MB)
-```
-
-## Architecture
-
-```
-scripts/export/
-├── __init__.py          # Package init
-├── cli.py               # CLI entry point
-├── data_loader.py       # SQLite database reader
-├── cover.py             # Pillow cover image generator
-├── epub_builder.py      # EPUB 3 builder (ebooklib)
-├── pdf_builder.py       # PDF builder (ReportLab)
-├── md_builder.py        # Markdown builder
-├── docx_builder.py      # DOCX builder (python-docx)
-└── requirements.txt     # Export dependencies
-```
-
-## Database Schema
-
-The export reads from:
-
-1. **`epitaka.db`** (Pāli text):
-   - `books` — book metadata
-   - `headings` — section structure
-   - `sentences` — Pāli text
-
-2. **`epitaka_{lang}.db`** (Translations):
-   - `sentences` — translations
-   - `summaries` — heading translations (optional)
-
-## GitHub Actions
-
-The workflow `.github/workflows/export-ebooks.yml` automates exports:
-
-1. **Manual Trigger**: Run from GitHub Actions UI
-2. **Tag Trigger**: Push `ebook-*` tags
-3. **Artifacts**: Downloads available for 90 days
-4. **Releases**: Creates GitHub releases with all exported files
-
-### Triggering an Export
+## Usage
 
 ```bash
-# Via tag
-git tag ebook-v1
-git push origin ebook-v1
-
-# Or manually from GitHub Actions UI
+python -m scripts.export.cli [OPTIONS]
 ```
 
-## Dependencies
+## Options
+
+| Option | Short | Description | Default |
+|--------|-------|-------------|---------|
+| `--book BOOK` | `-b` | Book ID to export (e.g., Dhp, D-i, Vin-iii) | - |
+| `--all` | `-a` | Export all Mūla books | - |
+| `--lang LANG` | `-l` | Translation language code (e.g., en, si, th) | - |
+| `--script SCRIPT` | `-s` | Pāli output script (ro, si, hi, be, etc.) | `ro` |
+| `--formats FORMATS` | `-f` | Comma-separated output formats | `epub,pdf,md,docx` |
+| `--output-dir DIR` | `-o` | Output directory | `./output` |
+| `--data-dir DIR` | - | Path to data/ directory (auto-detected) | - |
+| `--list-languages` | - | Show available translations and exit | - |
+| `--no-cover` | - | Skip cover image generation | - |
+| `--mula-only` | - | Export only Mūla (original) books | `True` |
+| `--all-categories` | - | Include Aṭṭhakathā and Ṭīkā books | - |
+
+## Examples
+
+### Export a single book
 
 ```bash
-pip install ebooklib Pillow reportlab python-docx
+# English translation, Roman script
+python -m scripts.export.cli --book Dhp --lang en
+
+# English translation, Sinhala script
+python -m scripts.export.cli --book Dhp --lang en --script si
+
+# Thai translation, Thai script
+python -m scripts.export.cli --book Dhp --lang th --script th
+
+# Vietnamese translation, Roman script
+python -m scripts.export.cli --book Dhp --lang vi
 ```
 
-## Font Requirements
+### Export all books
 
-For PDF export, the script tries to find Unicode-capable fonts:
-- **Linux**: DejaVu, Liberation (install via `apt-get install fonts-dejavu-core fonts-liberation`)
-- **macOS**: Georgia, Arial (pre-installed)
-- **Windows**: Calibri (pre-installed)
+```bash
+# Export all Mūla books (default)
+python -m scripts.export.cli --all --lang en
 
-## License
+# Export all books including Aṭṭhakathā and Ṭīkā
+python -m scripts.export.cli --all --all-categories --lang en
 
-- **Pāli text**: Public Domain
-- **AI translations**: CC-BY-4.0
-- **Export scripts**: MIT
+# Export all books with Sinhala script
+python -m scripts.export.cli --all --lang en --script si
+```
+
+### Export specific formats
+
+```bash
+# EPUB only
+python -m scripts.export.cli --book Dhp --lang en --formats epub
+
+# PDF and DOCX only
+python -m scripts.export.cli --book Dhp --lang en --formats pdf,docx
+
+# All formats
+python -m scripts.export.cli --book Dhp --lang en --formats epub,pdf,md,docx
+```
+
+### Custom output directory
+
+```bash
+python -m scripts.export.cli --book Dhp --lang en --output-dir ./exports
+```
+
+### Skip cover generation
+
+```bash
+python -m scripts.export.cli --book Dhp --lang en --no-cover
+```
+
+## Available Languages
+
+Run `--list-languages` to see all available translations:
+
+```bash
+python -m scripts.export.cli --list-languages
+```
+
+Common languages:
+- `en` - English
+- `si` - Sinhala
+- `th` - Thai
+- `vi` - Vietnamese
+- `my` - Myanmar
+- `km` - Khmer
+- `lo` - Lao
+- `hi` - Hindi
+- `ta` - Tamil
+
+## Available Scripts
+
+| Code | Script Name | Example |
+|------|-------------|---------|
+| `ro` | Rōmani (Latin) | Dhammapada |
+| `si` | Sinhala | ධම්මපදපාළි |
+| `hi` | Devanāgarī | धम्मपद |
+| `th` | Thai | ธรรมบท |
+| `lo` | Lao | ທຳມະບາດ |
+| `my` | Myanmar | ဓမ္မပဒ |
+| `km` | Khmer | ធម្មបទ |
+| `be` | Bengali | ধম্মপদ |
+| `gm` | Gurmukhī | ਧੰਮਪਦ |
+| `tt` | Tai Tham | ᨭ᩠ umiejęᩢᩔᩅ锠ᩘ |
+| `gj` | Gujarātī | ધમ્મપદ |
+| `te` | Telugu | ధమ్మపద |
+| `ka` | Kannaḍa | ಧಮ್ಮಪದ |
+| `mm` | Malayāḷaṃ | ധമ്മപദ |
+
+## Output Structure
+
+Files are organized by language, format, category, nikaya, and book:
+
+```
+output/
+  en/
+    epub/
+      Mūla/
+        Sutta Piṭaka/
+          Khuddaka Nikāya/
+            Dhammapada/
+              Dhp_en.epub
+    pdf/
+      Mūla/
+        Sutta Piṭaka/
+          Khuddaka Nikāya/
+            Dhammapada/
+              Dhp_en.pdf
+    md/
+      ...
+    docx/
+      ...
+```
+
+## Book IDs
+
+Common book IDs:
+
+| ID | Book Name |
+|----|-----------|
+| `Dhp` | Dhammapada |
+| `D-i` | Dīgha Nikāya (Volume 1) |
+| `D-ii` | Dīgha Nikāya (Volume 2) |
+| `D-iii` | Dīgha Nikāya (Volume 3) |
+| `M-i` | Majjhima Nikāya (Volume 1) |
+| `M-ii` | Majjhima Nikāya (Volume 2) |
+| `M-iii` | Majjhima Nikāya (Volume 3) |
+| `S-i` | Saṃyutta Nikāya (Volume 1) |
+| `S-ii` | Saṃyutta Nikāya (Volume 2) |
+| `S-iii` | Saṃyutta Nikāya (Volume 3) |
+| `S-iv` | Saṃyutta Nikāya (Volume 4) |
+| `S-v` | Saṃyutta Nikāya (Volume 5) |
+| `A-i` | Aṅguttara Nikāya (Volume 1) |
+| `A-ii` | Aṅguttara Nikāya (Volume 2) |
+| `A-iii` | Aṅguttara Nikāya (Volume 3) |
+| `A-iv` | Aṅguttara Nikāya (Volume 4) |
+| `A-v` | Aṅguttara Nikāya (Volume 5) |
+| `Vin` | Vinaya Piṭaka |
+| `Khp` | Khuddakapāṭha |
+| `Ud` | Udāna |
+| `It` | Itivuttaka |
+| `Sn` | Sutta Nipāta |
+| `Th` | Theragāthā |
+| `Thī` | Therīgāthā |
+| `Ap` | Apadāna |
+| `Bv` | Buddhavaṃsa |
+| `Cp` | Cariyāpiṭaka |
+| `Ja` | Jātaka |
+
+## Features
+
+- **Cover images**: Generated with Dharma wheel, book title, and metadata
+- **PDF bookmarks**: Clickable outline in sidebar
+- **EPUB TOC**: Hierarchical table of contents
+- **Script conversion**: Roman Pāli to any Indic script via pali-script.js
+- **Bilingual layout**: Pāli text + translation side by side
+- **VRI page markers**: Page break indicators from VRI edition
+
+## Requirements
+
+- Python 3.10+
+- ReportLab (for PDF generation)
+- Pillow (for cover images)
+- ebooklib (for EPUB generation)
+- python-docx (for DOCX generation)
+- Node.js (for script conversion)
+
+## Troubleshooting
+
+### "Node.js not found" error
+
+Install Node.js or ensure it's in your PATH:
+
+```bash
+# macOS
+brew install node
+
+# Ubuntu/Debian
+sudo apt install nodejs
+
+# Check installation
+node --version
+```
+
+### "Font not found" error
+
+Ensure fonts are in the correct location:
+
+```bash
+ls -la epitaka.org/web_server/frontend/src/fonts/
+```
+
+### Cover generation fails
+
+Check if Pillow is installed:
+
+```bash
+pip install Pillow
+```
+
+### PDF generation fails
+
+Check if ReportLab is installed:
+
+```bash
+pip install reportlab
+```

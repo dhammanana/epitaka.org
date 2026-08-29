@@ -98,7 +98,7 @@ body::before {
 }
 #open-books-btn:hover {
   background: var(--accent-light);
-  border-color: #d4a97a;
+  border-color: var(--accent);
   box-shadow: 0 4px 16px rgba(139, 94, 60, 0.15);
   transform: translateY(-1px);
 }
@@ -142,7 +142,7 @@ body::before {
 }
 
 .lang-chip:hover {
-  border-color: #c4a882;
+  border-color: var(--accent);
   background: var(--accent-light);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(139, 94, 60, 0.12);
@@ -173,7 +173,7 @@ body::before {
 }
 
 .lang-chip.active .lang-native {
-  color: #7a4f2f;
+  color: var(--accent);
 }
 
 .lang-english {
@@ -256,7 +256,7 @@ body::before {
 }
 .popular-books li a:hover {
   background: var(--accent-light);
-  border-color: #d4a97a;
+  border-color: var(--accent);
 }
 .seo-translations {
   font-size: 0.95rem;
@@ -276,7 +276,7 @@ body::before {
 #disclaimer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(20, 12, 6, 0.52);
+  background: color-mix(in srgb, #000 52%, transparent);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   display: flex;
@@ -319,8 +319,8 @@ body::before {
   width: min(720px, 100%);
   border: 1px solid var(--border);
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.22),
-    0 4px 12px rgba(0, 0, 0, 0.1);
+    0 20px 60px color-mix(in srgb, #000 28%, transparent),
+    0 4px 12px color-mix(in srgb, #000 12%, transparent);
   overflow: hidden;
   animation: idx-card-rise 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
 }

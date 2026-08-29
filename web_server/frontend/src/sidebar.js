@@ -266,7 +266,9 @@ function openPanel(name) {
   if (name === 'outline') loadOutline();
 
   // Focus the panel's primary control (best practice for drawers/dialogs).
+  // Skip on mobile to prevent the virtual keyboard from opening automatically.
   requestAnimationFrame(() => {
+    if (window.innerWidth < 768) return;
     const focusTarget =
       name === 'search'  ? document.getElementById(HOME_SEARCH_IDS.searchInput)
       : name === 'toc'   ? document.getElementById('toc-search')
@@ -823,6 +825,9 @@ function orderCategories(keys) {
 }
 
 function orderNikayas(keys) {
+  // The database row id is the canonical order for books. This ordering is
+  // only a fallback for the collection labels themselves; individual books
+  // arrive from the API already ordered by books.id.
   const order = ['Vinaya', 'Suttanta', 'Sutta', 'Abhidhamma'];
   return [...order.filter(k => keys.includes(k)), ...keys.filter(k => !order.includes(k))];
 }

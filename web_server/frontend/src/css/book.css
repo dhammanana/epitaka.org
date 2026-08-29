@@ -24,9 +24,43 @@
   --toc-width:    300px;
   --topbar-h:     52px;
   --font-serif:   'Crimson Pro', Georgia, serif;
+  --control-bg:   #ffffff;
+  --danger-color: #c0392b;
   --font-sans:    'DM Sans', system-ui, sans-serif;
   --radius:       8px;
   --reader-font-size: 16px;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:           #1b1714;
+  --surface:      #27211d;
+  --border:       #4a3d33;
+  --accent:       #d0a06f;
+  --accent-light: #3b2d24;
+  --pali-color:   #f0c79d;
+  --trans-color:  #a9c7e6;
+  --text:         #eee6de;
+  --muted:        #b5a497;  --muted2:        #9eb8df;
+  --control-bg:    #332a24;
+  --danger-color:  #f28b82;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"] {
+    color-scheme: dark;
+    --bg: #1b1714;
+    --surface: #27211d;
+    --border: #4a3d33;
+    --accent: #d0a06f;
+    --accent-light: #3b2d24;
+    --pali-color: #f0c79d;
+    --trans-color: #a9c7e6;
+    --text: #eee6de;
+    --muted: #b5a497;
+    --muted2: #9eb8df;
+  }
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -140,6 +174,11 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   background: #7a4f2f;
   border-color: #7a4f2f;
   color: #fff;
+}
+
+/* Hide the outline button on mobile — it takes too much space in the topbar */
+@media (max-width: 767px) {
+  .outline-tab-btn { display: none; }
 }
 
 /* ── Language dropdown ─────────────────── */
@@ -461,21 +500,44 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 /* ── Paragraph groups ──────────────────────── */
 .para-group {
   position: relative;
-  padding: 0.2rem 0.3rem 0.6rem 0.4rem;
-  border-bottom: 1px solid #f0ebe4;
-  /* Vertical bar on the right to visually group sentences in same paragraph */
-  border-right: 2px solid var(--border);
-  margin-right: 0.25rem;
+  padding: 0.2rem 0.3rem 0.6rem 0.9rem;
+  border-bottom: none;
+  /* A vertical bar groups the sentences without adding a paragraph break. */
+  border-left: 2px solid var(--border);
+  margin-left: 0.25rem;
+  margin-bottom: 0.55rem;
 }
 .para-group:last-child {
-  border-bottom: none;
-  border-right: 2px solid transparent;
-}
-.para-group:only-child {
-  border-right: 2px solid transparent;
+  margin-bottom: 0;
 }
 .para-group.highlight-flash { animation: flash 1.8s ease-out forwards; }
 @keyframes flash { 0% { background: #fde68a; } 100% { background: transparent; } }
+
+/* Target marker for all in-page jumps: three quick outline blinks, then fade. */
+.jump-target-highlight {
+  animation: jump-target-highlight 2s ease-out forwards;
+}
+@keyframes jump-target-highlight {
+  0%, 30%, 60% {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+  15%, 45%, 75%, 100% {
+    outline-color: transparent;
+    background: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jump-target-highlight {
+    animation: jump-target-highlight-reduced 2s ease-out forwards;
+  }
+}
+@keyframes jump-target-highlight-reduced {
+  0%, 100% { outline: 2px solid transparent; background: transparent; }
+  15%, 75% { outline: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+}
 
 .para-num {
   position: absolute; left: 0.5rem; top: 0.7rem;
@@ -493,7 +555,7 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   transition: background 0.12s;
 }
 .sentence-row:hover {
-  background: rgba(0,0,0,0.015);
+  background: color-mix(in srgb, var(--text) 4%, transparent);
 }
 .sentence-row:last-child {
   margin-bottom: 0;
@@ -628,7 +690,7 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 }
 .lang-chip-toggle:hover {
   border-color: #c4a882;
-  background: #f8f2ea;
+  background: var(--accent-light);
 }
 
 /* Tooltips for <sup> footnotes */
@@ -640,7 +702,7 @@ sup::after {
   content: attr(title);
   display: none; position: absolute; bottom: 120%; left: 50%;
   transform: translateX(-50%);
-  background: #333; color: #fff;
+  background: #111; color: #fff;
   padding: 0.3em 0.6em; border-radius: 4px;
   font-size: 0.82em; white-space: nowrap; z-index: 300;
 }
@@ -841,7 +903,7 @@ sup:hover::after { display: block; }
   .para-group {
     position: relative;
     padding: 0.6rem 1.1rem 0.6rem 2.4rem;
-    border-bottom: 1px solid #f0ebe4;
+    border-bottom: none;
   }
   #main-content {
     padding: 1.5rem 1rem 5rem;
@@ -904,7 +966,7 @@ sup:hover::after { display: block; }
   transition: background 0.12s;
 }
 .about-credit-btn:hover {
-  background: #eedcc8;
+  background: color-mix(in srgb, var(--accent) 18%, var(--surface));
 }
 
 /* ── App banner (mobile app promo) ────────────────────────────────────
@@ -977,6 +1039,36 @@ sup:hover::after { display: block; }
 .app-banner-close:hover {
   color: var(--text);
   background: var(--accent-light);
+}
+
+@media (max-width: 600px) {
+  /* Keep the Pali heading and its meaning on separate, readable lines. */
+  .section-heading-link,
+  .section-heading-empty {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    column-gap: 0.5rem;
+  }
+
+  .section-heading-label {
+    display: contents;
+  }
+
+  .section-heading-link > .section-heading-translation,
+  .section-heading-empty > .section-heading-translation {
+    display: block;
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    line-height: 1.35;
+  }
+
+  .section-heading-link > .chevron {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
 }
 
 @media (max-width: 380px) {

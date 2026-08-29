@@ -1,8 +1,13 @@
 """
 docx_builder.py — Generate DOCX files from Book data.
+
+Embeds script-specific fonts so Sinhala and other complex scripts
+render correctly even on systems without the fonts installed.
 """
 import os
 import re
+from copy import deepcopy
+from lxml import etree
 
 from docx import Document
 from docx.shared import Pt, Cm, RGBColor
@@ -11,6 +16,24 @@ from docx.oxml.ns import qn, nsdecls
 from docx.oxml import parse_xml
 
 from .data_loader import Book
+
+_FONTS_DIR = os.path.normpath(os.path.join(
+    os.path.dirname(__file__), '..', '..', 'frontend', 'src', 'fonts'
+))
+
+# Script code → (regular_font_filename, bold_font_filename)
+_SCRIPT_FONT_FILES = {
+    'si':  ('NotoSerifSinhala-Regular.ttf',      'NotoSerifSinhala-Bold.ttf'),
+    'hi':  ('NotoSerifDevanagari-Regular.ttf',   'NotoSerifDevanagari-Bold.ttf'),
+    'th':  ('thai/THSarabunPali.ttf',            'thai/THSarabun-Bold.ttf'),
+    'km':  ('NotoSerifKhmer-Regular.ttf',        'NotoSerifKhmer-Bold.ttf'),
+    'be':  ('NotoSerifBengali-Regular.ttf',      'NotoSerifBengali-Bold.ttf'),
+    'gm':  ('NotoSansGurmukhi-Regular.ttf',      'NotoSansGurmukhi-Bold.ttf'),
+    'gj':  ('NotoSerifGujarati-Regular.ttf',     'NotoSerifGujarati-Bold.ttf'),
+    'te':  ('NotoSerifTelugu-Regular.ttf',       'NotoSerifTelugu-Bold.ttf'),
+    'ka':  ('NotoSerifKannada-Regular.ttf',      'NotoSerifKannada-Bold.ttf'),
+    'mm':  ('NotoSerifMalayalam-Regular.ttf',    'NotoSerifMalayalam-Bold.ttf'),
+}
 
 ACCENT = RGBColor(139, 94, 60)
 PALI_C = RGBColor(124, 45, 18)
@@ -48,18 +71,26 @@ def build_docx(book: Book, output_path: str) -> str:
         sec.left_margin = Cm(2.5); sec.right_margin = Cm(2.5)
     # Set the Pāli font for the document
     pali_font_name = _SCRIPT_DOCX_FONTS.get(book.script, 'Noto Serif')
+    # Collect fonts to embed
+    fonts_to_embed = _get_fonts_to_embed(book.script)
 
     for _ in range(6): doc.add_paragraph()
     p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p.add_run('Dharma Wheel'); r.font.size = Pt(40); r.font.color.rgb = ACCENT
     p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p.add_run(_docx_title(book)); r.font.size = Pt(26); r.font.color.rgb = ACCENT; r.bold = True
-    if book.nikaya:
+    if book.sub_nikaya:
+        p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        r = p.add_run(book.sub_nikaya); r.font.size = Pt(13); r.font.color.rgb = MUTED
+    elif book.nikaya:
         p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         r = p.add_run(book.nikaya); r.font.size = Pt(13); r.font.color.rgb = MUTED
     if book.lang_name:
         p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         r = p.add_run(f'{book.lang_name} Translation'); r.font.size = Pt(11); r.font.color.rgb = ACCENT
+    if book.description:
+        p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        r = p.add_run(book.description); r.font.size = Pt(9); r.font.color.rgb = MUTED; r.italic = True
     p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p.add_run('Chattha Sangayana Tipitaka'); r.font.size = Pt(10); r.font.color.rgb = MUTED
     doc.add_page_break()
@@ -96,6 +127,8 @@ def build_docx(book: Book, output_path: str) -> str:
     p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p.add_run(f'{book.book_name} — Chattha Sangayana Tipitaka'); r.italic = True; r.font.color.rgb = MUTED; r.font.size = Pt(9)
     doc.save(output_path)
+    # Embed fonts after saving (need the file on disk)
+    _embed_fonts_in_docx(output_path, fonts_to_embed)
     return output_path
 
 
@@ -153,6 +186,74 @@ def _parse_inline(html):
 
 def _strip_basic(html):
     return re.sub(r'<[^>]+>', '', html or '').strip()
+
+
+def _get_fonts_to_embed(script):
+    """Get list of (font_name, file_path) tuples to embed in the DOCX."""
+    if script not in _SCRIPT_FONT_FILES:
+        return []
+    regular_file, bold_file = _SCRIPT_FONT_FILES[script]
+    fonts = []
+    for fname in [regular_file, bold_file]:
+        path = os.path.join(_FONTS_DIR, fname)
+        if os.path.isfile(path):
+            # Font name for DOCX (e.g., 'NotoSerifSinhala-Regular')
+            base = os.path.splitext(os.path.basename(fname))[0]
+            fonts.append((base, path))
+    return fonts
+
+
+def _embed_fonts_in_docx(docx_path, fonts_to_embed):
+    """Embed TrueType font files into an existing DOCX.
+
+    Adds font files to word/fonts/ and updates fontTable.xml.
+    This makes the DOCX self-contained — no system fonts needed.
+    """
+    if not fonts_to_embed:
+        return
+
+    import zipfile
+    import tempfile
+    import shutil
+
+    # Read existing DOCX
+    with zipfile.ZipFile(docx_path, 'r') as zin:
+        contents = {name: zin.read(name) for name in zin.namelist()}
+
+    # Parse fontTable.xml
+    font_table_xml = contents.get('word/fontTable.xml')
+    if font_table_xml is None:
+        font_table_xml = b'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+        b'<w:fonts xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"/>'
+    font_table = etree.fromstring(font_table_xml)
+
+    nsmap = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
+
+    for font_name, font_path in fonts_to_embed:
+        # Check if already embedded
+        existing = font_table.find(f'w:rFonts[@w:name="{font_name}"]', nsmap)
+        if existing is not None:
+            continue
+
+        # Read font data and base64-encode it
+        import base64
+        with open(font_path, 'rb') as f:
+            font_data = base64.b64encode(f.read()).decode('ascii')
+
+        # Add entry to fontTable.xml with inline embedded font data
+        font_elem = etree.SubElement(font_table, qn('w:font'))
+        font_elem.set(qn('w:name'), font_name)
+        # Add embedded font reference (base64-encoded TTF data)
+        embed_elem = etree.SubElement(font_elem, qn('w:embedRegular'))
+        embed_elem.set(qn('w:embeddedOpenType'), font_data)
+
+    # Update fontTable.xml
+    contents['word/fontTable.xml'] = etree.tostring(font_table, xml_declaration=True, encoding='UTF-8', standalone=True)
+
+    # Write updated DOCX
+    with zipfile.ZipFile(docx_path, 'w', zipfile.ZIP_DEFLATED) as zout:
+        for name, data in contents.items():
+            zout.writestr(name, data)
 
 
 def _docx_title(book):

@@ -10,6 +10,7 @@ export { Script, paliScriptInfo };
 
 // ── Storage key ──────────────────────────────────────
 const STORAGE_KEY = 'epitaka_settings_v3';
+const THEME_KEY = 'epitaka_theme';
 
 // ── Defaults ─────────────────────────────────────────
 export function defaultSettings() {
@@ -26,6 +27,7 @@ export function defaultSettings() {
     actionCollapse: false,       // true = collapse row buttons into a single ⋯ menu
     load_attha:     true,
     pageSystem:     'vri',       // 'none' | 'vri' | 'pts' | 'myanmar' | 'thai'
+    theme:          'system',    // 'light' | 'dark' | 'system'
   };
 }
 
@@ -41,9 +43,31 @@ export function saveSettings(settings) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
 }
 
+export function getThemePreference() {
+  try {
+    const value = localStorage.getItem(THEME_KEY);
+    return ['light', 'dark', 'system'].includes(value) ? value : 'system';
+  } catch {
+    return 'system';
+  }
+}
+
+export function setThemePreference(theme) {
+  const value = ['light', 'dark', 'system'].includes(theme) ? theme : 'system';
+  try { localStorage.setItem(THEME_KEY, value); } catch {}
+  applyTheme(value);
+}
+
+export function applyTheme(theme = getThemePreference()) {
+  const root = document.documentElement;
+  root.dataset.theme = theme;
+  root.style.colorScheme = theme === 'system' ? 'light dark' : theme;
+}
+
 // ── Apply settings to the DOM ─────────────────────────
 export function applySettings(s) {
   const root = document.documentElement;
+  applyTheme(getThemePreference());
   root.style.setProperty('--pali-color',    s.paliColor);
   root.style.setProperty('--trans-color',   s.transColor);
   root.style.setProperty('--bg',            s.bgColor);
@@ -130,6 +154,7 @@ export function populateSettingsForm(s) {
   _setChecked('cb-action-collapse', !!s.actionCollapse);
   _setChecked('cb-load-attha', s.load_attha ?? true);
   _setValue('page-system-select', s.pageSystem || 'vri');
+  _setValue('theme-select', getThemePreference());
 }
 
 // ── Read settings from form ───────────────────────────
@@ -147,6 +172,7 @@ export function readSettingsForm() {
     actionCollapse: _getChecked('cb-action-collapse'),
     load_attha:     _getChecked('cb-load-attha', true),
     pageSystem:     _getValue('page-system-select') || 'vri',
+    theme:          _getValue('theme-select') || 'system',
   };
 }
 

@@ -15,6 +15,7 @@ import './css/index.css';
 import './css/common.css';
 import { initHomeDialog } from './home-dialog/home-dialog.js';
 import { initCookieConsent } from './cookie-consent.js';
+import { applyTheme } from './settings.js';
 
 // ── Config injected from index.html via Flask ──────────────────
 const { baseUrl, lang } = window.INDEX_CONFIG;
@@ -45,6 +46,7 @@ async function loadMenu() {
 }
 
 async function init() {
+  applyTheme();
   const { menu, hierarchy } = await loadMenu();
 
   // ── Home dialog ────────────────────────────────────────────────
