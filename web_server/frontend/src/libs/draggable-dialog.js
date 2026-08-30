@@ -144,11 +144,7 @@ function injectStyles() {
   background: var(--border, #d5c9bd);
   opacity: 0.7;
 }
-@media (min-width: 640px) {
-  .dd-header { cursor: grab; padding: 0.2rem 0.9rem 0.25rem;}
-  .dd-header:active { cursor: grabbing; }
-  .dd-header::before { display: none; }
-}
+
 
 .dd-drag-icon {
   flex-shrink: 0;

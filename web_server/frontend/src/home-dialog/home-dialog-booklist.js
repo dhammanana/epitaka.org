@@ -147,7 +147,7 @@ export class HomeDialogBookList {
 
     return pitakaNames.map(name => `
       <div class="book-category">
-        <div class="book-category-title">${name}</div>
+        <div class="book-category-title pali-text">${name}</div>
         <div class="book-category-content">
           ${this._renderNikaya(data[name])}
         </div>
@@ -182,7 +182,7 @@ export class HomeDialogBookList {
       if (subNikaya === '') return; // already handled above
       parts.push(`
         <div class="book-nikaya">
-          <div class="book-nikaya-title">
+          <div class="book-nikaya-title pali-text">
             ${subNikaya}
             <span class="nikaya-chevron">▶</span>
           </div>
@@ -204,7 +204,7 @@ export class HomeDialogBookList {
            class="book-entry"
            data-book-id="${bookId}">
           <span class="book-num">${i + 1}.</span>
-          <span class="book-name">${title}</span>
+          <span class="book-name pali-text">${title}</span>
         </a>
       </li>
     `).join('');

@@ -178,7 +178,8 @@
 }
 
 .dict-entry:hover {
-  background: var(--hover-bg, #f0f4ff);
+  background: var(--accent-light);
+  color: var(--accent);
 }
 
 .dict-entry .search-result-heading {
@@ -342,7 +343,7 @@
   padding: 2px 10px;
   border: 1px solid var(--border, #d1d5db);
   border-radius: 6px;
-  background: var(--card-bg, #fff);
+  background: var(--surface, #fff);
   color: var(--text, #374151);
   font-size: 0.78rem;
   cursor: pointer;
@@ -351,8 +352,8 @@
 }
 
 .fts-back-btn:hover {
-  background: var(--hover-bg, #f3f4f6);
-  border-color: var(--border-strong, #9ca3af);
+  background: var(--accent-light, #f3f4f6);
+  border-color: var(--muted, #9ca3af);
 }
 
 /* ── Accordion: book card wrap ─────────────────────────────── */
@@ -369,7 +370,7 @@
   border-radius: 0 0 8px 8px;
   padding: 10px 12px;
   margin-bottom: 4px;
-  background: var(--card-bg-alt, #fafafa);
+  background: var(--bg, #fafafa);
 }
 
 .fts-book-results.expanded {
@@ -454,18 +455,18 @@
 
 .fts-page-btn {
   padding: 4px 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--border, #d1d5db);
   border-radius: 6px;
-  background: #fff;
+  background: var(--surface, #fff);
   font-size: 0.8rem;
   cursor: pointer;
-  color: #374151;
+  color: var(--text, #374151);
   transition: background 0.1s, border-color 0.1s;
 }
 
 .fts-page-btn:hover:not(:disabled) {
-  background: #f3f4f6;
-  border-color: #9ca3af;
+  background: var(--accent-light, #f3f4f6);
+  border-color: var(--muted, #9ca3af);
 }
 
 .fts-page-btn:disabled {
@@ -475,5 +476,5 @@
 
 .fts-page-info {
   font-size: 0.78rem;
-  color: #6b7280;
+  color: var(--muted, #6b7280);
 }

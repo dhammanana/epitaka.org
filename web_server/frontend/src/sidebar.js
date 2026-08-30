@@ -43,18 +43,20 @@ import {
 
 const { baseUrl = '', lang = 'en' } = window.BOOK_CONFIG || {};
 
-const PANELS = ['library', 'search', 'toc', 'outline', 'dict'];
+const TAB_ORDER    = ['Mūla', 'Aṭṭhakathā', 'Ṭīkā', 'Añña'];
+const PITAKA_ORDER = ['Vinaya', 'Suttanta', 'Sutta', 'Abhidhamma'];
+
+const PANELS = ['library', 'search', 'toc', 'dict'];
 const PANEL_TITLES = {
-  library: 'Library', search: 'Search', toc: 'Table of Contents', outline: 'Outline', dict: 'Dictionary',
+  library: 'Library', search: 'Search', toc: 'Table of Contents', dict: 'Dictionary',
 };
 const PANEL_ICONS = {
-  library: '📚', search: '🔍', toc: '☰', outline: '📋', dict: '📖',
+  library: '📚', search: '🔍', toc: '☰', dict: '📖',
 };
 const ACTIVITY_ICONS = [
   { panel: 'library', icon: '📚', label: 'Library' },
   { panel: 'search',  icon: '🔍', label: 'Search' },
   { panel: 'toc',     icon: '☰',  label: 'Table of contents' },
-  { panel: 'outline', icon: '📋', label: 'Outline of this book' },
   { panel: 'dict',    icon: '📖', label: 'Dictionary' },
 ];
 
@@ -134,11 +136,12 @@ function buildDom() {
       </div>
 
       <div id="sb-panel-library" class="sb-panel" role="tabpanel">
-        <div class="sb-panel-scroll">
+        <div id="sb-lib-header">
           <input id="sb-library-filter" type="search" placeholder="Filter books…"
                  autocomplete="off" aria-label="Filter books">
-          <div id="sb-library-tree" class="sb-library-tree"></div>
+          <div id="sb-lib-tabs" role="tablist" aria-label="Library categories"></div>
         </div>
+        <div id="sb-lib-panels"></div>
       </div>
 
       <div id="sb-panel-search" class="sb-panel" role="tabpanel">
@@ -157,16 +160,6 @@ function buildDom() {
                  autocomplete="off" aria-label="Filter table of contents">
         </div>
         <ul id="toc-list" role="list"></ul>
-      </div>
-
-      <div id="sb-panel-outline" class="sb-panel" role="tabpanel">
-        <div class="sb-outline-wrap">
-          <a id="sb-outline-full" class="sb-outline-full" target="_blank" rel="noopener noreferrer">
-            Open full outline page ↗
-          </a>
-          <div class="sb-outline-loading">Loading outline…</div>
-          <div id="sb-outline-tree" class="sb-outline-tree"></div>
-        </div>
       </div>
 
       <div id="sb-panel-dict" class="sb-panel" role="tabpanel">
@@ -218,6 +211,9 @@ async function initAsync() {
 
   renderLibraryTree(data?.menu || {});
 
+  // Notify book.js that the library tree is ready (for pali-script re-application).
+  document.dispatchEvent(new CustomEvent('sidebar:library-ready'));
+
   // Restore a persisted search (user clicked a search result → new page).
   // Only restore if the sidebar is pinned — otherwise the user closed it
   // and doesn't want it reopening on every navigation.
@@ -262,9 +258,6 @@ function openPanel(name) {
   document.body.classList.add('sb-drawer-open');
   hamburgerBtn?.setAttribute('aria-expanded', 'true');
 
-  // Load the outline lazily the first time the panel is opened.
-  if (name === 'outline') loadOutline();
-
   // Focus the panel's primary control (best practice for drawers/dialogs).
   // Skip on mobile to prevent the virtual keyboard from opening automatically.
   requestAnimationFrame(() => {
@@ -272,7 +265,6 @@ function openPanel(name) {
     const focusTarget =
       name === 'search'  ? document.getElementById(HOME_SEARCH_IDS.searchInput)
       : name === 'toc'   ? document.getElementById('toc-search')
-      : name === 'outline' ? document.getElementById('sb-outline-full')
       : name === 'dict'  ? document.getElementById('dict-word-input')
       : document.getElementById('sb-library-filter');
     focusTarget?.focus({ preventScroll: true });
@@ -468,140 +460,181 @@ async function loadMenu() {
 }
 
 function renderLibraryTree(menu) {
-  const tree = document.getElementById('sb-library-tree');
-  if (!tree) return;
-  tree.innerHTML = '';
+  const tabsEl    = document.getElementById('sb-lib-tabs');
+  const panelsEl  = document.getElementById('sb-lib-panels');
+  if (!tabsEl || !panelsEl) return;
+  tabsEl.innerHTML = '';
+  panelsEl.innerHTML = '';
 
-  const categories = orderCategories(Object.keys(menu));
-  for (const cat of categories) {
-    tree.appendChild(renderCategory(cat, menu[cat] || {}));
-  }
+  const categories = _resolvedCategories(menu);
 
-  bindLibraryFilter(tree);
-}
+  // Build tab buttons + panel containers
+  categories.forEach((cat, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'lib-tab' + (i === 0 ? ' active' : '');
+    btn.dataset.tab = String(i);
+    btn.setAttribute('role', 'tab');
+    btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    btn.textContent = cat.label;
+    tabsEl.appendChild(btn);
 
-function renderCategory(catName, catData) {
-  const catEl = document.createElement('div');
-  catEl.className = 'sb-cat';
+    const panel = document.createElement('div');
+    panel.className = 'lib-tab-panel' + (i === 0 ? ' active' : '');
+    panel.dataset.panel = String(i);
+    panel.setAttribute('role', 'tabpanel');
+    _renderCategoryPanel(panel, cat.data);
+    panelsEl.appendChild(panel);
+  });
 
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.className = 'sb-cat-title';
-  btn.setAttribute('aria-expanded', 'true');
-  btn.innerHTML = `<span>${escapeHtml(catName)}</span><span class="sb-caret" aria-hidden="true">▾</span>`;
-
-  const body = document.createElement('div');
-  body.className = 'sb-cat-body open';   // categories start expanded so books are visible
-
-  for (const nik of orderNikayas(Object.keys(catData))) {
-    body.appendChild(renderNikaya(catData[nik] || {}, nik));
-  }
-
-  btn.addEventListener('click', () => toggleCollapse(btn, body));
-  catEl.append(btn, body);
-  return catEl;
-}
-
-function renderNikaya(subMap, nikName) {
-  const wrap = document.createElement('div');
-  wrap.className = 'book-nikaya';
-
-  const flatBooks = subMap[''] || [];
-  const subKeys   = Object.keys(subMap).filter(k => k !== '');
-
-  if (!subKeys.length) {
-    // Simple group: header + flat book list (no sub-nikaya)
-    const title = document.createElement('div');
-    title.className = 'book-nikaya-title open';
-    title.innerHTML = `${escapeHtml(nikName)} <span class="nikaya-chevron" aria-hidden="true">▶</span>`;
-    const list = document.createElement('ol');
-    list.className = 'book-nikaya-list open';
-    flatBooks.forEach(b => {
-      const li = document.createElement('li');
-      li.appendChild(bookLink(b));
-      list.appendChild(li);
+  // Tab switching
+  tabsEl.addEventListener('click', e => {
+    const btn = e.target.closest('.lib-tab');
+    if (!btn) return;
+    const idx = btn.dataset.tab;
+    tabsEl.querySelectorAll('.lib-tab').forEach(t => {
+      t.classList.toggle('active', t === btn);
+      t.setAttribute('aria-selected', t === btn ? 'true' : 'false');
     });
-    wrap.append(title, list);
+    panelsEl.querySelectorAll('.lib-tab-panel').forEach(p =>
+      p.classList.toggle('active', p.dataset.panel === idx));
+  });
+
+  // Bind collapsible nikaya titles
+  panelsEl.querySelectorAll('.book-nikaya-title').forEach(title => {
     title.addEventListener('click', () => {
       title.classList.toggle('open');
-      list.classList.toggle('open');
+      title.nextElementSibling?.classList.toggle('open');
     });
-    return wrap;
-  }
-
-  // Nikaya with sub-groups: header collapses the whole group
-  const title = document.createElement('div');
-  title.className = 'book-nikaya-title open';
-  title.innerHTML = `${escapeHtml(nikName)} <span class="nikaya-chevron" aria-hidden="true">▶</span>`;
-
-  const list = document.createElement('ol');
-  list.className = 'book-nikaya-list open';
-
-  if (flatBooks.length) {
-    flatBooks.forEach(b => {
-      const li = document.createElement('li');
-      li.appendChild(bookLink(b));
-      list.appendChild(li);
-    });
-  }
-  for (const sub of subKeys) {
-    const li = document.createElement('li');
-    li.appendChild(renderSubGroup(sub, subMap[sub]));
-    list.appendChild(li);
-  }
-
-  title.addEventListener('click', () => {
-    title.classList.toggle('open');
-    list.classList.toggle('open');
   });
-  wrap.append(title, list);
-  return wrap;
+
+  bindLibraryFilter();
 }
 
-function renderSubGroup(subName, books) {
-  const sub = document.createElement('div');
-  sub.className = 'sb-sub';
-  const title = document.createElement('div');
-  title.className = 'book-nikaya-title sb-sub-title open';
-  title.innerHTML = `${escapeHtml(subName)} <span class="nikaya-chevron" aria-hidden="true">▶</span>`;
-  const list = document.createElement('ol');
-  list.className = 'book-nikaya-list open';
-  books.forEach(b => {
+/** Resolve category ordering: TAB_ORDER first, then any extras as Añña. */
+function _resolvedCategories(menu) {
+  const keys = Object.keys(menu);
+  const result = [];
+
+  // Mūla, Aṭṭhakathā, Ṭīkā — direct from menu
+  for (const label of ['Mūla', 'Aṭṭhakathā', 'Ṭīkā']) {
+    if (keys.includes(label)) {
+      result.push({ label, data: menu[label] });
+    }
+  }
+
+  // Añña — everything else merged under this label
+  const otherKeys = keys.filter(k => !['Mūla', 'Aṭṭhakathā', 'Ṭīkā'].includes(k));
+  if (otherKeys.length) {
+    const merged = {};
+    for (const k of otherKeys) {
+      Object.assign(merged, menu[k] || {});
+    }
+    result.push({ label: 'Añña', data: merged });
+  }
+
+  return result;
+}
+
+/** Render a category (Mūla / Aṭṭhakathā / Ṭīkā / Añña) into a panel. */
+function _renderCategoryPanel(panel, catData) {
+  if (!catData || typeof catData !== 'object') return;
+
+  const pitakaNames = Object.keys(catData).sort((a, b) => {
+    const idx = name => {
+      const i = PITAKA_ORDER.findIndex(p => name.includes(p));
+      return i === -1 ? 99 : i;
+    };
+    return idx(a) - idx(b);
+  });
+
+  for (const pitakaName of pitakaNames) {
+    const group = document.createElement('div');
+    group.className = 'lib-pitaka-group';
+
+    const title = document.createElement('div');
+    title.className = 'lib-pitaka-title pali-text';
+    title.textContent = pitakaName;
+    group.appendChild(title);
+
+    const content = document.createElement('div');
+    content.className = 'lib-pitaka-content';
+    _renderNikayaDict(content, catData[pitakaName]);
+    group.appendChild(content);
+
+    panel.appendChild(group);
+  }
+}
+
+/** Render a nikaya dictionary: { sub_nikaya: [[book_id, title], …] } */
+function _renderNikayaDict(container, nikayaDict) {
+  if (!nikayaDict || typeof nikayaDict !== 'object') return;
+
+  // Flat books (no sub_nikaya) — render first, no collapsible wrapper
+  if (nikayaDict['']) {
+    const flatGroup = document.createElement('div');
+    flatGroup.className = 'book-nikaya flat-group';
+    const list = document.createElement('ol');
+    list.className = 'book-nikaya-list open';
+    _appendBookItems(list, nikayaDict['']);
+    flatGroup.appendChild(list);
+    container.appendChild(flatGroup);
+  }
+
+  // Sub-nikaya groups
+  for (const [subNikaya, books] of Object.entries(nikayaDict)) {
+    if (subNikaya === '') continue;
+    const wrap = document.createElement('div');
+    wrap.className = 'book-nikaya';
+
+    const title = document.createElement('div');
+    title.className = 'book-nikaya-title pali-text';
+    title.innerHTML = `${escapeHtml(subNikaya)} <span class="nikaya-chevron" aria-hidden="true">▶</span>`;
+
+    const list = document.createElement('ol');
+    list.className = 'book-nikaya-list';
+    _appendBookItems(list, books);
+
+    wrap.append(title, list);
+    container.appendChild(wrap);
+  }
+}
+
+/** Append <li> book entries to a list element. */
+function _appendBookItems(list, books) {
+  if (!Array.isArray(books)) return;
+  books.forEach(([bookId, title]) => {
     const li = document.createElement('li');
-    li.appendChild(bookLink(b));
+    li.appendChild(bookLink([bookId, title]));
     list.appendChild(li);
   });
-  title.addEventListener('click', () => {
-    title.classList.toggle('open');
-    list.classList.toggle('open');
-  });
-  sub.append(title, list);
-  return sub;
 }
 
 function bookLink([id, title]) {
   const a = document.createElement('a');
-  a.className = 'book-entry' + (id === currentBookId ? ' current' : '');
+  a.className = 'book-entry pali-text' + (id === currentBookId ? ' current' : '');
   a.href = `${baseUrl}/${lang}/book/${id}`;
   a.dataset.bookId = id;
-  a.innerHTML = `<span class="book-name">${escapeHtml(title)}</span>`;
+  a.innerHTML = `<span class="book-name pali-text">${escapeHtml(title)}</span>`;
   // Browsing the library = leaving the search flow → clear persisted search.
   a.addEventListener('click', () => clearSidebarSearchState());
   return a;
 }
 
-function bindLibraryFilter(tree) {
+function bindLibraryFilter() {
   const input = document.getElementById('sb-library-filter');
-  if (!input) return;
-  const entries = [...tree.querySelectorAll('.book-entry')];
+  const panelsEl = document.getElementById('sb-lib-panels');
+  if (!input || !panelsEl) return;
+
+  // Collect all book entries across all tab panels
+  const entries = [...panelsEl.querySelectorAll('.book-entry')];
   const names   = entries.map(e => removeDiacritics(e.textContent || '').toLowerCase());
   const rows    = entries.map(e => e.closest('li'));
 
   input.addEventListener('input', () => {
     const q = removeDiacritics(input.value).toLowerCase();
 
-    // Show/hide individual book rows (the <li> wrapper too, so no empty
-    // rows are left behind).
+    // Show/hide individual book rows
     entries.forEach((e, i) => {
       const show = !q || names[i].includes(q);
       e.style.display = show ? '' : 'none';
@@ -609,23 +642,35 @@ function bindLibraryFilter(tree) {
     });
 
     // Expand groups that contain matches, and hide groups with none.
-    tree.querySelectorAll('.sb-cat, .book-nikaya, .sb-sub').forEach(group => {
+    panelsEl.querySelectorAll('.book-nikaya').forEach(group => {
       const hasVisible = [...group.querySelectorAll('.book-entry')].some(x => x.style.display !== 'none');
       group.style.display = !q || hasVisible ? '' : 'none';
       if (!q || !hasVisible) return;
-      const list = group.querySelector('.sb-cat-body, .book-nikaya-list');
+      const list = group.querySelector('.book-nikaya-list');
       if (list) {
         list.classList.add('open');
-        const title = list.previousElementSibling;
-        if (title?.classList?.contains('sb-cat-title')) title.setAttribute('aria-expanded', 'true');
-        if (title?.classList?.contains('book-nikaya-title')) title.classList.add('open');
+        list.previousElementSibling?.classList.add('open');
       }
     });
 
-    // Final sweep: hide any <li> that ended up empty — e.g. the outer row
-    // wrapping a collapsed sub-group (.sb-sub) — so no blank rows show
-    // while filtering.
-    tree.querySelectorAll('li').forEach(li => {
+    // Also show/hide pitaka groups if all their entries are hidden
+    panelsEl.querySelectorAll('.lib-pitaka-group').forEach(group => {
+      const hasVisible = [...group.querySelectorAll('.book-entry')].some(x => x.style.display !== 'none');
+      group.style.display = !q || hasVisible ? '' : 'none';
+    });
+
+    // Show/hide tab panels and highlight tabs with matches
+    const tabsEl = document.getElementById('sb-lib-tabs');
+    panelsEl.querySelectorAll('.lib-tab-panel').forEach((panel, i) => {
+      const hasVisible = [...panel.querySelectorAll('.book-entry')].some(x => x.style.display !== 'none');
+      panel.style.display = !q || hasVisible ? '' : 'none';
+      // Highlight tabs that have matches
+      const tab = tabsEl?.querySelector(`.lib-tab[data-tab="${i}"]`);
+      if (tab) tab.classList.toggle('has-match', !!q && hasVisible);
+    });
+
+    // Final sweep: hide empty <li> wrappers
+    panelsEl.querySelectorAll('li').forEach(li => {
       const hasVisible = [...li.querySelectorAll('.book-entry')].some(x => x.style.display !== 'none');
       li.style.display = hasVisible ? '' : 'none';
     });
@@ -715,117 +760,12 @@ function highlightTocItem(paraId) {
 }
 
 /* ════════════════════════════════════════════
-   Outline panel — the book's outline (all sections) fetched from
-   /api/outline/<book_id>, the same data as the standalone SEO page.
-   ════════════════════════════════════════════ */
-
-let outlineLoaded = false;
-
-function loadOutline() {
-  const tree = document.getElementById('sb-outline-tree');
-  const full = document.getElementById('sb-outline-full');
-  const loading = document.querySelector('.sb-outline-loading');
-  if (!tree || outlineLoaded) return;
-  outlineLoaded = true;
-
-  // Fallback href so the button still works even if the API call fails.
-  if (full) full.href = `${baseUrl}/en/book/${currentBookId}/outline`;
-
-  (async () => {
-    try {
-      const res = await fetch(`${baseUrl}/api/outline/${encodeURIComponent(currentBookId)}`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      if (full && data.outline_url) full.href = data.outline_url;
-      renderOutlineTree(tree, data.groups || []);
-    } catch (err) {
-      console.warn('[sidebar] failed to load outline', err);
-      if (tree) tree.innerHTML = '<div class="sb-outline-empty">Outline not available.</div>';
-    } finally {
-      if (loading) loading.style.display = 'none';
-    }
-  })();
-}
-
-function renderOutlineTree(tree, groups) {
-  tree.innerHTML = '';
-  if (!groups.length) {
-    tree.innerHTML = '<div class="sb-outline-empty">No sections found for this book.</div>';
-    return;
-  }
-
-  for (const g of groups) {
-    const vagga = document.createElement('div');
-    vagga.className = 'sb-outline-vagga';
-
-    const gTitle = document.createElement('div');
-    gTitle.className = 'sb-outline-vagga-title open';
-    gTitle.innerHTML = `${escapeHtml(g.title || '')}<span class="sb-caret" aria-hidden="true">▾</span>`;
-    const gBody = document.createElement('div');
-    gBody.className = 'sb-outline-vagga-body open';
-    gTitle.addEventListener('click', () => {
-      const open = gBody.classList.toggle('open');
-      gTitle.classList.toggle('open', open);
-    });
-
-    for (const st of g.suttas || []) {
-      const sutta = document.createElement('div');
-      sutta.className = 'sb-outline-sutta';
-      if (st.title) {
-        const stTitle = document.createElement('div');
-        stTitle.className = 'sb-outline-sutta-title';
-        stTitle.textContent = st.title;
-        sutta.appendChild(stTitle);
-      }
-      const list = document.createElement('ol');
-      list.className = 'sb-outline-list';
-      for (const item of st.sections || []) {
-        const li = document.createElement('li');
-        li.className = 'sb-outline-item';
-
-        const a = document.createElement('a');
-        a.className = 'sb-outline-item-link pali-text';
-        a.href = item.book_url || '#';
-        a.textContent = item.title || ('Section ' + item.para_id);
-        a.addEventListener('click', () => {
-          if (window.innerWidth < 768) close();
-          clearSidebarSearchState();
-        });
-        li.appendChild(a);
-
-        if (item.study_url) {
-          const s = document.createElement('a');
-          s.className = 'sb-outline-study';
-          s.href = item.study_url;
-          s.target = '_blank';
-          s.rel = 'noopener noreferrer';
-          s.title = item.study_title || 'Study guide';
-          s.setAttribute('aria-label', 'Study guide');
-          s.textContent = '📖';
-          li.appendChild(s);
-        }
-        list.appendChild(li);
-      }
-      sutta.appendChild(list);
-      gBody.appendChild(sutta);
-    }
-    vagga.append(gTitle, gBody);
-    tree.appendChild(vagga);
-  }
-}
-
-/* ════════════════════════════════════════════
    Helpers
    ════════════════════════════════════════════ */
 
 function toggleCollapse(btn, body) {
   const open = body.classList.toggle('open');
   btn.setAttribute('aria-expanded', String(open));
-}
-
-function orderCategories(keys) {
-  const order = ['Mūla', 'Aṭṭhakathā', 'Ṭīkā'];
-  return [...order.filter(k => keys.includes(k)), ...keys.filter(k => !order.includes(k))];
 }
 
 function orderNikayas(keys) {

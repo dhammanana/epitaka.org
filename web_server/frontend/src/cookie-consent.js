@@ -25,7 +25,15 @@ const STORAGE_KEY = 'epika_cookie_consent';
  * Only called after the user explicitly consents.
  */
 function loadGoogleAnalytics(measurementId) {
-  if (!measurementId || document.getElementById('ga-script')) return;
+  if (!measurementId) return;
+  const existing = document.getElementById('ga-script');
+  if (existing) {
+    // A previous page may have inserted the loader before this bundle ran.
+    // Ensure the current consent is still sent to the same data layer.
+    window.gtag?.('consent', 'update', { analytics_storage: 'granted' });
+    window.gtag?.('config', measurementId, { anonymize_ip: true });
+    return;
+  }
 
   // Set up dataLayer first
   window.dataLayer = window.dataLayer || [];
@@ -189,10 +197,11 @@ export function initCookieConsent({ gaId } = {}) {
   const consent = getConsent();
 
   if (consent) {
-    // User already chose — apply their preference silently
-    if (consent.analytics && gaId) {
-      loadGoogleAnalytics(gaId);
-    }
+    // User already chose — apply their preference silently. Accept legacy
+    // boolean consent values too, so older visitors are not accidentally
+    // treated as opted out after the consent format changed.
+    const analyticsAllowed = consent.analytics === true || consent.analytics === 'true';
+    if (analyticsAllowed && gaId) loadGoogleAnalytics(gaId);
     return;
   }
 

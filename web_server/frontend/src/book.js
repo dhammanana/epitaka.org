@@ -17,10 +17,10 @@ import { TextProcessor, Script } from './pali-script.js';
 import {
   loadSettings, saveSettings, applySettings,
   populateSettingsForm, readSettingsForm, setThemePreference, applyTheme,
-  buildScriptOptions,
+  buildScriptOptions, getScriptForLang, onLanguageSelect,
 } from './settings.js';
 import { attachPaliClickListeners } from './dictionary.js';
-import { initAuthUI }               from './auth/auth-ui.js';
+import { initAuthUI, showLoginDialog, showProfileDialog } from './auth/auth-ui.js';
 import { initLibraryUI }            from './row_actions/library-ui.js';
 import { initAppBanner }            from './app-banner.js';
 import { initSidebar }              from './sidebar.js';
@@ -162,6 +162,9 @@ function updateCrossRefLinks(paraId) {
       }
     }
   }
+
+  // Sync mobile dropdown ref links
+  _syncMobileRefLinks();
 }
 
 // ════════════════════════════════════════════
@@ -196,11 +199,22 @@ function _moveBookLinksToEndOfPara() {
 // Settings modal
 // ════════════════════════════════════════════
 
-settingsBtn.addEventListener('click', () => {
-  const s = loadSettings();
-  populateSettingsForm(s);
-  buildScriptOptions(document.getElementById('pali-script-select'), s.paliScript);
-  settingsModal.classList.add('show');
+settingsBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isMobile = window.innerWidth < 768;
+  if (isMobile) {
+    // Toggle the "more" dropdown on mobile
+    const menu = document.getElementById('topbar-more-menu');
+    const isOpen = menu?.classList.contains('open');
+    menu?.classList.toggle('open');
+    settingsBtn.setAttribute('aria-expanded', !isOpen);
+  } else {
+    // Open settings modal on desktop
+    const s = loadSettings();
+    populateSettingsForm(s);
+    buildScriptOptions(document.getElementById('pali-script-select'), s.paliScript);
+    settingsModal.classList.add('show');
+  }
 });
 settingsCancel.addEventListener('click', () => settingsModal.classList.remove('show'));
 settingsModal.addEventListener('click', e => {
@@ -209,10 +223,110 @@ settingsModal.addEventListener('click', e => {
 settingsForm.addEventListener('submit', e => {
   e.preventDefault();
   const s = readSettingsForm();
+  s.scriptManuallySet = true;  // user explicitly chose a script
   saveSettings(s); setThemePreference(s.theme); applySettings(s); applyPaliScript(s.paliScript);
   _moveBookLinksToEndOfPara();
   settingsModal.classList.remove('show');
 });
+
+// ════════════════════════════════════════════
+// Topbar "more" dropdown (mobile settings menu)
+// ════════════════════════════════════════════
+
+function _syncMobileRefLinks() {
+  const mula1   = document.getElementById('ref-mula-1');
+  const attha1  = document.getElementById('ref-attha-1');
+  const tika1   = document.getElementById('ref-tika-1');
+  const mM      = document.getElementById('ref-mula-mobile');
+  const mA      = document.getElementById('ref-attha-mobile');
+  // For tika with only one ref, sync the direct link button
+  const mTGroup = document.getElementById('topbar-more-tika-group');
+  if (mula1 && mM) mM.href = mula1.href;
+  if (attha1 && mA) mA.href = attha1.href;
+  // If tika has only 1 ref, sync the group button itself as a link
+  if (tika1 && mTGroup && !mTGroup.querySelector('.topbar-more__tika-menu')) {
+    mTGroup.querySelector('.topbar-more__ref-btn')?.setAttribute('href', tika1.href);
+  }
+}
+
+function _initTopbarMore() {
+  const menu = document.getElementById('topbar-more-menu');
+  if (!menu) return;
+
+  function closeMenu() {
+    menu.classList.remove('open');
+    settingsBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  // Settings item → open the settings modal
+  menu.querySelector('.topbar-more__settings')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeMenu();
+    const s = loadSettings();
+    populateSettingsForm(s);
+    buildScriptOptions(document.getElementById('pali-script-select'), s.paliScript);
+    settingsModal.classList.add('show');
+  });
+
+  // Auth / login item
+  menu.querySelector('.topbar-more__auth')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeMenu();
+    if (auth.loggedIn) {
+      showProfileDialog();
+    } else {
+      showLoginDialog();
+    }
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#topbar-more')) closeMenu();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+  });
+
+  // Close when a menu item link is clicked
+  menu.querySelectorAll('.topbar-more__link').forEach(item => {
+    item.addEventListener('click', closeMenu);
+  });
+
+  // Tika sub-dropdown toggle (only when multiple tika refs)
+  const tikaGroup = document.getElementById('topbar-more-tika-group');
+  const tikaMenu  = tikaGroup?.querySelector('.topbar-more__tika-menu');
+  const tikaBtn   = tikaGroup?.querySelector('.topbar-more__ref-btn');
+  if (tikaBtn && tikaMenu) {
+    tikaBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = tikaMenu.classList.contains('open');
+      // Close any other open tika menus
+      tikaMenu.classList.toggle('open');
+      tikaBtn.setAttribute('aria-expanded', !isOpen);
+    });
+    // Close tika menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#topbar-more-tika-group')) {
+        tikaMenu.classList.remove('open');
+        tikaBtn?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Update mobile auth button text based on login state
+  function _updateMobileAuth(profile) {
+    const btn = menu.querySelector('.topbar-more__auth');
+    if (!btn) return;
+    if (auth.loggedIn && profile) {
+      btn.textContent = '👤 ' + (profile.display_name || 'Profile');
+    } else {
+      btn.textContent = '👤 Login';
+    }
+  }
+  auth.onChange(_updateMobileAuth);
+}
 
 // ════════════════════════════════════════════
 // Reading history tracking
@@ -307,19 +421,36 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Attach click-to-lookup on server-rendered Pali text
   attachPaliClickListeners(document.getElementById('main-content'));
 
-  const s = loadSettings();
+  const s = loadSettings(lang);
   applySettings(s);
   applyPaliScript(s.paliScript);
   buildScriptOptions(document.getElementById('pali-script-select'), s.paliScript);
   _moveBookLinksToEndOfPara();
 
+  // ── Language selector: set matching Pāli script on click ────
+  document.querySelectorAll('.lang-dropdown__menu a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      // Extract the language code from the link URL: /{lang}/book/...
+      const m = link.getAttribute('href')?.match(/\/([a-z]{2})\b/);
+      if (m) onLanguageSelect(m[1]);
+    });
+  });
+
   initAuthUI();
   initLibraryUI();
   initAppBanner();
   initCookieConsent({ gaId: 'G-7NQWX1DCC2' });
+  _initTopbarMore();
 
   _initHistoryTracking();
   _fetchHeadingTranslations();
+  _syncMobileRefLinks();
+
+  // Re-apply pali script when sidebar library tree is ready (async load).
+  document.addEventListener('sidebar:library-ready', () => {
+    const s = loadSettings(lang);
+    applyPaliScript(s.paliScript);
+  });
 
   // ── Helper: find the enclosing section block for a given para_id ──
   function _findEnclosingSection(paraId) {

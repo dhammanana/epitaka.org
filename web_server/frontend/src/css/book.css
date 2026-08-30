@@ -28,7 +28,7 @@
   --danger-color: #c0392b;
   --font-sans:    'DM Sans', system-ui, sans-serif;
   --radius:       8px;
-  --reader-font-size: 16px;
+  --reader-font-size: 22px;
   color-scheme: light;
 }
 
@@ -37,14 +37,25 @@
   --bg:           #1b1714;
   --surface:      #27211d;
   --border:       #4a3d33;
+  --border-light: #3a2f27;
   --accent:       #d0a06f;
   --accent-light: #3b2d24;
   --pali-color:   #f0c79d;
   --trans-color:  #a9c7e6;
   --text:         #eee6de;
-  --muted:        #b5a497;  --muted2:        #9eb8df;
+  --text-secondary: #d4ccc3;
+  --muted:        #b5a497;
+  --text-muted:   #b5a497;
+  --muted2:        #9eb8df;
   --control-bg:    #332a24;
   --danger-color:  #f28b82;
+  --card-bg:       #27211d;
+  --card-bg-alt:   #201b17;
+  --group-bg:      #2e2620;
+  --group-bg-hover:#3a2f27;
+  --hover-bg:      #3b2d24;
+  --mark-light:    #4a3a1e;
+  --mark-bg:       #6b5a2a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -53,13 +64,23 @@
     --bg: #1b1714;
     --surface: #27211d;
     --border: #4a3d33;
+    --border-light: #3a2f27;
     --accent: #d0a06f;
     --accent-light: #3b2d24;
     --pali-color: #f0c79d;
     --trans-color: #a9c7e6;
     --text: #eee6de;
+    --text-secondary: #d4ccc3;
     --muted: #b5a497;
+    --text-muted: #b5a497;
     --muted2: #9eb8df;
+    --card-bg: #27211d;
+    --card-bg-alt: #201b17;
+    --group-bg: #2e2620;
+    --group-bg-hover: #3a2f27;
+    --hover-bg: #3b2d24;
+    --mark-light: #4a3a1e;
+    --mark-bg: #6b5a2a;
   }
 }
 
@@ -320,7 +341,7 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 /* Heading translation shown below the Pali heading */
 .section-heading-translation {
   font-family: var(--font-sans);
-  font-size: 0.78em;
+  font-size: 0.95em;
   font-weight: 400;
   color: var(--trans-color);
   line-height: 1.4;
@@ -1330,3 +1351,138 @@ sup:hover::after { display: block; }
   text-decoration: none;
 }
 .study-citation:hover { background: var(--accent-light); text-decoration: none; }
+
+/* ── Topbar "more" dropdown (mobile settings menu) ────── */
+.topbar-more {
+  position: relative;
+}
+.topbar-more__toggle[aria-expanded="true"] {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+.topbar-more__menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 160px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  list-style: none;
+  padding: 0.3rem 0;
+  z-index: 300;
+}
+.topbar-more__menu.open {
+  display: block;
+}
+.topbar-more__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+  color: var(--text);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.1s;
+  text-align: left;
+}
+.topbar-more__item:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+.topbar-more__settings {
+  color: var(--muted);
+}
+.topbar-more__auth {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ── Topbar more: ref buttons row ── */
+.topbar-more__refs {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.3rem 0.7rem;
+  border-bottom: 1px solid var(--border);
+}
+.topbar-more__refs .topbar-more__ref-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.12s;
+  position: relative;
+}
+.topbar-more__refs .topbar-more__ref-btn:hover {
+  background: var(--border);
+}
+.topbar-more__refs .topbar-more__ref-btn.topbar-more__ref-btn--mula { color: #6b4c1d; }
+.topbar-more__refs .topbar-more__ref-btn.topbar-more__ref-btn--attha { color: #2d5a3d; }
+.topbar-more__refs .topbar-more__ref-btn.topbar-more__ref-btn--tika { color: #4a3f6b; }
+
+/* Tika sub-dropdown */
+.topbar-more__tika-group {
+  position: relative;
+  flex: 1;
+}
+.topbar-more__tika-group .topbar-more__ref-btn {
+  width: 100%;
+}
+.topbar-more__tika-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 180px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  list-style: none;
+  padding: 0.3rem 0;
+  z-index: 310;
+}
+.topbar-more__tika-menu.open {
+  display: block;
+}
+.topbar-more__tika-menu a {
+  display: block;
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.1s;
+  white-space: nowrap;
+}
+.topbar-more__tika-menu a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* ── Mobile: hide standalone mula/attha/tika buttons and avatar ── */
+@media (max-width: 767px) {
+  #ref-mula-1,
+  #ref-dropdown-mula,
+  #ref-attha-1,
+  #ref-dropdown-attha,
+  #ref-tika-1,
+  #ref-dropdown-tika,
+  .auth-avatar-btn {
+    display: none !important;
+  }
+}

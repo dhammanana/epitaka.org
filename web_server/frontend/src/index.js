@@ -15,7 +15,7 @@ import './css/index.css';
 import './css/common.css';
 import { initHomeDialog } from './home-dialog/home-dialog.js';
 import { initCookieConsent } from './cookie-consent.js';
-import { applyTheme } from './settings.js';
+import { applyTheme, onLanguageSelect } from './settings.js';
 
 // ── Config injected from index.html via Flask ──────────────────
 const { baseUrl, lang } = window.INDEX_CONFIG;
@@ -76,6 +76,15 @@ async function init() {
 
   // ── Cookie consent (GDPR) ──
   initCookieConsent({ gaId: 'G-7NQWX1DCC2' });
+
+  // ── Language selector: set matching Pāli script on click ────
+  document.querySelectorAll('.landing-languages a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      // Extract the language code from the link URL: /{lang}/
+      const m = link.getAttribute('href')?.match(/\/([a-z]{2})\/?$/);
+      if (m) onLanguageSelect(m[1]);
+    });
+  });
 
   // ── Disclaimer logic ───────────────────────────────────────────
 

@@ -5,6 +5,7 @@
 
 import { BookFilter } from './home-dialog-search-filter.js';
 import { installPaliInput } from '../libs/pali_typing.js';
+import { TextProcessor, Script } from '../pali-script.js';
 // NOTE: home-dialog-fts.css is @imported from home-dialog.css (CSS-level
 // import) so both the index bundle and the book bundle (via sidebar.css)
 // inline it — a JS import here would make Vite split it into a shared chunk
@@ -16,7 +17,7 @@ export const SEARCH_TYPES = [
   {
     id:    'headings',
     icon:  '☰',
-    label: 'Search Headings',
+    label: 'Headings',
     desc:  'Find by section titles',
     placeholder: 'Search section headings…',
     hasAutocomplete: true,
@@ -41,15 +42,15 @@ export const SEARCH_TYPES = [
     hasAutocomplete: true,
     hasFtsOptions:   false,
   },
-  {
-    id:    'ai',
-    icon:  '✨',
-    label: 'AI Search',
-    desc:  'Semantic meaning search',
-    placeholder: 'Ask a question…',
-    hasAutocomplete: false,
-    hasFtsOptions:   false,
-  },
+  // {
+  //   id:    'ai',
+  //   icon:  '✨',
+  //   label: 'AI Search',
+  //   desc:  'Semantic meaning search',
+  //   placeholder: 'Ask a question…',
+  //   hasAutocomplete: false,
+  //   hasFtsOptions:   false,
+  // },
 ];
 
 /* ─────────────────────────────────────────────────────────────
@@ -135,6 +136,9 @@ export class HomeDialogSearch {
   constructor({ baseUrl, lang, initialState = {}, hierarchy = {}, ids = HOME_SEARCH_IDS, onResultSelect, onShowResults, onShowBooks }) {
     this.baseUrl        = baseUrl;
     this.lang           = lang;
+    // Sinhala translations use Sinhala Pāli by default. The reader settings
+    // remain user-controlled after navigation.
+    this.defaultPaliScript = lang === 'si' ? Script.SI : Script.RO;
     this.hierarchy      = hierarchy;
     this.ids            = ids;
     this.onResultSelect = onResultSelect;
@@ -260,20 +264,26 @@ export class HomeDialogSearch {
   _positionBelow(anchor, dropdown) {
     const r = anchor.getBoundingClientRect();
     const pos = getComputedStyle(dropdown).position;
-    if (pos === 'absolute' && dropdown.offsetParent) {
+    if (pos === 'absolute') {
       // Inside the book-page sidebar the dropdown is absolutely positioned
       // (the drawer's slide transform would hijack position:fixed). Compute
-      // coordinates relative to the offset parent (the anchor wrapper).
-      const cb = dropdown.offsetParent.getBoundingClientRect();
-      dropdown.style.top  = `${r.bottom - cb.top + 4}px`;
-      dropdown.style.left = `${r.left - cb.left}px`;
-      dropdown.style.maxWidth = `${dropdown.offsetParent.clientWidth - (r.left - cb.left)}px`;
-    } else {
-      // Home dialog: position:fixed — use viewport coordinates.
-      dropdown.style.top  = `${r.bottom + 4}px`;
-      dropdown.style.left = `${r.left}px`;
-      dropdown.style.maxWidth = `${window.innerWidth - r.left - 8}px`;
+      // coordinates relative to the anchor's offset parent (the wrapper div).
+      // We use anchor.offsetParent (not dropdown.offsetParent) because the
+      // dropdown is still display:none when this runs, which makes its
+      // offsetParent return null in some browsers.
+      const op = anchor.offsetParent;
+      if (op) {
+        const cb = op.getBoundingClientRect();
+        dropdown.style.top  = `${r.bottom - cb.top + 4}px`;
+        dropdown.style.left = `${r.left - cb.left}px`;
+        dropdown.style.maxWidth = `${op.clientWidth - (r.left - cb.left)}px`;
+        return;
+      }
     }
+    // Home dialog: position:fixed — use viewport coordinates.
+    dropdown.style.top  = `${r.bottom + 4}px`;
+    dropdown.style.left = `${r.left}px`;
+    dropdown.style.maxWidth = `${window.innerWidth - r.left - 8}px`;
   }
 
   _selectType(type) {
@@ -357,14 +367,17 @@ export class HomeDialogSearch {
 
     this._showSuggestionsLoading();
 
+    // Convert non-Roman input to Roman before querying the API.
+    const qRoman = this._toRoman(q);
+
     try {
       let url;
       if (this.currentType.id === 'headings') {
-        url = `${this.baseUrl}/api/search_headings?q=${encodeURIComponent(q)}&limit=12`;
+        url = `${this.baseUrl}/api/search_headings?q=${encodeURIComponent(qRoman)}&limit=12`;
       } else if (this.currentType.id === 'pali-def') {
-        url = `${this.baseUrl}/api/bold_suggest?q=${encodeURIComponent(q)}&limit=12`;
+        url = `${this.baseUrl}/api/bold_suggest?q=${encodeURIComponent(qRoman)}&limit=12`;
       } else if (this.currentType.autocompleteMode === 'word') {
-        const lastWord = q.split(/\s+/).pop();
+        const lastWord = qRoman.split(/\s+/).pop();
         if (!lastWord) { this._closeSuggestions(); return; }
         url = `${this.baseUrl}/api/suggest_word?q=${encodeURIComponent(lastWord)}&limit=10`;
       } else {
@@ -375,10 +388,10 @@ export class HomeDialogSearch {
       const data = await res.json();
 
       if (this.currentType.autocompleteMode === 'word') {
-        this._renderWordSuggestions(data, q);
+        this._renderWordSuggestions(data, qRoman);
       } else {
         const filtered = this.bookFilter.filterResults(data);
-        this._renderSuggestions(filtered, q);
+        this._renderSuggestions(filtered, qRoman);
       }
     } catch (err) {
       if (err.name !== 'AbortError') this._closeSuggestions();
@@ -498,10 +511,10 @@ export class HomeDialogSearch {
 
     if (this.currentType.id === 'headings') {
       const slug = item.slug || '';
-      this.onResultSelect(`${this.baseUrl}/${this.lang}/book/${item.book_id}/${slug}#${item.para_id}`);
+      this._navigateToResult(`${this.baseUrl}/${this.lang}/book/${item.book_id}/${slug}#${item.para_id}`);
     } else if (this.currentType.id === 'pali-def') {
       const slug = item.slug || '';
-      this.onResultSelect(`${this.baseUrl}/${this.lang}/book/${item.book_id}/${slug}#${item.para_id}-${item.line_id}`);
+      this._navigateToResult(`${this.baseUrl}/${this.lang}/book/${item.book_id}/${slug}#${item.para_id}-${item.line_id}`);
     }
   }
 
@@ -555,9 +568,12 @@ export class HomeDialogSearch {
   }
 
   async _executeSearch() {
-    const q = this.searchInput.value.trim();
-    if (!q) return;
+    const raw = this.searchInput.value.trim();
+    if (!raw) return;
     this._closeSuggestions();
+
+    // Convert non-Roman input to Roman before querying the API.
+    const q = this._toRoman(raw);
 
     const type = this.currentType;
 
@@ -624,7 +640,7 @@ export class HomeDialogSearch {
          class="search-result-item"
          data-url="${url}">
         <div class="search-result-book">${item.book_name || item.book_id}</div>
-        <div class="search-result-heading">${hl(item.title || '')}</div>
+        <div class="search-result-heading pali-text">${hl(item.title || '')}</div>
         <div class="search-result-meta">Paragraph ${item.para_id}</div>
       </a>
     `}).join('');
@@ -632,7 +648,7 @@ export class HomeDialogSearch {
     this.resultsPanel.querySelectorAll('.search-result-item').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
-        this.onResultSelect(el.dataset.url);
+        this._navigateToResult(el.dataset.url);
       });
     });
   }
@@ -679,8 +695,8 @@ export class HomeDialogSearch {
               <a href="${url}"
                  class="search-result-item dict-entry"
                  data-url="${url}">
-                <div class="search-result-heading">${hl(item.title || '')}</div>
-                ${item.definition_pali ? `<div class="search-result-meta pali">${item.definition_pali}</div>` : ''}
+                <div class="search-result-heading pali-text">${hl(item.title || '')}</div>
+                ${item.definition_pali ? `<div class="search-result-meta pali pali-text">${item.definition_pali}</div>` : ''}
                 ${item.definition_en   ? `<div class="search-result-meta translation">${item.definition_en}</div>` : ''}
               </a>
             `}).join('')}
@@ -703,7 +719,7 @@ export class HomeDialogSearch {
     this.resultsPanel.querySelectorAll('.search-result-item').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
-        this.onResultSelect(el.dataset.url);
+        this._navigateToResult(el.dataset.url);
       });
     });
   }
@@ -926,7 +942,7 @@ export class HomeDialogSearch {
                 const sideClass = layoutMode === 'sidebyside' ? ' side-by-side' : '';
                 linesHtml += `
                   <div class="fts-line-row fts-line-matched${sideClass}">
-                    <div class="fts-line-pali">${line.pali || ''}</div>
+                    <div class="fts-line-pali pali-text">${line.pali || ''}</div>
                     ${line.translation ? `<div class="fts-line-trans">${line.translation}</div>` : ''}
                   </div>`;
               }
@@ -956,7 +972,7 @@ export class HomeDialogSearch {
     containerEl.querySelectorAll('.fts-entry').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
-        this.onResultSelect(el.dataset.url);
+        this._navigateToResult(el.dataset.url);
       });
     });
 
@@ -1004,7 +1020,7 @@ export class HomeDialogSearch {
                 if (!line.matched) continue;
                 linesHtml += `
                   <div class="fts-line-row fts-line-matched">
-                    <div class="fts-line-pali">${line.pali || ''}</div>
+                    <div class="fts-line-pali pali-text">${line.pali || ''}</div>
                     ${line.translation ? `<div class="fts-line-trans">${line.translation}</div>` : ''}
                   </div>`;
               }
@@ -1045,7 +1061,7 @@ export class HomeDialogSearch {
     this.resultsPanel.querySelectorAll('.fts-entry').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
-        this.onResultSelect(el.dataset.url);
+        this._navigateToResult(el.dataset.url);
       });
     });
 
@@ -1098,6 +1114,38 @@ export class HomeDialogSearch {
   }
 
   /* ── Helpers ─────────────────────────────────────────────── */
+
+  /**
+   * Convert non-Roman script input to Roman Pāli.
+   * Uses TextProcessor: detect script → Sinhala → Roman.
+   * Returns the original text unchanged if already Roman.
+   */
+  _toRoman(text) {
+    if (!text) return text;
+    try {
+      const sinhala = TextProcessor.convertFromMixed(text);
+      return TextProcessor.convert(sinhala, Script.RO).trim() || text;
+    } catch {
+      return text;
+    }
+  }
+
+  _navigateToResult(url) {
+    // Set the script only when the user has not explicitly chosen one.
+    // This makes translation selection a sensible default without
+    // overwriting a later preference from Settings.
+    try {
+      const raw = localStorage.getItem('epitaka_settings_v3');
+      const settings = raw ? JSON.parse(raw) : {};
+      if (!settings.paliScript) {
+        localStorage.setItem('epitaka_settings_v3', JSON.stringify({
+          ...settings,
+          paliScript: this.defaultPaliScript,
+        }));
+      }
+    } catch { /* storage may be unavailable */ }
+    this.onResultSelect(url);
+  }
 
   async _apiFetch(url) {
     try {

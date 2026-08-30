@@ -389,13 +389,14 @@
       function gtag(){window.dataLayer.push(arguments);}
       window.gtag = gtag;
       gtag('js', new Date());
-      gtag('consent', 'default', { analytics_storage: 'denied' });
+      gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
       var s = document.createElement('script');
       s.id = 'ga-script';
       s.async = true;
       s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
       s.onload = function() {
-        gtag('config', GA_ID, { anonymize_ip: true });
+        gtag('config', GA_ID, {        anonymize_ip: true, cookie_flags: 'SameSite=None;Secure' });
+
         gtag('consent', 'update', { analytics_storage: 'granted' });
       };
       document.head.appendChild(s);

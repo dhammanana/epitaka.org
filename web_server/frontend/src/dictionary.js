@@ -12,6 +12,21 @@ let initialized = false;
 let suggestAbortController = null;
 let activeSuggestionIndex  = -1;
 
+/**
+ * Convert non-Roman script input to Roman Pāli.
+ * Uses TextProcessor: detect script → Sinhala → Roman.
+ * Returns the original text unchanged if already Roman.
+ */
+function toRoman(text) {
+  if (!text) return text;
+  try {
+    const sinhala = TextProcessor.convertFromMixed(text);
+    return TextProcessor.convert(sinhala, Script.RO).trim() || text;
+  } catch {
+    return text;
+  }
+}
+
 export function setDictOpen(open) {
   // Dict is now a sidebar panel — the sidebar handles open/close.
   // This function is kept for backward compat but is now a no-op.
@@ -40,7 +55,7 @@ export function initDictionary() {
     const q = dictWordInput.value.trim();
     activeSuggestionIndex = -1;
     if (!q) { hideSuggestions(); return; }
-    fetchSuggestions(q);
+    fetchSuggestions(toRoman(q));
   });
 
   dictWordInput.addEventListener('keydown', e => {
@@ -57,9 +72,9 @@ export function initDictionary() {
     } else if (e.key === 'Enter') {
       e.preventDefault();
       if (activeSuggestionIndex >= 0 && items[activeSuggestionIndex]) {
-        selectSuggestion(items[activeSuggestionIndex].dataset.word);
+        selectSuggestion(toRoman(items[activeSuggestionIndex].dataset.word));
       } else {
-        selectSuggestion(dictWordInput.value.trim());
+        selectSuggestion(toRoman(dictWordInput.value.trim()));
       }
     } else if (e.key === 'Escape') {
       hideSuggestions();

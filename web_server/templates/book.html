@@ -154,13 +154,64 @@
       </div>
     {% endif %}
 
-    {# ── Outline tab: links every section to its study guide ── #}
-    <a id="outline-tab-btn"
-       href="{{ outline_url }}"
-       class="topbar-btn outline-tab-btn"
-       title="Outline of all sections with study guides">📋 Outline</a>
-
-    <button id="settings-btn" class="topbar-btn icon-btn" title="Settings">⚙</button>
+    <div class="topbar-more" id="topbar-more">
+      <button id="settings-btn" class="topbar-btn icon-btn topbar-more__toggle"
+              aria-haspopup="true" aria-expanded="false" title="More">⋯</button>
+      <ul class="topbar-more__menu" id="topbar-more-menu" role="menu">
+        {# ── Ref buttons row: M, A, Ṭ ── #}
+        {% if bookref.mula_ref | length > 0 or bookref.attha_ref | length > 0 or bookref.tika_ref | length > 0 %}
+        <li role="none">
+          <div class="topbar-more__refs">
+            {% if bookref.mula_ref | length > 0 %}
+            <a id="ref-mula-mobile"
+               href="{{ base_url }}/{{ lang }}/book_ref/{{ bookref.mula_ref[0].book_id }}?ref={{ book_id }}"
+               class="topbar-more__ref-btn topbar-more__ref-btn--mula topbar-more__link"
+               role="menuitem" title="Mūla">M</a>
+            {% endif %}
+            {% if bookref.attha_ref | length > 0 %}
+            <a id="ref-attha-mobile"
+               href="{{ base_url }}/{{ lang }}/book_ref/{{ bookref.attha_ref[0].book_id }}?ref={{ book_id }}"
+               class="topbar-more__ref-btn topbar-more__ref-btn--attha topbar-more__link"
+               role="menuitem" title="Aṭṭhakathā">A</a>
+            {% endif %}
+            {% if bookref.tika_ref | length > 0 %}
+            <div class="topbar-more__tika-group" id="topbar-more-tika-group">
+              {% if bookref.tika_ref | length == 1 %}
+              <a href="{{ base_url }}/{{ lang }}/book_ref/{{ bookref.tika_ref[0].book_id }}?ref={{ book_id }}"
+                 class="topbar-more__ref-btn topbar-more__ref-btn--tika topbar-more__link"
+                 role="menuitem" title="Ṭīkā">Ṭ</a>
+              {% else %}
+              <button type="button"
+                      class="topbar-more__ref-btn topbar-more__ref-btn--tika"
+                      role="menuitem" title="Ṭīkā"
+                      aria-haspopup="true" aria-expanded="false">Ṭ</button>
+              <ul class="topbar-more__tika-menu" role="menu">
+                {% for ref in bookref.tika_ref %}
+                <li role="none">
+                  <a href="{{ base_url }}/{{ lang }}/book_ref/{{ ref.book_id }}?ref={{ book_id }}"
+                     class="topbar-more__link" role="menuitem">{{ ref.book_name }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
+        </li>
+        {% endif %}
+        <li role="none">
+          <a href="{{ outline_url }}"
+             class="topbar-more__item topbar-more__link"
+             role="menuitem" title="Outline of all sections with study guides">📋 Outline</a>
+        </li>
+        <li role="none">
+          <button class="topbar-more__item topbar-more__settings" role="menuitem">⚙ Settings</button>
+        </li>
+        <li role="none" id="topbar-more-auth-item">
+          <button class="topbar-more__item topbar-more__auth" role="menuitem">👤 Login</button>
+        </li>
+      </ul>
+    </div>
     <!-- auth-avatar-btn injected here by auth-ui.js -->
   </div>
 </header>

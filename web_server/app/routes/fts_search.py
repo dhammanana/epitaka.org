@@ -60,8 +60,19 @@ def _get_allowed_books(hierarchy, pitakas_param, layers_param):
 
 # ── Helper: normalise query → list of words ───────────────────────────────
 def _normalise_query(query):
-    clean = re.sub(r'[^\w\s]', ' ', query)
-    clean = re.sub(r'\s+', ' ', clean).strip()
+    """Split a query without destroying Sinhala (or other Unicode) letters.
+
+    ``\\w`` is ASCII-only in Python regexes unless the UNICODE flag is
+    explicit, and punctuation-only filtering also breaks Sinhala combining
+    marks. Keep every Unicode letter/mark/number and use whitespace as the
+    word boundary; FTS receives the original script while the Pāli fallback
+    still normalizes Roman text.
+    """
+    clean = ''.join(
+        ch if (ch.isspace() or ch.isalnum() or __import__('unicodedata').category(ch).startswith('M')) else ' '
+        for ch in query
+    )
+    clean = re.sub(r'\\s+', ' ', clean).strip()
     return [w for w in clean.split() if w]
 
 
@@ -81,7 +92,10 @@ def _build_fts_query(words):
     """
     norm = []
     for w in words:
-        n = normalize_pali(w).lower()
+        # normalize_pali intentionally removes Pāli diacritics, but must not
+        # alter Sinhala. FTS5 unicode61 tokenizes Sinhala correctly when the
+        # query is passed through unchanged.
+        n = normalize_pali(w).lower() if w.isascii() else w.lower()
         if n:
             norm.append(n)
     if not norm:
@@ -119,10 +133,14 @@ def _highlight_words(html_text: str, words: list) -> str:
 def _find_matching_lines(lines: list, words: list) -> set:
     """Match lines diacritics-insensitively so results found by the
     (diacritic-stripped) FTS index still display for diacritic queries."""
-    norm_words = [normalize_pali(w).lower() for w in words if normalize_pali(w)]
+    norm_words = [
+        (normalize_pali(w).lower() if w.isascii() else w.lower())
+        for w in words if w
+    ]
     matched = set()
     for line in lines:
-        pali_norm = normalize_pali(line['pali'] or '').lower()
+        raw_line = line['pali'] or ''
+        pali_norm = (normalize_pali(raw_line).lower() if raw_line.isascii() else raw_line.lower())
         if any(w in pali_norm for w in norm_words):
             matched.add(line['line_id'])
     return matched

@@ -12,27 +12,68 @@ export { Script, paliScriptInfo };
 const STORAGE_KEY = 'epitaka_settings_v3';
 const THEME_KEY = 'epitaka_theme';
 
+// ── Map translation language codes → matching Pāli script ──────
+const LANG_SCRIPT_MAP = {
+  si: Script.SI,    // Sinhala → Sinhala script
+  hi: Script.HI,    // Hindi → Devanagari
+  my: Script.MY,    // Myanmar → Myanmar
+  th: Script.THAI,  // Thai → Thai
+  lo: Script.LAOS,  // Lao → Lao
+  km: Script.KM,    // Khmer → Khmer
+  be: Script.BENG,  // Bengali → Bengali
+  as: Script.ASSE,  // Assamese → Assamese
+  gu: Script.GUJA,  // Gujarati → Gujarati
+  te: Script.TELU,  // Telugu → Telugu
+  ka: Script.KANN,  // Kannada → Kannada
+  mm: Script.MALA,  // Malayalam → Malayalam
+  bo: Script.TIBT,  // Tibetan → Tibetan
+  cy: Script.CYRL,  // Russian → Cyrillic
+  // All others (en, fr, de, etc.) → Roman
+};
+
+/**
+ * Return the native Pāli script for a translation language code.
+ * Falls back to Roman if the language has no specific script mapping.
+ */
+export function getScriptForLang(lang) {
+  return LANG_SCRIPT_MAP[lang] || Script.RO;
+}
+
 // ── Defaults ─────────────────────────────────────────
 export function defaultSettings() {
   return {
-    pali:           true,
-    translation:    true,
-    layout:         'stacked',   // 'stacked' | 'sidebyside'
-    paliScript:     Script.RO,   // default Roman
-    paliColor:      '#7c2d12',
-    transColor:     '#1e3a5f',
-    actionButtons:  'line',      // 'line' | 'para' | 'none'
-    fontSize:       16,          // px – applied to #main-content
-    actionCollapse: false,       // true = collapse row buttons into a single ⋯ menu
-    load_attha:     true,
-    pageSystem:     'vri',       // 'none' | 'vri' | 'pts' | 'myanmar' | 'thai'
-    theme:          'system',    // 'light' | 'dark' | 'system'
+    pali:             true,
+    translation:      true,
+    layout:           'stacked',   // 'stacked' | 'sidebyside'
+    paliScript:       Script.RO,   // default Roman
+    paliColor:        '#7c2d12',
+    transColor:       '#1e3a5f',
+    actionButtons:    'line',      // 'line' | 'para' | 'none'
+    fontSize:         22,          // px – applied to #main-content
+    actionCollapse:   false,       // true = collapse row buttons into a single ⋯ menu
+    load_attha:       true,
+    pageSystem:       'vri',       // 'none' | 'vri' | 'pts' | 'myanmar' | 'thai'
+    theme:            'system',    // 'light' | 'dark' | 'system'
+    scriptManuallySet: false,      // true = user explicitly chose a script in Settings
   };
 }
 
-export function loadSettings() {
+/**
+ * Load settings from localStorage, optionally considering the current
+ * translation language. When `scriptManuallySet` is false, the Pāli
+ * script is derived from the translation language so it always matches.
+ * @param {string} [lang] - Current translation language code (e.g. 'si').
+ */
+export function loadSettings(lang) {
   try {
-    return { ...defaultSettings(), ...JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') };
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    const merged = { ...defaultSettings(), ...saved };
+    // When the user hasn't explicitly chosen a script, derive it from
+    // the translation language so Pāli text matches the reader's language.
+    if (!merged.scriptManuallySet && lang) {
+      merged.paliScript = getScriptForLang(lang);
+    }
+    return merged;
   } catch {
     return defaultSettings();
   }
@@ -42,6 +83,22 @@ export function saveSettings(settings) {
   const next = { ...settings };
   delete next.bgColor;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+}
+
+/**
+ * Called when the user clicks a translation language link.
+ * Sets the Pāli script to match the target language and clears
+ * the manual flag so the script follows the language going forward.
+ * @param {string} lang - Target translation language code (e.g. 'si').
+ */
+export function onLanguageSelect(lang) {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const saved = raw ? JSON.parse(raw) : {};
+    saved.paliScript = getScriptForLang(lang);
+    saved.scriptManuallySet = false;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+  } catch { /* storage unavailable */ }
 }
 
 export function getThemePreference() {
@@ -85,7 +142,7 @@ export function applySettings(s) {
   root.style.setProperty('--pali-color',    lightenColor(s.paliColor));
   root.style.setProperty('--trans-color',   lightenColor(s.transColor));
 
-  const fs = Math.min(Math.max(parseInt(s.fontSize) || 16, 10), 32);
+  const fs = Math.min(Math.max(parseInt(s.fontSize) || 22, 10), 32);
   root.style.setProperty('--reader-font-size', `${fs}px`);
   root.style.setProperty('font-size', `${fs}px`);
 
@@ -160,7 +217,7 @@ export function populateSettingsForm(s) {
   if (sel) sel.value = s.paliScript;
 
   const fsEl = document.getElementById('range-font-size');
-  if (fsEl) { fsEl.value = s.fontSize || 16; _updateFontSizeLabel(fsEl.value); }
+  if (fsEl) { fsEl.value = s.fontSize || 22; _updateFontSizeLabel(fsEl.value); }
 
   _setChecked('cb-action-collapse', !!s.actionCollapse);
   _setChecked('cb-load-attha', s.load_attha ?? true);
@@ -178,7 +235,7 @@ export function readSettingsForm() {
     paliScript:     document.getElementById('pali-script-select')?.value || Script.RO,
     paliColor:      _getValue('color-pali'),
     transColor:     _getValue('color-trans'),
-    fontSize:       parseInt(document.getElementById('range-font-size')?.value) || 16,
+    fontSize:       parseInt(document.getElementById('range-font-size')?.value) || 22,
     actionCollapse: _getChecked('cb-action-collapse'),
     load_attha:     _getChecked('cb-load-attha', true),
     pageSystem:     _getValue('page-system-select') || 'vri',
