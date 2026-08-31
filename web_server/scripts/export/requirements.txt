@@ -4,14 +4,12 @@
 # EPUB generation
 ebooklib>=0.18
 
-# PDF generation (with Unicode Pāli support)
-reportlab>=4.0
+# PDF generation (with HarfBuzz text shaping for complex scripts)
+fpdf2>=2.7.5
+uharfbuzz>=0.50
 
 # DOCX generation
 python-docx>=1.0
 
 # Cover image generation
 Pillow>=10.0
-
-# Optional: better Unicode font handling
-# fonttools>=4.40

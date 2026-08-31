@@ -51,6 +51,7 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu, hierarchy
     onResultSelect: url => { _close(); window.location.href = url; },
     onShowResults:  ()  => _showResultsPanel(),
     onShowBooks:    ()  => _showBookPanels(),
+    onRenderResults: () => _applyPaliScript(),
   });
 
   /* ── Inject HTML ─────────────────────────────────────────── */

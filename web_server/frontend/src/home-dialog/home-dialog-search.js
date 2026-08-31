@@ -132,8 +132,9 @@ export class HomeDialogSearch {
    * @param {Function} opts.onResultSelect
    * @param {Function} opts.onShowResults
    * @param {Function} opts.onShowBooks
+   * @param {Function} [opts.onRenderResults]   Called after results are rendered (for pali-script re-application)
    */
-  constructor({ baseUrl, lang, initialState = {}, hierarchy = {}, ids = HOME_SEARCH_IDS, onResultSelect, onShowResults, onShowBooks }) {
+  constructor({ baseUrl, lang, initialState = {}, hierarchy = {}, ids = HOME_SEARCH_IDS, onResultSelect, onShowResults, onShowBooks, onRenderResults }) {
     this.baseUrl        = baseUrl;
     this.lang           = lang;
     // Sinhala translations use Sinhala Pāli by default. The reader settings
@@ -144,6 +145,7 @@ export class HomeDialogSearch {
     this.onResultSelect = onResultSelect;
     this.onShowResults  = onShowResults;
     this.onShowBooks    = onShowBooks;
+    this.onRenderResults = onRenderResults || null;
 
     // ── Initialise internal state from persisted values (with fallbacks) ──
     const savedType = SEARCH_TYPES.find(t => t.id === initialState.searchTypeId);
@@ -651,6 +653,7 @@ export class HomeDialogSearch {
         this._navigateToResult(el.dataset.url);
       });
     });
+    this._notifyRendered();
   }
 
   _renderDictResults(data, query) {
@@ -684,7 +687,7 @@ export class HomeDialogSearch {
         <div class="dict-book-group ${expanded ? 'expanded' : ''}" id="${groupId}">
           <button class="dict-book-header" data-group="${groupId}" aria-expanded="${expanded}">
             <span class="dict-book-caret">▶</span>
-            <span class="dict-book-name">${group.book_name}</span>
+            <span class="dict-book-name pali-text">${group.book_name}</span>
             <span class="dict-book-count">${group.items.length}</span>
           </button>
           <div class="dict-book-body">
@@ -722,6 +725,7 @@ export class HomeDialogSearch {
         this._navigateToResult(el.dataset.url);
       });
     });
+    this._notifyRendered();
   }
 
   /* ── FTS search ─────────────────────────────────────────── */
@@ -808,7 +812,7 @@ export class HomeDialogSearch {
       html += `
         <div class="fts-book-card-wrap">
           <button class="fts-book-card" data-book-id="${book.book_id}" data-book-name="${this._escapeAttr(book.book_name)}">
-            <span class="fts-book-name">${book.book_name}</span>
+            <span class="fts-book-name pali-text">${book.book_name}</span>
             <span class="fts-book-count-badge">${book.count.toLocaleString()}</span>
           </button>
           <div class="fts-book-results ${layoutMode}" data-book-id="${book.book_id}"></div>
@@ -874,6 +878,7 @@ export class HomeDialogSearch {
         resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+    this._notifyRendered();
   }
 
   /**
@@ -923,7 +928,7 @@ export class HomeDialogSearch {
 
     let html = `
       <div class="fts-results-header">
-        <span class="fts-results-name">${this._escapeHtml(bookName)}</span>
+        <span class="fts-results-name pali-text">${this._escapeHtml(bookName)}</span>
         <span class="fts-results-count">${total} result${total !== 1 ? 's' : ''}</span>
       </div>`;
 
@@ -983,6 +988,7 @@ export class HomeDialogSearch {
     containerEl.querySelector('.fts-next')?.addEventListener('click', () => {
       this._handleFtsPage(this._ftsPage + 1);
     });
+    this._notifyRendered();
   }
 
   /**
@@ -1005,7 +1011,7 @@ export class HomeDialogSearch {
         <div class="dict-book-group ${expanded ? 'expanded' : ''}" id="${groupId}">
           <button class="dict-book-header" data-group="${groupId}" aria-expanded="${expanded}">
             <span class="dict-book-caret">▶</span>
-            <span class="dict-book-name">${group.book_name}</span>
+            <span class="dict-book-name pali-text">${group.book_name}</span>
             <span class="dict-book-count">${group.items.length}</span>
           </button>
           <div class="dict-book-body">
@@ -1077,6 +1083,7 @@ export class HomeDialogSearch {
     this.resultsPanel.querySelector('#fts-back-summary')?.addEventListener('click', () => {
       this._renderFtsBookSummary(this._ftsData.books, this._ftsData.total, this._lastQuery);
     });
+    this._notifyRendered();
   }
 
   /**
@@ -1114,6 +1121,11 @@ export class HomeDialogSearch {
   }
 
   /* ── Helpers ─────────────────────────────────────────────── */
+
+  /** Notify that results have been rendered (for pali-script re-application). */
+  _notifyRendered() {
+    if (this.onRenderResults) this.onRenderResults();
+  }
 
   /**
    * Convert non-Roman script input to Roman Pāli.
