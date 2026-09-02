@@ -61,6 +61,11 @@ if (hasSkippedDisclaimer()) {
 
 async function init() {
   applyTheme();
+
+  // ── Cookie consent (GDPR) ──
+  // Must run BEFORE the slow menu fetch so the banner appears immediately.
+  initCookieConsent({ gaId: 'G-7NQWX1DCC2' });
+
   const { menu, hierarchy } = await loadMenu();
 
   // ── Home dialog ────────────────────────────────────────────────
@@ -73,9 +78,6 @@ async function init() {
     menu,
     hierarchy,
   });
-
-  // ── Cookie consent (GDPR) ──
-  initCookieConsent({ gaId: 'G-7NQWX1DCC2' });
 
   // ── Language selector: set matching Pāli script on click ────
   document.querySelectorAll('.landing-languages a').forEach(link => {
