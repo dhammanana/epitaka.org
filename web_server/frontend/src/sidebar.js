@@ -27,7 +27,6 @@ import './css/sidebar.css';
 import {
   HomeDialogSearch,
   buildSearchHeaderHTML,
-  HOME_SEARCH_IDS,
   SEARCH_TYPES,
 } from './home-dialog/home-dialog-search.js';
 import { installPaliInput, removeDiacritics } from './libs/pali_typing.js';
@@ -46,23 +45,41 @@ const { baseUrl = '', lang = 'en' } = window.BOOK_CONFIG || {};
 const TAB_ORDER    = ['Mūla', 'Aṭṭhakathā', 'Ṭīkā', 'Añña'];
 const PITAKA_ORDER = ['Vinaya', 'Suttanta', 'Sutta', 'Abhidhamma'];
 
-const PANELS = ['library', 'search', 'toc', 'dict'];
+const PANELS = ['library', 'search', 'toc', 'outline', 'dict'];
 const PANEL_TITLES = {
-  library: 'Library', search: 'Search', toc: 'Table of Contents', dict: 'Dictionary',
+  library: 'Library', search: 'Search', toc: 'Table of Contents',
+  outline: 'Outline', dict: 'Dictionary',
 };
 const PANEL_ICONS = {
-  library: '📚', search: '🔍', toc: '☰', dict: '📖',
+  library: '📚', search: '🔍', toc: '☰', outline: '📋', dict: '📖',
 };
 const ACTIVITY_ICONS = [
   { panel: 'library', icon: '📚', label: 'Library' },
   { panel: 'search',  icon: '🔍', label: 'Search' },
   { panel: 'toc',     icon: '☰',  label: 'Table of contents' },
+  { panel: 'outline', icon: '📋', label: 'Outline' },
   { panel: 'dict',    icon: '📖', label: 'Dictionary' },
 ];
 
 // Search type restored from a persisted search. Kept in module scope so both
 // buildDom (header markup) and initAsync (search module instance) use it.
 const initialTypeId = loadSidebarSearchState()?.search?.typeId || SEARCH_TYPES[0].id;
+
+// Element ids for the sidebar's search instance. These MUST differ from
+// HOME_SEARCH_IDS: the home dialog and the sidebar coexist on the index
+// page, and shared ids made getElementById bind both instances to the same
+// nodes (the type menu could never stay open, input went nowhere, …).
+const SB_SEARCH_IDS = {
+  searchRow:       'sb-search-row',
+  searchInputWrap: 'sb-search-input-wrap',
+  typeBtn:         'sb-search-type-btn',
+  typeMenu:        'sb-search-type-menu',
+  searchInput:     'sb-search-input',
+  suggestions:     'sb-search-suggestions',
+  goBtn:           'sb-search-go',
+  resultsPanel:    'sb-results-panel',
+  filterWrap:      'sb-filter-wrap',
+};
 
 // ── DOM refs (filled in initSidebar) ──────────────────────────
 let rootEl, drawerEl, backdropEl, railEl, panelTitleEl, hamburgerBtn;
@@ -146,10 +163,10 @@ function buildDom() {
 
       <div id="sb-panel-search" class="sb-panel" role="tabpanel">
         <div class="sb-search-wrap">
-          ${buildSearchHeaderHTML(HOME_SEARCH_IDS, initialTypeId)}
-          <div id="home-filter-wrap"></div>
+          ${buildSearchHeaderHTML(SB_SEARCH_IDS, initialTypeId)}
+          <div id="sb-filter-wrap"></div>
         </div>
-        <div id="home-results-panel"></div>
+        <div id="sb-results-panel"></div>
       </div>
 
       <div id="sb-panel-toc" class="sb-panel" role="tabpanel">
@@ -160,6 +177,14 @@ function buildDom() {
                  autocomplete="off" aria-label="Filter table of contents">
         </div>
         <ul id="toc-list" role="list"></ul>
+      </div>
+
+      <div id="sb-panel-outline" class="sb-panel" role="tabpanel">
+        <div class="sb-outline-wrap">
+          <a id="sb-outline-full" class="sb-outline-full" style="display:none">Full outline →</a>
+          <div id="sb-outline-loading" class="sb-outline-loading">Loading outline…</div>
+          <div id="sb-outline-tree" class="sb-outline-tree"></div>
+        </div>
       </div>
 
       <div id="sb-panel-dict" class="sb-panel" role="tabpanel">
@@ -198,7 +223,7 @@ async function initAsync() {
     baseUrl,
     lang,
     hierarchy,
-    ids: HOME_SEARCH_IDS,
+    ids: SB_SEARCH_IDS,
     initialState: { searchTypeId: initialTypeId },
     onResultSelect: url => {
       saveSidebarSearchState({ panel: 'search', search: search.getState() });
@@ -215,19 +240,15 @@ async function initAsync() {
   document.dispatchEvent(new CustomEvent('sidebar:library-ready'));
 
   // Restore a persisted search (user clicked a search result → new page).
-  // Only restore if the sidebar is pinned — otherwise the user closed it
-  // and doesn't want it reopening on every navigation.
+  // Always restore when a search was saved, even if the sidebar is not
+  // pinned — otherwise the results vanish after every navigation.
   const saved = loadSidebarSearchState();
-  if (isPinned()) {
-    if (saved?.search?.query) {
-      openPanel('search');
-      search.restore(saved.search);
-    } else {
-      openPanel(loadSidebarPin()?.panel || 'library');
-    }
+  if (saved?.search?.query) {
+    openPanel('search');
+    search.restore(saved.search);
+  } else if (isPinned()) {
+    openPanel(loadSidebarPin()?.panel || 'library');
   }
-  // Always clear the search state after attempting restore — if the
-  // sidebar isn't pinned, the state is stale and should not persist.
   clearSidebarSearchState();
 }
 
@@ -253,6 +274,7 @@ function openPanel(name) {
   });
 
   panelTitleEl.textContent = PANEL_TITLES[name];
+  if (name === 'outline') ensureOutlineLoaded();
   drawerEl.classList.add('open');
   backdropEl.classList.add('show');
   document.body.classList.add('sb-drawer-open');
@@ -263,7 +285,7 @@ function openPanel(name) {
   requestAnimationFrame(() => {
     if (window.innerWidth < 768) return;
     const focusTarget =
-      name === 'search'  ? document.getElementById(HOME_SEARCH_IDS.searchInput)
+      name === 'search'  ? document.getElementById(SB_SEARCH_IDS.searchInput)
       : name === 'toc'   ? document.getElementById('toc-search')
       : name === 'dict'  ? document.getElementById('dict-word-input')
       : document.getElementById('sb-library-filter');
@@ -291,13 +313,13 @@ function toggleDict() {
 }
 
 function _showResults() {
-  document.getElementById(HOME_SEARCH_IDS.resultsPanel)?.classList.add('active');
-  document.getElementById(HOME_SEARCH_IDS.filterWrap)?.classList.add('show');
+  document.getElementById(SB_SEARCH_IDS.resultsPanel)?.classList.add('active');
+  document.getElementById(SB_SEARCH_IDS.filterWrap)?.classList.add('show');
 }
 
 function _hideResults() {
-  document.getElementById(HOME_SEARCH_IDS.resultsPanel)?.classList.remove('active');
-  document.getElementById(HOME_SEARCH_IDS.filterWrap)?.classList.remove('show');
+  document.getElementById(SB_SEARCH_IDS.resultsPanel)?.classList.remove('active');
+  document.getElementById(SB_SEARCH_IDS.filterWrap)?.classList.remove('show');
 }
 
 /* ════════════════════════════════════════════
@@ -685,6 +707,19 @@ function bindToc() {
   const list = document.getElementById('toc-list');
   const searchInput = document.getElementById('toc-search');
 
+  // Index / landing page: no book is open, so there is nothing to list and
+  // the per-book outline link would point nowhere — hide it and explain.
+  if (!currentBookId) {
+    document.getElementById('sb-toc-outline')?.remove();
+    const hint = document.createElement('li');
+    hint.className = 'sb-outline-empty';
+    hint.innerHTML = 'Open a book from the Library to browse its contents. '
+      + '<button type="button" id="sb-toc-open-lib" class="sb-outline-full" style="margin:0.4rem 0 0">Open Library</button>';
+    list.appendChild(hint);
+    hint.querySelector('#sb-toc-open-lib')?.addEventListener('click', () => openPanel('library'));
+    return;
+  }
+
   // Build TOC items from the already-rendered section headings.
   document.querySelectorAll('.section-block').forEach(block => {
     const paraId = block.dataset.paraId;
@@ -756,6 +791,126 @@ function highlightTocItem(paraId) {
     if (active && drawerEl.classList.contains('open')) {
       item.scrollIntoView({ block: 'nearest' });
     }
+  });
+}
+
+/* ════════════════════════════════════════════
+   Outline panel — every section with its study guide
+   ════════════════════════════════════════════ */
+
+let _outlineLoaded = false;
+let _outlineLoading = false;
+
+function ensureOutlineLoaded() {
+  if (_outlineLoaded || _outlineLoading) return;
+  const tree = document.getElementById('sb-outline-tree');
+  const loading = document.getElementById('sb-outline-loading');
+  const fullLink = document.getElementById('sb-outline-full');
+  if (!tree || !loading) return;
+
+  // Index / landing page: no book is open — the outline is per-book.
+  if (!currentBookId) {
+    loading.style.display = 'none';
+    if (fullLink) fullLink.style.display = 'none';
+    tree.innerHTML = '';
+    const empty = document.createElement('div');
+    empty.className = 'sb-outline-empty';
+    empty.innerHTML = 'The outline shows every section of the open book with its study guide. '
+      + '<button type="button" id="sb-outline-open-lib" class="sb-outline-full" style="margin:0.5rem 0.7rem 0">Open Library</button>';
+    tree.appendChild(empty);
+    empty.querySelector('#sb-outline-open-lib')?.addEventListener('click', () => openPanel('library'));
+    _outlineLoaded = true;
+    return;
+  }
+
+  _outlineLoading = true;
+  fetch(`${baseUrl}/api/outline/${encodeURIComponent(currentBookId)}`)
+    .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+    .then(data => {
+      loading.style.display = 'none';
+      if (data.outline_url && fullLink) {
+        fullLink.href = data.outline_url;
+        fullLink.style.display = '';
+      }
+      renderOutlineTree(tree, data.groups || []);
+      _outlineLoaded = true;
+    })
+    .catch(err => {
+      console.warn('[sidebar] outline failed', err);
+      loading.textContent = 'Outline unavailable.';
+    })
+    .finally(() => { _outlineLoading = false; });
+}
+
+function renderOutlineTree(tree, groups) {
+  tree.innerHTML = '';
+  if (!groups.length) {
+    const empty = document.createElement('div');
+    empty.className = 'sb-outline-empty';
+    empty.textContent = 'No sections found for this book.';
+    tree.appendChild(empty);
+    return;
+  }
+  groups.forEach((g, gi) => {
+    const vagga = document.createElement('div');
+    vagga.className = 'sb-outline-vagga';
+    const sectionCount = (g.suttas || []).reduce(
+      (n, st) => n + (st.sections || []).length, 0);
+
+    const title = document.createElement('div');
+    title.className = 'sb-outline-vagga-title open';
+    title.setAttribute('role', 'button');
+    title.setAttribute('tabindex', '0');
+    title.innerHTML = `<span></span><span class="sb-caret">▾</span>`;
+    title.querySelector('span').textContent = `${g.title || ''} (${sectionCount})`;
+
+    const body = document.createElement('div');
+    body.className = 'sb-outline-vagga-body open';
+    (g.suttas || []).forEach(st => {
+      if (st.title) {
+        const sutta = document.createElement('div');
+        sutta.className = 'sb-outline-sutta-title';
+        sutta.textContent = st.title;
+        body.appendChild(sutta);
+      }
+      const list = document.createElement('ul');
+      list.className = 'sb-outline-list';
+      (st.sections || []).forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'sb-outline-item';
+        const a = document.createElement('a');
+        a.className = 'sb-outline-item-link';
+        a.textContent = item.title || 'Section';
+        a.href = item.book_url || '#';
+        if (item.book_url) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+        li.appendChild(a);
+        if (item.study_url) {
+          const s = document.createElement('a');
+          s.className = 'sb-outline-study';
+          s.href = item.study_url;
+          s.target = '_blank';
+          s.rel = 'noopener noreferrer';
+          s.title = item.study_title || 'Study guide';
+          s.setAttribute('aria-label', 'Study guide');
+          s.textContent = '📖';
+          li.appendChild(s);
+        }
+        list.appendChild(li);
+      });
+      body.appendChild(list);
+    });
+
+    const toggle = () => {
+      title.classList.toggle('open');
+      body.classList.toggle('open');
+    };
+    title.addEventListener('click', toggle);
+    title.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+
+    vagga.append(title, body);
+    tree.appendChild(vagga);
   });
 }
 

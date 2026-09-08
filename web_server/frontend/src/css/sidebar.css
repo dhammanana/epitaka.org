@@ -140,9 +140,11 @@
 }
 .sb-panel-scroll::-webkit-scrollbar,
 #home-results-panel::-webkit-scrollbar,
+#sb-results-panel::-webkit-scrollbar,
 #toc-list::-webkit-scrollbar { width: 4px; }
 .sb-panel-scroll::-webkit-scrollbar-thumb,
 #home-results-panel::-webkit-scrollbar-thumb,
+#sb-results-panel::-webkit-scrollbar-thumb,
 #toc-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
 /* ── Library panel ───────────────────────────────────────── */
@@ -230,15 +232,17 @@
   padding: 0.6rem 0.7rem 0;
   border-bottom: 1px solid var(--border);
 }
-.sb-search-wrap #home-search-row { gap: 0.35rem; }
-.sb-search-wrap #search-type-btn {
+.sb-search-wrap #sb-search-row { gap: 0.35rem; }
+.sb-search-wrap #sb-search-type-btn {
   font-size: 0.7rem;
   padding: 0.38rem 0.4rem;
 }
-.sb-search-wrap #search-type-btn span:not(.arrow) {
+/* Icon-only type button in the narrow drawer: the current type's icon
+   (🔍/☰/📖) plus the dropdown arrow stay visible, only the text hides. */
+.sb-search-wrap #sb-search-type-btn .type-label {
   display: none;
 }
-#sb-panel-search #home-results-panel {
+#sb-panel-search #sb-results-panel {
   flex: 1; min-height: 0;
   overflow-y: auto;
   padding: 0.5rem 0.7rem 1rem;
@@ -246,11 +250,11 @@
 /* Inside the drawer, the slide transform would hijack position:fixed, so
    the type menu + suggestions become absolute (relative to their anchors).
    _positionBelow() detects this and computes offset-parent coordinates. */
-#sb-panel-search #search-type-menu,
-#sb-panel-search #home-suggestions {
+#sb-panel-search #sb-search-type-menu,
+#sb-panel-search #sb-search-suggestions {
   position: absolute;
 }
-#sb-panel-search #home-filter-wrap .book-filter {
+#sb-panel-search #sb-filter-wrap .book-filter {
   padding: 6px 2px;
 }
 

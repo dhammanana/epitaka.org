@@ -71,34 +71,85 @@ def _get_allowed_books(hierarchy, pitakas_param, layers_param):
     return frozenset(allowed)
 
 
-# ── Helper: normalise query → list of words ───────────────────────────────
-def _normalise_query(query):
-    """Split a query without destroying Sinhala (or other Unicode) letters.
+# ── Query parsing (words + "quoted phrases") ─────────────────────────────
+# Limits keep one request cheap on the small VPS: FTS5 cost grows with the
+# number of ANDed terms, and each LIKE-fallback word is a full-table scan.
+MAX_QUERY_LEN = 200
+MAX_TOKENS = 10
+MAX_PHRASE_WORDS = 8
 
-    ``\\w`` is ASCII-only in Python regexes unless the UNICODE flag is
-    explicit, and punctuation-only filtering also breaks Sinhala combining
-    marks. Keep every Unicode letter/mark/number and use whitespace as the
-    word boundary; FTS receives the original script while the Pāli fallback
-    still normalizes Roman text.
-    """
+_PHRASE_RE = re.compile(r'"([^"]+)"')
+
+
+def _clean_token(text):
+    """Keep every Unicode letter/mark/number, drop the rest (incl. FTS5
+    syntax chars like `"*():^`). Whitespace becomes the word boundary, so
+    Sinhala combining marks survive."""
+    import unicodedata
+
     clean = "".join(
         ch
-        if (
-            ch.isspace()
-            or ch.isalnum()
-            or __import__("unicodedata").category(ch).startswith("M")
-        )
+        if (ch.isspace() or ch.isalnum() or unicodedata.category(ch).startswith("M"))
         else " "
-        for ch in query
+        for ch in text
     )
-    clean = re.sub(r"\\s+", " ", clean).strip()
-    return [w for w in clean.split() if w]
+    return re.sub(r"\s+", " ", clean).strip()
 
 
-# ── Helper: build the FTS5 MATCH query from search words ──────────────────
-def _build_fts_query(words):
+def _normalise_query(query):
+    """Split a query into plain words (kept for backwards-compat callers).
+
+    Quoted phrases are returned as their words too, so highlight code that
+    only knows about a flat word list keeps working.
     """
-    Build an FTS5 prefix query:  "w1"* AND "w2"*  (all words in same paragraph).
+    words, phrases = _parse_query(query)
+    flat = list(words)
+    for ph in phrases:
+        flat.extend(ph)
+    return flat
+
+
+def _parse_query(query):
+    """Parse `query` into (words, phrases).
+
+    - `"a b c"` → phrase: words must occur adjacently, in order, in the
+      same paragraph (FTS5 phrase `"a b c"`).
+    - bare words → ANDed prefix terms in the same paragraph (unchanged).
+    Returns ([word, …], [[phrase words], …]), diacritics intact (stripped
+    later when the FTS string is built).
+    """
+    query = (query or "")[:MAX_QUERY_LEN]
+    phrases = []
+    spans = []
+    for m in _PHRASE_RE.finditer(query):
+        spans.append((m.start(), m.end()))
+        cleaned = _clean_token(m.group(1)).split()
+        if 1 <= len(cleaned) <= MAX_PHRASE_WORDS:
+            phrases.append(cleaned)
+        if len(phrases) >= MAX_TOKENS:
+            break
+    masked = "".join(
+        " " if any(s <= i < e for s, e in spans) else ch for i, ch in enumerate(query)
+    )
+    words = _clean_token(masked).split()
+    budget = MAX_TOKENS - len(phrases)
+    words = words[: max(budget, 0)]
+    if len(words) + sum(len(p) for p in phrases) == 0:
+        # Unbalanced quote or punctuation-only input — treat the whole
+        # string as plain words rather than returning nothing.
+        words = _clean_token(query.replace('"', " ")).split()[:MAX_TOKENS]
+        phrases = []
+    return words, phrases
+
+
+# ── Helper: build the FTS5 MATCH query from words + phrases ───────────────
+def _build_fts_query(words, phrases=None):
+    """
+    Build an FTS5 query:  "w1"* AND "w2"* AND "p1 p2"  (same paragraph).
+
+    Bare words are prefix terms; each quoted phrase is an exact FTS5 phrase
+    (adjacent, in order). Tokens are pre-cleaned so no user text — quotes,
+    asterisks, parens — can reach the MATCH parser as syntax.
 
     The paragraphs_fts index is created with `unicode61 remove_diacritics 2`,
     so its tokens are stored WITHOUT Pāli diacritics (ā→a, ṃ→m, ṭ→t, …). FTS5
@@ -109,20 +160,20 @@ def _build_fts_query(words):
     Stripping diacritics and lowercasing the query terms here in Python makes
     matching deterministic regardless of the server's SQLite version.
     """
-    norm = []
+    phrases = phrases or []
+    parts = []
     for w in words:
-        # Strip Pāli diacritics so the query matches the FTS index
-        # (built with `remove_diacritics 2`) regardless of SQLite version.
         # normalize_pali is a no-op for Sinhala/non-Latin scripts, so it is
         # safe to apply unconditionally.
         n = normalize_pali(w).lower()
         if n:
-            norm.append(n)
-    if not norm:
-        # Pathological input (e.g. combining marks only) — fall back to the
-        # raw words rather than emitting an empty MATCH string.
-        return " AND ".join(f'"{w}"*' for w in words)
-    return " AND ".join(f'"{w}"*' for w in norm)
+            parts.append(f'"{n}"*')
+    for ph in phrases:
+        norm = [normalize_pali(w).lower() for w in ph]
+        norm = [n for n in norm if n]
+        if norm:
+            parts.append('"' + " ".join(norm) + '"')
+    return " AND ".join(parts)
 
 
 # ── Helper: book-filter SQL fragment ─────────────────────────────────────
@@ -133,8 +184,48 @@ def _book_filter_clause(allowed_books, alias="p"):
     return f" AND {alias}.book_id IN ({placeholders})", list(allowed_books)
 
 
+# ── Helper: resolve the per-language translation FTS table ────────────────
+_TRANS_TABLE_RE = re.compile(r"^[a-z]{2}$")
+
+
+def _trans_fts_table(cursor, lang):
+    """Return the fts_<lang>_trans table name if it exists, else None.
+
+    The language comes from the request query string, so it is strictly
+    validated (two lowercase ASCII letters) before being interpolated into
+    SQL — table names can't be query parameters.
+    """
+    if not lang or not _TRANS_TABLE_RE.match(lang):
+        return None
+    table = f"fts_{lang}_trans"
+    row = cursor.execute(
+        "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
+        (table,),
+    ).fetchone()
+    return table if row else None
+
+
+def _match_branches(trans_table, bf_p_sql, bf_t_sql):
+    """SELECT branches yielding distinct (book_id, para_id) pair matches.
+
+    Pali matches UNION translation matches so a paragraph hit on either
+    side counts once. Each branch consumes one MATCH parameter, in order
+    (Pāli first, translation second).
+    """
+    branches = [
+        "SELECT p.book_id AS book_id, p.para_id AS para_id "
+        f"FROM paragraphs_fts p WHERE p.paragraphs_fts MATCH ?{bf_p_sql}"
+    ]
+    if trans_table:
+        branches.append(
+            "SELECT t.book_id AS book_id, t.para_id AS para_id "
+            f'FROM "{trans_table}" t WHERE t."{trans_table}" MATCH ?{bf_t_sql}'
+        )
+    return " UNION ".join(branches)
+
+
 # ── Helper: highlight search words in HTML text ───────────────────────────
-def _highlight_words(html_text: str, words: list) -> str:
+def _highlight_words(html_text: str, words: list, phrases=None) -> str:
     """Highlight search words, matching Pāli diacritics-insensitively
     (e.g. 'anuruddhattheraga' highlights 'anuruddhattheragāthā')."""
     if not html_text or not words:
@@ -145,21 +236,61 @@ def _highlight_words(html_text: str, words: list) -> str:
         if part.startswith("<"):
             result.append(part)
         else:
-            result.append(highlight_text(part, words))
+            result.append(highlight_text(part, words, phrases))
     return "".join(result)
 
 
 # ── Helper: determine which lines match the search words ─────────────────
-def _find_matching_lines(lines: list, words: list) -> set:
+def _find_matching_lines(lines: list, words: list, phrases=None) -> set:
     """Match lines diacritics-insensitively so results found by the
-    (diacritic-stripped) FTS index still display for diacritic queries."""
+    (diacritic-stripped) FTS index still display for diacritic queries.
+
+    A line matches when it contains any quoted phrase (as a contiguous
+    substring) or any bare word — the paragraph already satisfied the full
+    AND via FTS; this only decides which lines are shown."""
     norm_words = [normalize_pali(w).lower() for w in words if w]
+    norm_phrases = [
+        " ".join(normalize_pali(w).lower() for w in ph if w) for ph in (phrases or [])
+    ]
+    norm_phrases = [p for p in norm_phrases if p]
     matched = set()
     for line in lines:
         raw_line = line["pali"] or ""
         pali_norm = normalize_pali(raw_line).lower()
-        if any(w in pali_norm for w in norm_words):
+        if any(p in pali_norm for p in norm_phrases):
             matched.add(line["line_id"])
+        elif any(w in pali_norm for w in norm_words):
+            matched.add(line["line_id"])
+    return matched
+
+
+def _strip_markup(text: str) -> str:
+    """Remove HTML tags / markdown markers before matching translation text."""
+    if not text:
+        return ""
+    text = re.sub(r"<[^>]+>", "", text)
+    return re.sub(r"[\*\[\]\(\)]", "", text)
+
+
+def _find_matching_trans_lines(trans_items: list, words: list, phrases=None) -> set:
+    """Match translation lines (line_id, translation) against the query.
+
+    Same normalisation as the fts_<lang>_trans index (lowercase +
+    diacritic-stripped), so a translation-side FTS hit always yields
+    visible matched lines. Phrases match as contiguous substrings.
+    """
+    norm_words = [normalize_pali(w).lower() for w in words if w]
+    norm_phrases = [
+        " ".join(normalize_pali(w).lower() for w in ph if w) for ph in (phrases or [])
+    ]
+    norm_phrases = [p for p in norm_phrases if p]
+    matched = set()
+    for line_id, translation in trans_items:
+        trans_norm = normalize_pali(_strip_markup(translation)).lower()
+        if any(p in trans_norm for p in norm_phrases):
+            matched.add(line_id)
+        elif any(w in trans_norm for w in norm_words):
+            matched.add(line_id)
     return matched
 
 
@@ -170,26 +301,40 @@ def _find_matching_lines(lines: list, words: list) -> set:
 _FALLBACK_CACHE = TTLCache(max_size=128, ttl=60)
 
 
-def _fallback_paragraph_matches(conn, words, allowed_books=None, limit=5000):
+def _fallback_paragraph_matches(
+    conn, words, allowed_books=None, limit=5000, phrases=None
+):
     """
     Fallback search against the authoritative `sentences` table (epitaka.db).
 
     Used when the FTS index returns no matches — e.g. the index is stale and
     missing recently-added paragraphs, or the server's SQLite can't match
     diacritic query terms. Returns up to `limit` (book_id, para_id) tuples
-    whose paragraph text contains ALL of the search words.
+    whose paragraph text contains ALL of the search words AND every quoted
+    phrase (as a contiguous substring).
 
     Sets are intersected progressively (not truncated per word) so a common
     word like "vaṇṇanā" never hides paragraphs that also contain a rarer word.
+
+    Each LIKE term is a full-table scan on 1 vCPU, so the per-word row cap
+    is kept small and the whole result is cached.
     """
-    if not words:
+    phrases = phrases or []
+    if not words and not phrases:
         return []
     # A 1–2 char word can't be matched by the FTS index but a full-table
     # LIKE '%x%' scan would still scan the whole sentences table and peg the
     # CPU for seconds. Never fall back for those — return nothing instead.
     if any(len(w) < 3 for w in words):
         return []
-    cache_key = ("|".join(words), tuple(sorted(allowed_books)) if allowed_books else "")
+    if any(len(w) < 2 for ph in phrases for w in ph):
+        return []
+    if len(words) + sum(len(p) for p in phrases) > MAX_TOKENS:
+        return []
+    cache_key = (
+        "|".join(words) + "||" + "||".join(" ".join(p) for p in phrases),
+        tuple(sorted(allowed_books)) if allowed_books else "",
+    )
     cached = _FALLBACK_CACHE.get(cache_key)
     if cached is not None:
         return cached
@@ -211,12 +356,8 @@ def _fallback_paragraph_matches(conn, words, allowed_books=None, limit=5000):
     except Exception:
         pass
 
-    common = None
-    for w in words:
-        if not w:
-            continue
-        pattern = f"%{escape_like(normalize_pali(w).lower())}%"
-        # Bound each per-word set to keep pathological queries fast. The cap
+    def _like_scan(pattern):
+        # Bound each per-term set to keep pathological queries fast. The cap
         # is far above any realistic Pāli word frequency, so intersection
         # results stay correct in practice; ultra-common words ("ca", …) may
         # undercount slightly, which only affects the fallback path.
@@ -225,21 +366,127 @@ def _fallback_paragraph_matches(conn, words, allowed_books=None, limit=5000):
             SELECT DISTINCT s.book_id, s.para_id
             FROM sentences s
             WHERE norm_pali(s.pali) LIKE ? ESCAPE '\\'{bf_sql}
-            LIMIT 200000
+            LIMIT 50000
         """,
             [pattern] + bf_params,
         ).fetchall()
-        word_set = {(r["book_id"], r["para_id"]) for r in rows}
-        if not word_set:
+        return {(r["book_id"], r["para_id"]) for r in rows}
+
+    def _intersect(term_set):
+        nonlocal common
+        if not term_set:
             _FALLBACK_CACHE.set(cache_key, [])
-            return []
-        common = word_set if common is None else (common & word_set)
+            return False
+        common = term_set if common is None else (common & term_set)
         if not common:
             _FALLBACK_CACHE.set(cache_key, [])
+            return False
+        return True
+
+    common = None
+    for w in words:
+        if not w:
+            continue
+        if not _intersect(_like_scan(f"%{escape_like(normalize_pali(w).lower())}%")):
+            return []
+    for ph in phrases:
+        phrase = " ".join(normalize_pali(w).lower() for w in ph if w)
+        if not phrase:
+            continue
+        if not _intersect(_like_scan(f"%{escape_like(phrase)}%")):
             return []
 
     result = sorted(common)[:limit]
     _FALLBACK_CACHE.set(cache_key, result)
+    return result
+
+
+# ── Helper: fallback translation search when FTS misses ───────────────────
+# Mirrors _fallback_paragraph_matches but scans the selected language's
+# translation DB (epitaka_<lang>.db sentences). Covers two cases:
+#   1. the fts_<lang>_trans table hasn't been built yet, and
+#   2. spaceless scripts (Thai, Lao, …) where FTS prefix matching can't
+#      find mid-sentence words — LIKE substring matching can.
+_TRANS_FALLBACK_CACHE = TTLCache(max_size=128, ttl=60)
+
+
+def _fallback_trans_pairs(
+    trans_conn, words, allowed_books=None, limit=5000, phrases=None
+):
+    """LIKE-scan translation sentences for paragraphs containing ALL words
+    AND every quoted phrase (as a contiguous substring)."""
+    phrases = phrases or []
+    if not words and not phrases:
+        return []
+    if any(len(w) < 2 for w in words):
+        return []
+    if any(len(w) < 2 for ph in phrases for w in ph):
+        return []
+    if len(words) + sum(len(p) for p in phrases) > MAX_TOKENS:
+        return []
+    cache_key = (
+        "trans|" + "|".join(words) + "||" + "||".join(" ".join(p) for p in phrases),
+        tuple(sorted(allowed_books)) if allowed_books else "",
+    )
+    cached = _TRANS_FALLBACK_CACHE.get(cache_key)
+    if cached is not None:
+        return cached
+
+    bf_sql, bf_params = _book_filter_clause(allowed_books, alias="s")
+
+    def escape_like(word):
+        return word.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+
+    try:
+        trans_conn.create_function(
+            "norm_trans",
+            1,
+            lambda t: normalize_pali(_strip_markup(t or "")).lower(),
+        )
+    except Exception:
+        pass
+
+    def _like_scan(pattern):
+        try:
+            rows = trans_conn.execute(
+                f"""
+                SELECT DISTINCT s.book_id, s.para_id
+                FROM sentences s
+                WHERE norm_trans(s.translation) LIKE ? ESCAPE '\\'{bf_sql}
+                LIMIT 50000
+            """,
+                [pattern] + bf_params,
+            ).fetchall()
+        except Exception:
+            return None
+        return {(r["book_id"], r["para_id"]) for r in rows}
+
+    def _intersect(term_set):
+        nonlocal common
+        if not term_set:
+            _TRANS_FALLBACK_CACHE.set(cache_key, [])
+            return False
+        common = term_set if common is None else (common & term_set)
+        if not common:
+            _TRANS_FALLBACK_CACHE.set(cache_key, [])
+            return False
+        return True
+
+    common = None
+    for w in words:
+        if not w:
+            continue
+        if not _intersect(_like_scan(f"%{escape_like(normalize_pali(w).lower())}%")):
+            return []
+    for ph in phrases:
+        phrase = " ".join(normalize_pali(w).lower() for w in ph if w)
+        if not phrase:
+            continue
+        if not _intersect(_like_scan(f"%{escape_like(phrase)}%")):
+            return []
+
+    result = sorted(common)[:limit]
+    _TRANS_FALLBACK_CACHE.set(cache_key, result)
     return result
 
 
@@ -272,20 +519,29 @@ def register_search_route(bp):
           2. book_id provided  — returns paginated line-level results for that book
 
         Parameters:
-          q        — search query (multiple words = AND matching in same paragraph)
+          q        — search query (bare words = AND in same paragraph;
+                     "quoted text" = exact phrase, adjacent in order)
           book_id  — optional, restrict to one book
-          page     — page number (default 1)
-          limit    — results per page (default 30)
-          lang     — language code for translation lookup (e.g. 'en')
+          page     — page number (default 1, max 100)
+          limit    — results per page (default 30, max 50)
+          lang     — language code: searches Pali UNION the fts_<lang>_trans
+                     index (e.g. lang=vi also matches Vietnamese), and loads
+                     translations for display
           pitakas  — comma-separated pitaka filters
           layers   — comma-separated layer filters
         """
         hierarchy = load_hierarchy()
-        query = request.args.get("q", "").strip()
+        query = request.args.get("q", "").strip()[:MAX_QUERY_LEN]
         raw_book_id = request.args.get("book_id", "").strip()
         book_id = raw_book_id if raw_book_id and raw_book_id != "undefined" else None
-        page = max(1, int(request.args.get("page", "1") or "1"))
-        limit = max(1, int(request.args.get("limit", "30") or "30"))
+        try:
+            page = max(1, min(100, int(request.args.get("page", "1") or "1")))
+        except ValueError:
+            page = 1
+        try:
+            limit = max(1, min(50, int(request.args.get("limit", "30") or "30")))
+        except ValueError:
+            limit = 30
         pitakas = request.args.get("pitakas", "").strip()
         layers = request.args.get("layers", "").strip()
         lang = request.args.get("lang", "").strip()
@@ -295,20 +551,29 @@ def register_search_route(bp):
                 {"books": [], "results": [], "total": 0, "page": page, "pages": 0}
             )
 
-        words = _normalise_query(query)
-        if not words:
+        words, phrases = _parse_query(query)
+        if not words and not phrases:
             return jsonify(
                 {"books": [], "results": [], "total": 0, "page": page, "pages": 0}
             )
+        # Flat word list for highlighting + the `words` response field.
+        words = list(words) + [w for ph in phrases for w in ph]
 
         allowed_books = _get_allowed_books(hierarchy, pitakas, layers)
 
         with get_webdata_db() as wconn:
             wcursor = wconn.cursor()
 
-            # ── Step 1: Get book-level counts (always fast) ─────────────
+            # ── Translation index for the selected language ──────────
+            # e.g. lang=vi searches Pali (paragraphs_fts) UNION the
+            # Vietnamese index (fts_vi_trans). Missing table → Pali only.
+            trans_table = _trans_fts_table(wcursor, lang)
+
+            # ── Step 1: Get book-level counts (FTS index; cached) ────────
             try:
-                books_data, total = _get_book_counts(wcursor, words, allowed_books)
+                books_data, total = _get_book_counts(
+                    wcursor, words, allowed_books, trans_table, phrases
+                )
             except Exception as e:
                 # Missing / corrupt FTS index (e.g. webdata.db not built) —
                 # degrade to the substring fallback below instead of 500ing.
@@ -318,18 +583,50 @@ def register_search_route(bp):
             # Fallback: if the FTS index found nothing (stale index missing
             # recently-added content, or an older SQLite that can't match
             # diacritic query terms), search the authoritative sentences
-            # table directly so searches still return results.
+            # table directly so searches still return results. When a
+            # language is selected, the translation DB is scanned too.
+            #
+            # Fast path for quoted phrases: if the bare words DO co-occur
+            # per the FTS index (cheap AND query, cached), the index is
+            # healthy and the phrase genuinely doesn't occur adjacently
+            # (e.g. "yathā bhūta" is written "yathābhūtaṃ" as one word).
+            # Skipping the LIKE fallback then avoids up to 6 full-table
+            # scans with a per-row Python function — seconds on 1 vCPU —
+            # for a result that would be empty anyway.
             use_fallback = False
             fallback_pairs = []
             if total == 0:
-                try:
-                    with get_db() as epi_conn:
-                        fallback_pairs = _fallback_paragraph_matches(
-                            epi_conn, words, allowed_books
+                skip_fallback = False
+                if phrases:
+                    try:
+                        _, and_total = _get_book_counts(
+                            wcursor, words, allowed_books, trans_table
                         )
-                except Exception as e:
-                    print(f"[fts_search] fallback error: {e}")
-                    fallback_pairs = []
+                    except Exception:
+                        and_total = 0
+                    skip_fallback = and_total > 0
+                if not skip_fallback:
+                    try:
+                        with get_db() as epi_conn:
+                            fallback_pairs = _fallback_paragraph_matches(
+                                epi_conn, words, allowed_books, phrases=phrases
+                            )
+                    except Exception as e:
+                        print(f"[fts_search] fallback error: {e}")
+                        fallback_pairs = []
+                    if lang and _TRANS_TABLE_RE.match(lang):
+                        try:
+                            trans_db = get_translation_db(lang)
+                            if trans_db is not None:
+                                trans_pairs = _fallback_trans_pairs(
+                                    trans_db, words, allowed_books, phrases=phrases
+                                )
+                                seen = set(fallback_pairs)
+                                fallback_pairs = fallback_pairs + [
+                                    p for p in trans_pairs if p not in seen
+                                ]
+                        except Exception as e:
+                            print(f"[fts_search] trans fallback error: {e}")
                 if fallback_pairs:
                     use_fallback = True
                     counts = Counter(p[0] for p in fallback_pairs)
@@ -362,13 +659,23 @@ def register_search_route(bp):
                         book_total = len(filtered)
                         start = (page - 1) * limit
                         rows = _fetch_line_details(
-                            filtered[start : start + limit], words, lang
+                            filtered[start : start + limit], words, lang, phrases
                         )
                     else:
                         rows, book_total = _search_book_lines(
-                            wcursor, words, allowed_books, book_id, page, limit, lang
+                            wcursor,
+                            words,
+                            allowed_books,
+                            book_id,
+                            page,
+                            limit,
+                            lang,
+                            trans_table,
+                            phrases,
                         )
-                    results = _build_results_grouped(rows, hierarchy, words, lang)
+                    results = _build_results_grouped(
+                        rows, hierarchy, words, lang, phrases
+                    )
                     display_total = book_total
                 except Exception as e:
                     print(f"[fts_search] book detail error: {e}")
@@ -379,12 +686,16 @@ def register_search_route(bp):
                 # Small result set — return everything directly
                 try:
                     if use_fallback:
-                        rows = _fetch_line_details(fallback_pairs, words, lang)
+                        rows = _fetch_line_details(fallback_pairs, words, lang, phrases)
                     else:
                         # NOTE: _search_all_lines returns a plain list — do NOT
                         # unpack it as a (rows, total) tuple here.
-                        rows = _search_all_lines(wcursor, words, allowed_books, lang)
-                    results = _build_results_grouped(rows, hierarchy, words, lang)
+                        rows = _search_all_lines(
+                            wcursor, words, allowed_books, lang, trans_table, phrases
+                        )
+                    results = _build_results_grouped(
+                        rows, hierarchy, words, lang, phrases
+                    )
                     display_total = total
                 except Exception as e:
                     print(f"[fts_search] full results error: {e}")
@@ -414,24 +725,43 @@ def register_search_route(bp):
 # ═══════════════════════════════════════════════════════════════════════════
 
 
-def _get_book_counts(cursor, words, allowed_books):
+# The GROUP BY over the UNION is the most expensive FTS query here, and
+# bots re-hit the same queries constantly — cache the counts per worker.
+_COUNTS_CACHE = TTLCache(max_size=256, ttl=120)
+
+
+def _get_book_counts(cursor, words, allowed_books, trans_table=None, phrases=None):
     """
-    Get per-book match counts from paragraphs_fts.
+    Get per-book match counts from paragraphs_fts (+ fts_<lang>_trans).
     Returns (list_of_dicts, total_count).
     """
-    fts_query = _build_fts_query(words)
-    bf_sql, bf_params = _book_filter_clause(allowed_books)
+    phrases = phrases or []
+    cache_key = (
+        _build_fts_query(words, phrases),
+        tuple(sorted(allowed_books)) if allowed_books else "",
+        trans_table or "",
+    )
+    cached = _COUNTS_CACHE.get(cache_key)
+    if cached is not None:
+        return cached
+    fts_query = _build_fts_query(words, phrases)
+    bf_p_sql, bf_p_params = _book_filter_clause(allowed_books, alias="p")
+    bf_t_sql, bf_t_params = _book_filter_clause(allowed_books, alias="t")
+    branches = _match_branches(trans_table, bf_p_sql, bf_t_sql)
+    params = [fts_query] + bf_p_params
+    if trans_table:
+        params += [fts_query] + bf_t_params
 
     sql = f"""
-        SELECT p.book_id, COUNT(*) as count
-        FROM paragraphs_fts p
-        WHERE p.paragraphs_fts MATCH ?{bf_sql}
-          AND p.book_id IS NOT NULL AND p.book_id != ''
-        GROUP BY p.book_id
+        SELECT m.book_id, COUNT(*) as count
+        FROM ({branches}) m
+        WHERE m.book_id IS NOT NULL AND m.book_id != ''
+        GROUP BY m.book_id
     """
-    rows = cursor.execute(sql, [fts_query] + bf_params).fetchall()
+    rows = cursor.execute(sql, params).fetchall()
     books = [{"book_id": r["book_id"], "count": r["count"]} for r in rows]
     total = sum(r["count"] for r in rows)
+    _COUNTS_CACHE.set(cache_key, (books, total))
     return books, total
 
 
@@ -440,24 +770,30 @@ def _get_book_counts(cursor, words, allowed_books):
 # ═══════════════════════════════════════════════════════════════════════════
 
 
-def _search_all_lines(cursor, words, allowed_books, lang=None):
+def _search_all_lines(
+    cursor, words, allowed_books, lang=None, trans_table=None, phrases=None
+):
     """Fetch ALL matching paragraphs (used when total <= 30)."""
-    fts_query = _build_fts_query(words)
-    bf_sql, bf_params = _book_filter_clause(allowed_books)
+    fts_query = _build_fts_query(words, phrases)
+    bf_p_sql, bf_p_params = _book_filter_clause(allowed_books, alias="p")
+    bf_t_sql, bf_t_params = _book_filter_clause(allowed_books, alias="t")
+    branches = _match_branches(trans_table, bf_p_sql, bf_t_sql)
+    params = [fts_query] + bf_p_params
+    if trans_table:
+        params += [fts_query] + bf_t_params
 
     data_sql = f"""
-        SELECT p.book_id, p.para_id
-        FROM paragraphs_fts p
-        WHERE p.paragraphs_fts MATCH ?{bf_sql}
-          AND p.book_id IS NOT NULL AND p.book_id != ''
-        ORDER BY p.book_id, p.para_id
+        SELECT m.book_id, m.para_id
+        FROM ({branches}) m
+        WHERE m.book_id IS NOT NULL AND m.book_id != ''
+        ORDER BY m.book_id, m.para_id
     """
-    para_hits = cursor.execute(data_sql, [fts_query] + bf_params).fetchall()
+    para_hits = cursor.execute(data_sql, params).fetchall()
     if not para_hits:
         return []
 
     book_para_pairs = [(r["book_id"], r["para_id"]) for r in para_hits]
-    return _fetch_line_details(book_para_pairs, words, lang)
+    return _fetch_line_details(book_para_pairs, words, lang, phrases)
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -465,42 +801,53 @@ def _search_all_lines(cursor, words, allowed_books, lang=None):
 # ═══════════════════════════════════════════════════════════════════════════
 
 
-def _search_book_lines(cursor, words, allowed_books, book_id, page, limit, lang=None):
+def _search_book_lines(
+    cursor,
+    words,
+    allowed_books,
+    book_id,
+    page,
+    limit,
+    lang=None,
+    trans_table=None,
+    phrases=None,
+):
     """Fetch paginated results for a single book."""
-    fts_query = _build_fts_query(words)
-    bf_sql, bf_params = _book_filter_clause(allowed_books)
+    fts_query = _build_fts_query(words, phrases)
+    bf_p_sql, bf_p_params = _book_filter_clause(allowed_books, alias="p")
+    bf_t_sql, bf_t_params = _book_filter_clause(allowed_books, alias="t")
+    branches = _match_branches(trans_table, bf_p_sql, bf_t_sql)
+    match_params = [fts_query] + bf_p_params
+    if trans_table:
+        match_params += [fts_query] + bf_t_params
 
     # Count
     count_sql = f"""
         SELECT COUNT(*)
-        FROM paragraphs_fts p
-        WHERE p.paragraphs_fts MATCH ?{bf_sql}
-          AND p.book_id = ?
-          AND p.book_id IS NOT NULL AND p.book_id != ''
+        FROM ({branches}) m
+        WHERE m.book_id = ?
     """
-    total = cursor.execute(count_sql, [fts_query] + bf_params + [book_id]).fetchone()[0]
+    total = cursor.execute(count_sql, match_params + [book_id]).fetchone()[0]
     if total == 0:
         return [], 0
 
     # Fetch page
     offset = (page - 1) * limit
     data_sql = f"""
-        SELECT p.book_id, p.para_id
-        FROM paragraphs_fts p
-        WHERE p.paragraphs_fts MATCH ?{bf_sql}
-          AND p.book_id = ?
-          AND p.book_id IS NOT NULL AND p.book_id != ''
-        ORDER BY p.para_id
+        SELECT m.book_id, m.para_id
+        FROM ({branches}) m
+        WHERE m.book_id = ?
+        ORDER BY m.para_id
         LIMIT ? OFFSET ?
     """
     para_hits = cursor.execute(
-        data_sql, [fts_query] + bf_params + [book_id, limit, offset]
+        data_sql, match_params + [book_id, limit, offset]
     ).fetchall()
     if not para_hits:
         return [], total
 
     book_para_pairs = [(book_id, r["para_id"]) for r in para_hits]
-    return _fetch_line_details(book_para_pairs, words, lang), total
+    return _fetch_line_details(book_para_pairs, words, lang, phrases), total
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -508,7 +855,7 @@ def _search_book_lines(cursor, words, allowed_books, book_id, page, limit, lang=
 # ═══════════════════════════════════════════════════════════════════════════
 
 
-def _fetch_line_details(book_para_pairs, words, lang=None):
+def _fetch_line_details(book_para_pairs, words, lang=None, phrases=None):
     """
     Given a list of (book_id, para_id) pairs, load all lines,
     detect matched lines, and look up translations.
@@ -518,6 +865,7 @@ def _fetch_line_details(book_para_pairs, words, lang=None):
     """
     if not book_para_pairs:
         return []
+    phrases = phrases or []
 
     placeholders = " OR ".join("(book_id = ? AND para_id = ?)" for _ in book_para_pairs)
     params = [v for pair in book_para_pairs for v in pair]
@@ -559,10 +907,20 @@ def _fetch_line_details(book_para_pairs, words, lang=None):
                     ]
 
         # ── Build results (matched lines only) ──────────────────────────
+        # A line is shown when its Pāli OR its translation matches — the
+        # paragraph may have been hit via the translation FTS table only.
         results = []
         for book_id, para_id in book_para_pairs:
             lines = lines_by_key.get((book_id, para_id), [])
-            matched_line_ids = _find_matching_lines(lines, words)
+            matched_line_ids = _find_matching_lines(lines, words, phrases)
+            if trans_map:
+                trans_items = [
+                    (lid, trans_map.get((book_id, para_id, lid), ""))
+                    for lid in [line["line_id"] for line in lines]
+                ]
+                matched_line_ids |= _find_matching_trans_lines(
+                    trans_items, words, phrases
+                )
 
             line_results = []
             for line in lines:
@@ -598,7 +956,7 @@ def _fetch_line_details(book_para_pairs, words, lang=None):
 # ═══════════════════════════════════════════════════════════════════════════
 
 
-def _build_results_grouped(rows, hierarchy, words, lang=None):
+def _build_results_grouped(rows, hierarchy, words, lang=None, phrases=None):
     """
     Take the raw results from _fetch_line_details / _search_all_lines
     and group them by book, adding book names, slugs, and highlighting.
@@ -623,11 +981,13 @@ def _build_results_grouped(rows, hierarchy, words, lang=None):
         slug = slug_map.get((bid, row["para_id"]), "")
 
         lines = row.get("lines", [])
-        # Highlight Pali in matched lines
+        # Highlight Pali + translation in matched lines
         for lr in lines:
             if lr["pali"]:
                 lr["pali"] = markdown_to_html(lr["pali"])
-                lr["pali"] = _highlight_words(lr["pali"], words)
+                lr["pali"] = _highlight_words(lr["pali"], words, phrases)
+            if lr.get("translation"):
+                lr["translation"] = _highlight_words(lr["translation"], words, phrases)
 
         grouped[bid]["items"].append(
             {

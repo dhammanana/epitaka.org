@@ -15,6 +15,16 @@ import { TextProcessor, Script } from '../pali-script.js';
 ───────────────────────────────────────────────────────────── */
 export const SEARCH_TYPES = [
   {
+    id:    'fulltext',
+    icon:  '🔍',
+    label: 'Full Text',
+    desc:  'Search Pāli & translations',
+    placeholder: 'Type words to search… ("exact phrase")',
+    hasAutocomplete: true,
+    hasFtsOptions:   false,
+    autocompleteMode: 'word',
+  },
+  {
     id:    'headings',
     icon:  '☰',
     label: 'Headings',
@@ -22,16 +32,6 @@ export const SEARCH_TYPES = [
     placeholder: 'Search section headings…',
     hasAutocomplete: true,
     hasFtsOptions:   false,
-  },
-  {
-    id:    'fulltext',
-    icon:  '🔍',
-    label: 'Full Text',
-    desc:  'Search Pāli & translations',
-    placeholder: 'Type words to search…',
-    hasAutocomplete: true,
-    hasFtsOptions:   false,
-    autocompleteMode: 'word',
   },
   {
     id:    'pali-def',
@@ -83,7 +83,8 @@ export function buildSearchHeaderHTML(ids, currentTypeId, value = '') {
     <div id="${ids.searchRow}">
       <div style="position:relative">
         <button id="${ids.typeBtn}" type="button" aria-haspopup="true">
-          <span>${current.icon} ${current.label}</span>
+          <span class="type-icon">${current.icon}</span>
+          <span class="type-label">${current.label}</span>
           <span class="arrow">▾</span>
         </button>
         <div id="${ids.typeMenu}" role="listbox">
@@ -180,6 +181,7 @@ export class HomeDialogSearch {
     this._ftsWords           = [];
     this._ftsLoading         = false;
     this._ftsExpandedBookId  = null;   // which book card is currently expanded (accordion)
+    this._lastSelectedUrl    = null;
   }
 
   /**
@@ -215,6 +217,9 @@ export class HomeDialogSearch {
       query:   this.searchInput?.value?.trim() || '',
       pitakas: [...this.bookFilter.getFilterParams().pitakas],
       layers:  [...this.bookFilter.getFilterParams().layers],
+      ftsBookId: this._ftsExpandedBookId || null,
+      ftsPage: this._ftsPage || 1,
+      selectedUrl: this._lastSelectedUrl || null,
     };
   }
 
@@ -230,6 +235,13 @@ export class HomeDialogSearch {
       this.bookFilter.setFilterParams({ pitakas: state.pitakas, layers: state.layers });
     }
     if (state.query) await this._executeSearch();
+    if (state.ftsBookId && this._lastType === 'fulltext') {
+      await this._expandFtsBook(state.ftsBookId, state.ftsPage || 1);
+    }
+    if (state.selectedUrl) {
+      this._lastSelectedUrl = state.selectedUrl;
+      this._highlightSelected(state.selectedUrl);
+    }
   }
 
   /* ── Type dropdown ───────────────────────────────────────── */
@@ -306,7 +318,7 @@ export class HomeDialogSearch {
   _applyTypeUI(type) {
     // Update button label
     this.typeBtn.innerHTML =
-      `<span>${type.icon} ${type.label}</span><span class=\"arrow\">▾</span>`;
+      `<span class=\"type-icon\">${type.icon}</span> <span class=\"type-label\">${type.label}</span><span class=\"arrow\">▾</span>`;
 
     // Update placeholder
     this.searchInput.placeholder = type.placeholder;
@@ -711,22 +723,18 @@ export class HomeDialogSearch {
 
     this.resultsPanel.querySelectorAll('.dict-book-header').forEach(btn => {
       btn.addEventListener('click', () => {
-        const groupEl = document.getElementById(btn.dataset.group);
+        // Scoped to this instance's panel: the home dialog and the sidebar
+        // can coexist on one page and generate the same group ids.
+        const groupEl = this.resultsPanel.querySelector(
+          `#${CSS.escape(btn.dataset.group)}`,
+        );
         if (!groupEl) return;
         const isOpen = groupEl.classList.contains('expanded');
         groupEl.classList.toggle('expanded', !isOpen);
         btn.setAttribute('aria-expanded', String(!isOpen));
       });
     });
-
-    this.resultsPanel.querySelectorAll('.search-result-item').forEach(el => {
-      el.addEventListener('click', e => {
-        e.preventDefault();
-        this._navigateToResult(el.dataset.url);
-      });
-    });
-    this._notifyRendered();
-  }
+    }
 
   /* ── FTS search ─────────────────────────────────────────── */
 
@@ -884,17 +892,47 @@ export class HomeDialogSearch {
   /**
    * Fetch and render results for a single book into its inline results container.
    */
-  async _loadBookResults(bookId, bookName, containerEl) {
+  async _expandFtsBook(bookId, page = 1) {
+    const card = this.resultsPanel?.querySelector(`.fts-book-card[data-book-id="${bookId}"]`);
+    if (!card) return;
+    const wrap = card.closest('.fts-book-card-wrap');
+    const resultsEl = wrap?.querySelector('.fts-book-results');
+    if (!resultsEl) return;
+    this.resultsPanel.querySelectorAll('.fts-book-card.active').forEach(c => c.classList.remove('active'));
+    this.resultsPanel.querySelectorAll('.fts-book-results.expanded').forEach(el => {
+      if (el !== resultsEl) { el.innerHTML = ''; el.classList.remove('expanded'); }
+    });
+    card.classList.add('active');
+    resultsEl.innerHTML = '<div class="hd-loading">Loading…</div>';
+    resultsEl.classList.add('expanded');
+    this._ftsExpandedBookId = bookId;
+    this._ftsPage = page;
+    await this._loadBookResults(bookId, card.dataset.bookName || bookId, resultsEl, page);
+  }
+
+  _highlightSelected(url) {
+    if (!url || !this.resultsPanel) return;
+    const match = this.resultsPanel.querySelector(`[data-url="${CSS.escape(url)}"]`)
+      || [...this.resultsPanel.querySelectorAll('[data-url]')].find(el => el.dataset.url === url
+        || el.dataset.url?.endsWith(url.replace(/^https?:\/\/[^/]+/, '')));
+    if (!match) return;
+    this.resultsPanel.querySelectorAll('.last-clicked').forEach(el => el.classList.remove('last-clicked'));
+    match.classList.add('last-clicked');
+    match.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  async _loadBookResults(bookId, bookName, containerEl, page = 1) {
     if (!bookId || bookId === 'undefined' || bookId === 'null') {
       console.warn('[FTS] _loadBookResults called with invalid book_id:', bookId);
       return;
     }
     if (!containerEl) return;
+    this._ftsPage = page;
 
     const params = new URLSearchParams({
       q: this._lastQuery,
       book_id: bookId,
-      page: 1,
+      page,
       limit: 30,
       lang: this.lang,
     });
@@ -1052,10 +1090,12 @@ export class HomeDialogSearch {
 
     this.resultsPanel.innerHTML = html;
 
-    // Book group toggle
+    // Book group toggle (scoped: dialog and sidebar share group-id shapes)
     this.resultsPanel.querySelectorAll('.dict-book-header').forEach(btn => {
       btn.addEventListener('click', () => {
-        const groupEl = document.getElementById(btn.dataset.group);
+        const groupEl = this.resultsPanel.querySelector(
+          `#${CSS.escape(btn.dataset.group)}`,
+        );
         if (!groupEl) return;
         const isOpen = groupEl.classList.contains('expanded');
         groupEl.classList.toggle('expanded', !isOpen);
@@ -1143,7 +1183,7 @@ export class HomeDialogSearch {
   }
 
   _navigateToResult(url) {
-    // Set the script only when the user has not explicitly chosen one.
+    this._lastSelectedUrl = url;
     // This makes translation selection a sensible default without
     // overwriting a later preference from Settings.
     try {

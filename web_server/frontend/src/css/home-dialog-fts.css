@@ -4,7 +4,8 @@
    ═══════════════════════════════════════════════════════════════ */
 
 /* ── Filter container ──────────────────────────────────────── */
-#home-filter-wrap {
+#home-filter-wrap,
+#sb-filter-wrap {
   /* Place this element in your dialog HTML just below the search bar row */
 }
 
@@ -215,6 +216,14 @@
   padding: 10px 12px 10px 20px;
 }
 
+.search-result-item.last-clicked,
+.fts-entry.last-clicked {
+  outline: 2px solid var(--accent, #4f46e5);
+  outline-offset: -2px;
+  background: var(--accent-light, #eef2ff);
+  border-radius: 6px;
+}
+
 .fts-para-meta {
   font-size: 0.7rem;
   color: var(--text-muted, #9ca3af);
@@ -251,7 +260,7 @@
 
 /* Matched lines get emphasis */
 .fts-line-matched {
-  background: var(--mark-light, #fffbeb);
+  /*background: var(--mark-light, #fffbeb);*/
   border-radius: 3px;
 }
 

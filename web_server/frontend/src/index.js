@@ -15,6 +15,7 @@ import './css/index.css';
 import './css/common.css';
 import { initHomeDialog } from './home-dialog/home-dialog.js';
 import { initCookieConsent } from './cookie-consent.js';
+import { initSidebar } from './sidebar.js';
 import { applyTheme, onLanguageSelect } from './settings.js';
 
 // ── Config injected from index.html via Flask ──────────────────
@@ -66,6 +67,12 @@ async function init() {
   // Must run BEFORE the slow menu fetch so the banner appears immediately.
   initCookieConsent({ gaId: 'G-7NQWX1DCC2' });
 
+  // ── Reader-style shell: same sidebar + topbar as the book page ──
+  // No book is open (BOOK_CONFIG.bookId is ''), so the sidebar runs in
+  // no-book mode and the top bar has no M/A/Ṭ ref buttons.
+  initSidebar({ bookId: '' });
+  _bindTopbar();
+
   const { menu, hierarchy } = await loadMenu();
 
   // ── Home dialog ────────────────────────────────────────────────
@@ -79,9 +86,9 @@ async function init() {
     hierarchy,
   });
 
-  // ── Language selector: set matching Pāli script on click ────
-  document.querySelectorAll('.landing-languages a').forEach(link => {
-    link.addEventListener('click', (e) => {
+  // ── Top-bar language selector: set matching Pāli script on click ──
+  document.querySelectorAll('.lang-dropdown__item').forEach(link => {
+    link.addEventListener('click', () => {
       // Extract the language code from the link URL: /{lang}/
       const m = link.getAttribute('href')?.match(/\/([a-z]{2})\/?$/);
       if (m) onLanguageSelect(m[1]);
@@ -120,6 +127,42 @@ async function init() {
     if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
       dismissDisclaimer(false);
     }
+  });
+}
+
+/**
+ * Reader-style top bar dropdowns (language + ⋯ menu). Mirrors the inline
+ * script on the book page; the index top bar has no M/A/Ṭ ref buttons
+ * because no book is open.
+ */
+function _bindTopbar() {
+  const langToggle = document.querySelector('.lang-dropdown__toggle');
+  const langMenu = document.querySelector('.lang-dropdown__menu');
+  if (langToggle && langMenu) {
+    langToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = langToggle.getAttribute('aria-expanded') === 'true';
+      langToggle.setAttribute('aria-expanded', String(!expanded));
+      langMenu.classList.toggle('open');
+    });
+  }
+
+  const moreToggle = document.getElementById('more-btn');
+  const moreMenu = document.getElementById('topbar-more-menu');
+  if (moreToggle && moreMenu) {
+    moreToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = moreToggle.getAttribute('aria-expanded') === 'true';
+      moreToggle.setAttribute('aria-expanded', String(!expanded));
+      moreMenu.classList.toggle('open');
+    });
+  }
+
+  document.addEventListener('click', () => {
+    langToggle?.setAttribute('aria-expanded', 'false');
+    langMenu?.classList.remove('open');
+    moreToggle?.setAttribute('aria-expanded', 'false');
+    moreMenu?.classList.remove('open');
   });
 }
 

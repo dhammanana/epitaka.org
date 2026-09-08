@@ -46,12 +46,61 @@
       lang:    {{ lang | tojson }},
       availableLangs: {{ available_langs | tojson }},
     };
+    // Sidebar shim: no book is open on the index page, so the shared
+    // sidebar (library / search / contents / outline / dictionary) runs in
+    // no-book mode — per-book entries (outline link, M/A/Ṭ refs) hide
+    // themselves. The top bar intentionally has NO attha/mula/tika buttons.
+    window.BOOK_CONFIG = {
+      bookId:  '',
+      baseUrl: {{ base_url | tojson }},
+      lang:    {{ lang | tojson }},
+      bookref: { mula_ref: [], attha_ref: [], tika_ref: [] },
+    };
   </script>
 </head>
 
 <body>
 
   <a href="#seo-about" class="skip-link" style="position:absolute;top:-100%;left:1rem;padding:0.5rem 1rem;background:var(--accent);color:#fff;border-radius:0 0 6px 6px;font-size:0.85rem;font-weight:600;z-index:1000;text-decoration:none;transition:top 0.15s;">Skip to content</a>
+
+  <!-- TOP BAR (same shell as the book reader, minus the M/A/Ṭ ref buttons:
+       no book is open here, so they are omitted, not just hidden) -->
+  <header id="topbar" role="banner">
+    <button id="toc-toggle-btn" class="topbar-btn icon-btn" aria-label="Open menu" title="Menu (library, search, outline)">☰</button>
+    <a href="{{ base_url }}/{{ lang }}/" class="topbar-btn icon-btn" aria-label="Home" title="Home page">⌂</a>
+    <span class="book-title">E-Piṭaka</span>
+    <div class="topbar-right">
+      {# ── Translation language selector (moved out of the landing) ── #}
+      <div class="lang-dropdown" id="lang-dropdown">
+        <button class="topbar-btn lang-btn lang-dropdown__toggle"
+                aria-haspopup="true" aria-expanded="false"
+                aria-label="Translation language">{{ lang_info.code | upper }}</button>
+        <ul class="lang-dropdown__menu" role="menu">
+          {% for alt_lang in available_langs %}
+          <li role="none">
+            <a href="{{ base_url }}/{{ alt_lang.code }}/"
+               class="lang-dropdown__item {% if alt_lang.code == lang %}selected{% endif %}"
+               role="menuitem">
+              {{ alt_lang.native_name }}
+              <small>{{ alt_lang.english_name }}</small>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="topbar-more" id="topbar-more">
+        <button id="more-btn" class="topbar-btn icon-btn topbar-more__toggle"
+                aria-haspopup="true" aria-expanded="false" title="More">⋯</button>
+        <ul class="topbar-more__menu" id="topbar-more-menu" role="menu">
+          <li role="none">
+            <a href="{{ base_url }}/about" class="topbar-more__item topbar-more__link"
+               role="menuitem">ℹ️ About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
 
   <svg class="bg-wheel" viewBox="0 0 200 200" fill="none"
        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -76,18 +125,11 @@
     <div class="landing-wordmark">E-<span>Piṭaka</span></div>
     <div class="landing-tagline">Chaṭṭha Saṅgāyana Tipiṭaka</div>
 
-    {# ── Language selector ── #}
-    <div class="landing-languages">
-      {% for alt_lang in available_langs %}
-      <a href="{{ base_url }}/{{ alt_lang.code }}/"
-         class="lang-chip {% if alt_lang.code == lang %}active{% endif %}">
-        <span class="lang-native">{{ alt_lang.native_name }}</span>
-        <span class="lang-english">{{ alt_lang.english_name }}</span>
-      </a>
-      {% endfor %}
-    </div>
-
     <button id="open-books-btn" type="button">☸ {{ seo_home.browse }}</button>
+    <p class="landing-lang-hint">
+      Reading in <strong>{{ lang_info.native_name }}</strong> ·
+      change the translation from the top bar
+    </p>
   </div>
 
   {# ── Server-rendered content for search engines ──────────────────
@@ -102,7 +144,11 @@
       <h2>{{ seo_home.popular }}</h2>
       <ul class="popular-books">
         {% for b in popular_books %}
-        <li><a href="{{ base_url }}/{{ lang }}/book/{{ b.id }}">{{ b.name }}</a></li>
+        <li>
+          <a href="{{ base_url }}/{{ lang }}/book/{{ b.id }}">{{ b.name }}</a>
+          <a class="outline-link" href="{{ base_url }}/en/book/{{ b.id }}/outline"
+             title="Outline of {{ b.name }} — every section with its study guide">📋</a>
+        </li>
         {% endfor %}
       </ul>
 

@@ -6,6 +6,7 @@
 import { HomeDialogSearch, SEARCH_TYPES, buildSearchHeaderHTML, HOME_SEARCH_IDS } from './home-dialog-search.js';
 import { HomeDialogBookList }                         from './home-dialog-booklist.js';
 import { LocalState }                                 from '../libs/local-state.js';
+import { saveSidebarSearchState } from '../libs/sidebar-state.js';
 import '../css/home-dialog.css';
 import { TextProcessor, Script } from '../pali-script.js';
 import { loadSettings } from '../settings.js';
@@ -48,7 +49,7 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu, hierarchy
     initialState: {
       searchTypeId: state.get('searchTypeId'),
     },
-    onResultSelect: url => { _close(); window.location.href = url; },
+    onResultSelect: url => { try { saveSidebarSearchState({ panel: 'search', search: search.getState() }); } catch {} _close(); window.location.href = url; },
     onShowResults:  ()  => _showResultsPanel(),
     onShowBooks:    ()  => _showBookPanels(),
     onRenderResults: () => _applyPaliScript(),
