@@ -188,6 +188,9 @@ def _book_filter_clause(allowed_books, alias="p"):
 _TRANS_TABLE_RE = re.compile(r"^[a-z]{2}$")
 
 
+_missing_trans_warned = set()
+
+
 def _trans_fts_table(cursor, lang):
     """Return the fts_<lang>_trans table name if it exists, else None.
 
@@ -202,7 +205,18 @@ def _trans_fts_table(cursor, lang):
         "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
         (table,),
     ).fetchone()
-    return table if row else None
+    if not row:
+        # Warn once per worker: without this table that language is not
+        # searched at all (zero FTS hits are trusted, never LIKE-scanned).
+        if lang not in _missing_trans_warned:
+            _missing_trans_warned.add(lang)
+            print(
+                f"[fts_search] WARNING: {table} missing in webdata.db — "
+                f"'{lang}' searches will return no results until it is built. "
+                f"Build it with: python scripts/rebuild_fts.py --langs {lang}"
+            )
+        return None
+    return table
 
 
 def _match_branches(trans_table, bf_p_sql, bf_t_sql):
@@ -570,6 +584,7 @@ def register_search_route(bp):
             trans_table = _trans_fts_table(wcursor, lang)
 
             # ── Step 1: Get book-level counts (FTS index; cached) ────────
+            fts_ok = True
             try:
                 books_data, total = _get_book_counts(
                     wcursor, words, allowed_books, trans_table, phrases
@@ -579,33 +594,36 @@ def register_search_route(bp):
                 # degrade to the substring fallback below instead of 500ing.
                 print(f"[fts_search] book counts error: {e}")
                 books_data, total = [], 0
+                fts_ok = False
 
-            # Fallback: if the FTS index found nothing (stale index missing
-            # recently-added content, or an older SQLite that can't match
-            # diacritic query terms), search the authoritative sentences
-            # table directly so searches still return results. When a
-            # language is selected, the translation DB is scanned too.
-            #
-            # Fast path for quoted phrases: if the bare words DO co-occur
-            # per the FTS index (cheap AND query, cached), the index is
-            # healthy and the phrase genuinely doesn't occur adjacently
-            # (e.g. "yathā bhūta" is written "yathābhūtaṃ" as one word).
-            # Skipping the LIKE fallback then avoids up to 6 full-table
-            # scans with a per-row Python function — seconds on 1 vCPU —
-            # for a result that would be empty anyway.
+            # Fallback: runs ONLY when the FTS lookup itself failed
+            # (missing/corrupt index). A successful FTS query with zero
+            # hits is trusted as-is — each side that has an FTS table was
+            # searched via that table, and a side without one is skipped
+            # (never LIKE-scanned), so an unindexed language returns empty
+            # fast instead of pinning the CPU with full-table scans.
+            # Build the missing table to enable that language.
             use_fallback = False
             fallback_pairs = []
-            if total == 0:
-                skip_fallback = False
-                if phrases:
+            if total == 0 and not fts_ok:
+                # Translation-first: when a translation DB is selected,
+                # scan it BEFORE the Pāli table. If it already found
+                # matches, the Pāli LIKE scans are pure waste (a
+                # full-table scan with a per-row Python function over
+                # 1.3M sentences, per query word).
+                trans_pairs = []
+                if lang and _TRANS_TABLE_RE.match(lang):
                     try:
-                        _, and_total = _get_book_counts(
-                            wcursor, words, allowed_books, trans_table
-                        )
-                    except Exception:
-                        and_total = 0
-                    skip_fallback = and_total > 0
-                if not skip_fallback:
+                        trans_db = get_translation_db(lang)
+                        if trans_db is not None:
+                            trans_pairs = _fallback_trans_pairs(
+                                trans_db, words, allowed_books, phrases=phrases
+                            )
+                    except Exception as e:
+                        print(f"[fts_search] trans fallback error: {e}")
+                if trans_pairs:
+                    fallback_pairs = trans_pairs
+                else:
                     try:
                         with get_db() as epi_conn:
                             fallback_pairs = _fallback_paragraph_matches(
@@ -614,19 +632,6 @@ def register_search_route(bp):
                     except Exception as e:
                         print(f"[fts_search] fallback error: {e}")
                         fallback_pairs = []
-                    if lang and _TRANS_TABLE_RE.match(lang):
-                        try:
-                            trans_db = get_translation_db(lang)
-                            if trans_db is not None:
-                                trans_pairs = _fallback_trans_pairs(
-                                    trans_db, words, allowed_books, phrases=phrases
-                                )
-                                seen = set(fallback_pairs)
-                                fallback_pairs = fallback_pairs + [
-                                    p for p in trans_pairs if p not in seen
-                                ]
-                        except Exception as e:
-                            print(f"[fts_search] trans fallback error: {e}")
                 if fallback_pairs:
                     use_fallback = True
                     counts = Counter(p[0] for p in fallback_pairs)

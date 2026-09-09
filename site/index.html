@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Piṭaka — The Entire Pali Canon, Annotated</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #000;
+  color: #f5f5f7;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ═══════════════════════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 48px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  transition: opacity 0.4s;
+}
+.nav-content {
+  max-width: 1024px; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
+  background: linear-gradient(135deg, #c9a96e, #e8d5a3);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  font-size: 13px; color: #a1a1a6; font-weight: 400;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: #fff; }
+.nav-cta {
+  padding: 6px 18px; border-radius: 980px;
+  background: linear-gradient(135deg, #c9a96e, #a07840);
+  color: #000 !important; font-weight: 600; font-size: 13px;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+.nav-cta:hover { transform: scale(1.04); box-shadow: 0 0 20px rgba(201,169,110,0.3); }
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 120px 24px 80px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -40%; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 800px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 17px; font-weight: 500;
+  color: #c9a96e; letter-spacing: 0.5px;
+  margin-bottom: 16px; opacity: 0;
+  transform: translateY(20px);
+}
+.hero-title {
+  font-size: clamp(48px, 8vw, 96px); font-weight: 800;
+  letter-spacing: -2px; line-height: 1.05;
+  margin-bottom: 24px; opacity: 0;
+  transform: translateY(30px);
+}
+.hero-title .gold {
+  background: linear-gradient(135deg, #c9a96e 0%, #e8d5a3 40%, #c9a96e 80%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: clamp(19px, 2.5vw, 28px); font-weight: 300;
+  color: #86868b; max-width: 680px; line-height: 1.4;
+  margin-bottom: 40px; opacity: 0;
+  transform: translateY(30px);
+}
+.hero-cta-group {
+  display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+  opacity: 0; transform: translateY(30px);
+}
+.btn-primary {
+  padding: 14px 32px; border-radius: 980px;
+  background: linear-gradient(135deg, #c9a96e, #a07840);
+  color: #000; font-weight: 600; font-size: 17px;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+.btn-primary:hover { transform: scale(1.04); box-shadow: 0 0 30px rgba(201,169,110,0.35); }
+.btn-secondary {
+  padding: 14px 32px; border-radius: 980px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  color: #f5f5f7; font-weight: 500; font-size: 17px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.25); }
+
+.hero-image-wrapper {
+  margin-top: 60px; opacity: 0;
+  transform: translateY(60px) scale(0.95);
+}
+.hero-image-wrapper img {
+  border-radius: 16px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 0.5px rgba(255,255,255,0.1);
+  max-width: 900px; width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+.section {
+  padding: 140px 24px; max-width: 1080px; margin: 0 auto;
+  position: relative;
+}
+.section-full {
+  padding: 140px 24px; position: relative;
+}
+.section-label {
+  font-size: 14px; font-weight: 600; color: #c9a96e;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  margin-bottom: 12px; text-align: center;
+}
+.section-title {
+  font-size: clamp(36px, 5vw, 64px); font-weight: 700;
+  letter-spacing: -1px; line-height: 1.1;
+  text-align: center; margin-bottom: 20px;
+}
+.section-desc {
+  font-size: clamp(17px, 2vw, 21px); font-weight: 300;
+  color: #86868b; text-align: center;
+  max-width: 640px; margin: 0 auto 60px; line-height: 1.5;
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0; transform: translateX(-60px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right {
+  opacity: 0; transform: translateX(60px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal-scale {
+  opacity: 0; transform: scale(0.88);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+/* Stagger children */
+.stagger-children .reveal:nth-child(1) { transition-delay: 0s; }
+.stagger-children .reveal:nth-child(2) { transition-delay: 0.12s; }
+.stagger-children .reveal:nth-child(3) { transition-delay: 0.24s; }
+.stagger-children .reveal:nth-child(4) { transition-delay: 0.36s; }
+.stagger-children .reveal:nth-child(5) { transition-delay: 0.48s; }
+.stagger-children .reveal:nth-child(6) { transition-delay: 0.6s; }
+
+/* ═══════════════════════════════════════════════════════════════
+   DIVIDER
+   ═══════════════════════════════════════════════════════════════ */
+.divider {
+  height: 0.5px; max-width: 800px; margin: 0 auto;
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,0.3), transparent);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION: INLINE COMMENTARIES (Sticky Scroll)
+   ═══════════════════════════════════════════════════════════════ */
+.sticky-section {
+  position: relative;
+}
+.sticky-container {
+  max-width: 1080px; margin: 0 auto; padding: 0 24px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: start;
+}
+.sticky-text {
+  position: sticky; top: 140px;
+  padding: 0 20px;
+}
+.sticky-image {
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.sticky-image img { width: 100%; }
+
+.feature-steps {
+  display: flex; flex-direction: column; gap: 200px;
+  padding: 80px 0;
+}
+.feature-step {
+  min-height: 50vh; display: flex; align-items: center;
+}
+.feature-step-content h3 {
+  font-size: clamp(24px, 3vw, 36px); font-weight: 700;
+  margin-bottom: 12px; line-height: 1.2;
+}
+.feature-step-content p {
+  font-size: 17px; color: #86868b; line-height: 1.6;
+  max-width: 420px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION: AI TRANSLATION PIPELINE
+   ═══════════════════════════════════════════════════════════════ */
+.pipeline-track {
+  display: flex; gap: 32px; overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 40px 0; scrollbar-width: none;
+}
+.pipeline-track::-webkit-scrollbar { display: none; }
+.pipeline-card {
+  flex: 0 0 320px; scroll-snap-align: center;
+  padding: 40px 32px; border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 0.5px solid rgba(255,255,255,0.08);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.pipeline-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.pipeline-num {
+  font-size: 48px; font-weight: 800;
+  background: linear-gradient(135deg, #c9a96e, #e8d5a3);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 16px; line-height: 1;
+}
+.pipeline-card h4 {
+  font-size: 20px; font-weight: 600; margin-bottom: 12px;
+}
+.pipeline-card p {
+  font-size: 15px; color: #86868b; line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION: SCRIPTS
+   ═══════════════════════════════════════════════════════════════ */
+.scripts-orbit {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 16px; max-width: 800px; margin: 0 auto;
+}
+.script-chip {
+  padding: 12px 24px; border-radius: 980px;
+  background: rgba(255,255,255,0.06);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  font-size: 16px; font-weight: 500;
+  transition: all 0.4s;
+  cursor: default;
+}
+.script-chip:hover {
+  background: rgba(201,169,110,0.15);
+  border-color: rgba(201,169,110,0.4);
+  transform: scale(1.06);
+  color: #c9a96e;
+}
+.script-chip.active {
+  background: linear-gradient(135deg, rgba(201,169,110,0.2), rgba(201,169,110,0.08));
+  border-color: rgba(201,169,110,0.5);
+  color: #c9a96e;
+}
+
+.pali-preview {
+  margin-top: 60px; text-align: center;
+  font-size: clamp(28px, 4vw, 48px);
+  font-family: 'Noto Serif', serif;
+  line-height: 1.6; min-height: 120px;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.5s;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION: SEARCH DEMO
+   ═══════════════════════════════════════════════════════════════ */
+.search-demo {
+  max-width: 700px; margin: 0 auto;
+}
+.search-bar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 24px; border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  margin-bottom: 40px;
+}
+.search-bar svg { flex-shrink: 0; opacity: 0.5; }
+.search-bar .typed {
+  font-size: 20px; font-weight: 400; color: #f5f5f7;
+  border-right: 2px solid #c9a96e;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { border-color: transparent; } }
+
+.search-result {
+  padding: 24px 28px; border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 0.5px solid rgba(255,255,255,0.06);
+  margin-bottom: 12px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.search-result.visible { opacity: 1; transform: translateY(0); }
+.search-result h5 {
+  font-size: 18px; font-weight: 600; margin-bottom: 6px;
+  color: #c9a96e;
+}
+.search-result p { font-size: 14px; color: #86868b; line-height: 1.5; }
+.search-result .highlight {
+  background: rgba(201,169,110,0.2); padding: 1px 4px;
+  border-radius: 4px; color: #e8d5a3;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION: FEATURES GRID
+   ═══════════════════════════════════════════════════════════════ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px; max-width: 1080px; margin: 0 auto;
+  padding: 0 24px;
+}
+.feature-card {
+  padding: 40px 32px; border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 0.5px solid rgba(255,255,255,0.06);
+  transition: transform 0.4s, border-color 0.4s;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201,169,110,0.2);
+}
+.feature-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, rgba(201,169,110,0.2), rgba(201,169,110,0.05));
+  margin-bottom: 20px; font-size: 22px;
+}
+.feature-card h4 { font-size: 20px; font-weight: 600; margin-bottom: 10px; }
+.feature-card p { font-size: 15px; color: #86868b; line-height: 1.6; }
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION: PARALLAX SCREENSHOT
+   ═══════════════════════════════════════════════════════════════ */
+.parallax-image {
+  position: relative; overflow: hidden;
+  border-radius: 20px; max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+}
+.parallax-image img {
+  width: 100%; transition: transform 0.1s linear;
+  will-change: transform;
+}
+.parallax-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 60px 40px 40px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  border-radius: 0 0 20px 20px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION: LAYOUT COMPARISON (Side by Side / Stacked)
+   ═══════════════════════════════════════════════════════════════ */
+.layout-compare {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 40px; max-width: 1000px; margin: 0 auto;
+  padding: 0 24px;
+}
+.layout-option {
+  padding: 32px; border-radius: 20px;
+  background: rgba(255,255,255,0.04);
+  border: 0.5px solid rgba(255,255,255,0.08);
+  text-align: center;
+  transition: border-color 0.4s, transform 0.4s;
+}
+.layout-option:hover {
+  border-color: rgba(201,169,110,0.3);
+  transform: translateY(-4px);
+}
+.layout-option h4 { margin-bottom: 16px; font-size: 20px; }
+.layout-mockup {
+  height: 280px; border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; position: relative;
+}
+/* Stacked mock */
+.mock-stacked { flex-direction: column; gap: 8px; padding: 20px; }
+.mock-line {
+  width: 100%; border-radius: 6px;
+  background: linear-gradient(90deg, rgba(201,169,110,0.25), rgba(201,169,110,0.08));
+}
+.mock-line.trans {
+  background: linear-gradient(90deg, rgba(134,134,139,0.25), rgba(134,134,139,0.08));
+}
+/* Side-by-side mock */
+.mock-side { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 12px; padding: 20px; width: 100%; }
+.mock-divider { background: rgba(255,255,255,0.1); }
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION: PLATFORMS
+   ═══════════════════════════════════════════════════════════════ */
+.platforms {
+  display: flex; justify-content: center; gap: 60px;
+  flex-wrap: wrap; margin: 40px 0;
+}
+.platform-item {
+  text-align: center; opacity: 0.5;
+  transition: opacity 0.4s, transform 0.4s;
+}
+.platform-item:hover { opacity: 1; transform: translateY(-4px); }
+.platform-icon {
+  width: 64px; height: 64px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.06); margin: 0 auto 12px;
+  font-size: 28px;
+}
+.platform-item span { font-size: 13px; color: #86868b; }
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER CTA
+   ═══════════════════════════════════════════════════════════════ */
+.footer-cta {
+  padding: 160px 24px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.footer-cta::before {
+  content: ''; position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%);
+}
+.footer-cta h2 {
+  font-size: clamp(36px, 5vw, 56px); font-weight: 700;
+  margin-bottom: 20px; letter-spacing: -1px;
+}
+.footer-cta p {
+  font-size: 19px; color: #86868b; margin-bottom: 40px;
+  max-width: 500px; margin-left: auto; margin-right: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════ */
+.footer {
+  padding: 40px 24px; text-align: center;
+  border-top: 0.5px solid rgba(255,255,255,0.06);
+  color: #86868b; font-size: 13px;
+}
+.footer a { color: #c9a96e; }
+.footer a:hover { text-decoration: underline; }
+
+/* ═══════════════════════════════════════════════════════════════
+   COUNTER ANIMATION
+   ═══════════════════════════════════════════════════════════════ */
+.stats-row {
+  display: flex; justify-content: center; gap: 80px;
+  flex-wrap: wrap; margin: 60px 0;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-size: clamp(40px, 6vw, 72px); font-weight: 800;
+  background: linear-gradient(135deg, #c9a96e, #e8d5a3);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+.stat-label {
+  font-size: 15px; color: #86868b; margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .sticky-container { grid-template-columns: 1fr; gap: 40px; }
+  .sticky-text { position: relative; top: 0; }
+  .feature-step { min-height: auto; }
+  .layout-compare { grid-template-columns: 1fr; }
+  .platforms { gap: 32px; }
+  .stats-row { gap: 40px; }
+  .pipeline-card { flex: 0 0 280px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+   ═══════════════════════════════════════════════════════════════ */
+.scroll-progress {
+  position: fixed; top: 52px; left: 0; right: 0;
+  height: 2px; z-index: 99;
+  background: rgba(255,255,255,0.05);
+}
+.scroll-progress-bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #c9a96e, #e8d5a3);
+  transition: width 0.1s linear;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLOATING GLOW (ambient)
+   ═══════════════════════════════════════════════════════════════ */
+.glow-orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(100px); pointer-events: none;
+  opacity: 0.15;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-content">
+    <div class="nav-logo">E-Piṭaka</div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#commentaries">Commentaries</a>
+      <a href="#translation">Translation</a>
+      <a href="#scripts">Scripts</a>
+      <a href="#search">Search</a>
+    </div>
+    <a href="https://epitaka.org" class="nav-cta">Read Now</a>
+  </div>
+</nav>
+
+<!-- ═══════════ SCROLL PROGRESS ═══════════ -->
+<div class="scroll-progress"><div class="scroll-progress-bar" id="progressBar"></div></div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="hero">
+  <div class="glow-orb" style="width:600px;height:600px;background:#c9a96e;top:-200px;left:30%;"></div>
+  <div class="hero-eyebrow" id="heroEyebrow">The Pali Canon, Reimagined</div>
+  <h1 class="hero-title" id="heroTitle">
+    Read the Buddha's words.<br>
+    <span class="gold">With their explanations.</span>
+  </h1>
+  <p class="hero-sub" id="heroSub">
+    The entire Tipiṭaka with inline commentaries, AI-assisted translations, and cross-references — all in one reader.
+  </p>
+  <div class="hero-cta-group" id="heroCta">
+    <a href="https://epitaka.org" class="btn-primary">Start Reading</a>
+    <a href="#features" class="btn-secondary">Explore Features</a>
+  </div>
+  <div class="hero-image-wrapper" id="heroImage">
+    <img src="images/reader.png" alt="E-Pitaka Reader showing Pali text with translation" loading="eager">
+  </div>
+</section>
+
+<!-- ═══════════ STATS ═══════════ -->
+<div class="divider"></div>
+<section class="section" style="padding-bottom:60px;">
+  <div class="stats-row stagger-children">
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="1644" data-suffix="">0</div>
+      <div class="stat-label">Pali Books</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="7" data-suffix="+">0</div>
+      <div class="stat-label">Scripts</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="3" data-suffix="">0</div>
+      <div class="stat-label">Text Layers (M/A/Ṭ)</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="100" data-suffix="%">0</div>
+      <div class="stat-label">Free &amp; Open Source</div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══════════ SECTION: INLINE COMMENTARIES ═══════════ -->
+<section class="section-full" id="commentaries" style="padding-top:160px;padding-bottom:160px;">
+  <div class="section-label reveal">Inline Commentaries</div>
+  <h2 class="section-title reveal">Root text. Commentary.<br><span style="color:#c9a96e">Side by side.</span></h2>
+  <p class="section-desc reveal">
+    For the first time, read the Pali Canon alongside its traditional commentaries and sub-commentaries — without switching books.
+  </p>
+
+  <div class="sticky-container">
+    <div class="sticky-text">
+      <div class="feature-steps" id="commentarySteps">
+        <div class="feature-step">
+          <div class="feature-step-content">
+            <h3>Mūla — The Root Text</h3>
+            <p>The original Pali Canon: Sutta, Vinaya, and Abhidhamma — the words attributed to the Buddha himself, preserved by the Sixth Council edition.</p>
+          </div>
+        </div>
+        <div class="feature-step">
+          <div class="feature-step-content">
+            <h3>Aṭṭhakathā — The Commentary</h3>
+            <p>Traditional explanations by Ven. Buddhaghosa and other great commentators, revealing the meaning behind each passage.</p>
+          </div>
+        </div>
+        <div class="feature-step">
+          <div class="feature-step-content">
+            <h3>Ṭīkā — Sub-Commentary</h3>
+            <p>Further elaborations by later scholars that clarify ambiguities and deepen understanding of the commentary itself.</p>
+          </div>
+        </div>
+        <div class="feature-step">
+          <div class="feature-step-content">
+            <h3>Cross-References</h3>
+            <p>Navigate the interconnected literature with a single click. M/A/Ṭ buttons track your position across all three layers simultaneously.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sticky-image reveal-scale">
+        <img src="images/reader-translations.png" alt="Reader showing Pali text with inline commentary and translation">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECTION: AI TRANSLATION ═══════════ -->
+<section class="section-full" id="translation" style="background: linear-gradient(180deg, transparent, rgba(201,169,110,0.03), transparent);">
+  <div class="section" style="padding-top:140px;padding-bottom:40px;">
+    <div class="section-label reveal">AI-Assisted Translation</div>
+    <h2 class="section-title reveal">Not machine translation.<br><span style="color:#c9a96e">Assisted human translation.</span></h2>
+    <p class="section-desc reveal">
+      A careful multi-step pipeline that gathers authoritative sources, enriches with commentary context, and produces translations verified against the original Pali.
+    </p>
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;padding:0 24px;">
+    <div class="pipeline-track" id="pipelineTrack">
+      <div class="pipeline-card reveal">
+        <div class="pipeline-num">01</div>
+        <h4>Source Gathering</h4>
+        <p>Translations collected from Bhikkhu Bodhi, Anandajoti Bhikkhu, Sinhala tipitaka.lk, Thai Mahāmakut Edition, Myanmar Nissaya, and Vietnamese sources.</p>
+      </div>
+      <div class="pipeline-card reveal">
+        <div class="pipeline-num">02</div>
+        <h4>Alignment</h4>
+        <p>Each source is algorithmically matched to the VRI paragraph structure so the same passage can be compared across all languages.</p>
+      </div>
+      <div class="pipeline-card reveal">
+        <div class="pipeline-num">03</div>
+        <h4>Context Enrichment</h4>
+        <p>The AI receives the commentary, sub-commentary, glossary of key terms, and preceding translations for style consistency.</p>
+      </div>
+      <div class="pipeline-card reveal">
+        <div class="pipeline-num">04</div>
+        <h4>Sentence-Level Translation</h4>
+        <p>For each Pali sentence, the aligned sources and rich context are sent to an AI model to produce a new, synthesized translation.</p>
+      </div>
+      <div class="pipeline-card reveal">
+        <div class="pipeline-num">05</div>
+        <h4>Verification</h4>
+        <p>The generated translation is checked again against the original Pali to catch misinterpretations before publication.</p>
+      </div>
+      <div class="pipeline-card reveal">
+        <div class="pipeline-num">06</div>
+        <h4>Human Review</h4>
+        <p>A human reader reviews results, feeds back corrections, and adjusts the process for the next cycle of improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECTION: SCRIPTS ═══════════ -->
+<section class="section-full" id="scripts" style="padding-top:160px;padding-bottom:160px;">
+  <div class="section-label reveal">Pali Script Conversion</div>
+  <h2 class="section-title reveal">Read in <span style="color:#c9a96e">any script</span></h2>
+  <p class="section-desc reveal">
+    Switch the Pali text to any major Southeast Asian script instantly — Roman, Myanmar, Thai, Khmer, Lao, Sinhala, Devanagari, and more.
+  </p>
+
+  <div class="scripts-orbit reveal" id="scriptChips">
+    <div class="script-chip active" data-script="roman" data-text="Namo Tassa Bhagavato Arahato Sammāsambuddhassa">Roman</div>
+    <div class="script-chip" data-script="myanmar" data-text="နောမတဿ ဘဂဝတော အရဟတော သမ္မာသမ္ဗုဒ္ဓဿ">Myanmar</div>
+    <div class="script-chip" data-script="thai" data-text="นะโม ตัสสะ ภะคะวะโต อะระหะโต สัมมาสัมพุทธัสสะ">Thai</div>
+    <div class="script-chip" data-script="khmer" data-text="នមោ តស្ស ភគវតោ អរហតោ សម្មុសัมពុទ្ធស្ស">Khmer</div>
+    <div class="script-chip" data-script="lao" data-text="ນະໂມ ທັດສະ ພະຄະວະໂ ອະຣະຫະໂ ສັມມາສັມພຸດທັສສ">Lao</div>
+    <div class="script-chip" data-script="sinhala" data-text="නමො තස්ස භගවතෝ අරහතෝ සම්මාසම්බුද්ධස්ස">Sinhala</div>
+    <div class="script-chip" data-script="devanagari" data-text="नमो तस्स भगवतो अरहतो सम्मासम्बुद्धस्स">Devanagari</div>
+  </div>
+
+  <div class="pali-preview reveal" id="paliPreview">
+    Namo Tassa Bhagavato Arahato Sammāsambuddhassa
+  </div>
+</section>
+
+<!-- ═══════════ SECTION: SEARCH ═══════════ -->
+<section class="section-full" id="search" style="padding-top:160px;padding-bottom:160px;">
+  <div class="section-label reveal">Powerful Search</div>
+  <h2 class="section-title reveal">Find any passage<br><span style="color:#c9a96e">in the entire Canon</span></h2>
+  <p class="section-desc reveal">
+    Full-text search across all Pali text, translations, and headings. Look up individual words with the integrated Pali dictionary.
+  </p>
+
+  <div class="search-demo reveal">
+    <div class="search-bar" id="searchDemo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <span class="typed" id="searchTyped"></span>
+    </div>
+
+    <div class="search-result" id="searchResult1">
+      <h5>SN 1.1 — Nidāna Vagga</h5>
+      <p>… devā manussā ca <span class="highlight">dhammaṃ</span> saddahanti aṭṭhanti… — "…devas and humans believe in the <span class="highlight">Dhamma</span>, they practice it…" (English translation)</p>
+    </div>
+    <div class="search-result" id="searchResult2">
+      <h5>DN 16 — Mahāparinibbāna Sutta</h5>
+      <p>… yo hi koci bhikkhave evaṃ vadeyya — "…if anyone should say, monks…" — Aṅguttara Nikāya cross-reference</p>
+    </div>
+    <div class="search-result" id="searchResult3">
+      <h5>MN 1 — Mūlapariyāya Sutta</h5>
+      <p>… evaṃ passaṃ rāgūpādānaṃ vā virājenti… — "…seeing thus, they let go of passion-attachment…" (Pali dictionary: <span class="highlight">upādāna</span> = clinging)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECTION: READING LAYOUTS ═══════════ -->
+<section class="section-full" id="layouts" style="padding-top:160px;padding-bottom:160px;">
+  <div class="section-label reveal">Customizable Reading</div>
+  <h2 class="section-title reveal">Read your <span style="color:#c9a96e">way</span></h2>
+  <p class="section-desc reveal">
+    Switch between stacked and side-by-side layouts. Adjust fonts, colors, page numbering systems, and more.
+  </p>
+
+  <div class="layout-compare stagger-children">
+    <div class="layout-option reveal">
+      <h4>Line by Line</h4>
+      <div class="layout-mockup mock-stacked">
+        <div class="mock-line" style="width:90%"></div>
+        <div class="mock-line trans" style="width:85%"></div>
+        <div style="height:12px"></div>
+        <div class="mock-line" style="width:95%"></div>
+        <div class="mock-line trans" style="width:80%"></div>
+        <div style="height:12px"></div>
+        <div class="mock-line" style="width:70%"></div>
+        <div class="mock-line trans" style="width:88%"></div>
+      </div>
+      <p style="margin-top:16px;font-size:14px;color:#86868b;">Each Pali line followed by its translation</p>
+    </div>
+    <div class="layout-option reveal">
+      <h4>Side by Side</h4>
+      <div class="layout-mockup mock-side">
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="mock-line" style="width:90%"></div>
+          <div class="mock-line" style="width:95%"></div>
+          <div class="mock-line" style="width:70%"></div>
+        </div>
+        <div class="mock-divider"></div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="mock-line trans" style="width:85%"></div>
+          <div class="mock-line trans" style="width:80%"></div>
+          <div class="mock-line trans" style="width:88%"></div>
+        </div>
+      </div>
+      <p style="margin-top:16px;font-size:14px;color:#86868b;">Pali and translation side by side</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECTION: FEATURES GRID ═══════════ -->
+<section class="section-full" id="features" style="padding-top:120px;padding-bottom:120px;">
+  <div class="section-label reveal">More Features</div>
+  <h2 class="section-title reveal">Everything you need<br>to study the Pali Canon</h2>
+  <div style="height:60px"></div>
+  <div class="features-grid stagger-children">
+    <div class="feature-card reveal">
+      <div class="feature-icon">📚</div>
+      <h4>Tabbed Reading</h4>
+      <p>Open multiple books in tabs. Swipe to switch between them. Each tab preserves its own scroll position.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🔊</div>
+      <h4>Text-to-Speech</h4>
+      <p>Listen to the Pali text read aloud with TTS. Auto-scrolling follows along as each line is spoken.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🔍</div>
+      <h4>AI Semantic Search</h4>
+      <p>Find conceptually related passages using AI — search by meaning, not just keywords.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">📝</div>
+      <h4>Highlights &amp; Notes</h4>
+      <p>Annotate passages with highlights and personal notes. Your study library, organized and accessible.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">📖</div>
+      <h4>Pali Dictionary</h4>
+      <p>Integrated Digital Pali Dictionary with compound breakdown, etymology, and cross-references.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">⌨️</div>
+      <h4>Keyboard Navigation</h4>
+      <p>Navigate line-by-line with j/k keys, select links with h/l, and open with Space — vim-style reading.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECTION: PLATFORMS ═══════════ -->
+<div class="divider"></div>
+<section class="section" id="platforms">
+  <div class="section-label reveal">Available Everywhere</div>
+  <h2 class="section-title reveal">Read on <span style="color:#c9a96e">any device</span></h2>
+  <p class="section-desc reveal">
+    E-Pitaka runs natively on desktop, tablet, and phone — with an adaptive interface that matches your screen.
+  </p>
+  <div class="platforms stagger-children">
+    <div class="platform-item reveal">
+      <div class="platform-icon">🍎</div>
+      <span>macOS</span>
+    </div>
+    <div class="platform-item reveal">
+      <div class="platform-icon">🪟</div>
+      <span>Windows</span>
+    </div>
+    <div class="platform-item reveal">
+      <div class="platform-icon">🐧</div>
+      <span>Linux</span>
+    </div>
+    <div class="platform-item reveal">
+      <div class="platform-icon">📱</div>
+      <span>iOS</span>
+    </div>
+    <div class="platform-item reveal">
+      <div class="platform-icon">🤖</div>
+      <span>Android</span>
+    </div>
+    <div class="platform-item reveal">
+      <div class="platform-icon">🌐</div>
+      <span>Web</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PARALLAX SCREENSHOT ═══════════ -->
+<section class="section-full" style="padding-top:80px;padding-bottom:80px;">
+  <div class="parallax-image reveal-scale">
+    <img src="images/home.png" alt="E-Pitaka home page showing the Tipitaka library" id="parallaxImg">
+    <div class="parallax-overlay">
+      <p style="font-size:15px;color:#86868b;">Browse the entire Tipiṭaka collection — organized by Nikāya, with inline commentary references.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MOBILE SCREENSHOT ═══════════ -->
+<section class="section" style="padding-top:80px;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;" class="mobile-layout">
+    <div class="reveal-left">
+      <div class="section-label" style="text-align:left;">Mobile Experience</div>
+      <h2 style="font-size:clamp(32px,4vw,48px);font-weight:700;letter-spacing:-1px;line-height:1.15;margin-bottom:16px;">
+        The full Canon<br>in your pocket
+      </h2>
+      <p style="font-size:17px;color:#86868b;line-height:1.6;margin-bottom:24px;">
+        Long-press to select any word. Tap to look it up in the dictionary. Swipe between tabs. The mobile experience is just as rich as desktop.
+      </p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+        <li style="display:flex;align-items:center;gap:10px;font-size:15px;color:#a1a1a6;">
+          <span style="color:#c9a96e;">✓</span> Full-text search across the Canon
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:15px;color:#a1a1a6;">
+          <span style="color:#c9a96e;">✓</span> Tap word → Pali dictionary
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:15px;color:#a1a1a6;">
+          <span style="color:#c9a96e;">✓</span> Text-to-Speech with auto-scroll
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:15px;color:#a1a1a6;">
+          <span style="color:#c9a96e;">✓</span> Swipe to switch between open books
+        </li>
+      </ul>
+    </div>
+    <div class="reveal-right" style="display:flex;justify-content:center;">
+      <img src="images/reader-mobile.png" alt="Mobile reading experience"
+           style="max-width:320px;border-radius:24px;box-shadow:0 30px 60px rgba(0,0,0,0.5),0 0 0 0.5px rgba(255,255,255,0.1);">
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SEARCH SCREENSHOT ═══════════ -->
+<section class="section" style="padding-top:80px;">
+  <div class="parallax-image reveal-scale" style="max-width:900px;">
+    <img src="images/search.png" alt="Full-text search across the Tipitaka">
+    <div class="parallax-overlay">
+      <p style="font-size:15px;color:#86868b;">Search across the entire Pali Canon — Pali words, translations, and headings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ OUTLINE SCREENSHOT ═══════════ -->
+<section class="section" style="padding-top:80px;padding-bottom:120px;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;" class="mobile-layout">
+    <div class="reveal-left" style="display:flex;justify-content:center;">
+      <img src="images/outline.png" alt="Section outline with AI study guides"
+           style="max-width:420px;border-radius:16px;box-shadow:0 30px 60px rgba(0,0,0,0.5),0 0 0 0.5px rgba(255,255,255,0.1);">
+    </div>
+    <div class="reveal-right">
+      <div class="section-label" style="text-align:left;">Study Guides</div>
+      <h2 style="font-size:clamp(32px,4vw,48px);font-weight:700;letter-spacing:-1px;line-height:1.15;margin-bottom:16px;">
+        AI-generated<br>study outlines
+      </h2>
+      <p style="font-size:17px;color:#86868b;line-height:1.6;margin-bottom:24px;">
+        Every section comes with a structured outline and AI-generated study guide that synthesizes the root text with its commentary and sub-commentary.
+      </p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+        <li style="display:flex;align-items:center;gap:10px;font-size:15px;color:#a1a1a6;">
+          <span style="color:#c9a96e;">✓</span> Structured heading hierarchy
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:15px;color:#a1a1a6;">
+          <span style="color:#c9a96e;">✓</span> AI synthesis of Mūla + Aṭṭhakathā + Ṭīkā
+        </li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:15px;color:#a1a1a6;">
+          <span style="color:#c9a96e;">✓</span> Jump directly to any section
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER CTA ═══════════ -->
+<section class="footer-cta" id="cta">
+  <div class="glow-orb" style="width:500px;height:500px;background:#c9a96e;bottom:-200px;left:30%;"></div>
+  <div style="position:relative;z-index:1;">
+    <h2 class="reveal">Begin your journey<br>through the <span style="color:#c9a96e">Tipiṭaka</span></h2>
+    <p class="reveal" style="transition-delay:0.1s;">Free. Open source. For everyone.</p>
+    <div class="reveal" style="transition-delay:0.2s;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;">
+      <a href="https://epitaka.org" class="btn-primary">Start Reading</a>
+      <a href="https://github.com/dhammanana/epitaka.org" class="btn-secondary">View on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <p style="margin-bottom:8px;">E-Piṭaka is open source. <a href="https://github.com/dhammanana/epitaka.org">Contributions welcome.</a></p>
+  <p>May all beings be happy. May all beings be free.</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  // ── Hero entrance animation ──────────────────────────────────
+  const heroElements = [
+    { el: document.getElementById('heroEyebrow'), delay: 200 },
+    { el: document.getElementById('heroTitle'), delay: 500 },
+    { el: document.getElementById('heroSub'), delay: 800 },
+    { el: document.getElementById('heroCta'), delay: 1000 },
+    { el: document.getElementById('heroImage'), delay: 1200 },
+  ];
+  heroElements.forEach(({ el, delay }) => {
+    if (!el) return;
+    setTimeout(() => {
+      el.style.transition = 'opacity 1s cubic-bezier(0.25,0.46,0.45,0.94), transform 1s cubic-bezier(0.25,0.46,0.45,0.94)';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0) scale(1)';
+    }, delay);
+  });
+
+  // ── Intersection Observer: reveal on scroll ───────────────────
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+    revealObserver.observe(el);
+  });
+
+  // ── Counter animation ────────────────────────────────────────
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      if (!target) return;
+      const duration = 2000;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+    counterObserver.observe(el);
+  });
+
+  // ── Scroll progress bar ──────────────────────────────────────
+  const progressBar = document.getElementById('progressBar');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
+  // ── Script preview animation ─────────────────────────────────
+  const scriptChips = document.querySelectorAll('.script-chip');
+  const paliPreview = document.getElementById('paliPreview');
+  scriptChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      scriptChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      paliPreview.style.opacity = '0';
+      setTimeout(() => {
+        paliPreview.textContent = chip.dataset.text;
+        paliPreview.style.opacity = '1';
+      }, 300);
+    });
+  });
+
+  // Auto-cycle scripts
+  let currentScriptIndex = 0;
+  function cycleScript() {
+    scriptChips.forEach(c => c.classList.remove('active'));
+    currentScriptIndex = (currentScriptIndex + 1) % scriptChips.length;
+    const chip = scriptChips[currentScriptIndex];
+    chip.classList.add('active');
+    paliPreview.style.opacity = '0';
+    setTimeout(() => {
+      paliPreview.textContent = chip.dataset.text;
+      paliPreview.style.opacity = '1';
+    }, 300);
+  }
+  setInterval(cycleScript, 3500);
+
+  // ── Search typing animation ──────────────────────────────────
+  const searchTyped = document.getElementById('searchTyped');
+  const searchText = 'dhamma';
+  let searchCharIndex = 0;
+  let searchStarted = false;
+
+  function typeSearchChar() {
+    if (searchCharIndex <= searchText.length) {
+      searchTyped.textContent = searchText.slice(0, searchCharIndex);
+      searchCharIndex++;
+      setTimeout(typeSearchChar, 120 + Math.random() * 80);
+    } else {
+      // Show search results
+      setTimeout(() => {
+        document.getElementById('searchResult1').classList.add('visible');
+      }, 400);
+      setTimeout(() => {
+        document.getElementById('searchResult2').classList.add('visible');
+      }, 800);
+      setTimeout(() => {
+        document.getElementById('searchResult3').classList.add('visible');
+      }, 1200);
+    }
+  }
+
+  const searchObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !searchStarted) {
+        searchStarted = true;
+        setTimeout(typeSearchChar, 600);
+        searchObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  searchObserver.observe(document.getElementById('searchDemo'));
+
+  // ── Parallax on screenshots ──────────────────────────────────
+  const parallaxImg = document.getElementById('parallaxImg');
+  if (parallaxImg) {
+    window.addEventListener('scroll', () => {
+      const rect = parallaxImg.getBoundingClientRect();
+      const viewH = window.innerHeight;
+      if (rect.top < viewH && rect.bottom > 0) {
+        const progress = (viewH - rect.top) / (viewH + rect.height);
+        const offset = (progress - 0.5) * 40;
+        parallaxImg.style.transform = `translateY(${offset}px) scale(1.05)`;
+      }
+    }, { passive: true });
+  }
+
+  // ── Smooth nav background on scroll ──────────────────────────
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(0,0,0,0.88)';
+    } else {
+      nav.style.background = 'rgba(0,0,0,0.72)';
+    }
+  }, { passive: true });
+
+  // ── Sticky commentary steps highlight ────────────────────────
+  const commentarySteps = document.querySelectorAll('.feature-step-content');
+  const stepObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.style.opacity = entry.isIntersecting ? '1' : '0.3';
+      entry.target.style.transition = 'opacity 0.5s';
+    });
+  }, { threshold: 0.6, rootMargin: '-30% 0px -30% 0px' });
+  commentarySteps.forEach(step => stepObserver.observe(step));
+
+  // ── Pipeline horizontal scroll animation ─────────────────────
+  const pipelineTrack = document.getElementById('pipelineTrack');
+  if (pipelineTrack) {
+    const cards = pipelineTrack.querySelectorAll('.pipeline-card');
+    const pipeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          pipeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    cards.forEach(card => pipeObserver.observe(card));
+  }
+
+  // ── Mobile layout responsive ─────────────────────────────────
+  const mobileLayout = document.querySelector('.mobile-layout');
+  if (mobileLayout && window.innerWidth <= 768) {
+    mobileLayout.style.gridTemplateColumns = '1fr';
+    mobileLayout.style.textAlign = 'center';
+    mobileLayout.querySelectorAll('ul').forEach(ul => ul.style.alignItems = 'center');
+  }
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+name: Export Tipiṭaka Ebooks
+
+on:
+  workflow_dispatch:
+    inputs:
+      language:
+        description: 'Translation language code (e.g. en, vi, th). Leave empty for Pāli only.'
+        required: false
+        default: ''
+        type: string
+      book_ids:
+        description: 'Comma-separated book IDs to export (e.g. Dhp,Sn,Ud). Leave empty for ALL books.'
+        required: false
+        default: ''
+        type: string
+      formats:
+        description: 'Output formats'
+        required: false
+        default: 'epub,pdf,md,docx'
+        type: string
+  push:
+    tags:
+      - 'ebook-*'   # Trigger on tags like ebook-v1, ebook-en-v1
+
+env:
+  PYTHON_VERSION: '3.11'
+  OUTPUT_DIR: './output'
+
+jobs:
+  export:
+    name: Export Ebooks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # Needed to create releases
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-dejavu-core fonts-liberation
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ebooklib Pillow reportlab python-docx
+
+      - name: Download translation databases
+        env:
+          ASSETS_URL: ${{ secrets.ASSETS_URL }}  # Optional: URL to download DBs from
+        run: |
+          # Ensure data directory exists
+          mkdir -p web_server/data
+          
+          # If translation databases are stored as release assets or external storage,
+          # download them here. For now, assume they're in the repo or will be uploaded.
+          echo "Data directory ready. Databases should be in web_server/data/"
+          ls -la web_server/data/ 2>/dev/null || echo "No databases found yet"
+
+      - name: Export all books
+        working-directory: web_server
+        run: |
+          FORMATS="${{ github.event.inputs.formats || 'epub,pdf,md,docx' }}"
+          LANG="${{ github.event.inputs.language || '' }}"
+          BOOKS="${{ github.event.inputs.book_ids || '' }}"
+          
+          # Build command
+          CMD="python -m scripts.export.cli --formats $FORMATS --output-dir ../${OUTPUT_DIR}"
+          
+          if [ -n "$LANG" ]; then
+            CMD="$CMD --lang $LANG"
+          fi
+          
+          if [ -n "$BOOKS" ]; then
+            # Export specific books
+            IFS=',' read -ra BOOK_ARRAY <<< "$BOOKS"
+            for book in "${BOOK_ARRAY[@]}"; do
+              book=$(echo "$book" | xargs)  # trim whitespace
+              echo "Exporting book: $book"
+              eval "$CMD --book $book" || echo "Failed to export $book"
+            done
+          else
+            # Export all books
+            echo "Exporting ALL books..."
+            eval "$CMD --all"
+          fi
+
+      - name: List exported files
+        run: |
+          echo "Exported files:"
+          find ${{ env.OUTPUT_DIR }} -type f -name "*.epub" -o -name "*.pdf" -o -name "*.md" -o -name "*.docx" | sort
+          echo ""
+          echo "Total files:"
+          find ${{ env.OUTPUT_DIR }} -type f | wc -l
+          echo ""
+          echo "Total size:"
+          du -sh ${{ env.OUTPUT_DIR }}
+
+      - name: Create release
+        if: success() && (github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/'))
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Tipiṭaka Ebooks ${{ github.event.inputs.language && format('({0})', github.event.inputs.language) || '(All Languages)' }}"
+          tag_name: "ebook-${{ github.run_id }}"
+          body: |
+            ## E-Piṭaka Ebook Export
+            **Language:** ${{ github.event.inputs.language || 'Pāli + All' }}
+            **Books:** ${{ github.event.inputs.book_ids || 'All Mūla books' }}
+            **Formats:** ${{ github.event.inputs.formats || 'EPUB, PDF, Markdown, DOCX' }}
+            
+            ### Available Files
+            - **EPUB** — For Kindle, Apple Books, Kobo, and other e-readers
+            - **PDF** — For printing and desktop reading
+            - **DOCX** — For Microsoft Word editing
+            - **Markdown** — For developers and text-based workflows
+            
+            ### Source
+            Generated from [epitaka.org](https://epitaka.org) — the Chaṭṭha Saṅgāyana Tipiṭaka.
+            
+            ### License
+            Pāli text is in the public domain. AI translations are CC-BY-4.0.
+          files: ${{ env.OUTPUT_DIR }}/*
+          fail_on_unmatched_files: false
+          draft: false
+          prerelease: false
+
+      - name: Upload artifacts (always)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: "tipitaka-ebooks-${{ github.event.inputs.language || 'all' }}-${{ github.run_id }}"
+          path: ${{ env.OUTPUT_DIR }}/*
+          retention-days: 90
