@@ -1,39 +1,114 @@
 name: Export Tipiṭaka Ebooks
 
+# Tag format: <script>_<lang>, e.g. ro_si, ro_en, si_si, th_th, ro_my_nissaya
+#   - script = Pali output script (ro, si, hi, th, ...)
+#   - lang   = translation DB suffix (si, en, th, ... or my_nissaya)
+# Push a tag like `ro_si` -> downloads epitaka.db + epitaka_si.db,
+# exports ALL Mula books, zips per format, publishes:
+#   1. immutable release for that tag (ro_si)
+#   2. cumulative floating release `ebook-latest` (all languages, same filenames)
+#
+# Test without tagging via Actions > Run workflow (smoke test: one small book).
+
 on:
-  workflow_dispatch:
-    inputs:
-      language:
-        description: 'Translation language code (e.g. en, vi, th). Leave empty for Pāli only.'
-        required: false
-        default: ''
-        type: string
-      book_ids:
-        description: 'Comma-separated book IDs to export (e.g. Dhp,Sn,Ud). Leave empty for ALL books.'
-        required: false
-        default: ''
-        type: string
-      formats:
-        description: 'Output formats'
-        required: false
-        default: 'epub,pdf,md,docx'
-        type: string
   push:
     tags:
-      - 'ebook-*'   # Trigger on tags like ebook-v1, ebook-en-v1
+      - '??_*'   # e.g. ro_si, ro_en (two-char script + underscore + lang)
+  workflow_dispatch:
+    inputs:
+      script:
+        description: 'Pali output script (ro, si, hi, th, lo, my, km, ...)'
+        required: false
+        default: 'ro'
+        type: string
+      language:
+        description: 'Translation language code (e.g. en, si, th, my_nissaya). Empty = Pali only.'
+        required: false
+        default: 'si'
+        type: string
+      formats:
+        description: 'Comma-separated output formats'
+        required: false
+        default: 'epub,pdf,md,docx'
+        type: choice
+        options:
+          - 'epub,pdf,md,docx'
+          - 'epub,pdf'
+          - 'epub'
+          - 'pdf'
+      smoke_only:
+        description: 'Smoke test only (export Dhp instead of --all)'
+        required: false
+        default: false
+        type: boolean
 
 env:
   PYTHON_VERSION: '3.11'
-  OUTPUT_DIR: './output'
+  NODE_VERSION: '24'
+  DB_BASE_URL: 'https://github.com/dhammanana/epitaka_app/releases/download/latest'
+
+concurrency:
+  group: ebook-${{ github.ref_name || inputs.script }}-${{ inputs.language || '' }}
+  cancel-in-progress: false
 
 jobs:
   export:
-    name: Export Ebooks
+    name: Export ebooks
     runs-on: ubuntu-latest
+    timeout-minutes: 360
     permissions:
-      contents: write   # Needed to create releases
+      contents: write   # create releases + upload assets
 
     steps:
+      - name: Resolve script / lang / tag
+        id: cfg
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            SCRIPT="${{ inputs.script }}"
+            LANG="${{ inputs.language }}"
+            TAG="${SCRIPT}_${LANG}"
+            SMOKE_ONLY="${{ inputs.smoke_only }}"
+            FORMATS="${{ inputs.formats }}"
+          else
+            TAG="${GITHUB_REF_NAME}"
+            # Split on FIRST underscore: script=prefix, lang=remainder
+            # (supports variants like ro_my_nissaya -> lang=my_nissaya)
+            SCRIPT="${TAG%%_*}"
+            LANG="${TAG#*_}"
+            SMOKE_ONLY="false"
+            FORMATS="epub,pdf,md,docx"
+          fi
+          # Normalise
+          SCRIPT="$(echo "$SCRIPT" | tr '[:upper:]' '[:lower:]' | xargs)"
+          LANG="$(echo "$LANG" | tr '[:upper:]' '[:lower:]' | xargs)"
+          FORMATS="$(echo "$FORMATS" | tr -d ' ' | tr '[:upper:]' '[:lower:]')"
+          [ -z "$SCRIPT" ] && SCRIPT="ro"
+          TAG="${SCRIPT}_${LANG}"
+
+          # Validate script (must match convert_pali.mjs scriptMap)
+          case "$SCRIPT" in
+            ro|si|hi|be|th|lo|my|km|gm|tt|gj|te|ka|mm|tb|cy|as|br) ;;
+            *) echo "::error::Unknown script '$SCRIPT'. Tag must be <script>_<lang>, e.g. ro_si."; exit 1;;
+          esac
+          # Validate lang code shape (allow my_nissaya style variants)
+          if [ -n "$LANG" ] && ! echo "$LANG" | grep -Eq '^[a-z]{2}(_[a-z]+)?$'; then
+            echo "::error::Bad language '$LANG'. Tag must be <script>_<lang>, e.g. ro_si."
+            exit 1
+          fi
+          # Validate formats subset of epub,pdf,md,docx
+          if ! echo ",$FORMATS," | grep -Eq '^((,?(epub|pdf|md|docx))+),?$'; then
+            echo "::error::Bad formats '$FORMATS'. Use subset of epub,pdf,md,docx."
+            exit 1
+          fi
+
+          echo "script=$SCRIPT" >> "$GITHUB_OUTPUT"
+          echo "lang=$LANG" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "formats=$FORMATS" >> "$GITHUB_OUTPUT"
+          echo "smoke_only=$SMOKE_ONLY" >> "$GITHUB_OUTPUT"
+          echo "Resolved: tag=$TAG script=$SCRIPT lang=${LANG:-<pali-only>} formats=$FORMATS smoke=$SMOKE_ONLY"
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -41,100 +116,163 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+          cache-dependency-path: web_server/scripts/export/requirements.txt
 
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y fonts-dejavu-core fonts-liberation
+      - name: Setup Node.js (Pali script conversion)
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install ebooklib Pillow reportlab python-docx
+          pip install -r web_server/scripts/export/requirements.txt
+          node --version
+          python -c "import ebooklib, docx, PIL, fpdf; print('py deps ok')"
 
-      - name: Download translation databases
-        env:
-          ASSETS_URL: ${{ secrets.ASSETS_URL }}  # Optional: URL to download DBs from
-        run: |
-          # Ensure data directory exists
-          mkdir -p web_server/data
-          
-          # If translation databases are stored as release assets or external storage,
-          # download them here. For now, assume they're in the repo or will be uploaded.
-          echo "Data directory ready. Databases should be in web_server/data/"
-          ls -la web_server/data/ 2>/dev/null || echo "No databases found yet"
-
-      - name: Export all books
+      - name: Download databases (core + translation)
         working-directory: web_server
         run: |
-          FORMATS="${{ github.event.inputs.formats || 'epub,pdf,md,docx' }}"
-          LANG="${{ github.event.inputs.language || '' }}"
-          BOOKS="${{ github.event.inputs.book_ids || '' }}"
-          
-          # Build command
-          CMD="python -m scripts.export.cli --formats $FORMATS --output-dir ../${OUTPUT_DIR}"
-          
+          set -euo pipefail
+          LANG="${{ steps.cfg.outputs.lang }}"
+          mkdir -p data
+          dl() { curl -fL --retry 3 --retry-delay 5 --show-error -o "$2" "$1"; }
+          echo "Downloading core epitaka.db..."
+          dl "${{ env.DB_BASE_URL }}/epitaka.zip" /tmp/epitaka.zip
+          unzip -o -j /tmp/epitaka.zip '*.db' -d data/
           if [ -n "$LANG" ]; then
-            CMD="$CMD --lang $LANG"
+            echo "Downloading translation epitaka_${LANG}.db..."
+            if ! dl "${{ env.DB_BASE_URL }}/epitaka_${LANG}.zip" "/tmp/epitaka_${LANG}.zip"; then
+              echo "::error::No DB for language '$LANG' at ${{ env.DB_BASE_URL }}/epitaka_${LANG}.zip"
+              exit 1
+            fi
+            unzip -o -j "/tmp/epitaka_${LANG}.zip" '*.db' -d data/
           fi
-          
-          if [ -n "$BOOKS" ]; then
-            # Export specific books
-            IFS=',' read -ra BOOK_ARRAY <<< "$BOOKS"
-            for book in "${BOOK_ARRAY[@]}"; do
-              book=$(echo "$book" | xargs)  # trim whitespace
-              echo "Exporting book: $book"
-              eval "$CMD --book $book" || echo "Failed to export $book"
+          ls -lh data/*.db
+          df -h .
+          # Fail fast: core DB must exist and pass integrity check
+          for db in data/epitaka.db ${LANG:+data/epitaka_${LANG}.db}; do
+            [ -f "$db" ] || { echo "::error::Missing $db after unzip"; ls -la data/; exit 1; }
+            sqlite3 "$db" "PRAGMA integrity_check;" | grep -q '^ok$' \
+              || { echo "::error::$db failed integrity check"; exit 1; }
+          done
+          echo "--- available translation languages ---"
+          python -m scripts.export.cli --list-languages
+          if [ -n "$LANG" ] && ! python -m scripts.export.cli --list-languages | grep -qw "$LANG"; then
+            echo "::error::Language '$LANG' not found in downloaded DBs."
+            exit 1
+          fi
+
+      - name: Smoke test (single small book)
+        working-directory: web_server
+        run: |
+          set -euo pipefail
+          python -m scripts.export.cli --book Dhp \
+            --lang "${{ steps.cfg.outputs.lang }}" \
+            --script "${{ steps.cfg.outputs.script }}" \
+            --formats "${{ steps.cfg.outputs.formats }}" \
+            --output-dir ../ebook-output/smoke 2>&1 | tee /tmp/smoke.log
+          test -n "$(find ../ebook-output/smoke -type f | head -1)" \
+            || { echo "::error::Smoke test produced no files"; tail -50 /tmp/smoke.log; exit 1; }
+          echo "Smoke test OK:"; find ../ebook-output/smoke -type f
+          rm -rf ../ebook-output/smoke
+
+      - name: Export ALL books
+        if: steps.cfg.outputs.smoke_only != 'true'
+        working-directory: web_server
+        run: |
+          set -euo pipefail
+          python -m scripts.export.cli --all \
+            --lang "${{ steps.cfg.outputs.lang }}" \
+            --script "${{ steps.cfg.outputs.script }}" \
+            --formats "${{ steps.cfg.outputs.formats }}" \
+            --output-dir "../ebook-output/${{ steps.cfg.outputs.tag }}" 2>&1 | tee "/tmp/export-${{ steps.cfg.outputs.tag }}.log"
+          echo "--- file count / size ---"
+          find "../ebook-output/${{ steps.cfg.outputs.tag }}" -type f | wc -l
+          du -sh "../ebook-output/${{ steps.cfg.outputs.tag }}"
+
+      - name: Zip per format + checksums
+        if: steps.cfg.outputs.smoke_only != 'true'
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.cfg.outputs.tag }}"
+          SRC="ebook-output/$TAG"
+          mkdir -p dist
+          test -d "$SRC" || { echo "::error::Nothing exported in $SRC"; exit 1; }
+          (cd "$SRC" && sha256sum $(find . -type f | sort) > "../../dist/${TAG}-SHA256SUMS.txt") || true
+          # One zip per top-level format dir (lang/format/... layout from cli.py);
+          # fall back to a single zip if layout differs.
+          if [ -d "$SRC/${{ steps.cfg.outputs.lang }}" ]; then
+            for fmt in $(echo "${{ steps.cfg.outputs.formats }}" | tr ',' ' '); do
+              D="$SRC/${{ steps.cfg.outputs.lang }}/$fmt"
+              [ -d "$D" ] || { echo "No output for format $fmt, skipping"; continue; }
+              (cd "$SRC" && zip -qr "../../dist/${TAG}-${fmt}.zip" "${{ steps.cfg.outputs.lang }}/$fmt")
             done
           else
-            # Export all books
-            echo "Exporting ALL books..."
-            eval "$CMD --all"
+            (cd "$SRC" && zip -qr "../../dist/${TAG}-all.zip" .)
           fi
+          ls -lh dist/
+          sha256sum dist/* > dist/SHA256SUMS.txt || true
+          cat dist/SHA256SUMS.txt
 
-      - name: List exported files
-        run: |
-          echo "Exported files:"
-          find ${{ env.OUTPUT_DIR }} -type f -name "*.epub" -o -name "*.pdf" -o -name "*.md" -o -name "*.docx" | sort
-          echo ""
-          echo "Total files:"
-          find ${{ env.OUTPUT_DIR }} -type f | wc -l
-          echo ""
-          echo "Total size:"
-          du -sh ${{ env.OUTPUT_DIR }}
-
-      - name: Create release
-        if: success() && (github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/'))
+      - name: Release for this tag (immutable)
+        if: steps.cfg.outputs.smoke_only != 'true' && github.event_name == 'push'
         uses: softprops/action-gh-release@v2
         with:
-          name: "Tipiṭaka Ebooks ${{ github.event.inputs.language && format('({0})', github.event.inputs.language) || '(All Languages)' }}"
-          tag_name: "ebook-${{ github.run_id }}"
+          tag_name: ${{ steps.cfg.outputs.tag }}
+          name: "Tipitaka Ebooks (${{ steps.cfg.outputs.tag }})"
           body: |
-            ## E-Piṭaka Ebook Export
-            **Language:** ${{ github.event.inputs.language || 'Pāli + All' }}
-            **Books:** ${{ github.event.inputs.book_ids || 'All Mūla books' }}
-            **Formats:** ${{ github.event.inputs.formats || 'EPUB, PDF, Markdown, DOCX' }}
-            
-            ### Available Files
-            - **EPUB** — For Kindle, Apple Books, Kobo, and other e-readers
-            - **PDF** — For printing and desktop reading
-            - **DOCX** — For Microsoft Word editing
-            - **Markdown** — For developers and text-based workflows
-            
-            ### Source
-            Generated from [epitaka.org](https://epitaka.org) — the Chaṭṭha Saṅgāyana Tipiṭaka.
-            
+            ## E-Piṭaka Ebooks — `${{ steps.cfg.outputs.tag }}`
+            **Script:** `${{ steps.cfg.outputs.script }}` · **Translation:** `${{ steps.cfg.outputs.lang }}` · **Formats:** `${{ steps.cfg.outputs.formats }}`
+            All Mūla books exported from [epitaka.org](https://epitaka.org) (Chaṭṭha Saṅgāyana Tipiṭaka).
+
+            ### Files
+            One zip per format (`${{ steps.cfg.outputs.tag }}-epub.zip`, `-pdf.zip`, …) + checksums.
+            Unzip preserves the `lang/format/category/nikaya/book` folder layout.
+
+            ### Also in `ebook-latest`
+            The same zips are copied to the cumulative [`ebook-latest`](https://github.com/${{ github.repository }}/releases/tag/ebook-latest) release, where all languages accumulate.
+
             ### License
-            Pāli text is in the public domain. AI translations are CC-BY-4.0.
-          files: ${{ env.OUTPUT_DIR }}/*
-          fail_on_unmatched_files: false
+            Pāli text: public domain. Translations: CC-BY-4.0.
+          files: dist/*
+          fail_on_unmatched_files: true
           draft: false
           prerelease: false
 
-      - name: Upload artifacts (always)
-        uses: actions/upload-artifact@v4
-        if: always()
+      - name: Copy to floating ebook-latest release (cumulative)
+        if: steps.cfg.outputs.smoke_only != 'true' && github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
         with:
-          name: "tipitaka-ebooks-${{ github.event.inputs.language || 'all' }}-${{ github.run_id }}"
-          path: ${{ env.OUTPUT_DIR }}/*
-          retention-days: 90
+          tag_name: ebook-latest
+          name: "Tipitaka Ebooks (latest)"
+          body: |
+            Cumulative ebook builds — every `<script>_<lang>` tag copies its zips here,
+            so all languages are downloadable from one place.
+            Filenames are namespaced per build (`ro_si-epub.zip`, `ro_en-pdf.zip`, …)
+            so languages never overwrite each other.
+            See each per-tag release for build details.
+          files: dist/*
+          fail_on_unmatched_files: true
+          preserve_assets: true
+          draft: false
+          prerelease: false
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always() && steps.cfg.outputs.smoke_only != 'true'
+        with:
+          name: "ebooks-${{ steps.cfg.outputs.tag }}-${{ github.run_id }}"
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload export log on failure
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: "export-log-${{ steps.cfg.outputs.tag }}-${{ github.run_id }}"
+          path: /tmp/export-*.log
+          if-no-files-found: ignore
+          retention-days: 7
