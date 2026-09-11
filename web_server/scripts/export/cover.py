@@ -5,10 +5,11 @@ Creates a clean, minimal cover with:
 - Warm earth-tone background (#faf7f2)
 - Dharma wheel SVG rendered as a centered emblem
 - Book title in the appropriate script font
-- Metadata: Pali name, nikaya, sub-nikaya, category, description
+- Metadata: language/script badge, AI-translation note (Lao), nikaya + category at the bottom
 - Publisher / source line
 - Category-specific color themes
 """
+
 import math
 import os
 from io import BytesIO
@@ -17,78 +18,79 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 # ── Design tokens (matches the website's CSS variables) ─────────────────
-BG_COLOR      = (250, 247, 242)   # #faf7f2
-ACCENT_COLOR  = (139, 94, 60)     # #8b5e3c
-TEXT_COLOR     = (45, 36, 32)      # #2d2420
-MUTED_COLOR   = (138, 122, 110)   # #8a7a6e
-WHITE         = (255, 255, 255)
-WHEEL_COLOR   = (212, 169, 122)   # #d4a97a  (muted gold)
-WHEEL_RADIUS  = 120
-WHEEL_SPOKES  = 8
-HUB_RADIUS    = 14
+BG_COLOR = (250, 247, 242)  # #faf7f2
+ACCENT_COLOR = (139, 94, 60)  # #8b5e3c
+TEXT_COLOR = (45, 36, 32)  # #2d2420
+MUTED_COLOR = (138, 122, 110)  # #8a7a6e
+WHITE = (255, 255, 255)
+WHEEL_COLOR = (212, 169, 122)  # #d4a97a  (muted gold)
+WHEEL_RADIUS = 120
+WHEEL_SPOKES = 8
+HUB_RADIUS = 14
 
-_FONTS_DIR = os.path.normpath(os.path.join(
-    os.path.dirname(__file__), '..', '..', 'frontend', 'src', 'fonts'
-))
+_FONTS_DIR = os.path.normpath(
+    os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "src", "fonts")
+)
 
 # Script code → font filename (matches website common.css @font-face)
 _SCRIPT_FONT_FILES = {
-    'ro': 'NotoSerif-Regular.ttf',
-    'si': 'NotoSerifSinhala-Regular.ttf',
-    'hi': 'NotoSerifDevanagari-Regular.ttf',
-    'th': 'thai/THSarabunPali.ttf',
-    'lo': 'lao/LaoPaliAlpha-Regular.woff',
-    'my': 'myanmar/mm3-multi-os(16-08-2011).ttf',
-    'km': 'NotoSerifKhmer-Regular.ttf',
-    'be': 'NotoSerifBengali-Regular.ttf',
-    'gm': 'NotoSansGurmukhi-Regular.ttf',
-    'tt': 'lanna/Hariphunchai.otf',
-    'gj': 'NotoSerifGujarati-Regular.ttf',
-    'te': 'NotoSerifTelugu-Regular.ttf',
-    'ka': 'NotoSerifKannada-Regular.ttf',
-    'mm': 'NotoSerifMalayalam-Regular.ttf',
+    "ro": "NotoSans-Regular.ttf",
+    "si": "NotoSansSinhala-Regular.ttf",
+    "hi": "NotoSansDevanagari-Regular.ttf",
+    "th": "thai/NotoSansThai-Regular.ttf",
+    "lo": "lao/NotoSansLao-Regular.ttf",
+    "my": "myanmar/NotoSansMyanmar-Regular.ttf",
+    "km": "NotoSansKhmer-Regular.ttf",
+    "be": "NotoSansBengali-Regular.ttf",
+    "gm": "NotoSansGurmukhi-Regular.ttf",
+    "tt": "lanna/NotoSansTaiTham-Regular.ttf",
+    "gj": "NotoSansGujarati-Regular.ttf",
+    "te": "NotoSansTelugu-Regular.ttf",
+    "ka": "NotoSansKannada-Regular.ttf",
+    "mm": "NotoSansMalayalam-Regular.ttf",
 }
 
 # Script code → human-readable name
 _SCRIPT_NAMES = {
-    'ro': 'Rōmani',
-    'si': 'Sinhala',
-    'hi': 'Devanāgarī',
-    'th': 'Thai',
-    'lo': 'Lao',
-    'my': 'Myanmar',
-    'km': 'Khmer',
-    'be': 'Bengali',
-    'gm': 'Gurmukhī',
-    'tt': 'Tai Tham',
-    'gj': 'Gujarātī',
-    'te': 'Telugu',
-    'ka': 'Kannaḍa',
-    'mm': 'Malayāḷaṃ',
+    "ro": "Rōmani",
+    "si": "Sinhala",
+    "hi": "Devanāgarī",
+    "th": "Thai",
+    "lo": "Lao",
+    "my": "Myanmar",
+    "km": "Khmer",
+    "be": "Bengali",
+    "gm": "Gurmukhī",
+    "tt": "Tai Tham",
+    "gj": "Gujarātī",
+    "te": "Telugu",
+    "ka": "Kannaḍa",
+    "mm": "Malayāḷaṃ",
 }
 
 
 def generate_cover(
     title: str,
-    subtitle: str = '',
-    author: str = 'Chaṭṭha Saṅgāyana Tipiṭaka',
-    output_path: str = '',
+    subtitle: str = "",
+    author: str = "Chaṭṭha Saṅgāyana Tipiṭaka",
+    output_path: str = "",
     width: int = 1600,
     height: int = 2400,
-    lang_name: str = '',
-    category: str = 'Mūla',
-    script: str = 'ro',
-    book_name: str = '',
-    nikaya: str = '',
-    sub_nikaya: str = '',
-    description: str = '',
+    lang_name: str = "",
+    category: str = "Mūla",
+    script: str = "ro",
+    book_name: str = "",
+    nikaya: str = "",
+    sub_nikaya: str = "",
+    description: str = "",
+    lang_code: str = "",
 ) -> bytes:
     """
     Generate a book cover image.
 
     Returns raw PNG bytes. If output_path is given, also writes to disk.
     """
-    img = Image.new('RGB', (width, height), BG_COLOR)
+    img = Image.new("RGB", (width, height), BG_COLOR)
     draw = ImageDraw.Draw(img)
 
     # ── Load fonts ────────────────────────────────────────────────────
@@ -97,11 +99,11 @@ def generate_cover(
 
     # ── Decorative top bar ────────────────────────────────────────────
     bar_h = 8
-    draw.rectangle([0, 0, width, bar_h], fill=theme['accent'])
+    draw.rectangle([0, 0, width, bar_h], fill=theme["accent"])
 
     # ── Dharma wheel ──────────────────────────────────────────────────
     cx, cy = width // 2, int(height * 0.18)
-    _draw_dharma_wheel(draw, cx, cy, WHEEL_RADIUS, theme['wheel'])
+    _draw_dharma_wheel(draw, cx, cy, WHEEL_RADIUS, theme["wheel"])
 
     # ── Title logic ───────────────────────────────────────────────────
     # If script != 'ro': big title = book_name in script, small = English title
@@ -109,7 +111,7 @@ def generate_cover(
     title_y = cy + WHEEL_RADIUS + 70
     current_y = title_y
 
-    is_roman = (script == 'ro')
+    is_roman = script == "ro"
     has_script_title = (not is_roman) and book_name and book_name != title
 
     if has_script_title:
@@ -122,7 +124,9 @@ def generate_cover(
                 bbox = draw.textbbox((0, 0), line, font=big_font)
                 tw = bbox[2] - bbox[0]
                 x = (width - tw) // 2
-                draw.text((x, current_y + i * 110), line, fill=TEXT_COLOR, font=big_font)
+                draw.text(
+                    (x, current_y + i * 110), line, fill=TEXT_COLOR, font=big_font
+                )
             current_y += len(big_lines) * 110 + 30
         # Small subtitle: English title
         small_font_size = max(40, width // 32)
@@ -132,7 +136,9 @@ def generate_cover(
             bbox = draw.textbbox((0, 0), line, font=small_font)
             tw = bbox[2] - bbox[0]
             x = (width - tw) // 2
-            draw.text((x, current_y + i * 55), line, fill=theme['muted'], font=small_font)
+            draw.text(
+                (x, current_y + i * 55), line, fill=theme["muted"], font=small_font
+            )
         current_y += len(small_lines) * 55 + 30
     else:
         # Single title (Roman or no script-specific name)
@@ -149,114 +155,132 @@ def generate_cover(
     # ── Thin divider ──────────────────────────────────────────────────
     div_w = width // 4
     div_x = (width - div_w) // 2
-    draw.line([(div_x, current_y), (div_x + div_w, current_y)],
-              fill=theme['wheel'], width=2)
+    draw.line(
+        [(div_x, current_y), (div_x + div_w, current_y)], fill=theme["wheel"], width=2
+    )
     current_y += 40
 
-    # ── Nikaya / Sub-nikaya hierarchy ────────────────────────────────
-    meta_font = _get_font(sans_font, max(32, width // 35))
-    if sub_nikaya:
-        bbox = draw.textbbox((0, 0), sub_nikaya, font=meta_font)
-        tw = bbox[2] - bbox[0]
-        draw.text(((width - tw) // 2, current_y), sub_nikaya,
-                  fill=theme['muted'], font=meta_font)
-        current_y += 65
-    elif nikaya:
-        bbox = draw.textbbox((0, 0), nikaya, font=meta_font)
-        tw = bbox[2] - bbox[0]
-        draw.text(((width - tw) // 2, current_y), nikaya,
-                  fill=theme['muted'], font=meta_font)
-        current_y += 65
-
-    # ── Category badge ───────────────────────────────────────────────
-    if category:
-        cat_font = _get_font(sans_font, max(28, width // 42))
-        bbox = draw.textbbox((0, 0), category, font=cat_font)
-        bw = bbox[2] - bbox[0] + 70
-        bh = 65
-        bx = (width - bw) // 2
-        draw.rounded_rectangle(
-            [bx, current_y, bx + bw, current_y + bh],
-            radius=bh // 2,
-            outline=theme['accent'], width=2,
-        )
-        draw.text((bx + 35, current_y + 12), category,
-                  fill=theme['accent'], font=cat_font)
-        current_y += bh + 35
-
     # ── Language + script badge ──────────────────────────────────────
-    script_name = _SCRIPT_NAMES.get(script, '')
+    script_name = _SCRIPT_NAMES.get(script, "")
     if lang_name or script_name:
         badge_font = _get_font(sans_font, max(30, width // 38))
         # Build combined label: "English Translation · Sinhala Script"
         parts = []
         if lang_name:
             parts.append(lang_name)
-        if script_name and script != 'ro':
-            parts.append(f'{script_name} Script')
-        badge_text = ' · '.join(parts) if parts else ''
+        if script_name and script != "ro":
+            parts.append(f"{script_name} Script")
+        badge_text = " · ".join(parts) if parts else ""
         if badge_text:
             bbox = draw.textbbox((0, 0), badge_text, font=badge_font)
-            bw = bbox[2] - bbox[0] + 70
-            bh = 62
+            bw = bbox[2] - bbox[0] + 90
+            text_h = bbox[3] - bbox[1]
+            bh = text_h + 44
             bx = (width - bw) // 2
             draw.rounded_rectangle(
                 [bx, current_y, bx + bw, current_y + bh],
                 radius=bh // 2,
-                fill=theme['accent'],
+                fill=theme["accent"],
             )
-            draw.text((bx + 35, current_y + 13), badge_text,
-                      fill=WHITE, font=badge_font)
+            # Vertically center the text inside the pill
+            ty = current_y + (bh - text_h) // 2 - bbox[1]
+            draw.text((bx + 45, ty), badge_text, fill=WHITE, font=badge_font)
             current_y += bh + 40
 
-    # ── Description ──────────────────────────────────────────────────
-    if description:
-        desc_font = _get_font(sans_font, max(28, width // 42))
-        max_desc_len = 240
-        if len(description) > max_desc_len:
-            description = description[:max_desc_len].rsplit(' ', 1)[0] + '…'
-        desc_lines = _wrap_text(description, desc_font, width - 240)
-        for i, line in enumerate(desc_lines[:4]):  # max 4 lines
-            bbox = draw.textbbox((0, 0), line, font=desc_font)
+    # ── AI-translation disclaimer (Lao only) ──────────────────────────
+    if lang_code == "lo":
+        note = (
+            "AI-assisted translation based on the Sinhala, Thai and "
+            "Myanmar translations — not yet fully proofread."
+        )
+        note_font = _get_font(sans_font, max(24, width // 52))
+        for i, line in enumerate(_wrap_text(note, note_font, width - 320)[:2]):
+            bbox = draw.textbbox((0, 0), line, font=note_font)
             tw = bbox[2] - bbox[0]
-            draw.text(((width - tw) // 2, current_y + i * 42), line,
-                      fill=MUTED_COLOR, font=desc_font)
-        current_y += min(len(desc_lines), 4) * 42 + 20
+            draw.text(
+                ((width - tw) // 2, current_y + i * 40),
+                line,
+                fill=MUTED_COLOR,
+                font=note_font,
+            )
+        current_y += 2 * 40 + 20
 
-    # ── Bottom section: source ────────────────────────────────────────
+    # ── Bottom section: nikaya · category, then source ────────────────
     bottom_y = height - 240
+    # Nikaya / sub-nikaya line above the category badge
+    meta_font = _get_font(sans_font, max(32, width // 35))
+    meta_text = sub_nikaya or nikaya
+    pill_gap = 0
+    if category:
+        cat_font = _get_font(sans_font, max(28, width // 42))
+        bbox = draw.textbbox((0, 0), category, font=cat_font)
+        bw = bbox[2] - bbox[0] + 70
+        bh = 65
+        bx = (width - bw) // 2
+        pill_y = bottom_y - 40 - bh
+        if meta_text:
+            bbox = draw.textbbox((0, 0), meta_text, font=meta_font)
+            tw = bbox[2] - bbox[0]
+            draw.text(
+                ((width - tw) // 2, pill_y - 70),
+                meta_text,
+                fill=theme["muted"],
+                font=meta_font,
+            )
+        draw.rounded_rectangle(
+            [bx, pill_y, bx + bw, pill_y + bh],
+            radius=bh // 2,
+            outline=theme["accent"],
+            width=2,
+        )
+        cbox = draw.textbbox((0, 0), category, font=cat_font)
+        cty = pill_y + (bh - (cbox[3] - cbox[1])) // 2 - cbox[1]
+        draw.text((bx + 35, cty), category, fill=theme["accent"], font=cat_font)
+        pill_gap = 0
+    elif meta_text:
+        bbox = draw.textbbox((0, 0), meta_text, font=meta_font)
+        tw = bbox[2] - bbox[0]
+        draw.text(
+            ((width - tw) // 2, bottom_y - 110),
+            meta_text,
+            fill=theme["muted"],
+            font=meta_font,
+        )
     # Decorative line
     line_w = width // 3
     line_x = (width - line_w) // 2
-    draw.line([(line_x, bottom_y), (line_x + line_w, bottom_y)],
-              fill=WHEEL_COLOR, width=2)
+    draw.line(
+        [(line_x, bottom_y), (line_x + line_w, bottom_y)], fill=WHEEL_COLOR, width=2
+    )
 
     # Publisher
     pub_font = _get_font(sans_font, max(30, width // 40))
     bbox = draw.textbbox((0, 0), author, font=pub_font)
     tw = bbox[2] - bbox[0]
-    draw.text(((width - tw) // 2, bottom_y + 30), author,
-              fill=theme['muted'], font=pub_font)
+    draw.text(
+        ((width - tw) // 2, bottom_y + 30), author, fill=theme["muted"], font=pub_font
+    )
 
     # Website
-    site = 'epitaka.org'
+    site = "epitaka.org"
     site_font = _get_font(sans_font, max(26, width // 45))
     bbox = draw.textbbox((0, 0), site, font=site_font)
     tw = bbox[2] - bbox[0]
-    draw.text(((width - tw) // 2, bottom_y + 80), site,
-              fill=theme['accent'], font=site_font)
+    draw.text(
+        ((width - tw) // 2, bottom_y + 80), site, fill=theme["accent"], font=site_font
+    )
 
     # ── Bottom bar ────────────────────────────────────────────────────
-    draw.rectangle([0, height - bar_h, width, height], fill=theme['accent'])
+    draw.rectangle([0, height - bar_h, width, height], fill=theme["accent"])
 
     # ── Save ──────────────────────────────────────────────────────────
     buf = BytesIO()
-    img.save(buf, format='PNG', optimize=True)
+    img.save(buf, format="PNG", optimize=True)
     png_bytes = buf.getvalue()
 
     if output_path:
-        os.makedirs(os.path.dirname(output_path) or '.', exist_ok=True)
-        with open(output_path, 'wb') as f:
+        os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+        with open(output_path, "wb") as f:
             f.write(png_bytes)
 
     return png_bytes
@@ -264,27 +288,46 @@ def generate_cover(
 
 def _theme(category):
     themes = {
-        'Mūla': {'accent': (139, 94, 60), 'wheel': (212, 169, 122), 'muted': (138, 122, 110)},
-        'Aṭṭhakathā': {'accent': (43, 93, 108), 'wheel': (111, 174, 181), 'muted': (91, 119, 123)},
-        'Ṭīkā': {'accent': (104, 78, 137), 'wheel': (169, 140, 196), 'muted': (119, 106, 130)},
-        'Aññā': {'accent': (174, 91, 45), 'wheel': (224, 157, 91), 'muted': (137, 113, 98)},
+        "Mūla": {
+            "accent": (139, 94, 60),
+            "wheel": (212, 169, 122),
+            "muted": (138, 122, 110),
+        },
+        "Aṭṭhakathā": {
+            "accent": (43, 93, 108),
+            "wheel": (111, 174, 181),
+            "muted": (91, 119, 123),
+        },
+        "Ṭīkā": {
+            "accent": (104, 78, 137),
+            "wheel": (169, 140, 196),
+            "muted": (119, 106, 130),
+        },
+        "Aññā": {
+            "accent": (174, 91, 45),
+            "wheel": (224, 157, 91),
+            "muted": (137, 113, 98),
+        },
     }
-    return themes.get(category, themes['Mūla'])
+    return themes.get(category, themes["Mūla"])
 
 
-def _draw_dharma_wheel(draw: ImageDraw.Draw, cx: int, cy: int,
-                       radius: int, color: tuple):
+def _draw_dharma_wheel(
+    draw: ImageDraw.Draw, cx: int, cy: int, radius: int, color: tuple
+):
     """Draw an eight-spoked Dharma wheel."""
     # Outer circle
     draw.ellipse(
         [cx - radius, cy - radius, cx + radius, cy + radius],
-        outline=color, width=3,
+        outline=color,
+        width=3,
     )
     # Inner circle
     inner_r = int(radius * 0.55)
     draw.ellipse(
         [cx - inner_r, cy - inner_r, cx + inner_r, cy + inner_r],
-        outline=color, width=2,
+        outline=color,
+        width=2,
     )
     # Hub
     draw.ellipse(
@@ -315,14 +358,13 @@ def _draw_dharma_wheel(draw: ImageDraw.Draw, cx: int, cy: int,
         draw.ellipse([nx - 5, ny - 5, nx + 5, ny + 5], fill=color)
 
 
-def _wrap_text(text: str, font: ImageFont.FreeTypeFont,
-               max_width: int) -> list[str]:
+def _wrap_text(text: str, font: ImageFont.FreeTypeFont, max_width: int) -> list[str]:
     """Word-wrap text to fit within max_width pixels."""
     words = text.split()
     lines = []
-    current = ''
+    current = ""
     for word in words:
-        test = f'{current} {word}'.strip()
+        test = f"{current} {word}".strip()
         bbox = font.getbbox(test)
         if bbox[2] - bbox[0] > max_width and current:
             lines.append(current)
@@ -334,7 +376,7 @@ def _wrap_text(text: str, font: ImageFont.FreeTypeFont,
     return lines or [text]
 
 
-def _load_fonts(width: int, script: str = 'ro'):
+def _load_fonts(width: int, script: str = "ro"):
     """Load the script-appropriate font for the title and a sans font for metadata."""
     title_size = max(78, width // 20)
     sans_size = max(28, width // 50)
@@ -342,11 +384,11 @@ def _load_fonts(width: int, script: str = 'ro'):
     # Title font: always use a Latin serif font (cover title is English)
     title_font = None
     title_candidates = [
-        os.path.join(_FONTS_DIR, 'NotoSerif-Regular.ttf'),
-        '/System/Library/Fonts/Georgia.ttc',
-        '/System/Library/Fonts/Times.ttc',
-        '/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf',
-        '/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf',
+        os.path.join(_FONTS_DIR, "NotoSerif-Regular.ttf"),
+        "/System/Library/Fonts/Georgia.ttc",
+        "/System/Library/Fonts/Times.ttc",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf",
     ]
     for path in title_candidates:
         if os.path.exists(path):
@@ -359,12 +401,12 @@ def _load_fonts(width: int, script: str = 'ro'):
     # Sans font for metadata
     sans_font = None
     sans_candidates = [
-        os.path.join(_FONTS_DIR, 'NotoSans-Regular.ttf'),
-        '/System/Library/Fonts/Supplemental/Arial.ttf',
-        '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
-        '/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf',
-        '/System/Library/Fonts/Helvetica.ttc',
-        os.path.join(_FONTS_DIR, 'NotoSerif-Regular.ttf'),
+        os.path.join(_FONTS_DIR, "NotoSans-Regular.ttf"),
+        "/System/Library/Fonts/Supplemental/Arial.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+        "/System/Library/Fonts/Helvetica.ttc",
+        os.path.join(_FONTS_DIR, "NotoSerif-Regular.ttf"),
     ]
     for path in sans_candidates:
         if os.path.exists(path):

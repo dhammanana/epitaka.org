@@ -14,6 +14,7 @@ Key design decisions:
 - Script conversion delegates to the web app's pali-script.js via
   a Node.js subprocess, ensuring identical transliteration.
 """
+
 import os
 import re
 import shutil
@@ -24,81 +25,118 @@ from dataclasses import dataclass, field
 
 # ── English book names (matches seo.py BOOK_NAMES) ──────────────────────
 BOOK_NAMES_EN = {
-    'Vin': 'Vinaya Piṭaka',
-    'D': 'Dīgha Nikāya', 'D-i': 'Dīgha Nikāya', 'D-ii': 'Dīgha Nikāya', 'D-iii': 'Dīgha Nikāya',
-    'M': 'Majjhima Nikāya', 'M-i': 'Majjhima Nikāya', 'M-ii': 'Majjhima Nikāya', 'M-iii': 'Majjhima Nikāya',
-    'S': 'Saṃyutta Nikāya', 'S-i': 'Saṃyutta Nikāya', 'S-ii': 'Saṃyutta Nikāya',
-    'S-iii': 'Saṃyutta Nikāya', 'S-iv': 'Saṃyutta Nikāya', 'S-v': 'Saṃyutta Nikāya',
-    'A': 'Aṅguttara Nikāya', 'A-i': 'Aṅguttara Nikāya', 'A-ii': 'Aṅguttara Nikāya',
-    'A-iii': 'Aṅguttara Nikāya', 'A-iv': 'Aṅguttara Nikāya', 'A-v': 'Aṅguttara Nikāya',
-    'KN': 'Khuddaka Nikāya',
-    'Khp': 'Khuddakapāṭha', 'Dhp': 'Dhammapada', 'Ud': 'Udāna', 'It': 'Itivuttaka',
-    'Sn': 'Sutta Nipāta', 'Vv': 'Vimānavatthu', 'Pv': 'Petavatthu',
-    'Th': 'Theragāthā', 'Thī': 'Therīgāthā', 'Ap': 'Apadāna', 'Bv': 'Buddhavaṃsa',
-    'Cp': 'Cariyāpiṭaka', 'Ja': 'Jātaka', 'Netti': 'Nettippakaraṇa',
-    'Pe': 'Peṭakopadesa', 'Mil': 'Milindapañha',
-    'Dhs': 'Dhammasaṅgaṇī', 'Vibh': 'Vibhaṅga', 'Dhatuk': 'Dhātukathā',
-    'Pp': 'Puggalapaññatti', 'Kv': 'Kathāvatthu', 'Yam': 'Yamaka', 'Patth': 'Paṭṭhāna',
+    "Vin": "Vinaya Piṭaka",
+    "D": "Dīgha Nikāya",
+    "D-i": "Dīgha Nikāya",
+    "D-ii": "Dīgha Nikāya",
+    "D-iii": "Dīgha Nikāya",
+    "M": "Majjhima Nikāya",
+    "M-i": "Majjhima Nikāya",
+    "M-ii": "Majjhima Nikāya",
+    "M-iii": "Majjhima Nikāya",
+    "S": "Saṃyutta Nikāya",
+    "S-i": "Saṃyutta Nikāya",
+    "S-ii": "Saṃyutta Nikāya",
+    "S-iii": "Saṃyutta Nikāya",
+    "S-iv": "Saṃyutta Nikāya",
+    "S-v": "Saṃyutta Nikāya",
+    "A": "Aṅguttara Nikāya",
+    "A-i": "Aṅguttara Nikāya",
+    "A-ii": "Aṅguttara Nikāya",
+    "A-iii": "Aṅguttara Nikāya",
+    "A-iv": "Aṅguttara Nikāya",
+    "A-v": "Aṅguttara Nikāya",
+    "KN": "Khuddaka Nikāya",
+    "Khp": "Khuddakapāṭha",
+    "Dhp": "Dhammapada",
+    "Ud": "Udāna",
+    "It": "Itivuttaka",
+    "Sn": "Sutta Nipāta",
+    "Vv": "Vimānavatthu",
+    "Pv": "Petavatthu",
+    "Th": "Theragāthā",
+    "Thī": "Therīgāthā",
+    "Ap": "Apadāna",
+    "Bv": "Buddhavaṃsa",
+    "Cp": "Cariyāpiṭaka",
+    "Ja": "Jātaka",
+    "Netti": "Nettippakaraṇa",
+    "Pe": "Peṭakopadesa",
+    "Mil": "Milindapañha",
+    "Dhs": "Dhammasaṅgaṇī",
+    "Vibh": "Vibhaṅga",
+    "Dhatuk": "Dhātukathā",
+    "Pp": "Puggalapaññatti",
+    "Kv": "Kathāvatthu",
+    "Yam": "Yamaka",
+    "Patth": "Paṭṭhāna",
 }
 
 
 @dataclass
 class Sentence:
     """One line of text (Pāli + optional translation)."""
+
     book_id: str
     para_id: int
     line_id: int
-    pali: str = ''           # may contain <b>, <i>, <sup> etc.
-    translation: str = ''    # may contain <i> etc.
-    vripage: str = ''        # VRI page number (triggers page break)
+    pali: str = ""  # may contain <b>, <i>, <sup> etc.
+    translation: str = ""  # may contain <i> etc.
+    vripage: str = ""  # VRI page number (triggers page break)
 
 
 @dataclass
 class Heading:
     """A structural heading within a book."""
+
     book_id: str
     para_id: int
     level: int
     title: str
     chapter_len: int
     parent: int = -1
-    sc_id: str = ''
+    sc_id: str = ""
 
 
 @dataclass
 class VerseSection:
     """One verse or sub-section under a vagga heading."""
+
     heading: Heading
     sentences: list[Sentence] = field(default_factory=list)
-    heading_translation: str = ''
+    heading_translation: str = ""
 
 
 @dataclass
 class VaggaSection:
     """A major section (vagga/chapter) containing verses."""
+
     heading: Heading
     verses: list[VerseSection] = field(default_factory=list)
-    heading_translation: str = ''
+    heading_translation: str = ""
 
 
 @dataclass
 class Book:
     """Complete book data ready for export."""
+
     book_id: str
-    book_name: str           # Pāli name from DB
-    english_name: str        # derived English name
-    description: str         # from books.description column
+    book_name: str  # Pāli name from DB
+    english_name: str  # derived English name
+    description: str  # from books.description column
     category: str
     nikaya: str
     sub_nikaya: str
-    lang_code: str           # translation language code
-    lang_name: str           # e.g. "English"
-    script: str = 'ro'       # Pāli destination script
-    vri_id: str = ''         # VRI identifier (e.g. "s0502m.mul")
-    attha_ref: str = ''      # Aṭṭhakathā reference (e.g. "Dhp-a")
-    tika_ref: str = ''       # Ṭīkā reference
+    lang_code: str  # translation language code
+    lang_name: str  # e.g. "English"
+    script: str = "ro"  # Pāli destination script
+    vri_id: str = ""  # VRI identifier (e.g. "s0502m.mul")
+    attha_ref: str = ""  # Aṭṭhakathā reference (e.g. "Dhp-a")
+    tika_ref: str = ""  # Ṭīkā reference
     vagga_sections: list[VaggaSection] = field(default_factory=list)
-    intro_sentences: list[Sentence] = field(default_factory=list)  # before first heading
+    intro_sentences: list[Sentence] = field(
+        default_factory=list
+    )  # before first heading
     total_sentences: int = 0
 
 
@@ -115,16 +153,22 @@ class Book:
 # restore them after.
 
 _TAG_PLACEHOLDERS = {
-    '<b>': '\ue001', '</b>': '\ue002',
-    '<i>': '\ue003', '</i>': '\ue004',
-    '<sup>': '\ue005', '</sup>': '\ue006',
-    '<sub>': '\ue007', '</sub>': '\ue008',
-    '<br>': '\ue009', '<br/>': '\ue00a', '<br />': '\ue00a',
+    "<b>": "\ue001",
+    "</b>": "\ue002",
+    "<i>": "\ue003",
+    "</i>": "\ue004",
+    "<sup>": "\ue005",
+    "</sup>": "\ue006",
+    "<sub>": "\ue007",
+    "</sub>": "\ue008",
+    "<br>": "\ue009",
+    "<br/>": "\ue00a",
+    "<br />": "\ue00a",
 }
 _TAG_RESTORE = {v: k for k, v in _TAG_PLACEHOLDERS.items()}
 
 # Regex to match any HTML tag not in the placeholder map
-_HTML_TAG_RE = re.compile(r'<[^>]+>')
+_HTML_TAG_RE = re.compile(r"<[^>]+>")
 
 
 def _protect_tags(text: str) -> str:
@@ -132,7 +176,7 @@ def _protect_tags(text: str) -> str:
     for tag, ph in _TAG_PLACEHOLDERS.items():
         text = text.replace(tag, ph)
     # Handle any remaining HTML tags (case-insensitive variants, attributes)
-    text = _HTML_TAG_RE.sub('\ue00f', text)
+    text = _HTML_TAG_RE.sub("\ue00f", text)
     return text
 
 
@@ -141,13 +185,13 @@ def _restore_tags(text: str) -> str:
     for ph, tag in _TAG_RESTORE.items():
         text = text.replace(ph, tag)
     # Remove any remaining unknown-tag placeholders
-    text = text.replace('\ue00f', '')
+    text = text.replace("\ue00f", "")
     return text
 
 
 # Cache the Node.js converter path
 _CONVERTER_SCRIPT = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), 'convert_pali.mjs'
+    os.path.dirname(os.path.abspath(__file__)), "convert_pali.mjs"
 )
 _node_path = None  # resolved lazily
 
@@ -157,13 +201,13 @@ def _find_node() -> str:
     global _node_path
     if _node_path:
         return _node_path
-    for candidate in ('node', 'nodejs'):
+    for candidate in ("node", "nodejs"):
         path = shutil.which(candidate)
         if path:
             _node_path = path
             return path
     raise FileNotFoundError(
-        'Node.js is required for Pāli script conversion. '
+        "Node.js is required for Pāli script conversion. "
         'Install Node.js or set the PATH so "node" is available.'
     )
 
@@ -174,14 +218,14 @@ def batch_convert_pali(texts: list[str], script: str) -> list[str]:
     Uses the web app's pali-script.js via Node.js subprocess for
     identical transliteration.  Preserves HTML tags across conversion.
     """
-    if not texts or script == 'ro':
+    if not texts or script == "ro":
         return texts
 
     node = _find_node()
 
     # Protect HTML tags, then send plain text lines to the converter
     protected = [_protect_tags(t) for t in texts]
-    input_data = '\n'.join(protected) + '\n'
+    input_data = "\n".join(protected) + "\n"
 
     result = subprocess.run(
         [node, _CONVERTER_SCRIPT, script],
@@ -193,14 +237,16 @@ def batch_convert_pali(texts: list[str], script: str) -> list[str]:
 
     if result.returncode != 0:
         # Log warning and fall back to unconverted text
-        print(f'  ⚠️  Node.js converter failed (script={script}): {result.stderr.strip()[:200]}')
+        print(
+            f"  ⚠️  Node.js converter failed (script={script}): {result.stderr.strip()[:200]}"
+        )
         return texts
 
-    output_lines = result.stdout.split('\n')
+    output_lines = result.stdout.split("\n")
     # The output may have one fewer or one more line; pad as needed
     while len(output_lines) < len(texts):
-        output_lines.append('')
-    output_lines = output_lines[:len(texts)]
+        output_lines.append("")
+    output_lines = output_lines[: len(texts)]
 
     return [_restore_tags(line) for line in output_lines]
 
@@ -210,26 +256,79 @@ def convert_pali_script(text: str, script: str) -> str:
 
     Convenience wrapper around batch_convert_pali for single texts.
     """
-    if not text or script == 'ro':
-        return text or ''
+    if not text or script == "ro":
+        return text or ""
     return batch_convert_pali([text], script)[0]
 
 
 def _strip_html(text: str) -> str:
     """Convert stored HTML to readable plain text."""
     if not text:
-        return ''
-    text = re.sub(r'<\s*br\s*/?\s*>', '\n', text, flags=re.I)
-    text = re.sub(r'</?p\b[^>]*>', '\n', text, flags=re.I)
-    text = re.sub(r'<[^>]+>', '', text)
-    return re.sub(r'\s*\n\s*', '\n', text).strip()
+        return ""
+    text = re.sub(r"<\s*br\s*/?\s*>", "\n", text, flags=re.I)
+    text = re.sub(r"</?p\b[^>]*>", "\n", text, flags=re.I)
+    text = re.sub(r"<[^>]+>", "", text)
+    return re.sub(r"\s*\n\s*", "\n", text).strip()
+
+
+# Bracketed insertions in Pāli text — variant readings of the preceding
+# word (e.g. "[komamaṃ (ka.)]") as well as editorial cross-references
+# (e.g. "[saṃ. ni.1.249]").  Rendered as footnotes, never inline.
+_VARIANT_RE = re.compile(r"\[([^\[\]]+)\]")
+
+
+def tokenize_pali_variants(pali: str) -> list[tuple[str, str]]:
+    """Split Pāli text into ('text', str) / ('note', variant) tokens.
+
+    One adjacent space before each "[...]" is absorbed so the footnote
+    marker attaches to the preceding word: "imaṃ [x] pathaviṃ" →
+    text("imaṃ") note("x") text(" pathaviṃ").
+    """
+    tokens: list[tuple[str, str]] = []
+    pos = 0
+    for m in _VARIANT_RE.finditer(pali or ""):
+        before = (pali or "")[pos : m.start()]
+        if before:
+            if tokens and tokens[-1][0] == "text":
+                tokens[-1] = ("text", tokens[-1][1] + before)
+            else:
+                tokens.append(("text", before))
+        if tokens and tokens[-1][0] == "text":
+            tokens[-1] = ("text", tokens[-1][1].rstrip(" \t"))
+        note = m.group(1).strip()
+        if note:
+            tokens.append(("note", note))
+        pos = m.end()
+    after = (pali or "")[pos:]
+    if after:
+        if tokens and tokens[-1][0] == "text":
+            tokens[-1] = ("text", tokens[-1][1] + after)
+        else:
+            tokens.append(("text", after))
+    return tokens
+
+
+def clean_variant_note(note: str) -> str:
+    """Plain-text footnote body for a variant token."""
+    return re.sub(r"\s+", " ", _strip_html(note)).strip()
+
+
+class VariantCounter:
+    """Global footnote numbering for one book export (encounter order)."""
+
+    def __init__(self):
+        self.n = 0
+
+    def take(self) -> int:
+        self.n += 1
+        return self.n
 
 
 def load_book(
     book_id: str,
-    lang_code: str = '',
-    script: str = 'ro',
-    data_dir: str = '',
+    lang_code: str = "",
+    script: str = "ro",
+    data_dir: str = "",
 ) -> Book | None:
     """
     Load a single book with its Pāli text and optional translation.
@@ -240,36 +339,36 @@ def load_book(
       - verses: sub-sections (level 10 headings) under each vagga
     """
     if not data_dir:
-        data_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
+        data_dir = os.path.join(os.path.dirname(__file__), "..", "..", "data")
     data_dir = os.path.abspath(data_dir)
 
-    pali_db = os.path.join(data_dir, 'epitaka.db')
+    pali_db = os.path.join(data_dir, "epitaka.db")
     if not os.path.isfile(pali_db):
-        raise FileNotFoundError(f'Pāli database not found: {pali_db}')
+        raise FileNotFoundError(f"Pāli database not found: {pali_db}")
 
     # ── Load book metadata ────────────────────────────────────────────
     with sqlite3.connect(pali_db) as conn:
         conn.row_factory = sqlite3.Row
         row = conn.execute(
-            'SELECT * FROM books WHERE book_id = ?', (book_id,)
+            "SELECT * FROM books WHERE book_id = ?", (book_id,)
         ).fetchone()
         if not row:
             return None
 
         book = Book(
-            book_id=row['book_id'],
-            book_name=row['book_name'] or book_id,
-            english_name=_resolve_english_name(book_id, row['book_name']),
-            description=row['description'] or '',
-            category=row['category'] or '',
-            nikaya=row['nikaya'] or '',
-            sub_nikaya=row['sub_nikaya'] or '',
+            book_id=row["book_id"],
+            book_name=row["book_name"] or book_id,
+            english_name=_resolve_english_name(book_id, row["book_name"]),
+            description=row["description"] or "",
+            category=row["category"] or "",
+            nikaya=row["nikaya"] or "",
+            sub_nikaya=row["sub_nikaya"] or "",
             lang_code=lang_code,
             lang_name=_lang_display(lang_code),
-            script=script or 'ro',
-            vri_id=row['vri_id'] or '',
-            attha_ref=row['attha_ref'] or '',
-            tika_ref=row['tika_ref'] or '',
+            script=script or "ro",
+            vri_id=row["vri_id"] or "",
+            attha_ref=row["attha_ref"] or "",
+            tika_ref=row["tika_ref"] or "",
         )
 
     # ── Load headings ─────────────────────────────────────────────────
@@ -283,7 +382,7 @@ def load_book(
     translations = {}
     heading_translations = {}
     if lang_code:
-        trans_db = os.path.join(data_dir, f'epitaka_{lang_code}.db')
+        trans_db = os.path.join(data_dir, f"epitaka_{lang_code}.db")
         if os.path.isfile(trans_db):
             translations = _load_translations(trans_db, book_id)
             heading_translations = _load_heading_translations(trans_db, book_id)
@@ -293,11 +392,13 @@ def load_book(
     raw_headings = [h.title for h in headings]
     all_raw = raw_texts + raw_headings
 
-    if script != 'ro' and all_raw:
-        print(f'  🔄 Converting {len(all_raw)} text segments to script "{script}" via pali-script.js …')
+    if script != "ro" and all_raw:
+        print(
+            f'  🔄 Converting {len(all_raw)} text segments to script "{script}" via pali-script.js …'
+        )
         converted = batch_convert_pali(all_raw, script)
-        converted_texts = converted[:len(raw_texts)]
-        converted_headings = converted[len(raw_texts):]
+        converted_texts = converted[: len(raw_texts)]
+        converted_headings = converted[len(raw_texts) :]
     else:
         converted_texts = raw_texts
         converted_headings = raw_headings
@@ -308,7 +409,7 @@ def load_book(
 
     # Also convert book_name so the intro heading renders correctly
     # in the target script (e.g. Sinhala).
-    if script != 'ro' and book.book_name:
+    if script != "ro" and book.book_name:
         book.book_name = batch_convert_pali([book.book_name], script)[0]
 
     # ── Group sentences by para_id ────────────────────────────────────
@@ -317,15 +418,17 @@ def load_book(
         key = s.para_id
         if key not in para_sentences:
             para_sentences[key] = []
-        t = translations.get((s.para_id, s.line_id), '')
-        para_sentences[key].append(Sentence(
-            book_id=s.book_id,
-            para_id=s.para_id,
-            line_id=s.line_id,
-            pali=converted_pali,
-            translation=t,
-            vripage=s.vripage.split('.')[-1] if s.vripage else None,
-        ))
+        t = translations.get((s.para_id, s.line_id), "")
+        para_sentences[key].append(
+            Sentence(
+                book_id=s.book_id,
+                para_id=s.para_id,
+                line_id=s.line_id,
+                pali=converted_pali,
+                translation=t,
+                vripage=s.vripage.split(".")[-1] if s.vripage else None,
+            )
+        )
 
     # ── Build hierarchical sections ───────────────────────────────────
     if not headings:
@@ -350,7 +453,7 @@ def load_book(
 
     heading_para_ids = {h.para_id for h in headings}
     for h in headings:
-        ht = heading_translations.get(h.para_id, '')
+        ht = heading_translations.get(h.para_id, "")
         if h.level <= 2:
             current_vagga = VaggaSection(heading=h, heading_translation=ht)
             book.vagga_sections.append(current_vagga)
@@ -362,10 +465,13 @@ def load_book(
                 # Verse before any vagga — create a wrapper vagga
                 current_vagga = VaggaSection(
                     heading=Heading(
-                        book_id=book_id, para_id=h.para_id,
-                        level=2, title='', chapter_len=0,
+                        book_id=book_id,
+                        para_id=h.para_id,
+                        level=2,
+                        title="",
+                        chapter_len=0,
                     ),
-                    heading_translation='',
+                    heading_translation="",
                 )
                 current_vagga.verses.append(verse)
                 book.vagga_sections.append(current_vagga)
@@ -413,8 +519,11 @@ def load_book(
                 # Create a pseudo-verse for intro content
                 intro_verse = VerseSection(
                     heading=Heading(
-                        book_id=book_id, para_id=para_id,
-                        level=10, title='', chapter_len=0,
+                        book_id=book_id,
+                        para_id=para_id,
+                        level=10,
+                        title="",
+                        chapter_len=0,
                     ),
                 )
                 intro_verse.sentences.extend(sents)
@@ -432,19 +541,19 @@ def load_book(
 
 
 def load_all_books(
-    lang_code: str = '',
-    script: str = 'ro',
-    data_dir: str = '',
+    lang_code: str = "",
+    script: str = "ro",
+    data_dir: str = "",
     mula_only: bool = True,
 ) -> list[Book]:
     """Load all books from the database."""
     if not data_dir:
-        data_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
+        data_dir = os.path.join(os.path.dirname(__file__), "..", "..", "data")
     data_dir = os.path.abspath(data_dir)
 
-    pali_db = os.path.join(data_dir, 'epitaka.db')
+    pali_db = os.path.join(data_dir, "epitaka.db")
     if not os.path.isfile(pali_db):
-        raise FileNotFoundError(f'Pāli database not found: {pali_db}')
+        raise FileNotFoundError(f"Pāli database not found: {pali_db}")
 
     with sqlite3.connect(pali_db) as conn:
         conn.row_factory = sqlite3.Row
@@ -453,45 +562,62 @@ def load_all_books(
                 "SELECT book_id FROM books WHERE category = 'Mūla' ORDER BY id"
             ).fetchall()
         else:
-            rows = conn.execute(
-                'SELECT book_id FROM books ORDER BY id'
-            ).fetchall()
+            rows = conn.execute("SELECT book_id FROM books ORDER BY id").fetchall()
 
     books = []
     for row in rows:
-        book = load_book(row['book_id'], lang_code=lang_code, script=script, data_dir=data_dir)
+        book = load_book(
+            row["book_id"], lang_code=lang_code, script=script, data_dir=data_dir
+        )
         if book:
             books.append(book)
     return books
 
 
-def list_available_languages(data_dir: str = '') -> list[dict]:
+def list_available_languages(data_dir: str = "") -> list[dict]:
     """List all available translation languages."""
     if not data_dir:
-        data_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
+        data_dir = os.path.join(os.path.dirname(__file__), "..", "..", "data")
     data_dir = os.path.abspath(data_dir)
 
     langs = []
     for f in sorted(os.listdir(data_dir)):
-        m = re.match(r'epitaka_(\w+)\.db$', f)
+        m = re.match(r"epitaka_(\w+)\.db$", f)
         if m:
             code = m.group(1)
-            langs.append({
-                'code': code,
-                'name': _lang_display(code),
-                'filename': f,
-            })
+            langs.append(
+                {
+                    "code": code,
+                    "name": _lang_display(code),
+                    "filename": f,
+                }
+            )
     return langs
 
 
 # ── Private helpers ─────────────────────────────────────────────────────
 
 _LANG_NAMES = {
-    'en': 'English', 'vi': 'Vietnamese', 'th': 'Thai', 'si': 'Sinhala',
-    'ta': 'Tamil', 'my': 'Myanmar', 'lo': 'Lao', 'km': 'Khmer',
-    'pt': 'Portuguese', 'de': 'German', 'fr': 'French', 'es': 'Spanish',
-    'zh': 'Chinese', 'ja': 'Japanese', 'ko': 'Korean', 'hi': 'Hindi',
-    'ne': 'Nepali', 'bn': 'Bengali', 'id': 'Indonesian', 'ru': 'Russian',
+    "en": "English",
+    "vi": "Vietnamese",
+    "th": "Thai",
+    "si": "Sinhala",
+    "ta": "Tamil",
+    "my": "Myanmar",
+    "lo": "Lao",
+    "km": "Khmer",
+    "pt": "Portuguese",
+    "de": "German",
+    "fr": "French",
+    "es": "Spanish",
+    "zh": "Chinese",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "hi": "Hindi",
+    "ne": "Nepali",
+    "bn": "Bengali",
+    "id": "Indonesian",
+    "ru": "Russian",
 }
 
 
@@ -503,7 +629,7 @@ def _resolve_english_name(book_id: str, pali_name: str) -> str:
     if book_id in BOOK_NAMES_EN:
         return BOOK_NAMES_EN[book_id]
     # Try parent book (e.g., D-i → D)
-    parent = book_id.split('-')[0]
+    parent = book_id.split("-")[0]
     if parent in BOOK_NAMES_EN:
         return BOOK_NAMES_EN[parent]
     return pali_name or book_id
@@ -514,19 +640,21 @@ def _load_headings(db_path: str, book_id: str) -> list[Heading]:
     with sqlite3.connect(db_path) as conn:
         conn.row_factory = sqlite3.Row
         rows = conn.execute(
-            'SELECT * FROM headings WHERE book_id = ? ORDER BY para_id',
+            "SELECT * FROM headings WHERE book_id = ? ORDER BY para_id",
             (book_id,),
         ).fetchall()
         for r in rows:
-            headings.append(Heading(
-                book_id=r['book_id'],
-                para_id=r['para_id'],
-                level=r['level'],
-                title=r['title'] or '',
-                chapter_len=r['chapter_len'] or 0,
-                parent=r['parent'] or -1,
-                sc_id=r['sc_id'] or '',
-            ))
+            headings.append(
+                Heading(
+                    book_id=r["book_id"],
+                    para_id=r["para_id"],
+                    level=r["level"],
+                    title=r["title"] or "",
+                    chapter_len=r["chapter_len"] or 0,
+                    parent=r["parent"] or -1,
+                    sc_id=r["sc_id"] or "",
+                )
+            )
     return headings
 
 
@@ -535,17 +663,19 @@ def _load_pali_sentences(db_path: str, book_id: str) -> list[Sentence]:
     with sqlite3.connect(db_path) as conn:
         conn.row_factory = sqlite3.Row
         rows = conn.execute(
-            'SELECT * FROM sentences WHERE book_id = ? ORDER BY para_id, line_id',
+            "SELECT * FROM sentences WHERE book_id = ? ORDER BY para_id, line_id",
             (book_id,),
         ).fetchall()
         for r in rows:
-            sentences.append(Sentence(
-                book_id=r['book_id'],
-                para_id=r['para_id'],
-                line_id=r['line_id'],
-                pali=r['pali'] or '',
-                vripage=r['vripage'] if 'vripage' in r.keys() else '',
-            ))
+            sentences.append(
+                Sentence(
+                    book_id=r["book_id"],
+                    para_id=r["para_id"],
+                    line_id=r["line_id"],
+                    pali=r["pali"] or "",
+                    vripage=r["vripage"] if "vripage" in r.keys() else "",
+                )
+            )
     return sentences
 
 
@@ -555,12 +685,12 @@ def _load_translations(db_path: str, book_id: str) -> dict:
     with sqlite3.connect(db_path) as conn:
         conn.row_factory = sqlite3.Row
         rows = conn.execute(
-            'SELECT * FROM sentences WHERE book_id = ? ORDER BY para_id, line_id',
+            "SELECT * FROM sentences WHERE book_id = ? ORDER BY para_id, line_id",
             (book_id,),
         ).fetchall()
         for r in rows:
-            key = (r['para_id'], r['line_id'])
-            translations[key] = r['translation'] or ''
+            key = (r["para_id"], r["line_id"])
+            translations[key] = r["translation"] or ""
     return translations
 
 
@@ -575,22 +705,26 @@ def _load_heading_translations(db_path: str, book_id: str) -> dict:
     with sqlite3.connect(db_path) as conn:
         conn.row_factory = sqlite3.Row
         # Try summaries table (translation DBs)
-        tables = [r[0] for r in conn.execute(
-            "SELECT name FROM sqlite_master WHERE type='table'").fetchall()]
-        if 'summaries' in tables:
+        tables = [
+            r[0]
+            for r in conn.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'"
+            ).fetchall()
+        ]
+        if "summaries" in tables:
             rows = conn.execute(
-                'SELECT para_start, title FROM summaries '
+                "SELECT para_start, title FROM summaries "
                 'WHERE book_id = ? AND title != ""',
                 (book_id,),
             ).fetchall()
             for r in rows:
-                ht[r['para_start']] = r['title'] or ''
-        elif 'headings' in tables:
+                ht[r["para_start"]] = r["title"] or ""
+        elif "headings" in tables:
             rows = conn.execute(
-                'SELECT para_id, heading_translation FROM headings '
+                "SELECT para_id, heading_translation FROM headings "
                 'WHERE book_id = ? AND heading_translation != ""',
                 (book_id,),
             ).fetchall()
             for r in rows:
-                ht[r['para_id']] = r['heading_translation'] or ''
+                ht[r["para_id"]] = r["heading_translation"] or ""
     return ht
