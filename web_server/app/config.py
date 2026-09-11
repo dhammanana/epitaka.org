@@ -37,7 +37,6 @@ class Config:
     DPD_IPA = False
 
     FIREBASE_CONFIG = {
-      "apiKey":            "AIzaSyBzh0o8SV-6I5meJkWgH_3ic-f8vpSMzyQ",
       "authDomain":        "epitaka-org.firebaseapp.com",
       "projectId":         "epitaka-org",
       "storageBucket":     "epitaka-org.firebasestorage.app",
