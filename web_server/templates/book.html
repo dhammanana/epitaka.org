@@ -81,8 +81,7 @@
           <a href="{{ base_url }}/{{ alt_lang.code }}/book/{{ book_id }}"
              class="lang-dropdown__item {% if alt_lang.code == lang %}selected{% endif %}"
              role="menuitem">
-            {{ alt_lang.native_name }}
-            <small>{{ alt_lang.english_name }}</small>
+            {{ alt_lang.english_name }} <small>({{ alt_lang.native_name }})</small>
           </a>
         </li>
         {% endfor %}

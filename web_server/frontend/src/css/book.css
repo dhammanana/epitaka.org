@@ -235,10 +235,12 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 }
 .lang-dropdown__item:hover { background: var(--accent-light); }
 .lang-dropdown__item small {
-  display: block;
+  display: inline;
   font-size: 0.72rem;
   color: var(--muted);
-  margin-top: 0.05rem;
+  margin-top: 0;
+  margin-left: 0.15rem;
+  white-space: nowrap;
 }
 .lang-dropdown__item.selected {
   font-weight: 600;

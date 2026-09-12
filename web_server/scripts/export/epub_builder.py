@@ -4,6 +4,7 @@ epub_builder.py — Generate EPUB 3 files from Book data.
 Uses ebooklib to create a standards-compliant EPUB 3 with:
 - Proper metadata
 - Hierarchical TOC (vaggas with verse sub-items)
+- Visible Contents chapter mirroring the nav TOC (Pāli + translation, one link)
 - CSS styling for bilingual reading with script-appropriate fonts
 - Cover image
 - VRI page markers
@@ -121,6 +122,8 @@ def build_epub(book: Book, output_path: str, cover_bytes: bytes = b"") -> str:
         ch_idx += 1
 
     toc_items = []
+    vagga_infos: list = []  # (fname, title, trans, [(href, vtitle, vtrans)])
+    intro_href = "chap_intro.xhtml" if book.intro_sentences else ""
     for vagga in book.vagga_sections:
         chap_notes = []
         ch, verse_links = _vagga_chapter(
@@ -132,14 +135,33 @@ def build_epub(book: Book, output_path: str, cover_bytes: bytes = b"") -> str:
             toc_items.append((ch, verse_links))
         else:
             toc_items.append(ch)
+        vagga_infos.append(
+            (
+                ch.file_name,
+                ch.title,
+                vagga.heading_translation,
+                [
+                    (v.href, v.title, verse.heading_translation)
+                    for v, verse in zip(verse_links, vagga.verses)
+                ],
+            )
+        )
         ch_idx += 1
+
+    # ── Visible Contents chapter (mirrors the nav TOC below) ──────────
+    toc_ch = _toc_chapter(book, lang, css, intro_href, vagga_infos)
+    toc_ch.id = "chap_toc"
+    ebook.add_item(toc_ch)
 
     # ── Table of contents ─────────────────────────────────────────────
     # ebooklib expects TOC entries as:
     #   - epub.Link (flat entry)
     #   - epub.EpubHtml (flat entry)
     #   - tuple (section_link, [child_links]) for nested entries
-    ebook.toc = [epub.Link("chap_title.xhtml", "Title Page", "title")]
+    ebook.toc = [
+        epub.Link("chap_title.xhtml", "Title Page", "title"),
+        epub.Link("chap_toc.xhtml", "Contents", "toc"),
+    ]
     for item in toc_items:
         if isinstance(item, tuple):
             ch, verse_links = item
@@ -152,7 +174,7 @@ def build_epub(book: Book, output_path: str, cover_bytes: bytes = b"") -> str:
             ebook.toc.append(epub.Link(item.file_name, item.title[:80], ch_id))
 
     # ── Spine ─────────────────────────────────────────────────────────
-    spine_items = ["nav", title_ch]
+    spine_items = ["nav", title_ch, toc_ch]
     spine_items.extend(chapters)
     ebook.spine = spine_items
 
@@ -185,6 +207,40 @@ def _title_page(book, lang, css):
     parts.append("</div>")
     ch = epub.EpubHtml(title=title, file_name="chap_title.xhtml", lang=lang)
     ch.content = "\n".join(parts)
+    ch.add_item(css)
+    return ch
+
+
+def _toc_chapter(book, lang, css, intro_href, vagga_infos):
+    """Visible Contents chapter: Pāli line + translation line, one link each."""
+    body = ['<div class="toc-page">']
+    body.append('<h2 class="toc-title">Table of Contents</h2>')
+    body.append('<div class="title-divider"></div>')
+    if intro_href:
+        body.append(
+            '<div class="toc-entry"><a href="chap_intro.xhtml">'
+            f'<span class="toc-pali">{_h(book.book_name or "Introduction")}</span>'
+            "</a></div>"
+        )
+    for fname, title, trans, verses in vagga_infos:
+        body.append(
+            f'<div class="toc-entry"><a href="{fname}">'
+            f'<span class="toc-pali">{_h(title)}</span>'
+        )
+        if trans:
+            body.append(f'<br/><span class="toc-trans">{trans}</span>')
+        body.append("</a></div>")
+        for href, vtitle, vtrans in verses:
+            body.append(
+                '<div class="toc-entry toc-verse">'
+                f'<a href="{href}"><span class="toc-pali">{_h(vtitle)}</span>'
+            )
+            if vtrans:
+                body.append(f'<br/><span class="toc-trans">{vtrans}</span>')
+            body.append("</a></div>")
+    body.append("</div>")
+    ch = epub.EpubHtml(title="Contents", file_name="chap_toc.xhtml", lang=lang)
+    ch.content = "\n".join(body)
     ch.add_item(css)
     return ch
 
@@ -223,7 +279,7 @@ def _vagga_chapter(vagga, book, lang, css, idx, vcounter, chap_notes):
         for s in verse.sentences:
             body.append(_sentence_html(s, vcounter, chap_notes, f"c{idx}"))
         body.append("</div>")
-        verse_link = epub.Link(fname, vtitle, vid)
+        verse_link = epub.Link(f"{fname}#{vid}", vtitle, vid)
         verse_links.append(verse_link)
 
     body.append(_footnotes_html(chap_notes, f"c{idx}"))
@@ -414,6 +470,31 @@ body {{
 .book-description {{ font-size: 0.85em; color: #6b7280; font-style: italic; margin: 1em 2em; line-height: 1.5; }}
 .title-divider {{ width: 40%; margin: 2em auto; border-top: 2px solid #d4a97a; }}
 .book-publisher, .book-source {{ font-size: 0.9em; color: #8a7a6e; margin-top: 1em; }}
+
+/* ── Visible Contents chapter ──────────────────────────────────── */
+.toc-page {{ text-align: center; }}
+.toc-title {{
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: center;
+  color: #8b5e3c;
+  margin: 1em 0 0.4em;
+}}
+.toc-entry {{ text-align: center; margin: 0.9em 0; }}
+.toc-entry a {{ text-decoration: none; }}
+.toc-pali {{
+  font-family: '{pali_font}', 'roman', 'Noto Sans', Verdana, sans-serif;
+  font-weight: bold;
+  color: #8b5e3c;
+  font-size: 1.05em;
+}}
+.toc-verse .toc-pali {{ font-size: 0.95em; }}
+.toc-trans {{
+  font-family: '{trans_font}', 'roman', 'Noto Sans', Verdana, sans-serif;
+  font-style: italic;
+  color: #1e3a5f;
+  font-size: 0.9em;
+}}
 
 /* ── Headings ──────────────────────────────────────────────────── */
 .section-heading {{

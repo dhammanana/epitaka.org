@@ -62,18 +62,25 @@ def build_markdown(book: Book, output_path: str) -> str:
     lines.append("---")
     lines.append("")
 
-    # ── TOC ───────────────────────────────────────────────────────────
-    lines.append("## Table of Contents")
+    # ── TOC (Pāli line + translation line, one link each) ─────────────
+    lines.append('<h2 align="center">Table of Contents</h2>')
     lines.append("")
-    for vagga in book.vagga_sections:
+    if book.intro_sentences:
+        lines.append(f"- [**{_esc_md(_strip_html(book.book_name))}**](#toc-intro)")
+    for vi, vagga in enumerate(book.vagga_sections):
         h = vagga.heading
         title = h.title or f"Section {h.para_id}"
-        lines.append(f"- **{_esc_md(title)}**")
-        for verse in vagga.verses:
+        lines.append(
+            f"- [{_toc_link_text(title, vagga.heading_translation)}](#toc-vagga-{vi})"
+        )
+        for vidx, verse in enumerate(vagga.verses):
             vh = verse.heading
             vtitle = vh.title or f"Section {vh.para_id}"
             if vh.para_id != h.para_id:
-                lines.append(f"  - {_esc_md(vtitle)}")
+                lines.append(
+                    f"  - [{_toc_link_text(vtitle, verse.heading_translation)}]"
+                    f"(#toc-verse-{vi}-{vidx})"
+                )
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -82,26 +89,33 @@ def build_markdown(book: Book, output_path: str) -> str:
     vcounter = VariantCounter()
     notes: list[tuple[int, str]] = []
     if book.intro_sentences:
-        lines.append(f'<h2 align="center">{_esc_html(book.book_name)}</h2>')
+        lines.append(
+            f'<h2 align="center"><a id="toc-intro"></a>{_esc_html(book.book_name)}</h2>'
+        )
         lines.append("")
         for s in book.intro_sentences:
             _add_md_sent(lines, s, vcounter, notes)
 
     # ── Body ──────────────────────────────────────────────────────────
-    for vagga in book.vagga_sections:
+    for vi, vagga in enumerate(book.vagga_sections):
         h = vagga.heading
         title = h.title or f"Section {h.para_id}"
-        lines.append(f'<h2 align="center">{_esc_html(title)}</h2>')
+        lines.append(
+            f'<h2 align="center"><a id="toc-vagga-{vi}"></a>{_esc_html(title)}</h2>'
+        )
         lines.append("")
         if vagga.heading_translation:
             lines.append(f"*{_esc_md(vagga.heading_translation)}*")
             lines.append("")
 
-        for verse in vagga.verses:
+        for vidx, verse in enumerate(vagga.verses):
             vh = verse.heading
             vtitle = vh.title or f"Section {vh.para_id}"
             if vh.para_id != h.para_id:
-                lines.append(f'<h3 align="center">{_esc_html(vtitle)}</h3>')
+                lines.append(
+                    f'<h3 align="center"><a id="toc-verse-{vi}-{vidx}"></a>'
+                    f"{_esc_html(vtitle)}</h3>"
+                )
                 lines.append("")
             if verse.heading_translation:
                 lines.append(f"*{_esc_md(verse.heading_translation)}*")
@@ -156,6 +170,14 @@ def _md_title(book):
     if en and bn and en.lower() != bn.lower():
         return f"{en} ({bn})"
     return en or bn
+
+
+def _toc_link_text(pali, trans):
+    """Bilingual link text: bold Pāli, then italic translation on a new line."""
+    text = f"**{_esc_md(_strip_html(pali))}**"
+    if (trans or "").strip():
+        text += f"<br/>*{_esc_md(_strip_html(trans))}*"
+    return text
 
 
 def _esc_md(text):

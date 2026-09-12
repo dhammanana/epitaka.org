@@ -14,7 +14,7 @@ from docx import Document
 from docx.shared import Pt, Cm, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn, nsdecls
-from docx.oxml import parse_xml
+from docx.oxml import OxmlElement, parse_xml
 
 from .data_loader import (
     Book,
@@ -156,23 +156,42 @@ def build_docx(book: Book, output_path: str) -> str:
     r.font.color.rgb = MUTED
     doc.add_page_break()
 
-    doc.add_heading("Table of Contents", level=1)
-    p = doc.add_paragraph()
-    run = p.add_run()
-    run._r.append(parse_xml(f'<w:fldChar {nsdecls("w")} w:fldCharType="begin"/>'))
-    run = p.add_run()
-    run._r.append(
-        parse_xml(
-            f'<w:instrText {nsdecls("w")} xml:space="preserve"> TOC \\o "1-3" \\h \\z \\u </w:instrText>'
+    toc_title = doc.add_heading("Table of Contents", level=1)
+    toc_title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    if book.intro_sentences:
+        _add_toc_entry(
+            doc,
+            "toc-intro",
+            _strip_basic(book.book_name),
+            "",
+            pali_font_name,
+            trans_font_name,
+            level=0,
         )
-    )
-    run = p.add_run()
-    run._r.append(parse_xml(f'<w:fldChar {nsdecls("w")} w:fldCharType="separate"/>'))
-    run = p.add_run("[Update field in Word: right-click → Update Field]")
-    run.font.color.rgb = MUTED
-    run.font.size = Pt(9)
-    run = p.add_run()
-    run._r.append(parse_xml(f'<w:fldChar {nsdecls("w")} w:fldCharType="end"/>'))
+    for vi, vagga in enumerate(book.vagga_sections):
+        h = vagga.heading
+        _add_toc_entry(
+            doc,
+            f"toc-vagga-{vi}",
+            _strip_basic(h.title or f"Section {h.para_id}"),
+            _strip_basic(vagga.heading_translation),
+            pali_font_name,
+            trans_font_name,
+            level=0,
+        )
+        for vidx, verse in enumerate(vagga.verses):
+            vh = verse.heading
+            if vh.para_id == h.para_id:
+                continue
+            _add_toc_entry(
+                doc,
+                f"toc-verse-{vi}-{vidx}",
+                _strip_basic(vh.title or f"Section {vh.para_id}"),
+                _strip_basic(verse.heading_translation),
+                pali_font_name,
+                trans_font_name,
+                level=1,
+            )
     doc.add_page_break()
 
     if book.intro_sentences:
@@ -180,10 +199,11 @@ def build_docx(book: Book, output_path: str) -> str:
         heading.alignment = WD_ALIGN_PARAGRAPH.CENTER
         for run in heading.runs:
             _apply_run_font(run, pali_font_name)
+        _add_bookmark(heading, "toc-intro")
         for s in book.intro_sentences:
             _add_docx_sent(doc, s, pali_font_name, vcounter, trans_font_name)
 
-    for vagga in book.vagga_sections:
+    for vi, vagga in enumerate(book.vagga_sections):
         h = vagga.heading
         title = h.title or f"Section {h.para_id}"
         heading = doc.add_heading(title, level=1)
@@ -191,11 +211,12 @@ def build_docx(book: Book, output_path: str) -> str:
         for run in heading.runs:
             run.font.color.rgb = ACCENT
             _apply_run_font(run, pali_font_name)
+        _add_bookmark(heading, f"toc-vagga-{vi}")
         if vagga.heading_translation:
             _add_translation_heading(
                 doc, vagga.heading_translation, 10, trans_font_name
             )
-        for verse in vagga.verses:
+        for vidx, verse in enumerate(vagga.verses):
             vh = verse.heading
             vtitle = vh.title or f"Section {vh.para_id}"
             if vh.para_id != h.para_id:
@@ -204,6 +225,7 @@ def build_docx(book: Book, output_path: str) -> str:
                 for run in heading.runs:
                     run.font.color.rgb = ACCENT
                     _apply_run_font(run, pali_font_name)
+                _add_bookmark(heading, f"toc-verse-{vi}-{vidx}")
             if verse.heading_translation:
                 _add_translation_heading(
                     doc, verse.heading_translation, 9, trans_font_name
@@ -226,6 +248,50 @@ def build_docx(book: Book, output_path: str) -> str:
     # Embed fonts after saving (need the file on disk)
     _embed_fonts_in_docx(output_path, fonts_to_embed)
     return output_path
+
+
+_BOOKMARK_ID = [100]
+
+
+def _add_bookmark(paragraph, name: str) -> None:
+    """Wrap a heading paragraph in a bookmark so TOC hyperlinks can target it."""
+    _BOOKMARK_ID[0] += 1
+    bid = str(_BOOKMARK_ID[0])
+    start = OxmlElement("w:bookmarkStart")
+    start.set(qn("w:id"), bid)
+    start.set(qn("w:name"), name)
+    end = OxmlElement("w:bookmarkEnd")
+    end.set(qn("w:id"), bid)
+    p = paragraph._p
+    p.insert(0, start)
+    p.append(end)
+
+
+def _add_toc_entry(doc, anchor, pali, trans, pali_font, trans_font, level=0):
+    """One centered TOC entry — Pāli line, then translation line, one link."""
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    if level == 1:
+        p.paragraph_format.left_indent = Cm(1.0)
+    r1 = p.add_run(pali)
+    r1.bold = True
+    r1.font.size = Pt(12 if level == 0 else 10.5)
+    r1.font.color.rgb = ACCENT
+    _apply_run_font(r1, pali_font)
+    if trans:
+        r1.add_break()
+        r2 = p.add_run(trans)
+        r2.italic = True
+        r2.font.size = Pt(10 if level == 0 else 9)
+        r2.font.color.rgb = TRANS_C
+        _apply_run_font(r2, trans_font)
+    # Wrap all runs in a single internal hyperlink to the bookmark.
+    hyperlink = OxmlElement("w:hyperlink")
+    hyperlink.set(qn("w:anchor"), anchor)
+    hyperlink.set(qn("w:history"), "1")
+    for r in list(p._p.findall(qn("w:r"))):
+        hyperlink.append(r)
+    p._p.append(hyperlink)
 
 
 def _add_translation_heading(doc, text, size=10, font_name=None):
