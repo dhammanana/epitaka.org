@@ -11,7 +11,7 @@ Usage:
     python -m scripts.export.cli --book Dhp --lang en --output-dir ./out
 
 Output naming:
-    {book_id}_{lang}.{ext}  — e.g. Dhp_en.epub, Dhp_en.pdf
+    {book_name}.{ext}  — e.g. Dhammapada.epub
 """
 
 import argparse
@@ -205,6 +205,7 @@ Examples:
     success = 0
     failed = 0
     skipped = 0
+    seen_paths: set[str] = set()
 
     total_books = len(books)
     for idx, book in enumerate(books, start=1):
@@ -242,9 +243,9 @@ Examples:
 
         # Export each format
         for fmt in formats:
-            suffix = f"_{args.lang}" if args.lang else "_pali"
             ext_map = {"epub": ".epub", "pdf": ".pdf", "md": ".md", "docx": ".docx"}
-            filename = f"{book.book_id}{suffix}{ext_map[fmt]}"
+            stem = _sanitize_name(book.book_name or book.english_name or book.book_id)
+            filename = f"{stem}{ext_map[fmt]}"
 
             # Build folder path: lang/extension/category/nikaya/sub_nikaya/book_name
             lang_folder = args.lang or "pali"
@@ -261,6 +262,11 @@ Examples:
 
             rel_dir = os.path.join(*folder_parts)
             filepath = os.path.join(output_dir, rel_dir, filename)
+            if filepath in seen_paths:
+                base, ext = os.path.splitext(filename)
+                filename = f"{base}_{book.book_id}{ext}"
+                filepath = os.path.join(output_dir, rel_dir, filename)
+            seen_paths.add(filepath)
 
             if (
                 args.no_overwrite
