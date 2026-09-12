@@ -231,6 +231,9 @@ jobs:
     permissions:
       contents: write   # create releases + upload assets
     steps:
+      - name: Checkout repository (for ci.py)
+        uses: actions/checkout@v4
+
       - name: Download all shard artifacts (merged)
         uses: actions/download-artifact@v4
         with:
