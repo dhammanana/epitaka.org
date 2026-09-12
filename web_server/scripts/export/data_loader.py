@@ -22,6 +22,8 @@ import sqlite3
 import subprocess
 from dataclasses import dataclass, field
 
+from .metadata import language_name as _metadata_lang_name
+
 
 # ── English book names (matches seo.py BOOK_NAMES) ──────────────────────
 BOOK_NAMES_EN = {
@@ -121,8 +123,9 @@ class Book:
     """Complete book data ready for export."""
 
     book_id: str
-    book_name: str  # Pāli name from DB
+    book_name: str  # Pāli name, converted to the target script for display
     english_name: str  # derived English name
+    book_name_roman: str = ""  # original Roman Pāli name — used for filenames
     description: str  # from books.description column
     category: str
     nikaya: str
@@ -359,6 +362,7 @@ def load_book(
             book_id=row["book_id"],
             book_name=row["book_name"] or book_id,
             english_name=_resolve_english_name(book_id, row["book_name"]),
+            book_name_roman=row["book_name"] or book_id,
             description=row["description"] or "",
             category=row["category"] or "",
             nikaya=row["nikaya"] or "",
@@ -407,8 +411,9 @@ def load_book(
     for h, new_title in zip(headings, converted_headings):
         h.title = new_title
 
-    # Also convert book_name so the intro heading renders correctly
-    # in the target script (e.g. Sinhala).
+    # Convert book_name for display (headings/covers) in the target
+    # script. book_name_roman is intentionally left untouched — filenames
+    # always stay in Roman Pāli.
     if script != "ro" and book.book_name:
         book.book_name = batch_convert_pali([book.book_name], script)[0]
 
@@ -597,32 +602,10 @@ def list_available_languages(data_dir: str = "") -> list[dict]:
 
 # ── Private helpers ─────────────────────────────────────────────────────
 
-_LANG_NAMES = {
-    "en": "English",
-    "vi": "Vietnamese",
-    "th": "Thai",
-    "si": "Sinhala",
-    "ta": "Tamil",
-    "my": "Myanmar",
-    "lo": "Lao",
-    "km": "Khmer",
-    "pt": "Portuguese",
-    "de": "German",
-    "fr": "French",
-    "es": "Spanish",
-    "zh": "Chinese",
-    "ja": "Japanese",
-    "ko": "Korean",
-    "hi": "Hindi",
-    "ne": "Nepali",
-    "bn": "Bengali",
-    "id": "Indonesian",
-    "ru": "Russian",
-}
-
 
 def _lang_display(code: str) -> str:
-    return _LANG_NAMES.get(code, code.upper())
+    # Canonical names live in metadata.py (shared with CI/release notes).
+    return _metadata_lang_name(code)
 
 
 def _resolve_english_name(book_id: str, pali_name: str) -> str:

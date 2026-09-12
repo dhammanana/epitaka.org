@@ -50,23 +50,29 @@ _SCRIPT_FONT_FILES = {
     "mm": "NotoSansMalayalam-Regular.ttf",
 }
 
-# Script code → human-readable name
+# Script code → human-readable name (canonical list lives in metadata.py).
+from .metadata import script_name as _canonical_script_name
+
 _SCRIPT_NAMES = {
-    "ro": "Rōmani",
+    "ro": "Roman",
     "si": "Sinhala",
-    "hi": "Devanāgarī",
+    "hi": "Devanagari",
     "th": "Thai",
     "lo": "Lao",
     "my": "Myanmar",
     "km": "Khmer",
     "be": "Bengali",
-    "gm": "Gurmukhī",
+    "gm": "Gurmukhi",
     "tt": "Tai Tham",
-    "gj": "Gujarātī",
+    "gj": "Gujarati",
     "te": "Telugu",
-    "ka": "Kannaḍa",
-    "mm": "Malayāḷaṃ",
+    "ka": "Kannada",
+    "mm": "Malayalam",
 }
+
+
+def _script_display(code: str) -> str:
+    return _canonical_script_name(code)
 
 
 def generate_cover(
@@ -161,7 +167,7 @@ def generate_cover(
     current_y += 40
 
     # ── Language + script badge ──────────────────────────────────────
-    script_name = _SCRIPT_NAMES.get(script, "")
+    script_name = _script_display(script)
     if lang_name or script_name:
         badge_font = _get_font(sans_font, max(30, width // 38))
         # Build combined label: "English Translation · Sinhala Script"

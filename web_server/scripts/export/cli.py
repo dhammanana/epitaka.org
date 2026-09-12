@@ -10,8 +10,8 @@ Usage:
     python -m scripts.export.cli --list-languages
     python -m scripts.export.cli --book Dhp --lang en --output-dir ./out
 
-Output naming:
-    {book_name}.{ext}  — e.g. Dhammapada.epub
+Output naming (always Roman Pāli, regardless of --script):
+    {book_name_roman}.{ext}  — e.g. Dhammapada.epub
 """
 
 import argparse
@@ -244,7 +244,10 @@ Examples:
         # Export each format
         for fmt in formats:
             ext_map = {"epub": ".epub", "pdf": ".pdf", "md": ".md", "docx": ".docx"}
-            stem = _sanitize_name(book.book_name or book.english_name or book.book_id)
+            # Filenames always stay in Roman Pāli — never the target script.
+            stem = _sanitize_name(
+                book.book_name_roman or book.book_name or book.book_id
+            )
             filename = f"{stem}{ext_map[fmt]}"
 
             # Build folder path: lang/extension/category/nikaya/sub_nikaya/book_name

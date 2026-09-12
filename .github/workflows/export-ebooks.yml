@@ -3,18 +3,22 @@ name: Export Tipiṭaka Ebooks
 # Tag format: <script>_<lang>, e.g. ro_si, ro_en, si_si, th_th, ro_my_nissaya
 #   - script = Pali output script (ro, si, hi, th, ...)
 #   - lang   = translation DB suffix (si, en, th, ... or my_nissaya)
-# Push a tag like `ro_si` -> downloads epitaka.db + epitaka_si.db,
-# exports ALL Mula books across parallel shard jobs, then zips per format
-# and publishes:
+# Push a tag like `ro_si` -> exports ALL Mula books across parallel shard
+# jobs, then zips per format and publishes:
 #   1. immutable release for that tag (ro_si)
-#   2. cumulative floating release `ebook-latest` (all languages, same filenames)
+#   2. cumulative floating release `ebook-latest` (all languages)
+#
+# All logic lives in web_server/scripts/export/ci.py + metadata.py so it
+# can be tested locally without waiting for CI:
+#   python -m scripts.export.ci describe --tag si_si
+#   python -m scripts.export.ci resolve --tag ro_si --formats epub,pdf
 #
 # Test without tagging via Actions > Run workflow (smoke test: one small book).
 
 on:
   push:
     tags:
-      - '*_*'   # e.g. ro_si, ro_en (script_lang); validated inside the job
+      - '*_*'   # e.g. ro_si, ro_en (script_lang); validated in ci.py
   workflow_dispatch:
     inputs:
       script:
@@ -76,67 +80,25 @@ jobs:
       shards: ${{ steps.cfg.outputs.shards }}
       smoke_only: ${{ steps.cfg.outputs.smoke_only }}
       matrix: ${{ steps.cfg.outputs.matrix }}
+      pack_label: ${{ steps.cfg.outputs.pack_label }}
+      release_title: ${{ steps.cfg.outputs.release_title }}
+      release_body: ${{ steps.cfg.outputs.release_body }}
     steps:
-      - name: Resolve script / lang / tag
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Resolve script / lang / tag (ci.py)
         id: cfg
         run: |
-          set -euo pipefail
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            SCRIPT="${{ inputs.script }}"
-            LANG="${{ inputs.language }}"
-            FORMATS="${{ inputs.formats }}"
-            SHARDS="${{ inputs.shards }}"
-            SMOKE_ONLY="${{ inputs.smoke_only }}"
-          else
-            TAG="${GITHUB_REF_NAME}"
-            # Split on FIRST underscore: script=prefix, lang=remainder
-            # (supports variants like ro_my_nissaya -> lang=my_nissaya)
-            SCRIPT="${TAG%%_*}"
-            LANG="${TAG#*_}"
-            FORMATS="epub,pdf,md,docx"
-            SHARDS="6"
-            SMOKE_ONLY="false"
-          fi
-          # Normalise
-          SCRIPT="$(echo "$SCRIPT" | tr '[:upper:]' '[:lower:]' | xargs)"
-          LANG="$(echo "$LANG" | tr '[:upper:]' '[:lower:]' | xargs)"
-          FORMATS="$(echo "$FORMATS" | tr -d ' ' | tr '[:upper:]' '[:lower:]')"
-          SHARDS="$(echo "$SHARDS" | tr -cd '0-9')"
-          [ -z "$SCRIPT" ] && SCRIPT="ro"
-          [ -z "$SHARDS" ] && SHARDS="6"
-          TAG="${SCRIPT}_${LANG}"
-
-          # Validate script (must match convert_pali.mjs scriptMap)
-          case "$SCRIPT" in
-            ro|si|hi|be|th|lo|my|km|gm|tt|gj|te|ka|mm|tb|cy|as|br) ;;
-            *) echo "::error::Unknown script '$SCRIPT'. Tag must be <script>_<lang>, e.g. ro_si."; exit 1;;
-          esac
-          # Validate lang code shape (allow my_nissaya style variants)
-          if [ -n "$LANG" ] && ! echo "$LANG" | grep -Eq '^[a-z]{2}(_[a-z]+)?$'; then
-            echo "::error::Bad language '$LANG'. Tag must be <script>_<lang>, e.g. ro_si."
-            exit 1
-          fi
-          # Validate formats subset of epub,pdf,md,docx
-          if ! echo ",$FORMATS," | grep -Eq '^((,?(epub|pdf|md|docx))+),?$'; then
-            echo "::error::Bad formats '$FORMATS'. Use subset of epub,pdf,md,docx."
-            exit 1
-          fi
-          # Validate shard count 1-10
-          if [ "$SHARDS" -lt 1 ] || [ "$SHARDS" -gt 10 ]; then
-            echo "::error::Shards must be 1-10, got '$SHARDS'."; exit 1
-          fi
-
-          # Build matrix JSON: {"shard":[0,1,...,N-1]}
-          MATRIX="$(python3 -c "import json;print(json.dumps({'shard':list(range($SHARDS))}))")"
-
-          echo "script=$SCRIPT" >> "$GITHUB_OUTPUT"
-          echo "lang=$LANG" >> "$GITHUB_OUTPUT"
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
-          echo "formats=$FORMATS" >> "$GITHUB_OUTPUT"
-          echo "shards=$SHARDS" >> "$GITHUB_OUTPUT"
-          echo "smoke_only=$SMOKE_ONLY" >> "$GITHUB_OUTPUT"
-          echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
-          echo "Resolved: tag=$TAG script=$SCRIPT lang=${LANG:-<pali-only>} formats=$FORMATS shards=$SHARDS smoke=$SMOKE_ONLY"
+          PYTHONPATH=web_server python3 -m scripts.export.ci resolve \
+            --event "${{ github.event_name }}" \
+            --ref-name "${GITHUB_REF_NAME}" \
+            --script "${{ inputs.script }}" \
+            --language "${{ inputs.language }}" \
+            --formats "${{ inputs.formats }}" \
+            --shards "${{ inputs.shards }}" \
+            --smoke-only "${{ inputs.smoke_only }}" \
+            --github-output "$GITHUB_OUTPUT"
 
   smoke:
     name: Smoke test (Dhp)
@@ -164,38 +126,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r web_server/scripts/export/requirements.txt
           node --version
-          python -c "import ebooklib, docx, PIL, fpdf; print('py deps ok')"
 
       - name: Download databases (core + translation)
         working-directory: web_server
         run: |
-          set -euo pipefail
-          LANG="${{ needs.setup.outputs.lang }}"
-          mkdir -p data
-          dl() { curl -fL --retry 3 --retry-delay 5 --show-error -o "$2" "$1"; }
-          echo "Downloading core epitaka.db..."
-          dl "${{ env.DB_BASE_URL }}/epitaka.zip" /tmp/epitaka.zip
-          unzip -o -j /tmp/epitaka.zip '*.db' -d data/
-          if [ -n "$LANG" ]; then
-            echo "Downloading translation epitaka_${LANG}.db..."
-            if ! dl "${{ env.DB_BASE_URL }}/epitaka_${LANG}.zip" "/tmp/epitaka_${LANG}.zip"; then
-              echo "::error::No DB for language '$LANG' at ${{ env.DB_BASE_URL }}/epitaka_${LANG}.zip"
-              exit 1
-            fi
-            unzip -o -j "/tmp/epitaka_${LANG}.zip" '*.db' -d data/
-          fi
-          ls -lh data/*.db
-          for db in data/epitaka.db ${LANG:+data/epitaka_${LANG}.db}; do
-            [ -f "$db" ] || { echo "::error::Missing $db after unzip"; ls -la data/; exit 1; }
-            sqlite3 "$db" "PRAGMA integrity_check;" | grep -q '^ok$' \
-              || { echo "::error::$db failed integrity check"; exit 1; }
-          done
-          echo "--- available translation languages ---"
-          python -m scripts.export.cli --list-languages
-          if [ -n "$LANG" ] && ! python -m scripts.export.cli --list-languages | grep -qw "$LANG"; then
-            echo "::error::Language '$LANG' not found in downloaded DBs."
-            exit 1
-          fi
+          python -m scripts.export.ci fetch-dbs \
+            --data-dir data \
+            --lang "${{ needs.setup.outputs.lang }}" \
+            --db-base-url "${{ env.DB_BASE_URL }}"
 
       - name: Smoke test (single small book)
         working-directory: web_server
@@ -243,40 +181,26 @@ jobs:
       - name: Download databases (core + translation)
         working-directory: web_server
         run: |
-          set -euo pipefail
-          LANG="${{ needs.setup.outputs.lang }}"
-          mkdir -p data
-          dl() { curl -fL --retry 3 --retry-delay 5 --show-error -o "$2" "$1"; }
-          dl "${{ env.DB_BASE_URL }}/epitaka.zip" /tmp/epitaka.zip
-          unzip -o -j /tmp/epitaka.zip '*.db' -d data/
-          if [ -n "$LANG" ]; then
-            dl "${{ env.DB_BASE_URL }}/epitaka_${LANG}.zip" "/tmp/epitaka_${LANG}.zip"
-            unzip -o -j "/tmp/epitaka_${LANG}.zip" '*.db' -d data/
-          fi
-          df -h .
+          python -m scripts.export.ci fetch-dbs \
+            --data-dir data \
+            --lang "${{ needs.setup.outputs.lang }}" \
+            --db-base-url "${{ env.DB_BASE_URL }}"
 
       - name: Export shard books
         working-directory: web_server
         run: |
           set -euo pipefail
-          SHARD="${{ matrix.shard }}"
-          SHARDS="${{ needs.setup.outputs.shards }}"
-          # Ordered full book list (same set as cli.py --all), strided across
-          # shards: shard i takes every Nth book starting at i, so all
-          # shards stay balanced (~equal count).
-          BOOKS="$(python3 -c "
-          import sqlite3
-          conn = sqlite3.connect('data/epitaka.db')
-          ids = [r[0] for r in conn.execute(\"SELECT book_id FROM books ORDER BY id\")]
-          print(','.join(ids[$SHARD::$SHARDS]))
-          ")"
-          test -n "$BOOKS" || { echo "::error::Shard $SHARD got no books"; exit 1; }
-          echo "Shard $SHARD/$SHARDS books: $BOOKS"
+          BOOKS="$(python -m scripts.export.ci shard-books \
+            --data-dir data \
+            --shard "${{ matrix.shard }}" \
+            --shards "${{ needs.setup.outputs.shards }}")"
+          test -n "$BOOKS" || { echo "::error::Shard ${{ matrix.shard }} got no books"; exit 1; }
+          echo "Shard ${{ matrix.shard }}/${{ needs.setup.outputs.shards }} books: $BOOKS"
           python -m scripts.export.cli --book "$BOOKS" \
             --lang "${{ needs.setup.outputs.lang }}" \
             --script "${{ needs.setup.outputs.script }}" \
             --formats "${{ needs.setup.outputs.formats }}" \
-            --output-dir ../shard-out 2>&1 | tee "/tmp/export-shard-${SHARD}.log"
+            --output-dir ../shard-out 2>&1 | tee "/tmp/export-shard-${{ matrix.shard }}.log"
           echo "--- shard file count / size ---"
           find ../shard-out -type f | wc -l
           du -sh ../shard-out
@@ -314,44 +238,24 @@ jobs:
           path: "ebook-output/${{ needs.setup.outputs.tag }}"
           merge-multiple: true
 
-      - name: Zip per format + checksums
+      - name: Zip per format + checksums (ci.py)
         run: |
-          set -euo pipefail
-          TAG="${{ needs.setup.outputs.tag }}"
-          SRC="ebook-output/$TAG"
-          mkdir -p dist
-          test -d "$SRC" || { echo "::error::Nothing exported in $SRC"; exit 1; }
-          echo "Total files: $(find "$SRC" -type f | wc -l)"
-          du -sh "$SRC"
-          (cd "$SRC" && find . -type f -exec sha256sum {} + | sort -k2 > "../../dist/${TAG}-SHA256SUMS.txt")
-          # One zip per top-level format dir (lang/format/... layout from cli.py);
-          # fall back to a single zip if layout differs.
-          if [ -d "$SRC/${{ needs.setup.outputs.lang }}" ]; then
-            for fmt in $(echo "${{ needs.setup.outputs.formats }}" | tr ',' ' '); do
-              D="$SRC/${{ needs.setup.outputs.lang }}/$fmt"
-              [ -d "$D" ] || { echo "No output for format $fmt, skipping"; continue; }
-              (cd "$SRC" && zip -qr "../../dist/${TAG}-${fmt}.zip" "${{ needs.setup.outputs.lang }}/$fmt")
-            done
-          else
-            (cd "$SRC" && zip -qr "../../dist/${TAG}-all.zip" .)
-          fi
+          PYTHONPATH=web_server python3 -m scripts.export.ci package \
+            --src "ebook-output/${{ needs.setup.outputs.tag }}" \
+            --dist dist \
+            --tag "${{ needs.setup.outputs.tag }}" \
+            --lang "${{ needs.setup.outputs.lang }}" \
+            --formats "${{ needs.setup.outputs.formats }}"
           ls -lh dist/
-          sha256sum dist/* > dist/SHA256SUMS.txt
-          cat dist/SHA256SUMS.txt
-          # GitHub rejects 0-byte release assets — fail here with a clear message
-          for f in dist/*; do
-            [ -s "$f" ] || { echo "::error::Empty file would break the release upload: $f"; exit 1; }
-          done
 
       - name: Release for this tag (immutable)
         if: github.event_name == 'push'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.setup.outputs.tag }}
-          name: "Tipitaka Ebooks (${{ needs.setup.outputs.tag }})"
+          name: ${{ needs.setup.outputs.release_title }}
           body: |
-            These ebooks are generated from the E-Piṭaka database ([epitaka.org](https://epitaka.org), Chaṭṭha Saṅgāyana Tipiṭaka).
-            This pack (`${{ needs.setup.outputs.tag }}`) contains the complete Pāli canon text with the ${{ needs.setup.outputs.lang }} translation, Pāli in `${{ needs.setup.outputs.script }}` script.
+            ${{ needs.setup.outputs.release_body }}
 
             ### Download
             Pick your format — each zip holds the same books, only the file type differs:

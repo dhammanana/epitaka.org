@@ -15,6 +15,19 @@ python -m scripts.export.cli --all --lang en
 python -m scripts.export.cli --list-languages
 ```
 
+## Testing the release workflow locally (no CI wait)
+
+All workflow logic lives in `ci.py` + `metadata.py`, so preview it locally:
+
+```bash
+# What will the release title/body say? (clear names, not raw codes)
+python -m scripts.export.ci describe --tag si_si
+python -m scripts.export.ci describe --tag hi_hi
+
+# Resolve workflow inputs the same way CI does
+python -m scripts.export.ci resolve --tag ro_si --formats epub,pdf --shards 6
+```
+
 ## Usage
 
 ```bash
@@ -132,6 +145,9 @@ Common languages:
 | `mm` | Malayāḷaṃ | ധമ്മപദ |
 
 ## Output Structure
+
+Filenames always stay in Roman Pāli (e.g. `Dhammapada.epub`), even when
+`--script si` renders the book content in Sinhala script.
 
 Files are organized by language, format, category, nikaya, and book:
 
