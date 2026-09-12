@@ -125,7 +125,6 @@ class Book:
     book_id: str
     book_name: str  # Pāli name, converted to the target script for display
     english_name: str  # derived English name
-    book_name_roman: str = ""  # original Roman Pāli name — used for filenames
     description: str  # from books.description column
     category: str
     nikaya: str
@@ -141,6 +140,7 @@ class Book:
         default_factory=list
     )  # before first heading
     total_sentences: int = 0
+    book_name_roman: str = ""  # original Roman Pāli name — used for filenames
 
 
 # ── Script conversion via Node.js pali-script.js ────────────────────────
