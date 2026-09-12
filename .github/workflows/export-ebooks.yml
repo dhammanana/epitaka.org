@@ -266,7 +266,7 @@ jobs:
           BOOKS="$(python3 -c "
           import sqlite3
           conn = sqlite3.connect('data/epitaka.db')
-          ids = [r[0] for r in conn.execute(\"SELECT book_id FROM books WHERE category = 'Mula' ORDER BY id\")]
+          ids = [r[0] for r in conn.execute(\"SELECT book_id FROM books WHERE category = 'Mūla' ORDER BY id\")]
           print(','.join(ids[$SHARD::$SHARDS]))
           ")"
           test -n "$BOOKS" || { echo "::error::Shard $SHARD got no books"; exit 1; }
