@@ -4,7 +4,8 @@ name: Export Tipiṭaka Ebooks
 #   - script = Pali output script (ro, si, hi, th, ...)
 #   - lang   = translation DB suffix (si, en, th, ... or my_nissaya)
 # Push a tag like `ro_si` -> downloads epitaka.db + epitaka_si.db,
-# exports ALL Mula books, zips per format, publishes:
+# exports ALL Mula books across parallel shard jobs, then zips per format
+# and publishes:
 #   1. immutable release for that tag (ro_si)
 #   2. cumulative floating release `ebook-latest` (all languages, same filenames)
 #
@@ -36,6 +37,17 @@ on:
           - 'epub,pdf'
           - 'epub'
           - 'pdf'
+      shards:
+        description: 'Parallel shard jobs (more = faster, max ~10)'
+        required: false
+        default: '6'
+        type: choice
+        options:
+          - '2'
+          - '4'
+          - '6'
+          - '8'
+          - '10'
       smoke_only:
         description: 'Smoke test only (export Dhp instead of --all)'
         required: false
@@ -52,13 +64,18 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  export:
-    name: Export ebooks
+  setup:
+    name: Resolve config
     runs-on: ubuntu-latest
-    timeout-minutes: 360
-    permissions:
-      contents: write   # create releases + upload assets
-
+    timeout-minutes: 5
+    outputs:
+      script: ${{ steps.cfg.outputs.script }}
+      lang: ${{ steps.cfg.outputs.lang }}
+      tag: ${{ steps.cfg.outputs.tag }}
+      formats: ${{ steps.cfg.outputs.formats }}
+      shards: ${{ steps.cfg.outputs.shards }}
+      smoke_only: ${{ steps.cfg.outputs.smoke_only }}
+      matrix: ${{ steps.cfg.outputs.matrix }}
     steps:
       - name: Resolve script / lang / tag
         id: cfg
@@ -67,23 +84,26 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             SCRIPT="${{ inputs.script }}"
             LANG="${{ inputs.language }}"
-            TAG="${SCRIPT}_${LANG}"
-            SMOKE_ONLY="${{ inputs.smoke_only }}"
             FORMATS="${{ inputs.formats }}"
+            SHARDS="${{ inputs.shards }}"
+            SMOKE_ONLY="${{ inputs.smoke_only }}"
           else
             TAG="${GITHUB_REF_NAME}"
             # Split on FIRST underscore: script=prefix, lang=remainder
             # (supports variants like ro_my_nissaya -> lang=my_nissaya)
             SCRIPT="${TAG%%_*}"
             LANG="${TAG#*_}"
-            SMOKE_ONLY="false"
             FORMATS="epub,pdf,md,docx"
+            SHARDS="6"
+            SMOKE_ONLY="false"
           fi
           # Normalise
           SCRIPT="$(echo "$SCRIPT" | tr '[:upper:]' '[:lower:]' | xargs)"
           LANG="$(echo "$LANG" | tr '[:upper:]' '[:lower:]' | xargs)"
           FORMATS="$(echo "$FORMATS" | tr -d ' ' | tr '[:upper:]' '[:lower:]')"
+          SHARDS="$(echo "$SHARDS" | tr -cd '0-9')"
           [ -z "$SCRIPT" ] && SCRIPT="ro"
+          [ -z "$SHARDS" ] && SHARDS="6"
           TAG="${SCRIPT}_${LANG}"
 
           # Validate script (must match convert_pali.mjs scriptMap)
@@ -101,14 +121,29 @@ jobs:
             echo "::error::Bad formats '$FORMATS'. Use subset of epub,pdf,md,docx."
             exit 1
           fi
+          # Validate shard count 1-10
+          if [ "$SHARDS" -lt 1 ] || [ "$SHARDS" -gt 10 ]; then
+            echo "::error::Shards must be 1-10, got '$SHARDS'."; exit 1
+          fi
+
+          # Build matrix JSON: {"shard":[0,1,...,N-1]}
+          MATRIX="$(python3 -c "import json;print(json.dumps({'shard':list(range($SHARDS))}))")"
 
           echo "script=$SCRIPT" >> "$GITHUB_OUTPUT"
           echo "lang=$LANG" >> "$GITHUB_OUTPUT"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "formats=$FORMATS" >> "$GITHUB_OUTPUT"
+          echo "shards=$SHARDS" >> "$GITHUB_OUTPUT"
           echo "smoke_only=$SMOKE_ONLY" >> "$GITHUB_OUTPUT"
-          echo "Resolved: tag=$TAG script=$SCRIPT lang=${LANG:-<pali-only>} formats=$FORMATS smoke=$SMOKE_ONLY"
+          echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
+          echo "Resolved: tag=$TAG script=$SCRIPT lang=${LANG:-<pali-only>} formats=$FORMATS shards=$SHARDS smoke=$SMOKE_ONLY"
 
+  smoke:
+    name: Smoke test (Dhp)
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -135,7 +170,7 @@ jobs:
         working-directory: web_server
         run: |
           set -euo pipefail
-          LANG="${{ steps.cfg.outputs.lang }}"
+          LANG="${{ needs.setup.outputs.lang }}"
           mkdir -p data
           dl() { curl -fL --retry 3 --retry-delay 5 --show-error -o "$2" "$1"; }
           echo "Downloading core epitaka.db..."
@@ -150,8 +185,6 @@ jobs:
             unzip -o -j "/tmp/epitaka_${LANG}.zip" '*.db' -d data/
           fi
           ls -lh data/*.db
-          df -h .
-          # Fail fast: core DB must exist and pass integrity check
           for db in data/epitaka.db ${LANG:+data/epitaka_${LANG}.db}; do
             [ -f "$db" ] || { echo "::error::Missing $db after unzip"; ls -la data/; exit 1; }
             sqlite3 "$db" "PRAGMA integrity_check;" | grep -q '^ok$' \
@@ -169,45 +202,134 @@ jobs:
         run: |
           set -euo pipefail
           python -m scripts.export.cli --book Dhp \
-            --lang "${{ steps.cfg.outputs.lang }}" \
-            --script "${{ steps.cfg.outputs.script }}" \
-            --formats "${{ steps.cfg.outputs.formats }}" \
+            --lang "${{ needs.setup.outputs.lang }}" \
+            --script "${{ needs.setup.outputs.script }}" \
+            --formats "${{ needs.setup.outputs.formats }}" \
             --output-dir ../ebook-output/smoke 2>&1 | tee /tmp/smoke.log
           test -n "$(find ../ebook-output/smoke -type f | head -1)" \
             || { echo "::error::Smoke test produced no files"; tail -50 /tmp/smoke.log; exit 1; }
           echo "Smoke test OK:"; find ../ebook-output/smoke -type f
-          rm -rf ../ebook-output/smoke
 
-      - name: Export ALL books
-        if: steps.cfg.outputs.smoke_only != 'true'
+  export:
+    name: Export shard ${{ matrix.shard }}
+    needs: [setup, smoke]
+    if: needs.setup.outputs.smoke_only != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: true
+      matrix: ${{ fromJSON(needs.setup.outputs.matrix) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+          cache-dependency-path: web_server/scripts/export/requirements.txt
+
+      - name: Setup Node.js (Pali script conversion)
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r web_server/scripts/export/requirements.txt
+
+      - name: Download databases (core + translation)
         working-directory: web_server
         run: |
           set -euo pipefail
-          python -m scripts.export.cli --all \
-            --lang "${{ steps.cfg.outputs.lang }}" \
-            --script "${{ steps.cfg.outputs.script }}" \
-            --formats "${{ steps.cfg.outputs.formats }}" \
-            --output-dir "../ebook-output/${{ steps.cfg.outputs.tag }}" 2>&1 | tee "/tmp/export-${{ steps.cfg.outputs.tag }}.log"
-          echo "--- file count / size ---"
-          find "../ebook-output/${{ steps.cfg.outputs.tag }}" -type f | wc -l
-          du -sh "../ebook-output/${{ steps.cfg.outputs.tag }}"
+          LANG="${{ needs.setup.outputs.lang }}"
+          mkdir -p data
+          dl() { curl -fL --retry 3 --retry-delay 5 --show-error -o "$2" "$1"; }
+          dl "${{ env.DB_BASE_URL }}/epitaka.zip" /tmp/epitaka.zip
+          unzip -o -j /tmp/epitaka.zip '*.db' -d data/
+          if [ -n "$LANG" ]; then
+            dl "${{ env.DB_BASE_URL }}/epitaka_${LANG}.zip" "/tmp/epitaka_${LANG}.zip"
+            unzip -o -j "/tmp/epitaka_${LANG}.zip" '*.db' -d data/
+          fi
+          df -h .
 
-      - name: Zip per format + checksums
-        if: steps.cfg.outputs.smoke_only != 'true'
+      - name: Export shard books
+        working-directory: web_server
         run: |
           set -euo pipefail
-          TAG="${{ steps.cfg.outputs.tag }}"
+          SHARD="${{ matrix.shard }}"
+          SHARDS="${{ needs.setup.outputs.shards }}"
+          # Ordered Mula book list, strided across shards: shard i takes every
+          # Nth book starting at i, so all shards stay balanced (~equal count).
+          BOOKS="$(python3 -c "
+          import sqlite3
+          conn = sqlite3.connect('data/epitaka.db')
+          ids = [r[0] for r in conn.execute(\"SELECT book_id FROM books WHERE category = 'Mula' ORDER BY id\")]
+          print(','.join(ids[$SHARD::$SHARDS]))
+          ")"
+          test -n "$BOOKS" || { echo "::error::Shard $SHARD got no books"; exit 1; }
+          echo "Shard $SHARD/$SHARDS books: $BOOKS"
+          python -m scripts.export.cli --book "$BOOKS" \
+            --lang "${{ needs.setup.outputs.lang }}" \
+            --script "${{ needs.setup.outputs.script }}" \
+            --formats "${{ needs.setup.outputs.formats }}" \
+            --output-dir ../shard-out 2>&1 | tee "/tmp/export-shard-${SHARD}.log"
+          echo "--- shard file count / size ---"
+          find ../shard-out -type f | wc -l
+          du -sh ../shard-out
+
+      - name: Upload shard artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "ebooks-${{ needs.setup.outputs.tag }}-shard-${{ matrix.shard }}"
+          path: shard-out/
+          if-no-files-found: error
+          retention-days: 3
+
+      - name: Upload shard log on failure
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: "export-log-${{ needs.setup.outputs.tag }}-shard-${{ matrix.shard }}-${{ github.run_id }}"
+          path: /tmp/export-shard-*.log
+          if-no-files-found: ignore
+          retention-days: 7
+
+  package:
+    name: Zip + release
+    needs: [setup, export]
+    if: needs.setup.outputs.smoke_only != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write   # create releases + upload assets
+    steps:
+      - name: Download all shard artifacts (merged)
+        uses: actions/download-artifact@v4
+        with:
+          pattern: "ebooks-${{ needs.setup.outputs.tag }}-shard-*"
+          path: "ebook-output/${{ needs.setup.outputs.tag }}"
+          merge-multiple: true
+
+      - name: Zip per format + checksums
+        run: |
+          set -euo pipefail
+          TAG="${{ needs.setup.outputs.tag }}"
           SRC="ebook-output/$TAG"
           mkdir -p dist
           test -d "$SRC" || { echo "::error::Nothing exported in $SRC"; exit 1; }
+          echo "Total files: $(find "$SRC" -type f | wc -l)"
+          du -sh "$SRC"
           (cd "$SRC" && sha256sum $(find . -type f | sort) > "../../dist/${TAG}-SHA256SUMS.txt") || true
           # One zip per top-level format dir (lang/format/... layout from cli.py);
           # fall back to a single zip if layout differs.
-          if [ -d "$SRC/${{ steps.cfg.outputs.lang }}" ]; then
-            for fmt in $(echo "${{ steps.cfg.outputs.formats }}" | tr ',' ' '); do
-              D="$SRC/${{ steps.cfg.outputs.lang }}/$fmt"
+          if [ -d "$SRC/${{ needs.setup.outputs.lang }}" ]; then
+            for fmt in $(echo "${{ needs.setup.outputs.formats }}" | tr ',' ' '); do
+              D="$SRC/${{ needs.setup.outputs.lang }}/$fmt"
               [ -d "$D" ] || { echo "No output for format $fmt, skipping"; continue; }
-              (cd "$SRC" && zip -qr "../../dist/${TAG}-${fmt}.zip" "${{ steps.cfg.outputs.lang }}/$fmt")
+              (cd "$SRC" && zip -qr "../../dist/${TAG}-${fmt}.zip" "${{ needs.setup.outputs.lang }}/$fmt")
             done
           else
             (cd "$SRC" && zip -qr "../../dist/${TAG}-all.zip" .)
@@ -217,18 +339,18 @@ jobs:
           cat dist/SHA256SUMS.txt
 
       - name: Release for this tag (immutable)
-        if: steps.cfg.outputs.smoke_only != 'true' && github.event_name == 'push'
+        if: github.event_name == 'push'
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.cfg.outputs.tag }}
-          name: "Tipitaka Ebooks (${{ steps.cfg.outputs.tag }})"
+          tag_name: ${{ needs.setup.outputs.tag }}
+          name: "Tipitaka Ebooks (${{ needs.setup.outputs.tag }})"
           body: |
-            ## E-Piṭaka Ebooks — `${{ steps.cfg.outputs.tag }}`
-            **Script:** `${{ steps.cfg.outputs.script }}` · **Translation:** `${{ steps.cfg.outputs.lang }}` · **Formats:** `${{ steps.cfg.outputs.formats }}`
+            ## E-Piṭaka Ebooks — `${{ needs.setup.outputs.tag }}`
+            **Script:** `${{ needs.setup.outputs.script }}` · **Translation:** `${{ needs.setup.outputs.lang }}` · **Formats:** `${{ needs.setup.outputs.formats }}`
             All Mūla books exported from [epitaka.org](https://epitaka.org) (Chaṭṭha Saṅgāyana Tipiṭaka).
 
             ### Files
-            One zip per format (`${{ steps.cfg.outputs.tag }}-epub.zip`, `-pdf.zip`, …) + checksums.
+            One zip per format (`${{ needs.setup.outputs.tag }}-epub.zip`, `-pdf.zip`, …) + checksums.
             Unzip preserves the `lang/format/category/nikaya/book` folder layout.
 
             ### Also in `ebook-latest`
@@ -242,7 +364,7 @@ jobs:
           prerelease: false
 
       - name: Copy to floating ebook-latest release (cumulative)
-        if: steps.cfg.outputs.smoke_only != 'true' && github.event_name == 'push'
+        if: github.event_name == 'push'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ebook-latest
@@ -261,18 +383,9 @@ jobs:
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
-        if: always() && steps.cfg.outputs.smoke_only != 'true'
+        if: always()
         with:
-          name: "ebooks-${{ steps.cfg.outputs.tag }}-${{ github.run_id }}"
+          name: "ebooks-${{ needs.setup.outputs.tag }}-${{ github.run_id }}"
           path: dist/*
           if-no-files-found: error
-          retention-days: 7
-
-      - name: Upload export log on failure
-        uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: "export-log-${{ steps.cfg.outputs.tag }}-${{ github.run_id }}"
-          path: /tmp/export-*.log
-          if-no-files-found: ignore
           retention-days: 7

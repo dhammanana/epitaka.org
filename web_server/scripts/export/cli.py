@@ -71,7 +71,7 @@ Examples:
         "-b",
         type=str,
         default="",
-        help="Book ID to export (e.g. Dhp, D-i, Vin-iii)",
+        help="Book ID to export (e.g. Dhp, D-i, Vin-iii). Comma-separated for several (e.g. Dhp,Sn,Ud)",
     )
     parser.add_argument("--all", "-a", action="store_true", help="Export all books")
     parser.add_argument(
@@ -184,16 +184,19 @@ Examples:
         )
         print(f"📚 Loaded {len(books)} books")
     else:
-        book = load_book(
-            args.book, lang_code=args.lang, script=args.script, data_dir=data_dir
-        )
-        if not book:
-            print(f'Error: book "{args.book}" not found.')
-            sys.exit(1)
-        books = [book]
-        print(
-            f"📚 Loaded: {book.book_name} ({book.book_id}) — {book.total_sentences} sentences"
-        )
+        book_ids = [b.strip() for b in args.book.split(",") if b.strip()]
+        books = []
+        for book_id in book_ids:
+            book = load_book(
+                book_id, lang_code=args.lang, script=args.script, data_dir=data_dir
+            )
+            if not book:
+                print(f'Error: book "{book_id}" not found.')
+                sys.exit(1)
+            books.append(book)
+            print(
+                f"📚 Loaded: {book.book_name} ({book.book_id}) — {book.total_sentences} sentences"
+            )
 
     # ── Export each book ──────────────────────────────────────────────
     output_dir = os.path.abspath(args.output_dir)
