@@ -322,7 +322,7 @@ jobs:
           test -d "$SRC" || { echo "::error::Nothing exported in $SRC"; exit 1; }
           echo "Total files: $(find "$SRC" -type f | wc -l)"
           du -sh "$SRC"
-          (cd "$SRC" && sha256sum $(find . -type f | sort) > "../../dist/${TAG}-SHA256SUMS.txt") || true
+          (cd "$SRC" && find . -type f -exec sha256sum {} + | sort -k2 > "../../dist/${TAG}-SHA256SUMS.txt")
           # One zip per top-level format dir (lang/format/... layout from cli.py);
           # fall back to a single zip if layout differs.
           if [ -d "$SRC/${{ needs.setup.outputs.lang }}" ]; then
@@ -335,8 +335,12 @@ jobs:
             (cd "$SRC" && zip -qr "../../dist/${TAG}-all.zip" .)
           fi
           ls -lh dist/
-          sha256sum dist/* > dist/SHA256SUMS.txt || true
+          sha256sum dist/* > dist/SHA256SUMS.txt
           cat dist/SHA256SUMS.txt
+          # GitHub rejects 0-byte release assets — fail here with a clear message
+          for f in dist/*; do
+            [ -s "$f" ] || { echo "::error::Empty file would break the release upload: $f"; exit 1; }
+          done
 
       - name: Release for this tag (immutable)
         if: github.event_name == 'push'
@@ -345,19 +349,20 @@ jobs:
           tag_name: ${{ needs.setup.outputs.tag }}
           name: "Tipitaka Ebooks (${{ needs.setup.outputs.tag }})"
           body: |
-            ## E-Piṭaka Ebooks — `${{ needs.setup.outputs.tag }}`
-            **Script:** `${{ needs.setup.outputs.script }}` · **Translation:** `${{ needs.setup.outputs.lang }}` · **Formats:** `${{ needs.setup.outputs.formats }}`
-            All Mūla books exported from [epitaka.org](https://epitaka.org) (Chaṭṭha Saṅgāyana Tipiṭaka).
+            These ebooks are generated from the E-Piṭaka database ([epitaka.org](https://epitaka.org), Chaṭṭha Saṅgāyana Tipiṭaka).
+            This pack (`${{ needs.setup.outputs.tag }}`) contains the complete Pāli canon text with the ${{ needs.setup.outputs.lang }} translation, Pāli in `${{ needs.setup.outputs.script }}` script.
 
-            ### Files
-            One zip per format (`${{ needs.setup.outputs.tag }}-epub.zip`, `-pdf.zip`, …) + checksums.
-            Unzip preserves the `lang/format/category/nikaya/book` folder layout.
+            ### Download
+            Pick your format — each zip holds the same books, only the file type differs:
+            - `${{ needs.setup.outputs.tag }}-epub.zip` — for phones, tablets and e-readers
+            - `${{ needs.setup.outputs.tag }}-pdf.zip` — for printing and computers
+            - `${{ needs.setup.outputs.tag }}-docx.zip` — editable Word files
+            - `${{ needs.setup.outputs.tag }}-md.zip` — plain text files
 
-            ### Also in `ebook-latest`
-            The same zips are copied to the cumulative [`ebook-latest`](https://github.com/${{ github.repository }}/releases/tag/ebook-latest) release, where all languages accumulate.
+            ### All languages in one place
+            Every language pack is also collected in the [`ebook-latest`](https://github.com/${{ github.repository }}/releases/tag/ebook-latest) release, so you can find all books and all languages there.
 
-            ### License
-            Pāli text: public domain. Translations: CC-BY-4.0.
+            Pāli text is in the public domain. Translations are shared under CC-BY-4.0.
           files: dist/*
           fail_on_unmatched_files: true
           draft: false
@@ -370,11 +375,10 @@ jobs:
           tag_name: ebook-latest
           name: "Tipitaka Ebooks (latest)"
           body: |
-            Cumulative ebook builds — every `<script>_<lang>` tag copies its zips here,
-            so all languages are downloadable from one place.
-            Filenames are namespaced per build (`ro_si-epub.zip`, `ro_en-pdf.zip`, …)
-            so languages never overwrite each other.
-            See each per-tag release for build details.
+            All E-Piṭaka ebook language packs in one place. Each pack is generated from the E-Piṭaka database ([epitaka.org](https://epitaka.org), Chaṭṭha Saṅgāyana Tipiṭaka) and contains the complete Pāli canon text with its translation.
+            Packs are kept separate per language (`ro_si-epub.zip`, `ro_en-pdf.zip`, …) so you only download the language you need, instead of one giant file with everything.
+
+            Pāli text is in the public domain. Translations are shared under CC-BY-4.0.
           files: dist/*
           fail_on_unmatched_files: true
           preserve_assets: true
