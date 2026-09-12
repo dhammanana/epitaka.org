@@ -13,7 +13,7 @@ name: Export Tipiṭaka Ebooks
 on:
   push:
     tags:
-      - '??_*'   # e.g. ro_si, ro_en (two-char script + underscore + lang)
+      - '*_*'   # e.g. ro_si, ro_en (script_lang); validated inside the job
   workflow_dispatch:
     inputs:
       script:
