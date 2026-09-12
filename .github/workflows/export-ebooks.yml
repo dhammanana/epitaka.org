@@ -48,7 +48,7 @@ env:
   DB_BASE_URL: 'https://github.com/dhammanana/epitaka_app/releases/download/latest'
 
 concurrency:
-  group: ebook-${{ github.ref_name || inputs.script }}-${{ inputs.language || '' }}
+  group: ebook-export-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
