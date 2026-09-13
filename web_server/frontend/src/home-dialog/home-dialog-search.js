@@ -435,7 +435,7 @@ export class HomeDialogSearch {
 
     this.suggestionsEl.innerHTML = words.map((word, i) =>
       `<div class="suggestion-item suggestion-word" data-idx="${i}" tabindex="-1">
-        <span class="sug-pali">${hl(word)}</span>
+        <span class="sug-pali pali-text">${hl(word)}</span>
       </div>`
     ).join('');
 
@@ -485,13 +485,13 @@ export class HomeDialogSearch {
     this.suggestionsEl.innerHTML = data.map((item, i) => {
       if (this.currentType.id === 'headings') {
         return `<div class="suggestion-item" data-idx="${i}" tabindex="-1">
-          <span class="sug-pali">${hl(item.title || '')}</span>
-          <span class="sug-book">${item.book_name || item.book_id || ''}</span>
+          <span class="sug-pali pali-text">${hl(item.title || '')}</span>
+          <span class="sug-book pali-text">${item.book_name || item.book_id || ''}</span>
           <span class="sug-para">#${item.para_id || ''}</span>
         </div>`;
       } else {
         return `<div class="suggestion-item" data-idx="${i}" tabindex="-1">
-          <span class="sug-pali">${hl(item.word || item.title || '')}</span>
+          <span class="sug-pali pali-text">${hl(item.word || item.title || '')}</span>
           <span class="sug-book">${item.definition_short || ''}</span>
         </div>`;
       }

@@ -20,8 +20,8 @@
 @font-face { src: url('../fonts/lao/LaoPaliAlpha-Regular.woff') format('woff'); font-weight: normal; font-family: 'lao'; }
 @font-face { src: url('../fonts/lao/LaoPaliAlpha-Regular.woff') format('woff'); font-weight: bold; font-family: 'lao'; }
 
-@font-face { src: url('../fonts/myanmar/mm3-multi-os(16-08-2011).ttf') format('truetype'); font-weight: normal; font-family: 'myanmar'; }
-@font-face { src: url('../fonts/myanmar/mm3-multi-os(16-08-2011).ttf') format('truetype'); font-weight: bold; font-family: 'myanmar'; }
+@font-face { src: url('../fonts/myanmar/NotoSansMyanmar-Regular.ttf') format('truetype'); font-weight: normal; font-family: 'myanmar'; }
+@font-face { src: url('../fonts/myanmar/NotoSansMyanmar-Bold.ttf') format('truetype'); font-weight: bold; font-family: 'myanmar'; }
 
 @font-face { src: url('../fonts/NotoSerifKhmer-Regular.ttf') format('truetype'); font-weight: normal; font-family: 'khmer'; }
 @font-face { src: url('../fonts/NotoSerifKhmer-Bold.ttf') format('truetype'); font-weight: bold; font-family: 'khmer'; }

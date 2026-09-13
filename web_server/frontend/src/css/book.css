@@ -25,6 +25,10 @@
   --topbar-h:     52px;
   --font-serif:   'Crimson Pro', Georgia, serif;
   --control-bg:   #ffffff;
+  --ref-mula:     #6b4c1d;
+  --ref-attha:    #2d5a3d;
+  --ref-tika:     #4a3f6b;
+  --ref-border:   #d4a97a;
   --danger-color: #c0392b;
   --font-sans:    'DM Sans', system-ui, sans-serif;
   --radius:       8px;
@@ -48,6 +52,10 @@
   --text-muted:   #b5a497;
   --muted2:        #9eb8df;
   --control-bg:    #332a24;
+  --ref-mula:      #e3bd7d;
+  --ref-attha:     #86cfa0;
+  --ref-tika:      #b8aaee;
+  --ref-border:    #6b5540;
   --danger-color:  #f28b82;
   --card-bg:       #27211d;
   --card-bg-alt:   #201b17;
@@ -74,6 +82,11 @@
     --muted: #b5a497;
     --text-muted: #b5a497;
     --muted2: #9eb8df;
+    --control-bg: #332a24;
+    --ref-mula: #e3bd7d;
+    --ref-attha: #86cfa0;
+    --ref-tika: #b8aaee;
+    --ref-border: #6b5540;
     --card-bg: #27211d;
     --card-bg-alt: #201b17;
     --group-bg: #2e2620;
@@ -178,10 +191,10 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 }
 .topbar-btn:hover { background: var(--accent-light); }
 .icon-btn { font-size: 1rem; padding: 0.28rem 0.5rem; }
-.ref-btn    { background: var(--accent-light); border-color: #d4a97a; }
-.ref-btn--mula  { color: #6b4c1d; }
-.ref-btn--attha { color: #2d5a3d; }
-.ref-btn--tika  { color: #4a3f6b; }
+.ref-btn    { background: var(--accent-light); border-color: var(--ref-border); }
+.ref-btn--mula  { color: var(--ref-mula); }
+.ref-btn--attha { color: var(--ref-attha); }
+.ref-btn--tika  { color: var(--ref-tika); }
 
 /* The Outline tab is the main entry point to the book's outline (a key
    SEO surface) — keep it visually distinct from the plain text buttons. */
@@ -202,7 +215,9 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   .outline-tab-btn { display: none; }
 }
 
-/* ── Language dropdown ─────────────────── */
+/* ── Language dropdown ───────────────────
+   Many languages: single-line items, viewport-capped height with internal
+   scroll, 2-column grid on desktop, searchable. */
 .lang-dropdown { position: relative; }
 .lang-btn {
   min-width: 2.5rem;
@@ -214,38 +229,106 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   position: absolute;
   top: calc(100% + 6px);
   right: 0;
-  min-width: 130px;
+  width: max-content;
+  min-width: 230px;
+  max-width: min(480px, calc(100vw - 1rem));
+  max-height: min(70vh, 420px);
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.16);
   list-style: none;
-  padding: 0.3rem 0;
+  padding: 0;
   z-index: 300;
 }
-.lang-dropdown__menu.open { display: block; }
-.lang-dropdown__item {
-  display: block;
-  padding: 0.45rem 1rem;
+.lang-dropdown__menu.open { display: flex; flex-direction: column; }
+.lang-dropdown__search {
+  position: sticky;
+  top: 0;
+  padding: 0.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  z-index: 1;
+}
+.lang-dropdown__search input {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
   font-size: 0.82rem;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--bg, #faf7f2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+}
+.lang-dropdown__search input:focus { border-color: var(--accent); }
+.lang-dropdown__search input::placeholder { color: var(--muted); }
+.lang-dropdown__list {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+  margin: 0;
+  padding: 0.3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  scrollbar-width: thin;
+}
+@media (min-width: 640px) {
+  .lang-dropdown__list { grid-template-columns: 1fr 1fr; }
+}
+.lang-dropdown__item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.82rem;
+  line-height: 1.3;
   color: var(--text);
   text-decoration: none;
+  border-radius: 6px;
   transition: background 0.1s;
   white-space: nowrap;
+  overflow: hidden;
 }
 .lang-dropdown__item:hover { background: var(--accent-light); }
+.lang-dropdown__item .lang-native {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
+}
 .lang-dropdown__item small {
-  display: inline;
   font-size: 0.72rem;
   color: var(--muted);
-  margin-top: 0;
-  margin-left: 0.15rem;
-  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
 }
 .lang-dropdown__item.selected {
   font-weight: 600;
   color: var(--accent);
   background: var(--accent-light);
+}
+.lang-dropdown__empty {
+  padding: 0.7rem 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+}
+/* Keep the menu inside the viewport on narrow screens */
+@media (max-width: 639px) {
+  .lang-dropdown__menu {
+    position: fixed;
+    top: var(--topbar-h);
+    right: 0.5rem;
+    left: auto;
+    max-width: calc(100vw - 1rem);
+    max-height: min(60vh, 380px);
+  }
 }
 
 /* ── TOC list (inside the sidebar's Contents panel) ──────────
@@ -295,11 +378,13 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
-/* ── Section heading (SEO-friendly <a> link) ── */
+/* ── Section heading (SEO-friendly <a> link) ──
+   Heading is a 2-row stack: Pāli on row 1, translation on row 2.
+   Grid keeps the chevron pinned right while text always wraps below. */
 .section-heading-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
   gap: 0.5rem;
   padding: 0.65rem 1rem;
   cursor: pointer;
@@ -323,16 +408,35 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
 }
 
 /* Wrapper around heading text + translation.
-   Desktop: pali + translation sit side by side.
-   Mobile (≤600px): stacked vertically. */
+   Always stacked: Pāli on row 1, translation on row 2. */
 .section-heading-label {
-  flex: 1;
+  grid-column: 1;
   min-width: 0;
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+}
+
+.section-heading-label > .section-heading-text,
+.section-heading-label > .section-heading-translation {
+  display: block;
+  width: 100%;
+}
+
+/* Translation inserted directly into the link by _fetchHeadingTranslations()
+   takes the second grid row, full width. */
+.section-heading-link > .section-heading-translation {
+  grid-column: 1;
+  display: block;
+  width: 100%;
+}
+
+.section-heading-link > .chevron {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
 }
 
 .section-heading-text {
@@ -1082,7 +1186,7 @@ sup:hover::after { display: block; }
 }
 
 /* Mobile: stack Pali heading and translation vertically */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   /* On mobile, the heading is a vertical stack. This also handles the
      translation element inserted directly into .section-heading-link by
      _fetchHeadingTranslations(). */
@@ -1433,9 +1537,9 @@ sup:hover::after { display: block; }
 .topbar-more__refs .topbar-more__ref-btn:hover {
   background: var(--border);
 }
-.topbar-more__refs .topbar-more__ref-btn.topbar-more__ref-btn--mula { color: #6b4c1d; }
-.topbar-more__refs .topbar-more__ref-btn.topbar-more__ref-btn--attha { color: #2d5a3d; }
-.topbar-more__refs .topbar-more__ref-btn.topbar-more__ref-btn--tika { color: #4a3f6b; }
+.topbar-more__refs .topbar-more__ref-btn.topbar-more__ref-btn--mula { color: var(--ref-mula); }
+.topbar-more__refs .topbar-more__ref-btn.topbar-more__ref-btn--attha { color: var(--ref-attha); }
+.topbar-more__refs .topbar-more__ref-btn.topbar-more__ref-btn--tika { color: var(--ref-tika); }
 
 /* Tika sub-dropdown */
 .topbar-more__tika-group {
@@ -1449,8 +1553,10 @@ sup:hover::after { display: block; }
   display: none;
   position: absolute;
   top: calc(100% + 4px);
-  left: 0;
+  left: auto;
+  right: 0; /* grow leftward: the ⋯ menu hugs the viewport's right edge */
   min-width: 180px;
+  max-width: min(78vw, 300px);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -1469,7 +1575,8 @@ sup:hover::after { display: block; }
   color: var(--text);
   text-decoration: none;
   transition: background 0.1s;
-  white-space: nowrap;
+  white-space: normal; /* long Ṭīkā names wrap instead of clipping */
+  overflow-wrap: break-word;
 }
 .topbar-more__tika-menu a:hover {
   background: var(--accent-light);

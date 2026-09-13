@@ -16,7 +16,8 @@ import './css/common.css';
 import { initHomeDialog } from './home-dialog/home-dialog.js';
 import { initCookieConsent } from './cookie-consent.js';
 import { initSidebar } from './sidebar.js';
-import { applyTheme, onLanguageSelect } from './settings.js';
+import { applyTheme, onLanguageSelect, loadSettings, applySettings } from './settings.js';
+import { applyPaliScript } from './pali-text.js';
 
 // ── Config injected from index.html via Flask ──────────────────
 const { baseUrl, lang } = window.INDEX_CONFIG;
@@ -62,6 +63,15 @@ if (hasSkippedDisclaimer()) {
 
 async function init() {
   applyTheme();
+
+  // Same settings bootstrap as the book page: derive the Pāli script from
+  // the URL language (e.g. /km/ → Khmer), mirror it to body[script] for
+  // script fonts, and transliterate existing .pali-text nodes. Content
+  // rendered later (sidebar library, search results, dialogs) is picked
+  // up automatically by the pali-text.js observer.
+  const s = loadSettings(lang);
+  applySettings(s);
+  applyPaliScript(s.paliScript);
 
   // ── Cookie consent (GDPR) ──
   // Must run BEFORE the slow menu fetch so the banner appears immediately.
@@ -139,11 +149,40 @@ function _bindTopbar() {
   const langToggle = document.querySelector('.lang-dropdown__toggle');
   const langMenu = document.querySelector('.lang-dropdown__menu');
   if (langToggle && langMenu) {
+    const langFilter = langMenu.querySelector('.lang-dropdown__filter');
+    const langEmpty = langMenu.querySelector('.lang-dropdown__empty');
+    const langRows = [...langMenu.querySelectorAll('.lang-dropdown__list > li')];
+    const applyFilter = () => {
+      if (!langFilter) return;
+      const q = langFilter.value.trim().toLowerCase();
+      let visible = 0;
+      for (const li of langRows) {
+        const hit = !q || (li.dataset.search || li.textContent).toLowerCase().includes(q);
+        li.hidden = !hit;
+        if (hit) visible++;
+      }
+      if (langEmpty) langEmpty.hidden = visible !== 0;
+    };
+    langFilter?.addEventListener('input', applyFilter);
+    langMenu.addEventListener('click', (e) => e.stopPropagation());
+    const closeLang = () => {
+      langToggle.setAttribute('aria-expanded', 'false');
+      langMenu.classList.remove('open');
+    };
     langToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      const expanded = langToggle.getAttribute('aria-expanded') === 'true';
-      langToggle.setAttribute('aria-expanded', String(!expanded));
-      langMenu.classList.toggle('open');
+      const willOpen = !langMenu.classList.contains('open');
+      langToggle.setAttribute('aria-expanded', String(willOpen));
+      langMenu.classList.toggle('open', willOpen);
+      if (willOpen) {
+        if (langFilter) { langFilter.value = ''; applyFilter(); }
+        langMenu.querySelector('.lang-dropdown__item.selected')
+          ?.scrollIntoView({ block: 'nearest' });
+        langFilter?.focus({ preventScroll: true });
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLang();
     });
   }
 

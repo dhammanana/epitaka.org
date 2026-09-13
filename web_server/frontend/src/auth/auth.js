@@ -21,11 +21,21 @@ import {
 
 // ── Initialise ───────────────────────────────────────────────
 // window.FIREBASE_CONFIG is injected by book.html from Flask.
-const app  = initializeApp(window.FIREBASE_CONFIG);
-export const firebaseAuth = getAuth(app);
-
-const googleProvider   = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
+// Must never throw: an invalid/missing key would otherwise kill every
+// module bundle that imports this file (reader scroll, sidebar, …).
+// When Firebase is unavailable the site simply runs signed-out.
+let firebaseAuth = null;
+let googleProvider = null;
+let facebookProvider = null;
+try {
+  const app = initializeApp(window.FIREBASE_CONFIG);
+  firebaseAuth = getAuth(app);
+  googleProvider = new GoogleAuthProvider();
+  facebookProvider = new FacebookAuthProvider();
+} catch (e) {
+  console.warn('[auth] Firebase unavailable, running signed-out:', e?.message || e);
+}
+export { firebaseAuth };
 
 // ── Reactive state ────────────────────────────────────────────
 // _profile is the SQLite-backed profile (richer than Firebase user).
@@ -90,24 +100,33 @@ async function syncWithBackend(firebaseUser) {
 }
 
 // ── Auth state observer ────────────────────────────────────────
-onAuthStateChanged(firebaseAuth, async fbUser => {
-  _firebaseUser = fbUser;
-  _profile      = fbUser ? await syncWithBackend(fbUser) : null;
-  _emit();
-});
+if (firebaseAuth) {
+  onAuthStateChanged(firebaseAuth, async fbUser => {
+    _firebaseUser = fbUser;
+    _profile      = fbUser ? await syncWithBackend(fbUser) : null;
+    _emit();
+  });
+}
+
+function _requireAuth() {
+  if (!firebaseAuth) throw new Error('Sign-in is not configured on this server.');
+}
 
 // ── Sign in ────────────────────────────────────────────────────
 export async function signInWithGoogle() {
+  _requireAuth();
   const result = await signInWithPopup(firebaseAuth, googleProvider);
   return result.user;
 }
 
 export async function signInWithFacebook() {
+  _requireAuth();
   const result = await signInWithPopup(firebaseAuth, facebookProvider);
   return result.user;
 }
 
 export async function signOutUser() {
+  if (!firebaseAuth) return;
   await signOut(firebaseAuth);
 }
 

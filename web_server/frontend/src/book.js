@@ -13,7 +13,7 @@ import './css/book-links.css';
 import './css/refbutton.css';
 // Note: common.css is loaded via @import in book.css, NOT via JS import.
 // This avoids Vite CSS code-splitting (index.js also imports common.css).
-import { TextProcessor, Script } from './pali-script.js';
+import { applyPaliScript } from './pali-text.js';
 import {
   loadSettings, saveSettings, applySettings,
   populateSettingsForm, readSettingsForm, setThemePreference, applyTheme,
@@ -30,9 +30,6 @@ import { auth, getIdToken }         from './auth/auth.js';
 
 // ── Config injected from book.html ────────────────────────────
 const { bookId, baseUrl, lang, bookref } = window.BOOK_CONFIG;
-
-// ── State ─────────────────────────────────────────────────────
-const originalPaliText = new WeakMap();
 
 // ── DOM refs ──────────────────────────────────────────────────
 const settingsBtn    = document.getElementById('settings-btn');
@@ -104,28 +101,9 @@ observeSentenceRows();
 
 
 // ════════════════════════════════════════════
-// Pali script conversion
-// ════════════════════════════════════════════
-
-export function applyPaliScript(targetScript) {
-  document.querySelectorAll('.pali-text, .book-link-badge').forEach(el => {
-    if (!originalPaliText.has(el)) originalPaliText.set(el, el.innerHTML);
-    const roman = originalPaliText.get(el);
-    el.innerHTML = targetScript === Script.RO
-      ? roman
-      : convertHtmlPali(roman, targetScript);
-  });
-}
-
-function convertHtmlPali(html, script) {
-  return html.replace(/(<[^>]+>)|([^<]+)/g, (match, tag, text) => {
-    if (tag) return tag;
-    return TextProcessor.convert(TextProcessor.convertFromMixed(text), script);
-  });
-}
-
-// ════════════════════════════════════════════
 // Cross-reference links
+// (Pāli transliteration lives in pali-text.js — a shared module plus a
+// MutationObserver, so async content needs no per-call-site re-application.)
 // ════════════════════════════════════════════
 
 function updateCrossRefLinks(paraId) {
@@ -436,6 +414,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   });
 
+  // ── Language menu live search (progressive enhancement; the inline
+  // script in book.html already handles the toggle for no-JS-bundle cases)
+  {
+    const menu = document.querySelector('.lang-dropdown__menu');
+    const filter = menu?.querySelector('.lang-dropdown__filter');
+    if (menu && filter) {
+      const rows = [...menu.querySelectorAll('.lang-dropdown__list > li')];
+      const empty = menu.querySelector('.lang-dropdown__empty');
+      filter.addEventListener('input', () => {
+        const q = filter.value.trim().toLowerCase();
+        let visible = 0;
+        for (const li of rows) {
+          const hit = !q || (li.dataset.search || li.textContent).toLowerCase().includes(q);
+          li.hidden = !hit;
+          if (hit) visible++;
+        }
+        if (empty) empty.hidden = visible !== 0;
+      });
+    }
+  }
+
   initAuthUI();
   initLibraryUI();
   initAppBanner();
@@ -445,12 +444,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   _initHistoryTracking();
   _fetchHeadingTranslations();
   _syncMobileRefLinks();
-
-  // Re-apply pali script when sidebar library tree is ready (async load).
-  document.addEventListener('sidebar:library-ready', () => {
-    const s = loadSettings(lang);
-    applyPaliScript(s.paliScript);
-  });
 
   // ── Helper: find the enclosing section block for a given para_id ──
   function _findEnclosingSection(paraId) {

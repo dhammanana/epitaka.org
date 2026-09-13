@@ -75,17 +75,24 @@
         <button class="topbar-btn lang-btn lang-dropdown__toggle"
                 aria-haspopup="true" aria-expanded="false"
                 aria-label="Translation language">{{ lang_info.code | upper }}</button>
-        <ul class="lang-dropdown__menu" role="menu">
-          {% for alt_lang in available_langs %}
-          <li role="none">
-            <a href="{{ base_url }}/{{ alt_lang.code }}/"
-               class="lang-dropdown__item {% if alt_lang.code == lang %}selected{% endif %}"
-               role="menuitem">
-              {{ alt_lang.english_name }} <small>({{ alt_lang.native_name }})</small>
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
+        <div class="lang-dropdown__menu" role="menu">
+          <div class="lang-dropdown__search">
+            <input type="search" class="lang-dropdown__filter"
+                   placeholder="Search languages…" aria-label="Search languages" autocomplete="off">
+          </div>
+          <ul class="lang-dropdown__list">
+            {% for alt_lang in available_langs %}
+            <li role="none" data-search="{{ alt_lang.native_name }} {{ alt_lang.english_name }} {{ alt_lang.code }}">
+              <a href="{{ base_url }}/{{ alt_lang.code }}/"
+                 class="lang-dropdown__item {% if alt_lang.code == lang %}selected{% endif %}"
+                 role="menuitem">
+                <span class="lang-native">{{ alt_lang.native_name }}</span><small>{{ alt_lang.english_name }}</small>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          <div class="lang-dropdown__empty" hidden>No languages found</div>
+        </div>
       </div>
 
       <div class="topbar-more" id="topbar-more">

@@ -8,8 +8,9 @@ import { HomeDialogBookList }                         from './home-dialog-bookli
 import { LocalState }                                 from '../libs/local-state.js';
 import { saveSidebarSearchState } from '../libs/sidebar-state.js';
 import '../css/home-dialog.css';
-import { TextProcessor, Script } from '../pali-script.js';
-import { loadSettings } from '../settings.js';
+// Transliteration + script fonts for all .pali-text (incl. async results)
+// are handled centrally by pali-text.js via a MutationObserver.
+import '../pali-text.js';
 
 /* ─────────────────────────────────────────────────────────────
    Public init function
@@ -52,7 +53,6 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu, hierarchy
     onResultSelect: url => { try { saveSidebarSearchState({ panel: 'search', search: search.getState() }); } catch {} _close(); window.location.href = url; },
     onShowResults:  ()  => _showResultsPanel(),
     onShowBooks:    ()  => _showBookPanels(),
-    onRenderResults: () => _applyPaliScript(),
   });
 
   /* ── Inject HTML ─────────────────────────────────────────── */
@@ -137,8 +137,6 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu, hierarchy
   function _open() {
     overlay.classList.add('show');
     document.body.style.overflow = 'hidden';
-    // Apply pali script to all book names and group titles in the dialog
-    _applyPaliScript();
     // Skip auto-focus on mobile to prevent the virtual keyboard from opening
     if (window.innerWidth >= 768) {
       setTimeout(() => document.getElementById('home-search-input')?.focus(), 60);
@@ -178,25 +176,6 @@ export function initHomeDialog({ triggerSelector, baseUrl, lang, menu, hierarchy
 }
 
 /* ── Private utilities ────────────────────────────────────── */
-
-/** Apply the user's chosen Pali script to all .pali-text elements in the dialog. */
-function _applyPaliScript() {
-  const dialog = document.getElementById('home-dialog-overlay');
-  if (!dialog) return;
-  const s = loadSettings();
-  const script = s?.paliScript || Script.RO;
-  const originals = new WeakMap();
-  dialog.querySelectorAll('.pali-text').forEach(el => {
-    if (!originals.has(el)) originals.set(el, el.innerHTML);
-    const roman = originals.get(el);
-    el.innerHTML = script === Script.RO
-      ? roman
-      : roman.replace(/(<[^>]+>)|([^<]+)/g, (match, tag, text) => {
-          if (tag) return tag;
-          return TextProcessor.convert(TextProcessor.convertFromMixed(text), script);
-        });
-  });
-}
 
 function _escapeAttr(str) {
   return String(str ?? '')

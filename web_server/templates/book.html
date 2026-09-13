@@ -67,7 +67,7 @@
 <header id="topbar" role="banner">
   <button id="toc-toggle-btn" class="topbar-btn icon-btn" aria-label="Open menu" title="Menu (library, search, contents)">☰</button>
   <a href="{{ base_url }}/{{ lang }}/" class="topbar-btn icon-btn" aria-label="Home" title="Home page">⌂</a>
-  <span class="book-title" title="{{ book_title }}">{{ book_title }}</span>
+  <span class="book-title pali-text" title="{{ book_title }}">{{ book_title }}</span>
   <div class="topbar-right">
 
     {# ── Language selector ── #}
@@ -75,17 +75,24 @@
       <button class="topbar-btn lang-btn lang-dropdown__toggle"
               aria-haspopup="true" aria-expanded="false"
               aria-label="Language">{{ lang_info.code | upper }}</button>
-      <ul class="lang-dropdown__menu" role="menu">
-        {% for alt_lang in available_langs %}
-        <li role="none">
-          <a href="{{ base_url }}/{{ alt_lang.code }}/book/{{ book_id }}"
-             class="lang-dropdown__item {% if alt_lang.code == lang %}selected{% endif %}"
-             role="menuitem">
-            {{ alt_lang.english_name }} <small>({{ alt_lang.native_name }})</small>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
+      <div class="lang-dropdown__menu" role="menu">
+        <div class="lang-dropdown__search">
+          <input type="search" class="lang-dropdown__filter"
+                 placeholder="Search languages…" aria-label="Search languages" autocomplete="off">
+        </div>
+        <ul class="lang-dropdown__list">
+          {% for alt_lang in available_langs %}
+          <li role="none" data-search="{{ alt_lang.native_name }} {{ alt_lang.english_name }} {{ alt_lang.code }}">
+            <a href="{{ base_url }}/{{ alt_lang.code }}/book/{{ book_id }}"
+               class="lang-dropdown__item {% if alt_lang.code == lang %}selected{% endif %}"
+               role="menuitem">
+              <span class="lang-native">{{ alt_lang.native_name }}</span><small>{{ alt_lang.english_name }}</small>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="lang-dropdown__empty" hidden>No languages found</div>
+      </div>
     </div>
 
     {# ── Mūla refs ── #}
@@ -532,6 +539,31 @@
 <script type="module" src="{{ url_for('static', filename='js/book.bundle.js') }}?v={{ v }}"></script>
 
 <script>
+  // Deep-link fallback: jump to the section named in the URL even if the
+  // main module bundle fails to load. Runs as a classic script so it is
+  // independent of the bundle (Firebase, sidebar, …).
+  (function () {
+    try {
+      if (window.location.hash) return;
+      var cfg = window.BOOK_CONFIG || {};
+      if (!cfg.paraId) return;
+      var jump = function () {
+        var el = document.querySelector(
+          '.section-block[data-para-id="' + cfg.paraId + '"]');
+        if (el) el.scrollIntoView({ block: 'start' });
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+          requestAnimationFrame(jump);
+        });
+      } else {
+        requestAnimationFrame(jump);
+      }
+    } catch (e) { /* never break the page */ }
+  })();
+</script>
+
+<script>
   (function () {
     const creditsModal  = document.getElementById('credits-modal');
     const openCredits   = document.getElementById('open-credits-btn');
@@ -546,19 +578,46 @@
     });
     cancelBtn2.addEventListener('click', () => settingsModal.classList.remove('show'));
 
-    // Language dropdown toggle
+    // Language dropdown toggle + live search filter
     const langToggle = document.querySelector('.lang-dropdown__toggle');
     const langMenu   = document.querySelector('.lang-dropdown__menu');
     if (langToggle && langMenu) {
-      langToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const expanded = langToggle.getAttribute('aria-expanded') === 'true';
-        langToggle.setAttribute('aria-expanded', !expanded);
-        langMenu.classList.toggle('open');
-      });
-      document.addEventListener('click', () => {
+      const langFilter = langMenu.querySelector('.lang-dropdown__filter');
+      const langEmpty  = langMenu.querySelector('.lang-dropdown__empty');
+      const langRows   = [...langMenu.querySelectorAll('.lang-dropdown__list > li')];
+      const applyLangFilter = () => {
+        if (!langFilter) return;
+        const q = langFilter.value.trim().toLowerCase();
+        let visible = 0;
+        for (const li of langRows) {
+          const hit = !q || (li.dataset.search || li.textContent).toLowerCase().includes(q);
+          li.hidden = !hit;
+          if (hit) visible++;
+        }
+        if (langEmpty) langEmpty.hidden = visible !== 0;
+      };
+      langFilter?.addEventListener('input', applyLangFilter);
+      langMenu.addEventListener('click', (e) => e.stopPropagation());
+      const closeLangMenu = () => {
         langToggle.setAttribute('aria-expanded', 'false');
         langMenu.classList.remove('open');
+      };
+      langToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const willOpen = !langMenu.classList.contains('open');
+        langToggle.setAttribute('aria-expanded', String(willOpen));
+        langMenu.classList.toggle('open', willOpen);
+        if (willOpen) {
+          if (langFilter) { langFilter.value = ''; applyLangFilter(); }
+          // Scroll the selected language into view on open
+          langMenu.querySelector('.lang-dropdown__item.selected')
+            ?.scrollIntoView({ block: 'nearest' });
+          langFilter?.focus({ preventScroll: true });
+        }
+      });
+      document.addEventListener('click', closeLangMenu);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLangMenu();
       });
     }
 

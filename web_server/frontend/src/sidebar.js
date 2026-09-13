@@ -236,8 +236,9 @@ async function initAsync() {
 
   renderLibraryTree(data?.menu || {});
 
-  // Notify book.js that the library tree is ready (for pali-script re-application).
-  document.dispatchEvent(new CustomEvent('sidebar:library-ready'));
+  // No pali-script hook needed here: pali-text.js observes the DOM and
+  // transliterates new .pali-text nodes (library, search results, …)
+  // automatically.
 
   // Restore a persisted search (user clicked a search result → new page).
   // Always restore when a search was saved, even if the sidebar is not
