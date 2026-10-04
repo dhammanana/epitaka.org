@@ -1285,7 +1285,7 @@ def book(lang, book_id, section_path=None):
         summary_map=summary_map,
         outline_url=outline_url,
         section_outline=section_outline,
-        firebase_config=Config.FIREBASE_CONFIG,
+        firebase_config=Config.get_firebase_web_config(),
     )
     _BOOK_PAGE_CACHE.set(cache_key, html)
     return make_response(html)

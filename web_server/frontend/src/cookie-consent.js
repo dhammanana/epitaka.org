@@ -47,22 +47,29 @@ function loadGoogleAnalytics(measurementId) {
     ad_storage: 'denied',
   });
 
-  // Now load the gtag.js script
+  // Now load the gtag.js script. Adblockers routinely block this host —
+  // a blocked load must stay silent and never break the page.
   const script = document.createElement('script');
   script.id = 'ga-script';
   script.async = true;
+  script.referrerPolicy = 'no-referrer';
   script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
   script.onload = () => {
-    gtag('config', measurementId, {
-      anonymize_ip: true,
-      cookie_flags: 'SameSite=None;Secure',
-    });
-    // Grant analytics storage now that consent is given
-    gtag('consent', 'update', {
-      analytics_storage: 'granted',
-    });
+    try {
+      gtag('config', measurementId, {
+        anonymize_ip: true,
+        cookie_flags: 'SameSite=None;Secure',
+      });
+      // Grant analytics storage now that consent is given
+      gtag('consent', 'update', {
+        analytics_storage: 'granted',
+      });
+    } catch { /* tracking must never break the reader */ }
   };
-  document.head.appendChild(script);
+  script.onerror = () => script.remove();
+  try {
+    document.head.appendChild(script);
+  } catch { /* ignore */ }
 }
 
 /**

@@ -24,7 +24,14 @@ import { initAuthUI, showLoginDialog, showProfileDialog } from './auth/auth-ui.j
 import { initLibraryUI }            from './row_actions/library-ui.js';
 import { initAppBanner }            from './app-banner.js';
 import { initSidebar }              from './sidebar.js';
-import { initCookieConsent }         from './cookie-consent.js';
+
+// ── Cookie consent (GDPR) ──
+// Loaded via dynamic import (see initCookieConsentSafe below), NOT a static
+// import: adblock filter lists block URLs containing "cookie-consent" /
+// "consent", and a blocked *statically-imported* chunk kills the whole book
+// module (sidebar, dictionary, reader logic all dead — on mobile the
+// hamburger menu stops working entirely). A blocked dynamic import merely
+// rejects, which we swallow so the reader keeps working tracking-free.
 
 import { auth, getIdToken }         from './auth/auth.js';
 
@@ -206,6 +213,23 @@ settingsForm.addEventListener('submit', e => {
   _moveBookLinksToEndOfPara();
   settingsModal.classList.remove('show');
 });
+
+// ════════════════════════════════════════════
+// Cookie consent — fault-isolated lazy load
+// ════════════════════════════════════════════
+
+// Adblockers (EasyList Cookie, Fanboy/AdGuard Annoyances, uBlock) block
+// requests whose URL contains "cookie-consent" / "consent" / "analytics".
+// The consent chunk therefore MUST NOT be a static import of this module:
+// a blocked static import aborts the entire book bundle (no sidebar, no
+// hamburger menu on mobile, no dictionary). A dynamic import instead
+// rejects on block — we ignore that and run tracking-free.
+function initCookieConsentSafe(opts) {
+  import('./cookie-consent.js').then(
+    m => m.initCookieConsent(opts),
+    () => { /* consent chunk blocked — reader works without tracking */ },
+  );
+}
 
 // ════════════════════════════════════════════
 // Topbar "more" dropdown (mobile settings menu)
@@ -438,7 +462,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initAuthUI();
   initLibraryUI();
   initAppBanner();
-  initCookieConsent({ gaId: 'G-7NQWX1DCC2' });
+  initCookieConsentSafe({ gaId: 'G-7NQWX1DCC2' });
   _initTopbarMore();
 
   _initHistoryTracking();

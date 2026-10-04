@@ -337,13 +337,11 @@
             {% if sentence.ptspage %}<span class="page-num-badge" data-page-system="pts" title="PTS {{ sentence.ptspage }}">PTS {{ sentence.ptspage }}</span>{% endif %}
             {% if sentence.mypage %}<span class="page-num-badge" data-page-system="myanmar" title="Myanmar {{ sentence.mypage }}">Myanmar {{ sentence.mypage }}</span>{% endif %}
             {% if sentence.thaipage %}<span class="page-num-badge" data-page-system="thai" title="Thai {{ sentence.thaipage }}">Thai {{ sentence.thaipage }}</span>{% endif %}
-            {% if sentence.translation %}
-            <div class="translation-text">{{ sentence.translation | safe }}</div>
-            {% endif %}
-            {# ── Book-link badges inline with the source sentence. Lines can
-               have dozens of cross-book links, so only the first 3 are shown
-               and the rest stay hidden behind a +N more button (toggled by
-               JS in the book-link-badge section below). ── #}
+            {# ── Book-link badges right after the Pāli line (before the
+               translation). Lines can have dozens of cross-book links, so
+               only the first 3 are shown and the rest stay hidden behind a
+               +N more button (toggled by JS in the book-link-badge section
+               below). ── #}
             {% set para_links = book_links_by_line.get(sentence.para_id, {}) %}
             {% set line_links = para_links.get(sentence.line_id, []) %}
             {% for link in line_links[:3] %}
@@ -366,6 +364,9 @@
                     title="Show all {{ line_links | length }} cross-book links">
               +{{ line_links | length - 3 }}
             </button>
+            {% endif %}
+            {% if sentence.translation %}
+            <div class="translation-text">{{ sentence.translation | safe }}</div>
             {% endif %}
           </div>
           {% endfor %}

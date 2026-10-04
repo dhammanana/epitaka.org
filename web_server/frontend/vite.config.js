@@ -1,6 +1,21 @@
 import { defineConfig } from 'vite'
 import { resolve }      from 'path'
 
+// Adblock filter lists (EasyList Cookie, Fanboy Annoyances, AdGuard
+// Annoyances, uBlock) block any request whose URL contains words like
+// "cookie-consent", "consent" or "analytics". A blocked shared chunk kills
+// every entry that statically imports it — on epitaka.org this once took
+// down the whole book reader (mobile hamburger / sidebar dead) for visitors
+// with an adblocker. Map such names to a neutral filename so built URLs
+// never match a filter rule.
+const BLOCKED_CHUNK_RE = /cookie|consent|analytic|track|advert|beacon|gtag|pixel/i;
+
+function safeChunkFileName(chunkInfo) {
+  const raw = chunkInfo.name || 'shared';
+  const safe = BLOCKED_CHUNK_RE.test(raw) ? 'shared' : raw;
+  return `js/${safe}-[hash].chunk.js`;
+}
+
 export default defineConfig({
   base: '/static/',
   root: resolve(__dirname, 'src'),
@@ -18,10 +33,12 @@ export default defineConfig({
         editor: resolve(__dirname, 'src/editor.js'),
       },
       output: {
-        // Keep the shared consent chunk name stable, while adding a hash to
-        // all entry bundles so an old entry can never pair with a new chunk.
+        // Entry bundles are cached via the ?v= query param (asset version
+        // derived from bundle mtimes). Chunk URLs carry a content hash so an
+        // old entry can never pair with a new chunk. Chunk basenames are
+        // sanitised (see safeChunkFileName) so adblock lists never match.
         entryFileNames: 'js/[name].bundle.js',
-        chunkFileNames: 'js/[name]-[hash].chunk.js',
+        chunkFileNames: safeChunkFileName,
         assetFileNames: assetInfo =>
           assetInfo.name?.endsWith('.css')
             ? 'css/[name][extname]'

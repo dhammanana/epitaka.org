@@ -14,7 +14,10 @@
 import './css/index.css';
 import './css/common.css';
 import { initHomeDialog } from './home-dialog/home-dialog.js';
-import { initCookieConsent } from './cookie-consent.js';
+// NOTE: cookie-consent.js is loaded via dynamic import inside init() — never
+// a static import. Adblock lists block "cookie-consent" URLs, and a blocked
+// static chunk import would kill this whole entry module. See
+// initCookieConsentSafe() in book.js for the full explanation.
 import { initSidebar } from './sidebar.js';
 import { applyTheme, onLanguageSelect, loadSettings, applySettings } from './settings.js';
 import { applyPaliScript } from './pali-text.js';
@@ -75,7 +78,13 @@ async function init() {
 
   // ── Cookie consent (GDPR) ──
   // Must run BEFORE the slow menu fetch so the banner appears immediately.
-  initCookieConsent({ gaId: 'G-7NQWX1DCC2' });
+  // Dynamic import: if an adblocker blocks the consent chunk the promise
+  // rejects and the page simply runs tracking-free (a static import would
+  // break the entire bundle instead).
+  import('./cookie-consent.js').then(
+    m => m.initCookieConsent({ gaId: 'G-7NQWX1DCC2' }),
+    () => {},
+  );
 
   // ── Reader-style shell: same sidebar + topbar as the book page ──
   // No book is open (BOOK_CONFIG.bookId is ''), so the sidebar runs in
