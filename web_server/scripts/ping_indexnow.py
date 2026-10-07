@@ -14,12 +14,25 @@ Usage:
     # Every URL in the site-pages sitemap (home / canon / download):
     INDEXNOW_KEY=<key> python3 scripts/ping_indexnow.py --sitemap sitemaps/pages.xml
 
+    # Every URL on the whole site, via the sitemap index
+    # (sitemap.xml lists sitemaps/book_*.xml + study_*.xml + pages.xml):
+    INDEXNOW_KEY=<key> python3 scripts/ping_indexnow.py --sitemap sitemap.xml
+
+    # Repeat --sitemap for several files:
+    INDEXNOW_KEY=<key> python3 scripts/ping_indexnow.py \
+        --sitemap sitemaps/pages.xml --sitemap sitemaps/book_Dhp.xml
+
     # Print the payload without sending (no network, no key needed):
     python3 scripts/ping_indexnow.py --dry-run --sitemap sitemaps/pages.xml
 
+Only submit changed URLs on routine deploys. A full-index submit (~46k URLs,
+5 requests of 10k) is for first-time indexing or a full rebuild — Bing may
+throttle repeated bulk submits.
+
 The key must also be served at https://<host>/<key>.txt — see the
 `indexnow_keyfile` route in app/routes/main.py. Set INDEXNOW_KEY in the server
-.env so the route and this script agree.
+.env so the route and this script agree (defaults to DEFAULT_INDEXNOW_KEY
+when the env var is unset; export INDEXNOW_KEY to override).
 """
 import argparse
 import json
@@ -27,18 +40,70 @@ import os
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 
 ENDPOINT = 'https://api.indexnow.org/indexnow'
 MAX_URLS_PER_REQUEST = 10_000  # protocol limit per request
+# Default key, used when $INDEXNOW_KEY is unset. The key is public by design
+# (IndexNow verifies it via https://<host>/<key>.txt), so shipping it here
+# as a fallback is safe; $INDEXNOW_KEY still overrides it.
+DEFAULT_INDEXNOW_KEY = '473ae9c09c265e983dd36ed0ec72802b'
+_DRY_RUN_PREVIEW_LIMIT = 50  # full JSON only for small lists; summary above that
 _LOC_RE = re.compile(r'<loc>\s*(.*?)\s*</loc>', re.DOTALL)
 
 
-def read_sitemap_urls(path: str) -> list[str]:
-    """Return every <loc> value in a sitemap file (order preserved)."""
+def read_sitemap_urls(path: str, _seen: set[str] | None = None) -> list[str]:
+    """Return every page <loc> in a sitemap file (order preserved).
+
+    Sitemap *index* files (sitemap.xml) list other sitemaps instead of pages,
+    so they are expanded recursively: each child <loc> like
+    https://<host>/sitemaps/book_X.xml is resolved to a local file next to
+    the index and read in turn. Missing children are skipped with a warning.
+    """
+    if _seen is None:
+        _seen = set()
+    abspath = os.path.abspath(path)
+    if abspath in _seen:
+        return []
+    _seen.add(abspath)
     with open(path, encoding='utf-8') as f:
         content = f.read()
-    return [u.strip() for u in _LOC_RE.findall(content) if u.strip()]
+    locs = [u.strip() for u in _LOC_RE.findall(content) if u.strip()]
+    if '<sitemapindex' not in content:
+        return locs
+    base_dir = os.path.dirname(abspath)
+    urls: list[str] = []
+    for loc in locs:
+        child = _loc_to_local_file(loc, base_dir)
+        if child and os.path.isfile(child):
+            urls += read_sitemap_urls(child, _seen)
+        else:
+            print(f'  ! warning: sitemap not found locally, skipped: {loc}',
+                  file=sys.stderr)
+    return urls
+
+
+def _loc_to_local_file(loc: str, base_dir: str) -> str | None:
+    """Map a sitemap-index <loc> to a local file path, or None."""
+    parsed = urllib.parse.urlparse(loc)
+    # Remote file on another host: cannot resolve locally.
+    if parsed.scheme and parsed.netloc:
+        rel = parsed.path.lstrip('/')
+    else:
+        rel = loc
+    # Bare filename (book_X.xml) lives in the sitemaps/ dir next to the index.
+    if '/' not in rel and base_dir.endswith('sitemaps'):
+        return os.path.join(base_dir, os.path.basename(rel))
+    candidate = os.path.join(base_dir, rel)
+    if os.path.isfile(candidate):
+        return candidate
+    # Fall back: same basename in a sitemaps/ sibling dir (index at root,
+    # children in sitemaps/).
+    fallback = os.path.join(base_dir, 'sitemaps', os.path.basename(rel))
+    if os.path.isfile(fallback):
+        return fallback
+    return None
 
 
 def chunks(seq: list[str], size: int):
@@ -54,7 +119,21 @@ def submit(host: str, key: str, urls: list[str], dry_run: bool = False) -> int:
         'urlList': urls,
     }
     if dry_run:
-        print(json.dumps(payload, indent=2, ensure_ascii=False))
+        if len(urls) <= _DRY_RUN_PREVIEW_LIMIT:
+            print(json.dumps(payload, indent=2, ensure_ascii=False))
+        else:
+            preview = {
+                'host': host,
+                'key': key,
+                'keyLocation': payload['keyLocation'],
+                'urlCount': len(urls),
+                'firstUrls': urls[:5],
+            }
+            print(json.dumps(preview, indent=2, ensure_ascii=False))
+            print(f'  … ({len(urls)} URLs total, '
+                  f'{(len(urls) + MAX_URLS_PER_REQUEST - 1) // MAX_URLS_PER_REQUEST} '
+                  f'request(s) of up to {MAX_URLS_PER_REQUEST:,}; '
+                  f'full list hidden, {len(urls)} URLs would be sent)')
         return 0
 
     data = json.dumps(payload).encode('utf-8')
@@ -81,7 +160,10 @@ def main(argv=None) -> int:
     p = argparse.ArgumentParser(
         description='Ping IndexNow about changed URLs.')
     p.add_argument('urls', nargs='*', help='URLs to submit')
-    p.add_argument('--sitemap', help='read URLs from this sitemap file instead')
+    p.add_argument('--sitemap', action='append', dest='sitemaps', default=[],
+                   help='read URLs from this sitemap file; repeatable; '
+                        'a sitemap index (sitemap.xml) is expanded to all '
+                        'its child sitemaps')
     p.add_argument('--host',
                    default=os.environ.get('INDEXNOW_HOST', 'epitaka.org'),
                    help='site host (default: $INDEXNOW_HOST or epitaka.org)')
@@ -90,9 +172,9 @@ def main(argv=None) -> int:
     args = p.parse_args(argv)
 
     urls = list(args.urls)
-    if args.sitemap:
+    for sm in args.sitemaps:
         try:
-            urls += read_sitemap_urls(args.sitemap)
+            urls += read_sitemap_urls(sm)
         except OSError as exc:
             print(f'ERROR: cannot read sitemap: {exc}')
             return 2
@@ -102,14 +184,17 @@ def main(argv=None) -> int:
     if not urls:
         print('ERROR: no URLs given. Pass URLs or --sitemap <file>.')
         return 2
+    print(f'  Collected {len(urls)} unique URL(s) from '
+          f'{len(args.sitemaps)} sitemap(s) + {len(args.urls)} explicit URL(s)'
+          if args.sitemaps else f'  Collected {len(urls)} URL(s)')
 
     host = (args.host.strip().rstrip('/')
             .replace('https://', '').replace('http://', ''))
 
-    key = (os.environ.get('INDEXNOW_KEY') or '').strip()
+    key = (os.environ.get('INDEXNOW_KEY') or DEFAULT_INDEXNOW_KEY).strip()
     if not key:
         if not args.dry_run:
-            print('ERROR: INDEXNOW_KEY is not set. Export it, or use --dry-run.')
+            print('ERROR: INDEXNOW_KEY is not set and no default is configured.')
             return 2
         key = 'YOUR_INDEXNOW_KEY'
 
