@@ -655,11 +655,77 @@ def website_jsonld(lang_code: str, available_langs: list | None = None) -> dict:
                 '@type': 'Organization',
                 '@id': absolute('/') + '#organization',
                 'name': 'E-Piṭaka',
+                'alternateName': 'Epitaka',
                 'url': absolute('/'),
                 'logo': {'@type': 'ImageObject', 'url': absolute('/static/icon.png')},
+                'description': ('Free, open reader of the Pāli Tipiṭaka (Chaṭṭha '
+                                'Saṅgāyana edition) with line-by-line translations '
+                                'and AI study guides.'),
+                # Entity grounding: profiles that unambiguously identify this
+                # project. Add a Wikidata/Wikipedia URL here once one exists so
+                # AI assistants resolve "E-Piṭaka" to the same real-world entity.
+                'sameAs': [
+                    'https://github.com/dhammanana/epitaka.org',
+                    'https://github.com/dhammanana/epitaka_translator',
+                ],
             },
         ],
     }
+
+
+# ── /llms.txt ─────────────────────────────────────────────────────────────
+# Curated, LLM-friendly map of the site (see llmstxt.org, v2 format): an H1,
+# a blockquote summary, then H2 "file list" sections of `- [name](url): note`
+# entries. Deliberately short and curated — it is a navigation aid, not a
+# second sitemap. robots.txt governs access; this file governs navigation.
+
+def llms_txt() -> str:
+    """Return the /llms.txt body (plain Markdown, served as text/plain)."""
+    base = site_base()
+    try:
+        codes = sorted(Config.detect_translations().keys())
+    except Exception:
+        codes = ['en']
+    other = ', '.join(c for c in codes if c != 'en')
+
+    lines = [
+        '# E-Piṭaka',
+        '',
+        '> Free, open reader of the Pāli Tipiṭaka (Chaṭṭha Saṅgāyana edition — the '
+        'Sixth Buddhist Council recension) with line-by-line translations in '
+        'English, Sinhala, Thai, Lao, Myanmar, Vietnamese, Tamil and more, plus '
+        'AI-written study guides for every section.',
+        '',
+        'Every text, section and study guide is server-rendered HTML: no paywall, '
+        'no login, and no JavaScript required to read. The Pāli is shown with a '
+        'translation lined up sentence by sentence. Edition details and the '
+        'translation methodology are at ' + absolute('/about') + '.',
+        '',
+        '## Read the canon',
+        f'- [Reader home (English)]({base}/en/): full-text reader with translations',
+        f'- [Full canon index]({base}/en/canon): every book grouped by Piṭaka — '
+        'Vinaya, Sutta, Abhidhamma, plus commentaries and sub-commentaries',
+        f'- [Downloads]({base}/en/download): free PDF, EPUB, DOCX and Markdown packs',
+    ]
+    if other:
+        lines.append(
+            f'- [Other languages]({base}/): each language has its own home, canon '
+            f'index and reader at /<lang>/ (available: {other})'
+        )
+    lines += [
+        '',
+        '## Reference',
+        f'- [Study guides]({base}/en/): section-by-section summaries with sutta '
+        'citations; a book\'s outline is at /en/book/<book>/outline and each guide '
+        'at /en/study/<book>/<slug>',
+        '',
+        '## Optional',
+        f'- [About the translation]({absolute("/about")}): how the AI-assisted '
+        'translations are produced',
+        f'- [Privacy]({absolute("/privacy")})',
+        '',
+    ]
+    return '\n'.join(lines)
 
 
 # ── Canon index and ebook download pages ─────────────────────────────────
@@ -740,7 +806,8 @@ def study_seo_description(summary_title: str, pali_name: str,
 def study_jsonld(book_id: str, summary_title: str, pali_name: str,
                  page_url: str, home_url: str, book_url: str,
                  sutta_title: str | None = None,
-                 section_url: str | None = None) -> dict:
+                 section_url: str | None = None,
+                 date_modified: str | None = None) -> dict:
     """Article + BreadcrumbList schema for a study-guide page."""
     en = english_book_name(book_id)
     name = f'{en} ({pali_name})' if en and en.lower() != pali_name.lower() else pali_name
@@ -776,9 +843,41 @@ def study_jsonld(book_id: str, summary_title: str, pali_name: str,
                 'publisher': {'@type': 'Organization', 'name': 'E-Piṭaka', 'url': absolute('/')},
                 'author': {'@type': 'Organization', 'name': 'E-Piṭaka', 'url': absolute('/')},
                 'mainEntityOfPage': page_url,
+                **({'dateModified': date_modified[:10]} if date_modified else {}),
             },
             {'@type': 'BreadcrumbList', 'itemListElement': breadcrumb},
         ],
+    }
+
+
+def canon_dataset_jsonld(page_url: str, site_url: str) -> dict:
+    """Dataset schema describing the served Tipiṭaka corpus.
+
+    Research- and citation-oriented answers ("Pāli Canon full text", "Tipiṭaka
+    dataset") respond to Dataset markup. Only verifiable facts are asserted —
+    edition, language of the source text, free access, and the downloadable
+    packs; no license is claimed.
+    """
+    return {
+        '@type': 'Dataset',
+        '@id': page_url + '#dataset',
+        'name': ('Chaṭṭha Saṅgāyana Tipiṭaka — Pāli Canon full text with '
+                 'translations'),
+        'alternateName': 'Pali Canon dataset',
+        'description': ('The complete Pāli Tipiṭaka of the Sixth Buddhist Council '
+                        '(Chaṭṭha Saṅgāyana) edition — Vinaya, Sutta and '
+                        'Abhidhamma piṭakas with their commentaries — as '
+                        'structured text with line-by-line translations in '
+                        'multiple languages.'),
+        'url': page_url,
+        'inLanguage': 'pi',
+        'isAccessibleForFree': True,
+        'publisher': {'@type': 'Organization', 'name': 'E-Piṭaka', 'url': site_url},
+        'distribution': {
+            '@type': 'DataDownload',
+            'encodingFormat': 'application/zip',
+            'contentUrl': EBOOK_RELEASE_PAGE,
+        },
     }
 
 

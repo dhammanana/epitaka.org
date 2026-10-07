@@ -561,6 +561,69 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  // ── Align a target row/section, opening its section if needed ──
+  function _alignTarget(el, searchTerm, behavior) {
+    _clearJumpHighlight();
+    const paragraph = el.closest('.para-group') || el;
+    void paragraph.offsetWidth;
+    paragraph.classList.add('jump-target-highlight');
+    _highlightSearchTerm(paragraph, searchTerm);
+    el.scrollIntoView({ behavior, block: 'center' });
+    setTimeout(() => paragraph.classList.remove('jump-target-highlight'), 5000);
+  }
+
+  // Resolve the element a #para_id[-line_id] hash points at.
+  // Always open the enclosing section first: a sentence row can be found in
+  // the DOM while still inside a collapsed (display:none) section, where
+  // scrollIntoView does nothing.
+  function _resolveHashTarget(paraId, lineId) {
+    _openSection(_findEnclosingSection(paraId));
+    const el = !isNaN(lineId)
+      ? _findLineRow(paraId, lineId)
+      : _findFirstSentenceRow(paraId);
+    return el || _findEnclosingSection(paraId);
+  }
+
+  // ── Robust deep-link jump on page load ──
+  // The bug this fixes: on a full page load the hash is handled at
+  // DOMContentLoaded, before web fonts (Crimson Pro / DM Sans) and images have
+  // loaded. When they arrive the page reflows, so a smooth scroll started here
+  // is left parked at a stale offset — the deep link "doesn't jump", and only
+  // works on a second click once layout is stable. (The browser's own fragment
+  // scroll can't help: the hash is "997-5" but rows are id="p-997-l-5".)
+  //
+  // Fix: first pass is INSTANT (no animation over an unstable layout), the
+  // target is retried on animation frames in case it isn't rendered yet, and
+  // we re-align instantly once fonts, the full window load, and a short safety
+  // timeout have all settled — so the reader lands on the exact row.
+  function _jumpToHash(paraId, lineId, searchTerm) {
+    let attempts = 0;
+    const find = () => {
+      const el = _resolveHashTarget(paraId, lineId);
+      if (!el) {
+        // Target not rendered yet (e.g. async content) — retry briefly.
+        if (attempts++ < 20) requestAnimationFrame(find);
+        return;
+      }
+      _alignTarget(el, searchTerm, 'auto');
+
+      const settle = () => {
+        const finalEl = _resolveHashTarget(paraId, lineId);
+        if (finalEl) _alignTarget(finalEl, searchTerm, 'auto');
+      };
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(settle).catch(() => {});
+      }
+      if (document.readyState === 'complete') {
+        requestAnimationFrame(settle);
+      } else {
+        window.addEventListener('load', settle, { once: true });
+      }
+      setTimeout(settle, 800);
+    };
+    requestAnimationFrame(find);
+  }
+
   // Shared handler for links that jump to a paragraph/line in this book.
   document.addEventListener('click', event => {
     const link = event.target.closest('a[href]');
@@ -600,42 +663,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (hash) {
     const parts = hash.split('-');
     const paraId = parseInt(parts[0]);
-    const lineId = parts.length >= 2 ? parseInt(parts[1]) : NaN;
-
-    if (!isNaN(paraId)) {
-      if (!isNaN(lineId)) {
-        // ── Hash has both para_id and line_id: #997-5 ──
-        let targetEl = _findLineRow(paraId, lineId);
-        if (!targetEl) {
-          // Section might not be open yet — find and open it
-          const section = _findEnclosingSection(paraId);
-          _openSection(section);
-          targetEl = _findLineRow(paraId, lineId);
-        }
-        if (targetEl) {
-          _scrollToEl(targetEl, jumpSearchTerm);
-        } else {
-          // Fallback: scroll to section
-          const section = _findEnclosingSection(paraId);
-          if (section) _scrollToEl(section, jumpSearchTerm);
-        }
-      } else {
-        // ── Hash has only para_id: #997 (e.g. from ref_links M/A/T) ──
-        // Try to find any sentence row in this paragraph
-        let targetEl = _findFirstSentenceRow(paraId);
-        if (!targetEl) {
-          const section = _findEnclosingSection(paraId);
-          _openSection(section);
-          targetEl = _findFirstSentenceRow(paraId);
-        }
-        if (targetEl) {
-          _scrollToEl(targetEl, jumpSearchTerm);
-        } else {
-          const section = _findEnclosingSection(paraId);
-          if (section) _scrollToEl(section, jumpSearchTerm);
-        }
-      }
-    }
+    const lineId = parts.length >= 2 ? parseInt(parts[1], 10) : NaN;
+    if (!isNaN(paraId)) _jumpToHash(paraId, lineId, jumpSearchTerm);
   } else if (window.BOOK_CONFIG.paraId) {
     // ── No hash: scroll to the active section opened by the server ──
     const section = _findEnclosingSection(window.BOOK_CONFIG.paraId);

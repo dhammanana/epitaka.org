@@ -148,6 +148,11 @@ def create_app(config_name='default'):
             return response
         if ep in _CACHEABLE_ENDPOINTS and 'Cache-Control' not in response.headers:
             response.headers['Cache-Control'] = 'public, max-age=300'
+        # Point AI agents at the curated site map. llms.txt (v2) recommends the
+        # HTTP Link header form: one line covers every HTML page, no per-template
+        # edits. setdefault keeps any page-specific Link header intact.
+        if response.mimetype == 'text/html':
+            response.headers.setdefault('Link', '</llms.txt>; rel="describedby"')
         return response
 
     return app

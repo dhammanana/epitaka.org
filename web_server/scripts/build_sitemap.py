@@ -12,9 +12,14 @@ understand the language variants of each page.
 
 Usage:
     cd web_server && python3 scripts/build_sitemap.py
-    # Optionally set BASE_URL if running outside the Flask app:
-    BASE_URL=https://epitaka.org python3 scripts/build_sitemap.py
+    # BASE_URL defaults to https://epitaka.org; override to build for another
+    # origin (e.g. staging):
+    BASE_URL=https://staging.example.org python3 scripts/build_sitemap.py
+
+Every generated <loc> and xhtml:link href is absolute — the sitemap protocol
+requires it — and the build fails (non-zero exit) if any relative URL slips in.
 """
+import datetime
 import os
 import re
 import sys
@@ -30,8 +35,28 @@ EPITAKA_DB = os.path.join(DATA_DIR, 'epitaka.db')
 # DB (epitaka_en.db) — no separate summary DB to deploy.
 SUMMARY_DB = os.path.join(DATA_DIR, 'epitaka_en.db')
 
-# Default base URL — override via BASE_URL env var
-BASE_URL = os.environ.get('BASE_URL', '').rstrip('/')
+# Canonical public origin. BASE_URL env var overrides it; when unset we fall
+# back to the production domain so generated sitemaps always carry absolute,
+# spec-valid URLs (the sitemap protocol requires absolute <loc> values —
+# relative ones previously shipped and made the whole index invalid).
+CANONICAL_BASE_URL = 'https://epitaka.org'
+
+
+def _resolve_base_url() -> str:
+    """Return the absolute origin used in every generated URL.
+
+    Prefers the BASE_URL env var; otherwise falls back to CANONICAL_BASE_URL.
+    Exits non-zero when the value is not an absolute http(s) origin, because a
+    relative origin silently produces an invalid sitemap.
+    """
+    base = (os.environ.get('BASE_URL') or CANONICAL_BASE_URL).strip().rstrip('/')
+    if not re.match(r'^https?://[^/]+', base):
+        print(f"ERROR: BASE_URL must be an absolute http(s) origin, got {base!r}")
+        sys.exit(1)
+    return base
+
+
+BASE_URL = _resolve_base_url()
 
 # ── Language sorting ───────────────────────────────────────────────────────
 # Default language listed first, remaining sorted alphabetically
@@ -226,6 +251,15 @@ def write_sitemap_index(sitemap_files: list[str]):
         loc = f"{BASE_URL}/sitemaps/{xml_escape(filename, quote_map)}"
         lines.append('  <sitemap>')
         lines.append(f'    <loc>{loc}</loc>')
+        # lastmod = the sitemap's own mtime (just written by this run), so
+        # crawlers know when each child sitemap last changed.
+        try:
+            mtime = os.path.getmtime(os.path.join(OUTPUT_DIR, filename))
+            lastmod = datetime.datetime.fromtimestamp(
+                mtime, datetime.timezone.utc).strftime('%Y-%m-%d')
+            lines.append(f'    <lastmod>{lastmod}</lastmod>')
+        except OSError:
+            pass
         lines.append('  </sitemap>')
     lines.append('</sitemapindex>')
 
@@ -305,6 +339,48 @@ def write_book_sitemap(book_id: str, headings: list[dict], langs: list[str]):
     print(f"  ✓ {filename}: {num_urls} URLs (incl. outline) × {len(langs)} languages = {num_alt} alternates")
 
 
+# ── Output validation ──────────────────────────────────────────────────────
+
+_LOC_RE = re.compile(r'<loc>(.*?)</loc>')
+_HREF_RE = re.compile(r'href="(.*?)"')
+
+
+def assert_absolute_urls():
+    """Verify every generated <loc> and xhtml:link href is an absolute URL.
+
+    The sitemap protocol requires absolute URLs; a relative value such as
+    "/sitemaps/book_Dhp.xml" invalidates the file and crawlers may discard the
+    whole index. Fail the build loudly rather than ship one.
+    """
+    bad = []
+    checked = 0
+    index_path = os.path.join(OUTPUT_DIR, '..', 'sitemap.xml')
+    paths = [index_path] + [
+        os.path.join(OUTPUT_DIR, name)
+        for name in sorted(os.listdir(OUTPUT_DIR))
+        if name.endswith('.xml')
+    ]
+    for path in paths:
+        with open(path, encoding='utf-8') as f:
+            content = f.read()
+        for url in _LOC_RE.findall(content) + _HREF_RE.findall(content):
+            checked += 1
+            if not url.startswith(('http://', 'https://')):
+                bad.append((os.path.basename(path), url))
+
+    if bad:
+        print(f"\nERROR: {len(bad)} relative URL(s) in generated sitemaps "
+              f"(all URLs must be absolute):")
+        for name, url in bad[:10]:
+            print(f"  {name}: {url}")
+        if len(bad) > 10:
+            print(f"  … and {len(bad) - 10} more")
+        print(f"\n  BASE_URL resolved to: {BASE_URL!r}")
+        sys.exit(1)
+
+    print(f"  ✓ URL check: all {checked:,} <loc>/href values are absolute")
+
+
 # ── Main ───────────────────────────────────────────────────────────────────
 
 def build_sitemaps():
@@ -312,10 +388,10 @@ def build_sitemaps():
     print("Building sitemaps for epitaka.org")
     print("=" * 60)
 
-    if not BASE_URL:
-        print("WARNING: BASE_URL is not set. Set the BASE_URL env var.")
-        print("         URLs will be relative (/path/...).")
-        print()
+    print(f"BASE_URL: {BASE_URL}")
+    if not os.environ.get('BASE_URL'):
+        print(f"         (env BASE_URL unset — using canonical {CANONICAL_BASE_URL})")
+    print()
 
     # ── Detect translation languages ──────────────────────────────────────
     print("\n[1] Detecting translation languages...")
@@ -420,6 +496,10 @@ def build_sitemaps():
     # ── Generate sitemap index ───────────────────────────────────────────
     print("\n[6] Generating sitemap index...")
     write_sitemap_index(sitemap_files)
+
+    # ── Validate: every URL must be absolute ─────────────────────────────
+    print("\n[7] Validating generated URLs...")
+    assert_absolute_urls()
 
     # ── Summary ─────────────────────────────────────────────────────────
     print(f"\n{'=' * 60}")
