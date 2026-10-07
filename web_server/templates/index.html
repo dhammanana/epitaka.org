@@ -7,6 +7,8 @@
   <meta name="description" content="{{ seo_home.description }}">
   <link rel="canonical" href="{{ home_url }}">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="/static/icon.png">
+  <link rel="apple-touch-icon" href="/static/icon.png">
 
   {# ── Open Graph / Twitter ── #}
   <meta property="og:type"        content="website">
@@ -164,6 +166,14 @@
         {% for alt in available_langs %}
         <a href="{{ base_url }}/{{ alt.code }}/">{{ alt.native_name }} ({{ alt.english_name }})</a>{% if not loop.last %} · {% endif %}
         {% endfor %}
+      </p>
+
+      {# Crawlable entry points: the interactive library is a JS dialog, so
+         these static links give crawlers (and no-JS readers) the full tree
+         and the downloadable editions. #}
+      <p class="seo-canon-links">
+        <a href="{{ base_url }}/{{ lang }}/canon">{{ seo_home.canon }}</a> ·
+        <a href="{{ base_url }}/en/download">{{ seo_home.download }}</a>
       </p>
 
       <p class="seo-footer-links">

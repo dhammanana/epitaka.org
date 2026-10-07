@@ -473,7 +473,7 @@ function initResize() {
 
 async function loadMenu() {
   try {
-    const res = await fetch(`${baseUrl}/api/menu`);
+    const res = await fetch(`${baseUrl}/api/menu?lang=${encodeURIComponent(lang)}`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return await res.json();
   } catch (err) {

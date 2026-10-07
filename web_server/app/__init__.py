@@ -127,6 +127,7 @@ def create_app(config_name='default'):
         'main.index', 'main.index_redirect', 'main.book', 'main.about', 'main.privacy',
         'main.sitemap_index', 'main.sitemap_file', 'main.robots_txt',
         'main.app_share_link', 'main.study_guide', 'main.outline',
+        'main.canon', 'main.download',
         'main.api_study_section',
         # Read-only JSON APIs (frontend + mobile app)
         'main.api_menu', 'main.suggest_word', 'main.search_headings_suggest',

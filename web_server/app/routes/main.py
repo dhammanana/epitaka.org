@@ -35,6 +35,7 @@ from ..services.toc import (
 )
 from ..services.links import load_section_book_links
 from ..services import summaries as summaries_svc
+from ..services import book_names as book_names_svc
 from ..config import Config
 
 import os
@@ -75,6 +76,9 @@ _BOOK_PAGE_CACHE = TTLCache(max_size=24, ttl=300)
 # cached like the book page (crawlers re-hit the same URLs constantly).
 _STUDY_PAGE_CACHE = TTLCache(max_size=64, ttl=300)
 _OUTLINE_PAGE_CACHE = TTLCache(max_size=32, ttl=300)
+# Full-canon index and the ebook download page (crawl targets).
+_CANON_PAGE_CACHE = TTLCache(max_size=32, ttl=300)
+_DOWNLOAD_PAGE_CACHE = TTLCache(max_size=4, ttl=300)
 # The home page: crawlers hammer `/` and `/<lang>/` constantly, and the
 # rendered output is identical for every visitor — cache it like the
 # book page (keyed on asset version so deploys bust the cache).
@@ -188,7 +192,9 @@ def index(lang):
         lang_info=lang_info,
         available_langs=available,
         seo_home=seo.home_l10n(lang, len(available)),
-        popular_books=seo.popular_books(lang),
+        popular_books=seo.popular_books(
+            lang, book_names_svc.localized_book_names(lang)
+        ),
         website_jsonld=seo.website_jsonld(lang),
     )
     _INDEX_PAGE_CACHE.set(cache_key, html)
@@ -399,12 +405,14 @@ def google_verification(hash):
 
 @bp.route("/favicon.ico")
 def favicon_ico():
-    """Serve the site favicon."""
-    static_dir = os.path.join(
-        os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-        "static",
-    )
-    return send_from_directory(static_dir, "favicon.ico")
+    """Serve the site favicon from the built frontend assets.
+
+    The favicon lives in frontend/dist (copied there from
+    frontend/src/public by the Vite build) — the same tree Flask serves
+    under /static/ — not in the old web_server/static directory, which no
+    longer exists and made every favicon request 404.
+    """
+    return send_from_directory(_FRONTEND_DIST, "favicon.ico")
 
 
 # ── .well-known (Flutter app links, Apple Universal Links) ────────────
@@ -804,6 +812,101 @@ def outline(lang, book_id):
     return make_response(html)
 
 
+@bp.route("/<lang>/canon")
+def canon(lang):
+    """Static, server-rendered index of every book in the canon, grouped by
+    Piṭaka/layer. The interactive library is a JS dialog, so crawlers had no
+    single crawlable page linking the whole canon — this is it. Book names
+    are shown in the reader's language when a translation exists."""
+    translations = Config.detect_translations()
+    if lang not in translations:
+        return redirect(Config.BASE_URL + "/" + Config.DEFAULT_LANG + "/")
+
+    cache_key = ("canon", lang, get_asset_version())
+    cached = _CANON_PAGE_CACHE.get(cache_key)
+    if cached is not None:
+        return make_response(cached)
+
+    hierarchy = load_hierarchy()
+    menu = organize_hierarchy(hierarchy)
+    names = book_names_svc.localized_book_names(lang)
+    lang_info = translations[lang]
+
+    page_url = seo.absolute(f"/{lang}/canon")
+    home_url = seo.absolute(f"/{lang}/")
+
+    html = render_template(
+        "canon.html",
+        menu=menu,
+        names=names,
+        total_books=len(hierarchy),
+        lang=lang,
+        lang_info=lang_info,
+        available_langs=[translations[c] for c in sorted(translations.keys())],
+        seo_title=seo.canon_seo_title(lang_info["native_name"], lang),
+        meta_description=seo.canon_seo_description(lang),
+        canonical_url=page_url,
+        page_url=page_url,
+        home_url=home_url,
+        site_url=seo.site_base(),
+        base_url=Config.BASE_URL,
+    )
+    _CANON_PAGE_CACHE.set(cache_key, html)
+    return make_response(html)
+
+
+@bp.route("/<lang>/download")
+def download(lang):
+    """Ebook download page (PDF / EPUB / DOCX / Markdown packs published on
+    GitHub Releases). English content, so non-English prefixes 301 to /en."""
+    translations = Config.detect_translations()
+    if lang not in translations:
+        return redirect(Config.BASE_URL + "/" + Config.DEFAULT_LANG + "/")
+    if lang != Config.DEFAULT_LANG:
+        return redirect(
+            seo.absolute(f"/{Config.DEFAULT_LANG}/download"), code=301
+        )
+
+    cache_key = ("download", lang, get_asset_version())
+    cached = _DOWNLOAD_PAGE_CACHE.get(cache_key)
+    if cached is not None:
+        return make_response(cached)
+
+    packs = [
+        {
+            "script": script,
+            "lang": plang,
+            "label": label,
+            "filename": f"{script}_{plang}",
+            "formats": {
+                fmt: seo.ebook_download_url(script, plang, fmt)
+                for fmt in seo.EBOOK_FORMATS
+            },
+        }
+        for script, plang, label in seo.EBOOK_PACKS
+    ]
+    page_url = seo.absolute(f"/{Config.DEFAULT_LANG}/download")
+    home_url = seo.absolute(f"/{Config.DEFAULT_LANG}/")
+
+    html = render_template(
+        "download.html",
+        packs=packs,
+        release_page=seo.EBOOK_RELEASE_PAGE,
+        lang=Config.DEFAULT_LANG,
+        lang_info=translations[Config.DEFAULT_LANG],
+        available_langs=[translations[c] for c in sorted(translations.keys())],
+        seo_title=seo.download_seo_title(),
+        meta_description=seo.download_seo_description(),
+        canonical_url=page_url,
+        page_url=page_url,
+        home_url=home_url,
+        site_url=seo.site_base(),
+        base_url=Config.BASE_URL,
+    )
+    _DOWNLOAD_PAGE_CACHE.set(cache_key, html)
+    return make_response(html)
+
+
 @bp.route("/api/outline/<book_id>")
 def api_outline(book_id):
     """JSON outline for the book-page sidebar Outline panel.
@@ -1111,6 +1214,8 @@ def book(lang, book_id, section_path=None):
 
     # ── SEO: English display name + breadcrumb path to the active section ──
     english_name = seo.english_book_name(book_id)
+    # Book name in the reader's language/script (falls back to English/Pāli)
+    display_name = book_names_svc.display_book_name(book_id, lang, book_title)
 
     # Walk the TOC once, keeping the most recent heading per level up to the
     # active section, so the full path (book › sutta › … › section) can go
@@ -1155,11 +1260,16 @@ def book(lang, book_id, section_path=None):
                     }
                 )
             if path_items:
-                # Lead the path with the English book name (the level-1 Pāli
-                # heading was skipped above as redundant with it).
+                # Lead the path with the book's name in the reader's language
+                # (the level-1 Pāli heading was skipped above as redundant).
+                lead_name = (
+                    display_name
+                    if lang != Config.DEFAULT_LANG and display_name
+                    else (english_name or book_title)
+                )
                 section_path = [
                     {
-                        "title": english_name or book_title,
+                        "title": lead_name,
                         "translation": None,
                         "url": seo.absolute(f"/{lang}/book/{book_id}"),
                     }
@@ -1209,6 +1319,7 @@ def book(lang, book_id, section_path=None):
         section_title=section_title,
         section_translation=leaf_translation,
         section_path_titles=context_titles or None,
+        display_name=display_name,
     )
     meta_description = seo.book_seo_description(
         book_id,
@@ -1219,6 +1330,7 @@ def book(lang, book_id, section_path=None):
         section_translation=leaf_translation,
         section_path=" › ".join(context_titles) or None,
         section_excerpt=section_excerpt,
+        display_name=display_name,
     )
     book_ld = seo.book_jsonld(
         book_id,
@@ -1259,6 +1371,7 @@ def book(lang, book_id, section_path=None):
         book_id=book_id,
         book_title=book_title,
         english_name=english_name,
+        display_name=display_name,
         seo_title=seo_title,
         site_url=seo.site_base(),
         home_url=home_url,
@@ -1408,16 +1521,35 @@ def book_ref(lang, book_id):
 @bp.route("/api/menu")
 def api_menu():
     hierarchy = load_hierarchy()
+    menu = organize_hierarchy(hierarchy)
+
+    # Localized book names: the reader's language gets the book's name in
+    # its own script (e.g. /my/ → "ဓမ္မပဒ") instead of the Pāli title. The
+    # map is empty for English, so the library keeps its existing labels.
+    lang = request.args.get("lang", "").strip().lower()
+    names = book_names_svc.localized_book_names(lang) if lang else {}
+    if names:
+        for category in menu.values():
+            for nikaya in category.values():
+                for books in nikaya.values():
+                    # Entries are (book_id, book_name, id) tuples — rebuild
+                    # them with the localized name.
+                    for i, item in enumerate(books):
+                        books[i] = (
+                            item[0],
+                            names.get(item[0]) or item[1],
+                        ) + tuple(item[2:])
+
     return jsonify(
         {
-            "menu": organize_hierarchy(hierarchy),
+            "menu": menu,
             # Flat map used by the search filter (pitaka / layer chips):
             #   {book_id: {nikaya, category, book_name}}
             "hierarchy": {
                 bid: {
                     "nikaya": h.get("nikaya"),
                     "category": h.get("category"),
-                    "book_name": h.get("book_name"),
+                    "book_name": names.get(bid) or h.get("book_name"),
                 }
                 for bid, h in hierarchy.items()
             },

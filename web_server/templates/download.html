@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ seo_title }}</title>
+  <meta name="description" content="{{ meta_description }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <meta property="og:title"       content="{{ seo_title }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="E-Piṭaka">
+  <meta property="og:url"         content="{{ canonical_url }}">
+  <meta property="og:image"       content="{{ site_url }}/static/og-image.png">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="{{ seo_title }}">
+  <meta name="twitter:description" content="{{ meta_description }}">
+
+  <link rel="alternate" hreflang="x-default" href="{{ canonical_url }}">
+  <link rel="alternate" hreflang="en" href="{{ canonical_url }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": {{ (page_url + '#downloads') | tojson }},
+        "name": {{ seo_title | tojson }},
+        "description": {{ meta_description | tojson }},
+        "url": {{ page_url | tojson }},
+        "inLanguage": "en",
+        "isPartOf": { "@type": "WebSite", "name": "E-Piṭaka", "url": {{ site_url | tojson }} }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ home_url | tojson }} },
+          { "@type": "ListItem", "position": 2, "name": "Downloads", "item": {{ page_url | tojson }} }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "Tipitaka ebook downloads",
+        "itemListElement": [
+          {% for p in packs %}
+          {
+            "@type": "ListItem",
+            "position": {{ loop.index }},
+            "item": {
+              "@type": "Book",
+              "name": "Chaṭṭha Saṅgāyana Tipiṭaka — {{ p.label }}",
+              "bookFormat": "https://schema.org/EBook",
+              "inLanguage": {{ p.lang | tojson }},
+              "url": {{ p.formats.get('pdf') | tojson }}
+            }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="/static/icon.png">
+  <link rel="apple-touch-icon" href="/static/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #faf7f2; --surface: #ffffff; --border: #e8e0d5;
+      --accent: #8b5e3c; --accent-light: #f5ede4;
+      --text: #2d2420; --muted: #8a7a6e;
+      --font-serif: 'Crimson Pro', Georgia, serif;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.6rem 1rem;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+    }
+    .topbar .book-title { flex: 1; font-family: var(--font-serif); font-weight: 600; color: var(--accent); }
+    .breadcrumb {
+      font-size: 0.78rem; color: var(--muted);
+      padding: 0.5rem 1rem; border-bottom: 1px solid var(--border);
+      max-width: 900px; margin: 0 auto;
+    }
+    .breadcrumb span[aria-hidden] { margin: 0 0.3rem; opacity: 0.5; }
+    main { max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+    .page-header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    .page-header h1 { font-family: var(--font-serif); font-size: clamp(1.6rem, 4vw, 2.1rem); font-weight: 600; margin-bottom: 0.6rem; }
+    .page-header p { color: var(--muted); font-size: 0.94rem; max-width: 720px; }
+
+    .pack {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 1rem 1.1rem; margin-bottom: 0.9rem;
+    }
+    .pack h2 { font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.15rem; }
+    .pack .pali { color: var(--muted); font-size: 0.82rem; margin-bottom: 0.7rem; }
+    .formats { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .formats a {
+      display: inline-block; padding: 0.35rem 0.7rem; border-radius: 6px;
+      background: var(--accent-light); font-size: 0.82rem; font-weight: 600;
+    }
+    .formats a:hover { text-decoration: none; background: #ece0d3; }
+
+    .note {
+      margin-top: 1.5rem; padding: 0.9rem 1.1rem;
+      background: var(--accent-light); border-radius: 8px; font-size: 0.85rem; color: var(--text);
+    }
+    .footer-links { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
+    .footer-links a { margin-right: 1rem; }
+  </style>
+</head>
+
+<body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px">Skip to content</a>
+
+<header class="topbar" role="banner">
+  <a href="{{ home_url }}" aria-label="Home">⌂ Home</a>
+  <span class="book-title">E-Piṭaka — Tipiṭaka Downloads</span>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ home_url }}">Home</a>
+  <span aria-hidden="true">›</span>
+  <span>Downloads</span>
+</nav>
+
+<main id="main-content">
+  <div class="page-header">
+    <h1>Tipitaka PDF &amp; eBook Downloads</h1>
+    <p>
+      Download the complete Chaṭṭha Saṅgāyana Tipiṭaka (the Pāli Canon) as free
+      <strong>PDF</strong>, <strong>EPUB</strong>, <strong>DOCX</strong> or
+      <strong>Markdown</strong> ebooks, each with the Pāli text and its
+      line-by-line translation. Read offline on any phone, tablet, e-reader or
+      computer.
+    </p>
+  </div>
+
+  {% for p in packs %}
+  <section class="pack">
+    <h2>Tipitaka in {{ p.label }}</h2>
+    <div class="pali">Pack <code>{{ p.filename }}</code> — complete Pāli canon + {{ p.label }} translation</div>
+    <div class="formats">
+      {% if p.formats.get('pdf') %}<a href="{{ p.formats['pdf'] }}" rel="nofollow">📄 PDF</a>{% endif %}
+      {% if p.formats.get('epub') %}<a href="{{ p.formats['epub'] }}" rel="nofollow">📗 EPUB</a>{% endif %}
+      {% if p.formats.get('docx') %}<a href="{{ p.formats['docx'] }}" rel="nofollow">📝 DOCX</a>{% endif %}
+      {% if p.formats.get('md') %}<a href="{{ p.formats['md'] }}" rel="nofollow">⌨️ Markdown</a>{% endif %}
+    </div>
+  </section>
+  {% endfor %}
+
+  <p style="margin-top:1rem">
+    <a href="{{ release_page }}">See every ebook pack on GitHub Releases →</a>
+  </p>
+
+  <div class="note">
+    The Pāli text is in the public domain; the translations are shared under
+    <strong>CC-BY-4.0</strong>. Prefer to read online, with search? Use the
+    <a href="{{ home_url }}">web reader</a>.
+  </div>
+
+  <div class="footer-links">
+    <a href="{{ home_url }}">Home</a>
+    <a href="{{ base_url }}/en/canon">Full canon index</a>
+    <a href="{{ base_url }}/about">About</a>
+    <a href="{{ base_url }}/privacy">Privacy policy</a>
+  </div>
+</main>
+</body>
+</html>

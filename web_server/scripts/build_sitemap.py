@@ -158,14 +158,72 @@ def write_study_sitemap(book_id: str, summaries: list, langs: list[str]):
 
 # ── XML generators ─────────────────────────────────────────────────────────
 
+def write_pages_sitemap(langs: list[str]):
+    """Sitemap for the site's own pages: every language home page, every
+    language's full-canon index, and the (English) ebook download page.
+
+    Home and canon URLs carry hreflang alternates so their language variants
+    are grouped; the download page is English-only (en + x-default).
+    """
+    filename = 'pages.xml'
+    filepath = os.path.join(OUTPUT_DIR, filename)
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+        '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    ]
+
+    def alt_links(path_template, hreflangs, x_default):
+        links = [f'    <xhtml:link rel="alternate" hreflang="x-default" '
+                 f'href="{xml_escape(BASE_URL + x_default)}"/>']
+        for code in hreflangs:
+            href = BASE_URL + path_template.format(lang=code)
+            links.append(f'    <xhtml:link rel="alternate" hreflang="{xml_escape(code)}" '
+                         f'href="{xml_escape(href)}"/>')
+        return links
+
+    for lang in langs:
+        lines.append('  <url>')
+        lines.append(f'    <loc>{xml_escape(BASE_URL + f"/{lang}/")}</loc>')
+        lines += alt_links('/{lang}/', langs, '/en/')
+        lines.append('    <changefreq>weekly</changefreq>')
+        lines.append('    <priority>1.0</priority>')
+        lines.append('  </url>')
+
+    for lang in langs:
+        lines.append('  <url>')
+        lines.append(f'    <loc>{xml_escape(BASE_URL + f"/{lang}/canon")}</loc>')
+        lines += alt_links('/{lang}/canon', langs, '/en/canon')
+        lines.append('    <changefreq>weekly</changefreq>')
+        lines.append('    <priority>0.9</priority>')
+        lines.append('  </url>')
+
+    lines.append('  <url>')
+    lines.append(f'    <loc>{xml_escape(BASE_URL + "/en/download")}</loc>')
+    lines.append('    <xhtml:link rel="alternate" hreflang="x-default" '
+                 f'href="{xml_escape(BASE_URL + "/en/download")}"/>')
+    lines.append('    <xhtml:link rel="alternate" hreflang="en" '
+                 f'href="{xml_escape(BASE_URL + "/en/download")}"/>')
+    lines.append('    <changefreq>monthly</changefreq>')
+    lines.append('    <priority>0.8</priority>')
+    lines.append('  </url>')
+
+    lines.append('</urlset>')
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(lines) + '\n')
+    print(f'  ✓ {filename}: home + canon per language + download')
+
+
 def write_sitemap_index(sitemap_files: list[str]):
     """Write the sitemap index XML file to OUTPUT_DIR/../sitemap.xml."""
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
+    quote_map = {'"': '&quot;'}
     for filename in sorted(sitemap_files):
-        loc = f"{BASE_URL}/sitemaps/{xml_escape(filename, {'\"': '&quot;'})}"
+        loc = f"{BASE_URL}/sitemaps/{xml_escape(filename, quote_map)}"
         lines.append('  <sitemap>')
         lines.append(f'    <loc>{loc}</loc>')
         lines.append('  </sitemap>')
@@ -354,8 +412,13 @@ def build_sitemaps():
         sum_conn.close()
     conn.close()
 
+    # ── Site pages (home, canon, download) ───────────────────────────────
+    print("\n[5] Generating site-pages sitemap...")
+    write_pages_sitemap(langs)
+    sitemap_files.append('pages.xml')
+
     # ── Generate sitemap index ───────────────────────────────────────────
-    print("\n[5] Generating sitemap index...")
+    print("\n[6] Generating sitemap index...")
     write_sitemap_index(sitemap_files)
 
     # ── Summary ─────────────────────────────────────────────────────────

@@ -81,6 +81,7 @@ BOOK_NAMES = {
     'Pv': 'Petavatthu',
     'Th': 'Theragāthā',
     'Thi': 'Therīgāthā',
+    'Thī': 'Therīgāthā',
     'Ap': 'Apadāna',
     'Bv': 'Buddhavaṃsa',
     'Cp': 'Cariyāpiṭaka',
@@ -88,16 +89,22 @@ BOOK_NAMES = {
     'Ja-i': 'Jātaka', 'Ja-ii': 'Jātaka', 'Ja-iii': 'Jātaka', 'Ja-iv': 'Jātaka',
     'Ja-v': 'Jātaka', 'Ja-vi': 'Jātaka', 'Ja-vii': 'Jātaka',
     'Netti': 'Nettippakaraṇa',
+    'Nett': 'Nettippakaraṇa',
     'Pe': 'Peṭakopadesa',
+    'Pet': 'Peṭakopadesa',
+    'Paṭis': 'Paṭisambhidāmagga',
+    'Ps': 'Paṭisambhidāmagga',
     'Mil': 'Milindapañha',
     # ── Abhidhamma Piṭaka ─────────────────────────────────────────────
     'Dhs': 'Dhammasaṅgaṇī',
     'Vibh': 'Vibhaṅga',
     'Dhatuk': 'Dhātukathā',
     'Pug': 'Puggalapaññatti',
+    'Pp': 'Puggalapaññatti',
     'Kv': 'Kathāvatthu',
     'Yam': 'Yamaka',
     'Patth': 'Paṭṭhāna',
+    'Paṭṭh': 'Paṭṭhāna',
     # ── Other well-known texts ────────────────────────────────────────
     'Moh': 'Mohavicchedanī',
     'Lokan': 'Lokanīti',
@@ -156,13 +163,15 @@ def _truncate(text: str, limit: int) -> str:
 def book_seo_title(book_id: str, pali_name: str, lang_code: str, lang_native: str,
                    section_title: str | None = None,
                    section_translation: str | None = None,
-                   section_path_titles: list[str] | None = None) -> str:
+                   section_path_titles: list[str] | None = None,
+                   display_name: str | None = None) -> str:
     """SEO <title> for a book page — or a deep-section page.
 
     Section pages lead with the section's translation (Pāli in parentheses),
     then the breadcrumb path (book › sutta), so every section in a book gets
-    a unique title instead of sharing the book's. Book pages keep the
-    English name first with the Pāli in parentheses.
+    a unique title instead of sharing the book's. English book pages keep the
+    English name first with the Pāli in parentheses (the ranking-sensitive
+    case); other languages lead with the localized book name.
     """
     en = english_book_name(book_id)
     if section_title:
@@ -171,6 +180,9 @@ def book_seo_title(book_id: str, pali_name: str, lang_code: str, lang_native: st
         if not context:
             context = en if en and en.lower() != pali_name.lower() else pali_name
         return f'{lead} — {context} | E-Piṭaka'[:90]
+
+    if lang_code != 'en' and display_name:
+        return f'{display_name} — {lang_native} | E-Piṭaka'[:90]
 
     if en and en.lower() != pali_name.lower():
         title = f'{en} ({pali_name})'
@@ -185,7 +197,8 @@ def book_seo_description(book_id: str, pali_name: str, lang_code: str, lang_name
                          section_title: str | None = None,
                          section_translation: str | None = None,
                          section_path: str | None = None,
-                         section_excerpt: str | None = None) -> str:
+                         section_excerpt: str | None = None,
+                         display_name: str | None = None) -> str:
     """Meta description for a book / deep-section page.
 
     Section pages get a unique description built from the section's own
@@ -194,7 +207,10 @@ def book_seo_description(book_id: str, pali_name: str, lang_code: str, lang_name
     ~160 chars (Google's snippet length).
     """
     en = english_book_name(book_id)
-    label = en if en and en.lower() != pali_name.lower() else pali_name
+    if lang_code != 'en' and display_name:
+        label = display_name
+    else:
+        label = en if en and en.lower() != pali_name.lower() else pali_name
     if not section_title:
         return (f'Read {label} from the Chaṭṭha Saṅgāyana Tipiṭaka with '
                 f'line-by-line {lang_name} translation. Free, searchable, mobile-friendly.')
@@ -229,11 +245,12 @@ def book_seo_description(book_id: str, pali_name: str, lang_code: str, lang_name
 
 HOME_L10N = {
     'en': {
-        'title': 'E-Piṭaka — Chaṭṭha Saṅgāyana Tipiṭaka (English)',
-        'description': ('Read the Pāli Tipiṭaka (Chaṭṭha Saṅgāyana edition) with '
-                        'line-by-line translations in English, Sinhala, Thai, Tamil, '
-                        'Lao, Myanmar and Vietnamese. Free, searchable, mobile-friendly.'),
-        'h1': 'Read the Pāli Tipiṭaka — Chaṭṭha Saṅgāyana Edition',
+        'title': 'Tipitaka in English — Read the Pāli Canon Online, Free | E-Piṭaka',
+        'description': ('Read the Pāli Canon (Tipitaka) online, free. Chaṭṭha '
+                        'Saṅgāyana edition with line-by-line translations in 19 '
+                        'languages including English, Sinhala, Burmese, Thai and '
+                        'Vietnamese. Searchable.'),
+        'h1': 'Tipitaka in English — Read the Pāli Canon, Chaṭṭha Saṅgāyana Edition',
         'intro': ('E-Piṭaka is a free digital edition of the Chaṭṭha Saṅgāyana Tipiṭaka '
                   '(the Sixth Buddhist Council edition of the Pāli Canon), with line-by-line '
                   'translations in {count} languages — English, Sinhala, Thai, Tamil, Lao, '
@@ -448,6 +465,25 @@ HOME_L10N = {
 }
 
 
+# Home-page navigation labels for the canon index and the download page.
+# Kept separate from HOME_L10N so the (large) landing copy above stays
+# untouched; merged in by home_l10n().
+HOME_NAV_L10N = {
+    'en': {'canon': 'Browse the full canon', 'download': 'Download ebooks (PDF, EPUB)'},
+    'vi': {'canon': 'Duyệt toàn bộ Tam Tạng', 'download': 'Tải sách điện tử (PDF, EPUB)'},
+    'th': {'canon': 'เปิดดูพระไตรปิฎกทั้งหมด', 'download': 'ดาวน์โหลดอีบุ๊ก (PDF, EPUB)'},
+    'si': {'canon': 'සම්පූර්ණ ත්‍රිපිටකය බලන්න', 'download': 'ඊ-පොත් බාගන්න (PDF, EPUB)'},
+    'ta': {'canon': 'முழு திரிபிடகத்தையும் உலாவு', 'download': 'மின்னூல்களைப் பதிவிறக்கு (PDF, EPUB)'},
+    'lo': {'canon': 'ເບິ່ງພະໄຕຣປິດົກທັງໝົດ', 'download': 'ດາວໂຫລດປຶ້ມເອເລັກໂທຣນິກ (PDF, EPUB)'},
+    'my': {'canon': 'ပိဋကတ်တော် အပြည့်အစုံ ကြည့်ရှုရန်', 'download': 'အီးဘွတ်ခ်များ ဒေါင်းလုဒ်လုပ်ရန် (PDF, EPUB)'},
+    'pt': {'canon': 'Explorar o cânon completo', 'download': 'Baixar ebooks (PDF, EPUB)'},
+    'de': {'canon': 'Den vollständigen Kanon durchsuchen', 'download': 'E-Books herunterladen (PDF, EPUB)'},
+    'nl': {'canon': 'De volledige canon verkennen', 'download': 'E-books downloaden (PDF, EPUB)'},
+    'np': {'canon': 'पूरा त्रिपिटक हेर्नुहोस्', 'download': 'ईबुक डाउनलोड गर्नुहोस् (PDF, EPUB)'},
+    'cn': {'canon': '浏览全部三藏', 'download': '下载电子书（PDF、EPUB）'},
+}
+
+
 def home_l10n(lang_code: str, count: int) -> dict:
     """Localized home-page strings (H1, intro, labels, title, description).
 
@@ -455,18 +491,41 @@ def home_l10n(lang_code: str, count: int) -> dict:
     {count} placeholder filled with the number of available languages.
     """
     entry = HOME_L10N.get(lang_code) or HOME_L10N['en']
-    return {**entry, 'intro': entry['intro'].format(count=count)}
+    nav = HOME_NAV_L10N.get(lang_code) or HOME_NAV_L10N['en']
+    return {
+        **entry,
+        **nav,
+        'intro': entry['intro'].format(count=count),
+    }
 
 
-def popular_books(lang: str = 'en') -> list:
+# Most-searched books, linked from the home page (server-rendered, so
+# crawlers can reach them). Every id here MUST exist in the books table —
+# the old list used aggregate ids (D, M, S, A, Ja, Vin) that 404'd because
+# the canon stores the split volumes (D-i, M-i, …). Includes the Abhidhamma
+# Piṭaka so Google can reach it from the home page.
+POPULAR_BOOK_IDS = [
+    'Dhp', 'Sn', 'Ud', 'It', 'Th', 'Thi', 'Ja-i', 'Khp',
+    'D-i', 'M-i', 'S-i', 'A-i', 'Vin-i', 'Mil',
+    'Dhs', 'Vibh', 'Pp', 'Paṭṭh-i',
+]
+
+
+def popular_books(lang: str = 'en', names: dict | None = None) -> list:
     """A short curated list of the most-searched books, for home-page links.
 
     Names are localized when a translation for [lang] exists (so /vi/ shows
-    "Kinh Pháp Cú" for Dhp), falling back to the English name.
+    "Kinh Pháp Cú" for Dhp), falling back to the English name. `names` is an
+    optional pre-resolved {book_id: name} map (services.book_names), which
+    covers every book in the language rather than the curated subset.
     """
-    localized = BOOK_NAMES_LOCALIZED.get(lang, {})
-    ids = ['Dhp', 'Sn', 'Ud', 'It', 'Th', 'Thi', 'Ja', 'Khp', 'D', 'M', 'S', 'A', 'Mil', 'Vin']
-    return [{'id': bid, 'name': localized.get(bid) or english_book_name(bid) or bid} for bid in ids]
+    localized = dict(BOOK_NAMES_LOCALIZED.get(lang, {}))
+    if names:
+        localized.update(names)
+    return [
+        {'id': bid, 'name': localized.get(bid) or english_book_name(bid) or bid}
+        for bid in POPULAR_BOOK_IDS
+    ]
 
 
 # ── Localized book names for the popular-books list ───────────────────────
@@ -601,6 +660,55 @@ def website_jsonld(lang_code: str, available_langs: list | None = None) -> dict:
             },
         ],
     }
+
+
+# ── Canon index and ebook download pages ─────────────────────────────────
+
+def canon_seo_title(lang_native: str, lang_code: str) -> str:
+    """SEO <title> for the full-canon index page."""
+    if lang_code == 'en':
+        return 'Full Pāli Canon (Tipitaka) — All Books by Piṭaka | E-Piṭaka'
+    return f'Tipiṭaka ({lang_native}) — All Books by Piṭaka | E-Piṭaka'
+
+
+def canon_seo_description(lang_code: str) -> str:
+    """Meta description for the full-canon index page."""
+    return ('Browse every book of the Chaṭṭha Saṅgāyana Tipiṭaka by Piṭaka — '
+            'Vinaya, Sutta and Abhidhamma — plus commentaries and '
+            'sub-commentaries, each with line-by-line translation. Free online.')
+
+
+# Ebook packs published on GitHub Releases (tag: ebook-latest).
+# Each entry: (script, lang, English label). Only packs that actually exist
+# should be listed here.
+EBOOK_RELEASE_BASE = 'https://github.com/dhammanana/epitaka.org/releases/download/ebook-latest'
+EBOOK_RELEASE_PAGE = 'https://github.com/dhammanana/epitaka.org/releases/tag/ebook-latest'
+EBOOK_FORMATS = ('pdf', 'epub', 'docx', 'md')
+EBOOK_PACKS = [
+    ('ro', 'en', 'English'),
+    ('ro', 'vi', 'Vietnamese'),
+    ('ro', 'ta', 'Tamil'),
+    ('ro', 'hi', 'Hindi'),
+    ('si', 'si', 'Sinhala'),
+    ('hi', 'hi', 'Hindi (Devanāgarī script)'),
+    ('th', 'th', 'Thai'),
+]
+
+
+def ebook_download_url(script: str, lang: str, fmt: str) -> str:
+    """Direct download URL for one ebook pack."""
+    return f'{EBOOK_RELEASE_BASE}/{script}_{lang}-{fmt}.zip'
+
+
+def download_seo_title() -> str:
+    return ('Tipitaka PDF & eBook Downloads — Free Pāli Canon (EPUB, PDF, DOCX) '
+            '| E-Piṭaka')
+
+
+def download_seo_description() -> str:
+    return ('Download the Chaṭṭha Saṅgāyana Tipitaka as free PDF, EPUB, DOCX or '
+            'Markdown ebooks, with translations in English, Sinhala, Thai, Hindi, '
+            'Tamil and Vietnamese. Fully offline.')
 
 
 # ── Study-guide / outline pages ───────────────────────────────────────────

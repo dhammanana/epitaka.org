@@ -37,6 +37,8 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}?v={{ v }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/cookie-consent.css') }}?v={{ v }}">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="/static/icon.png">
+  <link rel="apple-touch-icon" href="/static/icon.png">
 
   {# ── Google Analytics: loaded by cookie-consent.js only after user accepts ── #}
 
@@ -68,7 +70,7 @@
 <header id="topbar" role="banner">
   <button id="toc-toggle-btn" class="topbar-btn icon-btn" aria-label="Open menu" title="Menu (library, search, contents)">☰</button>
   <a href="{{ base_url }}/{{ lang }}/" class="topbar-btn icon-btn" aria-label="Home" title="Home page">⌂</a>
-  <span class="book-title pali-text" title="{{ book_title }}">{{ book_title }}</span>
+  <span class="book-title pali-text" title="{{ book_title }}">{{ display_name or book_title }}</span>
   <div class="topbar-right">
 
     {# ── Language selector ── #}
@@ -84,7 +86,9 @@
         <ul class="lang-dropdown__list">
           {% for alt_lang in available_langs %}
           <li role="none" data-search="{{ alt_lang.native_name }} {{ alt_lang.english_name }} {{ alt_lang.code }}">
-            <a href="{{ base_url }}/{{ alt_lang.code }}/book/{{ book_id }}"
+            {# Point each language at the SAME section, not the book root, so
+               a reader (or crawler) keeps their place when switching. #}
+            <a href="{{ base_url }}/{{ alt_lang.code }}/book/{{ alt_book_path }}"
                class="lang-dropdown__item {% if alt_lang.code == lang %}selected{% endif %}"
                role="menuitem">
               <span class="lang-native">{{ alt_lang.native_name }}</span><small>{{ alt_lang.english_name }}</small>
@@ -234,7 +238,11 @@
     {% if section_path %}
       {% for p in section_path %}{% if not loop.first %}<span class="seo-path-sep" aria-hidden="true">›</span>{% endif %}<span class="seo-path-item">{{ p.title }}</span>{% if p.translation %} <span class="pali-seo-name">({{ p.translation }})</span>{% endif %}{% endfor %}
     {% else %}
-      {{ english_name or book_title }}{% if english_name and english_name|lower != book_title|lower %} <span class="pali-seo-name">{{ book_title }}</span>{% endif %}
+      {% if lang != 'en' and display_name %}
+        {{ display_name }}{% if book_title and book_title|lower != display_name|lower %} <span class="pali-seo-name">{{ book_title }}</span>{% endif %}
+      {% else %}
+        {{ english_name or book_title }}{% if english_name and english_name|lower != book_title|lower %} <span class="pali-seo-name">{{ book_title }}</span>{% endif %}
+      {% endif %}
     {% endif %}
   </h1>
 
@@ -246,7 +254,7 @@
         {% if not loop.last %}<span aria-hidden="true">›</span>{% endif %}
       {% endfor %}
     {% else %}
-      <span>{{ english_name or book_title }}</span>
+      <span>{{ display_name if (lang != 'en' and display_name) else (english_name or book_title) }}</span>
     {% endif %}
   </nav>
 
