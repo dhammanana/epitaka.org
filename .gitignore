@@ -27,3 +27,6 @@ serviceAccountKey.json
 web_server/progress/
 chroma_pali_db
 *.ipynb
+# Generated sitemaps - built on server only via web_server/scripts/build_sitemap.py
+web_server/sitemap.xml
+web_server/sitemaps/
