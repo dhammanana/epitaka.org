@@ -11,6 +11,7 @@ from collections import defaultdict
 
 from ..utils.db import get_translation_db
 from ..utils.text import markdown_to_html
+from ..utils.slugs import section_slug
 
 _SQLITE_MAX_VARS = 900  # keep comfortably under SQLite's 999 variable limit
 
@@ -113,7 +114,7 @@ def load_section_book_links(conn, book_id, para_id, lang_code=None):
         paras = [p for p, _ in plist]
         idx = bisect.bisect_right(paras, pid) - 1
         if idx >= 0 and plist[idx][1]:
-            slug = plist[idx][1].lower().replace(' ', '-') + '-' + str(plist[idx][0])
+            slug = section_slug(plist[idx][1], plist[idx][0])
         else:
             slug = ''
         slug_cache[key] = slug

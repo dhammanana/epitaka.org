@@ -13,22 +13,37 @@ const STORAGE_KEY = 'epitaka_settings_v3';
 const THEME_KEY = 'epitaka_theme';
 
 // ── Map translation language codes → matching Pāli script ──────
+// Keys are translation language codes (ISO 639, see app/languages.py which
+// follows the translator's LANG_NAMES). Falls back to Roman in
+// getScriptForLang() for languages without a native Pāli script
+// (en, de, es, pt, fr, id, vi, ja, ko, zh, …).
 const LANG_SCRIPT_MAP = {
   si: Script.SI,    // Sinhala → Sinhala script
   hi: Script.HI,    // Hindi → Devanagari
+  mr: Script.HI,    // Marathi → Devanagari (shared)
+  ne: Script.HI,    // Nepali → Devanagari (shared)
+  np: Script.HI,    // legacy alias of ne
+  bn: Script.BENG,  // Bengali → Bengali
+  be: Script.BENG,  // legacy script-code alias of bn
+  gu: Script.GUJA,  // Gujarati → Gujarati
+  pa: Script.GURM,  // Punjabi → Gurmukhi
+  gm: Script.GURM,  // legacy script-code alias of pa
+  te: Script.TELU,  // Telugu → Telugu
+  kn: Script.KANN,  // Kannada → Kannada
+  ka: Script.KANN,  // legacy script-code alias of kn
+  ml: Script.MALA,  // Malayalam → Malayalam
+  mm: Script.MALA,  // legacy script-code alias of ml
   my: Script.MY,    // Myanmar → Myanmar
   th: Script.THAI,  // Thai → Thai
   lo: Script.LAOS,  // Lao → Lao
   km: Script.KM,    // Khmer → Khmer
-  be: Script.BENG,  // Bengali → Bengali
+  ru: Script.CYRL,  // Russian → Cyrillic
+  uk: Script.CYRL,  // Ukrainian → Cyrillic
+  cy: Script.CYRL,  // legacy script-code alias
+  tb: Script.TIBT,  // Tibetan → Tibetan
+  bo: Script.TIBT,  // legacy script-code alias
   as: Script.ASSE,  // Assamese → Assamese
-  gu: Script.GUJA,  // Gujarati → Gujarati
-  te: Script.TELU,  // Telugu → Telugu
-  ka: Script.KANN,  // Kannada → Kannada
-  mm: Script.MALA,  // Malayalam → Malayalam
-  bo: Script.TIBT,  // Tibetan → Tibetan
-  cy: Script.CYRL,  // Russian → Cyrillic
-  // All others (en, fr, de, etc.) → Roman
+  // All others (en, de, es, pt, fr, it, nl, id, ms, vi, ja, ko, zh, …) → Roman
 };
 
 /**

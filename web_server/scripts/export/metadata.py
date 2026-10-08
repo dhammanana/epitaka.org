@@ -60,56 +60,68 @@ SCRIPT_NAMES = {
 }
 
 # Translation DB suffix -> English language name.
-# Matches epitaka_app kTranslatorLangNames (English part only, so it
-# stays readable in release notes and cover badges).
-LANGUAGE_NAMES = {
-    "en": "English",
-    "si": "Sinhala",
-    "ta": "Tamil",
-    "hi": "Hindi",
-    "ne": "Nepali",
-    "bn": "Bengali",
-    "mr": "Marathi",
-    "gu": "Gujarati",
-    "pa": "Punjabi",
-    "te": "Telugu",
-    "kn": "Kannada",
-    "ml": "Malayalam",
-    "or": "Odia",
-    "th": "Thai",
-    "lo": "Lao",
-    "km": "Khmer",
-    "my": "Myanmar",
-    "my_nissaya": "Myanmar Nissaya",
-    "vi": "Vietnamese",
-    "id": "Indonesian",
-    "ms": "Malay",
-    "tl": "Filipino",
-    "zh": "Chinese",
-    "ja": "Japanese",
-    "ko": "Korean",
-    "de": "German",
-    "fr": "French",
-    "es": "Spanish",
-    "pt": "Portuguese",
-    "it": "Italian",
-    "nl": "Dutch",
-    "pl": "Polish",
-    "ru": "Russian",
-    "uk": "Ukrainian",
-    "tr": "Turkish",
-    "el": "Greek",
-    "ro": "Romanian",
-    "cs": "Czech",
-    "hu": "Hungarian",
-    "sv": "Swedish",
-    "da": "Danish",
-    "fi": "Finnish",
-    "no": "Norwegian",
-    "ar": "Arabic",
-    "he": "Hebrew",
-    "fa": "Persian",
-}
+# Single source of truth is app/languages.py (which follows the
+# translator's LANG_NAMES). Import it when running inside the web_server
+# package; fall back to the static table below when this module is used
+# standalone (CI / ebook workflow checks out only this folder).
+try:  # pragma: no cover - import path depends on how the script is invoked
+    from app.languages import LANGUAGES as _CENTRAL_LANGUAGES
+
+    LANGUAGE_NAMES = {
+        code: info["english_name"] for code, info in _CENTRAL_LANGUAGES.items()
+    }
+    # "my_nissaya" is a translation *variant* (Myanmar nissaya edition),
+    # not a separate language code — keep its display label here.
+    LANGUAGE_NAMES["my_nissaya"] = "Myanmar Nissaya"
+except Exception:  # pragma: no cover - standalone fallback
+    LANGUAGE_NAMES = {
+        "en": "English",
+        "si": "Sinhala",
+        "ta": "Tamil",
+        "hi": "Hindi",
+        "ne": "Nepali",
+        "bn": "Bengali",
+        "mr": "Marathi",
+        "gu": "Gujarati",
+        "pa": "Punjabi",
+        "te": "Telugu",
+        "kn": "Kannada",
+        "ml": "Malayalam",
+        "or": "Odia",
+        "th": "Thai",
+        "lo": "Lao",
+        "km": "Khmer",
+        "my": "Myanmar",
+        "my_nissaya": "Myanmar Nissaya",
+        "vi": "Vietnamese",
+        "id": "Indonesian",
+        "ms": "Malay",
+        "tl": "Filipino",
+        "zh": "Chinese",
+        "ja": "Japanese",
+        "ko": "Korean",
+        "de": "German",
+        "fr": "French",
+        "es": "Spanish",
+        "pt": "Portuguese",
+        "it": "Italian",
+        "nl": "Dutch",
+        "pl": "Polish",
+        "ru": "Russian",
+        "uk": "Ukrainian",
+        "tr": "Turkish",
+        "el": "Greek",
+        "ro": "Romanian",
+        "cs": "Czech",
+        "hu": "Hungarian",
+        "sv": "Swedish",
+        "da": "Danish",
+        "fi": "Finnish",
+        "no": "Norwegian",
+        "ar": "Arabic",
+        "he": "Hebrew",
+        "fa": "Persian",
+    }
 
 
 def language_name(code: str) -> str:

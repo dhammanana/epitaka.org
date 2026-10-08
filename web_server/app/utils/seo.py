@@ -239,15 +239,21 @@ def book_seo_description(book_id: str, pali_name: str, lang_code: str, lang_name
 # The landing page carries a server-rendered SEO section (H1, intro,
 # popular-books links). English-only text there meant Google of e.g. /vi/
 # saw English for Vietnamese queries — weak targeting. Each entry is a
-# dict of the strings that section renders; `intro` supports a {count}
-# placeholder (number of available translation languages) substituted at
-# render time. Missing languages fall back to English.
+# dict of the strings that section renders; `intro` and `description`
+# support a {count} placeholder (number of available translation
+# languages) substituted at render time.
+#
+# Coverage follows the deployed translation DBs (see app/languages.py,
+# which follows the translator's LANG_NAMES). Missing languages fall
+# back to English automatically via home_l10n() — adding a translation
+# DB never requires a code change here, only an optional HOME_L10N /
+# HOME_NAV_L10N / BOOK_NAMES_LOCALIZED entry for fully localized SEO copy.
 
 HOME_L10N = {
     'en': {
         'title': 'Tipitaka in English — Read the Pāli Canon Online, Free | E-Piṭaka',
         'description': ('Read the Pāli Canon (Tipitaka) online, free. Chaṭṭha '
-                        'Saṅgāyana edition with line-by-line translations in 19 '
+                        'Saṅgāyana edition with line-by-line translations in {count} '
                         'languages including English, Sinhala, Burmese, Thai and '
                         'Vietnamese. Searchable.'),
         'h1': 'Tipitaka in English — Read the Pāli Canon, Chaṭṭha Saṅgāyana Edition',
@@ -462,6 +468,163 @@ HOME_L10N = {
         'privacy': '隐私政策',
         'browse': '浏览三藏',
     },
+    'bn': {
+        'title': 'E-Piṭaka — ত্রিপিটক (বাংলা)',
+        'description': ('পালি ত্রিপিটক (ছট্ঠ সঙ্গায়ন সংস্করণ) বাংলা, ইংরেজি, '
+                        'সিংহল, থাই, তামিল, লাও, মায়ানমার ও ভিয়েতনামি অনুবাদসহ '
+                        'পড়ুন। বিনামূল্যে, সার্চযোগ্য, মোবাইল-বান্ধব।'),
+        'h1': 'পালি ত্রিপিটক পড়ুন — ছট্ঠ সঙ্গায়ন সংস্করণ',
+        'intro': ('E-Piṭaka হলো ছট্ঠ সঙ্গায়ন ত্রিপিটকের (ষষ্ঠ বৌদ্ধ সঙ্গায়ন '
+                  'সংস্করণ) বিনামূল্যের ডিজিটাল সংস্করণ, {count}টি ভাষায় '
+                  'লাইন-বাই-লাইন অনুবাদসহ — বাংলা, ইংরেজি, সিংহল, থাই, '
+                  'তামিল, লাও, মায়ানমার ও ভিয়েতনামি। সুত্ত, বিনয় ও অভিধম্ম '
+                  'পিটক পড়ুন, সম্পূর্ণ পাঠ খুঁজুন এবং বিনামূল্যের মোবাইল '
+                  'অ্যাপে অধ্যয়ন করুন।'),
+        'popular': 'জনপ্রিয় বই',
+        'translations': 'অনুবাদ:',
+        'about': 'অনুবাদ প্রকল্প সম্পর্কে',
+        'privacy': 'গোপনীয়তা নীতি',
+        'browse': 'ত্রিপিটক ব্রাউজ করুন',
+    },
+    'hi': {
+        'title': 'E-Piṭaka — त्रिपिटक (हिन्दी)',
+        'description': ('पालि त्रिपिटक (छट्ठ सङ्गायन संस्करण) हिन्दी, अंग्रेजी, '
+                        'सिंहली, थाई, तमिल, लाओ, म्यांमार और वियतनामी अनुवाद '
+                        'सहित पढ़ें। निःशुल्क, खोज योग्य, मोबाइल-अनुकूल।'),
+        'h1': 'पालि त्रिपिटक पढ़ें — छट्ठ सङ्गायन संस्करण',
+        'intro': ('E-Piṭaka छट्ठ सङ्गायन त्रिपिटक (छठी बौद्ध संगीति का संस्करण) '
+                  'का निःशुल्क डिजिटल संस्करण है, {count} भाषाओं में '
+                  'पंक्ति-दर-पंक्ति अनुवाद सहित — हिन्दी, अंग्रेजी, सिंहली, '
+                  'थाई, तमिल, लाओ, म्यांमार और वियतनामी। सुत्त, विनय और '
+                  'अभिधम्म पिटक पढ़ें, पूरा पाठ खोजें और निःशुल्क मोबाइल ऐप '
+                  'से अध्ययन करें।'),
+        'popular': 'लोकप्रिय पुस्तकें',
+        'translations': 'अनुवाद:',
+        'about': 'अनुवाद परियोजना के बारे में',
+        'privacy': 'गोपनीयता नीति',
+        'browse': 'त्रिपिटक देखें',
+    },
+    'es': {
+        'title': 'E-Piṭaka — Tipiṭaka (Español)',
+        'description': ('Lea el Tipiṭaka Pāli (edición Chaṭṭha Saṅgāyana) con traducciones '
+                        'línea a línea en español, inglés, cingalés, tailandés, tamil, '
+                        'laosiano, birmano y vietnamita. Gratis, con búsqueda, compatible '
+                        'con móvil.'),
+        'h1': 'Lea el Tipiṭaka Pāli — Edición Chaṭṭha Saṅgāyana',
+        'intro': ('E-Piṭaka es una edición digital gratuita del Tipiṭaka Chaṭṭha '
+                  'Saṅgāyana (el canon pali del Sexto Concilio Budista), con traducciones '
+                  'línea a línea en {count} idiomas — español, inglés, cingalés, '
+                  'tailandés, tamil, laosiano, birmano y vietnamita. Lea los Nikāyas, '
+                  'el Vinaya y el Abhidhamma, busque en el texto completo y estudie con '
+                  'la aplicación móvil gratuita.'),
+        'popular': 'Libros populares',
+        'translations': 'Traducciones:',
+        'about': 'Sobre el proyecto de traducción',
+        'privacy': 'Política de privacidad',
+        'browse': 'Explorar el Tipiṭaka',
+    },
+    'id': {
+        'title': 'E-Piṭaka — Tipiṭaka (Bahasa Indonesia)',
+        'description': ('Baca Tipiṭaka Pāli (edisi Chaṭṭha Saṅgāyana) dengan terjemahan '
+                        'baris demi baris dalam bahasa Indonesia, Inggris, Sinhala, Thai, '
+                        'Tamil, Lao, Myanmar, dan Vietnam. Gratis, dapat dicari, ramah seluler.'),
+        'h1': 'Baca Tipiṭaka Pāli — Edisi Chaṭṭha Saṅgāyana',
+        'intro': ('E-Piṭaka adalah edisi digital gratis dari Tipiṭaka Chaṭṭha Saṅgāyana '
+                  '(kanon Pāli Konsili Buddhis Keenam), dengan terjemahan baris demi '
+                  'baris dalam {count} bahasa — Indonesia, Inggris, Sinhala, Thai, '
+                  'Tamil, Lao, Myanmar, dan Vietnam. Baca Sutta, Vinaya, dan Abhidhamma '
+                  'Piṭaka, cari seluruh teks, dan belajar dengan aplikasi seluler gratis.'),
+        'popular': 'Kitab populer',
+        'translations': 'Terjemahan:',
+        'about': 'Tentang proyek penerjemahan',
+        'privacy': 'Kebijakan privasi',
+        'browse': 'Jelajahi Tipiṭaka',
+    },
+    'ja': {
+        'title': 'E-Piṭaka — パーリ三蔵 (日本語)',
+        'description': ('パーリ三蔵（第六結集版）を日本語、英語、シンハラ語、タイ語、'
+                        'タミル語、ラオス語、ミャンマー語、ベトナム語の逐句対訳で読む。'
+                        '無料、検索可能、モバイル対応。'),
+        'h1': 'パーリ三蔵を読む — 第六結集版',
+        'intro': ('E-Piṭaka は第六結集版パーリ三蔵の無料デジタル版で、{count} 言語の'
+                  '逐句対訳付き — 日本語、英語、シンハラ語、タイ語、タミル語、'
+                  'ラオス語、ミャンマー語、ベトナム語。経蔵・律蔵・論蔵を読み、'
+                  '全文検索し、無料モバイルアプリで学べます。'),
+        'popular': '人気の経典',
+        'translations': '翻訳：',
+        'about': '翻訳プロジェクトについて',
+        'privacy': 'プライバシーポリシー',
+        'browse': '三蔵を閲覧する',
+    },
+    'km': {
+        'title': 'E-Piṭaka — ត្រៃបិដក (ខ្មែរ)',
+        'description': ('អានព្រះត្រៃបិដកបាលី (ឆដ្ឋសង្គាយនា) ជាមួយការបកប្រែជាភាសាខ្មែរ '
+                        'អង់គ្លេស សីហឡ ថៃ តាមិល ឡាវ ភូមា និងវៀតណាម។ ឥតគិតថ្លៃ '
+                        'ស្វែងរកបាន ប្រើលើទូរស័ព្ទបាន។'),
+        'h1': 'អានព្រះត្រៃបិដកបាលី — ឆដ្ឋសង្គាយនា',
+        'intro': ('E-Piṭaka ជាការបោះពុម្ពឌីជីថលឥតគិតថ្លៃនៃព្រះត្រៃបិដកបាលី '
+                  '(ឆដ្ឋសង្គាយនា) ជាមួយការបកប្រែជាភាសា {count} — ខ្មែរ អង់គ្លេស '
+                  'សីហឡ ថៃ តាមិល ឡាវ ភូមា និងវៀតណាម។ អានសុត្តន្ត វិន័យ និង '
+                  'អភិធម្មបិដក ស្វែងរកអត្ថបទពេញ និងរៀនជាមួយកម្មវិធីទូរស័ព្ទឥតគិតថ្លៃ។'),
+        'popular': 'គម្ពីរពេញនិយម',
+        'translations': 'ការបកប្រែ៖',
+        'about': 'អំពីគម្រោងបកប្រែ',
+        'privacy': 'គោលការណ៍ឯកជនភាព',
+        'browse': 'មើលព្រះត្រៃបិដក',
+    },
+    'ko': {
+        'title': 'E-Piṭaka — 빨리어 삼장 (한국어)',
+        'description': ('빨리어 삼장(제6차 결집본)을 한국어, 영어, 싱할라어, 태국어, '
+                        '타밀어, 라오어, 미얀마어, 베트남어 문장별 번역으로 읽기. 무료, '
+                        '검색 가능, 모바일 지원.'),
+        'h1': '빨리어 삼장 읽기 — 제6차 결집본',
+        'intro': ('E-Piṭaka는 제6차 결집본 빨리어 삼장의 무료 디지털판으로, {count}개 '
+                  '언어의 문장별 번역을 제공합니다 — 한국어, 영어, 싱할라어, 태국어, '
+                  '타밀어, 라오어, 미얀마어, 베트남어. 경·율·론 삼장을 읽고, 전문을 '
+                  '검색하며, 무료 모바일 앱으로 공부하세요.'),
+        'popular': '인기 경전',
+        'translations': '번역:',
+        'about': '번역 프로젝트 소개',
+        'privacy': '개인정보처리방침',
+        'browse': '삼장 둘러보기',
+    },
+    'ne': {
+        'title': 'E-Piṭaka — त्रिपिटक (नेपाली)',
+        'description': ('पालि त्रिपिटक (छट्ठ सङ्गायन संस्करण) नेपाली, अङ्ग्रेजी, '
+                        'सिंहली, थाई, तमिल, लाओ, म्यान्मार र भियतनामी अनुवादसहित '
+                        'पढ्नुहोस्। निःशुल्क, खोज्न मिल्ने, मोबाइल-मैत्री।'),
+        'h1': 'पालि त्रिपिटक पढ्नुहोस् — छट्ठ सङ्गायन संस्करण',
+        'intro': ('E-Piṭaka छट्ठ सङ्गायन त्रिपिटक (छैठौं बौद्ध सङ्गायनको संस्करण) को '
+                  'निःशुल्क डिजिटल संस्करण हो, जसमा {count} भाषाहरूमा '
+                  'पङ्क्ति-दर-पङ्क्ति अनुवाद छ — नेपाली, अङ्ग्रेजी, सिंहली, थाई, '
+                  'तमिल, लाओ, म्यान्मार र भियतनामी। सुत्त, विनय र अभिधम्म पिटक '
+                  'पढ्नुहोस्, पूरा पाठ खोज्नुहोस् र निःशुल्क मोबाइल एपमा अध्ययन '
+                  'गर्नुहोस्।'),
+        'popular': 'लोकप्रिय पुस्तकहरू',
+        'translations': 'अनुवादहरू:',
+        'about': 'अनुवाद परियोजनाको बारेमा',
+        'privacy': 'गोपनीयता नीति',
+        'browse': 'त्रिपिटक ब्राउज गर्नुहोस्',
+    },
+    'ru': {
+        'title': 'E-Piṭaka — Типитака (Русский)',
+        'description': ('Читайте палийскую Типитаку (издание Chaṭṭha Saṅgāyana) с '
+                        'пословными переводами на русский, английский, сингальский, '
+                        'тайский, тамильский, лаосский, бирманский и вьетнамский языки. '
+                        'Бесплатно, с поиском, удобно на телефоне.'),
+        'h1': 'Читайте палийскую Типитаку — издание Chaṭṭha Saṅgāyana',
+        'intro': ('E-Piṭaka — бесплатное цифровое издание Типитаки Chaṭṭha '
+                  'Saṅgāyana (палийский канон Шестого буддийского собора) с '
+                  'пословными переводами на {count} языков — русский, английский, '
+                  'сингальский, тайский, тамильский, лаосский, бирманский и '
+                  'вьетнамский. Читайте Сутту, Винаю и Абхидхамма-питаку, ищите по '
+                  'полному тексту и занимайтесь с бесплатным мобильным приложением.'),
+        'popular': 'Популярные книги',
+        'translations': 'Переводы:',
+        'about': 'О проекте перевода',
+        'privacy': 'Политика конфиденциальности',
+        'browse': 'Обзор Типитаки',
+    },
 }
 
 
@@ -480,22 +643,52 @@ HOME_NAV_L10N = {
     'de': {'canon': 'Den vollständigen Kanon durchsuchen', 'download': 'E-Books herunterladen (PDF, EPUB)'},
     'nl': {'canon': 'De volledige canon verkennen', 'download': 'E-books downloaden (PDF, EPUB)'},
     'np': {'canon': 'पूरा त्रिपिटक हेर्नुहोस्', 'download': 'ईबुक डाउनलोड गर्नुहोस् (PDF, EPUB)'},
+    'ne': {'canon': 'पूरा त्रिपिटक हेर्नुहोस्', 'download': 'ईबुक डाउनलोड गर्नुहोस् (PDF, EPUB)'},
     'cn': {'canon': '浏览全部三藏', 'download': '下载电子书（PDF、EPUB）'},
+    'zh': {'canon': '浏览全部三藏', 'download': '下载电子书（PDF、EPUB）'},
+    'bn': {'canon': 'সম্পূর্ণ ত্রিপিটক দেখুন', 'download': 'ইবুক ডাউনলোড করুন (PDF, EPUB)'},
+    'hi': {'canon': 'पूरा त्रिपिटक देखें', 'download': 'ईबुक डाउनलोड करें (PDF, EPUB)'},
+    'es': {'canon': 'Explorar el canon completo', 'download': 'Descargar ebooks (PDF, EPUB)'},
+    'id': {'canon': 'Jelajahi seluruh kanon', 'download': 'Unduh ebook (PDF, EPUB)'},
+    'ja': {'canon': '三蔵全体を閲覧する', 'download': '電子書籍をダウンロード (PDF, EPUB)'},
+    'km': {'canon': 'មើលព្រះត្រៃបិដកទាំងមូល', 'download': 'ទាញយកសៀវភៅអេឡិចត្រូនិក (PDF, EPUB)'},
+    'ko': {'canon': '전체 삼장 둘러보기', 'download': '전자책 다운로드 (PDF, EPUB)'},
+    'ru': {'canon': 'Обзор всей Типитаки', 'download': 'Скачать электронные книги (PDF, EPUB)'},
 }
+
+# Legacy code aliases: old DB filenames / UI links may use these codes.
+# home_l10n() and popular_books() resolve through this map so e.g. 'np'
+# and 'ne' share one entry instead of duplicating copy.
+_LANG_ALIASES = {
+    'np': 'ne', 'ne': 'ne',
+    'cn': 'zh', 'zh': 'zh',
+    'fil': 'tl', 'tl': 'tl',
+}
+
+
+def _canonical_lang(lang_code: str) -> str:
+    key = (lang_code or '').strip().lower()
+    return _LANG_ALIASES.get(key, key)
 
 
 def home_l10n(lang_code: str, count: int) -> dict:
     """Localized home-page strings (H1, intro, labels, title, description).
 
-    Falls back to English for languages without an entry; `intro` gets the
-    {count} placeholder filled with the number of available languages.
+    Falls back to English for languages without an entry; `intro` and
+    `description` get the {count} placeholder filled with the number of
+    available languages. Any language with a translation DB works out of
+    the box (English fallback) — adding a HOME_L10N entry only upgrades
+    its SEO copy to the native language.
     """
-    entry = HOME_L10N.get(lang_code) or HOME_L10N['en']
-    nav = HOME_NAV_L10N.get(lang_code) or HOME_NAV_L10N['en']
+    key = _canonical_lang(lang_code)
+    entry = HOME_L10N.get(key) or HOME_L10N.get(lang_code) or HOME_L10N['en']
+    nav = HOME_NAV_L10N.get(key) or HOME_NAV_L10N.get(lang_code) or HOME_NAV_L10N['en']
     return {
         **entry,
         **nav,
         'intro': entry['intro'].format(count=count),
+        'description': entry['description'].format(count=count)
+        if '{count}' in entry['description'] else entry['description'],
     }
 
 
@@ -518,8 +711,10 @@ def popular_books(lang: str = 'en', names: dict | None = None) -> list:
     "Kinh Pháp Cú" for Dhp), falling back to the English name. `names` is an
     optional pre-resolved {book_id: name} map (services.book_names), which
     covers every book in the language rather than the curated subset.
+    Legacy aliases (np/ne, cn/zh, fil/tl) resolve to the same entry.
     """
-    localized = dict(BOOK_NAMES_LOCALIZED.get(lang, {}))
+    key = _canonical_lang(lang)
+    localized = dict(BOOK_NAMES_LOCALIZED.get(key) or BOOK_NAMES_LOCALIZED.get(lang, {}))
     if names:
         localized.update(names)
     return [
@@ -530,8 +725,10 @@ def popular_books(lang: str = 'en', names: dict | None = None) -> list:
 
 # ── Localized book names for the popular-books list ───────────────────────
 # book_id → name in [lang]. The same books that appear on the home page; the
-# English BOOK_NAMES above stay the fallback. Only languages with a deployed
-# translation DB are listed (missing entries fall back to English).
+# English BOOK_NAMES above stay the fallback. Languages with a deployed
+# translation DB are listed (missing entries fall back to English, and the
+# reader's translation-DB headings take precedence via services.book_names
+# anyway — this table only seeds the home-page SEO links).
 BOOK_NAMES_LOCALIZED = {
     'vi': {
         'Dhp': 'Kinh Pháp Cú', 'Sn': 'Kinh Tập', 'Ud': 'Phật Tự Thuyết',
@@ -603,6 +800,13 @@ BOOK_NAMES_LOCALIZED = {
         'M': 'मज्झिमनिकाय', 'S': 'संयुत्तनिकाय', 'A': 'अंगुत्तरनिकाय',
         'Mil': 'मिलिन्दपञ्ह', 'Vin': 'विनयपिटक',
     },
+    'ne': {
+        'Dhp': 'धम्मपद', 'Sn': 'सुत्तनिपात', 'Ud': 'उदान',
+        'It': 'इतिवुत्तक', 'Th': 'थेरगाथा', 'Thi': 'थेरीगाथा',
+        'Ja': 'जातक', 'Khp': 'खुद्दकपाठ', 'D': 'दीघनिकाय',
+        'M': 'मज्झिमनिकाय', 'S': 'संयुत्तनिकाय', 'A': 'अंगुत्तरनिकाय',
+        'Mil': 'मिलिन्दपञ्ह', 'Vin': 'विनयपिटक',
+    },
     'cn': {
         'Dhp': '法句经', 'Sn': '经集', 'Ud': '自说经',
         'It': '如是语经', 'Th': '长老偈', 'Thi': '长老尼偈',
@@ -610,7 +814,104 @@ BOOK_NAMES_LOCALIZED = {
         'M': '中部', 'S': '相应部', 'A': '增支部',
         'Mil': '弥兰王问经', 'Vin': '律藏',
     },
+    'zh': {
+        'Dhp': '法句经', 'Sn': '经集', 'Ud': '自说经',
+        'It': '如是语经', 'Th': '长老偈', 'Thi': '长老尼偈',
+        'Ja': '本生经', 'Khp': '小诵', 'D': '长部',
+        'M': '中部', 'S': '相应部', 'A': '增支部',
+        'Mil': '弥兰王问经', 'Vin': '律藏',
+    },
+    'bn': {
+        'Dhp': 'ধম্মপদ', 'Sn': 'সুত্তনিপাত', 'Ud': 'উদান',
+        'It': 'ইতিবুত্তক', 'Th': 'থেরগাথা', 'Thi': 'থেরীগাথা',
+        'Ja': 'জাতক', 'Khp': 'খুদ্দকপাঠ', 'D': 'দীঘনিকায়',
+        'M': 'মজ্ঝিমনিকায়', 'S': 'সংযুত্তনিকায়', 'A': 'অঙ্গুত্তরনিকায়',
+        'Mil': 'মিলিন্দপঞ্হ', 'Vin': 'বিনয়পিটক',
+    },
+    'hi': {
+        'Dhp': 'धम्मपद', 'Sn': 'सुत्तनिपात', 'Ud': 'उदान',
+        'It': 'इतिवुत्तक', 'Th': 'थेरगाथा', 'Thi': 'थेरीगाथा',
+        'Ja': 'जातक', 'Khp': 'खुद्दकपाठ', 'D': 'दीघनिकाय',
+        'M': 'मज्झिमनिकाय', 'S': 'संयुत्तनिकाय', 'A': 'अंगुत्तरनिकाय',
+        'Mil': 'मिलिन्दपञ्ह', 'Vin': 'विनयपिटक',
+    },
+    'es': {
+        'Dhp': 'Dhammapada', 'Sn': 'Sutta Nipāta', 'Ud': 'Udāna',
+        'It': 'Itivuttaka', 'Th': 'Theragāthā', 'Thi': 'Therīgāthā',
+        'Ja': 'Jātaka', 'Khp': 'Khuddakapāṭha', 'D': 'Dīgha Nikāya',
+        'M': 'Majjhima Nikāya', 'S': 'Saṃyutta Nikāya', 'A': 'Aṅguttara Nikāya',
+        'Mil': 'Milindapañha', 'Vin': 'Vinaya Piṭaka',
+    },
+    'id': {
+        'Dhp': 'Dhammapada', 'Sn': 'Sutta Nipāta', 'Ud': 'Udāna',
+        'It': 'Itivuttaka', 'Th': 'Theragāthā', 'Thi': 'Therīgāthā',
+        'Ja': 'Jātaka', 'Khp': 'Khuddakapāṭha', 'D': 'Dīgha Nikāya',
+        'M': 'Majjhima Nikāya', 'S': 'Saṃyutta Nikāya', 'A': 'Aṅguttara Nikāya',
+        'Mil': 'Milindapañha', 'Vin': 'Vinaya Piṭaka',
+    },
+    'ja': {
+        'Dhp': '法句経', 'Sn': 'スッタ・ニパータ', 'Ud': 'ウダーナ',
+        'It': 'イティヴッタカ', 'Th': 'テーラガーター', 'Thi': 'テーリーガーター',
+        'Ja': 'ジャータカ', 'Khp': 'クッダカ・パータ', 'D': '長部',
+        'M': '中部', 'S': '相応部', 'A': '増支部',
+        'Mil': 'ミリンダ王問経', 'Vin': '律蔵',
+    },
+    'km': {
+        'Dhp': 'ធម្មបទ', 'Sn': 'សុត្តនិបាត', 'Ud': 'ឧទាន',
+        'It': 'ឥតិវុត្តក', 'Th': 'ថេរគាថា', 'Thi': 'ថេរីគាថា',
+        'Ja': 'ជាតក', 'Khp': 'ខុទ្ទកបាឋ', 'D': 'ទីឃនិកាយ',
+        'M': 'មជ្ឈិមនិកាយ', 'S': 'សំយុត្តនិកាយ', 'A': 'អង្គុត្តរនិកាយ',
+        'Mil': 'មិលិន្ទបញ្ហា', 'Vin': 'វិន័យបិដក',
+    },
+    'ko': {
+        'Dhp': '법구경', 'Sn': '숫타니파타', 'Ud': '우다나',
+        'It': '이티붓타카', 'Th': '테라가타', 'Thi': '테리가타',
+        'Ja': '자타카', 'Khp': '쿳다카파타', 'D': '장부',
+        'M': '중부', 'S': '상응부', 'A': '앙굿타라',
+        'Mil': '밀린다왕문경', 'Vin': '율장',
+    },
+    'ru': {
+        'Dhp': 'Дхаммапада', 'Sn': 'Сутта Нипата', 'Ud': 'Удана',
+        'It': 'Итивуттака', 'Th': 'Тхерагатха', 'Thi': 'Тхеригатха',
+        'Ja': 'Джатака', 'Khp': 'Кхуддакапатха', 'D': 'Дигха Никая',
+        'M': 'Мадджхима Никая', 'S': 'Самъютта Никая', 'A': 'Ангуттара Никая',
+        'Mil': 'Милиндапаньха', 'Vin': 'Виная Питака',
+    },
 }
+
+
+# ── Authorship (E-E-A-T) ──────────────────────────────────────────────────
+# Reference material is trusted more when a *named* person is accountable for
+# it. Set EDITOR_NAME (optionally EDITOR_URL / EDITOR_CREDENTIALS /
+# EDITOR_SAME_AS) in the server .env to credit a real editor; the Person entity
+# then flows into the Book/Article JSON-LD and the /about page. While it is
+# unset we claim only what is true — the project publishes the texts itself —
+# and emit no editor at all rather than credit a review that never happened.
+
+def editor_person() -> dict | None:
+    """Person schema for the named editor, or None when unconfigured."""
+    name = (os.environ.get('EDITOR_NAME') or '').strip()
+    if not name:
+        return None
+    person = {
+        '@type': 'Person',
+        'name': name,
+        'url': (os.environ.get('EDITOR_URL') or '').strip() or absolute('/about'),
+    }
+    credentials = (os.environ.get('EDITOR_CREDENTIALS') or '').strip()
+    if credentials:
+        person['description'] = credentials
+    same_as = [u.strip() for u in (os.environ.get('EDITOR_SAME_AS') or '').split(',')
+               if u.strip()]
+    if same_as:
+        person['sameAs'] = same_as
+    return person
+
+
+def editor_fields() -> dict:
+    """`{'editor': Person}` when configured, else nothing to merge in."""
+    person = editor_person()
+    return {'editor': person} if person else {}
 
 
 # ── JSON-LD builders ─────────────────────────────────────────────────────
@@ -642,14 +943,11 @@ def website_jsonld(lang_code: str, available_langs: list | None = None) -> dict:
                                 'Sinhala, Thai, Lao, Myanmar, Vietnamese, Tamil and more.'),
                 'inLanguage': langs,
                 'publisher': {'@type': 'Organization', 'name': 'E-Piṭaka', 'url': absolute('/')},
-                'potentialAction': {
-                    '@type': 'SearchAction',
-                    'target': {
-                        '@type': 'EntryPoint',
-                        'urlTemplate': absolute('/search?q={search_term_string}'),
-                    },
-                    'query-input': 'required name=search_term_string',
-                },
+                # Deliberately no potentialAction/SearchAction: there is no
+                # crawlable search URL. Search is a client-side dialog over
+                # /api/fts_search, which robots.txt keeps out of the index, and
+                # the declared /search?q=… was a 404. Reinstate it only
+                # alongside a real, server-rendered results page.
             },
             {
                 '@type': 'Organization',
@@ -841,8 +1139,12 @@ def study_jsonld(book_id: str, summary_title: str, pali_name: str,
                 },
                 'about': name,
                 'publisher': {'@type': 'Organization', 'name': 'E-Piṭaka', 'url': absolute('/')},
+                # The guide text is generated by the project, so the author
+                # stays the Organization; a human editor is credited when
+                # EDITOR_NAME is configured (they own the editorial process).
                 'author': {'@type': 'Organization', 'name': 'E-Piṭaka', 'url': absolute('/')},
                 'mainEntityOfPage': page_url,
+                **editor_fields(),
                 **({'dateModified': date_modified[:10]} if date_modified else {}),
             },
             {'@type': 'BreadcrumbList', 'itemListElement': breadcrumb},
@@ -937,6 +1239,7 @@ def book_jsonld(book_id: str, pali_name: str, lang_code: str, page_url: str,
             'publisher': {'@type': 'Organization', 'name': 'E-Piṭaka', 'url': absolute('/')},
             'bookFormat': 'https://schema.org/EBook',
             'accessMode': 'textual',
+            **editor_fields(),
         },
         {
             '@type': 'BreadcrumbList',

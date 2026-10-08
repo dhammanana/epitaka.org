@@ -99,6 +99,16 @@ Lighthouse's agentic checks, and reads as a sophistication signal.
 
 ## 4. Gaps (ranked by impact)
 
+> **Status 2026-10-08** — gaps 1, 3, 4, 5, 7 and 9 below are now closed in code
+> (absolute + self-canonical sitemaps with per-URL `<lastmod>`, `/llms.txt`,
+> explicit AI-crawler policy, `Organization.sameAs`, IndexNow). Gap 7's
+> remaining half — honest *per-page* dates — is limited by the data: the
+> `headings`/`books` tables carry no timestamps, so book-section URLs inherit
+> the date of `data/epitaka.db` while study guides use their own
+> `summaries.updated_at`.
+>
+> Independent audit of the live site: `epitaka.org-audit/` (2026-10-08).
+
 | # | Gap | Impact | Effort |
 |---|---|---|---|
 | 1 | **Sitemap `<loc>` values are relative** (`/sitemaps/book_A-i.xml`) — invalid per the sitemap spec; crawlers may reject the whole index. Live in production. | 🔴 Critical | S |

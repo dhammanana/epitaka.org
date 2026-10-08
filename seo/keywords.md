@@ -2,21 +2,21 @@
 
 > Difficulty is an editorial estimate (0-100 KD → band). Validate with a keyword tool before investing.
 
-**192 entries.** Difficulty mix: 95 Easy · 81 Medium · 11 Hard · 5 Very Hard.
+**219 entries.** Difficulty mix: 116 Easy · 87 Medium · 11 Hard · 5 Very Hard.
 
 | Cluster | Entries |
 |---|---|
-| Core Canon Access | 21 |
+| Core Canon Access | 25 |
 | Canon Structure & Pitakas | 10 |
 | Nikāyas | 14 |
-| Khuddaka Nikāya Texts | 23 |
-| Abhidhamma & Buddhist Psychology | 20 |
+| Khuddaka Nikāya Texts | 30 |
+| Abhidhamma & Buddhist Psychology | 23 |
 | Pāli Language & Dictionary | 14 |
-| Commentaries & Sub-commentaries | 9 |
-| Theravāda Doctrine | 24 |
-| Key Suttas | 16 |
-| Editions, Councils & Scripts | 9 |
-| Multilingual | 20 |
+| Commentaries & Sub-commentaries | 12 |
+| Theravāda Doctrine | 26 |
+| Key Suttas | 19 |
+| Editions, Councils & Scripts | 10 |
+| Multilingual | 24 |
 | Study, Learning & App | 12 |
 
 ## Keywords by cluster
@@ -26,16 +26,20 @@
 | Keyword | Intent | Difficulty | KD | Priority | Target page | Notes |
 |---|---|---|---|---|---|---|
 | offline tipitaka reader | transactional | Easy | 10 | P2 | `/app/` | Feature-led long tail |
+| tipitaka app download | transactional | Easy | 12 | P1 | `/app/` | Live suggestion for 'tipitaka app' |
 | sixth buddhist council tipitaka | informational | Easy | 14 | P2 | `/en/` | Edition explainer content |
 | chattha sangayana tipitaka | navigational | Easy | 15 | P1 | `/en/` | Common misspelling of chaṭṭha |
 | pali canon reader | navigational | Easy | 15 | P1 | `/en/` | Brand-adjacent |
 | tipitaka search | navigational | Easy | 15 | P1 | `/search?q=` | Site search |
+| tipitaka download | transactional | Easy | 15 | P2 | `/app/` | Live suggestion for 'tipitaka app' |
 | tipitaka reader app | transactional | Easy | 16 | P1 | `/app/` | App intent, low competition |
 | chatta sangayana tipitaka | navigational | Easy | 18 | P1 | `/en/` | Exact edition we serve |
 | vri tipitaka | navigational | Medium | 20 | P2 | `/en/` | Vipassana Research Institute edition |
 | where to read the pali canon | informational | Medium | 20 | P1 | `/en/` | Beginner PAA-style query |
+| pali canon in english pdf | transactional | Medium | 28 | P2 | `/en/` | Live suggestion for 'pali canon english translation' |
 | read tipitaka online free | transactional | Medium | 30 | P1 | `/en/` | High intent; matches free-reader positioning |
 | tipitaka app | transactional | Medium | 30 | P1 | `/app/` | Mobile app landing |
+| english translation of the pali canon | informational | Medium | 30 | P2 | `/en/` | Live phrasing variant |
 | pali canon full text | informational | Medium | 34 | P2 | `/en/` | Full-text search feature |
 | pali canon online | informational | Medium | 35 | P1 | `/en/` | Synonym for tipitaka; SuttaCentral owns #1 |
 | tipitaka in english | informational | Medium | 36 | P2 | `/en/` | Variant |
@@ -95,14 +99,21 @@
 | udana pali | informational | Easy | 12 | P2 | `/en/book/Ud` | Book page |
 | itivuttaka | informational | Easy | 12 | P2 | `/en/book/It` | Book page |
 | milinda's questions english | informational | Easy | 12 | P2 | `/en/book/Mil` | Translation |
+| dhammapada meaning | informational | Easy | 12 | P2 | `/en/book/Dhp` | Live suggestion for 'dhammapada' |
+| where can i read the dhammapada | informational | Easy | 12 | P1 | `/en/book/Dhp` | Live question-suggestion for 'dhammapada' |
+| how to read the dhammapada | informational | Easy | 12 | P2 | `/en/book/Dhp` | Live suggestion under 'dhammapada commentary' |
 | sutta nipata english | informational | Easy | 14 | P1 | `/en/book/Sn` | Translation |
 | dhammapada chapter list | informational | Easy | 15 | P2 | `/en/book/Dhp/outline` | Outline page |
 | theragatha | informational | Easy | 15 | P1 | `/en/book/Th` | Book page |
 | therigatha | informational | Easy | 15 | P1 | `/en/book/Thi` | Book page |
+| dhammapada online | navigational | Easy | 15 | P1 | `/en/book/Dhp` | Live suggestion for 'dhammapada' |
 | milindapanha | informational | Easy | 18 | P1 | `/en/book/Mil` | Book page |
 | sutta nipata | informational | Medium | 20 | P1 | `/en/book/Sn` | Book page |
+| best english translation of dhammapada | commercial | Medium | 20 | P2 | `/en/book/Dhp` | Live suggestion for 'dhammapada' |
 | best dhammapada translation | commercial | Medium | 22 | P2 | `/en/book/Dhp` | Comparison query |
 | dhammapada with commentary | informational | Medium | 24 | P1 | `/en/book/Dhp-a` | Unique: inline commentary |
+| dhammapada quotes | informational | Medium | 28 | P2 | `/en/book/Dhp` | Live suggestion; complements buddha-quotes entry |
+| dhammapada pdf | transactional | Medium | 30 | P2 | `/en/book/Dhp` | Live suggestion #2 for 'dhammapada' |
 | dhammapada english translation | informational | Medium | 34 | P1 | `/en/book/Dhp` | Translation intent |
 | dhammapada verses | informational | Medium | 34 | P2 | `/en/book/Dhp` | Reader intent |
 | jataka stories english | informational | Medium | 34 | P2 | `/en/book/Ja` | Translation |
@@ -124,12 +135,15 @@
 | citta cetasika | informational | Easy | 12 | P2 | `/en/book/Dhs` | Term |
 | four ultimate realities buddhism | informational | Easy | 12 | P2 | `/en/` | PAA |
 | is abhidhamma necessary for enlightenment | informational | Easy | 12 | P2 | `/en/` | Discussion FAQ |
+| abhidhamma meaning | informational | Easy | 12 | P2 | `/en/` | Live suggestion for 'abhidhamma' |
 | 52 mental factors | informational | Easy | 14 | P1 | `/en/book/Dhs` | PAA / glossary target |
 | cetasika | informational | Easy | 14 | P1 | `/en/book/Dhs` | Term |
+| abhidhamma pitaka english translation | informational | Easy | 14 | P1 | `/en/book/Dhs` | Live suggestion for 'abhidhamma' |
 | abhidhamma in simple terms | informational | Easy | 18 | P1 | `/en/` | Beginner phrasing |
 | abhidhammattha sangaha | informational | Easy | 18 | P1 | `/en/` | Classic manual |
 | abhidhamma study guide | informational | Medium | 20 | P1 | `/en/study/` | Strong fit for study guides |
 | abhidhamma in daily life | informational | Medium | 20 | P2 | `/en/` | Known book title |
+| abhidhamma pdf | transactional | Medium | 22 | P2 | `/en/` | Live suggestion for 'abhidhamma' |
 | what is abhidhamma | informational | Medium | 28 | P1 | `/en/` | Definition |
 | abhidhamma | informational | Medium | 40 | P1 | `/en/book/Dhs` | Broad but reachable |
 | buddhist psychology | informational | Medium | 44 | P2 | `/en/` | Broader, mixed intent |
@@ -158,9 +172,12 @@
 | Keyword | Intent | Difficulty | KD | Priority | Target page | Notes |
 |---|---|---|---|---|---|---|
 | tika subcommentary | informational | Easy | 8 | P2 | `/en/` | Term |
+| jataka atthakatha | informational | Easy | 10 | P2 | `/en/book/Ja` | Live suggestion for 'atthakatha' |
 | who wrote the visuddhimagga | informational | Easy | 12 | P2 | `/en/` | PAA |
 | commentary on the pali canon | informational | Easy | 12 | P2 | `/en/` | Hub |
+| dhammapada atthakatha english translation | informational | Easy | 12 | P1 | `/en/book/Dhp-a` | Live suggestion for 'atthakatha'; differentiator |
 | atthakatha | informational | Easy | 14 | P1 | `/en/book/Dhp-a` | Our inline commentary layer |
+| dhammapada commentary pdf | transactional | Easy | 14 | P2 | `/en/book/Dhp-a` | Live suggestion for 'dhammapada commentary' |
 | theravada commentaries | informational | Easy | 15 | P2 | `/en/` | Hub |
 | pali commentary english translation | informational | Easy | 18 | P1 | `/en/book/Dhp-a` | Strong differentiator |
 | dhammapada commentary | informational | Medium | 20 | P1 | `/en/book/Dhp-a` | Book |
@@ -172,7 +189,9 @@
 | Keyword | Intent | Difficulty | KD | Priority | Target page | Notes |
 |---|---|---|---|---|---|---|
 | eight jhanas | informational | Easy | 14 | P2 | `/en/` | List |
+| where is theravada buddhism practiced | informational | Easy | 15 | P2 | `/en/` | Live suggestion for 'theravada buddhism' |
 | khandha five aggregates | informational | Easy | 18 | P2 | `/en/` | Pali term |
+| theravada buddhism definition | informational | Easy | 18 | P2 | `/en/` | Live suggestion for 'theravada buddhism' |
 | paticca samuppada | informational | Medium | 20 | P2 | `/en/` | Pali term |
 | four foundations of mindfulness | informational | Medium | 24 | P2 | `/en/` | Practice |
 | samatha and vipassana | informational | Medium | 28 | P2 | `/en/` | Practice |
@@ -203,7 +222,10 @@
 | sabbasava sutta | informational | Easy | 10 | P3 | `/en/book/M` | Key sutta |
 | sigalovada sutta | informational | Easy | 12 | P2 | `/en/book/D` | Lay ethics |
 | which sutta did the buddha teach first | informational | Easy | 12 | P2 | `/en/` | PAA |
+| satipatthana sutta commentary | informational | Easy | 12 | P2 | `/en/book/M` | Live suggestion; commentary differentiator |
 | brahmajala sutta | informational | Easy | 14 | P2 | `/en/book/D` | Key sutta |
+| satipatthana sutta pdf | transactional | Easy | 14 | P2 | `/en/book/M` | Live suggestion for 'satipatthana sutta' |
+| maha satipatthana sutta pdf | transactional | Easy | 14 | P2 | `/en/book/D` | Live suggestion for 'satipatthana sutta' |
 | what is the satipatthana sutta about | informational | Easy | 15 | P2 | `/en/book/M` | PAA |
 | mangala sutta | informational | Easy | 18 | P1 | `/en/book/Khp` | Chant |
 | ratana sutta | informational | Easy | 18 | P2 | `/en/book/Khp` | Chant |
@@ -225,6 +247,7 @@
 | tipitaka sinhala script | informational | Easy | 8 | P3 | `/si/` | Script |
 | pali text roman transliteration | informational | Easy | 10 | P2 | `/en/` | Script converter |
 | buddha jayanti tipitaka | informational | Easy | 10 | P3 | `/en/` | Edition |
+| tripitaka online sinhala | informational | Easy | 12 | P2 | `/si/` | Live suggestion for 'tipitaka online' |
 | chatta sangayana | informational | Easy | 14 | P2 | `/en/` | Edition |
 | burmese tipitaka | informational | Easy | 15 | P2 | `/my/` | Localized landing |
 | sinhala tipitaka | informational | Easy | 18 | P1 | `/si/` | Localized landing |
@@ -241,8 +264,12 @@
 | ධම්මපදය | informational | Easy | 10 | P2 | `/si/book/Dhp` | Sinhala Dhammapada |
 | ပိဋကတ်တော် | informational | Easy | 10 | P2 | `/my/` | Burmese head term |
 | tipitaka portugues | informational | Easy | 10 | P3 | `/pt/` | Portuguese |
+| chú giải tam tạng pali | informational | Easy | 10 | P1 | `/vi/` | Live VN suggestion; commentary differentiator |
+| tam tạng song ngữ pali việt | informational | Easy | 10 | P1 | `/vi/` | Live VN suggestion; bilingual intent |
 | ทีฆนิกาย | informational | Easy | 12 | P2 | `/th/book/D` | Thai Digha |
 | tipitaka deutsch | informational | Easy | 12 | P3 | `/de/` | German |
+| kinh tam tạng pali | informational | Easy | 12 | P1 | `/vi/` | Live suggestion (country=Vietnam, language=Vietnamese) |
+| tam tạng kinh điển pali pdf | transactional | Easy | 14 | P2 | `/vi/` | Live VN suggestion; PDF intent |
 | ธรรมบท | informational | Easy | 15 | P1 | `/th/book/Dhp` | Thai Dhammapada |
 | ත්‍රිපිටකය | informational | Easy | 15 | P1 | `/si/` | Sinhala head term |
 | 巴利三藏 | informational | Easy | 15 | P2 | `/cn/` | Chinese head term |

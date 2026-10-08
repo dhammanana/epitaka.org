@@ -2,21 +2,21 @@
 
 > Difficulty is an editorial estimate (0-100 KD → band). Validate with a keyword tool before investing.
 
-**118 entries.** Difficulty mix: 80 Easy · 34 Medium · 4 Hard · 0 Very Hard.
+**128 entries.** Difficulty mix: 90 Easy · 34 Medium · 4 Hard · 0 Very Hard.
 
 | Cluster | Entries |
 |---|---|
 | Core Canon Access | 17 |
 | Study, Learning & App | 2 |
 | Editions, Councils & Scripts | 5 |
-| Multilingual | 5 |
+| Multilingual | 6 |
 | Commentaries & Sub-commentaries | 7 |
 | Canon Structure & Pitakas | 6 |
 | Nikāyas | 2 |
-| Abhidhamma & Buddhist Psychology | 17 |
-| Khuddaka Nikāya Texts | 12 |
+| Abhidhamma & Buddhist Psychology | 18 |
+| Khuddaka Nikāya Texts | 16 |
 | Pāli Language & Dictionary | 13 |
-| Theravāda Doctrine | 21 |
+| Theravāda Doctrine | 25 |
 | Key Suttas | 11 |
 
 ## Questions by cluster
@@ -68,6 +68,7 @@
 | Đọc kinh Pháp Cú ở đâu? | informational | Easy | 8 | P1 | Vietnamese: where to read. |
 | พระไตรปิฎกอ่านที่ไหน? | informational | Easy | 8 | P1 | Thai: where to read. |
 | ත්‍රිපිටකය කියවන්නේ කොහොමද? | informational | Easy | 8 | P2 | Sinhala: how to read. |
+| Kinh Tam tạng Pāli đọc ở đâu? | informational | Easy | 8 | P1 | Vietnamese: where to read (live VN pattern). |
 | Tam tạng Pali là gì? | informational | Easy | 10 | P1 | Vietnamese definition. |
 
 ### Commentaries & Sub-commentaries
@@ -115,6 +116,7 @@
 | What is the difference between rupa and nama? | informational | Easy | 10 | P2 | Matter vs mind. |
 | What are the 7 books of the Abhidhamma? | informational | Easy | 10 | P2 | List the seven. |
 | What is the Abhidhammattha Sangaha used for? | informational | Easy | 10 | P2 | Purpose of the manual. |
+| Did the Buddha teach the Abhidhamma? | informational | Easy | 10 | P2 | Live question-suggestion; origin debate. |
 | What are the 52 mental factors? | informational | Easy | 12 | P1 | Cetasika list + glossary. |
 | What is the difference between citta and cetasika? | informational | Easy | 12 | P1 | Mind vs mental factors. |
 | Do I need to study Abhidhamma to attain nibbana? | informational | Easy | 12 | P2 | Balanced traditional view. |
@@ -132,9 +134,13 @@
 | What are the 15 books of the Khuddaka Nikaya? | informational | Easy | 12 | P2 | List with links. |
 | What is the Udana? | informational | Easy | 12 | P3 | Inspired utterances. |
 | What is the Theragatha? | informational | Easy | 12 | P3 | Verses of elder monks. |
+| Where can I read the Dhammapada? | informational | Easy | 12 | P1 | Live question-suggestion; reader intent. |
+| Did the Buddha write the Dhammapada? | informational | Easy | 12 | P2 | Live question-suggestion; authorship FAQ. |
+| How long does it take to read the Dhammapada? | informational | Easy | 12 | P3 | Live question-suggestion; length estimate. |
 | How many verses are in the Dhammapada? | informational | Easy | 15 | P2 | 423 verses, 26 chapters. |
 | What is the Sutta Nipata? | informational | Easy | 15 | P2 | Early poetry. |
 | What is the Milindapanha? | informational | Easy | 15 | P2 | King Milinda's questions. |
+| What does the Dhammapada teach? | informational | Easy | 15 | P2 | Live question-suggestion; teachings summary. |
 | What is the Dhammapada about? | informational | Medium | 30 | P1 | Ethics and mind. |
 | What are the Jataka tales? | informational | Medium | 30 | P2 | Birth stories. |
 | What is the Dhammapada? | informational | Medium | 35 | P1 | Intro to the verses. |
@@ -163,6 +169,10 @@
 |---|---|---|---|---|---|
 | What is sila samadhi panna? | informational | Easy | 12 | P2 | Three trainings. |
 | What is a Theravada monk called? | informational | Easy | 12 | P3 | Bhikkhu. |
+| Where did Theravada Buddhism originate? | informational | Easy | 15 | P2 | Live question-suggestion; history. |
+| How do I practice Theravada Buddhism? | informational | Easy | 15 | P2 | Live question-suggestion; practice guide. |
+| Are there bodhisattvas in Theravada Buddhism? | informational | Easy | 15 | P3 | Live question-suggestion; doctrine FAQ. |
+| Does Theravada Buddhism believe in God? | informational | Easy | 18 | P2 | Live question-suggestion; belief FAQ. |
 | What is the difference between nirvana and nibbana? | informational | Medium | 20 | P2 | Same concept, different language. |
 | What is anicca? | informational | Medium | 20 | P2 | Impermanence. |
 | What is the difference between samatha and vipassana? | informational | Medium | 20 | P2 | Calm vs insight. |

@@ -26,6 +26,7 @@ from ..utils.cache import TTLCache
 from ..utils.ratelimit import rate_limit
 from ..utils.assets import get_asset_version
 from ..utils import seo
+from ..utils.slugs import section_slug
 from ..services.books import load_hierarchy, organize_hierarchy
 from ..services.toc import (
     get_book_toc,
@@ -781,7 +782,7 @@ def _enrich_outline(groups, book_id, summary_map, slug_map=None):
                         item["study_title"] = sm["title"] if sm else ""
                         continue
                 slug = (
-                    (item["title"].lower().replace(" ", "-") + "-" + str(pid))
+                    section_slug(item["title"], pid)
                     if item["title"]
                     else str(pid)
                 )
@@ -1061,30 +1062,17 @@ def book(lang, book_id, section_path=None):
         toc = get_book_toc(book_id, conn)
 
         # ── Parse section_path for SEO-friendly deep-linking ────────────
+        # The number after the last '-' is the para_id that identifies the
+        # section; everything before it is decoration (utils.slugs).
+        # Title-less headings slug to the bare para_id, so both forms resolve
+        # to the same section and the canonical tag always matches the URL the
+        # sitemap advertises.
         active_para_id = None
         active_line_id = None
-        section_slug = section_path
-
-        # if section_path:
-        #     parts = section_path.strip('/').split('/')
-        #     if len(parts) >= 1:
-        #         section_slug = parts[0]
-        #     if len(parts) >= 2:
-        #         try:
-        #             active_para_id = int(parts[1])
-        #         except ValueError:
-        #             pass
-        #     if len(parts) >= 3:
-        #         try:
-        #             active_line_id = int(parts[2])
-        #         except ValueError:
-        #             pass
-
-        # If no explicit para_id, extract it from the section slug ({slug}-{para_id})
-        if not active_para_id and section_slug and "-" in section_slug:
+        requested_slug = section_path
+        if requested_slug:
             try:
-                slug_para_id = int(section_slug.rsplit("-", 1)[1])
-                active_para_id = slug_para_id
+                active_para_id = int(requested_slug.rsplit("-", 1)[-1])
             except ValueError:
                 pass
 
@@ -1195,11 +1183,7 @@ def book(lang, book_id, section_path=None):
                     para_list = parent_paras.get(bid, [])
                     idx = bisect.bisect_right(para_list, dst_pid) - 1
                     if idx >= 0 and parents[idx][1]:
-                        dst_slug = (
-                            parents[idx][1].lower().replace(" ", "-")
-                            + "-"
-                            + str(parents[idx][0])
-                        )
+                        dst_slug = section_slug(parents[idx][1], parents[idx][0])
                     else:
                         dst_slug = ""
                     info = hierarchy.get(bid, {})
@@ -1278,11 +1262,13 @@ def book(lang, book_id, section_path=None):
     # covered by the English book name that leads the path.
     section_path = []
     section_title = None
+    target_item = None
     if active_para_id:
         last_by_level = {}
         target_level = None
         for item in toc:
             if item["para_id"] == active_para_id:
+                target_item = item
                 target_level = item["level"]
                 last_by_level[target_level] = item
                 break
@@ -1296,11 +1282,7 @@ def book(lang, book_id, section_path=None):
                 if item["level"] == 1:
                     continue  # covered by the English book name below
                 slug = (
-                    (
-                        item["title"].lower().replace(" ", "-")
-                        + "-"
-                        + str(item["para_id"])
-                    )
+                    section_slug(item["title"], item["para_id"])
                     if item["title"]
                     else ""
                 )
@@ -1344,11 +1326,19 @@ def book(lang, book_id, section_path=None):
     #    description in search results).
     canonical_url = seo.absolute(f"/{lang}/book/{book_id}")
     canonical_slug = None
-    if section_title and active_para_id:
-        canonical_slug = (
-            section_title.lower().replace(" ", "-") + "-" + str(active_para_id)
-        )
+    if target_item:
+        # Built from the heading row the sitemap also uses, so every sitemap
+        # URL is self-canonical. (Deriving it from the breadcrumb title made
+        # the two disagree on punctuation — "1.-rūpādivaggo-4" here vs
+        # "1-rūpādivaggo-4" in the sitemap — and left headings that are
+        # skipped from the trail without a canonical of their own.)
+        canonical_slug = section_slug(target_item["title"], active_para_id)
         canonical_url = seo.absolute(f"/{lang}/book/{book_id}/{canonical_slug}")
+        # Old-style slugs (what the templates used to emit, or a heading title
+        # since edited) still live in links, shares and search results. 301
+        # them so only one address per passage gets indexed.
+        if requested_slug and requested_slug != canonical_slug:
+            return redirect(canonical_url, code=301)
     page_url = canonical_url
     home_url = seo.absolute(f"/{lang}/")
 
@@ -1682,9 +1672,7 @@ def search_headings_suggest():
                 "book_name": hierarchy.get(book_id, {}).get("book_name", "Unknown"),
                 "para_id": para_id,
                 "title": title,
-                "slug": (title.lower().replace(" ", "-") + "-" + str(para_id))
-                if title
-                else "",
+                "slug": section_slug(title, para_id) if title else "",
             }
             for book_id, para_id, title in results
         ]
@@ -1818,6 +1806,8 @@ def about():
         base_url=Config.BASE_URL,
         site_url=seo.site_base(),
         page_url=seo.absolute("/about"),
+        # Named editor for the Editorial Responsibility block (None → hidden).
+        editor=seo.editor_person(),
     )
 
 

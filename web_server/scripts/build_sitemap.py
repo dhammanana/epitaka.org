@@ -34,6 +34,17 @@ EPITAKA_DB = os.path.join(DATA_DIR, 'epitaka.db')
 # AI study guides live in the `summaries` table of the English translation
 # DB (epitaka_en.db) — no separate summary DB to deploy.
 SUMMARY_DB = os.path.join(DATA_DIR, 'epitaka_en.db')
+TEMPLATES_DIR = os.path.join(SCRIPT_DIR, 'templates')
+
+# ── Shared slug builder ────────────────────────────────────────────────────
+# app/utils/slugs.py holds the ONE implementation of section slugs: the app's
+# canonical tag, TOC links, hreflang alternates, reference links, search API
+# and this sitemap all call it. When they drifted apart, every <loc> below
+# pointed at a URL the page itself declared canonical to something else.
+# Imported by path on purpose — pulling in `app.utils.slugs` as a package
+# module would execute app/__init__.py and boot the Flask app.
+sys.path.insert(0, os.path.join(SCRIPT_DIR, 'app', 'utils'))
+from slugs import section_slug  # noqa: E402
 
 # Canonical public origin. BASE_URL env var overrides it; when unset we fall
 # back to the production domain so generated sitemaps always carry absolute,
@@ -66,17 +77,44 @@ LANG_PRIORITY = ['en', 'si', 'th', 'lo', 'my', 'vi', 'ta', 'zh', 'hi', 'ja',
 
 # ── Helpers ────────────────────────────────────────────────────────────────
 
-def slug_from_title(title: str, para_id: int) -> str:
-    """Build the URL slug exactly as the Jinja template does:
-    title.lower().replace(' ', '-') + '-' + para_id
+def lastmod_for(path: str) -> str | None:
+    """'YYYY-MM-DD' when *path* last changed, else None.
+
+    The Tipiṭaka tables carry no per-row timestamps (headings/books have no
+    updated_at column), so book-section URLs share the date of the source
+    database they were built from. That is coarse but honest — it moves only
+    when the corpus is rebuilt, never on a bare sitemap regeneration. Study
+    guides use their own summaries.updated_at instead (see
+    write_study_sitemap).
     """
-    if not title:
-        return str(para_id)
-    slug_part = title.lower().replace(' ', '-')
-    # Remove characters that are problematic in URLs but keep Unicode
-    slug_part = re.sub(r'[^\w\s\-]', '', slug_part, flags=re.UNICODE)
-    slug_part = re.sub(r'-+', '-', slug_part).strip('-')
-    return f"{slug_part}-{para_id}"
+    try:
+        return datetime.datetime.fromtimestamp(
+            os.path.getmtime(path), datetime.timezone.utc).strftime('%Y-%m-%d')
+    except OSError:
+        return None
+
+
+def newest_mtime(paths) -> str | None:
+    """Newest mtime among *paths* (files or directories), as 'YYYY-MM-DD'."""
+    newest = None
+    for path in paths:
+        if os.path.isdir(path):
+            for root, _dirs, files in os.walk(path):
+                for name in files:
+                    newest = max(newest or 0, _mtime(os.path.join(root, name)))
+        else:
+            newest = max(newest or 0, _mtime(path))
+    if not newest:
+        return None
+    return datetime.datetime.fromtimestamp(
+        newest, datetime.timezone.utc).strftime('%Y-%m-%d')
+
+
+def _mtime(path: str) -> float:
+    try:
+        return os.path.getmtime(path)
+    except OSError:
+        return 0
 
 
 def sanitize_book_id(book_id: str) -> str:
@@ -141,7 +179,8 @@ def study_slug_from_title(title: str, section_id: int) -> str:
     return f'{base}-{section_id}'
 
 
-def write_study_sitemap(book_id: str, summaries: list, langs: list[str]):
+def write_study_sitemap(book_id: str, summaries: list, langs: list[str],
+                        outline_lastmod: str | None = None):
     """
     Per-book sitemap for study-guide pages: the outline URL plus every
     summary URL (English-only content → /en/…, no hreflang alternates).
@@ -158,6 +197,8 @@ def write_study_sitemap(book_id: str, summaries: list, langs: list[str]):
     # Outline hub page
     lines.append('  <url>')
     lines.append(f'    <loc>{xml_escape(f"{BASE_URL}/en/book/{book_id}/outline")}</loc>')
+    if outline_lastmod:
+        lines.append(f'    <lastmod>{outline_lastmod}</lastmod>')
     lines.append('    <changefreq>weekly</changefreq>')
     lines.append('    <priority>0.7</priority>')
     lines.append('  </url>')
@@ -165,7 +206,7 @@ def write_study_sitemap(book_id: str, summaries: list, langs: list[str]):
     for s in summaries:
         slug = study_slug_from_title(s['title'] or s['heading_title'] or '', s['section_id'])
         url = f'{BASE_URL}/en/study/{book_id}/{slug}'
-        lastmod = (s['updated_at'] or '')[:10]
+        lastmod = (s['updated_at'] or '')[:10] or (outline_lastmod or '')
         lines.append('  <url>')
         lines.append(f'    <loc>{xml_escape(url)}</loc>')
         if lastmod:
@@ -183,7 +224,7 @@ def write_study_sitemap(book_id: str, summaries: list, langs: list[str]):
 
 # ── XML generators ─────────────────────────────────────────────────────────
 
-def write_pages_sitemap(langs: list[str]):
+def write_pages_sitemap(langs: list[str], lastmod: str | None = None):
     """Sitemap for the site's own pages: every language home page, every
     language's full-canon index, and the (English) ebook download page.
 
@@ -212,6 +253,8 @@ def write_pages_sitemap(langs: list[str]):
         lines.append('  <url>')
         lines.append(f'    <loc>{xml_escape(BASE_URL + f"/{lang}/")}</loc>')
         lines += alt_links('/{lang}/', langs, '/en/')
+        if lastmod:
+            lines.append(f'    <lastmod>{lastmod}</lastmod>')
         lines.append('    <changefreq>weekly</changefreq>')
         lines.append('    <priority>1.0</priority>')
         lines.append('  </url>')
@@ -220,6 +263,8 @@ def write_pages_sitemap(langs: list[str]):
         lines.append('  <url>')
         lines.append(f'    <loc>{xml_escape(BASE_URL + f"/{lang}/canon")}</loc>')
         lines += alt_links('/{lang}/canon', langs, '/en/canon')
+        if lastmod:
+            lines.append(f'    <lastmod>{lastmod}</lastmod>')
         lines.append('    <changefreq>weekly</changefreq>')
         lines.append('    <priority>0.9</priority>')
         lines.append('  </url>')
@@ -230,6 +275,8 @@ def write_pages_sitemap(langs: list[str]):
                  f'href="{xml_escape(BASE_URL + "/en/download")}"/>')
     lines.append('    <xhtml:link rel="alternate" hreflang="en" '
                  f'href="{xml_escape(BASE_URL + "/en/download")}"/>')
+    if lastmod:
+        lines.append(f'    <lastmod>{lastmod}</lastmod>')
     lines.append('    <changefreq>monthly</changefreq>')
     lines.append('    <priority>0.8</priority>')
     lines.append('  </url>')
@@ -269,7 +316,8 @@ def write_sitemap_index(sitemap_files: list[str]):
     print(f"  ✓ Written: sitemap.xml ({len(sitemap_files)} sitemaps referenced)")
 
 
-def write_book_sitemap(book_id: str, headings: list[dict], langs: list[str]):
+def write_book_sitemap(book_id: str, headings: list[dict], langs: list[str],
+                       lastmod: str | None = None):
     """Write a per-book sitemap XML file.
 
     Each heading gets one <url> entry (with the default language as <loc>)
@@ -292,6 +340,8 @@ def write_book_sitemap(book_id: str, headings: list[dict], langs: list[str]):
     # every book's outline is crawlable, not just books with summaries.
     lines.append('  <url>')
     lines.append(f'    <loc>{xml_escape(f"{BASE_URL}/en/book/{book_id}/outline")}</loc>')
+    if lastmod:
+        lines.append(f'    <lastmod>{lastmod}</lastmod>')
     lines.append('    <changefreq>weekly</changefreq>')
     lines.append('    <priority>0.7</priority>')
     lines.append('  </url>')
@@ -300,7 +350,7 @@ def write_book_sitemap(book_id: str, headings: list[dict], langs: list[str]):
         para_id = h['para_id']
         title = h['title'] or ''
         level = h['level'] or 10
-        slug = slug_from_title(title, para_id)
+        slug = section_slug(title, para_id)
 
         # Priority: deeper heading level = more specific = higher priority
         # Level 1 (book title) = 0.5, Level 6 (deepest) = 0.9
@@ -314,6 +364,8 @@ def write_book_sitemap(book_id: str, headings: list[dict], langs: list[str]):
 
         lines.append('  <url>')
         lines.append(f'    <loc>{xml_escape(default_url)}</loc>')
+        if lastmod:
+            lines.append(f'    <lastmod>{lastmod}</lastmod>')
 
         # Alternate language links
         for lang in langs:
@@ -436,6 +488,18 @@ def build_sitemaps():
             print(f"    ! study-guide sitemaps skipped (summary DB unreadable): {exc}")
             sum_conn = None
 
+    # ── <lastmod> sources ────────────────────────────────────────────────
+    # The Tipiṭaka tables have no per-row timestamps, so the best available
+    # per-URL signal is the date its source data last changed: epitaka.db for
+    # book sections, the summary DB for study guides (per row, when set) and
+    # templates/ for the site's own pages. Coarse, but it never lies about
+    # freshness the way a build-time "today" would.
+    book_lastmod = lastmod_for(EPITAKA_DB)
+    study_lastmod = lastmod_for(SUMMARY_DB)
+    site_lastmod = newest_mtime([TEMPLATES_DIR]) or book_lastmod
+    print("\n[3b] Content dates for <lastmod>: "
+          f"books={book_lastmod} study={study_lastmod} site={site_lastmod}")
+
     # ── Generate per-book sitemaps ────────────────────────────────────────
     print("\n[4] Generating per-book sitemaps...")
     sitemap_files = []
@@ -459,7 +523,7 @@ def build_sitemaps():
             continue
 
         # Write the per-book sitemap
-        write_book_sitemap(book_id, headings, langs)
+        write_book_sitemap(book_id, headings, langs, lastmod=book_lastmod)
         safe_id = sanitize_book_id(book_id)
         sitemap_files.append(f"book_{safe_id}.xml")
         total_urls += len(headings)
@@ -474,7 +538,8 @@ def build_sitemaps():
                     (book_id,),
                 ).fetchall()
                 if rows:
-                    write_study_sitemap(book_id, rows, langs)
+                    write_study_sitemap(book_id, rows, langs,
+                                        outline_lastmod=study_lastmod)
                     sitemap_files.append(f"study_{safe_id}.xml")
                     study_urls += len(rows)
             except sqlite3.Error as exc:
@@ -490,7 +555,7 @@ def build_sitemaps():
 
     # ── Site pages (home, canon, download) ───────────────────────────────
     print("\n[5] Generating site-pages sitemap...")
-    write_pages_sitemap(langs)
+    write_pages_sitemap(langs, lastmod=site_lastmod)
     sitemap_files.append('pages.xml')
 
     # ── Generate sitemap index ───────────────────────────────────────────

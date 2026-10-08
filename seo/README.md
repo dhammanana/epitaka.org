@@ -13,6 +13,16 @@ with inline commentary and sub-commentary.
 | `questions.csv` | 118 question-style queries (People-Also-Ask style) with difficulty and an answer angle |
 | `questions.md` | Same data, readable tables grouped by cluster |
 | `build_seo_docs.py` | Generator — edit the dataset here and re-run to refresh all four files |
+| `build_lang_docs.py` | Per-language generator — live KeywordTool data, writes `languages/<code>/` |
+| `languages/<code>/` | Per-language research: `keywords.csv`, `questions.csv`, `notes.md` (vi, th, si, my, zh, ta, lo, km, id) |
+
+Per-language research (`languages/`, 2026-10-07, live Google autocomplete via
+the guest KeywordTool MCP with country+language targeting): **102 keywords +
+18 questions** across 9 languages. Standouts — Thai edition queries
+(`ฉบับประชาชน`, `45 เล่ม`), Sinhala/Burmese/Khmer **commentary** terms
+(`ධම්මපදට්ඨකථාව`, `အဋ္ဌကထာ`, `ដ្ឋកថា`), Vietnamese audio/chant intents
+(`nghe`, `tụng`), Chinese Nikāya breakdowns, Indonesian chanting + verse-number
+patterns (`ayat 183`). Lao is sparse — serve via Thai spillover for now.
 
 Regenerate after editing:
 
@@ -39,17 +49,50 @@ with UTF-8 encoding.
 
 ## How the site is already set up for SEO
 
-- `web_server/app/utils/seo.py` already generates English page titles, meta
-  descriptions, canonical URLs and JSON-LD (`WebSite`, `Organization`,
-  `SearchAction`, `Article`).
+- `web_server/app/utils/seo.py` generates English page titles, meta
+  descriptions, canonical URLs and JSON-LD (`WebSite`, `Organization`, `Book`,
+  `CreativeWork`, `BreadcrumbList`, `Article`, `Dataset`). There is deliberately
+  **no `SearchAction`**: search is a client-side dialog over
+  `/api/fts_search`, which `robots.txt` keeps out of the index, so declaring a
+  `/search?q=…` target only ever pointed crawlers at a 404. Reinstate it only
+  together with a real, server-rendered results page.
 - `web_server/scripts/build_sitemap.py` + the `/sitemap.xml` route serve a
-  sitemap index with per-book sitemaps.
+  sitemap index with per-book sitemaps. Every `<loc>` is absolute and
+  **self-canonical** — see the audit note below before changing slugs.
 - `/robots.txt`, Google verification route, `hreflang`-style localized
   `/{lang}/` landing pages, and `.well-known/` handlers exist.
 - Book pages render under `/{lang}/book/{book_id}`, deep sections at
-  `/{lang}/book/{book_id}/{section_path}`, outlines at
+  `/{lang}/book/{book_id}/{slug}-{para_id}`, outlines at
   `/{lang}/book/{book_id}/outline`, and study guides at
   `/{lang}/study/{book_id}/{slug}` — all indexable, server-rendered.
+
+### Audit (2026-10-08) — what it found, and the invariant it left behind
+
+The full live audit lives in **`epitaka.org-audit/`** (repo root):
+`FULL-AUDIT-REPORT.md`, `ACTION-PLAN.md`, `audit-data.json`, `findings/`.
+Health score at the time: **76/100**.
+
+Findings that contradicted the "already set up" list above, and are now fixed
+in code (see `web_server/deploy/README.md` for the deploy steps):
+
+| Finding | Fix |
+|---|---|
+| 37,097 sitemap `<loc>` URLs were **not self-canonical** — the sitemap stripped punctuation (`1-rūpādivaggo-4`) while the page kept it (`1.-rūpādivaggo-4`) | One shared builder, `app/utils/slugs.py::section_slug()`, used by the sitemap, the canonical tag, the TOC, hreflang alternates, reference links and the search API; legacy slugs 301 to the canonical URL |
+| Homepage JSON-LD advertised a `SearchAction` at `/search?q=…` that 404s | `potentialAction` removed from `seo.website_jsonld()` |
+| `http://` on `http://epitaka.org/` (no redirect); no HSTS / `nosniff` / `Referrer-Policy` | nginx 301 for HTTP visitors; security headers; `X-Forwarded-Proto: https`; set `BASE_URL` in the server `.env` |
+| No `<lastmod>` per URL; no named editor | Per-URL `<lastmod>` in the sitemaps; `EDITOR_NAME` credentials flow into `editor` JSON-LD and `/about` |
+
+**Invariant worth keeping:** URL slugs for book sections come from one place.
+If you change one, regenerate the sitemaps and verify before deploying:
+
+```bash
+cd web_server
+python3 scripts/build_sitemap.py                            # regenerate
+python3 scripts/verify_sitemap_canonicals.py https://epitaka.org --sample 200
+```
+
+`verify_sitemap_canonicals.py` fails (exit 1) if any checked `<loc>` is not
+self-canonical, redirects, or if a page still declares a `SearchAction`.
 
 The biggest untapped wins from the research: **section-level and study-guide
 pages** (long-tail, already unique titles), the **inline commentary/ṭīkā

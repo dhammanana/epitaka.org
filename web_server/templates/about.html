@@ -366,6 +366,22 @@
       </p>
     </div>
 
+    {% if editor %}
+    <!-- ── EDITORIAL RESPONSIBILITY ──
+         E-E-A-T: reference material is trusted more when a named person is
+         accountable for it. Shown only when EDITOR_NAME is configured, so
+         nothing here is ever claimed on someone's behalf. -->
+    <div class="about-card" id="editorial">
+      <h2><span class="h2-icon">✍️</span> Editorial Responsibility</h2>
+      <p>
+        This site is edited and maintained by
+        <a href="{{ editor.url }}" rel="author">{{ editor.name }}</a>{% if editor.description %} — {{ editor.description }}{% endif %}.
+        Corrections and translation questions go to the same person, and the
+        date a study guide was last updated is shown on the guide itself.
+      </p>
+    </div>
+    {% endif %}
+
     <!-- ── FOOTER NAV ── -->
     <nav style="display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;margin-top:0.5rem;" aria-label="Footer navigation">
       <a href="{{ base_url }}/en/" class="about-back">← Back to E-Piṭaka</a>

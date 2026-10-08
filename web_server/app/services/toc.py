@@ -12,6 +12,7 @@ from collections import defaultdict
 from ..utils.text import markdown_to_html
 from ..utils.db import get_db, get_translation_db
 from ..utils.cache import TTLCache
+from ..utils.slugs import section_slug
 
 # TOC + section content are static per (book, lang) and are fetched by the
 # book page, the section API, AND the mobile app — bots + readers hit the
@@ -128,9 +129,8 @@ def build_slug_map(conn, book_para_pairs):
         for pid in pids:
             idx = bisect.bisect_right(para_list, pid) - 1
             if idx >= 0 and parents[idx]['title']:
-                slug_map[(bid, pid)] = (
-                    parents[idx]['title'].lower().replace(' ', '-') + '-' + str(parents[idx]['para_id'])
-                )
+                slug_map[(bid, pid)] = section_slug(
+                    parents[idx]['title'], parents[idx]['para_id'])
             else:
                 slug_map[(bid, pid)] = ''
     return slug_map

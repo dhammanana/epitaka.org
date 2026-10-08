@@ -70,6 +70,25 @@ Config (`deploy/`):
    curl -s https://epitaka.org/nonexistent -o /dev/null -w '%{http_code}\n'   # 404, not 302
    ```
 
+## Server `.env` (set this once)
+
+The app falls back to the incoming request when `BASE_URL` is empty, which is
+how `http://` values reach `og:url`/JSON-LD. Pin the origin — and the editor —
+on the server:
+
+```bash
+BASE_URL=https://epitaka.org       # canonical origin for canonical/OG/hreflang/sitemap URLs
+EDITOR_NAME=Your Name              # E-E-A-T: named editor on /about + schema.org "editor"
+EDITOR_CREDENTIALS=…               # optional: how you are qualified
+EDITOR_URL=https://…               # optional: profile (defaults to /about)
+EDITOR_SAME_AS=https://…,https://… # optional: sameAs profiles
+```
+
+Restart the service afterwards (`sudo systemctl restart epitaka`). The
+editor fields are optional: while `EDITOR_NAME` is unset the site simply
+claims no human editor (and emits no `editor` in JSON-LD) rather than
+inventing one.
+
 ## Cloudflare settings (the first line of defense)
 
 1. **Security → Bots → Bot Fight Mode: ON** (free). Blocks most known
@@ -85,6 +104,11 @@ Config (`deploy/`):
    free tier gives one rule — spend it on `/api/`.
 5. If the site is actively down under attack, toggle **Security Level →
    I'm Under Attack** for the duration.
+6. **Purge stale cached HTML** after deploying URL fixes: Caching →
+   Configuration → Purge by URL (or Purge Everything) for `/` and every
+   `/<lang>/`. Edge copies cached before the `BASE_URL` fix keep serving
+   `http://` in `og:url`/JSON-LD to social scrapers even though the origin
+   is now correct.
 
 ## SEO checklist (boost organic traffic)
 
@@ -116,6 +140,45 @@ redirects, and a `robots.txt`. To finish the job:
 5. Re-run `curl -s https://epitaka.org/ | grep -c 'application/ld+json'`
    after deploy to confirm the schema is live.
 
+## 2026-10-08 audit fixes (sitemap ↔ canonical)
+
+The published audit (`../../epitaka.org-audit/FULL-AUDIT-REPORT.md`) found the
+sitemap and the page `<link rel="canonical">` disagreeing on **37,097**
+section URLs — the sitemap stripped punctuation (`1-rūpādivaggo-4`) while the
+page kept it (`1.-rūpādivaggo-4`), so every `<loc>` canonicalised elsewhere.
+
+What changed:
+
+- **One slug builder** — `app/utils/slugs.py::section_slug()`. The sitemap,
+  the page canonical tag, the TOC, hreflang alternates, reference links and
+  the search API all call it. Legacy/edited slugs now 301 to the canonical
+  URL instead of being served as duplicates.
+- **Broken `SearchAction` removed** — the homepage JSON-LD advertised
+  `/search?q=…`, which has never existed (search is a client-side dialog over
+  `/api/fts_search`). Re-add `potentialAction` only together with a real
+  server-rendered results page.
+- **Per-URL `<lastmod>`** — book-section and site pages carry the date of the
+  data they were built from (`data/epitaka.db`, `templates/`); study guides
+  carry their own `summaries.updated_at`.
+- **HTTPS + security headers** — origin-side 301 for HTTP visitors and
+  HSTS/`nosniff`/`Referrer-Policy`/`X-Frame-Options` in
+  `nginx_epitaka.conf`; `X-Forwarded-Proto: https` so Flask never builds an
+  `http://` canonical.
+
+After deploying:
+
+```bash
+cd web_server && python3 scripts/build_sitemap.py   # regenerate sitemaps
+```
+
+Then resubmit `https://epitaka.org/sitemap.xml` in Search Console, and purge
+the Cloudflare cache (below). Spot-check that a `<loc>` and the page it
+points at now agree:
+
+```bash
+curl -s https://epitaka.org/en/book/A-i/1-rūpādivaggo-4 | grep -o '<link rel="canonical"[^>]*>'
+```
+
 ## AI discoverability (AI answers, ChatGPT/Copilot, Perplexity, AI Overviews)
 
 The site is deliberately open to AI search/answer crawlers *and* AI training —
@@ -140,9 +203,9 @@ the canon is meant to spread. Code added for this:
   `INDEXNOW_KEY=<key> python3 scripts/ping_indexnow.py --sitemap sitemaps/pages.xml`
   (use `--dry-run` to preview). Bing feeds ChatGPT/Copilot, so this is the
   fastest way to get new pages into AI answers.
-- **Sitemaps** — `scripts/build_sitemap.py` now fails the build if any `<loc>`
-  or `xhtml:link href` is not absolute, and stamps each entry of `sitemap.xml`
-  with a `<lastmod>`.
+- **Sitemaps** — `scripts/build_sitemap.py` fails the build if any `<loc>` or
+  `xhtml:link href` is not absolute, stamps each entry of `sitemap.xml` with a
+  `<lastmod>`, and marks every `<url>` with the date of the data it came from.
 
 Manual (owner) steps that complete the picture: **Bing Webmaster Tools**
 (verify + submit the sitemap) and a **Wikidata entity** for E-Piṭaka.

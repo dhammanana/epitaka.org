@@ -11,6 +11,7 @@ from .routes.readers import bp as reader_bp, init_reader_db
 from .routes.editor import bp as editor_bp, init_editor_db, bootstrap_super_admin
 from .services.initialize_db import init_all_search_tables
 from .utils.assets import get_asset_version, APP_VERSION
+from .utils.slugs import section_slug
 import os, time
 from werkzeug.security import generate_password_hash
 
@@ -74,6 +75,12 @@ def create_app(config_name='default'):
     def is_numbered(text):
         import re
         return bool(re.match(r'^<code>\d+</code>\.$', str(text)))
+
+    # Section links in templates must use the same slug as the sitemap and the
+    # page's canonical tag — see utils/slugs.py.
+    @app.template_filter('section_slug')
+    def _section_slug_filter(title, para_id):
+        return section_slug(title, para_id)
 
     @app.errorhandler(404)
     def page_not_found(e):

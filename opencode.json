@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "keywordtool-guest": {
+      "type": "remote",
+      "url": "https://mcp.keywordtool.io/guest",
+      "enabled": true
+    }
+  }
+}

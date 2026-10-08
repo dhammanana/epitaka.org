@@ -272,7 +272,7 @@
              aria-label="{{ item.title }}">
 
       {# ── Section heading ── #}
-      {% set slug = (item.title.lower().replace(' ', '-') + '-' + item.para_id|string) if item.title else '' %}
+      {% set slug = (item.title | section_slug(item.para_id)) if item.title else '' %}
       {% set section_url = base_url + '/' + lang + '/book/' + book_id + '/' + slug %}
       {% set is_active = active_para_id == item.para_id %}
 

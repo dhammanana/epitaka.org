@@ -234,6 +234,36 @@ KEYWORDS = [
     ("pali reader app ios", "Study, Learning & App", "transactional", 12, "P2", "/app/", "App"),
     ("free buddhist texts online", "Study, Learning & App", "informational", 25, "P2", "/en/", "Broad"),
     ("buddha quotes", "Study, Learning & App", "informational", 72, "P3", "/en/book/Dhp", "Head term; enter via Dhammapada verses only"),
+    # ── KeywordTool guest validation 2026-10-07 (live Google autocomplete) ──
+    # dhammapada = 40,500/mo, cmp 0.66, bid $0.06-$0.76 (only cached metric hit;
+    # niche Pali terms returned text-only). All below are verbatim live suggestions.
+    ("dhammapada pdf", "Khuddaka Nikāya Texts", "transactional", 30, "P2", "/en/book/Dhp", "Live suggestion #2 for 'dhammapada'"),
+    ("dhammapada quotes", "Khuddaka Nikāya Texts", "informational", 28, "P2", "/en/book/Dhp", "Live suggestion; complements buddha-quotes entry"),
+    ("dhammapada online", "Khuddaka Nikāya Texts", "navigational", 15, "P1", "/en/book/Dhp", "Live suggestion for 'dhammapada'"),
+    ("dhammapada meaning", "Khuddaka Nikāya Texts", "informational", 12, "P2", "/en/book/Dhp", "Live suggestion for 'dhammapada'"),
+    ("where can i read the dhammapada", "Khuddaka Nikāya Texts", "informational", 12, "P1", "/en/book/Dhp", "Live question-suggestion for 'dhammapada'"),
+    ("how to read the dhammapada", "Khuddaka Nikāya Texts", "informational", 12, "P2", "/en/book/Dhp", "Live suggestion under 'dhammapada commentary'"),
+    ("best english translation of dhammapada", "Khuddaka Nikāya Texts", "commercial", 20, "P2", "/en/book/Dhp", "Live suggestion for 'dhammapada'"),
+    ("dhammapada atthakatha english translation", "Commentaries & Sub-commentaries", "informational", 12, "P1", "/en/book/Dhp-a", "Live suggestion for 'atthakatha'; differentiator"),
+    ("jataka atthakatha", "Commentaries & Sub-commentaries", "informational", 10, "P2", "/en/book/Ja", "Live suggestion for 'atthakatha'"),
+    ("dhammapada commentary pdf", "Commentaries & Sub-commentaries", "transactional", 14, "P2", "/en/book/Dhp-a", "Live suggestion for 'dhammapada commentary'"),
+    ("abhidhamma pitaka english translation", "Abhidhamma & Buddhist Psychology", "informational", 14, "P1", "/en/book/Dhs", "Live suggestion for 'abhidhamma'"),
+    ("abhidhamma pdf", "Abhidhamma & Buddhist Psychology", "transactional", 22, "P2", "/en/", "Live suggestion for 'abhidhamma'"),
+    ("abhidhamma meaning", "Abhidhamma & Buddhist Psychology", "informational", 12, "P2", "/en/", "Live suggestion for 'abhidhamma'"),
+    ("tipitaka app download", "Core Canon Access", "transactional", 12, "P1", "/app/", "Live suggestion for 'tipitaka app'"),
+    ("tipitaka download", "Core Canon Access", "transactional", 15, "P2", "/app/", "Live suggestion for 'tipitaka app'"),
+    ("pali canon in english pdf", "Core Canon Access", "transactional", 28, "P2", "/en/", "Live suggestion for 'pali canon english translation'"),
+    ("english translation of the pali canon", "Core Canon Access", "informational", 30, "P2", "/en/", "Live phrasing variant"),
+    ("satipatthana sutta pdf", "Key Suttas", "transactional", 14, "P2", "/en/book/M", "Live suggestion for 'satipatthana sutta'"),
+    ("maha satipatthana sutta pdf", "Key Suttas", "transactional", 14, "P2", "/en/book/D", "Live suggestion for 'satipatthana sutta'"),
+    ("satipatthana sutta commentary", "Key Suttas", "informational", 12, "P2", "/en/book/M", "Live suggestion; commentary differentiator"),
+    ("tripitaka online sinhala", "Editions, Councils & Scripts", "informational", 12, "P2", "/si/", "Live suggestion for 'tipitaka online'"),
+    ("where is theravada buddhism practiced", "Theravāda Doctrine", "informational", 15, "P2", "/en/", "Live suggestion for 'theravada buddhism'"),
+    ("theravada buddhism definition", "Theravāda Doctrine", "informational", 18, "P2", "/en/", "Live suggestion for 'theravada buddhism'"),
+    ("kinh tam tạng pali", "Multilingual", "informational", 12, "P1", "/vi/", "Live suggestion (country=Vietnam, language=Vietnamese)"),
+    ("chú giải tam tạng pali", "Multilingual", "informational", 10, "P1", "/vi/", "Live VN suggestion; commentary differentiator"),
+    ("tam tạng song ngữ pali việt", "Multilingual", "informational", 10, "P1", "/vi/", "Live VN suggestion; bilingual intent"),
+    ("tam tạng kinh điển pali pdf", "Multilingual", "transactional", 14, "P2", "/vi/", "Live VN suggestion; PDF intent"),
 ]
 
 # ── Question dataset ──────────────────────────────────────────────────────
@@ -366,6 +396,17 @@ QUESTIONS = [
     ("Đọc kinh Pháp Cú ở đâu?", "Multilingual", "informational", 8, "P1", "Vietnamese: where to read."),
     ("พระไตรปิฎกอ่านที่ไหน?", "Multilingual", "informational", 8, "P1", "Thai: where to read."),
     ("ත්‍රිපිටකය කියවන්නේ කොහොමද?", "Multilingual", "informational", 8, "P2", "Sinhala: how to read."),
+    # ── KeywordTool guest validation 2026-10-07 (live Google questions) ──
+    ("Where can I read the Dhammapada?", "Khuddaka Nikāya Texts", "informational", 12, "P1", "Live question-suggestion; reader intent."),
+    ("Did the Buddha write the Dhammapada?", "Khuddaka Nikāya Texts", "informational", 12, "P2", "Live question-suggestion; authorship FAQ."),
+    ("What does the Dhammapada teach?", "Khuddaka Nikāya Texts", "informational", 15, "P2", "Live question-suggestion; teachings summary."),
+    ("How long does it take to read the Dhammapada?", "Khuddaka Nikāya Texts", "informational", 12, "P3", "Live question-suggestion; length estimate."),
+    ("Did the Buddha teach the Abhidhamma?", "Abhidhamma & Buddhist Psychology", "informational", 10, "P2", "Live question-suggestion; origin debate."),
+    ("Where did Theravada Buddhism originate?", "Theravāda Doctrine", "informational", 15, "P2", "Live question-suggestion; history."),
+    ("How do I practice Theravada Buddhism?", "Theravāda Doctrine", "informational", 15, "P2", "Live question-suggestion; practice guide."),
+    ("Are there bodhisattvas in Theravada Buddhism?", "Theravāda Doctrine", "informational", 15, "P3", "Live question-suggestion; doctrine FAQ."),
+    ("Does Theravada Buddhism believe in God?", "Theravāda Doctrine", "informational", 18, "P2", "Live question-suggestion; belief FAQ."),
+    ("Kinh Tam tạng Pāli đọc ở đâu?", "Multilingual", "informational", 8, "P1", "Vietnamese: where to read (live VN pattern)."),
 ]
 
 
