@@ -304,6 +304,25 @@
            {% if is_active and section_has_content %}aria-hidden="false"{% else %}aria-hidden="true"{% endif %}>
 
         {% if is_active and section_content %}
+          {# ── AI-written section description (translator/description_builder.py)
+             The short line doubles as the page's meta description; the long
+             summary is available on demand so the section stays easy to scan. ── #}
+          {% if section_description and section_description.description %}
+          <div class="section-description">
+            <p class="section-description-short">{{ section_description.description }}</p>
+            {% if section_description.summary %}
+            <details class="section-summary">
+              <summary>Read a longer summary of this section</summary>
+              <div class="section-summary-body">
+                {% for para in section_description.summary.split('\n\n') %}
+                {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+                {% endfor %}
+              </div>
+            </details>
+            {% endif %}
+          </div>
+          {% endif %}
+
           {# ── Inline outline of this section's numbered items ── #}
           {% if section_outline %}
           <div class="section-outline" aria-label="Outline of this section">

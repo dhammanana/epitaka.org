@@ -552,6 +552,46 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   display: block;
 }
 
+/* ── AI section description (translator/description_builder.py) ── */
+.section-description {
+  margin: 0.1rem 0.9rem 0.9rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--accent-light);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+}
+.section-description-short {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 0;
+}
+.section-summary {
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.45rem;
+}
+.section-summary > summary {
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  list-style: none;
+}
+.section-summary > summary::-webkit-details-marker { display: none; }
+.section-summary > summary::before { content: "▸ "; }
+.section-summary[open] > summary::before { content: "▾ "; }
+.section-summary > summary:hover { text-decoration: underline; }
+.section-summary-body {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-secondary, var(--text));
+}
+.section-summary-body p { margin: 0 0 0.6rem; }
+.section-summary-body p:last-child { margin-bottom: 0; }
+
 /* ── Inline section outline (at the top of each open section) ── */
 .section-outline {
   margin: 0.1rem 0.9rem 0.9rem;

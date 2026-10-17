@@ -226,10 +226,11 @@ def write_study_sitemap(book_id: str, summaries: list, langs: list[str],
 
 def write_pages_sitemap(langs: list[str], lastmod: str | None = None):
     """Sitemap for the site's own pages: every language home page, every
-    language's full-canon index, and the (English) ebook download page.
+    language's full-canon index, and the English-only ebook download, about
+    and privacy pages.
 
     Home and canon URLs carry hreflang alternates so their language variants
-    are grouped; the download page is English-only (en + x-default).
+    are grouped; download/about/privacy are English-only (en + x-default).
     """
     filename = 'pages.xml'
     filepath = os.path.join(OUTPUT_DIR, filename)
@@ -269,22 +270,28 @@ def write_pages_sitemap(langs: list[str], lastmod: str | None = None):
         lines.append('    <priority>0.9</priority>')
         lines.append('  </url>')
 
-    lines.append('  <url>')
-    lines.append(f'    <loc>{xml_escape(BASE_URL + "/en/download")}</loc>')
-    lines.append('    <xhtml:link rel="alternate" hreflang="x-default" '
-                 f'href="{xml_escape(BASE_URL + "/en/download")}"/>')
-    lines.append('    <xhtml:link rel="alternate" hreflang="en" '
-                 f'href="{xml_escape(BASE_URL + "/en/download")}"/>')
-    if lastmod:
-        lines.append(f'    <lastmod>{lastmod}</lastmod>')
-    lines.append('    <changefreq>monthly</changefreq>')
-    lines.append('    <priority>0.8</priority>')
-    lines.append('  </url>')
+    # English-only site pages. Each is self-canonical and indexable, so list
+    # it once with en + x-default alternates (no per-language variants exist).
+    for path, priority in (('/en/download', '0.8'),
+                           ('/about', '0.5'),
+                           ('/privacy', '0.3')):
+        url = BASE_URL + path
+        lines.append('  <url>')
+        lines.append(f'    <loc>{xml_escape(url)}</loc>')
+        lines.append('    <xhtml:link rel="alternate" hreflang="x-default" '
+                     f'href="{xml_escape(url)}"/>')
+        lines.append('    <xhtml:link rel="alternate" hreflang="en" '
+                     f'href="{xml_escape(url)}"/>')
+        if lastmod:
+            lines.append(f'    <lastmod>{lastmod}</lastmod>')
+        lines.append('    <changefreq>monthly</changefreq>')
+        lines.append(f'    <priority>{priority}</priority>')
+        lines.append('  </url>')
 
     lines.append('</urlset>')
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
-    print(f'  ✓ {filename}: home + canon per language + download')
+    print(f'  ✓ {filename}: home + canon per language + download/about/privacy')
 
 
 def write_sitemap_index(sitemap_files: list[str]):
@@ -335,6 +342,26 @@ def write_book_sitemap(book_id: str, headings: list[dict], langs: list[str],
         '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     ]
 
+    # The book's landing page (one URL per language) is a real, self-canonical
+    # page, but only outline/section URLs used to be listed — so crawlers found
+    # it only by following links. List it with every language alternate.
+    default_lang = langs[0]
+    lines.append('  <url>')
+    lines.append(f'    <loc>{xml_escape(f"{BASE_URL}/{default_lang}/book/{book_id}")}</loc>')
+    if lastmod:
+        lines.append(f'    <lastmod>{lastmod}</lastmod>')
+    for lang in langs:
+        alt_url = f"{BASE_URL}/{lang}/book/{book_id}"
+        hreflang = lang.split('_')[0]  # strip suffix like _nissaya
+        lines.append(
+            f'    <xhtml:link rel="alternate" '
+            f'hreflang="{xml_escape(hreflang)}" '
+            f'href="{xml_escape(alt_url)}"/>'
+        )
+    lines.append('    <changefreq>weekly</changefreq>')
+    lines.append('    <priority>0.8</priority>')
+    lines.append('  </url>')
+
     # The book's outline page (English-only, like the study guides) is the
     # hub linking every section to its study guide — always include it so
     # every book's outline is crawlable, not just books with summaries.
@@ -359,7 +386,6 @@ def write_book_sitemap(book_id: str, headings: list[dict], langs: list[str],
             priority = 1.0
 
         # Default language URL
-        default_lang = langs[0]
         default_url = build_section_url(default_lang, book_id, slug)
 
         lines.append('  <url>')
@@ -386,7 +412,7 @@ def write_book_sitemap(book_id: str, headings: list[dict], langs: list[str],
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
 
-    num_urls = len(headings) + 1  # +1 outline page
+    num_urls = len(headings) + 2  # +1 book landing page, +1 outline page
     num_alt = len(headings) * len(langs)
     print(f"  ✓ {filename}: {num_urls} URLs (incl. outline) × {len(langs)} languages = {num_alt} alternates")
 

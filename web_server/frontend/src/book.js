@@ -572,18 +572,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setTimeout(() => paragraph.classList.remove('jump-target-highlight'), 5000);
   }
 
-  // Resolve the element a #para_id[-line_id] hash points at.
-  // Always open the enclosing section first: a sentence row can be found in
-  // the DOM while still inside a collapsed (display:none) section, where
-  // scrollIntoView does nothing.
-  function _resolveHashTarget(paraId, lineId) {
-    _openSection(_findEnclosingSection(paraId));
-    const el = !isNaN(lineId)
-      ? _findLineRow(paraId, lineId)
-      : _findFirstSentenceRow(paraId);
-    return el || _findEnclosingSection(paraId);
-  }
-
   // ── Robust deep-link jump on page load ──
   // The bug this fixes: on a full page load the hash is handled at
   // DOMContentLoaded, before web fonts (Crimson Pro / DM Sans) and images have
@@ -596,30 +584,80 @@ document.addEventListener('DOMContentLoaded', async () => {
   // target is retried on animation frames in case it isn't rendered yet, and
   // we re-align instantly once fonts, the full window load, and a short safety
   // timeout have all settled — so the reader lands on the exact row.
+  // Re-run an alignment once the page layout has settled. Web fonts and the
+  // full window load arrive after DOMContentLoaded; each reflow moves every
+  // section below the fold, so a single early scroll lands short. The timer
+  // covers late layout changes (ads, lazily-sized images, cached fonts).
+  function _settleAlignment(align) {
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(align).catch(() => {});
+    }
+    if (document.readyState === 'complete') {
+      requestAnimationFrame(align);
+    } else {
+      window.addEventListener('load', align, { once: true });
+    }
+    setTimeout(align, 800);
+  }
+
   function _jumpToHash(paraId, lineId, searchTerm) {
     let attempts = 0;
     const find = () => {
-      const el = _resolveHashTarget(paraId, lineId);
-      if (!el) {
-        // Target not rendered yet (e.g. async content) — retry briefly.
+      // Always open the enclosing section first: a sentence row can be found
+      // in the DOM while still inside a collapsed (display:none) section,
+      // where scrollIntoView does nothing.
+      const section = _findEnclosingSection(paraId);
+      _openSection(section);
+      const row = !isNaN(lineId)
+        ? _findLineRow(paraId, lineId)
+        : _findFirstSentenceRow(paraId);
+      if (!row) {
+        // Line targets can arrive late; retry briefly. A bare paragraph hash
+        // (TOC/cross-book link) has no sentence row of its own — align the
+        // section heading instead of centering the whole (possibly very tall)
+        // section block, which used to land in the middle of the text.
+        if (!isNaN(lineId) && attempts++ < 20) {
+          requestAnimationFrame(find);
+          return;
+        }
+        _jumpToSection(paraId);
+        return;
+      }
+      _alignTarget(row, searchTerm, 'auto');
+      _settleAlignment(() => {
+        const finalRow = !isNaN(lineId)
+          ? _findLineRow(paraId, lineId)
+          : _findFirstSentenceRow(paraId);
+        if (finalRow) {
+          _alignTarget(finalRow, searchTerm, 'auto');
+        } else {
+          const finalSection = _findEnclosingSection(paraId);
+          if (finalSection) {
+            finalSection.scrollIntoView({ behavior: 'auto', block: 'start' });
+          }
+        }
+      });
+    };
+    requestAnimationFrame(find);
+  }
+
+  // Section URLs (no hash) open one server-rendered section. Align its heading
+  // to the top of the viewport and keep re-aligning as the page settles — the
+  // old single 200 ms smooth scroll left late sections parked below the fold.
+  function _jumpToSection(paraId) {
+    let attempts = 0;
+    const find = () => {
+      const section = _findEnclosingSection(paraId);
+      if (!section) {
         if (attempts++ < 20) requestAnimationFrame(find);
         return;
       }
-      _alignTarget(el, searchTerm, 'auto');
-
-      const settle = () => {
-        const finalEl = _resolveHashTarget(paraId, lineId);
-        if (finalEl) _alignTarget(finalEl, searchTerm, 'auto');
+      const align = () => {
+        const el = _findEnclosingSection(paraId);
+        if (el) el.scrollIntoView({ behavior: 'auto', block: 'start' });
       };
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(settle).catch(() => {});
-      }
-      if (document.readyState === 'complete') {
-        requestAnimationFrame(settle);
-      } else {
-        window.addEventListener('load', settle, { once: true });
-      }
-      setTimeout(settle, 800);
+      align();
+      _settleAlignment(align);
     };
     requestAnimationFrame(find);
   }
@@ -667,11 +705,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!isNaN(paraId)) _jumpToHash(paraId, lineId, jumpSearchTerm);
   } else if (window.BOOK_CONFIG.paraId) {
     // ── No hash: scroll to the active section opened by the server ──
-    const section = _findEnclosingSection(window.BOOK_CONFIG.paraId);
-    if (section) {
-      setTimeout(() => {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 200);
-    }
+    _jumpToSection(window.BOOK_CONFIG.paraId);
   }
 });

@@ -51,9 +51,20 @@ export class HomeDialogBookList {
     `;
   }
 
+  /**
+   * The dialog's own DOM root. Every query below MUST be scoped to it:
+   * the sidebar library renders the same .book-nikaya-title/.book-entry
+   * markup on the index page, and a global query bound a second click
+   * handler to those rows — toggling them twice so they never expanded.
+   */
+  _root() {
+    return document.getElementById('home-dialog') || document;
+  }
+
   bindTabs() {
-    const tabs   = document.querySelectorAll('.home-tab');
-    const panels = document.querySelectorAll('.home-tab-panel');
+    const root   = this._root();
+    const tabs   = root.querySelectorAll('.home-tab');
+    const panels = root.querySelectorAll('.home-tab-panel');
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -64,14 +75,14 @@ export class HomeDialogBookList {
       });
     });
 
-    document.querySelectorAll('.book-nikaya-title').forEach(title => {
+    root.querySelectorAll('.book-nikaya-title').forEach(title => {
       title.addEventListener('click', () => {
         title.classList.toggle('open');
         title.nextElementSibling?.classList.toggle('open');
       });
     });
 
-    document.querySelectorAll('.book-entry').forEach(link => {
+    root.querySelectorAll('.book-entry').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
         this.onNavigate(link.href);
@@ -81,8 +92,9 @@ export class HomeDialogBookList {
 
   filter(text) {
     this._filterText = text.toLowerCase().trim();
+    const root = this._root();
 
-    document.querySelectorAll('.home-tab-panel').forEach(panel => {
+    root.querySelectorAll('.home-tab-panel').forEach(panel => {
       panel.querySelectorAll('.book-entry').forEach(entry => {
         const name = entry.querySelector('.book-name')?.textContent?.toLowerCase() || '';
         const show = !this._filterText || name.includes(this._filterText);
@@ -113,12 +125,12 @@ export class HomeDialogBookList {
 
   clearFilter() {
     this._filterText = '';
-    document.querySelectorAll('.book-entry').forEach(entry => {
+    this._root().querySelectorAll('.book-entry').forEach(entry => {
       entry.style.display = '';
       const nameEl = entry.querySelector('.book-name');
       if (nameEl) nameEl.textContent = nameEl.textContent;
     });
-    document.querySelectorAll('.book-nikaya, .book-category').forEach(el => {
+    this._root().querySelectorAll('.book-nikaya, .book-category').forEach(el => {
       el.style.display = '';
     });
   }

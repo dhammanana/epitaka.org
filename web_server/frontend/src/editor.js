@@ -445,7 +445,11 @@ function renderToc() {
     return;
   }
   el.innerHTML = state.toc.map(t => {
-    const hasContent = t.has_content;
+    const isBookTitle = (t.level || 1) === 1;
+    // A book's own title heading has no body text of its own, so the TOC marks
+    // it has_content=false. It still needs to be editable: its translated
+    // sentence is what the library/book page uses as the localized book name.
+    const hasContent = t.has_content || isBookTitle;
     const active = state.currentSection === t.para_id;
     return `
       <button class="ed-toc-item${active ? ' is-active' : ''}" data-para="${t.para_id}"

@@ -37,6 +37,7 @@ from ..services.toc import (
 from ..services.links import load_section_book_links
 from ..services import summaries as summaries_svc
 from ..services import book_names as book_names_svc
+from ..services import descriptions as descriptions_svc
 from ..config import Config
 
 import os
@@ -1080,6 +1081,10 @@ def book(lang, book_id, section_path=None):
         section_content = None
         heading_translation = None
         section_has_content = False
+        # AI-written description/summary for this section (description_builder
+        # in translator/). Used as the page's meta description and rendered at
+        # the top of the open section; None when the section has no row yet.
+        section_description = None
         if active_para_id:
             section_data = get_section_sentences(
                 book_id, active_para_id, conn, lang_code=lang
@@ -1087,6 +1092,9 @@ def book(lang, book_id, section_path=None):
             section_content = section_data["sentences"]
             heading_translation = section_data["heading_translation"]
             section_has_content = section_data["has_content"]
+            section_description = descriptions_svc.get_description(
+                book_id, active_para_id, lang
+            )
 
         # ── Book links (short previews, 3 lines, with translation) ────
         book_links_html = None
@@ -1365,17 +1373,23 @@ def book(lang, book_id, section_path=None):
         section_path_titles=context_titles or None,
         display_name=display_name,
     )
-    meta_description = seo.book_seo_description(
-        book_id,
-        book_title,
-        lang,
-        lang_info["english_name"],
-        section_title=section_title,
-        section_translation=leaf_translation,
-        section_path=" › ".join(context_titles) or None,
-        section_excerpt=section_excerpt,
-        display_name=display_name,
-    )
+    # Prefer the AI-written description (unique, hand-checked prose) as the
+    # meta description; fall back to the constructed one when this section has
+    # no row yet, so pages without descriptions are unchanged.
+    if section_description and section_description.get("description"):
+        meta_description = section_description["description"]
+    else:
+        meta_description = seo.book_seo_description(
+            book_id,
+            book_title,
+            lang,
+            lang_info["english_name"],
+            section_title=section_title,
+            section_translation=leaf_translation,
+            section_path=" › ".join(context_titles) or None,
+            section_excerpt=section_excerpt,
+            display_name=display_name,
+        )
     book_ld = seo.book_jsonld(
         book_id,
         book_title,
@@ -1438,6 +1452,7 @@ def book(lang, book_id, section_path=None):
         section_content=section_content,
         heading_translation=heading_translation,
         section_has_content=section_has_content,
+        section_description=section_description,
         book_links_by_line=book_links_by_line,
         summary_map=summary_map,
         outline_url=outline_url,
