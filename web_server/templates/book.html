@@ -35,12 +35,11 @@
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}?v={{ v }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}?v={{ v }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/cookie-consent.css') }}?v={{ v }}">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="512x512" href="/static/icon.png">
   <link rel="apple-touch-icon" href="/static/icon.png">
 
-  {# ── Google Analytics: loaded by cookie-consent.js only after user accepts ── #}
+  {# ── Analytics (Cloudflare + Google): see _analytics.html ── #}
 
   <script>
     window.FIREBASE_CONFIG = {{ firebase_config | tojson }};
@@ -60,6 +59,8 @@
     // Built server-side for direct navigation (no API calls).
     window.REF_LINKS = {{ ref_links | tojson }};
   </script>
+
+  {% include '_analytics.html' %}
 </head>
 
 <body>

@@ -38,7 +38,6 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}?v={{ v }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}?v={{ v }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}?v={{ v }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/cookie-consent.css') }}?v={{ v }}">
 
 
   <script type="application/ld+json">{{ website_jsonld | tojson }}</script>
@@ -60,6 +59,8 @@
       bookref: { mula_ref: [], attha_ref: [], tika_ref: [] },
     };
   </script>
+
+  {% include '_analytics.html' %}
 </head>
 
 <body>

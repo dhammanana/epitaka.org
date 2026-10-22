@@ -1,0 +1,471 @@
+{# ═══════════════════════════════════════════════════════════════════════════
+   Analytics & consent — single source of truth for the whole site.
+
+   Trackers
+     • Cloudflare Web Analytics (cookieless)
+     • Google Analytics 4
+
+   Behaviour (opt-out)
+     • On a first visit both trackers load immediately.
+     • A banner lets the visitor accept or reject. Reject stores the choice,
+       stops anything already loaded, and prevents both trackers on every
+       later page. Accept (with the toggle on) keeps them enabled.
+     • Returning visitors are not asked again.
+
+   Include once per page, inside <head>. The banner CSS is kept here so the
+   partial is self-contained and every page gets the same consent UI.
+   ═══════════════════════════════════════════════════════════════════════ #}
+<style>
+  /* ── Consent banner ─────────────────────────────────────────── */
+  .cc-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 12, 6, 0.35);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 900;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 1rem;
+    animation: cc-fade-in 0.3s ease both;
+  }
+  .cc-overlay.removing {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+
+  @keyframes cc-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .cc-banner {
+    background: var(--surface, #ffffff);
+    border: 1px solid var(--border, #e8e0d5);
+    border-radius: 14px 14px 0 0;
+    width: 100%;
+    max-width: 640px;
+    box-shadow:
+      0 -4px 24px rgba(0, 0, 0, 0.12),
+      0 -1px 6px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    animation: cc-slide-up 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes cc-slide-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .cc-banner::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, #7a4f2f 0%, var(--accent, #8b5e3c) 50%, #7a4f2f 100%);
+  }
+
+  .cc-body {
+    padding: 1.2rem 1.4rem 1rem;
+  }
+
+  .cc-title {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent, #8b5e3c);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .cc-text {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text, #2d2420);
+    margin-bottom: 0.8rem;
+  }
+
+  .cc-text a {
+    color: var(--accent, #8b5e3c);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .cc-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    padding: 0 1.4rem 1.1rem;
+  }
+
+  .cc-btn {
+    padding: 0.45rem 1.1rem;
+    border-radius: 8px;
+    font-family: var(--font-sans, system-ui, sans-serif);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--border, #e8e0d5);
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    white-space: nowrap;
+  }
+  .cc-btn:active { transform: scale(0.97); }
+
+  .cc-btn-accept {
+    background: var(--accent, #8b5e3c);
+    color: #ffffff;
+    border-color: var(--accent, #8b5e3c);
+  }
+  .cc-btn-accept:hover { background: #7a4f2f; border-color: #7a4f2f; }
+
+  .cc-btn-reject {
+    background: transparent;
+    color: var(--muted, #8a7a6e);
+  }
+  .cc-btn-reject:hover {
+    background: var(--accent-light, #f5ede4);
+    color: var(--accent, #8b5e3c);
+    border-color: var(--accent, #8b5e3c);
+  }
+
+  .cc-btn-settings {
+    background: transparent;
+    color: var(--accent, #8b5e3c);
+    margin-left: auto;
+  }
+  .cc-btn-settings:hover { background: var(--accent-light, #f5ede4); }
+
+  .cc-settings {
+    display: none;
+    padding: 0.8rem 1.4rem;
+    border-top: 1px solid var(--border, #e8e0d5);
+    background: var(--bg, #faf7f2);
+  }
+  .cc-settings.open { display: block; }
+
+  .cc-setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding: 0.4rem 0;
+  }
+
+  .cc-setting-label {
+    font-family: var(--font-sans, system-ui, sans-serif);
+    font-size: 0.82rem;
+    color: var(--text, #2d2420);
+  }
+
+  .cc-setting-desc {
+    font-size: 0.72rem;
+    color: var(--muted, #8a7a6e);
+    margin-top: 0.1rem;
+  }
+
+  .cc-toggle {
+    position: relative;
+    width: 38px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  .cc-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+  .cc-toggle-slider {
+    position: absolute;
+    inset: 0;
+    background: var(--border, #e8e0d5);
+    border-radius: 11px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .cc-toggle-slider::before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--surface, #ffffff);
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  }
+  .cc-toggle input:checked + .cc-toggle-slider {
+    background: var(--accent, #8b5e3c);
+  }
+  .cc-toggle input:checked + .cc-toggle-slider::before {
+    transform: translateX(16px);
+  }
+
+  @media (max-width: 480px) {
+    .cc-overlay { padding: 0; }
+    .cc-body { padding: 1rem 1.1rem 0.8rem; }
+    .cc-actions { padding: 0 1.1rem 0.9rem; }
+    .cc-btn-settings { margin-left: 0; }
+  }
+
+  @media (min-width: 641px) {
+    .cc-overlay {
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+    .cc-banner {
+      border-radius: 14px;
+      max-width: 400px;
+      animation: cc-card-rise 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes cc-card-rise {
+      from { opacity: 0; transform: translateY(16px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  if (window.__epitakaAnalyticsInit) return;
+  window.__epitakaAnalyticsInit = true;
+
+  // ── Configuration ─────────────────────────────────────────────
+  var CONSENT_KEY = 'epika_cookie_consent';
+  var CONSENT_VERSION = 2;
+  var GA_ID = 'G-7NQWX1DCC2';
+  var CF_TOKEN = '7d067193249842608d07fb6a3e6872f0';
+  var CF_BEACON = 'https://static.cloudflareinsights.com/beacon.min.js';
+
+  // ── Consent storage ──────────────────────────────────────────
+  function readConsent() {
+    try {
+      var raw = localStorage.getItem(CONSENT_KEY);
+      var value = raw ? JSON.parse(raw) : null;
+      return value && typeof value === 'object' ? value : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function saveConsent(analytics) {
+    try {
+      localStorage.setItem(CONSENT_KEY, JSON.stringify({
+        analytics: analytics,
+        timestamp: Date.now(),
+        version: CONSENT_VERSION
+      }));
+    } catch (e) {
+      // Storage unavailable — the choice still applies to this page.
+    }
+  }
+
+  // Only an explicit reject opts out; a missing/malformed record keeps the
+  // default-on behaviour.
+  function analyticsAllowed(consent) {
+    if (!consent) return true;
+    return consent.analytics !== false && consent.analytics !== 'false';
+  }
+
+  // ── Cloudflare Web Analytics ─────────────────────────────────
+  function loadCloudflare() {
+    if (document.getElementById('cf-beacon')) return;
+    var script = document.createElement('script');
+    script.id = 'cf-beacon';
+    script.type = 'module';
+    script.src = CF_BEACON;
+    script.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_TOKEN }));
+    document.head.appendChild(script);
+  }
+
+  function stopCloudflare() {
+    var script = document.getElementById('cf-beacon');
+    if (script) script.remove();
+  }
+
+  // ── Google Analytics ─────────────────────────────────────────
+  function loadGoogleAnalytics() {
+    if (document.getElementById('ga-script')) return;
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    window['ga-disable-' + GA_ID] = false;
+
+    gtag('js', new Date());
+    gtag('consent', 'default', {
+      analytics_storage: 'granted',
+      ad_storage: 'denied'
+    });
+
+    var script = document.createElement('script');
+    script.id = 'ga-script';
+    script.async = true;
+    script.referrerPolicy = 'no-referrer';
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID);
+    script.onload = function () {
+      try {
+        gtag('config', GA_ID, {
+          anonymize_ip: true,
+          cookie_flags: 'SameSite=None;Secure'
+        });
+      } catch (e) { /* tracking must never break the page */ }
+    };
+    script.onerror = function () { script.remove(); };
+    document.head.appendChild(script);
+  }
+
+  function stopGoogleAnalytics() {
+    window['ga-disable-' + GA_ID] = true;
+
+    if (window.gtag) {
+      try {
+        window.gtag('consent', 'update', {
+          analytics_storage: 'denied',
+          ad_storage: 'denied'
+        });
+      } catch (e) { /* ignore */ }
+    }
+
+    var script = document.getElementById('ga-script');
+    if (script) script.remove();
+    clearGoogleAnalyticsCookies();
+  }
+
+  function clearGoogleAnalyticsCookies() {
+    var cookies = document.cookie ? document.cookie.split(';') : [];
+    var host = location.hostname;
+    var domains = ['', host, '.' + host];
+    var labels = host.split('.');
+    if (labels.length > 2) {
+      var parent = labels.slice(-2).join('.');
+      domains.push(parent, '.' + parent);
+    }
+
+    for (var i = 0; i < cookies.length; i++) {
+      var name = cookies[i].split('=')[0].trim();
+      if (name !== '_ga' && name.indexOf('_ga_') !== 0) continue;
+      for (var j = 0; j < domains.length; j++) {
+        document.cookie = name + '=; Max-Age=0; path=/' +
+          (domains[j] ? '; domain=' + domains[j] : '');
+      }
+    }
+  }
+
+  // ── Banner ───────────────────────────────────────────────────
+  var BANNER_HTML = [
+    '<div class="cc-banner">',
+    '  <div class="cc-body">',
+    '    <div class="cc-title">🍪 Privacy &amp; Cookies</div>',
+    '    <div class="cc-text">',
+    '      We use Cloudflare Web Analytics (cookieless) and Google Analytics',
+    '      to understand how visitors use this site. Analytics is on by',
+    '      default; choose Reject to turn it off. No personally identifiable',
+    '      information is collected.',
+    '      <a href="/privacy">Read our privacy policy</a>.',
+    '    </div>',
+    '  </div>',
+    '  <div class="cc-settings" id="cc-settings">',
+    '    <div class="cc-setting-row">',
+    '      <div>',
+    '        <div class="cc-setting-label">Analytics</div>',
+    '        <div class="cc-setting-desc">Cloudflare Web Analytics &amp; Google Analytics</div>',
+    '      </div>',
+    '      <label class="cc-toggle">',
+    '        <input type="checkbox" id="cc-analytics-toggle" checked>',
+    '        <span class="cc-toggle-slider"></span>',
+    '      </label>',
+    '    </div>',
+    '  </div>',
+    '  <div class="cc-actions">',
+    '    <button type="button" class="cc-btn cc-btn-accept" id="cc-accept">Accept</button>',
+    '    <button type="button" class="cc-btn cc-btn-reject" id="cc-reject">Reject</button>',
+    '    <button type="button" class="cc-btn cc-btn-settings" id="cc-settings-btn">Settings</button>',
+    '  </div>',
+    '</div>'
+  ].join('\n');
+
+  function showBanner() {
+    if (document.querySelector('.cc-overlay')) return;
+
+    var overlay = document.createElement('div');
+    overlay.className = 'cc-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Cookie consent');
+    overlay.innerHTML = BANNER_HTML;
+    document.body.appendChild(overlay);
+
+    var toggle = overlay.querySelector('#cc-analytics-toggle');
+    var settings = overlay.querySelector('#cc-settings');
+    var settingsBtn = overlay.querySelector('#cc-settings-btn');
+
+    function closeBanner() {
+      overlay.classList.add('removing');
+      window.setTimeout(function () { overlay.remove(); }, 150);
+    }
+
+    function applyChoice(analytics) {
+      saveConsent(analytics);
+      if (!analytics) {
+        stopCloudflare();
+        stopGoogleAnalytics();
+      }
+      closeBanner();
+    }
+
+    overlay.querySelector('#cc-accept').addEventListener('click', function () {
+      applyChoice(!!(toggle && toggle.checked));
+    });
+
+    // Reject is the cancel path: remember it and stop both trackers.
+    overlay.querySelector('#cc-reject').addEventListener('click', function () {
+      applyChoice(false);
+    });
+
+    settingsBtn.addEventListener('click', function () {
+      var isOpen = settings.classList.toggle('open');
+      settingsBtn.textContent = isOpen ? 'Hide settings' : 'Settings';
+    });
+
+    // Clicking the backdrop or pressing Escape is treated as Reject.
+    overlay.addEventListener('click', function (event) {
+      if (event.target === overlay) applyChoice(false);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && document.body.contains(overlay)) {
+        applyChoice(false);
+      }
+    });
+
+    var acceptBtn = overlay.querySelector('#cc-accept');
+    if (acceptBtn) acceptBtn.focus();
+  }
+
+  // ── Boot ─────────────────────────────────────────────────────
+  var consent = readConsent();
+
+  if (analyticsAllowed(consent)) {
+    loadCloudflare();
+    loadGoogleAnalytics();
+  }
+
+  if (!consent) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', showBanner, { once: true });
+    } else {
+      showBanner();
+    }
+  }
+})();
+</script>

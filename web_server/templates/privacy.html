@@ -115,39 +115,9 @@
       margin: 1.2rem 0;
     }
 
-    /* ── Cookie consent banner ── */
-    .cc-overlay { position:fixed;inset:0;background:rgba(20,12,6,0.35);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);z-index:900;display:flex;align-items:flex-end;justify-content:center;padding:1rem;animation:cc-fi .3s ease both; }
-    .cc-overlay.hidden { display:none; }
-    @keyframes cc-fi { from{opacity:0} to{opacity:1} }
-    .cc-banner { background:var(--surface);border:1px solid var(--border);border-radius:14px 14px 0 0;width:100%;max-width:640px;box-shadow:0 -4px 24px rgba(0,0,0,0.12);overflow:hidden;animation:cc-su .3s cubic-bezier(.22,1,.36,1) both; }
-    @keyframes cc-su { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
-    .cc-banner::before { content:'';display:block;height:3px;background:linear-gradient(90deg,#7a4f2f,var(--accent),#7a4f2f); }
-    .cc-body { padding:1.2rem 1.4rem 1rem; }
-    .cc-title { font-family:var(--font-serif);font-size:1.05rem;font-weight:600;color:var(--accent);margin-bottom:.5rem;display:flex;align-items:center;gap:.45rem; }
-    .cc-text { font-family:var(--font-serif);font-size:.88rem;line-height:1.6;color:var(--text);margin-bottom:.8rem; }
-    .cc-text a { color:var(--accent);text-decoration:underline;text-underline-offset:2px; }
-    .cc-actions { display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;padding:0 1.4rem 1.1rem; }
-    .cc-btn { padding:.45rem 1.1rem;border-radius:8px;font-family:var(--font-sans);font-size:.82rem;font-weight:600;cursor:pointer;border:1px solid var(--border);transition:background .15s,border-color .15s,transform .1s;white-space:nowrap; }
-    .cc-btn:active { transform:scale(.97); }
-    .cc-btn-accept { background:var(--accent);color:#fff;border-color:var(--accent); }
-    .cc-btn-accept:hover { background:#7a4f2f;border-color:#7a4f2f; }
-    .cc-btn-reject { background:transparent;color:var(--muted); }
-    .cc-btn-reject:hover { background:var(--accent-light);color:var(--accent);border-color:#d4a97a; }
-    .cc-btn-settings { background:transparent;color:var(--accent);margin-left:auto; }
-    .cc-btn-settings:hover { background:var(--accent-light); }
-    .cc-settings { display:none;padding:.8rem 1.4rem;border-top:1px solid var(--border);background:var(--bg); }
-    .cc-settings.open { display:block; }
-    .cc-setting-row { display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.4rem 0; }
-    .cc-setting-label { font-family:var(--font-sans);font-size:.82rem;color:var(--text); }
-    .cc-setting-desc { font-size:.72rem;color:var(--muted);margin-top:.1rem; }
-    .cc-toggle { position:relative;width:38px;height:22px;flex-shrink:0; }
-    .cc-toggle input { opacity:0;width:0;height:0;position:absolute; }
-    .cc-toggle-slider { position:absolute;inset:0;background:var(--border);border-radius:11px;cursor:pointer;transition:background .2s; }
-    .cc-toggle-slider::before { content:'';position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.15); }
-    .cc-toggle input:checked+.cc-toggle-slider { background:var(--accent); }
-    .cc-toggle input:checked+.cc-toggle-slider::before { transform:translateX(16px); }
-    @media(min-width:641px) { .cc-overlay{align-items:flex-end;justify-content:flex-end;padding:1.5rem} .cc-banner{border-radius:14px;max-width:400px} }
   </style>
+
+  {% include '_analytics.html' %}
 </head>
 
 <body class="about-page">
@@ -194,7 +164,7 @@
         </g>
       </svg>
       <h1>Privacy Policy</h1>
-      <div class="subtitle">Last updated: July 2026</div>
+      <div class="subtitle">Last updated: October 2026</div>
     </header>
 
     <!-- ── INTRO ── -->
@@ -227,9 +197,18 @@
           the experience. Google Analytics collects anonymised data such as
           page views, session duration, and browser type. No personally
           identifiable information is sent to Google.
-          <strong>Analytics are only loaded after you explicitly consent
-          via the cookie banner.</strong> You can change your preference
-          at any time by clearing your browser's local storage.
+          <strong>Analytics is on by default on your first visit.</strong>
+          The cookie banner lets you reject it. Rejecting stores the
+          preference in your browser, stops both trackers from loading on
+          later pages, disables Google Analytics, and clears its cookies.
+          To see the banner again and change your choice, clear your
+          browser's local storage for this site.
+        </p>
+        <p>
+          We also use Cloudflare Web Analytics, which is cookieless and
+          does not fingerprint or track individual visitors. It is covered
+          by the same banner choice: Reject stops it and remembers the
+          opt-out.
         </p>
       </div>
 
@@ -302,6 +281,7 @@
       <div class="policy-section">
         <ul>
           <li><strong>Google Analytics</strong> — anonymised usage stats (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>)</li>
+          <li><strong>Cloudflare Web Analytics</strong> — cookieless usage stats (<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's privacy policy</a>)</li>
           <li><strong>Firebase Authentication</strong> — optional sign-in (<a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase privacy policy</a>)</li>
           <li><strong>Google Fonts</strong> — typography (Crimson Pro &amp; DM Sans)</li>
         </ul>
@@ -323,7 +303,7 @@
           <li><strong>Access</strong> — ask us what data we hold about you</li>
           <li><strong>Rectify</strong> — correct any inaccurate data</li>
           <li><strong>Delete</strong> — request removal of your data</li>
-          <li><strong>Object</strong> — opt out of Google Analytics (you can use a <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">browser add-on</a>)</li>
+          <li><strong>Object</strong> — reject analytics in the cookie banner (or use Google's <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">opt-out add-on</a>)</li>
         </ul>
         <p>
           Since almost all data is stored locally in your browser or
@@ -390,70 +370,6 @@
 
   </div>
 
-  <!-- Cookie consent (GDPR) -->
-  <script>
-  (function() {
-    var KEY = 'epika_cookie_consent';
-    var GA_ID = 'G-7NQWX1DCC2';
-
-    function loadGA() {
-      if (document.getElementById('ga-script')) return;
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
-      var s = document.createElement('script');
-      s.id = 'ga-script';
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-      s.onload = function() {
-        gtag('config', GA_ID, {        anonymize_ip: true, cookie_flags: 'SameSite=None;Secure' });
-
-        gtag('consent', 'update', { analytics_storage: 'granted' });
-      };
-      document.head.appendChild(s);
-    }
-
-    function getConsent() {
-      try { return JSON.parse(localStorage.getItem(KEY)); } catch(e) { return null; }
-    }
-    function saveConsent(v) {
-      try { localStorage.setItem(KEY, JSON.stringify({analytics:v,timestamp:Date.now(),version:1})); } catch(e) {}
-    }
-
-    var c = getConsent();
-    if (c) { if (c.analytics) loadGA(); return; }
-
-    // Build banner
-    var ov = document.createElement('div');
-    ov.className = 'cc-overlay';
-    ov.setAttribute('role','dialog');
-    ov.setAttribute('aria-modal','true');
-    ov.setAttribute('aria-label','Cookie consent');
-    ov.innerHTML = '<div class="cc-banner"><div class="cc-body"><div class="cc-title">🍪 Privacy & Cookies</div><div class="cc-text">We use Google Analytics to understand how visitors use this site. No personally identifiable information is collected. <a href="/privacy">Read our privacy policy</a>.</div></div><div class="cc-settings" id="cc-settings"><div class="cc-setting-row"><div><div class="cc-setting-label">Google Analytics</div><div class="cc-setting-desc">Anonymised usage statistics</div></div><label class="cc-toggle"><input type="checkbox" id="cc-analytics-toggle" checked><span class="cc-toggle-slider"></span></label></div></div><div class="cc-actions"><button type="button" class="cc-btn cc-btn-accept" id="cc-accept">Accept</button><button type="button" class="cc-btn cc-btn-reject" id="cc-reject">Reject</button><button type="button" class="cc-btn cc-btn-settings" id="cc-settings-btn">Settings</button></div></div>';
-    document.body.appendChild(ov);
-
-    document.getElementById('cc-accept').onclick = function() {
-      var t = document.getElementById('cc-analytics-toggle');
-      saveConsent(t && t.checked);
-      ov.classList.add('hidden');
-      if (t && t.checked) loadGA();
-    };
-    document.getElementById('cc-reject').onclick = function() {
-      saveConsent(false);
-      ov.classList.add('hidden');
-    };
-    document.getElementById('cc-settings-btn').onclick = function() {
-      var p = document.getElementById('cc-settings');
-      p.classList.toggle('open');
-      this.textContent = p.classList.contains('open') ? 'Hide settings' : 'Settings';
-    };
-    ov.addEventListener('click', function(e) {
-      if (e.target === ov) { saveConsent(false); ov.classList.add('hidden'); }
-    });
-  })();
-  </script>
 
 </body>
 </html>
