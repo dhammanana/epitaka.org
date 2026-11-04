@@ -1,8 +1,9 @@
 /**
  * app-banner.js
  * ─────────────────────────────────────────────────────────────
- * Small, dismissible banner inviting mobile readers to open the
- * E-Piṭaka native app instead of continuing in the browser.
+ * Small, dismissible banner inviting readers on supported platforms
+ * (Android, Windows, …) to open the E-Piṭaka native app instead of
+ * continuing in the browser.
  *
  * Platform matrix:
  *   Add a platform by appending an entry to APP_STORES with a
@@ -15,15 +16,28 @@
  *   - auto-fades after a few seconds so it never blocks reading.
  */
 
+// Order matters: the first detect() that matches wins. Mobile user agents
+// never contain "Windows NT", so the windows entry is safe checked later.
 const APP_STORES = {
   android: {
     name:   'Google Play',
+    device: 'phone',
+    icon:   '▶',
     detect: () => /Android/i.test(navigator.userAgent),
     url:    'https://play.google.com/store/apps/details?id=com.dn.epitaka',
+  },
+  windows: {
+    name:   'Microsoft Store',
+    device: 'PC',
+    icon:   '⊞',
+    detect: () => /Windows NT/i.test(navigator.userAgent),
+    url:    'https://apps.microsoft.com/detail/9nr3sjfr6cf9?hl=en-us&gl=US',
   },
   // ── Future platforms ────────────────────────────────────────
   // ios: {
   //   name:   'App Store',
+  //   device: 'phone',
+  //   icon:   '',
   //   detect: () => /iPhone|iPad|iPod/i.test(navigator.userAgent),
   //   url:    'https://apps.apple.com/app/id000000000',
   // },
@@ -73,17 +87,17 @@ export function initAppBanner() {
   const banner = document.createElement('div');
   banner.className = 'app-banner';
   banner.setAttribute('role', 'status');
-  banner.setAttribute('aria-label', 'E-Piṭaka mobile app');
+  banner.setAttribute('aria-label', 'E-Piṭaka app');
 
   banner.innerHTML = `
     <div class="app-banner-icon" aria-hidden="true">📖</div>
     <div class="app-banner-body">
       <div class="app-banner-title">Read with the E-Piṭaka app</div>
-      <div class="app-banner-text">Faster reading &amp; offline access on your phone.</div>
+      <div class="app-banner-text">Faster reading &amp; offline access on your ${platform.device}.</div>
     </div>
     <a class="app-banner-btn" href="${platform.url}"
        target="_blank" rel="noopener noreferrer">
-      <span aria-hidden="true">▶</span> Get it on ${platform.name}
+      <span aria-hidden="true">${platform.icon}</span> Get it on ${platform.name}
     </a>
     <button class="app-banner-close" type="button" aria-label="Dismiss">✕</button>
   `;

@@ -7,6 +7,9 @@
 
 "use strict";
 
+import { koreanFromSinhala, koreanToSinhala } from './pali-korean.js';
+import { isTamilMarker, tamilFromSinhala, tamilToSinhala } from './pali-tamil.js';
+
 const Script = Object.freeze({
     SI: 'si',
     HI: 'hi',
@@ -22,9 +25,11 @@ const Script = Object.freeze({
     TELU: 'te',
     KANN: 'ka',
     MALA: 'mm',
+    TAMI: 'ta',
     BRAH: 'br',
     TIBT: 'tb',
     CYRL: 'cy',
+    KO: 'ko',
 });
 
 const paliScriptInfo = new Map ([
@@ -42,10 +47,12 @@ const paliScriptInfo = new Map ([
     [Script.TELU, ['Telugu', 'తెలుగు', [[0x0C00, 0x0C7F]], {g: 'indian'} ]],
     [Script.KANN, ['Kannada', 'ಕನ್ನಡ', [[0x0C80, 0x0CFF]], {g: 'indian'} ]],
     [Script.MALA, ['Malayalam', 'മലയാളം', [[0x0D00, 0x0D7F]], {g: 'indian'} ]],
+    [Script.TAMI, ['Tamil', 'தமிழ்', [[0x0B80, 0x0BFF]], {g: 'indian'} ]],
     [Script.THAM, ['Tai Tham', 'Tai Tham LN', [[0x1A20, 0x1AAF]], {c: 'beta-script', g: 'other'} ]],
     [Script.BRAH, ['Brahmi', 'Brāhmī', [[0xD804, 0xD804], [0xDC00, 0xDC7F]], {g: 'other'} ]], //charCodeAt returns two codes for each letter [[0x11000, 0x1107F]]
     [Script.TIBT, ['Tibetan', 'བོད་སྐད།', [[0x0F00, 0x0FFF]], {f: 'tibet_flag.png', c: 'larger', g: 'other'} ]],
     [Script.CYRL, ['Cyrillic', 'кириллица', [[0x0400, 0x04FF], [0x0300, 0x036F]], {f: 'russia_flag.png', g: 'other'} ]], // also adding the "Combining Diacritical Marks" block 
+    [Script.KO, ['Korean', '한국어', [[0xAC00, 0xD7A3], [0x1100, 0x11FF]], {g: 'other'} ]], // Hangul syllables + jamo
 ]);
 
 function getScriptForCode(charCode) {
@@ -352,6 +359,8 @@ const beautify_func = {
     [Script.TIBT]: [beautify_tibet],
     [Script.CYRL]: [beautify_common],
     [Script.ASSE]: [beautify_assamese],
+    [Script.TAMI]: [beautify_common],
+    [Script.KO]: [beautify_common],
 };
 // when converting from another script, have to unbeautify before converting
 const un_beautify_func_default = [];
@@ -414,11 +423,26 @@ function remove_a(text, script) {
 }
 const fix_m_above = (text) => text.replace(/ṁ/g, 'ං'); // per ven anandajothi request
 
+// Korean is not a character map of the Sinhala tables: which jamo a
+// consonant takes depends on its neighbours, so it uses the syllable-aware
+// transliterator in pali-korean.js.
+const korean_convert_to = (text) => koreanFromSinhala(text);
+const korean_convert_from = (text) => koreanToSinhala(text);
+
+// Tamil is a character map of the Sinhala tables, but the same letter carries
+// a superscript marker for the aspirated/voiced stops and e/o depend on a
+// doubled consonant, so it uses the same kind of dedicated module: the rules
+// (superscript moves, short e/o, dental/alveolar n) live in pali-tamil.js.
+const tamil_convert_to = (text) => tamilFromSinhala(text);
+const tamil_convert_from = (text) => tamilToSinhala(text);
+
 const convert_to_func_default = [convert_to];
 const convert_to_func = {
     [Script.SI] : [],
     [Script.RO] : [insert_a, convert_to],
     [Script.CYRL] : [insert_a, convert_to],
+    [Script.TAMI] : [tamil_convert_to],
+    [Script.KO] : [korean_convert_to],
 }
 
 const convert_from_func_default = [convert_from];
@@ -426,6 +450,8 @@ const convert_from_func = {
     [Script.SI] : [],
     [Script.RO] : [convert_from_w_v, fix_m_above, remove_a],
     [Script.CYRL] : [convert_from_w_v, remove_a],
+    [Script.TAMI] : [tamil_convert_from],
+    [Script.KO] : [korean_convert_from],
 }
 
 function convert_to(text, script) {
@@ -473,7 +499,12 @@ class TextProcessor {
         mixedText = cleanup_zwj(mixedText) + ' '; // zwj messes with computing runs + hack to process last char
         let curScript = -1, run = '', output = '';
         for(let i = 0; i < mixedText.length; i++) {
-            const newScript = getScriptForCode(mixedText.charCodeAt(i));
+            const code = mixedText.charCodeAt(i);
+            // ² ³ ⁴ are Tamil's aspirate/voice markers but ² ³ sit in the Roman
+            // range, so keep them inside the current non-Roman run — otherwise a
+            // Tamil word splits at every marker and க² could not map back to ඛ.
+            const tamilMarker = isTamilMarker(code) && curScript != -1 && curScript != Script.RO;
+            const newScript = tamilMarker ? curScript : getScriptForCode(code);
             if (newScript != curScript || (i == mixedText.length - 1)) { // make sure to process the last run
                 output += this.convertFrom(run, curScript);
                 curScript = newScript;

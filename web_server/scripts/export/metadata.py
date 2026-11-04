@@ -29,9 +29,11 @@ VALID_SCRIPTS = (
     "te",
     "ka",
     "mm",
+    "ta",
     "br",
     "tb",
     "cy",
+    "ko",
 )
 
 VALID_FORMATS = ("epub", "pdf", "md", "docx")
@@ -54,9 +56,11 @@ SCRIPT_NAMES = {
     "te": "Telugu",
     "ka": "Kannada",
     "mm": "Malayalam",
+    "ta": "Tamil",
     "br": "Brahmi",
     "tb": "Tibetan",
     "cy": "Cyrillic",
+    "ko": "Korean",
 }
 
 # Translation DB suffix -> English language name.

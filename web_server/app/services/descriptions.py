@@ -82,6 +82,10 @@ def get_description(book_id: str, para_id: int, lang: str = 'en') -> dict | None
     The description row for one section in ``lang``, falling back to the
     English row when that language has none. Returns None when there is
     nothing (missing DB/table, or no row at all).
+
+    A row with a summary but no short description still counts: the page
+    shows the summary as the section overview, and derives its meta
+    description from it when the short line is missing.
     """
     if not book_id or para_id is None:
         return None
@@ -95,7 +99,7 @@ def get_description(book_id: str, para_id: int, lang: str = 'en') -> dict | None
             row = conn.execute(
                 'SELECT * FROM descriptions '
                 'WHERE book_id = ? AND para_id = ? AND lang = ? '
-                "AND description != ''",
+                "AND (description != '' OR summary != '')",
                 (book_id, para_id, code),
             ).fetchone()
         except sqlite3.Error:
@@ -113,7 +117,7 @@ def get_all_descriptions(book_id: str, lang: str = 'en') -> list[dict]:
     try:
         rows = conn.execute(
             'SELECT * FROM descriptions WHERE book_id = ? '
-            "AND description != '' ORDER BY para_id",
+            "AND (description != '' OR summary != '') ORDER BY para_id",
             (book_id,),
         ).fetchall()
     except sqlite3.Error:

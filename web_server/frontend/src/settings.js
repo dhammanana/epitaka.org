@@ -33,6 +33,7 @@ const LANG_SCRIPT_MAP = {
   ka: Script.KANN,  // legacy script-code alias of kn
   ml: Script.MALA,  // Malayalam → Malayalam
   mm: Script.MALA,  // legacy script-code alias of ml
+  ta: Script.TAMI,  // Tamil → Tamil
   my: Script.MY,    // Myanmar → Myanmar
   th: Script.THAI,  // Thai → Thai
   lo: Script.LAOS,  // Lao → Lao

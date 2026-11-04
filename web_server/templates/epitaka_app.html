@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Piṭaka Apps — Read the Pali Canon on every device</title>
+  <meta name="description" content="The free E-Piṭaka app for Windows, Android, macOS, iOS and Linux — the entire Tipiṭaka with inline commentaries, translations and search, faster and available offline.">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <meta property="og:title"       content="E-Piṭaka Apps — Read the Pali Canon on every device">
+  <meta property="og:description" content="The entire Tipiṭaka with inline commentaries, AI-assisted translations and full-text search — now as a native app for Windows and Android, with more platforms coming.">
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="E-Piṭaka">
+  <meta property="og:url"         content="{{ canonical_url }}">
+  <meta property="og:image"       content="{{ site_url }}/static/og-image.png">
+  <meta name="twitter:card"        content="summary_large_image">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/static/app-shots/app-icon.svg">
+  <link rel="apple-touch-icon" href="/static/icon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ePitaka – Buddhist Canon",
+    "applicationCategory": "Books",
+    "operatingSystem": "Windows, Android",
+    "url": {{ canonical_url | tojson }},
+    "description": "The entire Pali Canon with inline commentaries, AI-assisted translations and full-text search, as a free native app.",
+    "inLanguage": "multi",
+    "author": { "@type": "Organization", "name": "E-Piṭaka" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #000;
+      color: #f5f5f7;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 48px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
+      transition: background 0.4s;
+    }
+    .nav-content {
+      max-width: 1024px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #c9a96e, #e8d5a3);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 13px; color: #a1a1a6; font-weight: 400;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      padding: 6px 18px; border-radius: 980px;
+      background: linear-gradient(135deg, #c9a96e, #a07840);
+      color: #000 !important; font-weight: 600; font-size: 13px;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .nav-cta:hover { transform: scale(1.04); box-shadow: 0 0 20px rgba(201,169,110,0.3); }
+
+    .scroll-progress {
+      position: fixed; top: 52px; left: 0; right: 0;
+      height: 2px; z-index: 99;
+      background: rgba(255,255,255,0.05);
+    }
+    .scroll-progress-bar {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, #c9a96e, #e8d5a3);
+      transition: width 0.1s linear;
+    }
+
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 130px 24px 70px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -40%; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .glow-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(100px); pointer-events: none; opacity: 0.15;
+    }
+    .hero-eyebrow {
+      font-size: 17px; font-weight: 500;
+      color: #c9a96e; letter-spacing: 0.5px; margin-bottom: 16px;
+      opacity: 0; transform: translateY(20px);
+    }
+    .hero-icon {
+      width: 96px; height: 96px; border-radius: 22px; margin: 0 auto 22px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.12);
+      opacity: 0; transform: translateY(24px) scale(0.9);
+    }
+    .hero-title {
+      font-size: clamp(44px, 7vw, 84px); font-weight: 800;
+      letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px;
+      opacity: 0; transform: translateY(30px);
+    }
+    .hero-title .gold {
+      background: linear-gradient(135deg, #c9a96e 0%, #e8d5a3 40%, #c9a96e 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(18px, 2.4vw, 26px); font-weight: 300;
+      color: #86868b; max-width: 680px; line-height: 1.45; margin-bottom: 40px;
+      opacity: 0; transform: translateY(30px);
+    }
+    .store-row {
+      display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+      opacity: 0; transform: translateY(30px);
+    }
+    .hero-phones {
+      margin-top: 70px; display: flex; gap: 28px; justify-content: center;
+      align-items: flex-end; flex-wrap: wrap;
+      opacity: 0; transform: translateY(60px) scale(0.96);
+    }
+    .hero-phones .phone {
+      width: 260px; border-radius: 20px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(255,255,255,0.1);
+    }
+    .hero-phones .phone--tilt {
+      transform: rotate(-4deg) translateY(8px);
+    }
+    .phone-tag {
+      font-size: 13px; color: #86868b; margin-top: 14px; text-align: center;
+    }
+
+    .section {
+      padding: 140px 24px; max-width: 1080px; margin: 0 auto;
+      position: relative;
+    }
+    .section-full { padding: 140px 24px; position: relative; }
+    .section-label {
+      font-size: 14px; font-weight: 600; color: #c9a96e;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 12px; text-align: center;
+    }
+    .section-title {
+      font-size: clamp(36px, 5vw, 64px); font-weight: 700;
+      letter-spacing: -1px; line-height: 1.1;
+      text-align: center; margin-bottom: 20px;
+    }
+    .section-title .gold {
+      background: linear-gradient(135deg, #c9a96e 0%, #e8d5a3 40%, #c9a96e 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-desc {
+      font-size: clamp(17px, 2vw, 21px); font-weight: 300;
+      color: #86868b; text-align: center;
+      max-width: 640px; margin: 0 auto 60px; line-height: 1.5;
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-scale {
+      opacity: 0; transform: scale(0.88);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+    .stagger-children .reveal:nth-child(1) { transition-delay: 0s; }
+    .stagger-children .reveal:nth-child(2) { transition-delay: 0.12s; }
+    .stagger-children .reveal:nth-child(3) { transition-delay: 0.24s; }
+    .stagger-children .reveal:nth-child(4) { transition-delay: 0.36s; }
+    .stagger-children .reveal:nth-child(5) { transition-delay: 0.48s; }
+    .stagger-children .reveal:nth-child(6) { transition-delay: 0.6s; }
+
+    .divider {
+      height: 0.5px; max-width: 800px; margin: 0 auto;
+      background: linear-gradient(90deg, transparent, rgba(201,169,110,0.3), transparent);
+    }
+
+    .screenshot-card {
+      position: relative; overflow: hidden;
+      border-radius: 20px; max-width: 1000px; margin: 0 auto;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+    }
+    .screenshot-card img { width: 100%; }
+    .screenshot-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 60px 40px 40px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      border-radius: 0 0 20px 20px;
+    }
+    .screenshot-overlay p { font-size: 15px; color: #a1a1a6; max-width: 620px; }
+
+    .sticky-container {
+      max-width: 1080px; margin: 0 auto; padding: 0 24px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+      align-items: start; position: relative;
+    }
+    .sticky-text { position: sticky; top: 130px; padding: 0 20px; }
+    .sticky-image {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .sticky-image img { width: 100%; }
+    .feature-steps {
+      display: flex; flex-direction: column; gap: 180px; padding: 80px 0;
+    }
+    .feature-step { min-height: 45vh; display: flex; align-items: center; }
+    .feature-step-content {
+      opacity: 0.3; transition: opacity 0.5s;
+    }
+    .feature-step-content h3 {
+      font-size: clamp(24px, 3vw, 34px); font-weight: 700;
+      margin-bottom: 12px; line-height: 1.2;
+    }
+    .feature-step-content p {
+      font-size: 17px; color: #86868b; line-height: 1.6; max-width: 420px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px; max-width: 1080px; margin: 0 auto; padding: 0 24px;
+    }
+    .feature-card {
+      padding: 36px 30px; border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 0.5px solid rgba(255,255,255,0.06);
+      transition: transform 0.4s, border-color 0.4s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,169,110,0.25);
+    }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(201,169,110,0.2), rgba(201,169,110,0.05));
+      margin-bottom: 18px;
+    }
+    .feature-icon svg { width: 24px; height: 24px; stroke: #c9a96e; }
+    .feature-card h4 { font-size: 19px; font-weight: 600; margin-bottom: 10px; }
+    .feature-card p { font-size: 15px; color: #86868b; line-height: 1.6; }
+
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px; max-width: 1080px; margin: 0 auto; padding: 0 24px;
+    }
+    .platform-card {
+      padding: 36px 28px; border-radius: 20px; text-align: center;
+      background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 0.5px solid rgba(255,255,255,0.08);
+      display: flex; flex-direction: column; align-items: center;
+      transition: transform 0.4s, border-color 0.4s;
+    }
+    .platform-card:hover { transform: translateY(-4px); }
+    .platform-card.available { border-color: rgba(201,169,110,0.28); }
+    .platform-card.available:hover {
+      border-color: rgba(201,169,110,0.55);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+    .platform-icon { margin: 0 auto 18px; }
+    .platform-icon svg { width: 56px; height: 56px; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.45)); }
+    .platform-card h4 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .platform-card p { font-size: 14px; color: #86868b; margin-bottom: 18px; }
+    .store-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 11px 22px; border-radius: 980px;
+      background: linear-gradient(135deg, #c9a96e, #a07840);
+      color: #000; font-weight: 600; font-size: 14px;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .store-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 26px rgba(201,169,110,0.35);
+    }
+    .store-btn svg { width: 16px; height: 16px; }
+    .soon-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 18px; border-radius: 980px;
+      background: rgba(255,255,255,0.05);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      color: #6e6e73; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.6px; text-transform: uppercase;
+    }
+    .soon-badge::before {
+      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      background: #6e6e73;
+      animation: pulse 2.4s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50%      { opacity: 1;    transform: scale(1.25); }
+    }
+    .platform-card.soon { opacity: 0.62; }
+    .platform-card.soon:hover { transform: none; }
+
+    .ebook-note {
+      max-width: 720px; margin: 28px auto 0; padding: 24px 30px;
+      border-radius: 16px; text-align: center;
+      background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.06);
+      font-size: 15px; color: #86868b; line-height: 1.6;
+    }
+    .ebook-note a {
+      color: #c9a96e; font-weight: 500;
+      border-bottom: 1px solid rgba(201,169,110,0.35);
+      transition: border-color 0.3s;
+    }
+    .ebook-note a:hover { border-color: #c9a96e; }
+
+    .stats-row {
+      display: flex; justify-content: center; gap: 80px;
+      flex-wrap: wrap; margin: 0; padding: 90px 24px;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-size: clamp(40px, 6vw, 72px); font-weight: 800;
+      background: linear-gradient(135deg, #c9a96e, #e8d5a3);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; line-height: 1.1;
+    }
+    .stat-label { font-size: 15px; color: #86868b; margin-top: 4px; }
+
+    .footer-cta {
+      padding: 150px 24px 140px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .footer-cta h2 {
+      font-size: clamp(34px, 5vw, 54px); font-weight: 700;
+      margin-bottom: 18px; letter-spacing: -1px;
+    }
+    .footer-cta p {
+      font-size: 18px; color: #86868b; margin-bottom: 40px;
+      max-width: 520px; margin-left: auto; margin-right: auto;
+    }
+    .footer-cta .store-row { opacity: 1; transform: none; }
+
+    .btn-web {
+      padding: 14px 32px; border-radius: 980px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      color: #f5f5f7; font-weight: 500; font-size: 16px;
+      display: inline-block; transition: background 0.3s, border-color 0.3s;
+    }
+    .btn-web:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.25); }
+
+    .footer {
+      padding: 40px 24px; text-align: center;
+      border-top: 0.5px solid rgba(255,255,255,0.06);
+      color: #86868b; font-size: 13px;
+    }
+    .footer a { color: #c9a96e; }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .sticky-container { grid-template-columns: 1fr; gap: 40px; }
+      .sticky-text { position: relative; top: 0; }
+      .feature-step { min-height: auto; }
+      .feature-steps { gap: 60px; padding: 40px 0; }
+      .stats-row { gap: 40px; padding: 60px 24px; }
+      .hero-phones .phone { width: 200px; }
+      .section { padding: 100px 20px; }
+      .section-full { padding: 100px 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .reveal-scale { opacity: 1; transform: none; transition: none; }
+      .hero-eyebrow, .hero-icon, .hero-title, .hero-sub, .store-row, .hero-phones {
+        opacity: 1 !important; transform: none !important;
+      }
+    }
+  </style>
+
+  {% include '_analytics.html' %}
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-content">
+    <a href="{{ home_url }}" class="nav-logo">E-Piṭaka</a>
+    <div class="nav-links">
+      <a href="#highlights">Features</a>
+      <a href="#commentaries">Commentaries</a>
+      <a href="#download">Download</a>
+      <a href="{{ base_url }}/en/download">Ebooks</a>
+    </div>
+    <a href="{{ home_url }}" class="nav-cta">Read Online</a>
+  </div>
+</nav>
+
+<div class="scroll-progress"><div class="scroll-progress-bar" id="progressBar"></div></div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="glow-orb" style="width:600px;height:600px;background:#c9a96e;top:-200px;left:30%;"></div>
+  <img class="hero-icon" id="heroIcon" src="/static/app-shots/app-icon.svg" alt="E-Piṭaka app icon" width="96" height="96">
+  <div class="hero-eyebrow" id="heroEyebrow">The native E-Piṭaka app</div>
+  <h1 class="hero-title" id="heroTitle">
+    The entire Canon.<br>
+    <span class="gold">On every device.</span>
+  </h1>
+  <p class="hero-sub" id="heroSub">
+    E-Piṭaka brings the whole Tipiṭaka — root text, commentaries and
+    translations — to a fast, beautifully simple app. Free and open source.
+  </p>
+  <div class="store-row" id="storeRow">
+    <a class="store-btn" href="https://apps.microsoft.com/detail/9nr3sjfr6cf9?hl=en-us&amp;gl=US" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5zM11.5 4.2 21 3v8.5h-9.5V4.2zM3 12.5h7.5v7.1L3 18.5v-6zM11.5 12.5H21V21l-9.5-1.3v-7.2z"/></svg>
+      Get it from Microsoft Store
+    </a>
+    <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.dn.epitaka" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.3 2.9c-.3.3-.4.8-.4 1.4v15.4c0 .6.2 1.1.5 1.4l.1.1 8.6-8.6v-1L4.4 2.8l-.1.1zM15.3 10.5l-2.2-2.2 2.2-2.2 3.9 2.2c1.1.6 1.1 1.7 0 2.4l-3.9 2.2-2.2-2.2-.8-.2zm0 0-3-2.1L4.5 2.9c.4-.2.9-.2 1.4.1l9.4 5.3-3 2.2zM12.3 15.6l-2.2-2.2-5.3 3-.1.1c.4.7 1.3.8 2.2.4l5.4-3.3z"/></svg>
+      Get it on Google Play
+    </a>
+  </div>
+  <div class="hero-phones" id="heroPhones">
+    <figure>
+      <img class="phone phone--tilt" src="/static/app-shots/reader-mobile.png" alt="E-Pitaka app on a phone — outline of a Vinaya book" loading="eager">
+      <figcaption class="phone-tag">The full library, on your phone</figcaption>
+    </figure>
+    <figure>
+      <img class="phone" src="/static/app-shots/mobile-heading-verified.png" alt="E-Pitaka reader showing Pali text with line-by-line English translation" loading="eager">
+      <figcaption class="phone-tag">Pali text with line-by-line translation</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ═══ STATS ═══ -->
+<div class="divider"></div>
+<div class="stats-row stagger-children">
+  <div class="stat-item reveal">
+    <div class="stat-num" data-target="1644" data-suffix="">0</div>
+    <div class="stat-label">Pali Books</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num" data-target="7" data-suffix="+">0</div>
+    <div class="stat-label">Scripts</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num" data-target="3" data-suffix="">0</div>
+    <div class="stat-label">Text Layers (M/A/Ṭ)</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num" data-target="100" data-suffix="%">0</div>
+    <div class="stat-label">Free &amp; Open Source</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- ═══ WHY THE APP ═══ -->
+<section class="section-full" id="commentaries" style="padding-top:160px;">
+  <div class="section-label reveal">Why native</div>
+  <h2 class="section-title reveal">Everything you love about the web,<br><span class="gold">only faster.</span></h2>
+  <p class="section-desc reveal">
+    The app is built on the same complete database as epitaka.org — so the
+    whole Canon, its commentaries and translations travel with you, even
+    without a connection.
+  </p>
+
+  <div class="sticky-container">
+    <div class="sticky-text">
+      <div class="feature-steps">
+        <div class="feature-step">
+          <div class="feature-step-content">
+            <h3>Instant, offline access</h3>
+            <p>The complete Chaṭṭha Saṅgāyana Tipiṭaka lives on your device. Open books in a tap and read on a plane, in a monastery, or off the grid.</p>
+          </div>
+        </div>
+        <div class="feature-step">
+          <div class="feature-step-content">
+            <h3>Root text with explanation</h3>
+            <p>Read each passage with its traditional commentary just a click away, exactly like the web reader — Mūla, Aṭṭhakathā and Ṭīkā stay in sync.</p>
+          </div>
+        </div>
+        <div class="feature-step">
+          <div class="feature-step-content">
+            <h3>Full-text search everywhere</h3>
+            <p>Search passages, headings and translations across all 1,644 books — locally and without waiting on a server round-trip.</p>
+          </div>
+        </div>
+        <div class="feature-step">
+          <div class="feature-step-content">
+            <h3>Comfortable by design</h3>
+            <p>Any Pali script, adjustable fonts and layouts, text-to-speech, tabbed reading and vim-style keyboard navigation — tuned for long sittings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="sticky-image reveal-scale">
+        <img src="/static/app-shots/reader-translations.png" alt="Desktop app showing Pali root text with inline translation and commentary">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES ═══ -->
+<section class="section-full" id="highlights" style="padding-top:120px;padding-bottom:120px;">
+  <div class="section-label reveal">Highlights</div>
+  <h2 class="section-title reveal">Made for <span class="gold">real study</span></h2>
+  <div style="height:54px"></div>
+  <div class="features-grid stagger-children">
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 19V6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v13"/><path d="M4 19a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2"/><path d="M8 8h5M8 12h5"/></svg></div>
+      <h4>Inline M / A / Ṭ</h4>
+      <p>Commentary (Aṭṭhakathā) and sub-commentary (Ṭīkā) linked inline to your exact position in the root text.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 12a8 8 0 0 1 8-8M16 4a8 8 0 0 1 4 6.9M20 12a8 8 0 0 1-8 8M8 20a8 8 0 0 1-4-6.9"/><path d="m9 9 3-3 3 3M9 15l3 3 3-3"/></svg></div>
+      <h4>Any Pali script</h4>
+      <p>Switch between Roman, Myanmar, Thai, Khmer, Lao, Sinhala and Devanagari instantly, paragraph by paragraph.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+      <h4>Powerful search</h4>
+      <p>Find any passage across Pali text, translations and headings — with an integrated Pali dictionary a tap away.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></div>
+      <h4>Text-to-Speech</h4>
+      <p>Listen while the reader follows along and auto-scrolls line by line with the spoken text.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h4>Tabbed reading</h4>
+      <p>Keep several books open at once in tabs, each remembering its own scroll position, script and settings.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M14 3v5h5"/><path d="M19 8v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7z"/><path d="M9 13h6M9 17h4"/></svg></div>
+      <h4>Ebook exports</h4>
+      <p>Prefer a PDF, EPUB or E-ink device? Every pack is also downloadable as ready-made ebooks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SEARCH SCREENSHOT ═══ -->
+<section class="section" style="padding-top:40px;padding-bottom:60px;">
+  <div class="screenshot-card reveal-scale">
+    <img src="/static/app-shots/search.png" alt="Full-text search across the Tipitaka">
+    <div class="screenshot-overlay">
+      <p>Search across the entire Pali Canon — Pali words, translations and headings — right on your device.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OUTLINE / STUDY GUIDE ═══ -->
+<section class="section" style="padding-top:60px;padding-bottom:120px;">
+  <div class="screenshot-card reveal-scale" style="max-width:900px;">
+    <img src="/static/app-shots/outline.png" alt="Section outline with AI study guides">
+    <div class="screenshot-overlay">
+      <p>Structured outlines with AI-generated study guides that synthesize root text, commentary and sub-commentary.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PLATFORMS ═══ -->
+<div class="divider"></div>
+<section class="section-full" id="download" style="padding-top:130px;padding-bottom:140px;">
+  <div class="section-label reveal">Availability</div>
+  <h2 class="section-title reveal">Download <span class="gold">E-Piṭaka</span></h2>
+  <p class="section-desc reveal">
+    Available now for Windows and Android. Everyone else — we are building it,
+    in the same calm spirit as the reading experience.
+  </p>
+
+  <div class="platforms-grid stagger-children">
+    <div class="platform-card available reveal">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" aria-label="Windows"><path fill="#f5f5f7" d="M3 5.5 10.5 4.4v7.1H3V5.5zM11.5 4.2 21 3v8.5h-9.5V4.2zM3 12.5h7.5v7.1L3 18.5v-6zM11.5 12.5H21V21l-9.5-1.3v-7.2z"/></svg>
+      </div>
+      <h4>Windows</h4>
+      <p>Windows 10 (17763.0) or later · x64</p>
+      <a class="store-btn" href="https://apps.microsoft.com/detail/9nr3sjfr6cf9?hl=en-us&amp;gl=US" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5zM11.5 4.2 21 3v8.5h-9.5V4.2zM3 12.5h7.5v7.1L3 18.5v-6zM11.5 12.5H21V21l-9.5-1.3v-7.2z"/></svg>
+        Microsoft Store
+      </a>
+    </div>
+
+    <div class="platform-card available reveal">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" aria-label="Android"><path fill="#c9a96e" d="M17.36 9.35c.5 0 .91.41.91.92v5.02c0 .51-.41.92-.91.92s-.91-.41-.91-.92v-5.02c0-.51.41-.92.91-.92zm-10.72 0c.5 0 .91.41.91.92v5.02c0 .51-.41.92-.91.92s-.91-.41-.91-.92v-5.02c0-.51.41-.92.91-.92zm.62-.6c0-2.79 2.16-5.06 4.83-5.06s4.83 2.27 4.83 5.06v.66H7.26v-.66zm3.53-3.93-.71-.86c-.07-.08-.05-.2.03-.26.08-.07.2-.05.26.03l.76.92c.41-.15.85-.24 1.32-.24s.91.09 1.32.24l.76-.92c.06-.08.18-.1.26-.03.08.06.1.18.03.26l-.71.86c1.21.71 2.03 2 2.03 3.5H7.26c0-1.5.82-2.79 2.03-3.5z"/><circle fill="#c9a96e" cx="10.6" cy="5.9" r=".55"/><circle fill="#c9a96e" cx="13.4" cy="5.9" r=".55"/></svg>
+      </div>
+      <h4>Android</h4>
+      <p>Android 6.0 or later · phones &amp; tablets</p>
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.dn.epitaka" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.3 2.9c-.3.3-.4.8-.4 1.4v15.4c0 .6.2 1.1.5 1.4l.1.1 8.6-8.6v-1L4.4 2.8l-.1.1zM15.3 10.5l-2.2-2.2 2.2-2.2 3.9 2.2c1.1.6 1.1 1.7 0 2.4l-3.9 2.2-2.2-2.2-.8-.2zm0 0-3-2.1L4.5 2.9c.4-.2.9-.2 1.4.1l9.4 5.3-3 2.2zM12.3 15.6l-2.2-2.2-5.3 3-.1.1c.4.7 1.3.8 2.2.4l5.4-3.3z"/></svg>
+        Google Play
+      </a>
+    </div>
+
+    <div class="platform-card soon reveal">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" aria-label="macOS"><g fill="none" stroke="#6e6e73" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="5" width="16" height="10" rx="1.6"/><path d="M2.5 18.5h19"/><path d="M10 15.4 8.6 18.5M14 15.4l1.4 3.1"/></g></svg>
+      </div>
+      <h4>macOS</h4>
+      <p>Mac, Apple silicon ready</p>
+      <span class="soon-badge">Coming soon</span>
+    </div>
+
+    <div class="platform-card soon reveal">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" aria-label="iOS"><rect x="6.5" y="2.5" width="11" height="19" rx="2.6" fill="none" stroke="#6e6e73" stroke-width="1.5"/><path d="M10.5 18.7h3" stroke="#6e6e73" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="#6e6e73" stroke-width="1.5"/></svg>
+      </div>
+      <h4>iOS</h4>
+      <p>iPhone &amp; iPad</p>
+      <span class="soon-badge">Coming soon</span>
+    </div>
+
+    <div class="platform-card soon reveal">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" aria-label="Linux"><rect x="3" y="4" width="18" height="16" rx="2.4" fill="none" stroke="#6e6e73" stroke-width="1.5"/><path d="m7 9.5 3 2.5-3 2.5" stroke="#6e6e73" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.5 15h4.5" stroke="#6e6e73" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <h4>Linux</h4>
+      <p>Deb, RPM &amp; Flatpak</p>
+      <span class="soon-badge">Coming soon</span>
+    </div>
+
+    <div class="platform-card soon reveal">
+      <div class="platform-icon">
+        <svg viewBox="0 0 24 24" aria-label="Ebooks"><path fill="none" stroke="#6e6e73" stroke-width="1.5" d="M12 6.5c-2-1.4-4.4-1.9-6.5-2h-.3v13h.3c2.1.1 4.5.6 6.5 2 2-1.4 4.4-1.9 6.5-2h.3v-13h-.3c-2.1.1-4.5.6-6.5 2Z"/><path d="M12 6.5v13" stroke="#6e6e73" stroke-width="1.5"/></svg>
+      </div>
+      <h4>Ebooks</h4>
+      <p>The app bundle as PDF &amp; EPUB</p>
+      <span class="soon-badge">Coming soon</span>
+    </div>
+  </div>
+
+  <p class="ebook-note reveal">
+    Can't wait for the ebook bundles? Plain <a href="{{ base_url }}/en/download" rel="nofollow">Tipitaka PDF, EPUB, DOCX &amp; Markdown packs</a> are already available — the same text the app reads today.
+  </p>
+</section>
+
+<!-- ═══ FOOTER CTA ═══ -->
+<section class="footer-cta">
+  <div class="glow-orb" style="width:500px;height:500px;background:#c9a96e;bottom:-200px;left:30%;"></div>
+  <div style="position:relative;z-index:1;">
+    <h2 class="reveal">Carry the Tipiṭaka<br>with <span class="gold">you</span></h2>
+    <p class="reveal" style="transition-delay:0.1s;">Free. Open source. For everyone.</p>
+    <div class="store-row reveal" style="transition-delay:0.2s;display:flex;position:relative;z-index:2;">
+      <a class="store-btn" href="https://apps.microsoft.com/detail/9nr3sjfr6cf9?hl=en-us&amp;gl=US" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5zM11.5 4.2 21 3v8.5h-9.5V4.2zM3 12.5h7.5v7.1L3 18.5v-6zM11.5 12.5H21V21l-9.5-1.3v-7.2z"/></svg>
+        Microsoft Store
+      </a>
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.dn.epitaka" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.3 2.9c-.3.3-.4.8-.4 1.4v15.4c0 .6.2 1.1.5 1.4l.1.1 8.6-8.6v-1L4.4 2.8l-.1.1zM15.3 10.5l-2.2-2.2 2.2-2.2 3.9 2.2c1.1.6 1.1 1.7 0 2.4l-3.9 2.2-2.2-2.2-.8-.2zm0 0-3-2.1L4.5 2.9c.4-.2.9-.2 1.4.1l9.4 5.3-3 2.2zM12.3 15.6l-2.2-2.2-5.3 3-.1.1c.4.7 1.3.8 2.2.4l5.4-3.3z"/></svg>
+        Google Play
+      </a>
+      <a class="btn-web" href="{{ home_url }}">Read in the Browser</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p style="margin-bottom:8px;">E-Piṭaka is open source. <a href="https://github.com/dhammanana/epitaka.org">Contributions welcome.</a></p>
+  <p>May all beings be happy. May all beings be free.</p>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── Hero entrance ─────────────────────────────────────────────
+  [{ el: document.getElementById('heroIcon'), delay: 120 },
+   { el: document.getElementById('heroEyebrow'), delay: 300 },
+   { el: document.getElementById('heroTitle'), delay: 560 },
+   { el: document.getElementById('heroSub'), delay: 820 },
+   { el: document.getElementById('storeRow'), delay: 1040 },
+   { el: document.getElementById('heroPhones'), delay: 1260 }].forEach(function(item) {
+    if (!item.el) return;
+    setTimeout(function() {
+      item.el.style.transition = 'opacity 1s cubic-bezier(0.25,0.46,0.45,0.94), transform 1s cubic-bezier(0.25,0.46,0.45,0.94)';
+      item.el.style.opacity = '1';
+      item.el.style.transform = 'translateY(0) scale(1)';
+    }, item.delay);
+  });
+
+  // ── Scroll reveal ─────────────────────────────────────────────
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal, .reveal-scale').forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  // ── Stats counters ────────────────────────────────────────────
+  var counterObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      var target = parseInt(el.dataset.target, 10);
+      var suffix = el.dataset.suffix || '';
+      if (!target) return;
+      var duration = 2000;
+      var start = performance.now();
+      (function step(now) {
+        var progress = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      })(performance.now());
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num[data-target]').forEach(function(el) {
+    counterObserver.observe(el);
+  });
+
+  // ── Scroll progress bar ───────────────────────────────────────
+  var progressBar = document.getElementById('progressBar');
+  window.addEventListener('scroll', function() {
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+  }, { passive: true });
+
+  // ── Sticky steps emphasis ─────────────────────────────────────
+  var stepObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      entry.target.style.opacity = entry.isIntersecting ? '1' : '0.3';
+    });
+  }, { threshold: 0.6, rootMargin: '-30% 0px -30% 0px' });
+  document.querySelectorAll('.feature-step-content').forEach(function(step) {
+    stepObserver.observe(step);
+  });
+
+  if (reduceMotion) {
+    document.querySelectorAll('.feature-step-content').forEach(function(step) {
+      step.style.opacity = '1';
+    });
+  }
+})();
+</script>
+</body>
+</html>

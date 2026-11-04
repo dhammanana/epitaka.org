@@ -1075,6 +1075,32 @@ def download_seo_description() -> str:
             'Tamil and Vietnamese. Fully offline.')
 
 
+def plain_excerpt(text: str, limit: int = 155) -> str:
+    """A plain-text excerpt for a meta description.
+
+    Used when a section has the AI-written summary but no one-line
+    description: the summary's opening is still unique prose about this
+    passage, which beats the generic constructed description. Cuts on a
+    sentence end when there is one, otherwise on a word.
+    """
+    import html as html_mod
+    import re as re_mod
+
+    plain = re_mod.sub(r'<[^>]+>', ' ', text or '')
+    plain = html_mod.unescape(plain)
+    plain = re_mod.sub(r'[#*_>`~]+', '', plain)
+    plain = ' '.join(plain.split())
+    if len(plain) <= limit:
+        return plain
+    cut = plain[:limit]
+    for sep in ('. ', '! ', '? '):
+        idx = cut.rfind(sep)
+        if idx > limit * 0.55:
+            return cut[:idx + 1]
+    idx = cut.rfind(' ')
+    return (cut[:idx] if idx > 0 else cut).rstrip(',;:') + '…'
+
+
 # ── Study-guide / outline pages ───────────────────────────────────────────
 # AI-generated study guides are English-only content, so these pages live at
 # /en/study/... and /en/book/.../outline and get their own unique titles,
@@ -1201,12 +1227,19 @@ def outline_seo_description(book_id: str, pali_name: str) -> str:
 
 def book_jsonld(book_id: str, pali_name: str, lang_code: str, page_url: str,
                 home_url: str, book_url: str | None = None,
-                section_path: list[dict] | None = None) -> dict:
+                section_path: list[dict] | None = None,
+                section_title: str | None = None,
+                section_summary: str | None = None) -> dict:
     """Book + BreadcrumbList schema for book and deep-section pages.
 
     `section_path` is a list of {'title', 'url'} from the book down to the
     active section; each becomes a BreadcrumbList item so crawlers see the
     full navigation path to the passage.
+
+    `section_summary` (the AI-written overview of the open section) is
+    emitted as a Chapter node with an `abstract`, so the passage itself — not
+    only the book that contains it — is described to search engines and AI
+    readers.
     """
     en = english_book_name(book_id)
     name = f'{en} ({pali_name})' if en and en.lower() != pali_name.lower() else pali_name
@@ -1222,7 +1255,7 @@ def book_jsonld(book_id: str, pali_name: str, lang_code: str, page_url: str,
             # Headings without their own page link back to the current page.
             crumb['item'] = item.get('url') or page_url
             breadcrumb.append(crumb)
-    graph = [
+    graph: list[dict] = [
         {
             '@type': 'Book',
             '@id': page_url + '#book',
@@ -1246,4 +1279,15 @@ def book_jsonld(book_id: str, pali_name: str, lang_code: str, page_url: str,
             'itemListElement': breadcrumb,
         },
     ]
+    if section_summary:
+        graph.append({
+            '@type': 'Chapter',
+            '@id': page_url + '#section',
+            'name': section_title
+                    or (section_path[-1]['title'] if section_path else name),
+            'abstract': section_summary,
+            'url': page_url,
+            'inLanguage': lang_code,
+            'isPartOf': {'@id': page_url + '#book'},
+        })
     return {'@context': 'https://schema.org', '@graph': graph}

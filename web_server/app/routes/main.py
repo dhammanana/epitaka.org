@@ -911,6 +911,25 @@ def canon(lang):
     return make_response(html)
 
 
+@bp.route("/epitaka-app")
+@bp.route("/epitaka-app/")
+def epitaka_app_page():
+    """Native app introduction page — available stores plus platforms that
+    are coming soon. English content, independent of the language prefix."""
+    page_url = seo.absolute("/epitaka-app")
+    home_url = seo.absolute(f"/{Config.DEFAULT_LANG}/")
+
+    html = render_template(
+        "epitaka_app.html",
+        canonical_url=page_url,
+        page_url=page_url,
+        home_url=home_url,
+        site_url=seo.site_base(),
+        base_url=Config.BASE_URL,
+    )
+    return make_response(html)
+
+
 @bp.route("/<lang>/download")
 def download(lang):
     """Ebook download page (PDF / EPUB / DOCX / Markdown packs published on
@@ -1374,10 +1393,14 @@ def book(lang, book_id, section_path=None):
         display_name=display_name,
     )
     # Prefer the AI-written description (unique, hand-checked prose) as the
-    # meta description; fall back to the constructed one when this section has
-    # no row yet, so pages without descriptions are unchanged.
+    # meta description. A section that has only the longer summary still gets
+    # a unique description: its opening sentence. Pages with neither keep the
+    # constructed one, so nothing is lost.
+    section_summary = (section_description or {}).get("summary") or ""
     if section_description and section_description.get("description"):
         meta_description = section_description["description"]
+    elif section_summary:
+        meta_description = seo.plain_excerpt(section_summary, 155)
     else:
         meta_description = seo.book_seo_description(
             book_id,
@@ -1400,6 +1423,10 @@ def book(lang, book_id, section_path=None):
         # book_jsonld already emits the book as breadcrumb position 2, so
         # hand it the headings only (drop the leading book element).
         section_path=(section_path[1:] if len(section_path) > 1 else None),
+        # The overview prose describes this passage, so it belongs on a
+        # Chapter node: a search/AI result can quote it under the title.
+        section_title=section_title,
+        section_summary=section_summary,
     )
 
     # Study-guide icons: which para_ids in this book have a summary, plus the

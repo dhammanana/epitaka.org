@@ -272,7 +272,8 @@ def write_pages_sitemap(langs: list[str], lastmod: str | None = None):
 
     # English-only site pages. Each is self-canonical and indexable, so list
     # it once with en + x-default alternates (no per-language variants exist).
-    for path, priority in (('/en/download', '0.8'),
+    for path, priority in (('/epitaka-app', '0.9'),
+                           ('/en/download', '0.8'),
                            ('/about', '0.5'),
                            ('/privacy', '0.3')):
         url = BASE_URL + path
@@ -291,7 +292,7 @@ def write_pages_sitemap(langs: list[str], lastmod: str | None = None):
     lines.append('</urlset>')
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
-    print(f'  ✓ {filename}: home + canon per language + download/about/privacy')
+    print(f'  ✓ {filename}: home + canon per language + app/download/about/privacy')
 
 
 def write_sitemap_index(sitemap_files: list[str]):

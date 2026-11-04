@@ -43,7 +43,7 @@ function injectShell() {
   <div class="auth-dialog auth-login-box">
     <button class="auth-dialog-close" data-close="auth-login-dialog" aria-label="Close">✕</button>
     <div class="auth-brand">📖</div>
-    <h2 id="auth-login-title" class="auth-dialog-title">Sign in to E-Piṭaka</h2>
+    <div id="auth-login-title" class="auth-dialog-title">Sign in to E-Piṭaka</div>
     <p class="auth-dialog-sub">Add notes and study alongside the community</p>
     <div class="auth-providers">
       <button id="btn-google"   class="auth-provider-btn" type="button">
@@ -74,7 +74,7 @@ function injectShell() {
 <div id="auth-profile-dialog" class="auth-backdrop" aria-modal="true" role="dialog" aria-labelledby="auth-profile-title">
   <div class="auth-dialog auth-profile-box">
     <button class="auth-dialog-close" data-close="auth-profile-dialog" aria-label="Close">✕</button>
-    <h2 id="auth-profile-title" class="auth-dialog-title">My Profile</h2>
+    <div id="auth-profile-title" class="auth-dialog-title">My Profile</div>
 
     <div class="auth-profile-hero">
       <div class="auth-profile-avatar" id="profile-avatar-wrap">

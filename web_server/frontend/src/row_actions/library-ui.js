@@ -25,7 +25,7 @@ function _injectShell() {
 <div id="lib-dialog" class="lib-backdrop" aria-modal="true" role="dialog" aria-label="My Library">
   <div class="lib-box">
     <div class="lib-header">
-      <h2 class="lib-title">My Library</h2>
+      <div class="lib-title">My Library</div>
       <button class="lib-close" data-close-lib aria-label="Close">✕</button>
     </div>
 

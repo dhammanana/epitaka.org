@@ -31,7 +31,7 @@
   <script type="application/ld+json">{{ book_jsonld | tojson }}</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&family=Noto+Serif+Tamil:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}?v={{ v }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}?v={{ v }}">
@@ -235,6 +235,10 @@
      top bar; JS reads .book-title for reading history, so it stays a span).
      Deep-section pages render the full breadcrumb path to the passage, with
      the section's translation in parentheses. ── #}
+  {# ── On a section page the open section's own title IS the H1 (rendered
+     below in the article, so it is visible text matching the page topic).
+     Only the book index page needs this hidden H1. ── #}
+  {% if not active_para_id %}
   <h1 class="seo-h1">
     {% if section_path %}
       {% for p in section_path %}{% if not loop.first %}<span class="seo-path-sep" aria-hidden="true">›</span>{% endif %}<span class="seo-path-item">{{ p.title }}</span>{% if p.translation %} <span class="pali-seo-name">({{ p.translation }})</span>{% endif %}{% endfor %}
@@ -246,6 +250,7 @@
       {% endif %}
     {% endif %}
   </h1>
+  {% endif %}
 
   <nav class="seo-breadcrumb" aria-label="Breadcrumb">
     <a href="{{ home_url }}">Home</a> <span aria-hidden="true">›</span>
@@ -277,26 +282,39 @@
       {% set section_url = base_url + '/' + lang + '/book/' + book_id + '/' + slug %}
       {% set is_active = active_para_id == item.para_id %}
 
+      {# ── Which tag the title gets ──
+         A real heading only where the title heads this page's own content:
+         the open section, or every row on the book index page (where the
+         list itself is the content). Collapsed rows for other sections are
+         navigation to their own pages, so they stay spans. ── #}
+      {% if is_active %}
+        {% set htag = 'h1' %}
+      {% elif not active_para_id %}
+        {% set htag = 'h2' if item.level <= 4 else 'h3' %}
+      {% else %}
+        {% set htag = 'span' %}
+      {% endif %}
+
       {% if item.has_content %}
         {# ── Heading has real content — clickable link ── #}
         <a href="{{ section_url }}" class="section-heading-link" data-level="{{ item.level }}">
-          <span class="section-heading-label">
+          <{{ htag }} class="section-heading-label">
             <span class="section-heading-text pali-text">{{ item.title }}</span>
             {% if is_active and heading_translation %}
             <span class="section-heading-translation">{{ heading_translation | safe }}</span>
             {% endif %}
-          </span>
+          </{{ htag }}>
           <span class="chevron" aria-hidden="true">▶</span>
         </a>
       {% else %}
-        {# ── Empty heading (no real content, e.g. parent-only) — not expandable ── #}
+        {# ── Empty heading (no real content, e.g. parent-only) — not expandable but still a real heading for outline structure ── #}
         <div class="section-heading-link section-heading-empty" data-level="{{ item.level }}">
-          <span class="section-heading-label">
+          <{{ htag }} class="section-heading-label">
             <span class="section-heading-text pali-text">{{ item.title }}</span>
             {% if heading_translation %}
             <span class="section-heading-translation">{{ heading_translation | safe }}</span>
             {% endif %}
-          </span>
+          </{{ htag }}>
         </div>
       {% endif %}
 
@@ -305,23 +323,31 @@
            {% if is_active and section_has_content %}aria-hidden="false"{% else %}aria-hidden="true"{% endif %}>
 
         {% if is_active and section_content %}
-          {# ── AI-written section description (translator/description_builder.py)
-             The short line doubles as the page's meta description; the long
-             summary is available on demand so the section stays easy to scan. ── #}
-          {% if section_description and section_description.description %}
-          <div class="section-description">
-            <p class="section-description-short">{{ section_description.description }}</p>
-            {% if section_description.summary %}
-            <details class="section-summary">
-              <summary>Read a longer summary of this section</summary>
-              <div class="section-summary-body">
-                {% for para in section_description.summary.split('\n\n') %}
-                {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
-                {% endfor %}
-              </div>
-            </details>
+          {# ── Section overview (translator/description_builder.py)
+             The AI-written description and summary open the section, so a
+             reader gets the gist before the text and a crawler or AI reads
+             the whole overview straight from the HTML. Both are printed in
+             full — the folding is added by script, never by withholding the
+             text (see the overview script at the end of the page). ── #}
+          {% set overview_description = section_description.get('description', '') if section_description else '' %}
+          {% set overview_summary = section_description.get('summary', '') if section_description else '' %}
+          {% if overview_description or overview_summary %}
+          <section class="section-overview" aria-label="Overview of this section">
+            <h3 class="section-overview-heading">Overview of this section</h3>
+            <p class="section-overview-lead">{{ overview_description }}</p>
+            {% if overview_summary %}
+            <div class="section-overview-body" id="section-overview-body">
+              {% for para in overview_summary.split('\n\n') %}
+              {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+              {% endfor %}
+            </div>
+            <button type="button" class="section-overview-toggle"
+                    id="section-overview-toggle" aria-expanded="true"
+                    aria-controls="section-overview-body" hidden>
+              Show the full summary
+            </button>
             {% endif %}
-          </div>
+          </section>
           {% endif %}
 
           {# ── Inline outline of this section's numbered items ── #}
@@ -898,6 +924,33 @@
        A small dismissible banner (Android only for now) invites readers
        to install/open the native app. Injected & styled by app-banner.js
        from the book bundle — see APP_STORES there to add platforms. -->
+
+<script>
+  // ── Section overview ──────────────────────────────────────────────────
+  // The description and summary are printed in full above the section text
+  // (readable by people, crawlers and AI). A long summary is folded only
+  // here, after it has been rendered, so the whole text is always in the
+  // HTML; a short one is left exactly as it is.
+  (function () {
+    const body = document.getElementById('section-overview-body');
+    const toggle = document.getElementById('section-overview-toggle');
+    const card = document.querySelector('.section-overview');
+    if (!body || !toggle || !card) return;
+    const LIMIT = 360; // px of summary shown before the fold appears
+    if (body.scrollHeight <= LIMIT + 40) return;
+    card.classList.add('is-collapsible');
+    body.classList.add('is-collapsed');
+    body.style.maxHeight = LIMIT + 'px';
+    toggle.hidden = false;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.addEventListener('click', () => {
+      const collapsed = body.classList.toggle('is-collapsed');
+      body.style.maxHeight = collapsed ? LIMIT + 'px' : '';
+      toggle.setAttribute('aria-expanded', String(!collapsed));
+      toggle.textContent = collapsed ? 'Show the full summary' : 'Show less';
+    });
+  })();
+</script>
 
 </body>
 </html>

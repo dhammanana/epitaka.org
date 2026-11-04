@@ -96,6 +96,7 @@ body[script="gj"] .pali-text { font-family: 'gujarati'; }
 body[script="te"] .pali-text { font-family: 'telugu'; }
 body[script="ka"] .pali-text { font-family: 'kannada'; }
 body[script="mm"] .pali-text { font-family: 'malayalam'; }
+body[script="ta"] .pali-text { font-family: 'Noto Serif Tamil', 'Noto Sans Tamil', 'Latha', sans-serif; }
 body[script="br"] .pali-text { font-family: 'brahmi'; }
 body[script="tb"] .pali-text { font-family: 'tibetan'; }
 body[script="cy"] .pali-text { font-family: 'cyrillic'; }

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="E-Pitaka app icon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1611"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8d5a3"/>
+      <stop offset="0.45" stop-color="#c9a96e"/>
+      <stop offset="1" stop-color="#a07840"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="1" y="1" width="510" height="510" rx="111" fill="none" stroke="url(#gold)" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- Three text layers: Mūla, Aṭṭhakathā, Ṭīkā -->
+  <g fill="url(#gold)">
+    <rect x="120" y="132" width="272" height="52" rx="26"/>
+    <rect x="150" y="230" width="212" height="52" rx="26" opacity="0.85"/>
+    <rect x="180" y="328" width="152" height="52" rx="26" opacity="0.7"/>
+  </g>
+
+  <!-- Layer arrows (cross-reference) -->
+  <g stroke="#e8d5a3" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.55">
+    <path d="M 150 178 L 166 216"/>
+    <path d="M 368 274 L 356 312"/>
+  </g>
+</svg>

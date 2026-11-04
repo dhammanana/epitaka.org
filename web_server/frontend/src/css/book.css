@@ -439,6 +439,24 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   align-self: center;
 }
 
+/* Section titles are real heading tags (h2/h3) so crawlers, AI readers and
+   screen readers get the document outline; strip the browser's default
+   heading styling so the reader layout is unchanged. */
+.section-heading-link > h1,
+.section-heading-link > h2,
+.section-heading-link > h3,
+.section-heading-empty > h1,
+.section-heading-empty > h2,
+.section-heading-empty > h3 {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
 .section-heading-text {
   font-family: var(--font-serif);
   line-height: 1.4;
@@ -552,45 +570,79 @@ body  { font-family: var(--font-sans); background: var(--bg); color: var(--text)
   display: block;
 }
 
-/* ── AI section description (translator/description_builder.py) ── */
-.section-description {
-  margin: 0.1rem 0.9rem 0.9rem;
-  padding: 0.7rem 0.9rem;
+/* ── Section overview: AI description + summary at the top of a section
+   (translator/description_builder.py). The card is meant to be read before
+   the passage: a small label, the one-sentence description as the lead, then
+   the summary — and only a long summary is folded, by script. ── */
+.section-overview {
+  margin: 0.1rem 0.9rem 1.1rem;
+  padding: 0.9rem 1.05rem 0.95rem;
   background: var(--accent-light);
   border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
   border-radius: var(--radius);
 }
-.section-description-short {
-  font-size: 0.92rem;
-  line-height: 1.55;
-  color: var(--text);
+.section-overview-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+/* Heading for the AI overview (h3 under the section title); the same look as
+   the old uppercase label, with the browser's heading margins removed. */
+.section-overview-heading {
+  margin: 0 0 0.45rem;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.section-overview-lead {
   margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.55;
+  font-weight: 500;
+  color: var(--text);
 }
-.section-summary {
-  margin-top: 0.5rem;
+.section-overview-body {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
   border-top: 1px solid var(--border);
-  padding-top: 0.45rem;
+  font-size: 0.89rem;
+  line-height: 1.62;
+  color: var(--text-secondary, var(--text));
 }
-.section-summary > summary {
-  cursor: pointer;
+.section-overview-body p { margin: 0 0 0.65rem; }
+.section-overview-body p:last-child { margin-bottom: 0; }
+/* Added by the page script only when the summary is long; without script the
+   whole summary simply stays visible. */
+.section-overview.is-collapsible .section-overview-body.is-collapsed {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+}
+.section-overview-toggle {
+  display: block;
+  margin-top: 0.65rem;
+  padding: 0.32rem 0.7rem;
+  font: inherit;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--accent);
-  list-style: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
 }
-.section-summary > summary::-webkit-details-marker { display: none; }
-.section-summary > summary::before { content: "▸ "; }
-.section-summary[open] > summary::before { content: "▾ "; }
-.section-summary > summary:hover { text-decoration: underline; }
-.section-summary-body {
-  margin-top: 0.5rem;
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: var(--text-secondary, var(--text));
-}
-.section-summary-body p { margin: 0 0 0.6rem; }
-.section-summary-body p:last-child { margin-bottom: 0; }
+.section-overview-toggle:hover { background: var(--bg); }
+/* The button stays hidden until the script decides the summary is long; the
+   rule above would otherwise beat the browser's own [hidden] styling. */
+.section-overview-toggle[hidden] { display: none; }
 
 /* ── Inline section outline (at the top of each open section) ── */
 .section-outline {
