@@ -302,12 +302,13 @@ def _text_colors(
     """
     probe = (box[0] - pad, box[1] - pad, box[2] + pad, box[3] + pad)
     brightness = _region_luma(canvas, probe)
-    if brightness >= 150:
-        _soft_scrim(canvas, probe, palette["card"], int(min(170, 46 + (brightness - 150) * 0.9)))
+    if brightness >= 138:
+        # Dark ink needs no panel on a light photo; a faint wash calms texture.
+        _soft_scrim(canvas, probe, palette["card"], int(max(0, min(90, (176 - brightness) * 0.8))))
         return _colors(palette, on_card=True)
     floor = _luma(palette["band"])
-    if brightness > 96:
-        alpha = int(min(220, (brightness - 96) / max(1.0, brightness - floor) * 268))
+    if brightness > 92:
+        alpha = int(min(224, (brightness - 92) / max(1.0, brightness - floor) * 285))
         _soft_scrim(canvas, probe, palette["band"], alpha)
     return _colors(palette)
 
@@ -335,14 +336,9 @@ def _prepare_background(background: Image.Image, layout: str, palette: dict) -> 
         background.convert("RGB"), CARD_SIZE, method=Image.Resampling.LANCZOS
     ).convert("RGBA")
     if layout == "lower-panel":
-        canvas = Image.alpha_composite(
-            canvas, _vertical_fade(CARD_SIZE, palette["band"], 360, 92, 238)
-        )
+        canvas = Image.alpha_composite(canvas, _vertical_fade(CARD_SIZE, palette["band"], 200, 0, 70))
     elif layout == "centered-quote":
-        canvas = Image.alpha_composite(canvas, _solid(CARD_SIZE, palette["band"], 116))
-        canvas = Image.alpha_composite(
-            canvas, _vertical_fade(CARD_SIZE, palette["band"], 640, 0, 150)
-        )
+        canvas = Image.alpha_composite(canvas, _solid(CARD_SIZE, palette["band"], 40))
     elif layout == "paper-card":
         canvas = Image.alpha_composite(canvas, _solid(CARD_SIZE, palette["band"], 45))
     else:  # split-band
@@ -354,8 +350,10 @@ def _draw_lower_panel(canvas: Image.Image, specs: list[TextSpec], palette: dict)
     draw = ImageDraw.Draw(canvas)
     width = CARD_SIZE[0] - 2 * MARGIN
     blocks, total = _plan_text(draw, specs, width, 780)
-    top = 470 + max(0, (790 - total) // 2)
-    colors = _text_colors(canvas, (MARGIN, top, CARD_SIZE[0] - MARGIN, top + total), palette)
+    top = max(400, CARD_SIZE[1] - 96 - total)
+    colors = _text_colors(
+        canvas, (MARGIN, top, CARD_SIZE[0] - MARGIN, CARD_SIZE[1] - 96), palette, pad=56
+    )
     _draw_blocks(ImageDraw.Draw(canvas), blocks, (MARGIN, top, width), colors)
 
 
@@ -364,7 +362,7 @@ def _draw_centered_quote(canvas: Image.Image, specs: list[TextSpec], palette: di
     width = CARD_SIZE[0] - 2 * 165
     blocks, total = _plan_text(draw, specs, width, 780)
     top = 350 + max(0, (780 - total) // 2)
-    colors = _text_colors(canvas, (165, 175, CARD_SIZE[0] - 165, top + total), palette)
+    colors = _text_colors(canvas, (165, 175, CARD_SIZE[0] - 165, top + total), palette, pad=56)
 
     draw = ImageDraw.Draw(canvas)
     glyph = load_font(150, "serif_bold")

@@ -209,6 +209,8 @@ def run(args: argparse.Namespace) -> int:
                 post["facebook_photo_id"] = result.get("id")
                 post["facebook_post_id"] = result.get("post_id")
                 save_json(paths.meta, post)
+            elif not args.sample:
+                LOGGER.info("Not published: saved only. Pass --post-facebook to publish.")
 
             if not args.sample:
                 history = append_history(record_for(plan, post, when, str(paths.image)))
