@@ -30,3 +30,6 @@ chroma_pali_db
 # Generated sitemaps - built on server only via web_server/scripts/build_sitemap.py
 web_server/sitemap.xml
 web_server/sitemaps/
+
+# Dhamma publisher local state
+web_server/scripts/state/
