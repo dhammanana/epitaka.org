@@ -32,7 +32,7 @@ from dhamma.content import (  # noqa: E402
     offline_content,
 )
 from dhamma.corpus import EpitakaCorpus  # noqa: E402
-from dhamma.facebook import publish_facebook_photo  # noqa: E402
+from dhamma.facebook import FacebookAuthError, publish_facebook_photo  # noqa: E402
 from dhamma.render import painted_background, render_card  # noqa: E402
 from dhamma.scenarios import (  # noqa: E402
     FORMATS,
@@ -224,6 +224,11 @@ def main(argv: list[str] | None = None) -> int:
     setup_logging()
     try:
         return run(args)
+    except FacebookAuthError as exc:
+        # A stale token needs a one-line fix, not a traceback in the cron log.
+        LOGGER.error("FAILED: %s", exc)
+        print(f"\nERROR: {exc}", file=sys.stderr)
+        return 1
     except Exception as exc:  # noqa: BLE001 - top-level guard for cron
         logging.exception("FAILED: %s", exc)
         print(f"\nERROR: {exc}", file=sys.stderr)

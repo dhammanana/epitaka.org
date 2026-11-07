@@ -15,6 +15,35 @@ from .config import setting
 
 LOGGER = logging.getLogger(__name__)
 
+AUTH_ERROR_CODES = {102, 190}
+
+
+class FacebookAuthError(RuntimeError):
+    """The Page access token is missing, expired, or lacks permission."""
+
+
+def _error_payload(detail: str) -> dict:
+    try:
+        payload = json.loads(detail)
+    except ValueError:
+        return {}
+    error = payload.get("error") if isinstance(payload, dict) else None
+    return error if isinstance(error, dict) else {}
+
+
+def _is_auth_error(detail: str) -> bool:
+    error = _error_payload(detail)
+    return error.get("code") in AUTH_ERROR_CODES or error.get("type") == "OAuthException"
+
+
+def _auth_message(detail: str) -> str:
+    reason = _error_payload(detail).get("message") or detail[:300]
+    return (
+        f"Facebook rejected FACEBOOK_PAGE_ACCESS_TOKEN: {reason} "
+        "Generate a new long-lived Page access token, update it in web_server/.env, "
+        "and rerun (steps: scripts/dhamma/README.md, 'Refreshing the Page access token')."
+    )
+
 
 def publish_facebook_photo(image_path: Path, caption: str) -> dict:
     page_id = setting("FACEBOOK_PAGE_ID")
@@ -22,7 +51,7 @@ def publish_facebook_photo(image_path: Path, caption: str) -> dict:
     api_version = setting("FACEBOOK_GRAPH_API_VERSION", "v26.0")
 
     if not page_id or not access_token:
-        raise RuntimeError("Missing FACEBOOK_PAGE_ID or FACEBOOK_PAGE_ACCESS_TOKEN in .env")
+        raise FacebookAuthError("Missing FACEBOOK_PAGE_ID or FACEBOOK_PAGE_ACCESS_TOKEN in .env")
 
     image_path = Path(image_path)
     if not image_path.is_file():
@@ -69,6 +98,8 @@ def publish_facebook_photo(image_path: Path, caption: str) -> dict:
             result = json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
         detail = exc.read().decode("utf-8", errors="replace")
+        if _is_auth_error(detail):
+            raise FacebookAuthError(_auth_message(detail)) from exc
         raise RuntimeError(f"Facebook API error HTTP {exc.code}: {detail[:1200]}") from exc
     except urllib.error.URLError as exc:
         raise RuntimeError(f"Facebook network error: {exc.reason}") from exc

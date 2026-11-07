@@ -51,6 +51,49 @@ cp .env.example .env      # or edit the existing .env
 | `EPITAKA_TRANSLATION_LANG` | optional, default `en` |
 | `FONT_PATH` / `FONT_PATH_BOLD` | optional TTF overrides for Pāli diacritics |
 
+## Refreshing the Page access token
+
+`FACEBOOK_PAGE_ACCESS_TOKEN` must be a **long-lived Page token**. A token
+derived from a short-lived user token dies within hours, and publishing then
+fails with `HTTP 400 … code 190, subcode 463: Session has expired`. A Page
+token derived from a long-lived user token does not expire (it is only
+invalidated if the password changes, the app is removed, or permissions
+change).
+
+1. Open <https://developers.facebook.com/tools/explorer>, pick the app, and
+   **Get User Access Token** with `pages_show_list`, `pages_read_engagement`
+   and `pages_manage_posts`. Copy that short-lived token.
+2. Exchange it for a long-lived user token (needs the app's id and secret):
+
+   ```bash
+   curl -s "https://graph.facebook.com/v26.0/oauth/access_token?grant_type=fb_exchange_token&client_id=$APP_ID&client_secret=$APP_SECRET&fb_exchange_token=$SHORT_TOKEN"
+   ```
+
+3. Read the Page token from that long-lived user token:
+
+   ```bash
+   curl -s "https://graph.facebook.com/v26.0/me/accounts?access_token=$LONG_USER_TOKEN"
+   ```
+
+   Put the `access_token` of the page (not the user token) in `.env`:
+
+   ```
+   FACEBOOK_PAGE_ID=…
+   FACEBOOK_PAGE_ACCESS_TOKEN=…
+   ```
+
+4. Verify without publishing anything (prints the page name, or an OAuth
+   error):
+
+   ```bash
+   set -a; . web_server/.env; set +a
+   curl -s "https://graph.facebook.com/v26.0/${FACEBOOK_PAGE_ID}?fields=name,id&access_token=${FACEBOOK_PAGE_ACCESS_TOKEN}"
+   ```
+
+5. Optional: paste the token into
+   <https://developers.facebook.com/tools/debug/accesstoken> — a Page token
+   from a long-lived user token shows `Expires: Never`.
+
 ## Commands
 
 ```bash
@@ -136,8 +179,12 @@ tags, source reference, scenario, format, layout, palette and image prompt.
 ## Scheduling
 
 ```cron
-15 6,19 * * * cd /srv/epitaka.org/web_server/scripts && .venv/bin/python dhamma_publisher.py --post-facebook >> logs/cron.log 2>&1
+15 6,19 * * * /home/deploy/apps/epitaka/web_server/scripts/run_dhamma_publisher.sh --post-facebook >> /home/deploy/apps/epitaka/web_server/scripts/logs/cron.log 2>&1
 ```
+
+`run_dhamma_publisher.sh` picks whichever virtualenv has Pillow installed
+(`web_server/env`, `web_server/venv`, …), runs from `scripts/`, and forwards
+its arguments, so the cron line does not depend on the venv's name.
 
 Set the server timezone (for example `Asia/Ho_Chi_Minh`) or convert the schedule.
 Review one or two `--sample` cards before enabling `--post-facebook`.
