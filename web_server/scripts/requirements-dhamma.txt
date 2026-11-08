@@ -1,2 +1,4 @@
 Pillow>=10.0,<13
 certifi>=2024.2.2
+# Only used when the system has no ffmpeg: supplies a static binary for reels.
+imageio-ffmpeg>=0.6,<0.7

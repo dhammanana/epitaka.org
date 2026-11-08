@@ -13,6 +13,9 @@
  */
 
 import './css/editor.css';
+import { TextProcessor, Script } from './pali-script.js';
+import { transliterateElement } from './pali-text.js';
+import { getScriptForLang } from './settings.js';
 
 const { baseUrl } = window.EDITOR_CONFIG;
 
@@ -48,6 +51,13 @@ const state = {
 };
 
 const root = document.getElementById('editor-root');
+
+// Mirror the reader's automatic language → Pāli script behaviour: the script
+// is derived from the translation language being edited (used by the CSS
+// body[script=…] font hooks).
+function applyEditorScript() {
+  document.body?.setAttribute('script', getScriptForLang(state.currentLang));
+}
 
 // ── Escape / utils ────────────────────────────────────────────
 // Escapes quotes too so the value is safe inside HTML attributes
@@ -269,6 +279,7 @@ async function bootWorkspace() {
   const data = await api('/editor/api/languages');
   state.langs = data.languages;
   state.currentLang = state.langs[0]?.code || null;
+  applyEditorScript();
   if (state.currentLang) await loadBooks();
   renderShell();
 }
@@ -332,6 +343,7 @@ function renderWorkspace() {
     chip.addEventListener('click', async () => {
       if (chip.dataset.lang === state.currentLang) return;
       state.currentLang = chip.dataset.lang;
+      applyEditorScript();
       await loadBooks();
       renderWorkspace();
     });
@@ -495,6 +507,8 @@ function renderGlossary() {
   el.querySelectorAll('.ed-gloss-term').forEach(btn => {
     btn.addEventListener('click', () => showLookup(btn.dataset.word, btn));
   });
+  const script = getScriptForLang(state.currentLang);
+  el.querySelectorAll('.ed-gloss-term-pali').forEach(span => transliterateElement(span, script));
 }
 
 function escRegex(s = '') {
@@ -665,6 +679,11 @@ function renderLines() {
       showLookup(word, ev.target);
     });
   });
+
+  // Show the Pāli lines in the script matching the edited language
+  // (runs after glossary highlighting so the matched terms survive conversion).
+  const script = getScriptForLang(state.currentLang);
+  el.querySelectorAll('.ed-line-pali').forEach(div => transliterateElement(div, script));
 
   el.querySelectorAll('.ed-edit-box').forEach(box => {
     const line = box.closest('.ed-line');
@@ -890,6 +909,12 @@ function renderReviewList() {
       else state.selectedReview.delete(key);
     });
   });
+
+  // Review items can mix languages; transliterate each Pāli row by its own.
+  el.querySelectorAll('.ed-rv-item').forEach(item => {
+    const lang = item.querySelector('.rv-cb')?.dataset.lang || state.currentLang;
+    item.querySelectorAll('.ed-rv-pali').forEach(div => transliterateElement(div, getScriptForLang(lang)));
+  });
 }
 
 function showReviewMsg(text) {
@@ -926,6 +951,12 @@ document.addEventListener('keydown', ev => {
 async function showLookup(word, anchor) {
   hideLookup();
   if (!word) return;
+  // The dictionary is indexed in Roman: normalise whatever the selected Pāli
+  // script (or a glossary term) gave us — Sinhala/Hangul/… → Sinhala → Roman.
+  try {
+    const sinhala = TextProcessor.convertFromMixed(word);
+    word = TextProcessor.convert(sinhala, Script.RO).trim() || word;
+  } catch { /* keep the raw word */ }
   const pop = document.createElement('div');
   pop.className = 'ed-lookup-pop';
   pop.innerHTML = `

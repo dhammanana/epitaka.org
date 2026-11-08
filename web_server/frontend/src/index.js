@@ -15,7 +15,9 @@ import './css/index.css';
 import './css/common.css';
 import { initHomeDialog } from './home-dialog/home-dialog.js';
 import { initSidebar } from './sidebar.js';
-import { applyTheme, onLanguageSelect, loadSettings, applySettings } from './settings.js';
+import { applyTheme, onLanguageSelect, loadSettings, applySettings, saveSettings,
+         populateSettingsForm, readSettingsForm, buildScriptOptions,
+         setThemePreference } from './settings.js';
 import { applyPaliScript } from './pali-text.js';
 
 // ── Config injected from index.html via Flask ──────────────────
@@ -100,6 +102,8 @@ async function init() {
     });
   });
 
+  _bindSettingsModal();
+
   // ── Disclaimer logic ───────────────────────────────────────────
 
   function dismissDisclaimer(savePref) {
@@ -133,6 +137,56 @@ async function init() {
       dismissDisclaimer(false);
     }
   });
+}
+
+// ══════════════════════════════════════════════════════════════
+// Settings modal (same behaviour as the book page ⋯ button:
+// mobile opens the ⋯ dropdown, desktop opens the settings modal;
+// the ⚙ item inside the dropdown always opens the modal)
+// ══════════════════════════════════════════════════════════════
+
+function _openSettingsModal() {
+  const s = loadSettings();
+  populateSettingsForm(s);
+  buildScriptOptions(document.getElementById('pali-script-select'), s.paliScript);
+  document.getElementById('settings-modal')?.classList.add('show');
+}
+
+function _bindSettingsModal() {
+  const settingsModal = document.getElementById('settings-modal');
+  const settingsForm  = document.getElementById('settings-form');
+  if (!settingsModal || !settingsForm) return;
+
+  settingsModal.querySelector('#settings-cancel')?.addEventListener('click',
+    () => settingsModal.classList.remove('show'));
+  document.getElementById('settings-cancel-2')?.addEventListener('click',
+    () => settingsModal.classList.remove('show'));
+  settingsModal.addEventListener('click', e => {
+    if (e.target === settingsModal) settingsModal.classList.remove('show');
+  });
+
+  settingsForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const s = readSettingsForm();
+    s.scriptManuallySet = true;  // user explicitly chose a script
+    saveSettings(s);
+    setThemePreference(s.theme);
+    applySettings(s);
+    applyPaliScript(s.paliScript);
+    settingsModal.classList.remove('show');
+  });
+
+  // Credits modal (opened from the settings footer)
+  const creditsModal = document.getElementById('credits-modal');
+  if (creditsModal) {
+    document.getElementById('open-credits-btn')?.addEventListener('click',
+      () => creditsModal.classList.add('show'));
+    document.getElementById('close-credits-btn')?.addEventListener('click',
+      () => creditsModal.classList.remove('show'));
+    creditsModal.addEventListener('click', e => {
+      if (e.target === creditsModal) creditsModal.classList.remove('show');
+    });
+  }
 }
 
 /**
@@ -186,9 +240,24 @@ function _bindTopbar() {
   if (moreToggle && moreMenu) {
     moreToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      const expanded = moreToggle.getAttribute('aria-expanded') === 'true';
-      moreToggle.setAttribute('aria-expanded', String(!expanded));
-      moreMenu.classList.toggle('open');
+      // Same as the book page: mobile toggles the dropdown, desktop opens
+      // the settings modal directly.
+      if (window.innerWidth < 768) {
+        const expanded = moreToggle.getAttribute('aria-expanded') === 'true';
+        moreToggle.setAttribute('aria-expanded', String(!expanded));
+        moreMenu.classList.toggle('open');
+      } else {
+        moreToggle.setAttribute('aria-expanded', 'false');
+        moreMenu.classList.remove('open');
+        _openSettingsModal();
+      }
+    });
+    // ⚙ Settings item inside the (mobile) dropdown
+    moreMenu.querySelector('.topbar-more__settings')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      moreMenu.classList.remove('open');
+      moreToggle.setAttribute('aria-expanded', 'false');
+      _openSettingsModal();
     });
   }
 

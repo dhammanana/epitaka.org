@@ -107,6 +107,9 @@
             <a href="{{ base_url }}/about" class="topbar-more__item topbar-more__link"
                role="menuitem">ℹ️ About</a>
           </li>
+          <li role="none">
+            <button class="topbar-more__item topbar-more__settings" role="menuitem">⚙ Settings</button>
+          </li>
         </ul>
       </div>
     </div>
@@ -244,6 +247,162 @@
       </div>
     </div>
 
+  </div>
+
+  <!-- SETTINGS MODAL (same reader settings as the book page) -->
+  <div id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        {# Not a real heading (<div>) so Google doesn't index "Settings" as a
+           page heading — it's reader UI chrome, not content. #}
+        <div id="settings-title" class="modal-header-title">⚙️ Settings</div>
+        <button type="button" class="modal-close-x" id="settings-cancel" aria-label="Close">✕</button>
+      </div>
+
+      <form id="settings-form" novalidate>
+        <div class="modal-scroll">
+
+          <!-- ── DISPLAY ── -->
+          <div class="modal-section">
+            <div class="modal-section-title">Display</div>
+
+            <div class="modal-field">
+              <label class="field-label" for="theme-select">Theme</label>
+              <select id="theme-select" class="script-select">
+                <option value="system">System default</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </div>
+
+            <div class="modal-field">
+              <label class="field-label">Languages</label>
+              <div class="lang-check-group">
+                <label class="lang-chip-toggle"><input type="checkbox" id="cb-pali"        name="pali">        Pāli</label>
+                <label class="lang-chip-toggle"><input type="checkbox" id="cb-translation" name="translation"> Translation</label>
+              </div>
+            </div>
+
+            <div class="modal-field">
+              <label class="field-label">Layout</label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="layout" value="stacked">    Stacked</label>
+                <label class="radio-label"><input type="radio" name="layout" value="sidebyside"> Side by side</label>
+              </div>
+            </div>
+
+            <div class="modal-field">
+              <label class="check-label">
+                <input type="checkbox" id="cb-load-attha" name="load_attha">
+                Show cross-book links
+              </label>
+            </div>
+
+            <div class="modal-field">
+              <label class="field-label" for="page-system-select">Page numbers</label>
+              <select id="page-system-select" class="script-select">
+                <option value="vri">VRI edition</option>
+                <option value="pts">PTS edition</option>
+                <option value="myanmar">Myanmar edition</option>
+                <option value="thai">Thai edition</option>
+                <option value="none">Hide</option>
+              </select>
+            </div>
+
+            <div class="modal-field">
+              <label class="field-label">
+                Font size &nbsp;<span id="font-size-label" style="color:var(--accent);font-weight:600;">16px</span>
+              </label>
+              <div class="font-size-row">
+                <span style="font-size:0.78rem;color:var(--muted);">A</span>
+                <input type="range" id="range-font-size" min="10" max="32" step="1" value="16"
+                       oninput="document.getElementById('font-size-label').textContent = this.value + 'px'">
+                <span style="font-size:1.18rem;color:var(--muted);">A</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── PĀLI SCRIPT ── -->
+          <div class="modal-section">
+            <div class="modal-section-title">Pāli Script</div>
+            <div class="modal-field">
+              <select id="pali-script-select" class="script-select"></select>
+            </div>
+          </div>
+
+          <!-- ── COLORS ── -->
+          <div class="modal-section">
+            <div class="modal-section-title">Colors</div>
+            <div class="color-row"><span>Pāli text</span>    <input type="color" id="color-pali" value="#7c2d12"></div>
+            <div class="color-row"><span>Translation</span>  <input type="color" id="color-trans"  value="#1e3a5f"></div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-credits" id="open-credits-btn">ℹ️ Credits</button>
+          <div class="modal-actions">
+            <button type="button" class="btn" id="settings-cancel-2">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CREDITS MODAL -->
+  <div id="credits-modal" role="dialog" aria-modal="true" aria-label="Credits">
+    <div class="credits-box">
+      {# Not a real heading (<div>) so Google doesn't index it as a heading. #}
+      <div class="credits-box-title">📖 Credits &amp; Acknowledgements</div>
+
+      <div class="credit-item">
+        <span class="ci-icon">📜</span>
+        <span>Translation supported by Myanmar Nissaya texts, digitalized by
+          <a href="https://wikipali.org" target="_blank" rel="noopener">wikipali.org</a>
+        </span>
+      </div>
+
+      <div class="credit-item">
+        <span class="ci-icon">🔤</span>
+        <span>Font &amp; Pāli converter script from
+          <a href="https://github.com/pathnirvana/" target="_blank" rel="noopener">github.com/pathnirvana</a>
+        </span>
+      </div>
+
+      <div class="credit-item">
+        <span class="ci-icon">📚</span>
+        <span>Digital Pāli Dictionary —
+          <a href="https://github.com/digitalpalidictionary/dpd-db" target="_blank" rel="noopener">github.com/digitalpalidictionary/dpd-db</a>
+        </span>
+      </div>
+
+      <div class="credit-item">
+        <span class="ci-icon">📋</span>
+        <span>Dictionary tables from TPR —
+          <a href="https://github.com/bksubhuti/tipitaka-pali-reader" target="_blank" rel="noopener">github.com/bksubhuti/tipitaka-pali-reader</a>
+        </span>
+      </div>
+
+      <div class="credit-item">
+        <span class="ci-icon"></span>
+        <span>Teachers and fellow monks at IIT  —
+          <a href="https://theravado.com" target="_blank" rel="noopener">theravado.com</a>
+        </span>
+      </div>
+      <div class="credit-item">
+        <span class="ci-icon">📋</span>
+        <span>Quảng An for his server donation and management</span>
+        <span>Various friends for their support and encouragement</span>
+      </div>
+      <div class="credit-item credit-about-link">
+        <a href="{{ base_url }}/about" class="about-credit-btn">
+          ℹ️ About the Translation
+        </a>
+      </div>
+
+      <button type="button" class="credits-close" id="close-credits-btn">Close</button>
+    </div>
   </div>
 
   <script type="module" src="{{ url_for('static', filename='js/index.bundle.js') }}?v={{ v }}"></script>

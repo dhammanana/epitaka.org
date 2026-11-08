@@ -391,6 +391,7 @@ input, textarea, select { font-family: inherit; font-size: 0.95rem; }
 .ed-line-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
 .ed-line-num { font-size: 0.75rem; color: var(--muted); font-weight: 600; }
 .ed-line-pali { font-family: var(--font-serif); font-size: 1.05rem; color: var(--pali-color); line-height: 1.5; }
+
 .ed-line-trans {
   margin-top: 6px;
   color: var(--trans-color);
@@ -631,3 +632,8 @@ input, textarea, select { font-family: inherit; font-size: 0.95rem; }
   .ed-nav { order: 3; width: 100%; overflow-x: auto; }
   .ed-body { padding-top: 4px; }
 }
+
+/* ── Pāli script fonts (body[script] mirrors the reader's setting) ── */
+body[script="ko"] .ed-line-pali,
+body[script="ko"] .ed-gloss-term-pali,
+body[script="ko"] .ed-rv-pali { font-family: 'Noto Serif KR', serif; }

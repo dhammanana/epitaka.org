@@ -16,7 +16,7 @@ const THEME_KEY = 'epitaka_theme';
 // Keys are translation language codes (ISO 639, see app/languages.py which
 // follows the translator's LANG_NAMES). Falls back to Roman in
 // getScriptForLang() for languages without a native Pāli script
-// (en, de, es, pt, fr, id, vi, ja, ko, zh, …).
+// (en, de, es, pt, fr, id, vi, ja, zh, …).
 const LANG_SCRIPT_MAP = {
   si: Script.SI,    // Sinhala → Sinhala script
   hi: Script.HI,    // Hindi → Devanagari
@@ -44,7 +44,8 @@ const LANG_SCRIPT_MAP = {
   tb: Script.TIBT,  // Tibetan → Tibetan
   bo: Script.TIBT,  // legacy script-code alias
   as: Script.ASSE,  // Assamese → Assamese
-  // All others (en, de, es, pt, fr, it, nl, id, ms, vi, ja, ko, zh, …) → Roman
+  ko: Script.KO,    // Korean → Hangul transliteration
+  // All others (en, de, es, pt, fr, it, nl, id, ms, vi, ja, zh, …) → Roman
 };
 
 /**

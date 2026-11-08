@@ -30,7 +30,7 @@ Return only a JSON object with exactly these fields:
 - card_text: the words printed on the image; complete in itself; no hashtags, no quotation marks, no source reference
 - caption: the text used for the social post; speak to one reader; it may end with one honest question
 - tags: 3 to 6 lowercase hyphenated tags without '#'
-- image_detail: at most 10 words, one visual detail for a background photo (no people, no text)
+- image_detail: at most 10 words, one visual detail for a background photo inside a Buddhist setting (a statue, cetiya, robe, alms bowl, bodhi tree, candle; no text, no close-up faces)
 """
 
 
@@ -284,8 +284,9 @@ def build_image_prompt(plan: Plan, content: dict) -> str:
     if detail:
         parts.append(detail)
     parts.append(
-        "soft natural light, muted desaturated colours, quiet contemplative atmosphere, "
-        "photograph, shallow depth of field, no people, no text, no letters, no watermark"
+        "Theravada Buddhist setting, soft natural light, muted desaturated colours, "
+        "quiet contemplative atmosphere, photograph, shallow depth of field, "
+        "no text, no letters, no watermark"
     )
     return ", ".join(parts)
 

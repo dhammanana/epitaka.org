@@ -100,3 +100,4 @@ body[script="ta"] .pali-text { font-family: 'Noto Serif Tamil', 'Noto Sans Tamil
 body[script="br"] .pali-text { font-family: 'brahmi'; }
 body[script="tb"] .pali-text { font-family: 'tibetan'; }
 body[script="cy"] .pali-text { font-family: 'cyrillic'; }
+body[script="ko"] .pali-text { font-family: 'Noto Serif KR', serif; }
