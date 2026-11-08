@@ -17,6 +17,10 @@ from . import config
 from .corpus import EpitakaCorpus, Passage, Story, Verse, pick_story, pick_verse
 from .render import LAYOUTS, PALETTES
 
+# How a finished card reaches the Page. Chosen with the other presentation
+# details, so `--post-facebook` alternates photos and Reels on its own.
+MEDIUMS = ("photo", "reel")
+
 
 @dataclass(frozen=True)
 class PostFormat:
@@ -364,12 +368,18 @@ class Plan:
     angle: str
     closing: str
     scene: str
+    medium: str = "photo"
     verse: Verse | None = None
     story: Story | None = None
     reading: Passage | None = None
 
     def describe(self) -> str:
-        pieces = [f"scenario={self.scenario.key}", f"format={self.fmt.key}", f"layout={self.layout}"]
+        pieces = [
+            f"scenario={self.scenario.key}",
+            f"format={self.fmt.key}",
+            f"layout={self.layout}",
+            f"medium={self.medium}",
+        ]
         if self.verse:
             pieces.append(f"verse={self.verse.ref}")
         if self.story:
@@ -463,6 +473,7 @@ def build_plan(
         fmt=fmt,
         layout=_rotate(LAYOUTS, history, "layout", rng),
         palette=_rotate(list(PALETTES), history, "palette", rng),
+        medium=_rotate(MEDIUMS, history, "medium", rng),
         angle=rng.choice(ANGLES),
         closing=rng.choice(CLOSINGS),
         scene=rng.choice(scenario.scenes),
@@ -479,10 +490,12 @@ def record_for(plan: Plan, post: dict, when: datetime, image: str | None) -> dic
         "format": plan.fmt.key,
         "layout": plan.layout,
         "palette": plan.palette,
+        "medium": plan.medium,
         "ref": post.get("ref"),
         "story": plan.story.key if plan.story else None,
         "title": post.get("title"),
         "card_text": post.get("card_text"),
         "tags": post.get("tags"),
         "image": image,
+        "reel_music": post.get("reel_music"),
     }

@@ -2,8 +2,7 @@
 """Generate one varied Dhamma social post, and optionally publish it.
 
     python3 web_server/scripts/dhamma_publisher.py              # generate
-    python3 web_server/scripts/dhamma_publisher.py --post-facebook
-    python3 web_server/scripts/dhamma_publisher.py --post-facebook-reel
+    python3 web_server/scripts/dhamma_publisher.py --post-facebook   # photo or reel, per plan
     python3 web_server/scripts/dhamma_publisher.py --sample     # offline preview
     python3 web_server/scripts/dhamma_publisher.py --db-info    # inspect epitaka.db
 
@@ -39,7 +38,7 @@ from dhamma.facebook import (  # noqa: E402
     publish_facebook_reel,
 )
 from dhamma.reel import DEFAULT_SECONDS as DEFAULT_REEL_SECONDS  # noqa: E402
-from dhamma.reel import build_reel, clamp_seconds  # noqa: E402
+from dhamma.reel import ReelError, build_reel, clamp_seconds, pick_music  # noqa: E402
 from dhamma.render import painted_background, render_card  # noqa: E402
 from dhamma.token import (  # noqa: E402
     TokenError,
@@ -71,19 +70,17 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--sample", action="store_true", help="Offline card from the bundled corpus; no API keys needed.")
     parser.add_argument("--samples", type=int, default=1, metavar="N", help="With --sample: render N different posts (default 1).")
     parser.add_argument("--text-only", action="store_true", help="Write the caption JSON without rendering an image.")
-    publish = parser.add_mutually_exclusive_group()
-    publish.add_argument("--post-facebook", action="store_true", help="Publish the card to the Facebook Page as a photo post.")
-    publish.add_argument(
-        "--post-facebook-reel",
+    parser.add_argument(
+        "--post-facebook",
         action="store_true",
-        help="Render the card as a 9:16 video and publish it to the Facebook Page as a Reel.",
+        help="Publish to the Facebook Page. The plan decides the medium: a photo post or a 9:16 Reel.",
     )
     parser.add_argument(
         "--reel-seconds",
         type=float,
         default=DEFAULT_REEL_SECONDS,
         metavar="S",
-        help=f"With --post-facebook-reel: length in seconds, 3-90 (default {DEFAULT_REEL_SECONDS}).",
+        help=f"Length of a Reel in seconds, 3-90 (default {DEFAULT_REEL_SECONDS}).",
     )
     parser.add_argument("--scenario", choices=sorted(SCENARIOS_BY_KEY), help="Force one scenario instead of rotating.")
     parser.add_argument("--format", choices=sorted(FORMATS), dest="format_key", help="Force one post format.")
@@ -132,6 +129,7 @@ def build_post(plan, content: dict) -> dict:
         "format": plan.fmt.key,
         "layout": plan.layout,
         "palette": plan.palette,
+        "medium": plan.medium,
         "image_prompt": build_image_prompt(plan, content),
     }
     if plan.verse:
@@ -169,6 +167,40 @@ def post_background(plan, post: dict, offline: bool):
     except RuntimeError as exc:
         LOGGER.warning("Background generation failed (%s); using a painted background.", exc)
         return painted_background(plan.palette, seed=int(time.time()) & 0xFFFF)
+
+
+def publish_to_facebook(plan, post: dict, paths, seconds: float, history: list[dict], rng) -> None:
+    """Publish the rendered card as a photo, or as a Reel when the plan says so."""
+    if plan.medium != "reel":
+        LOGGER.info("Publishing to Facebook as a photo...")
+        result = publish_facebook_photo(paths.image, post["caption_composed"])
+        post["facebook_photo_id"] = result.get("id")
+        post["facebook_post_id"] = result.get("post_id")
+        return
+
+    music = pick_music(rng, avoid=[item.get("reel_music") for item in history[-4:]])
+    try:
+        video = build_reel(
+            paths.image,
+            paths.image.with_suffix(".mp4"),
+            clamp_seconds(seconds),
+            music=music,
+        )
+    except ReelError as exc:
+        # A missing ffmpeg should cost a Reel, not the whole post.
+        LOGGER.warning("Reel generation failed (%s); publishing the card as a photo instead.", exc)
+        result = publish_facebook_photo(paths.image, post["caption_composed"])
+        post["facebook_photo_id"] = result.get("id")
+        post["facebook_post_id"] = result.get("post_id")
+        post["reel_failed"] = str(exc)
+        return
+
+    LOGGER.info("Publishing the reel to Facebook...")
+    result = publish_facebook_reel(video, post["caption_composed"])
+    post["facebook_video_id"] = result.get("video_id")
+    post["facebook_post_id"] = result.get("post_id")
+    post["reel"] = str(video.relative_to(config.OUTPUT_DIR))
+    post["reel_music"] = music.name if music else None
 
 
 def print_facebook_token() -> int:
@@ -257,6 +289,7 @@ def run(args: argparse.Namespace) -> int:
                     "format": plan.fmt.key,
                     "layout": plan.layout,
                     "palette": plan.palette,
+                    "medium": plan.medium,
                     "ref": post.get("ref"),
                     "tags": post["tags"],
                     "image": str(paths.image.relative_to(config.OUTPUT_DIR)),
@@ -268,29 +301,11 @@ def run(args: argparse.Namespace) -> int:
             print("\n--- CAPTION ---\n" + post["caption_composed"])
             print(f"\nImage: {paths.image}")
 
-            if args.post_facebook_reel:
-                video = build_reel(
-                    paths.image,
-                    paths.image.with_suffix(".mp4"),
-                    clamp_seconds(args.reel_seconds),
-                )
-                LOGGER.info("Publishing the reel to Facebook...")
-                result = publish_facebook_reel(video, post["caption_composed"])
-                post["facebook_video_id"] = result.get("video_id")
-                post["facebook_post_id"] = result.get("post_id")
-                post["reel"] = str(video.relative_to(config.OUTPUT_DIR))
-                save_json(paths.meta, post)
-            elif args.post_facebook:
-                LOGGER.info("Publishing to Facebook...")
-                result = publish_facebook_photo(paths.image, post["caption_composed"])
-                post["facebook_photo_id"] = result.get("id")
-                post["facebook_post_id"] = result.get("post_id")
+            if args.post_facebook and not args.sample:
+                publish_to_facebook(plan, post, paths, args.reel_seconds, history, rng)
                 save_json(paths.meta, post)
             elif not args.sample:
-                LOGGER.info(
-                    "Not published: saved only. Pass --post-facebook or "
-                    "--post-facebook-reel to publish."
-                )
+                LOGGER.info("Not published: saved only. Pass --post-facebook to publish.")
 
             if not args.sample:
                 history = append_history(record_for(plan, post, when, str(paths.image)))
