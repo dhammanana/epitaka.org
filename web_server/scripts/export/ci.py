@@ -137,15 +137,19 @@ def fetch_dbs(data_dir: str, lang: str, db_base_url: str) -> list[str]:
             tmp_path = tmp.name
         try:
             urllib.request.urlretrieve(url, tmp_path)
+            data_dir_abs = os.path.realpath(data_dir)
             with zipfile.ZipFile(tmp_path) as zf:
                 for member in zf.namelist():
-                    if member.endswith(".db"):
-                        zf.extract(member, data_dir)
-                        # Flatten subdirectories (unzip -j behaviour)
-                        src = os.path.join(data_dir, member)
-                        dst = os.path.join(data_dir, os.path.basename(member))
-                        if src != dst:
-                            shutil.move(src, dst)
+                    if not member.endswith(".db"):
+                        continue
+                    base = os.path.basename(member)
+                    if not base:
+                        continue
+                    dst = os.path.realpath(os.path.join(data_dir_abs, base))
+                    if os.path.commonpath([data_dir_abs, dst]) != data_dir_abs:
+                        continue
+                    with zf.open(member) as src, open(dst, "wb") as out:
+                        shutil.copyfileobj(src, out)
         finally:
             if os.path.exists(tmp_path):
                 os.remove(tmp_path)

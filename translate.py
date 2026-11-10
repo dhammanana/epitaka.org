@@ -211,7 +211,10 @@ def nissaya_to_text(content):
     return output_str
 
 def get_postgres_conn():
-    return psycopg2.connect('postgresql://postgres:postgres@localhost:5432/wikipali')
+    dsn = os.environ.get('WIKIPALI_PG_DSN', '').strip()
+    if not dsn:
+        raise RuntimeError('WIKIPALI_PG_DSN is not set')
+    return psycopg2.connect(dsn)
 
 def get_nissaya(book_id, para_id):
     try:
@@ -250,17 +253,14 @@ def generate_timeout(question, timeout=60*3):
         print("Error: GOOGLE_API_KEY environment variable is not set.")
         
         try:
-            # Execute the command, piping the password to sudo
             process = subprocess.run(
-                'sudo -S pm-suspend',
-                shell=True,
-                input=f"totden\n",
+                ['sudo', '-n', 'pm-suspend'],
                 text=True,
                 capture_output=True
             )
-            print("Shutdown command executed successfully.")
+            print("Suspend command executed successfully.")
         except subprocess.CalledProcessError as e:
-            print(f"Error executing shutdown: {e.stderr}")
+            print(f"Error executing suspend: {e.stderr}")
 
         os._exit(0)
     selected_key = random.choice(api_keys)

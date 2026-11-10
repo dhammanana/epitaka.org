@@ -21,7 +21,7 @@ from flask import (
 )
 
 from ..utils.db import get_db, get_translation_db
-from ..utils.text import normalize_pali, markdown_to_html
+from ..utils.text import like_escape, normalize_pali, markdown_to_html
 from ..utils.cache import TTLCache
 from ..utils.ratelimit import rate_limit
 from ..utils.assets import get_asset_version
@@ -73,18 +73,18 @@ bp = Blueprint("main", __name__)
 # re-hit the same URLs constantly. Bounded LRU so memory stays flat on the
 # small VPS; strings are cached (not Response objects) so each request gets
 # a fresh response to finalize.
-_BOOK_PAGE_CACHE = TTLCache(max_size=24, ttl=300)
+_BOOK_PAGE_CACHE = TTLCache(max_size=128, ttl=900)
 # Study-guide and outline pages are English-only content served at /en/…;
 # cached like the book page (crawlers re-hit the same URLs constantly).
-_STUDY_PAGE_CACHE = TTLCache(max_size=64, ttl=300)
-_OUTLINE_PAGE_CACHE = TTLCache(max_size=32, ttl=300)
+_STUDY_PAGE_CACHE = TTLCache(max_size=128, ttl=900)
+_OUTLINE_PAGE_CACHE = TTLCache(max_size=64, ttl=900)
 # Full-canon index and the ebook download page (crawl targets).
-_CANON_PAGE_CACHE = TTLCache(max_size=32, ttl=300)
-_DOWNLOAD_PAGE_CACHE = TTLCache(max_size=4, ttl=300)
+_CANON_PAGE_CACHE = TTLCache(max_size=32, ttl=900)
+_DOWNLOAD_PAGE_CACHE = TTLCache(max_size=4, ttl=3600)
 # The home page: crawlers hammer `/` and `/<lang>/` constantly, and the
 # rendered output is identical for every visitor — cache it like the
 # book page (keyed on asset version so deploys bust the cache).
-_INDEX_PAGE_CACHE = TTLCache(max_size=32, ttl=300)
+_INDEX_PAGE_CACHE = TTLCache(max_size=32, ttl=900)
 
 
 def get_lang_info(lang_code):
@@ -528,9 +528,9 @@ def study_guide(lang, book_id, slug):
         if row and summaries_svc.summary_slug(row) == slug:
             target = row
     if target is None:
-        for row in summaries_svc.get_all_summaries(book_id):
+        for row in summaries_svc.get_summary_index(book_id):
             if summaries_svc.summary_slug(row) == slug:
-                target = row
+                target = summaries_svc.get_summary(book_id, row["section_id"])
                 break
     if target is None:
         abort(404)
@@ -568,8 +568,8 @@ def study_guide(lang, book_id, slug):
     )
     plain = summaries_svc.study_plain_text(target["content"])
 
-    # Prev / next in section order
-    ordered = summaries_svc.get_all_summaries(book_id)
+    # Prev / next in section order (title/index only — content is huge)
+    ordered = summaries_svc.get_summary_index(book_id)
     idx = next(
         (i for i, s in enumerate(ordered) if s["section_id"] == section_id), None
     )
@@ -1576,7 +1576,11 @@ def book_ref(lang, book_id):
 
         heading = row[0]
         result_para = ""
-        while not result_para:
+        try:
+            source_num = int(heading)
+        except (TypeError, ValueError):
+            source_num = None
+        if source_num is None:
             cursor.execute(
                 """
                 SELECT para_id FROM headings
@@ -1585,12 +1589,22 @@ def book_ref(lang, book_id):
             """,
                 (book_id, heading),
             )
-            found = cursor.fetchone()
-            result_para = found[0] if found else ""
-            try:
-                heading = str(int(heading) - 1)
-            except Exception:
-                break
+        else:
+            cursor.execute(
+                """
+                SELECT para_id FROM headings
+                WHERE book_id = ? AND level = 10
+                  AND title GLOB '[0-9]*'
+                  AND title NOT GLOB '*[^0-9]*'
+                  AND CAST(title AS INTEGER) >= 1
+                  AND CAST(title AS INTEGER) <= ?
+                ORDER BY CAST(title AS INTEGER) DESC
+                LIMIT 1
+            """,
+                (book_id, source_num),
+            )
+        found = cursor.fetchone()
+        result_para = found[0] if found else ""
 
         if not result_para:
             return redirect(f"/{lang}/book/{book_id}")
@@ -1728,6 +1742,11 @@ def bold_suggest():
     query = request.args.get("q", "").strip()
     if not query:
         return jsonify([])
+    try:
+        limit = int(request.args.get("limit", "50") or "50")
+    except ValueError:
+        limit = 50
+    limit = max(1, min(limit, 100))
     with get_db() as conn:
         cursor = conn.cursor()
         cursor.execute(
@@ -1735,11 +1754,11 @@ def bold_suggest():
             SELECT d.book_id, d.para_id, d.line_id, d.word
             FROM pali_definition d
             JOIN books b ON d.book_id = b.book_id
-            WHERE d.plain LIKE ?
+            WHERE d.plain LIKE ? ESCAPE '\\'
             ORDER BY b.id, d.para_id
-            LIMIT 50
+            LIMIT ?
         """,
-            (normalize_pali(query),),
+            (like_escape(normalize_pali(query)), limit),
         )
         results = cursor.fetchall()
 
@@ -1770,6 +1789,11 @@ def bold_definition():
     lang_code = request.args.get("lang", "").strip() or None
     if not query:
         return jsonify([])
+    try:
+        limit = int(request.args.get("limit", "100") or "100")
+    except ValueError:
+        limit = 100
+    limit = max(1, min(limit, 200))
 
     # ── Translation DB (if requested) ──
     trans_cursor = None
@@ -1792,10 +1816,11 @@ def bold_definition():
             JOIN sentences s ON d.book_id = s.book_id
                              AND d.para_id = s.para_id
                              AND d.line_id = s.line_id
-            WHERE d.plain LIKE ?
+            WHERE d.plain LIKE ? ESCAPE '\\'
             ORDER BY b.id, d.para_id
+            LIMIT ?
         """,
-            (normalize_pali(query),),
+            (like_escape(normalize_pali(query)), limit),
         )
         results = cursor.fetchall()
 

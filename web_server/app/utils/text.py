@@ -175,3 +175,13 @@ def trim_text(text, query_words):
 def normalize_pali(text):
     nfkd_form = unicodedata.normalize("NFKD", text)
     return "".join(c for c in nfkd_form if not unicodedata.combining(c))
+
+
+def like_escape(text):
+    """Escape LIKE metacharacters so user input is matched literally."""
+    return (
+        str(text or "")
+        .replace("\\", "\\\\")
+        .replace("%", "\\%")
+        .replace("_", "\\_")
+    )

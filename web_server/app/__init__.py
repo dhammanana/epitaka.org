@@ -1,6 +1,7 @@
 # app/__init__.py
 
 from flask import Flask, g, request, render_template
+from jinja2 import FileSystemBytecodeCache
 from .config import config_by_name
 from .config import Config
 from .routes.main import bp as main_bp
@@ -12,7 +13,7 @@ from .routes.editor import bp as editor_bp, init_editor_db, bootstrap_super_admi
 from .services.initialize_db import init_all_search_tables
 from .utils.assets import get_asset_version, APP_VERSION
 from .utils.slugs import section_slug
-import os, time
+import os, time, glob
 from werkzeug.security import generate_password_hash
 
 INIT = False
@@ -34,20 +35,33 @@ def create_app(config_name='default'):
 
     app.config.from_object(config_by_name[config_name])
 
-    # The editor console signs auth sessions with SECRET_KEY.  A weak default
-    # ships in development only — warn loudly in production.
-    if config_name in ('production', 'prod') and \
-            (os.environ.get('SECRET_KEY') or '') in ('', 'secret-key'):
-        print('\n'.join([
-            '\n',
-            '! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !',
-            'WARNING: SECRET_KEY is not set in production. The translation',
-            'editor console signs session cookies with the default secret.',
-            'Set it, e.g.:  export SECRET_KEY=$(python -c "import secrets;',
-            'print(secrets.token_hex(32))")',
-            '! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !',
-            '\n',
-        ]))
+    # ── Jinja performance ──────────────────────────────────────────────
+    # Compiling the reader template costs ~0.9 s on its first render in each
+    # gunicorn worker. Persist compiled bytecode to disk and compile every
+    # template once at startup so the first visitor/crawler never pays it.
+    try:
+        import tempfile
+
+        _jinja_cache = os.path.join(_WEB_ROOT, '.cache', 'jinja')
+        os.makedirs(_jinja_cache, exist_ok=True)
+        if not os.access(_jinja_cache, os.W_OK):
+            _jinja_cache = os.path.join(tempfile.gettempdir(), 'epitaka-jinja-cache')
+            os.makedirs(_jinja_cache, exist_ok=True)
+        app.jinja_env.bytecode_cache = FileSystemBytecodeCache(_jinja_cache)
+    except OSError:
+        pass  # read-only deploy dir — fall back to in-memory compilation
+
+    # The editor console signs auth sessions with SECRET_KEY.  Refuse to start
+    # in production with an absent or publicly known key — otherwise anyone
+    # could forge a valid editor session cookie.
+    if config_name in ('production', 'prod'):
+        secret = app.config.get('SECRET_KEY') or ''
+        if secret in ('', 'secret-key'):
+            raise RuntimeError(
+                'SECRET_KEY must be set to a strong random value in production '
+                '(e.g. export SECRET_KEY=$(python -c "import secrets; '
+                'print(secrets.token_hex(32))"))'
+            )
 
     # Session cookie hardening (editor console auth)
     app.config['SESSION_COOKIE_HTTPONLY'] = True
@@ -154,12 +168,26 @@ def create_app(config_name='default'):
                 response.headers['Cache-Control'] = 'public, max-age=31536000, immutable'
             return response
         if ep in _CACHEABLE_ENDPOINTS and 'Cache-Control' not in response.headers:
-            response.headers['Cache-Control'] = 'public, max-age=300'
+            # Browsers revalidate after 5 min; shared caches (Cloudflare /
+            # nginx proxy_cache) may keep the identical HTML for an hour and
+            # serve stale for up to 10 min while the origin refreshes it.
+            response.headers['Cache-Control'] = (
+                'public, max-age=300, s-maxage=3600, '
+                'stale-while-revalidate=600'
+            )
         # Point AI agents at the curated site map. llms.txt (v2) recommends the
         # HTTP Link header form: one line covers every HTML page, no per-template
         # edits. setdefault keeps any page-specific Link header intact.
         if response.mimetype == 'text/html':
             response.headers.setdefault('Link', '</llms.txt>; rel="describedby"')
         return response
+
+    # Compile all templates once at startup (see the Jinja note above).
+    _template_dir = os.path.join(_WEB_ROOT, 'templates')
+    for _path in glob.glob(os.path.join(_template_dir, '*.html')):
+        try:
+            app.jinja_env.get_template(os.path.basename(_path))
+        except Exception as exc:  # a broken template should fail loudly
+            app.logger.warning('template %s failed to compile: %s', _path, exc)
 
     return app

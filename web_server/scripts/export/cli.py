@@ -50,6 +50,8 @@ def _sanitize_name(name: str) -> str:
     # Limit length
     if len(safe) > 60:
         safe = safe[:60].rstrip("_")
+    if safe in (".", ".."):
+        return "Untitled"
     return safe or "Untitled"
 
 
@@ -251,10 +253,10 @@ Examples:
             filename = f"{stem}{ext_map[fmt]}"
 
             # Build folder path: lang/extension/category/nikaya/sub_nikaya/book_name
-            lang_folder = args.lang or "pali"
-            cat_folder = book.category or "Uncategorized"
-            nik_folder = book.nikaya or "Uncategorized"
-            sub_folder = book.sub_nikaya or ""
+            lang_folder = _sanitize_name(args.lang or "pali")
+            cat_folder = _sanitize_name(book.category or "Uncategorized")
+            nik_folder = _sanitize_name(book.nikaya or "Uncategorized")
+            sub_folder = _sanitize_name(book.sub_nikaya) if book.sub_nikaya else ""
             # Use English book name for folder, sanitized
             book_folder = _sanitize_name(book.english_name or book.book_name)
 
@@ -264,11 +266,16 @@ Examples:
             folder_parts.append(book_folder)
 
             rel_dir = os.path.join(*folder_parts)
-            filepath = os.path.join(output_dir, rel_dir, filename)
+            output_abs = os.path.abspath(output_dir)
+            filepath = os.path.abspath(os.path.join(output_abs, rel_dir, filename))
+            if os.path.commonpath([output_abs, filepath]) != output_abs:
+                print(f"  ❌ {fmt.upper():<6} → FAILED: unsafe output path")
+                failed += 1
+                continue
             if filepath in seen_paths:
                 base, ext = os.path.splitext(filename)
-                filename = f"{base}_{book.book_id}{ext}"
-                filepath = os.path.join(output_dir, rel_dir, filename)
+                filename = f"{base}_{_sanitize_name(book.book_id)}{ext}"
+                filepath = os.path.abspath(os.path.join(output_abs, rel_dir, filename))
             seen_paths.add(filepath)
 
             if (

@@ -16,6 +16,8 @@ bp = Blueprint('api', __name__, url_prefix='/api')
 
 register_search_route(bp)
 
+MAX_BATCH_SECTIONS = 100
+
 
 # ── Section content ────────────────────────────────────────────────────────────
 
@@ -38,10 +40,22 @@ def api_book_sections(book_id):
     book_id = book_id.replace('_chunks', '')
     raw = request.args.get('para_ids', '')
     lang = request.args.get('lang', '')
-    try:
-        para_ids = [int(x) for x in raw.split(',') if x.strip()]
-    except ValueError:
-        return jsonify({'error': 'Invalid para_ids'}), 400
+    para_ids = []
+    seen = set()
+    for part in raw.split(','):
+        part = part.strip()
+        if not part:
+            continue
+        try:
+            pid = int(part)
+        except ValueError:
+            return jsonify({'error': 'Invalid para_ids'}), 400
+        if pid in seen:
+            continue
+        seen.add(pid)
+        para_ids.append(pid)
+    if len(para_ids) > MAX_BATCH_SECTIONS:
+        return jsonify({'error': f'Too many para_ids (max {MAX_BATCH_SECTIONS})'}), 400
 
     result = {}
     with get_db() as conn:
@@ -79,13 +93,19 @@ def api_heading_translations(book_id):
     trans_db = get_translation_db(lang)
     if trans_db:
         trans_cursor = trans_db.cursor()
-        for pid in headings:
+        # Batch the lookups in chunks that stay below SQLite's variable limit;
+        # the old code ran one query per heading (hundreds per book).
+        for start in range(0, len(headings), 500):
+            chunk = headings[start:start + 500]
+            placeholders = ','.join('?' * len(chunk))
             trans_cursor.execute(
-                'SELECT translation FROM sentences WHERE book_id = ? AND para_id = ? AND line_id = 1',
-                (book_id, pid))
-            row = trans_cursor.fetchone()
-            if row and row['translation']:
-                result[pid] = markdown_to_html(row['translation'])
+                'SELECT para_id, translation FROM sentences '
+                f'WHERE book_id = ? AND line_id = 1 AND para_id IN ({placeholders})',
+                [book_id, *chunk],
+            )
+            for row in trans_cursor.fetchall():
+                if row['translation']:
+                    result[row['para_id']] = markdown_to_html(row['translation'])
 
     return jsonify(result)
 

@@ -9,7 +9,7 @@ from ..utils.db import get_db
 # Books metadata changes only when the database is rebuilt — cache it.
 _HIERARCHY_CACHE = {}
 _HIERARCHY_LOCK = threading.Lock()
-_HIERARCHY_TTL = 60  # seconds
+_HIERARCHY_TTL = 3600  # seconds — books metadata only changes on deploy
 
 def _parse_ref_list(value):
     """

@@ -8,6 +8,12 @@ from .auth import require_auth
 
 bp = Blueprint('reader', __name__)
 
+MAX_USER_COMMENTS = 2000
+MAX_USER_NOTES = 5000
+MAX_USER_BOOKMARKS = 5000
+MAX_COMMENT_PAGE = 500
+DEFAULT_COMMENT_PAGE = 200
+
 
 # ── Schema migration (call at app startup) ────────────────────
 
@@ -86,6 +92,17 @@ def api_get_comments(book_id):
     if spid is None:
         return jsonify({'error': 'section_para_id required'}), 400
 
+    try:
+        limit = int(request.args.get('limit', DEFAULT_COMMENT_PAGE) or DEFAULT_COMMENT_PAGE)
+    except (TypeError, ValueError):
+        limit = DEFAULT_COMMENT_PAGE
+    limit = max(1, min(limit, MAX_COMMENT_PAGE))
+    try:
+        offset = int(request.args.get('offset', 0) or 0)
+    except (TypeError, ValueError):
+        offset = 0
+    offset = max(0, offset)
+
     start_para, end_para = _get_section_para_range(book_id, spid)
     with get_webdata_db() as conn:
         cursor = conn.cursor()
@@ -97,7 +114,8 @@ def api_get_comments(book_id):
             JOIN   users    u ON c.uid = u.uid
             WHERE  c.book_id = ? AND c.para_id >= ? AND c.para_id < ?
             ORDER  BY c.para_id, c.line_id, c.created_at ASC
-        ''', (book_id, start_para, end_para))
+            LIMIT ? OFFSET ?
+        ''', (book_id, start_para, end_para, limit, offset))
         rows = cursor.fetchall()
     return jsonify({'comments': [dict(r) for r in rows]})
 
@@ -120,6 +138,11 @@ def api_add_comment(book_id):
     now = int(time.time())
     with get_webdata_db() as conn:
         cursor = conn.cursor()
+        count = cursor.execute(
+            'SELECT COUNT(*) FROM comments WHERE uid = ?', (g.uid,)
+        ).fetchone()[0]
+        if count >= MAX_USER_COMMENTS:
+            return jsonify({'error': 'Comment limit reached'}), 429
         cursor.execute('''
             INSERT INTO comments (book_id, para_id, line_id, uid, text, created_at, updated_at)
             VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -242,6 +265,17 @@ def api_upsert_note(book_id):
             conn.commit()
             return jsonify({'deleted': True})
 
+        existing = cursor.execute(
+            'SELECT id FROM notes WHERE uid=? AND book_id=? AND para_id=? AND line_id=?',
+            (g.uid, book_id, para_id, line_id)
+        ).fetchone()
+        if not existing:
+            count = cursor.execute(
+                'SELECT COUNT(*) FROM notes WHERE uid = ?', (g.uid,)
+            ).fetchone()[0]
+            if count >= MAX_USER_NOTES:
+                return jsonify({'error': 'Note limit reached'}), 429
+
         now = int(time.time())
         cursor.execute('''
             INSERT INTO notes (uid, book_id, para_id, line_id, text, created_at, updated_at)
@@ -311,6 +345,12 @@ def api_toggle_bookmark(book_id):
             cursor.execute('DELETE FROM bookmarks WHERE id=?', (existing['id'],))
             conn.commit()
             return jsonify({'bookmarked': False})
+
+        count = cursor.execute(
+            'SELECT COUNT(*) FROM bookmarks WHERE uid = ?', (g.uid,)
+        ).fetchone()[0]
+        if count >= MAX_USER_BOOKMARKS:
+            return jsonify({'error': 'Bookmark limit reached'}), 429
 
         cursor.execute(
             'INSERT INTO bookmarks (uid, book_id, para_id, line_id, created_at) VALUES (?,?,?,?,?)',

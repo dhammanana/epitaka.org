@@ -18,8 +18,8 @@ from ..utils.slugs import section_slug
 # book page, the section API, AND the mobile app — bots + readers hit the
 # same sections over and over. Cache them so the expensive batched queries
 # run once per TTL instead of once per request.
-_SECTION_CACHE = TTLCache(max_size=512, ttl=300)
-_TOC_CACHE = TTLCache(max_size=256, ttl=300)
+_SECTION_CACHE = TTLCache(max_size=1024, ttl=900)
+_TOC_CACHE = TTLCache(max_size=512, ttl=900)
 
 
 def get_book_toc(book_id, conn):

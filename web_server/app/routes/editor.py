@@ -33,6 +33,7 @@ from ..services.dictionary import search_auto
 _HASH_METHOD = 'pbkdf2:sha256'
 
 from ..utils.db import get_db, get_webdata_db, get_translation_db, get_translation_db_path
+from ..utils.ratelimit import client_ip
 from ..config import Config
 from ..services.books import load_hierarchy, organize_hierarchy
 from ..services.toc import get_book_toc
@@ -90,9 +91,9 @@ def init_editor_db():
 
 def bootstrap_super_admin():
     """
-    Create (or update) the initial super admin from environment variables
-    EDITOR_ADMIN_EMAIL / EDITOR_ADMIN_PASSWORD.  This is how the first admin
-    is created — afterwards, only the super admin can create further editors.
+    Create the initial super admin from environment variables
+    EDITOR_ADMIN_EMAIL / EDITOR_ADMIN_PASSWORD.  Existing accounts are left
+    untouched so a restart cannot reset a rotated password or a revoked role.
     """
     email = os.environ.get('EDITOR_ADMIN_EMAIL', '').strip().lower()
     password = os.environ.get('EDITOR_ADMIN_PASSWORD', '').strip()
@@ -102,16 +103,12 @@ def bootstrap_super_admin():
     with get_webdata_db() as conn:
         row = conn.execute('SELECT id FROM editors WHERE email = ?', (email,)).fetchone()
         if row:
-            conn.execute(
-                'UPDATE editors SET password_hash = ?, is_super = 1, updated_at = ? WHERE id = ?',
-                (generate_password_hash(password, method=_HASH_METHOD), now, row['id'])
-            )
-        else:
-            conn.execute(
-                'INSERT INTO editors (email, password_hash, display_name, is_super, created_at, updated_at) '
-                'VALUES (?, ?, ?, 1, ?, ?)',
-                (email, generate_password_hash(password, method=_HASH_METHOD), email.split('@')[0], now, now)
-            )
+            return
+        conn.execute(
+            'INSERT INTO editors (email, password_hash, display_name, is_super, created_at, updated_at) '
+            'VALUES (?, ?, ?, 1, ?, ?)',
+            (email, generate_password_hash(password, method=_HASH_METHOD), email.split('@')[0], now, now)
+        )
         conn.commit()
 
 
@@ -177,16 +174,33 @@ def _open_trans_db(lang):
 # ══════════════════════════════════════════════════════════════════════════
 
 def _current_editor():
-    """Return the editor dict from session, or None."""
+    """Return the current editor loaded from webdata.db, or None.
+
+    Role and language grants are read from the database on every request so
+    that a session captured before a demotion, grant removal, or account
+    deletion cannot keep its old privileges.
+    """
     eid = session.get('editor_id')
     if not eid:
         return None
+    with get_webdata_db() as conn:
+        row = conn.execute(
+            'SELECT id, email, display_name, is_super FROM editors WHERE id = ?',
+            (eid,),
+        ).fetchone()
+        if not row:
+            session.clear()
+            return None
+        langs = [r['lang_code'] for r in conn.execute(
+            'SELECT lang_code FROM editor_langs WHERE editor_id = ? ORDER BY lang_code',
+            (eid,),
+        ).fetchall()]
     return {
-        'id': eid,
-        'email': session.get('editor_email', ''),
-        'display_name': session.get('editor_name', ''),
-        'is_super': bool(session.get('editor_super')),
-        'langs': session.get('editor_langs', []),
+        'id': row['id'],
+        'email': row['email'],
+        'display_name': row['display_name'],
+        'is_super': bool(row['is_super']),
+        'langs': langs,
     }
 
 
@@ -430,6 +444,7 @@ def _line_checks(stats, pali, translation):
 # not to be a hard rate limiter across many processes.
 _LOGIN_MAX_ATTEMPTS = 10
 _LOGIN_WINDOW = 15 * 60  # seconds
+_LOGIN_MAX_KEYS = 5000
 _LOGIN_ATTEMPTS = {}     # key -> [timestamps]
 _LOGIN_LOCK = threading.Lock()
 
@@ -438,11 +453,25 @@ def _login_key(ip, email):
     return f'{ip}|{email}'
 
 
+def _prune_login_attempts_locked(now):
+    """Drop expired keys and cap the table so random emails cannot grow it."""
+    cutoff = now - _LOGIN_WINDOW
+    for key in [k for k, stamps in _LOGIN_ATTEMPTS.items() if not stamps or stamps[-1] < cutoff]:
+        del _LOGIN_ATTEMPTS[key]
+    if len(_LOGIN_ATTEMPTS) > _LOGIN_MAX_KEYS:
+        for key in list(_LOGIN_ATTEMPTS.keys())[: len(_LOGIN_ATTEMPTS) - _LOGIN_MAX_KEYS]:
+            del _LOGIN_ATTEMPTS[key]
+
+
 def _login_blocked(key):
     now = time.time()
     with _LOGIN_LOCK:
         stamps = [t for t in _LOGIN_ATTEMPTS.get(key, []) if now - t < _LOGIN_WINDOW]
-        _LOGIN_ATTEMPTS[key] = stamps
+        if stamps:
+            _LOGIN_ATTEMPTS[key] = stamps
+        else:
+            _LOGIN_ATTEMPTS.pop(key, None)
+        _prune_login_attempts_locked(now)
         return len(stamps) >= _LOGIN_MAX_ATTEMPTS
 
 
@@ -452,6 +481,7 @@ def _record_login_failure(key):
         stamps = [t for t in _LOGIN_ATTEMPTS.get(key, []) if now - t < _LOGIN_WINDOW]
         stamps.append(now)
         _LOGIN_ATTEMPTS[key] = stamps
+        _prune_login_attempts_locked(now)
 
 
 def _reset_login_failures(key):
@@ -471,7 +501,7 @@ def api_login():
 
     # Reject before even checking credentials once the limit is hit (also
     # avoids the hashing cost on a throttled account).
-    ip = request.remote_addr or ''
+    ip = client_ip()
     key = _login_key(ip, email)
     if _login_blocked(key):
         return jsonify({'error': 'Too many login attempts. Try again later.'}), 429
@@ -486,22 +516,11 @@ def api_login():
         _record_login_failure(key)
         return jsonify({'error': 'Invalid email or password'}), 401
 
-    langs = []
-    with get_webdata_db() as conn:
-        rows = conn.execute(
-            'SELECT lang_code FROM editor_langs WHERE editor_id = ? ORDER BY lang_code',
-            (row['id'],)
-        ).fetchall()
-        langs = [r['lang_code'] for r in rows]
-
-    # Session hardening
+    # Session hardening: the cookie only identifies the account. Role and
+    # language grants are re-read from the database on every request.
     session.clear()
     session.permanent = True
     session['editor_id'] = row['id']
-    session['editor_email'] = row['email']
-    session['editor_name'] = row['display_name']
-    session['editor_super'] = bool(row['is_super'])
-    session['editor_langs'] = langs
 
     _reset_login_failures(key)
     return jsonify(_current_editor())
@@ -535,8 +554,6 @@ def api_update_account(editor):
             (name, int(time.time()), editor['id'])
         )
         conn.commit()
-    # Keep the session in sync so the top bar updates immediately.
-    session['editor_name'] = name
     return jsonify({'ok': True, 'display_name': name})
 
 
@@ -561,7 +578,7 @@ def api_change_password(editor):
 
     # Guard the current-password check with the same brute-force throttle as
     # login, so a hijacked session can't guess the current password freely.
-    key = _login_key(request.remote_addr or '', editor['email'])
+    key = _login_key(client_ip(), editor['email'])
     if _login_blocked(key):
         return jsonify({'error': 'Too many attempts. Try again later.'}), 429
 
@@ -683,15 +700,6 @@ def api_update_editor(editor, eid):
             vals.append(eid)
             conn.execute(f'UPDATE editors SET {", ".join(sets)} WHERE id = ?', vals)
         conn.commit()
-
-        # Refresh in-session fields for self-edits (re-read the row so the
-        # freshly saved display name / flags are reflected immediately).
-        if session.get('editor_id') == eid:
-            fresh = _editor_row(conn, eid)
-            if fresh:
-                session['editor_name'] = fresh['display_name']
-                session['editor_super'] = bool(fresh['is_super'])
-                session['editor_langs'] = fresh['langs']
         result = _editor_row(conn, eid)
     return jsonify(result)
 

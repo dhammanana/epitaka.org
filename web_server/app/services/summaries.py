@@ -24,34 +24,49 @@ import html
 import os
 import re
 import sqlite3
-
-from flask import g
+import threading
 
 from ..config import Config
+from ..utils.cache import TTLCache
 
-# ── Connection (per request, read-only) ───────────────────────────────────
+# Book-level summary indexes are tiny (one row per section) and are rebuilt
+# only when the study pipeline runs, so cache them in-process.
+_SUMMARY_INDEX_CACHE = TTLCache(max_size=128, ttl=600)
+_SUMMARY_MAP_CACHE = TTLCache(max_size=128, ttl=600)
+
+# ── Connection (thread-local, read-only) ──────────────────────────────────
+
+_summary_local = threading.local()
+
 
 def get_summary_conn():
     """
-    Read-only connection to the `summaries` table inside epitaka_en.db,
-    cached on Flask's ``g``. Returns None when the file is absent so
-    callers can degrade gracefully.
+    Read-only connection to the `summaries` table inside epitaka_en.db.
+
+    Cached per worker thread (not per request): the file is read-only at
+    runtime, and reopening a 600 MB+ SQLite database on every request was
+    wasted work. Returns None when the file is absent so callers can
+    degrade gracefully.
     """
-    if hasattr(g, 'summary_db'):
-        return g.summary_db
+    cached = getattr(_summary_local, 'conn', None)
+    if cached is not None:
+        return cached
+
     # Summaries live inside the English translation DB (summaries table),
     # which is always deployed alongside the other translation files.
     path = os.path.join(Config.DATA_DIR, 'epitaka_en.db')
     if not os.path.isfile(path):
-        setattr(g, 'summary_db', None)
+        _summary_local.conn = None
         return None
     conn = sqlite3.connect(f'file:{path}?mode=ro', uri=True, timeout=10)
     conn.row_factory = sqlite3.Row
     try:
         conn.execute('PRAGMA busy_timeout = 10000')
+        conn.execute('PRAGMA cache_size = -16384')   # 16 MB per thread
+        conn.execute('PRAGMA mmap_size = 67108864')  # 64 MB mmap
     except Exception:
         pass
-    setattr(g, 'summary_db', conn)
+    _summary_local.conn = conn
     return conn
 
 
@@ -73,7 +88,7 @@ def get_summary(book_id: str, section_id: int) -> dict | None:
 
 
 def get_all_summaries(book_id: str) -> list[dict]:
-    """All summaries for a book, in section order."""
+    """All summaries for a book, in section order (full rows, with content)."""
     conn = get_summary_conn()
     if conn is None:
         return []
@@ -85,6 +100,35 @@ def get_all_summaries(book_id: str) -> list[dict]:
     except sqlite3.Error:
         return []
     return [dict(r) for r in rows]
+
+
+def get_summary_index(book_id: str) -> list[dict]:
+    """Lightweight summary rows for a book, in section order.
+
+    Selects only the columns needed for slugs, prev/next navigation and the
+    study icons on the book page. The full ``content`` column is ~254 MB
+    across the corpus, so selecting it just to build an index was the single
+    biggest cold-start cost on book/outline pages.
+    """
+    cached = _SUMMARY_INDEX_CACHE.get(book_id)
+    if cached is not None:
+        return cached
+
+    conn = get_summary_conn()
+    if conn is None:
+        return []
+    try:
+        rows = conn.execute(
+            'SELECT section_id, title, heading_title FROM summaries '
+            'WHERE book_id = ? ORDER BY section_id',
+            (book_id,),
+        ).fetchall()
+    except sqlite3.Error:
+        return []
+
+    result = [dict(r) for r in rows]
+    _SUMMARY_INDEX_CACHE.set(book_id, result)
+    return result
 
 
 def summary_slug(row: dict) -> str:
@@ -112,14 +156,19 @@ def book_summary_map(book_id: str) -> dict:
     so the book page can render a study icon on the right headings and the
     outline page can link each section to its study guide.
     """
+    cached = _SUMMARY_MAP_CACHE.get(book_id)
+    if cached is not None:
+        return cached
+
     out = {}
-    for row in get_all_summaries(book_id):
+    for row in get_summary_index(book_id):
         slug = summary_slug(row)
         out[row['section_id']] = {
             'title':     row.get('title') or '',
             'slug':      slug,
             'url_path':  f'/study/{book_id}/{slug}',
         }
+    _SUMMARY_MAP_CACHE.set(book_id, out)
     return out
 
 

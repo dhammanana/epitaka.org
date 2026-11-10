@@ -9,6 +9,8 @@ traffic, or bursts between Cloudflare rule refreshes) cannot peg the
 Because the counters are in-memory and per-worker, limits are
 approximate across processes — generous limits are intentional.
 """
+import ipaddress
+import os
 import threading
 import time
 from functools import wraps
@@ -19,17 +21,64 @@ _limits = {}   # key -> list of request timestamps (sorted ascending)
 _lock = threading.Lock()
 _MAX_KEYS = 5000
 
+_TRUSTED_PROXY_NETS = None
 
-def _client_ip():
-    """Best-effort real client IP. Cloudflare sets CF-Connecting-IP;
-    nginx provides X-Forwarded-For as a fallback."""
-    cf = request.headers.get('CF-Connecting-IP')
+
+def _trusted_proxy_nets():
+    global _TRUSTED_PROXY_NETS
+    if _TRUSTED_PROXY_NETS is None:
+        raw = os.environ.get('TRUSTED_PROXY_IPS', '127.0.0.1,::1')
+        nets = []
+        for part in raw.split(','):
+            part = part.strip()
+            if not part:
+                continue
+            try:
+                nets.append(ipaddress.ip_network(part, strict=False))
+            except ValueError:
+                continue
+        _TRUSTED_PROXY_NETS = nets
+    return _TRUSTED_PROXY_NETS
+
+
+def _is_trusted_proxy(addr):
+    try:
+        ip = ipaddress.ip_address(addr)
+    except ValueError:
+        return False
+    return any(ip in net for net in _trusted_proxy_nets())
+
+
+def _clean_ip(value):
+    value = (value or '').strip()
+    try:
+        ipaddress.ip_address(value)
+        return value
+    except ValueError:
+        return ''
+
+
+def client_ip():
+    """Resolve the client address, trusting proxy headers only from a
+    configured trusted peer (loopback by default).
+
+    A direct visitor can therefore never rotate the rate-limit bucket by
+    sending CF-Connecting-IP / X-Forwarded-For; only the local nginx/edge
+    hop may supply them. Override the trusted peers with TRUSTED_PROXY_IPS.
+    """
+    peer = request.remote_addr or ''
+    if not _is_trusted_proxy(peer):
+        return peer or 'unknown'
+    cf = _clean_ip(request.headers.get('CF-Connecting-IP'))
     if cf:
-        return cf.strip()
+        return cf
     xff = request.headers.get('X-Forwarded-For')
     if xff:
-        return xff.split(',')[0].strip() or request.remote_addr or 'unknown'
-    return request.remote_addr or 'unknown'
+        # nginx appends the real peer last; earlier values are caller-supplied.
+        forwarded = _clean_ip(xff.split(',')[-1])
+        if forwarded:
+            return forwarded
+    return peer or 'unknown'
 
 
 def _prune_locked():
@@ -69,7 +118,7 @@ def rate_limit(limit, window=60):
     def decorator(f):
         @wraps(f)
         def wrapper(*args, **kwargs):
-            key = f'{request.endpoint}:{_client_ip()}'
+            key = f'{request.endpoint}:{client_ip()}'
             if not _check(key, limit, window):
                 return jsonify({'error': 'Too many requests. Please try again in a minute.'}), 429
             return f(*args, **kwargs)

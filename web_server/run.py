@@ -1,9 +1,12 @@
-from app import create_app
 import os
-from app.config import Config
+
 from dotenv import load_dotenv
 
 load_dotenv()
+
+from app import create_app
+from app.config import Config
+
 # Accept both ENV and FLASK_ENV (docker-compose historically set FLASK_ENV).
 _env = (os.environ.get('ENV') or os.environ.get('FLASK_ENV') or '').lower()
 if _env in ('production', 'prod'):
