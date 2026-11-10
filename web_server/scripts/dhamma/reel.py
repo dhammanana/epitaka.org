@@ -4,16 +4,18 @@ The reel is the post's photo, full-bleed in 9:16, with a small frosted-glass
 panel that hugs the text. The panel is translucent and blurs whatever is behind
 it live, so the photo shows through while it moves. The photo zooms in and
 slides one way (left, right, up or down; random by default). The panel stays
-put, so the text is always steady and easy to read.
+put, and the text animates in with a randomly chosen style (rise, drop, left,
+right, zigzag, fade or line-by-line), then holds still so it is easy to read.
 
 Everything heavy is done once, in Pillow, before ffmpeg starts: the photo is
 fitted and the panel is tinted and set with text. ffmpeg then only moves the
 photo, blurs the glass, lays the panel on top and encodes. That keeps the
 render fast and the memory low enough for a small (1 GB) server.
 
-The first frame is already the finished picture (no fade from black), so the
-thumbnail shows the photo and the text. The video and the music fade out
-together at the end.
+The first frame is already the photo with its glass panel (no fade from
+black). Because the text builds up over the first seconds, a cover image of the
+finished frame is saved next to the video as ``<name>.thumb.jpg``. The video and
+the music fade out together at the end.
 
 Music: with no tracks in ``assets/music`` the first call to ``pick_music``
 downloads a few calm CC0 (public domain) tracks from OpenGameArt. A page is
@@ -39,6 +41,7 @@ import re
 import shutil
 import subprocess
 import tempfile
+from dataclasses import replace
 from pathlib import Path
 from typing import Iterable
 from urllib import error as urlerror
@@ -69,6 +72,13 @@ SLIDE_Y = 0.55               # same for up/down (the photo has more room there)
 MOTIONS = ("left", "right", "up", "down")
 HI_RES = 2                   # photo is moved from a 2x copy, so motion is smooth
 FADE_OUT = 0.6               # seconds; video and music fade out together
+
+# --- text animation ----------------------------------------------------------------
+TEXT_STYLES = ("rise", "drop", "left", "right", "zigzag", "fade", "lines")
+TEXT_START = 0.25            # seconds before the first piece of text appears
+TEXT_SHARE = 0.40            # all the text is in by this share of the reel
+EL_PAD = 10                  # spare pixels round each text layer (descenders)
+MAX_LINE_ELEMENTS = 24       # more lines than this: animate by block instead
 
 # --- glass panel -------------------------------------------------------------------
 # BOX_ALPHA is the tint strength: lower = more see-through.
@@ -328,6 +338,14 @@ def pick_motion(motion: str | None = None, rng: random.Random | None = None) -> 
     return (rng or random).choice(MOTIONS)
 
 
+def pick_text_style(style: str | None = None, rng: random.Random | None = None) -> str:
+    """One of TEXT_STYLES, or "none" for text that is simply there."""
+    choice = (style or setting("REEL_TEXT_STYLE", "random") or "random").strip().lower()
+    if choice in TEXT_STYLES or choice == "none":
+        return choice
+    return (rng or random).choice(TEXT_STYLES)
+
+
 # --- scene composition (Pillow, runs once) --------------------------------------------------
 def _flatten(image: Image.Image) -> Image.Image:
     """RGB copy; transparent areas become neutral grey, not black."""
@@ -338,7 +356,7 @@ def _flatten(image: Image.Image) -> Image.Image:
     return image.convert("RGB")
 
 
-def _text_layer(size, blocks, text_width: int, colors) -> Image.Image:
+def _text_layer(size, blocks, text_width: int, colors, origin=None) -> Image.Image:
     """The text on a transparent layer, with clean anti-aliased edges.
 
     Drawn twice (on black and on white); the difference gives the true
@@ -346,7 +364,7 @@ def _text_layer(size, blocks, text_width: int, colors) -> Image.Image:
     """
     black = Image.new("RGB", size, (0, 0, 0))
     white = Image.new("RGB", size, (255, 255, 255))
-    where = (BOX_PAD_X, BOX_PAD_Y, text_width)
+    where = (*(origin or (BOX_PAD_X, BOX_PAD_Y)), text_width)
     render._draw_blocks(ImageDraw.Draw(black), blocks, where, colors)
     render._draw_blocks(ImageDraw.Draw(white), blocks, where, colors)
     coverage = ImageChops.invert(
@@ -356,7 +374,54 @@ def _text_layer(size, blocks, text_width: int, colors) -> Image.Image:
     return Image.merge("RGBa", (r, g, b, coverage)).convert("RGBA")
 
 
-def _glass_panel(photo: Image.Image, post: dict, palette: dict) -> dict:
+def _text_elements(blocks, colors, text_width: int, origin: tuple[int, int], per_line: bool) -> list[dict]:
+    """Each block (or each line) as its own transparent layer, with its position."""
+    elements: list[dict] = []
+    row = 0
+    for group, block in enumerate(blocks):
+        if per_line:
+            parts = [
+                (k, replace(block, lines=[line], gap=0))
+                for k, line in enumerate(block.lines) if line
+            ]
+        else:
+            parts = [(0, replace(block, gap=0))]
+        for k, part in parts:
+            height = part.line_height * len(part.lines)
+            # Video keeps colour at half resolution, so a layer must sit on an
+            # even pixel. Where the text starts on an odd one, the spare pixel
+            # goes into the layer's own padding instead.
+            want_x = origin[0] - EL_PAD
+            want_y = origin[1] + row + k * block.line_height - EL_PAD
+            at = (want_x - want_x % 2, want_y - want_y % 2)
+            inset = (EL_PAD + want_x - at[0], EL_PAD + want_y - at[1])
+            size = (text_width + 2 * EL_PAD + 2, height + 2 * EL_PAD + 2)
+            image = _text_layer(size, [part], text_width, colors, inset)
+            elements.append({"image": image, "at": at, "group": group})
+        row += block.line_height * len(block.lines) + block.gap
+    return elements
+
+
+def _animation_plan(elements: list[dict], style: str, seconds: float) -> tuple[list[dict], float]:
+    """When and how each text layer arrives; returns the plan and when it ends."""
+    n = len(elements)
+    duration = {"fade": 0.9, "lines": 0.55}.get(style, 0.75)
+    budget = max(0.5, seconds * TEXT_SHARE - TEXT_START - duration)
+    stagger = min(0.13 if style == "lines" else 0.4, budget / max(1, n - 1))
+    moves = {"rise": (0, 30), "drop": (0, -30), "left": (-70, 0),
+             "right": (70, 0), "fade": (0, 0), "lines": (0, 18)}
+    plan = []
+    for i, element in enumerate(elements):
+        if style == "zigzag":
+            dx, dy = (-70 if element["group"] % 2 == 0 else 70), 0
+        else:
+            dx, dy = moves.get(style, (0, 0))
+        plan.append({"start": TEXT_START + i * stagger, "dur": duration, "dx": dx, "dy": dy})
+    end = plan[-1]["start"] + duration if plan else 0.0
+    return plan, end
+
+
+def _glass_panel(photo: Image.Image, post: dict, palette: dict, style: str = "none") -> dict:
     """The translucent panel, sized to the text, plus its mask and position."""
     draw = ImageDraw.Draw(photo)
     text_width = BOX_MAX_WIDTH - 2 * BOX_PAD_X
@@ -417,18 +482,29 @@ def _glass_panel(photo: Image.Image, post: dict, palette: dict) -> dict:
     glass = Image.new("RGBA", (box_w, box_h), (*tint, 0))
     glass.putalpha(mask.point([int(i * _box_alpha()) for i in range(256)]))
     layer.alpha_composite(glass, (m, m))
-    layer.alpha_composite(_text_layer((box_w, box_h), blocks, text_width, colors), (m, m))
+    elements: list[dict] = []
+    if style == "none":
+        layer.alpha_composite(_text_layer((box_w, box_h), blocks, text_width, colors), (m, m))
+    else:
+        line_count = sum(1 for b in blocks for line in b.lines if line)
+        per_line = style == "lines" and line_count <= MAX_LINE_ELEMENTS
+        elements = _text_elements(
+            blocks, colors, text_width, (x0 + BOX_PAD_X, y0 + BOX_PAD_Y), per_line
+        )
     layer.alpha_composite(edge, (m, m))
-    return {"panel": layer, "mask": mask, "at": (x0 - m, y0 - m), "box": (x0, y0, box_w, box_h)}
+    return {"panel": layer, "mask": mask, "at": (x0 - m, y0 - m),
+            "box": (x0, y0, box_w, box_h), "elements": elements}
 
 
-def _scene_from_post(post: dict, background: Image.Image, palette_name: str) -> dict:
+def _scene_from_post(
+    post: dict, background: Image.Image, palette_name: str, style: str = "none"
+) -> dict:
     """Full-bleed photo at the working size, and the glass panel over it."""
     palette = render.PALETTES.get(palette_name, render.PALETTES["saffron-dusk"])
     source = _flatten(background)
     photo = ImageOps.fit(source, REEL_SIZE, method=Image.Resampling.LANCZOS)
     LOGGER.info("Photo brightness %.0f / 255", ImageStat.Stat(photo.convert("L")).mean[0])
-    scene = _glass_panel(photo, post, palette)
+    scene = _glass_panel(photo, post, palette, style)
     scene["hires"] = ImageOps.fit(
         source, (REEL_SIZE[0] * HI_RES, REEL_SIZE[1] * HI_RES),
         method=Image.Resampling.LANCZOS,
@@ -469,13 +545,14 @@ def _scene_from_card(card: Image.Image) -> dict:
     still = back.convert("RGB")
     LOGGER.info("Backdrop brightness %.0f / 255", ImageStat.Stat(still.convert("L")).mean[0])
     hires = still.resize((REEL_SIZE[0] * HI_RES, REEL_SIZE[1] * HI_RES), Image.Resampling.LANCZOS)
-    return {"hires": hires, "panel": None, "mask": None, "at": (0, 0), "box": None}
+    return {"hires": hires, "panel": None, "mask": None, "at": (0, 0), "box": None, "elements": []}
 
 
 # --- ffmpeg graph ------------------------------------------------------------------------------
 def _graph(
     seconds: float, frames: int, motion: str, scene: dict,
     panel_in: int | None, mask_in: int | None, audio_in: int | None,
+    text_in: list[int], plan: list[dict],
 ) -> str:
     w, h = REEL_SIZE
     p = f"(on/{max(1, frames - 1)})"
@@ -510,8 +587,21 @@ def _graph(
             f"[frost][mask]alphamerge[glass];"
             f"[bga][glass]overlay=x={bx}:y={by}:format=yuv420[lit];"
             f"[{panel_in}:v]{to_yuv},format=yuva420p[panel];"
-            f"[lit][panel]overlay=x={px}:y={py}:format=yuv420[comp];"
+            f"[lit][panel]overlay=x={px}:y={py}:format=yuv420[c0];"
         )
+        # Text pieces: each is held as one looped frame, faded in at its start
+        # time, and moved from an offset to its place with an ease-out curve.
+        for k, (inp, step, element) in enumerate(zip(text_in, plan, scene["elements"]), start=1):
+            s, d = f"{step['start']:.2f}", f"{step['dur']:.2f}"
+            ease = f"pow(1-min(max((t-{s})/{d},0),1),3)"
+            ex, ey = element["at"]
+            graph += (
+                f"[{inp}:v]{to_yuv},format=yuva420p,loop=loop=-1:size=1:start=0,"
+                f"setpts=N/{FPS}/TB,fade=t=in:st={s}:d={d}:alpha=1[t{k}];"
+                f"[c{k - 1}][t{k}]overlay=x='{ex}+({step['dx']})*{ease}'"
+                f":y='{ey}+({step['dy']})*{ease}':format=yuv420[c{k}];"
+            )
+        graph += f"[c{len(text_in)}]null[comp];"
     else:
         graph += "[bg]null[comp];"
     graph += f"[comp]fade=t=out:st={fade_out:.2f}:d={FADE_OUT},format=yuv420p[v]"
@@ -539,6 +629,8 @@ def build_reel(
     background: Image.Image | None = None,
     palette: str = "saffron-dusk",
     motion: str | None = None,
+    text_style: str | None = None,
+    thumbnail: bool = True,
 ) -> Path:
     """Render a 9:16 MP4 at ``output_path``.
 
@@ -546,6 +638,10 @@ def build_reel(
     and ``palette`` for the full-bleed photo with a glass text panel. Otherwise
     the finished card at ``image_path`` is used. ``motion`` is "left", "right",
     "up", "down" or "random" (default; ``REEL_MOTION`` in .env also works).
+    ``text_style`` is "rise", "drop", "left", "right", "zigzag", "fade", "lines",
+    "none" (static text) or "random" (default; ``REEL_TEXT_STYLE``). With
+    ``thumbnail`` a cover image of the finished frame is written next to the
+    video as ``<name>.thumb.jpg``.
     """
     output_path = Path(output_path)
     use_post = post is not None and background is not None
@@ -557,9 +653,10 @@ def build_reel(
     seconds = clamp_seconds(seconds)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
+    style = pick_text_style(text_style)
     try:
         if use_post:
-            scene = _scene_from_post(post, background, palette)
+            scene = _scene_from_post(post, background, palette, style)
             source_name = "post"
         else:
             with Image.open(image_path) as card:
@@ -570,9 +667,10 @@ def build_reel(
 
     frames = max(1, int(round(seconds * FPS)))
     direction = pick_motion(motion)
+    plan, text_end = _animation_plan(scene["elements"], style, seconds)
     LOGGER.info(
-        "Rendering a %.0f-second reel from %s, zoom + slide %s, %s",
-        seconds, source_name, direction,
+        "Rendering a %.0f-second reel from %s, zoom + slide %s, text %s, %s",
+        seconds, source_name, direction, style if scene["elements"] else "static",
         f"music {Path(music).name}" if music is not None
         else f"silent track (no music in {music_dir()})",
     )
@@ -593,6 +691,13 @@ def build_reel(
             scene["mask"].save(mask_file, format="PNG", compress_level=1)
             command += ["-i", str(panel_file), "-i", str(mask_file)]
             panel_in, mask_in, next_input = 1, 2, 3
+        text_in: list[int] = []
+        for k, element in enumerate(scene["elements"]):
+            element_file = Path(tmp) / f"text{k}.png"
+            element["image"].save(element_file, format="PNG", compress_level=1)
+            command += ["-i", str(element_file)]
+            text_in.append(next_input)
+            next_input += 1
         if music is not None:
             command += ["-stream_loop", "-1", "-i", str(music)]
         else:
@@ -604,7 +709,7 @@ def build_reel(
         command += [
             "-filter_complex",
             _graph(seconds, frames, direction, scene, panel_in, mask_in,
-                   audio_in if music is not None else None),
+                   audio_in if music is not None else None, text_in, plan),
             "-map", "[v]", "-map", "[a]" if music is not None else f"{audio_in}:a",
             "-c:v", "libx264", "-profile:v", "high", "-level", "4.2",
             "-preset", setting("REEL_X264_PRESET", "veryfast") or "veryfast",
@@ -631,7 +736,28 @@ def build_reel(
     if size == 0:
         raise ReelError(f"ffmpeg produced an empty file: {output_path}")
     LOGGER.info("Reel written to %s (%.1f MB)", output_path, size / (1024 * 1024))
+    if thumbnail:
+        _save_thumbnail(output_path, min(max(text_end + 0.3, 0.8), seconds - FADE_OUT - 0.2))
     return output_path
+
+
+def _save_thumbnail(video: Path, at: float) -> Path | None:
+    """Cover image: a frame after the text has finished arriving."""
+    target = video.with_suffix(".thumb.jpg")
+    try:
+        result = subprocess.run(
+            [ffmpeg_path(), "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{at:.2f}",
+             "-i", str(video), "-frames:v", "1", "-q:v", "2", str(target)],
+            capture_output=True, timeout=120, check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired, ReelError) as exc:
+        LOGGER.warning("Could not save the cover image: %s", exc)
+        return None
+    if result.returncode != 0 or not target.is_file():
+        LOGGER.warning("Could not save the cover image.")
+        return None
+    LOGGER.info("Cover image written to %s", target)
+    return target
 
 
 if __name__ == "__main__":  # python -m <your_package>.reel fetch-music
