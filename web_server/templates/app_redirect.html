@@ -147,7 +147,8 @@
       // custom-scheme query params the app understands.
       (function applyHash() {
         var hash = window.location.hash;
-        if (!hash) return;
+        // A sutta link carries a code, not a passage: there is no position.
+        if (!hash || {{ 'true' if is_sutta else 'false' }}) return;
         var m = hash.match(/^#(\d+)(?:-(\d+))?$/);
         if (!m) return;
         var paraId = m[1];
