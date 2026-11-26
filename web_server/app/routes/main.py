@@ -41,6 +41,7 @@ from ..services import descriptions as descriptions_svc
 from ..config import Config
 
 import os
+import re
 import json
 import bisect
 from collections import defaultdict
@@ -339,6 +340,38 @@ def legacy_app_reader_redirect(book_id):
     return redirect(f"/app/{book_id}?{qs}" if qs else f"/app/{book_id}")
 
 
+# A sutta code as DPD and SuttaCentral write it: an4.126, thag1.1, dhp1-20.
+_SUTTA_CODE_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9.\-]{0,39}")
+
+
+def _sutta_share_link(lang):
+    """Interstitial for /app/sutta?code={code}.
+
+    The app button opens epitaka://sutta?code={code}. The web has no page for
+    a sutta code, so the browser button goes to the language home. A missing or
+    odd code goes there at once, and the code is checked before it reaches
+    the page, where it is written into a link and a script.
+    """
+    web_lang = lang or Config.DEFAULT_LANG
+    code = request.args.get("code", "").strip()
+    if not _SUTTA_CODE_RE.fullmatch(code):
+        return redirect(f"/{web_lang}/")
+    code = code.lower()
+    return render_template(
+        _SHARE_LINK_REDIRECT_TEMPLATE,
+        book_id="sutta",
+        book_name=code.upper(),
+        para_id=None,
+        line_id=None,
+        is_sutta=True,
+        custom_scheme_uri=f"epitaka://sutta?code={code}",
+        web_fallback=f"{Config.BASE_URL}/{web_lang}/",
+        base_url=Config.BASE_URL,
+        app_name="Epitaka",
+        app_icon_url=f"{Config.BASE_URL}/static/icon.png" if Config.BASE_URL else "",
+    )
+
+
 @bp.route("/app/")
 @bp.route("/app/<book_id>")
 @bp.route("/app/<book_id>/<int:para_id>")
@@ -379,6 +412,11 @@ def app_share_link(
     # language home instead of rendering a bogus book interstitial.
     if book_id == "search":
         return redirect(f"/{lang or Config.DEFAULT_LANG}/")
+
+    # The app's sutta links (/app/sutta?code=an4.126, from DPD pages) carry a
+    # sutta code, not a book id: the app resolves the code on the device.
+    if book_id == "sutta":
+        return _sutta_share_link(lang)
 
     # Resolve book name from database
     book_name = book_id
